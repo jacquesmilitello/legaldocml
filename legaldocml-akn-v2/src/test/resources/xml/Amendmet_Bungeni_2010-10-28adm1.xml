@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.akomantoso.org/2.0 ./akomantoso20.xsd" xmlns="http://www.akomantoso.org/2.0">
+	<!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+	<amendment>
+		<meta>
+			<!-- amendment with only insertion -->
+			<identification source="#somebody">
+				<FRBRWork>
+					<FRBRthis value="/ak/amendment/2010-10-28/1/main"/>
+					<FRBRuri value="/ak/amendment/2010-10-28/1"/>
+					<FRBRdate date="2010-10-28" name="Enactment"/>
+					<FRBRauthor href="#EP" as="#author"/>
+					<FRBRcountry value="ak"/>
+				</FRBRWork>
+				<FRBRExpression>
+					<FRBRthis value="/ak/amendment/2010-10-28/1/eng@/main"/>
+					<FRBRuri value="/ak/amendment/2010-10-28/1/eng@"/>
+					<FRBRdate date="2011-11-24" name="Expression"/>
+					<FRBRauthor href="#EP" as="#editor"/>
+					<FRBRlanguage language="eng"/>
+				</FRBRExpression>
+				<FRBRManifestation>
+					<FRBRthis value="/ak/amendment/2010-10-28/1/eng@/main.xml"/>
+					<FRBRuri value="/ak/amendment/2010-10-28/1/eng@/main.akn"/>
+					<FRBRdate date="2011-11-24" name="XMLConversion"/>
+					<FRBRauthor href="#somebody" as="#editor"/>
+				</FRBRManifestation>
+			</identification>
+			<analysis source="#somebody">
+				<activeModifications>
+					<textualMod type="insertion" id="amod1">
+						<source href="#amd1-mod1"/>
+						<destination id="amd1-am1-dst1" href="urn:lex:eu:commission:proposal:2009:433#cit1-pnt1"/>
+						<new href="#amd1-mod1-qst1"/>
+					</textualMod>
+				</activeModifications>
+			</analysis>
+			<references source="#somebody">
+				<original id="org1" href="/ak/amendment/2010-10-28/1/eng@/main" showAs="original"/>
+				<activeRef id="COM20090433" href="urn:lex:eu:commission:proposal:2009:0433" showAs="reference"/>
+				<TLCConcept id="newVersion" href="/ep/ontology/amendment/newVersion" showAs="newVersion"/>
+				<TLCConcept id="newVersionTitle" href="/ep/ontology/amendment/newVersionTitle" showAs="new version"/>
+				<TLCConcept id="initialVersionTitle" href="/ep/ontology/amendment/initialVersionTitle" showAs="initial version"/>
+				<TLCOrganization id="EP" href="/eu/ep/ontology/institution/EP" showAs="EP"/>
+				<TLCPerson id="pers28349" href="/eu/ep/ontology/person/philippe.lamberts" showAs="Philippe Lamberts"/>
+				<TLCPerson id="somebody" href="/eu/ep/ontology/person/somebody" showAs="somebody"/>
+				<TLCRole id="author" href="/eu/ep/ontology/role/author" showAs="author"/>
+				<TLCRole id="editor" href="/eu/ep/ontology/role/editor" showAs="editor"/>
+			</references>
+		</meta>
+		<preface xml:lang="en">
+			<p>
+				<docProponent refersTo="#pers28349" id="pre-pro1">Philippe Lamberts</docProponent>
+				<affectedDocument refersTo="#COM20090433" href="urn:lex:eu:commission:proposal:2009:0433">COM(2009)0433</affectedDocument>
+			</p>
+		</preface>
+		<amendmentBody xml:lang="en">
+			<amendmentHeading>
+				<p>
+					<span id="amd1-div1" refersTo="#initialVersionTitle">Draft opinion</span>
+					<ref id="amd1-ref1" href="urn:lex:eu:commission:proposal:2009:0433#cit-pnt1">Citation 1 (new)</ref>
+				</p>
+			</amendmentHeading>
+			<amendmentContent xml:lang="en">
+				<p>
+					<span id="amd1-div2" refersTo="#initialVersionTitle">Draft Opition</span>
+				</p>
+				<p>
+					<ref id="amd1-ref2" href="urn:lex:eu:commission:proposal:2009:0433#cit1-pnt1" refersTo="#newVersionTitle">Amendment</ref>
+				</p>
+				<p>
+					<mod id="amd1-mod1">
+						<quotedStructure id="amd1-mod1-qst1" refersTo="#newVersion">
+							<point id="amd1-mod1-qst1-cit1-pnt1">
+								<content>
+									<p>
+										<change>
+											<ins>- having regard to the OECD Istanbul Declaration on ‘Measuring and Fostering the progress of societies’ adopted on 30 June 2007,</ins>
+										</change>
+									</p>
+								</content>
+							</point>
+						</quotedStructure>
+					</mod>
+				</p>
+			</amendmentContent>
+		</amendmentBody>
+	</amendment>
+</akomaNtoso>

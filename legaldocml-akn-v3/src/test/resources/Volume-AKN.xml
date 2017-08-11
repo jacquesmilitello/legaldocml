@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:ciba="http://eu.europa.ec/ciba/1.0"
+            xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17"
+            xsi:schemaLocation="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17 ./akomantoso30.xsd http://eu.europa.ec/ciba/1.0 ./ciba.xsd">
+    <doc name="volume:3" contains="originalVersion">
+        <meta>
+            <identification source="#ciba">
+                <FRBRWork>
+                    <FRBRthis value="/ciba/2015/vol:3"/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-06-02" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRcountry value=""/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/ciba/2015/vol:3[0001-en]"/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-06-02" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRlanguage language="en"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/ciba/2015/vol:3[0001-en]-akn/xml"/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-06-02" name=""/>
+                    <FRBRauthor href=""/>
+                </FRBRManifestation>
+            </identification>
+            <classification source="#ciba">
+                <keyword value="" showAs="" dictionary=""/>
+            </classification>
+            <lifecycle source="">
+                <eventRef date="2017-05-20" source=""/>
+            </lifecycle>
+            <workflow source="">
+                <step date="" by=""/>
+            </workflow>
+        </meta>
+        <coverPage>
+            <container eId="cover" name="cover">
+                <p>
+                    <docTitle xml:space="preserve">SECTION <docNumber>III</docNumber> — COMMISSION</docTitle>
+                </p>
+            </container>
+        </coverPage>
+        <mainBody>
+            <part ciba:part="revenue">
+                <heading>REVENUE — REVENUE</heading>
+                <title>
+                    <num>4</num>
+                    <heading>Revenue accruing from persons working with the institutions and other Union bodies</heading>
+                    <chapter>
+                        <num>0</num>
+                        <heading>MISCELLANEOUS TAXES AND DEDUCTIONS</heading>
+                        <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:4/chapter:0/artile:0" showAs="Artile 0"/>
+                        <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:4/chapter:0/artile:3" showAs="Artile 0"/>
+                        <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:4/chapter:0/artile:4" showAs="Artile 0"/>
+                    </chapter>
+                    <chapter>
+                        <num>1</num>
+                        <heading>CONTRIBUTIONS TO THE PENSION SCHEME</heading>
+                        <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:4/chapter:1/artile:1" showAs="Artile 0"/>
+                        <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:4/chapter:1/artile:2" showAs="Artile 0"/>
+                        <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:4/chapter:1/artile:3" showAs="Artile 0"/>
+                    </chapter>
+                </title>
+                <title>
+                    <num>5</num>
+                    <heading>Revenue accruing from the administrative operation of the institution</heading>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:0" showAs="Chapter 0"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:1" showAs="Chapter 1"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:2" showAs="Chapter 2"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:5" showAs="Chapter 5"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:7" showAs="Chapter 7"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:8" showAs="Chapter 8"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:5/chapter:9" showAs="Chapter 9"/>
+                </title>
+                <title>
+                    <num>6</num>
+                    <heading>Contributions and refunds in connection with Union agreements and programmes</heading>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:0" showAs="Chapter 0"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:1" showAs="Chapter 1"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:2" showAs="Chapter 2"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:3" showAs="Chapter 3"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:5" showAs="Chapter 5"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:6" showAs="Chapter 6"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:6/chapter:7" showAs="Chapter 7"/>
+                </title>
+                <title>
+                    <num>7</num>
+                    <heading>Interest on late payments and fines</heading>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:7/chapter:0" showAs="Chapter 0"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:7/chapter:1" showAs="Chapter 1"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:7/chapter:2" showAs="Chapter 2"/>
+                </title>
+                <title>
+                    <num>8</num>
+                    <heading>Borrowing and lending operations</heading>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:8/chapter:0" showAs="Chapter 0"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:8/chapter:1" showAs="Chapter 1"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:8/chapter:2" showAs="Chapter 2"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:8/chapter:3" showAs="Chapter 3"/>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:8/chapter:5" showAs="Chapter 5"/>
+                </title>
+                <title>
+                    <num>9</num>
+                    <heading>Miscellaneous revenue</heading>
+                    <componentRef src="ubi:/ciba/2015/vol:3/part:0/title:9/chapter:0" showAs="Chapter 0"/>
+                </title>
+            </part>
+
+        </mainBody>
+    </doc>
+</akomaNtoso>

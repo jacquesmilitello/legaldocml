@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.akomantoso.org/2.0 ./akomantoso20.xsd" xmlns="http://www.akomantoso.org/2.0">
+	<!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+	<!-- quorum example -->
+	<debate>
+		<meta>
+			<identification source="#somebody">
+				<FRBRWork>
+					<FRBRthis value="/mx/debaterecord/2011-01-26/main"/>
+					<FRBRuri value="/mx/debaterecord/2011-01-26/"/>
+					<FRBRdate date="2011-01-26" name="generation"/>
+					<FRBRauthor href="#parliament" as="#author"/>
+					<FRBRcountry value="mx"/>
+				</FRBRWork>
+				<FRBRExpression>
+					<FRBRthis value="/mx/debaterecord/2011-01-26/eng@/main"/>
+					<FRBRuri value="/mx/debaterecord/2011-01-26/eng@"/>
+					<FRBRdate date="2011-02-02" name="markup"/>
+					<FRBRauthor href="#somebody" as="#editor"/>
+					<FRBRlanguage language="mx"/>
+				</FRBRExpression>
+				<FRBRManifestation>
+					<FRBRthis value="/mx/debaterecord/2011-01-26/eng@/main.xml"/>
+					<FRBRuri value="/mx/debaterecord/2011-01-26/eng@.akn"/>
+					<FRBRdate date="2011-02-02" name="publication"/>
+					<FRBRauthor href="#somebody" as="#editor"/>
+				</FRBRManifestation>
+			</identification>
+			<publication date="2011-01-26" name="internal" showAs="Internal Use Only"/>
+			<lifecycle source="#somebody">
+				<eventRef date="2011-01-26" source="#ro1" id="e1"/>
+			</lifecycle>
+			<references source="#somebody">
+				<original id="ro1" href="/mx/debaterecord/2011-01-26/esp@/main" showAs="Original"/>
+				<TLCOrganization id="parliament" href="/ontology/organizations/gha/parliament" showAs="Parliament"/>
+				<TLCRole id="author" href="/ontology/roles/mx/author" showAs="Author of Document"/>
+				<TLCRole id="editor" href="/ontology/roles/ita/editor" showAs="Editor of Document"/>
+				<TLCRole id="presidente" href="/ontology/roles/mx/presidente" showAs="El Presidente"/>
+				<TLCRole id="mes" href="/ontology/roles/mx/segretaria" showAs="La segretaria"/>
+				<TLCPerson id="somebody" href="/ontology/persons/ita/editors/somebody" showAs="somebody"/>
+				<TLCPerson id="ramirez" href="/ontology/persons/mx/parliament/JorgeCarlosRamírezMarín" showAs="Jorge Carlos Ramírez Marín" shortForm="Jorge Carlos Ramírez Marín"/>
+				<TLCPerson id="olmos" href="/ontology/persons/mx/parliament/JohnGidisu" showAs="Paula Angélica Hernández Olmos" shortForm="Paula Angélica Hernández Olmos"/>
+				<TLCConcept id="numberAsistencia" href="/ontology/persons/mx/parliament/numberAsistencia" showAs="Asistencia" shortForm="Asistencia"/>
+			</references>
+		
+			<notes source="#somebody">
+				<note id="not01">
+					<p>A footnote example</p>
+				</note>
+			</notes>
+		</meta>
+		<preface>
+			<p class="heading">Cámara de Diputados del Honorable Congreso de la Unión, LXI Legislatura </p>
+			<p class="subheading">Versión estenográfica de la sesión de la <docIntroducer>Comisión Permanente</docIntroducer>, 
+llevada a cabo el miércoles <docDate date="2011-01-26">26 de enero de 2011 </docDate>
+			</p>
+		</preface>
+		<debateBody>
+			<debateSection name="asistencia" id="sub2">
+				<speech id="sub2-spe01" by="#ramirez" as="#presidente">
+					<from> El Presidente diputado Jorge Carlos Ramírez Marín   : </from>
+					<p>
+                   Proceda la Secretaría a pasar la lista de asistencia.
+                        </p>
+				</speech>
+				<speech id="sub2-spe02" by="#olmos" as="#mes">
+					<from>La Secretaria diputada Paula Angélica Hernández Olmos: </from>
+					<p>Por instrucciones de la Presidencia se procede al pase de asistencia de los integrantes de la Comisión Permanente.</p>
+				</speech>
+				<scene>(Lista de asistencia)</scene>
+				<other id="asistenciaResult">
+					<p>Hay una asistencia, señor presidente, de <quantity id="qnt1" normalized="19" refersTo="#numberAsistencia">19</quantity> legisladores. Hay quórum, señor presidente.</p>
+				</other>
+			</debateSection>
+			<debateSection name="opening" id="sub3">
+				<debateSection name="answers" id="sub3-sub1">
+					<speech id="sub3-sub1-sub1" by="#ramirez">
+						<from>El Presidente diputado Jorge Carlos Ramírez Marín</from>
+						<p>
+							<recordedTime time="2011-01-26T12:06:00" type="endEvent"/>(12:06 horas): Y por lo tanto se abre la sesión.</p>
+					</speech>
+				</debateSection>
+			</debateSection>
+			<debateSection name="opening" id="sub4">
+				<debateSection name="answers" id="sub4-sub1">
+					<speech id="sub4-sub1-sub1" by="#ramirez">
+						<from>El Presidente diputado Jorge Carlos Ramírez Marín</from>
+						<p> Consulte, señora secretaria, si se dispensa la lectura del orden del día, ya que está publicada en la Gaceta Parlamentaria. Como no hay nadie que intervenga, puede usted preguntar directamente.</p>
+					</speech>
+				</debateSection>
+			</debateSection>
+			<debateSection name="adjournement" id="sub5">
+				<speech by="#ramirez" id="sub5-sub1">
+					<from>El Presidente diputado Jorge Carlos Ramírez Marín</from>
+					<p>
+						<recordedTime time="2011-01-26T14:59:00" type="endEvent"/>(14:59): Por lo consiguiente y con nuestra gratitud se levanta la sesión y se cita para la próxima, que tendrá lugar el martes <recordedTime time="2011-02-01T10:00:00" type="startEvent"/>1 de febrero de 2011 a las 10 de la mañana.</p>
+				</speech>
+			</debateSection>
+		</debateBody>
+	</debate>
+</akomaNtoso>

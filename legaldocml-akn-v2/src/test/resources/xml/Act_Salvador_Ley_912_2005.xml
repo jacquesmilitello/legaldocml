@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+    <act>
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/sv/decreto/2005-12-14/912/main"/>
+                    <FRBRuri value="/sv/decreto/2005-12-14/912"/>
+                    <FRBRdate date="1963-09-07" name="Enactment"/>
+                    <FRBRauthor href="#asemblea" as="#author"/>
+                    <FRBRcountry value="sv"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/sv/decreto/2005-12-14/912/esp@/main"/>
+                    <FRBRuri value="/sv/decreto/2005-12-14/912/esp@"/>
+                    <FRBRdate date="2011-01-10" name="Expression"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <FRBRlanguage language="esp"/>
+                    <FRBRlanguage language="esp"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/sv/decreto/2005-12-14/912/esp@/main.xml"/>
+                    <FRBRuri value="/sv/decreto/2005-12-14/912/esp@/main.akn"/>
+                    <FRBRdate date="2011-01-11" name="XMLConversion"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                </FRBRManifestation>
+            </identification>
+            <publication date="2006-01-12" name="Diario Oficial número 8, tomo 370" showAs="Diario Oficial"/>
+            <lifecycle source="#somebody">
+                <eventRef id="e1" date="2006-01-20" source="#ro1" type="generation"/>
+            </lifecycle>
+            <analysis source="#somebody">
+                <activeModifications>
+                    <textualMod type="substitution" id="am1" incomplete="false">
+                        <source href="#mod1"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#docTitle"/>
+                        <new href="#mod1-qtd1"/>
+                    </textualMod>
+                    <textualMod type="substitution" id="am2" incomplete="true">
+                        <source href="#mod2"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art1"/>
+                        <new href="#mod2-qtd1"/>
+                    </textualMod>
+                    <textualMod type="substitution" id="am3" incomplete="false">
+                        <source href="#mod3"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art3"/>
+                        <new href="#mod3-qtd1"/>
+                    </textualMod>
+                    <textualMod type="substitution" id="am4" incomplete="false">
+                        <source href="#mod4"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#title2"/>
+                        <new href="#mod4-qtd1"/>
+                    </textualMod>
+                    <textualMod type="substitution" id="am5" incomplete="false">
+                        <source href="#mod5"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art4"/>
+                        <new href="#mod5-qtd1"/>
+                    </textualMod>
+                    <textualMod type="substitution" id="am6" incomplete="false">
+                        <source href="#mod6"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art5"/>
+                        <new href="#mod6-qtd1"/>
+                    </textualMod>
+                    <textualMod type="substitution" id="am7" incomplete="false">
+                        <source href="#mod7"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art7"/>
+                        <new href="#mod7-qtd1"/>
+                    </textualMod>
+                    <textualMod type="insertion" id="am106" incomplete="false">
+                        <source href="#mod106"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art184"/>
+                        <new href="#mod106-qtd1"/>
+                    </textualMod>
+                    <textualMod type="repeal" id="am107" incomplete="false">
+                        <source href="#mod107"/>
+                        <destination href="/sv/ley/1993-07-20/604/main#art186"/>
+                    </textualMod>
+                    <textualMod type="repeal" id="am108" incomplete="false">
+                        <source href="#mod108"/>
+                        <destination href="/sv/ley/1994-02-24/799/"/>
+                    </textualMod>
+                    <efficacyMod type="inapplication" id="am109" incomplete="false">
+                        <source href="#mod109"/>
+                        <destination href="/sv/decreto/2005-12-14/912/esp@/main"/>
+                        <duration period="#e1"/>
+                    </efficacyMod>
+                </activeModifications>
+            </analysis>
+            <references source="#somebody">
+                <original id="ro1" href="/sv/decreto/2005-12-14/912/esp@/main" showAs="Original"/>
+                <activeRef id="ra1" href="/sv/ley/1993-07-20/604/" showAs="Ley de derecho de autor"/>
+                <activeRef id="ra2" href="/sv/ley/1994-02-24/799/" showAs="Ley industrial"/>
+                <TLCRole id="presidente" href="/ontology/organizations/sv/presidente"
+                         showAs="Presidente de la República"/>
+                <TLCRole id="pv" href="/ontology/organizations/sv/primierVicepresidente"
+                         showAs="Primer Vicepresidente"/>
+                <TLCRole id="tv" href="/ontology/organizations/sv/tercerVicepresidente" showAs="Tercer Vicepresidente"/>
+                <TLCRole id="author" href="/ontology/roles/sv/author" showAs="Author of Document"/>
+                <TLCRole id="editor" href="/ontology/roles/ita/editor" showAs="Editor of Document"/>
+                <TLCPerson id="Zepeda" href="/ontology/persons/sv/editors/zepeda" showAs="CIRO CRUZ ZEPEDA PEÑA"/>
+                <TLCPerson id="Henriquez" href="/ontology/persons/sv/authority/Henriquez"
+                           showAs="JOSÉ MANUEL MELGAR HENRÍQUEZ"/>
+                <TLCPerson id="Lopez" href="/ontology/persons/sv/authority/cervone"
+                           showAs="JOSÉ FRANCISCO MERINO LÓPEZ"/>
+                <TLCPerson id="somebody" href="/ontology/persons/ita/somebody" showAs="somebody"/>
+                <TLCOrganization id="asemblea" href="/ontology/organizations/sv/asemblea" showAs="asemblea"/>
+            </references>
+        </meta>
+        <preface>
+            <container id="cnt1" name="preface">
+                <p>
+                    <docTitle>REFORMAS A LA LEY DE FOMENTO Y PROTECCION DE LA PROPIEDAD INTELECTUAL</docTitle>
+                    <docType>Decreto Legislativo</docType>
+                    <docNumber>No. 912</docNumber>,
+                    <docDate date="2005-12-14">del 14 de diciembre de 2005</docDate>
+                    <docProponent>LA ASAMBLEA LEGISLATIVA DE LA REPUBLICA DE EL SALVADOR</docProponent>
+                    Publicado en el Diario Oficial número 8, tomo 370 del 12 de enero de 2006
+
+                    Decreto número 604, del 15 de julio de 1993.
+                    Ley de Fomento y Protección de la Propiedad Intelectual de 1993
+                    (Publicado en el Diario Oficial número 150 tomo 320 del 16 de agosto de 1993, fecha de entrada en
+                    vigor =60 dias).
+                    Reformado por medio del Decreto Legislativo número 912 de 14 de diciembre de 2005
+                    (Publicado en el Diario Oficial número 8, tomo 370 del 12 de enero de 2006,
+                    cambiando su nombre a Ley de Propiedad Intelectual.)
+                </p>
+            </container>
+        </preface>
+        <preamble>
+            <container id="cnt2" name="preamble">
+                <p class="centrado">CONSIDERANDO:</p>
+                <blockList id="lst1">
+                    <item id="lst1-itm1">
+                        <num>I.</num>
+                        <p>Que mediante <ref id="ref1" href="/sv/ley/1993-07-20/604/main">Decreto Legislativo No. 604,
+                            de fecha 15 de julio de 1993</ref>, publicado en el Diario Oficial No. 150, Tomo No. 320 del
+                            16 de agosto de ese mismo año, se emitió la Ley de Fomento y Protección de la Propiedad
+                            Intelectual;
+                        </p>
+                    </item>
+                    <item id="lst1-itm2">
+                        <num>II.</num>
+                        <p>Que por Decreto Legislativo No. 555, de fecha 17 de diciembre de 2004, publicado en el Diario
+                            Oficial No. 17, Tomo No. 366, del 25 de enero de 2005, se ratificó el Tratado de Libre
+                            Comercio entre Centroamérica, República Dominicana y los Estados Unidos de América;
+                        </p>
+                    </item>
+                    <item id="lst1-itm3">
+                        <num>III.</num>
+                        <p>Que el referido Tratado contiene obligaciones a cargo del Estado Salvadoreño, las cuales,
+                            para su debido cumplimiento, requieren adecuar la legislación nacional a las disposiciones
+                            establecidas en el Tratado, haciéndose necesario reformar la Ley de Fomento y Protección de
+                            la Propiedad Intelectual.
+                        </p>
+                    </item>
+                </blockList>
+                <p class="centrado">POR TANTO,</p>
+                <p>en uso de sus facultades constitucionales y a iniciativa del Presidente de la República, por medio de
+                    la Ministra de Economía,
+                </p>
+                <p class="centrado">DECRETA las siguientes:</p>
+            </container>
+        </preamble>
+        <body>
+            <paragraph id="prg1">
+                <content>
+                    <p>
+                        <docTitle>REFORMAS A LA LEY DE FOMENTO Y PROTECCION DE LA PROPIEDAD INTELECTUAL</docTitle>
+                    </p>
+                </content>
+            </paragraph>
+            <article id="art1">
+                <num>Art. 1.</num>
+                <clause id="art1-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod1">
+                                Modifícase el <ref id="ref2" href="/sv/ley/1993-07-20/604/main#docTitle">nombre</ref> de
+                                la ley por el siguiente:
+                                “<quotedText id="mod1-qtd1">LEY DE PROPIEDAD INTELECTUAL</quotedText>”.
+                            </mod>
+                            <authorialNote id="ath1" marker="2" placement="left">
+                                <p>Ley originalmente titulada:
+                                    LEY DE FOMENTO Y PROTECCION DE LA PROPIEDAD INTELECTUAL
+                                </p>
+                            </authorialNote>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art2">
+                <num>Art. 2.</num>
+                <clause id="art2-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod2">
+                                - Sustitúyese el <ref id="ref3" href="/sv/ley/1993-07-20/604/main#art1-cls2">inciso
+                                segundo del Art. 1</ref>, de la manera siguiente:
+                                “
+                                <quotedText id="mod2-qtd1">
+                                    Esta ley comprende el derecho de autor, los derechos conexos y la propiedad
+                                    industrial en lo relativo a invenciones, modelos de utilidad, diseños industriales y
+                                    secretos industriales o comerciales y datos de prueba.
+                                </quotedText>
+                                .”
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art3">
+                <num>Art. 3.</num>
+                <clause id="art3-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod3">
+                                - Refórmase el <ref id="ref4" href="/sv/ley/1993-07-20/604/main#art3">Art. 3</ref>, de
+                                la manera siguiente:
+                                “
+                                <quotedStructure id="mod3-qtd1">
+                                    <article id="mod3-qtd1-art3">
+                                        <num>Art. 3.</num>
+                                        <clause id="mod3-qtd1-art3-cls1">
+                                            <content>
+                                                <p>- La presente ley no se aplicará a las marcas, nombres comerciales y
+                                                    expresiones o señales de publicidad comercial, las cuales se rigen
+                                                    por la Ley de Marcas y otros Signos Distintivos.
+                                                </p>
+                                            </content>
+                                        </clause>
+                                    </article>
+                                </quotedStructure>
+                            </mod>
+                            .”
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art4">
+                <num>Art. 4.</num>
+                <clause id="art4-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod4">
+                                Modifícase la denominación del <ref id="ref5" href="/sv/ley/1993-07-20/604/main#tit2">
+                                Título Segundo</ref>por el siguiente:
+                                “
+                                <quotedStructure id="mod4-qtd1">
+                                    <title id="tlt2">
+                                        <num>TÍTULO SEGUNDO</num>
+                                        <heading>PROPIEDAD ARTÍSTICA O LITERARIA</heading>
+                                        <content status="ignore">
+                                            <p/>
+                                        </content>
+                                    </title>
+                                </quotedStructure>
+                                ”.
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art5">
+                <num>Art. 5.</num>
+                <clause id="art5-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod5">
+                                - Refórmase el <ref id="ref6" href="/sv/ley/1993-07-20/604/main#art4">Art. 4</ref>, de
+                                la manera siguiente:
+                                “
+                                <quotedStructure id="mod5-qtd1">
+                                    <article id="mod5-qtd1-art4">
+                                        <num>Art. 4.</num>
+                                        <clause id="mod5-qtd1-art4-cls1">
+                                            <content>
+                                                <p>- El autor de una obra literaria o artística, tiene sobre ella un
+                                                    derecho de propiedad exclusivo, que se llama derecho de autor.
+                                                </p>
+                                            </content>
+                                        </clause>
+                                    </article>
+                                </quotedStructure>
+                                .”
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art6">
+                <num>Art. 6.</num>
+                <clause id="art6-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod6">
+                                - Refórmase el <ref id="ref7" href="/sv/ley/1993-07-20/604/main#art5">Art. 5</ref>, de
+                                la manera siguiente:
+                                “
+                                <quotedStructure id="mod6-qtd1">
+                                    <article id="mod6-qtd1-art5">
+                                        <num>Art. 5.</num>
+                                        <clause id="mod6-qtd1-art5-cls1">
+                                            <content>
+                                                <p>- El derecho de autor comprende facultades de orden abstracto,
+                                                    intelectual y moral que constituyen el derecho moral; y facultades
+                                                    de orden patrimonial que constituyen el derecho económico.
+                                                </p>
+                                            </content>
+                                        </clause>
+                                    </article>
+                                </quotedStructure>
+                                .”
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art7">
+                <num>Art. 7.</num>
+                <clause id="art7-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod7">
+                                - Refórmase el <ref id="ref8" href="/sv/ley/1993-07-20/604/main#art7">Art. 7</ref>, de
+                                la manera siguiente:
+                                “
+                                <quotedStructure id="mod7-qtd1">
+                                    <article id="mod7-qtd1-art7">
+                                        <num>Art. 7.</num>
+                                        <clause id="mod8-qtd1-art7-cls1">
+                                            <content>
+                                                <p>El derecho económico del autor es el derecho exclusivo de autorizar o
+                                                    prohibir el uso de sus obras, así como la facultad de percibir
+                                                    beneficios económicos provenientes de la utilización de las obras, y
+                                                    comprende especialmente las siguientes facultades:
+                                                </p>
+                                                <blockList id="art7-cls1-lst1">
+                                                    <item id="art7-cls1-lst1-itma">
+                                                        <num>a)</num>
+                                                        <p>La de reproducir la obra, fijándola materialmente por
+                                                            cualquier procedimiento que permita comunicarla al público
+                                                            de una manera indirecta y durable, o la obtención de copias
+                                                            de toda la obra o parte de ella; puede efectuarse por medios
+                                                            de reproducción mecánica, tales como la imprenta, la
+                                                            litografía, el polígrafo, el cinematógrafo, el fonógrafo,
+                                                            las grabaciones magnetofónicas, la fotografía y cualquier
+                                                            otro medio de fijación; comprende también la reproducción de
+                                                            improvisaciones, discursos, lectura y en general,
+                                                            recitaciones públicas hechas mediante la estenografía, la
+                                                            dactilografía y otros procedimientos análogos; asimismo
+                                                            comprende la facultad de prohibir toda reproducción de la
+                                                            obra en cualquier manera o forma permanente o temporal,
+                                                            incluyendo el almacenamiento temporal en forma electrónica;
+                                                        </p>
+                                                    </item>
+                                                    <item id="art7-cls1-lst1-itmb">
+                                                        <num>b)</num>
+                                                        <p>La de ejecutar y representar la obra compuesta expresamente
+                                                            con tal propósito, comunicándola al público directa y
+                                                            momentáneamente, tales como la representación teatral, la
+                                                            ejecución musical y coreografía, la escenificación para
+                                                            cinematografía y televisión, y el montaje de cualesquiera
+                                                            otra forma de espectáculo público;La de difundir la obra por
+                                                            cualquier medio que sirva para transmitir los sonidos y las
+                                                            imágenes, tales como el teléfono, la radio, la televisión,
+                                                            el cable, el teletipo, el satélite o por cualquier otro
+                                                            medio ya conocido o que se desarrolle en el futuro;
+                                                        </p>
+                                                    </item>
+                                                    <item id="art7-cls1-lst1-itmc">
+                                                        <num>c)</num>
+                                                        <p>La de difundir la obra por cualquier medio que sirva para
+                                                            transmitir los sonidos y las imágenes, tales como el
+                                                            teléfono, la radio, la televisión, el cable, el teletipo, el
+                                                            satélite o por cualquier otro medio ya conocido o que se
+                                                            desarrolle en el futuro;
+                                                        </p>
+                                                    </item>
+                                                    <item id="art7-cls1-lst1-itmd">
+                                                        <num>d)</num>
+                                                        <p>La de distribución de la obra, es decir, la de poner a
+                                                            disposición del público los ejemplares de la obra por medio
+                                                            de la venta u otra forma de transferencia de la propiedad,
+                                                            pero cuando la comercialización de los ejemplares se realice
+                                                            mediante venta, esta facultad se extingue a partir de la
+                                                            primera venta, salvo las excepciones legales; conservando el
+                                                            titular de los derechos patrimoniales, el de autorizar o no
+                                                            el arrendamiento de dichos ejemplares, así como los de
+                                                            modificar, comunicar públicamente y reproducir la obra;
+                                                        </p>
+                                                    </item>
+                                                    <item id="art7-cls1-lst1-itme">
+                                                        <num>e)</num>
+                                                        <p>La de importar, exportar o autorizar la importación o la
+                                                            exportación de copias de sus obras legalmente fabricadas y
+                                                            la de evitar la importación o exportación de copias
+                                                            fabricadas en forma ilegal; y
+                                                        </p>
+                                                    </item>
+                                                    <item id="art7-cls1-lst1-itmf">
+                                                        <num>f)</num>
+                                                        <p>La comunicación pública de la obra.</p>
+                                                    </item>
+                                                </blockList>
+                                            </content>
+                                        </clause>
+                                    </article>
+                                </quotedStructure>
+                            </mod>
+                            .”
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art106">
+                <num>Art. 106.</num>
+                <clause id="art106-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod106">
+                                -Intercálase entre los <ref id="ref9" href="/sv/ley/1993-07-20/604/main#art184">Arts.
+                                184</ref>y 185, el Art. 184-A, de la manera siguiente:
+                                “
+                                <quotedStructure id="mod106-qtd1">
+                                    <article id="mod106-qtd1-art184A">
+                                        <num>Art. 184-A.</num>
+                                        <clause id="mod106-qtd1-art184A-cls1">
+                                            <content>
+                                                <p>-Para efectos de esta ley, se entiende por Registro, el Registro de
+                                                    la Propiedad Intelectual.
+                                                </p>
+                                            </content>
+                                        </clause>
+                                    </article>
+                                </quotedStructure>
+                                ”.
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art107">
+                <num>Art. 107.</num>
+                <clause id="art107-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod107">- Derógase el <ref id="ref10" href="/sv/ley/1993-07-20/604/main#art186">
+                                Art.186</ref>.
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art108">
+                <num>Art. 108.</num>
+                <clause id="art108-cls1">
+                    <content>
+                        <p>
+                            <mod id="mod108">- Derógase el <ref id="ref11" href="/sv/ley/1994-02-02/799/main#art3">
+                                Decreto Legislativo No. 799, de fecha 2 de febrero de 1994</ref>, publicado en el Diario
+                                Oficial No. 56, Tomo No. 322, del 21 de marzo de ese mismo año.
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art109">
+                <num>Art. 109.</num>
+                <clause id="art109-cls1">
+                    <content>
+                        <p>-
+                            <mod id="mod109">
+                                <ref id="ref109" href="#main">El presente Decreto</ref>
+                                entrará en vigencia ocho días después de su publicación en el Diario Oficial.
+                            </mod>
+                        </p>
+                    </content>
+                </clause>
+            </article>
+        </body>
+        <conclusions>
+            <p>DADO EN EL SALÓN AZUL, PALACIO LEGISLATIVO: San Salvador, a los catorce días del mes de diciembre del año
+                dos mil cinco.
+            </p>
+            <p refersTo="#Zepeda">CIRO CRUZ ZEPEDA PEÑA</p>
+            <p refersTo="#presidente">PRESIDENTE</p>
+            <p refersTo="#Henriquez">JOSÉ MANUEL MELGAR HENRÍQUEZ</p>
+            <p refersTo="#pv">PRIMER VICEPRESIDENTE</p>
+            <p refersTo="#Lopez">JOSÉ FRANCISCO MERINO LÓPEZ</p>
+            <p refersTo="#tv">TERCER VICEPRESIDENTE</p>
+        </conclusions>
+    </act>
+</akomaNtoso>

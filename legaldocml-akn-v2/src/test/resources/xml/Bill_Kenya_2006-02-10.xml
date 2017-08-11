@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.akomantoso.org/2.0 ./akomantoso20.xsd" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Original document http://www.ist-africa.org/home/files/Kenya_ICT_Bill_Feb06.pdf -->
+    <!-- Example of bill with: preamble, longtitle, complex structure of part, section, list into list, annexes -->
+    <bill>
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/ak/bill/2006-02-10/8/main"/>
+                    <FRBRuri value="/ak/bill/2006-02-10/8"/>
+                    <FRBRdate date="2006-02-10" name="Enactment"/>
+                    <FRBRauthor href="#parliament" as="#author"/>
+                    <componentInfo>
+                        <componentData id="wmain" href="#emain" name="main" showAs="Main document"/>
+                        <componentData id="wfirstschedule" href="#efirstschedule" name="firstschedule"
+                                       showAs="FIRST SCHEDULE - PROVISIONS AS TO THE CONDUCT OF BUSINESS AND AFFAIRS OF THE BOARD."/>
+                        <componentData id="wsecondschedule" href="#esecondschedule" name="secondschedule"
+                                       showAs="SECOND SCHEDULE (s.153) - MEETINGS PROCEDURE OF THE APPEALS TRIBUNAL"/>
+                        <componentData id="wthirdschedule" href="#ethirdschedule" name="thirdschedule"
+                                       showAs="THIRD SCHEDULE - PROVISIONS AS TO ADVISORY COUNCILS"/>
+                        <componentData id="wfourthschedule" href="#efourthschedule" name="fourthschedule"
+                                       showAs="FOURTH SCHEDULE – TRANSITIONAL PROVISIONS"/>
+                        <componentData id="wfifthschedule" href="#efifthschedule" name="fifthschedule"
+                                       showAs="FIFTH SCHEDULE - AMENDMENTS TO THE KBC ACT"/>
+                        <componentData id="wmemorandum" href="#ememorandum" name="memorandum"
+                                       showAs="MEMORANDUM OF OBJECTS AND REASONS"/>
+                    </componentInfo>
+                    <FRBRcountry value="ak"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/ak/bill/2006-02-10/8/eng@/main"/>
+                    <FRBRuri value="/ak/bill/2006-02-10/8/eng@"/>
+                    <FRBRdate date="2009-01-10" name="Expression"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <componentInfo>
+                        <componentData id="emain" href="#mmain" name="main" showAs="Main document"/>
+                        <componentData id="efirstschedule" href="#mfirstschedule" name="firstschedule"
+                                       showAs="FIRST SCHEDULE - PROVISIONS AS TO THE CONDUCT OF BUSINESS AND AFFAIRS OF THE BOARD."/>
+                        <componentData id="esecondschedule" href="#msecondschedule" name="secondschedule"
+                                       showAs="SECOND SCHEDULE (s.153) - MEETINGS PROCEDURE OF THE APPEALS TRIBUNAL"/>
+                        <componentData id="ethirdschedule" href="#mthirdschedule" name="thirdschedule"
+                                       showAs="THIRD SCHEDULE - PROVISIONS AS TO ADVISORY COUNCILS"/>
+                        <componentData id="efourthschedule" href="#mfourthschedule" name="fourthschedule"
+                                       showAs="FOURTH SCHEDULE – TRANSITIONAL PROVISIONS"/>
+                        <componentData id="efifthschedule" href="#mfifthschedule" name="fifthschedule"
+                                       showAs="FIFTH SCHEDULE - AMENDMENTS TO THE KBC ACT"/>
+                        <componentData id="ememorandum" href="#mmemorandum" name="memorandum"
+                                       showAs="MEMORANDUM OF OBJECTS AND REASONS"/>
+                    </componentInfo>
+                    <FRBRlanguage language="eng"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/ak/bill/2006-02-10/8/eng@/main.xml"/>
+                    <FRBRuri value="/ak/bill/2006-02-10/8/eng@/main.akn"/>
+                    <FRBRdate date="2009-01-11" name="XMLConversion"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <componentInfo>
+                        <componentData id="mmain" href="#emain" name="main" showAs="Main document"/>
+                        <componentData id="mfirstschedule" href="firstschedule.xml" name="firstschedule"
+                                       showAs="FIRST SCHEDULE - PROVISIONS AS TO THE CONDUCT OF BUSINESS AND AFFAIRS OF THE BOARD."/>
+                        <componentData id="msecondschedule" href="secondschedule.xml" name="secondschedule"
+                                       showAs="SECOND SCHEDULE (s.153) - MEETINGS PROCEDURE OF THE APPEALS TRIBUNAL"/>
+                        <componentData id="mthirdschedule" href="thirdschedule.xml" name="thirdschedule"
+                                       showAs="THIRD SCHEDULE - PROVISIONS AS TO ADVISORY COUNCILS"/>
+                        <componentData id="mfourthschedule" href="fourthschedule.xml" name="fourthschedule"
+                                       showAs="FOURTH SCHEDULE – TRANSITIONAL PROVISIONS"/>
+                        <componentData id="mfifthschedule" href="fifthschedule.xml" name="fifthschedule"
+                                       showAs="FIFTH SCHEDULE - AMENDMENTS TO THE KBC ACT"/>
+                        <componentData id="mmemorandum" href="memorandum.xml" name="memorandum"
+                                       showAs="MEMORANDUM OF OBJECTS AND REASONS"/>
+                    </componentInfo>
+                </FRBRManifestation>
+            </identification>
+            <references source="#somebody">
+                <original id="ro1" href="/ak/bill/2006-02-10/8/eng@" showAs="Original"/>
+                <hasAttachment id="firstschedule" href="/ak/bill/2006-02-10/8/eng@/firstschedule"
+                               showAs="FIRST SCHEDULE - PROVISIONS AS TO THE CONDUCT OF BUSINESS AND AFFAIRS OF THE BOARD."/>
+                <hasAttachment id="secondschedule" href="/ak/bill/2006-02-10/8/eng@/secondschedule"
+                               showAs="SECOND SCHEDULE (s.153) - MEETINGS PROCEDURE OF THE APPEALS TRIBUNAL"/>
+                <hasAttachment id="thirdschedule" href="/ak/bill/2006-02-10/8/eng@/thirdschedule"
+                               showAs="THIRD SCHEDULE - PROVISIONS AS TO ADVISORY COUNCILS"/>
+                <hasAttachment id="fourthschedule" href="/ak/bill/2006-02-10/8/eng@/fourthschedule"
+                               showAs="FOURTH SCHEDULE – TRANSITIONAL PROVISIONS"/>
+                <hasAttachment id="fifthschedule" href="/ak/bill/2006-02-10/8/eng@/fifthschedule"
+                               showAs="FIFTH SCHEDULE - AMENDMENTS TO THE KBC ACT"/>
+                <hasAttachment id="memorandum" href="/ak/bill/2006-02-10/8/eng@/memorandum"
+                               showAs="MEMORANDUM OF OBJECTS AND REASONS"/>
+                <TLCOrganization id="parliament" href="/ontology/organizations/ak/parliament" showAs="Parliament"/>
+                <TLCPerson id="somebody" href="/ontology/persons/ak/editors/somebody" showAs="somebody"/>
+                <TLCRole id="author" href="/ontology/roles/ak/author" showAs="Author of Document"/>
+                <TLCRole id="editor" href="/ontology/roles/ak/editor" showAs="Editor of Document"/>
+            </references>
+        </meta>
+        <preface>
+            <p>
+                <docTitle>THE KENYA INFORMATION AND COMMUNICATIONS BILL 2006</docTitle>
+            </p>
+            <p>
+                <docNumber>No.8 of 2006</docNumber>
+            </p>
+            <p>Date of Assent:
+                <docDate date="2006-02-10">10<span class="sup">th</span>February 2006
+                </docDate>
+            </p>
+            <longTitle id="25">
+                <p>AN ACT of Parliament to promote and develop in an orderly manner the carriage and content of
+                    communications (including broadcasting, multimedia, telecommunications and postal), for the
+                    establishment of a commission to regulate all forms of communications, for the establishment of an
+                    appeals tribunal and for connected purposes.
+                </p>
+            </longTitle>
+        </preface>
+        <preamble>
+            <container id="cnt1" name="preamble">
+                <p>WHEREAS it is considered necessary</p>
+                <blockList id="lst1">
+                    <item id="lst1-itm1">
+                        <num>i</num>
+                        <p>to facilitate development of a national infrastructure for an information based society, and
+                            to enable access thereto;
+                        </p>
+                    </item>
+                    <item id="lst1-itm2">
+                        <num>ii</num>
+                        <p>to provide a choice of services to the people of Kenya with a view to promoting plurality of
+                            news, views and information;
+                        </p>
+                    </item>
+                    <item id="lst1-itm3">
+                        <num>iii</num>
+                        <p>to establish a regulatory framework for carriage and content of communications in scenario of
+                            convergence of telecommunications, broadcasting, data-communication, multimedia and other
+                            related technologies and services; and
+                        </p>
+                    </item>
+                    <item id="lst1-itm4">
+                        <num>iv</num>
+                        <p>to provide for the powers, procedures and functions of a single regulatory and licensing body
+                            and of the Appeals Tribunal for the ICT sector
+                        </p>
+                    </item>
+                </blockList>
+            </container>
+            <formula>
+                <p>ENACTED by the Parliament of Kenya as follows:</p>
+            </formula>
+        </preamble>
+        <body>
+            <part id="part1">
+                <num>PART I</num>
+                <heading>- PRELIMINARY</heading>
+                <section id="sec1">
+                    <num>1.</num>
+                    <heading>Short title and commencement~</heading>
+                    <content>
+                        <p>This Act may be cited as the Kenya Information and Communications Act, 2006 and shall come
+                            into operation on such date as the Minister may, by notice in the Gazette, appoint and
+                            different dates may be appointed for different provisions.
+                        </p>
+                    </content>
+                </section>
+                <section id="sec2">
+                    <num>2.</num>
+                    <heading>Interpretation</heading>
+                    <subsection id="sec2-subsct1">
+                        <num>(1)</num>
+                        <content>
+                            <blockList id="sec2-subsct1-lst1">
+                                <listIntroduction>In this Act unless, the context otherwise requires-</listIntroduction>
+                                <item id="sec2-subsct1-lst1-itm1">
+                                    <p>"Board" means the Board of Directors constituted under section 8;</p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm2">
+                                    <p>"broadcaster" means any legal or natural person who composes or packages or
+                                        distributes television or radio programmeservices for reception by the
+                                        public or sections of the public or subscribers to such a service
+                                        irrespective of technology used;
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm3">
+                                    <p>"broadcasting" means unidirectional conveyance of sounds or television
+                                        programmes,whether encrypted or not by radio or other means of
+                                        telecommunications for reception by the public;
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm4">
+                                    <p>"broadcasting signal distribution " means the process whereby the output
+                                        signal of a broadcasting service is taken from thepoint of origin, being the
+                                        point where such signal is made available in its final content format, from
+                                        where it is conveyed to anybroadcast target area by means of a
+                                        telecommunication process and includes multi-channel distribution;
+                                        <omissis status="omissis">.....</omissis>
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm10">
+                                    <p>"community" includes a geographically founded community or any group of
+                                        persons or sector of the public having a specific,ascertainable common
+                                        interest;
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm11">
+                                    <p>"community broadcasting service" means a broadcasting service which-</p>
+                                    <blockList id="sec2-subsct1-lst1-itm11-lst1">
+                                        <item id="sec2-subsct1-lst1-itm11-lst1-itma">
+                                            <num>(a)</num>
+                                            <p>is fully controlled by a non-profit entity and carried on for
+                                                non-profitable purposes;
+                                            </p>
+                                        </item>
+                                        <item id="sec2-subsct1-lst1-itm11-lst1-itmb">
+                                            <num>(b)</num>
+                                            <p>serves a particular community;</p>
+                                        </item>
+                                        <item id="sec2-subsct1-lst1-itm11-lst1-itmc">
+                                            <num>(c)</num>
+                                            <p>encourages members of the community served by it or persons associated
+                                                with or promoting the interests of suchcommunity to participate in the
+                                                selection and provision of programmes to be broadcast in the course of
+                                                suchbroadcasting service; and
+                                            </p>
+                                            <p/>
+                                        </item>
+                                        <item id="sec2-subsct1-lst1-itm11-lst1-itm4">
+                                            <p>may be funded by donations, grants, sponsorships or membership fees,
+                                                or by any combination of the aforementioned;
+                                            </p>
+                                        </item>
+                                    </blockList>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm11-lst1-itm5">
+                                    <p>
+                                        <omissis status="omissis">missing part</omissis>
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm34">
+                                    <p>"post office" means any building, house, room, receptacle, vessel, vehicle
+                                        or place where postal articles are received, delivered, sorted, made up or
+                                        despatched;
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct1-lst1-itm35">
+                                    <blockList id="sec2-subsct1-lst1-itm35-lst1">
+                                        <listIntroduction>"post"</listIntroduction>
+                                        <item id="sec2-subsct1-lst1-itm35-lst1-itmi">
+                                            <num>(i)</num>
+                                            <p>when used with reference to telecommunication includes any pole,
+                                                standard, stay, strut or other above-ground contrivance for installing,
+                                                carrying, supporting or suspending atelecommunication line; and
+                                            </p>
+                                        </item>
+                                        <item id="sec2-subsct1-lst1-itm35-lst1-itmii">
+                                            <num>(ii)</num>
+                                            <p>when used with reference to the transmission of postal articles by
+                                                post, means any system for the collection, despatch, conveyance,
+                                                handling
+                                                and delivery of postal articles;
+                                            </p>
+                                        </item>
+                                    </blockList>
+                                </item>
+                            </blockList>
+                        </content>
+                    </subsection>
+                    <subsection id="sec2-subsct2">
+                        <num>(2)</num>
+                        <content>
+                            <p>For the purpose of this Act, a telecommunication system is operated by the person who
+                                controls and manages it by himself or through servants or agents.
+                            </p>
+                        </content>
+                    </subsection>
+                    <subsection id="sec2-subsct3">
+                        <num>(3)</num>
+                        <content>
+                            <blockList id="sec2-subsct3-lst1">
+                                <listIntroduction>In this Act-</listIntroduction>
+                                <item id="sec2-subsct2-lst1-itma">
+                                    <num>(a)</num>
+                                    <blockList id="sec2-subsct3-lst1-itma-lst1">
+                                        <listIntroduction>a postal article shall be deemed to have been delivered -
+                                        </listIntroduction>
+                                        <item id="sec2-subsct3-lst1-itma-lst1-itmi">
+                                            <num>i</num>
+                                            <p>o the addressee, if it is delivered into the private letter box of
+                                                the addressee, leaving it atthe house, or office of the addressee as
+                                                set out thereon, or with his employee or agent or other persons
+                                                authorised to receive it and, where the addressee is a guest or is
+                                                resident at a hotel, hostel or lodgings, it is left with the
+                                                proprietor or manager thereof or with his agent; or
+                                            </p>
+                                        </item>
+                                        <item id="sec2-subsct3-lst1-itma-lst1-itmii">
+                                            <num>ii</num>
+                                            <p>to a postal services operator licensed under section 99, if it is
+                                                deposited into a posting box or handed over to an employee or agent of
+                                                a postal services operator authorised to receive it;
+                                            </p>
+                                        </item>
+                                    </blockList>
+                                </item>
+                                <item id="sec2-subsct3-lst1-itmb">
+                                    <num>(b)</num>
+                                    <p>a postal article shall be deemed to be in the course of transmission by
+                                        post from the time of its being delivered to the public postal licensee
+                                        until the time of its being delivered to the addressee, or it is returned to
+                                        the sender or otherwise disposed of under the provisions of this Act.
+                                    </p>
+                                </item>
+                                <item id="sec2-subsct3-lst1-itmc">
+                                    <num>(c)</num>
+                                    <p>Save as otherwise agreed to between the originator and the addressee, the
+                                        dispatch of an electronic record occurs when it enters a computer resource
+                                        outside the control of the originator.
+                                    </p>
+                                </item>
+                            </blockList>
+                        </content>
+                    </subsection>
+                </section>
+            </part>
+        </body>
+        <attachments>
+            <componentRef src="/ak/bill/2006-02-10/8/eng@/firstschedule.xml"
+                          showAs="FIRST SCHEDULE - PROVISIONS AS TO THE CONDUCT OF BUSINESS AND AFFAIRS OF THE BOARD."/>
+            <componentRef src="/ak/bill/2006-02-10/8/eng@/secondschedule.xml"
+                          showAs="SECOND SCHEDULE (s.153) - MEETINGS PROCEDURE OF THE APPEALS TRIBUNAL"/>
+            <componentRef src="/ak/bill/2006-02-10/8/eng@/thirdschedule.xml"
+                          showAs="THIRD SCHEDULE - PROVISIONS AS TO ADVISORY COUNCILS"/>
+            <componentRef src="/ak/bill/2006-02-10/8/eng@/fourthschedule.xml"
+                          showAs="FOURTH SCHEDULE – TRANSITIONAL PROVISIONS"/>
+            <componentRef src="/ak/bill/2006-02-10/8/eng@/fifthschedule.xml"
+                          showAs="FIFTH SCHEDULE - AMENDMENTS TO THE KBC ACT"/>
+            <componentRef src="/ak/bill/2006-02-10/8/eng@/memorandum.xml" showAs="MEMORANDUM OF OBJECTS AND REASONS"/>
+        </attachments>
+    </bill>
+</akomaNtoso>

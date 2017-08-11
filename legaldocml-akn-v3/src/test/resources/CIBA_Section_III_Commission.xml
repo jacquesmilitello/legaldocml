@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17 ./akomantoso30.xsd"
+            xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17">
+    <doc name="section_III_commission" contains="originalVersion">
+        <meta>
+            <identification source="#ciba">
+                <FRBRWork>
+                    <FRBRthis value="/ciba/akn/lu/sec/III/commission/2017-05-31/main/!main"/>
+                    <FRBRuri value="/ciba/akn/lu/sec/III/commission/2017-05-31/main"/>
+                    <FRBRdate date="2017-05-31" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRcountry value=""/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-05-31" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRlanguage language="en"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-05-31" name=""/>
+                    <FRBRauthor href=""/>
+                </FRBRManifestation>
+            </identification>
+            <classification source="#ciba">
+                <keyword eId="k_expenditure" value="expenditure" showAs="Expenditure" dictionary="/Expenditure"/>
+                <keyword eId="k_revenue" value="revenue" showAs="Revenue" dictionary="/Revenue"/>
+                <keyword eId="k_sectionIIICommission" value="sectionIIICommission" showAs="Section III Commission"
+                         dictionary="/SectionIIICommission"/>
+            </classification>
+            <lifecycle source="#something">
+                <eventRef date="2017-05-31" wId="o1" source="#osIIIc1" type="generation"/>
+            </lifecycle>
+            <references source="#ciba">
+                <original wId="osIIIc1" href="/original/ciba/akn/lu/sec/III/commission/2017-05-31/123"
+                          showAs="Original"/>
+                <TLCOrganization href="/#" showAs=""></TLCOrganization>
+                <TLCReference eId="figures" href="/#" showAs="Figures" name="Figures"/>
+            </references>
+        </meta>
+        <coverPage>
+            <container eId="cover" name="cover">
+                <p>
+                    <docTitle eId="title" xml:space="preserve">SECTION <docNumber>III</docNumber> — COMMISSION</docTitle>
+                </p>
+            </container>
+        </coverPage>
+        <mainBody>
+            <componentRef src="#revenue" showAs="Revenue"/>
+            <componentRef src="#expenditure" showAs="Expenditure"/>
+            <componentRef src="#Staff" showAs="Staff"/>
+            <componentRef src="#Annex" showAs="Annex"/>
+        </mainBody>
+    </doc>
+</akomaNtoso>

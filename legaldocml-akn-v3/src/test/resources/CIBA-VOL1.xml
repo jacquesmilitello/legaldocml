@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:ciba="http://eu.europa.ec/ciba/1.0"
+            xsi:schemaLocation="http://docs.oasis-open.org/legaldocml/ns/akn/3.0 ./akomantoso30.xsd http://eu.europa.ec/ciba/1.0 ./ciba.xsd"
+            xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+    <doc name="budget">
+
+        <meta>
+            <identification source="">
+                <FRBRWork>
+                    <FRBRthis value="/ciba/2015/vol:3"/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-05-24" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRcountry value=""/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-05-24" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRlanguage language="en"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2017-05-24" name=""/>
+                    <FRBRauthor href=""/>
+                </FRBRManifestation>
+            </identification>
+
+        </meta>
+
+        <mainBody>
+            <tome eId="vol01">
+                <heading xml:lang="en">SECTION 3 — COMMISSION</heading>
+
+                <division>
+                    <heading>REVENUE — REVENUE</heading>
+
+                    <title>
+                        <num>4</num>
+                        <heading>Revenue accruing from persons working with the institutions and other Union bodies</heading>
+                        <intro>
+                            <table ciba:figure="summary">
+                                <tr>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                </tr>
+                            </table>
+                        </intro>
+                        <componentRef src="/vol/3/2015/chapter/4/0" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/4/1" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/4/2" showAs=""/>
+                    </title>
+                    <part>
+                        <num>5</num>
+                        <heading>REVENUE ACCRUING FROM THE ADMINISTRATIVE OPERATION OF THE INSTITUTION</heading>
+                        <intro>
+                            <table ciba:figure="summary">
+                                <tr>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                    <td><p></p></td>
+                                </tr>
+                            </table>
+                        </intro>
+                        <componentRef src="/vol/3/2015/chapter/5/0" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/5/1" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/5/2" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/5/5" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/5/7" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/5/8" showAs=""/>
+                        <componentRef src="/vol/3/2015/chapter/5/9" showAs=""/>
+                    </part>
+                </division>
+
+                <division>
+                    <heading>EXPENDITURE — EXPENDITURE</heading>
+                    <intro>
+                        <table ciba:figure="summary">
+                            <tr class="header">
+                                <td><p><term refersTo="">Title</term></p></td>
+                                <td><p><term refersTo="">Heading</term></p></td>
+                                <td><p><term refersTo="">Budget 2015</term></p></td>
+                                <td><p><term refersTo="">Budget 2014</term></p></td>
+                                <td><p><term refersTo="">Outturn 2013</term></p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p>4</p></td>
+                                <td><p><placeholder refersTo="vol-3-2015-4"/></p></td>
+                                <td><p>97702023700</p></td>
+                                <td><p>93916945400</p></td>
+                                <td><p>90477174122</p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                                <td><p></p></td>
+                            </tr>
+                        </table>
+                    </intro>
+
+                    <part>
+                        <num>XX</num>
+                        <heading>ADMINISTRATIVE EXPENDITURE ALLOCATED TO POLICY AREAS</heading>
+
+
+                    </part>
+                </division>
+
+
+            </tome>
+        </mainBody>
+    </doc>
+
+</akomaNtoso>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss,SSS} %-5p [%t] [%c{1}:%L] %m%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="io.legaldocml" level="ALL" additivity="false">
+			<AppenderRef ref="CONSOLE" />
+		</Logger>
+
+		<Root level="INFO">
+			<AppenderRef ref="CONSOLE" />
+		</Root>
+	</Loggers>
+</Configuration>

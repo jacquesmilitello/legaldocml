@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.akomantoso.org/2.0 ./akomantoso20.xsd" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+    <!-- Draft resolution UN-->
+    <bill>
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/un/resolution/2012-02-22/E/CN.7/2012/L.2/main"/>
+                    <FRBRuri value="/un/resolution/2012-02-22/E/CN.7/2012/L.2"/>
+                    <FRBRdate date="2012-10-22" name="generation"/>
+                    <FRBRauthor href="#cnd" as="#author"/>
+                    <FRBRcountry value="un"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/un/resolution/2012-02-22/E/CN.7/2012/L.2/eng@/main"/>
+                    <FRBRuri value="/un/resolution/2012-02-22/E/CN.7/2012/L.2/eng@"/>
+                    <FRBRalias value=" /un/resolution/2012-02-22/V.12-51096 (E)"/>
+                    <FRBRdate date="2012-02-22" name="markup"/>
+                    <FRBRauthor href="#cnd" as="#editor"/>
+                    <FRBRlanguage language="eng"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/un/resolution/2012-02-22/E/CN.7/2012/L.2/eng@/main.xml"/>
+                    <FRBRuri value="/un/resolution/2012-02-22/E/CN.7/2012/L.2/eng@.akn"/>
+                    <FRBRdate date="2012-03-02" name="publication"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                </FRBRManifestation>
+            </identification>
+            <publication date="2012-02-22" name="public" showAs="Journal" number="3"/>
+            <lifecycle source="#somebody">
+                <eventRef id="e1" date="2012-02-22" source="#ro1" type="generation"/>
+            </lifecycle>
+            <references source="#somebody">
+                <original id="ro1" href="/un/resolution/2012-02-22/E/CN.7/2012/L.2/eng@/main" showAs="original"/>
+                <TLCPerson id="somebody" href="/ontology/person/un/somebody" showAs="somebody"/>
+                <TLCOrganization id="esc" href="/ontology/organizations/un/economicSocialCouncil"
+                                 showAs="Economic and Social Council"/>
+                <TLCOrganization id="cnd" href="/ontology/organizations/un/commissionNarcoticDrugs"
+                                 showAs="Commission on Narcotic Drugs"/>
+                <TLCRole id="author" href="/ontology/roles/un/author" showAs="Author of Document"/>
+                <TLCRole id="editor" href="/ontology/roles/un/editor" showAs="Editor of Document"/>
+                <TLCConcept id="limited" href="/ontology/concepts/un/limited" showAs="Limited"/>
+                <TLCConcept id="originalLanguage" href="/ontology/concepts/un/originalLanguage"
+                            showAs="Original Language"/>
+            </references>
+        </meta>
+        <preface>
+            <p>
+                <docNumber>E/CN.7/2012/L.2</docNumber>
+            </p>
+            <p>
+                <docIntroducer>United Nations</docIntroducer>
+                <docIntroducer>Economic and Social Council</docIntroducer>
+            </p>
+            <p>
+                <!-- docStatus records the confidentiality of the document -->
+                <docStatus refersTo="#limited">Distr.: Limited</docStatus>
+            </p>
+            <p>
+                <docDate date="2012-02-22">22 February 2012</docDate>
+            </p>
+            <p>
+                <span id="spn1" refersTo="#originalLanguage">Original: English</span>
+            </p>
+            <p>
+                <docketNumber>V.12-51096 (E)</docketNumber>
+            </p>
+            <p>
+                <docIntroducer refersTo="#esc">Commission on Narcotic Drugs</docIntroducer>
+            </p>
+            <p>
+                <session>Fifty-fifth session</session>
+            </p>
+            <p>Vienna, 12-16 March 2012</p>
+            <p>
+                <ref id="ref1" href="/un/resolution/E/CN.7/2012/1#itm4">Item 4 of the provisional agenda</ref>
+                <authorialNote id="aut1" marker="*" placement="bottom">
+                    <p>
+                        <ref id="ref2" href="/un/resolution/E/CN.7/2012/1">E/CN.7/2012/1</ref>.
+                    </p>
+                </authorialNote>
+            </p>
+            <p>
+                <docType>Implementation of the international drug control treaties</docType>
+            </p>
+            <p>
+                <docProponent>Australia, Japan and the United Kingdom of Great Britain and Northern
+                    Ireland: draft resolution
+                </docProponent>
+                <docTitle>Promoting international cooperation in responding to new
+                    psychoactive substances
+                </docTitle>
+            </p>
+        </preface>
+        <preamble>
+            <p>
+                <i>The Commission on Narcotic Drugs,</i>
+            </p>
+            <p>
+                <i>Concerned</i>
+                that new psychoactive substances are increasingly being marketed
+                as legal alternatives to internationally controlled drugs and that those substances
+                may pose risks to public health and safety,
+            </p>
+            <p>
+                <i>Acknowledging</i>
+                the dynamic and fast-paced nature of that market and the
+                increasing role that the Internet plays in the trade of new psychoactive substances,
+            </p>
+            <p>
+                <i>Deeply</i>
+                concerned about reports of the increased and emerging use of and
+                trade in new psychoactive substances, such as synthetic cannabinoids,
+                4-methyl-methcathinone (mephedrone), methylenedioxypyrovalerone (MDPV),
+                other cathinones and phenethylamines, that have effects similar to those of
+                internationally controlled drugs,
+            </p>
+            <p>
+                <i>Concerned</i>
+                about the potential opportunities for transnational organized
+                criminal groups to exploit the market for those substances, at unknown risk to the
+                health of consumers,
+            </p>
+        </preamble>
+        <body>
+            <list id="list1">
+                <point id="itm1">
+                    <num>1.</num>
+                    <content>
+                        <p>
+                            <i>Encourages</i>
+                            Member States to monitor emerging trends in the
+                            composition, production and distribution of new psychoactive substances, including
+                            through the Internet, as well as the increasing use of those substances within their
+                            own national borders;
+                        </p>
+                    </content>
+                </point>
+                <point id="itm2">
+                    <num>2.</num>
+                    <content>
+                        <p>
+                            <i>Urges</i>
+                            Member States to share that information, in particular with regard
+                            to patterns of use and related problems, risks to public health, forensic data and
+                            regulation of new psychoactive substances, with other Member States and the
+                            United Nations Office on Drugs and Crime;
+                        </p>
+                    </content>
+                </point>
+                <point id="itm3">
+                    <num>3.</num>
+                    <content>
+                        <p>
+                            <i>Encourages</i>
+                            Member States, based on the information on patterns of use
+                            and risks to public health of new psychoactive substances, to adopt appropriate
+                            measures aimed at reducing demand and risks associated with the use of those
+                            substances to minimize risks to public health;
+                            <omissis/>
+                        </p>
+                    </content>
+                </point>
+                <point id="itm8">
+                    <num>8.</num>
+                    <content>
+                        <p>
+                            <i>Requests</i>
+                            the United Nations Office on Drugs and Crime to continue to
+                            work with the World Health Organization, pursuant to article 3 of the Single
+                            Convention on Narcotic Drugs of 1961
+                            <authorialNote id="auth2" marker="1" placement="bottom">
+                                <p>
+                                    <ref id="ref3" href="/un/treaty/7515/520">United Nations, Treaty Series. vol. 520,
+                                        No. 7515</ref>.
+                                </p>
+                            </authorialNote>
+                            as amended by the 1972 Protocol
+                            <authorialNote id="auth3" marker="2" placement="bottom">
+                                <p>
+                                    <ref id="ref4" href="/un/treaty/1451/976">Ibid., vol. 976, No. 14151</ref>.
+                                </p>
+                            </authorialNote>
+                            and
+                            article 2 of the Convention on Psychotropic Substances of 1971,
+                            <authorialNote id="auth4" marker="3" placement="bottom">
+                                <p>
+                                    <ref id="ref5" href="/un/treaty/14856/1019">Ibid., vol. 1019, No. 14956</ref>.
+                                </p>
+                            </authorialNote>
+                            towards resuming
+                            the review of substances for possible scheduling by the Commission
+                        </p>
+                    </content>
+                </point>
+            </list>
+        </body>
+    </bill>
+</akomaNtoso>

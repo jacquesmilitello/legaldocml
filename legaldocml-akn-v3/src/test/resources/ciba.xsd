@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://eu.europa.ec/ciba/1.0"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://eu.europa.ec/ciba/1.0"
+            elementFormDefault="qualified">
+
+
+    <xsd:attribute name="figure" type="figureType" />
+
+
+    <xsd:simpleType name="figureType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <type>Simple</type>
+                <name>figureType</name>
+            </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="summary"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
