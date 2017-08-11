@@ -144,7 +144,7 @@ public class AknV2Test {
             AkomaNtoso<?> akomaNtoso = XML_READER_FACTORY.read(out);
 
             XmlChannelWriter writer = new XmlChannelWriterV2();
-            writer.setChannel(FileChannel.open(Paths.get("c:/tmp/test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
+            writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
             akomaNtoso.write(writer);
             writer.flush();
 
@@ -154,7 +154,7 @@ public class AknV2Test {
             }
         }
 
-        compare(Files.newInputStream(path), new FileInputStream("c:/tmp/test-001.xml"));
+        compare(Files.newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml").toFile()));
     }
 
     public void compare(InputStream controlXml, InputStream testXml) {
