@@ -1,0 +1,6 @@
+<test>
+    <?target?>
+    <?target instruction?>
+    <?target instruction instruction2?>
+    <elem01></elem01>
+</test>

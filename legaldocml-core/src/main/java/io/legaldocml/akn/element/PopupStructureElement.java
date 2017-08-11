@@ -1,0 +1,13 @@
+package io.legaldocml.akn.element;
+
+import io.legaldocml.akn.AknObject;
+
+/**
+ * Markup Interface.
+ *
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
+@Deprecated
+public interface PopupStructureElement extends AknObject {
+
+}
