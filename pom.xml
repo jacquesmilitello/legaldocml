@@ -9,6 +9,18 @@
     <packaging>pom</packaging>
     <version>0.1.0-SNAPSHOT</version>
 
+    <name>LegalDocML Maven Parent</name>
+    <description>Library for the OASIS LegalDocML</description>
+    <url>https://github.com/jacquesmilitello/legaldocml</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -19,6 +31,15 @@
         <junit.version>4.12</junit.version>
         <org.xmlunit.version>2.4.0</org.xmlunit.version>
         <org.ow2.asm.version>5.2</org.ow2.asm.version>
+
+        <!-- for sonar -->
+        <org.jacoco.version>0.7.9</org.jacoco.version>
+        <sonar.sources>src/main</sonar.sources>
+        <sonar.tests>src/test</sonar.tests>
+        <sonar.junit.reportsPath>reports/java/surefire-reports</sonar.junit.reportsPath>
+        <sonar.jacoco.reportPath>reports/java/jacoco.exec</sonar.jacoco.reportPath>
+
+
     </properties>
 
     <modules>
@@ -32,6 +53,13 @@
         <!--<module>legaldocml-akn-grammar</module>-->
     </modules>
 
+    <developers>
+        <developer>
+            <name>Jacques Militello</name>
+            <email>jacques.militello@gmail.com</email>
+        </developer>
+
+    </developers>
     <scm>
         <connection>scm:git:git://github.com/jacquesmilitello/legaldocml.git</connection>
         <developerConnection>scm:https://github.com/jacquesmilitello/legaldocml.git</developerConnection>
@@ -132,6 +160,68 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${org.jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>validate</phase>
+                        <configuration>
+                            <configLocation>checkstyle.xml</configLocation>
+                            <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.8</version>
+                <configuration>
+                    <failOnViolation>true</failOnViolation>
+                    <failurePriority>5</failurePriority>
+                    <printFailingErrors>true</printFailingErrors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <excludeFromFailureFile>exclude-pmd.properties</excludeFromFailureFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
     </build>
 
 
