@@ -63,7 +63,7 @@ final class ZipArchiveWriteOnly implements Archive {
         LOGGER.info("Create archive in [{}]", path);
 
         try {
-            fs = FileSystems.newFileSystem(new URI("jar:file:/" + path.toString().replace('\\', '/')), ENV);
+            fs = FileSystems.newFileSystem(new URI("jar:" + path.toUri()), ENV);
         } catch (Exception cause) {
             throw new ArchiveException(ArchiveException.Type.WRITE_OPEN, cause.getMessage(), cause);
         }

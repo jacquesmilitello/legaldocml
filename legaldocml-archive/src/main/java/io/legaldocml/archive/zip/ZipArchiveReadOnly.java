@@ -49,15 +49,8 @@ final class ZipArchiveReadOnly implements Archive {
     ZipArchiveReadOnly(Path path) {
         LOGGER.info("Open archive in Read-Only Mode [{}]", path);
 
-        StringBuilder builder = new StringBuilder("jar:file:/");
-        builder.append(path.toString().replace('\\', '/'));
-
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("[{}]", builder);
-        }
-
         try {
-            fs = FileSystems.newFileSystem(new URI(builder.toString()), new HashMap<>());
+            fs = FileSystems.newFileSystem(new URI("jar:" + path.toUri()), new HashMap<>());
         } catch (Exception cause) {
             throw new ArchiveException(READ_OPEN, cause.getMessage(), cause);
         }
