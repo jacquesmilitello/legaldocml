@@ -10,7 +10,7 @@ cache:
     - $HOME/.m2
 install: true
 
-script: "mvn clean install -DskipTests=true -Dpmd.skip=true -gpg.skip=true -Dmaven.javadoc.skip=true -B -V -e"
+script: "mvn clean install -DskipTests=true -Dpmd.skip=true -Dgpg.skip=true -Dmaven.javadoc.skip=true -B -V -e"
 
 # for sonarcloud.io
 dist: trusty
