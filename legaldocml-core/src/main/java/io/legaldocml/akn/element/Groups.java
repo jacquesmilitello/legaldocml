@@ -490,7 +490,7 @@ public final class Groups {
         // <xsd:element ref="title"/>
         builder.put(Title.ELEMENT, Title::new);
         // <xsd:element ref="article"/>
-        builder.put(Article.ELEMENT, Article::new);
+        builder.put(Article.ELEMENT_ARTICLE, Article::new);
         // <xsd:element ref="book"/>
         builder.put(Book.ELEMENT, Book::new);
         // <xsd:element ref="tome"/>

@@ -21,21 +21,21 @@ public final class Article extends Hierarchy implements ANhier {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "article";
+    public static final String ELEMENT_ARTICLE = "article";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ARTICLE = Buffers.address(ELEMENT_ARTICLE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_ARTICLE, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_ARTICLE, 7);
     }
 
     /**
@@ -43,7 +43,7 @@ public final class Article extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ARTICLE;
     }
 
     /**
