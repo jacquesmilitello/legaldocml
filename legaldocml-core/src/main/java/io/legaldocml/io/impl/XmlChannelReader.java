@@ -363,11 +363,9 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                                     return CHARACTERS;
                                 }
                             }
-                            if (c1 == '[' && c2 == 'C') {
-                                // maybe CDATA => check
-                                if (nextChar() == 'D' && nextChar() == 'A' && nextChar() == 'T' && nextChar() == 'A' && nextChar() == '[') {
+                            // maybe CDATA => check
+                            if (c1 == '[' && c2 == 'C' && nextChar() == 'D' && nextChar() == 'A' && nextChar() == 'T' && nextChar() == 'A' && nextChar() == '[') {
                                     this.state = STATE_CDATA;
-                                }
                             }
                         }
                     }

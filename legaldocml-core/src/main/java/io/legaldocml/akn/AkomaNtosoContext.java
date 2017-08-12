@@ -75,14 +75,15 @@ public final class AkomaNtosoContext {
     }
 
 
+    @SuppressWarnings("unchecked")
     public void update(String name, AknObject akn) {
         BiConsumer consumer = REFS.get(name);
 
         if (consumer == null) {
             LOGGER.warn("no consumer for attribute [{}] -> skip" , name);
+        } else {
+            consumer.accept(this, akn);
         }
-
-        consumer.accept(this, akn);
     }
 
     public Id getId(String id) {

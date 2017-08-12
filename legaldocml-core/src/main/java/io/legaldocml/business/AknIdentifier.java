@@ -6,6 +6,7 @@ import io.legaldocml.akn.element.FRBRExpression;
 import io.legaldocml.akn.element.FRBRManifestation;
 import io.legaldocml.akn.element.FRBRWork;
 import io.legaldocml.akn.element.Identification;
+import io.legaldocml.util.Hashing;
 import io.legaldocml.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,11 +71,16 @@ public abstract class AknIdentifier {
         if (obj == null) {
             return false;
         }
-        if (!(obj instanceof AknIdentifier)) {
-            return false;
-        }
+        return obj instanceof AknIdentifier && doEquals((AknIdentifier) obj);
 
-        return doEquals((AknIdentifier) obj);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return (int) Hashing.xx(0, manifestation());
     }
 
     protected abstract boolean doEquals(AknIdentifier aknIdentifier);

@@ -10,7 +10,7 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>> {
 
     private final long adr;
 
-    private static sun.misc.Unsafe UNSAFE = UnsafeHelper.getUnsafe();
+    private static final sun.misc.Unsafe UNSAFE = UnsafeHelper.getUnsafe();
 
     private final UnsafeHolder[] holders;
 
@@ -88,4 +88,9 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>> {
 
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        UNSAFE.freeMemory(this.adr);
+        super.finalize();
+    }
 }

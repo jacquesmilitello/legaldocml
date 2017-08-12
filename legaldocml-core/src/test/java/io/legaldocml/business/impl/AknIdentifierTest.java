@@ -4,7 +4,6 @@ import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.Amendment;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.AknIdentifierException;
-import io.legaldocml.business.impl.DefaultAknIdentifier;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -76,6 +75,17 @@ public class AknIdentifierTest {
         new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/").apply(akn);
 
         Assert.assertFalse(AknIdentifier.isEmpty(akn));
+    }
+
+    @Test
+    public void testEqualsAndHashCode() {
+
+        AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
+        AknIdentifier identifier1 = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
+
+        Assert.assertEquals(identifier, identifier1);
+        Assert.assertEquals(identifier.hashCode(), identifier1.hashCode());
+        Assert.assertNotSame(identifier,identifier1);
     }
 
 }

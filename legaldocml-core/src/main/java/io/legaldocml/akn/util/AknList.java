@@ -9,7 +9,6 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -285,56 +284,11 @@ public final class AknList<E extends AknObject> implements List<E> {
             builder.append(this.elems[i]).append(",");
         }
         builder.insert(builder.length() - 1, ']');
-        return super.toString();
+        return builder.toString();
     }
 
     protected final void addUncheck(E item) {
         this.elems[this.size++] = item;
-    }
-
-
-    /**
-     * Save the state of the <tt>BaserrayList</tt> instance to a stream (that is, serialize it).
-     *
-     * @serialData The length of the array backing the <tt>ArrayList</tt> instance is emitted (int), followed by all of
-     * its elements (each an <tt>Object</tt>) in the proper order.
-     */
-    private void writeObject(java.io.ObjectOutputStream s) throws IOException {
-        // Write out element count, and any hidden stuff
-        int expectedModCount = this.modCount;
-        s.defaultWriteObject();
-
-        // Write out array length
-        s.writeInt(this.size);
-
-        // Write out all elements in the proper order.
-        for (int i = 0; i < this.size; i++) {
-            s.writeObject(this.elems[i]);
-        }
-
-        if (this.modCount != expectedModCount) {
-            throw new ConcurrentModificationException();
-        }
-
-    }
-
-    /**
-     * Reconstitute the <tt>AknList</tt> instance from a stream (that is, deserialize it).
-     */
-    @SuppressWarnings("unchecked")
-    private void readObject(java.io.ObjectInputStream s) throws IOException, ClassNotFoundException {
-        // Read in size, and any hidden stuff
-        s.defaultReadObject();
-
-        // Read in array length and allocate array
-        int arrayLength = s.readInt();
-        this.elems = (E[]) new Object[arrayLength];
-
-        // Read in all elements in the proper order.
-        for (int i = 0; i < this.size; i++) {
-            this.elems[i] = (E) s.readObject();
-        }
-
     }
 
     /**
@@ -345,16 +299,7 @@ public final class AknList<E extends AknObject> implements List<E> {
     public <T extends AknVisitor> void accept(T visitor) {
         E[] elem = this.elems;
         for (int i = 0, size = size(), n = size; i < n; i++) {
-
             elem[i].accept(visitor);
-//            if (VisitorStatus.CONTINUE == visitor.status()) {
-//                // TODO CHANGE
-//               // ((Visitable)elem[i]).accept(visitor);
-//            } else if (VisitorStatus.STOP == visitor.status()) {
-//                return;
-//            } else {
-//                throw new UnsupportedOperationException();
-//            }
         }
     }
 
