@@ -2,8 +2,9 @@ package io.legaldocml.akn.v3;
 
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.io.impl.XmlChannelWriter;
 import io.legaldocml.io.impl.XmlChannelReader;
+import io.legaldocml.io.impl.XmlChannelWriter;
+import io.legaldocml.test.PathForTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.xmlunit.builder.DiffBuilder;
@@ -27,14 +28,15 @@ public class AknTest {
 
     @Test
     public void testOther() throws Exception {
-        test(Paths.get(AknTest.class.getResource("/xml/v3/cl_Sesion56_2.xml").toURI()));
-        test(Paths.get(AknTest.class.getResource("/xml/v3/it_senato_ddl_2013.xml").toURI()));
-        test(Paths.get(AknTest.class.getResource("/xml/v3/uy_bill_2010-09-27.xml").toURI()));
-        test(Paths.get(AknTest.class.getResource("/xml/v3/us_Act_2011-11-29.xml").toURI()));
+        test("/xml/v3/cl_Sesion56_2.xml");
+        test("/xml/v3/it_senato_ddl_2013.xml");
+        test("/xml/v3/uy_bill_2010-09-27.xml");
+        test("/xml/v3/us_Act_2011-11-29.xml");
     }
 
-    public static void test(Path path) throws IOException {
+    public static void test(String resource) throws IOException {
 
+        Path path = PathForTest.path(resource);
         XmlChannelReader reader = new XmlChannelReader();
         MappedByteBuffer out = null;
         try (FileChannel channel = FileChannel.open(path, StandardOpenOption.READ)) {

@@ -8,6 +8,7 @@ import io.legaldocml.archive.ArchiveFactory;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.MediaType;
+import io.legaldocml.test.PathForTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +37,7 @@ public class ZipArchiveTest {
 
     @Test
     public void testCreateRead() throws Exception {
-        AkomaNtoso<Debate> akn = ReaderHelper.read(Paths.get(ZipArchiveTest.class.getResource("/xml/cl_Sesion56_2.xml").toURI()));
+        AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
         try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
             archive.put(akn);
         }
@@ -52,7 +53,7 @@ public class ZipArchiveTest {
     @Test
     public void testCreateRead2() throws Exception {
 
-        Path path = Paths.get(ZipArchiveTest.class.getResource("/xml/cl_Sesion56_2.xml").toURI());
+        Path path = PathForTest.path("/xml/v3/cl_Sesion56_2.xml");
         AknIdentifier identifier = BusinessProvider.newAknIdentifier("123", "456", "789", "/");
 
         try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
@@ -68,7 +69,7 @@ public class ZipArchiveTest {
 
     @Test
     public void testMeta() throws Exception {
-        AkomaNtoso<Debate> akn = ReaderHelper.read(Paths.get(ZipArchiveTest.class.getResource("/xml/cl_Sesion56_2.xml").toURI()));
+        AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
         try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
             archive.put(akn);
             Assert.assertEquals(1, archive.getMeta().stream().count());
@@ -87,7 +88,7 @@ public class ZipArchiveTest {
 
     @Test
     public void testWriteOnlyAddSameResourceTwice() throws Exception {
-        AkomaNtoso<Debate> akn = ReaderHelper.read(Paths.get(ZipArchiveTest.class.getResource("/xml/cl_Sesion56_2.xml").toURI()));
+        AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
 
         try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
             archive.put(akn);
@@ -103,7 +104,7 @@ public class ZipArchiveTest {
 
     @Test
     public void testReadWrite() throws Exception {
-        AkomaNtoso<Debate> akn = ReaderHelper.read(Paths.get(ZipArchiveTest.class.getResource("/xml/cl_Sesion56_2.xml").toURI()));
+        AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
         try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
             archive.put(akn);
         }
