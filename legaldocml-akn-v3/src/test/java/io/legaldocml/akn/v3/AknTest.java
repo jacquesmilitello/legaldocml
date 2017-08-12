@@ -48,7 +48,7 @@ public class AknTest {
             akomaNtoso.read(reader);
 
             XmlChannelWriter writer = new XmlChannelWriterV3();
-            writer.setChannel(FileChannel.open(Paths.get("c:/tmp/test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
+            writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
             akomaNtoso.write(writer);
             writer.flush();
 
@@ -58,7 +58,7 @@ public class AknTest {
             }
         }
 
-        compare(Files.newInputStream(path), new FileInputStream("c:/tmp/test-001.xml"));
+        compare(Files.newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml").toFile()));
     }
 
     public static void compare(InputStream controlXml, InputStream testXml) {
