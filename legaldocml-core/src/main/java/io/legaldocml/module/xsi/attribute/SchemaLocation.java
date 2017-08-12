@@ -1,4 +1,4 @@
-package io.legaldocml.mod.xsi.attribute;
+package io.legaldocml.module.xsi.attribute;
 
 
 import io.legaldocml.io.Attribute;

@@ -1,11 +1,11 @@
-package io.legaldocml.mod.xml;
+package io.legaldocml.module.xml;
 
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.iso.Language;
-import io.legaldocml.mod.xml.attribute.XmlLang;
+import io.legaldocml.module.xml.attribute.XmlLang;
 
 import java.io.IOException;
 

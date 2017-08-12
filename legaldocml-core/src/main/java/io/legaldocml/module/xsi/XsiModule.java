@@ -1,4 +1,4 @@
-package io.legaldocml.mod.xml;
+package io.legaldocml.module.xsi;
 
 
 import com.google.common.collect.ImmutableMap;
@@ -6,18 +6,17 @@ import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
-import io.legaldocml.module.Module;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.mod.xml.attribute.XmlLang;
-import io.legaldocml.mod.xml.attribute.XmlSpace;
+import io.legaldocml.module.Module;
+import io.legaldocml.module.xsi.attribute.SchemaLocation;
 
 import java.io.IOException;
 import java.util.function.Supplier;
 
-public final class XmlModule implements Module {
+public final class XsiModule implements Module {
 
-    public static final String NS_VALUE = "http://www.w3.org/XML/1998/namespace";
-    public static final String NS_PREFIX = "xmlns:xml";
+    public static final String NS_VALUE = "http://www.w3.org/2001/XMLSchema-instance";
+    public static final String NS_PREFIX = "xmlns:xsi";
 
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
@@ -28,8 +27,7 @@ public final class XmlModule implements Module {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, Supplier<Attribute>>builder()
-                .put(XmlLang.ATTRIBUTE, XmlLangImpl::new)
-                .put(XmlSpace.ATTRIBUTE, XmlSpaceImpl::new)
+                .put(SchemaLocation.ATTRIBUTE, SchemaLocationImpl::new)
                 .build();
     }
 
@@ -41,14 +39,18 @@ public final class XmlModule implements Module {
         return NAMESPACE;
     }
 
+
     /**
      * {@inheritDoc}
      */
     @Override
     public void writeNamespace(XmlWriter writer) throws IOException {
-        writer.writeNamespace(NS_PREFIX_ADDRESS, 9, NS_VALUE_ADDRESS, 36);
+        writer.writeNamespace(NS_PREFIX_ADDRESS, 9, NS_VALUE_ADDRESS, 41);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Supplier<Attribute> attributes(String name) {
         return ATTRIBUTES.get(name);
@@ -61,5 +63,4 @@ public final class XmlModule implements Module {
     public String toString() {
         return getClass().getName() + " for [" + NAMESPACE + "]";
     }
-
 }

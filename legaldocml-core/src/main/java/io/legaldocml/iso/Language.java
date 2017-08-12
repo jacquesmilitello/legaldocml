@@ -70,7 +70,7 @@ public final class Language {
     static {
         ALL = ImmutableMap.<String, Language>builder()
                 .put(FR.getCode(), FR)
-                .put(EN.getCode(), FR)
+                .put(EN.getCode(), EN)
                 .build();
     }
 

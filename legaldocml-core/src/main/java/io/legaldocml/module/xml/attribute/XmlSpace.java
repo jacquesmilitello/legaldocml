@@ -1,7 +1,7 @@
-package io.legaldocml.mod.xml.attribute;
+package io.legaldocml.module.xml.attribute;
 
 import io.legaldocml.io.Attribute;
-import io.legaldocml.mod.xml.type.Space;
+import io.legaldocml.module.xml.type.Space;
 
 public interface XmlSpace extends Attribute{
 

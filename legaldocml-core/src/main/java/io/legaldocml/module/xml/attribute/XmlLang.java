@@ -1,4 +1,4 @@
-package io.legaldocml.mod.xml.attribute;
+package io.legaldocml.module.xml.attribute;
 
 import io.legaldocml.io.Attribute;
 import io.legaldocml.iso.Language;

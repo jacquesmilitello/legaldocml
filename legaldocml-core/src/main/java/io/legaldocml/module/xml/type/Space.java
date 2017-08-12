@@ -1,4 +1,4 @@
-package io.legaldocml.mod.xml.type;
+package io.legaldocml.module.xml.type;
 
 public enum Space {
 
