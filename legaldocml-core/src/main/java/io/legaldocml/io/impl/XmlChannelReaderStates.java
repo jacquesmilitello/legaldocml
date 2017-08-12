@@ -90,45 +90,4 @@ interface XmlChannelReaderStates {
      */
     int STATE_DTD_INTERNAL = 17;
 
-    /**
-     * Holds the textual representation for states.
-     */
-    String[] NAMES = new String[]{
-            // state = 0
-            "INVALID",
-            // state = 1
-            "STATE_CHARACTERS",
-            // state = 2
-            "STATE_MARKUP",
-            // state = 3
-            "STATE_COMMENT",
-            // state = 4
-            "STATE_PI",
-            // state = 5
-            "STATE_CDATA",
-            // state = 6
-            "STATE_OPEN_TAG_READ_ELEM_NAME",
-            // state = 7
-            "STATE_OPEN_TAG_ELEM_NAME_READ",
-            // state = 8
-            "STATE_OPEN_TAG_READ_ATTR_NAME",
-            // state = 9
-            "STATE_OPEN_TAG_ATTR_NAME_READ",
-            // state = 10
-            "STATE_OPEN_TAG_EQUAL_READ",
-            // state = 11
-            "STATE_OPEN_TAG_READ_ATTR_VALUE_SIMPLE_QUOTE",
-            // state = 12
-            "STATE_OPEN_TAG_READ_ATTR_VALUE_DOUBLE_QUOTE",
-            // state = 13
-            "STATE_OPEN_TAG_EMPTY_TAG",
-            // state = 14
-            "STATE_CLOSE_TAG_READ_ELEM_NAME",
-            // state = 15
-            "STATE_CLOSE_TAG_ELEM_NAME_READ",
-            // state = 16
-            "STATE_DTD",
-            // state = 17
-            "STATE_DTD_INTERNAL"
-    };
 }
