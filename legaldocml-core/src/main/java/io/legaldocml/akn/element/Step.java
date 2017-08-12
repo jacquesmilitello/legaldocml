@@ -35,21 +35,21 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element step is a metadata element specifying facts about a workflow step occurred to the document. For each
  * event, a date, a type, an agent (and the corresponding role) that generated the action must be referenced. The
  * outcome, too, can be specified.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="step">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="anyOtherType">
- * 		     <xsd:attributeGroup ref="date"/>
- * 			 <xsd:attributeGroup ref="agent"/>
- * 			 <xsd:attributeGroup ref="actor"/>
- * 		 	 <xsd:attributeGroup ref="role"/>
- * 		 	 <xsd:attributeGroup ref="outcome"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="step"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="anyOtherType"&gt;
+ * 		     &lt;xsd:attributeGroup ref="date"/&gt;
+ * 			 &lt;xsd:attributeGroup ref="agent"/&gt;
+ * 			 &lt;xsd:attributeGroup ref="actor"/&gt;
+ * 		 	 &lt;xsd:attributeGroup ref="role"/&gt;
+ * 		 	 &lt;xsd:attributeGroup ref="outcome"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

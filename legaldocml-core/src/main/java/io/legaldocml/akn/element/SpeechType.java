@@ -30,22 +30,22 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type speechType defines the content model and attributes shared by all speech elements. Here the eId
  * attribute is optional.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="speechType">
- * 	   <xsd:complexContent>
- * 	     <xsd:extension base="basehierarchy">
- * 		   <xsd:sequence>
- * 		     <xsd:element ref="from" minOccurs="0" maxOccurs="1"/>
- * 			 <xsd:sequence minOccurs="1" maxOccurs="unbounded">
- * 		       <xsd:group ref="blockElements"/>
- * 			 </xsd:sequence>
- * 		   </xsd:sequence>
- * 		   <xsd:attributeGroup ref="coreopt"/>
- * 		   <xsd:attributeGroup ref="speechAtts"/>
- * 	     </xsd:extension>
- * 	   </xsd:complexContent>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="speechType"&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ * 	     &lt;xsd:extension base="basehierarchy"&gt;
+ * 		   &lt;xsd:sequence&gt;
+ * 		     &lt;xsd:element ref="from" minOccurs="0" maxOccurs="1"/&gt;
+ * 			 &lt;xsd:sequence minOccurs="1" maxOccurs="unbounded"&gt;
+ * 		       &lt;xsd:group ref="blockElements"/&gt;
+ * 			 &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ * 		   &lt;xsd:attributeGroup ref="speechAtts"/&gt;
+ * 	     &lt;xsd:extension&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

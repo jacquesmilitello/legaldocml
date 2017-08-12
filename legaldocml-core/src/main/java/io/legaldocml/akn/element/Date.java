@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element date is an inline element to identify a date expressed in the text and to propose a normalized
  * representation in the date attribute.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="date">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inline">
- * 		     <xsd:attributeGroup ref="date"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="date"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inline"&gt;
+ * 		     &lt;xsd:attributeGroup ref="date"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

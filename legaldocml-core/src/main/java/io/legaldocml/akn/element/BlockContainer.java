@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * The element blockContainer is used as a container of many individual block elements in a block context
- * <p>
+ *
  * <pre>
- * 	<xsd:element name="blockContainer" type="blockContainerType"/>
+ * 	&lt;xsd:element name="blockContainer" type="blockContainerType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

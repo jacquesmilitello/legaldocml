@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element voting is a metadata container containing information about an event of a vote happened within a debate.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="voting" type="parliamentaryAnalysisType"/>
+ *   &lt;xsd:element name="voting" type="parliamentaryAnalysisType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

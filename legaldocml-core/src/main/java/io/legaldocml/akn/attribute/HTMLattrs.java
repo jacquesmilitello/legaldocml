@@ -4,13 +4,13 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * These attributes are used to specify class, style and title of the element, exactly as in HTML<
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="HTMLattrs">
- * 	   <xsd:attribute name="class" type="xsd:string"/>
- * 	   <xsd:attribute name="style" type="xsd:string"/>
- * 	   <xsd:attribute name="title" type="xsd:string"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="HTMLattrs"&gt;
+ * 	   &lt;xsd:attribute name="class" type="xsd:string"/&gt;
+ * 	   &lt;xsd:attribute name="style" type="xsd:string"/&gt;
+ * 	   &lt;xsd:attribute name="title" type="xsd:string"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

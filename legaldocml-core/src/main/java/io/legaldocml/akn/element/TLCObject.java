@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element TLCObject is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Object.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="TLCObject" type="referenceType"/>
+ *   &lt;xsd:element name="TLCObject" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

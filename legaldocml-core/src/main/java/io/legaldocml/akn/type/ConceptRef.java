@@ -5,11 +5,11 @@ import io.legaldocml.util.AbstractUri;
 /**
  * These values are references to existing concepts (i.e., TLCConcept) only, i.e., given an existing eId of a concept of
  * the form XYZ, the value is necessarily #XYZ.
- * <p/>
+ *
  * <pre>
- *   <xsd:simpleType name="conceptRef">
- *     <xsd:restriction base="xsd:anyURI"/>
- *   </xsd:simpleType>
+ *   &lt;xsd:simpleType name="conceptRef"&gt;
+ *     &lt;xsd:restriction base="xsd:anyURI"/&gt;
+ *   &lt;xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -5,16 +5,16 @@ import io.legaldocml.akn.element.PreambleoptElement;
 /**
  * The group preambleContainers lists the elements that are containers and are specific to the Akoma Ntoso preamble
  * vocabulary.
- * <p/>
+ *
  * <pre>
- *   <xsd:group name="preambleContainers">
- *     <xsd:choice>
- * 	     <xsd:element ref="recitals"/>
- * 		 <xsd:element ref="citations"/>
- * 	 	 <xsd:element ref="formula"/>
- * 		 <xsd:element ref="container"/>
- * 	   </xsd:choice>
- *   </xsd:group>
+ *   &lt;xsd:group name="preambleContainers"&gt;
+ *     &lt;xsd:choice&gt;
+ * 	     &lt;xsd:element ref="recitals"/&gt;
+ * 		 &lt;xsd:element ref="citations"/&gt;
+ * 	 	 &lt;xsd:element ref="formula"/&gt;
+ * 		 &lt;xsd:element ref="container"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

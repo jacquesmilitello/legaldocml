@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * <pre>
- * 	<xsd:element name="popup" type="popupStructure"/>
+ * 	&lt;xsd:element name="popup" type="popupStructure"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

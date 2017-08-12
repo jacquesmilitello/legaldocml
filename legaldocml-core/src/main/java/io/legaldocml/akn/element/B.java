@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element b is an HTML element and is used in Akoma Ntoso as in HTML, for the bold style (an inline).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="b" type="inline"/>
+ *   &lt;xsd:element name="b" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

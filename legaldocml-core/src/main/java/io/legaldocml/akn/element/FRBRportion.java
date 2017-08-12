@@ -14,19 +14,19 @@ import java.io.IOException;
 /**
  * The element FRBRportion is the metadata property containing the eId of the portion contained in a manifestation-level
  * portion. If the portion contains an interval of elements, the range attributes specifies the first and last one.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRportion">
- *     <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="metaopt">
- *           <xsd:attributeGroup ref="refers"/>
- *           <xsd:attributeGroup ref="showopt"/>
- *           <xsd:attributeGroup ref="rangeOpt"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="FRBRportion"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="metaopt"&gt;
+ *           &lt;xsd:attributeGroup ref="refers"/&gt;
+ *           &lt;xsd:attributeGroup ref="showopt"/&gt;
+ *           &lt;xsd:attributeGroup ref="rangeOpt"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

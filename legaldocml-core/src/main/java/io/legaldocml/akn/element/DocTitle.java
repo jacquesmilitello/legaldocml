@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element docTitle is an inline element within preface to identify the string used by the document for its own
  * title.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="docTitle" type="inline"/>
+ * 	 &lt;xsd:element name="docTitle" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

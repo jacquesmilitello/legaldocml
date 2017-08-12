@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element quorumVerification is a metadata container containing information about an event of quorum verification
  * happened within a debate.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="quorumVerification" type="parliamentaryAnalysisType"/>
+ * 	 &lt;xsd:element name="quorumVerification" type="parliamentaryAnalysisType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

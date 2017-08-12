@@ -4,12 +4,12 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * These attributes specify the dimension of the image.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="imgAtts">
- * 	   <xsd:attribute name="width" type="xsd:integer"/>
- *     <xsd:attribute name="height" type="xsd:integer"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="imgAtts"&gt;
+ * 	   &lt;xsd:attribute name="width" type="xsd:integer"/&gt;
+ *     &lt;xsd:attribute name="height" type="xsd:integer"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

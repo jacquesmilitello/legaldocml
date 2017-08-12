@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element TLCProcess is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Process.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="TLCProcess" type="referenceType"/>
+ *   &lt;xsd:element name="TLCProcess" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

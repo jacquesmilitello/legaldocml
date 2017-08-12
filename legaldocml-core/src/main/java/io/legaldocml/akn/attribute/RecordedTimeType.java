@@ -5,9 +5,9 @@ import io.legaldocml.akn.type.TimeType;
 
 /**
  * <pre>
- *   <xsd:attributeGroup name="recordedTimeType">
- * 	   <xsd:attribute name="type" type="timeType"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="recordedTimeType"&gt;
+ * 	   &lt;xsd:attribute name="type" type="timeType"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

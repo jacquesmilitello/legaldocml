@@ -15,15 +15,15 @@ import static io.legaldocml.akn.element.Groups.hierElements;
 
 /**
  * the type bodyType specifies a content model of the main hierarchy of a hierarchical document (e.g, an act or a bill).
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="bodyType">
- *     <xsd:choice minOccurs="1" maxOccurs="unbounded">
- *       <xsd:element ref="componentRef"/>
- *       <xsd:group ref="hierElements"/>
- *     </xsd:choice>
- *     <xsd:attributeGroup ref="coreopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="bodyType"&gt;
+ *     &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ *       &lt;xsd:element ref="componentRef"/&gt;
+ *       &lt;xsd:group ref="hierElements"/&gt;
+ *     &lt;xsd:choice&gt;
+ *     &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -16,17 +16,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element td is an HTML element and is used in Akoma Ntoso as in HTML, for a data cell of a table.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="td">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="blocksopt">
- * 		     <xsd:attributeGroup ref="cellattrs"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="td"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="blocksopt"&gt;
+ * 		     &lt;xsd:attributeGroup ref="cellattrs"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -19,17 +19,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * This element is a generic structural container for all other parts of a debates that are not explicitly supported
  * with a named element.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="debateSection">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="althierarchy">
- * 		     <xsd:attributeGroup ref="name"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="debateSection"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="althierarchy"&gt;
+ * 		     &lt;xsd:attributeGroup ref="name"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

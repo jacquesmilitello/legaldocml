@@ -11,9 +11,9 @@ import java.io.IOException;
 
 /**
  * The element container is a generic element for a container.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="container" type="containerType"/>
+ * 	 &lt;xsd:element name="container" type="containerType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

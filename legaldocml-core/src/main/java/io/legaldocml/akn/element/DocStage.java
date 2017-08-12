@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element docStage is an inline element within preface to identify the string used by the document detailing the
  * stage in which the document sits.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="docStage" type="inline"/>
+ *   &lt;xsd:element name="docStage" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -7,13 +7,13 @@ import java.io.IOException;
 
 /**
  * The group ManifProperties lists the properties that are characteristics of the FRBR Manifestation level.
- * <p>
+ *
  * <pre>
- *   <xsd:group name="ManifProperties">
- * 	   <xsd:sequence>
- *       <xsd:element ref="FRBRportion" minOccurs="0" maxOccurs="1"/>
- *       <xsd:element ref="FRBRformat" minOccurs="0" maxOccurs="1"/>
- *     </xsd:sequence>
+ *   &lt;xsd:group name="ManifProperties"&gt;
+ * 	   &lt;xsd:sequence&gt;
+ *       &lt;xsd:element ref="FRBRportion" minOccurs="0" maxOccurs="1"/&gt;
+ *       &lt;xsd:element ref="FRBRformat" minOccurs="0" maxOccurs="1"/&gt;
+ *     &lt;xsd:sequence&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

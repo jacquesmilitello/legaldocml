@@ -4,11 +4,11 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * The attribute width of the element fillIn specifies the width of the fillIn element.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="fillInWidth">
- * 	   <xsd:attribute name="width" type="xsd:string"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="fillInWidth"&gt;
+ * 	   &lt;xsd:attribute name="width" type="xsd:string"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,18 +8,18 @@ import java.io.IOException;
 
 /**
  * Element officialGazette is used for describing the structure and content of an issue of an official gazette.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="officialGazette" type="collectionStructure">
- * 	   <xsd:unique name="eId-officialGazette">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@eId"/>
- *     </xsd:unique>
- *     <xsd:unique name="GUID-officialGazette">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@GUID"/>
- *     </xsd:unique>
- * 	 </xsd:element>
+ *   &lt;xsd:element name="officialGazette" type="collectionStructure"&gt;
+ * 	   &lt;xsd:unique name="eId-officialGazette"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@eId"/&gt;
+ *     &lt;xsd:unique&gt;
+ *     &lt;xsd:unique name="GUID-officialGazette"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@GUID"/&gt;
+ *     &lt;xsd:unique&gt;
+ * 	 &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

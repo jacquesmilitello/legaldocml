@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element shortTitle is an inline element within preface to identify the string used by the document for the short
  * title of the document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="shortTitle" type="inline"/>
+ * 	 &lt;xsd:element name="shortTitle" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

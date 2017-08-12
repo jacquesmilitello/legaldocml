@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element TLCEvent is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Event.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="TLCEvent" type="referenceType"/>
+ *   &lt;xsd:element name="TLCEvent" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

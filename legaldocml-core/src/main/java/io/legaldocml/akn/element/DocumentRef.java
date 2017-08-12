@@ -12,9 +12,9 @@ import java.io.IOException;
  * the element documentRef is a reference to a separate work- or expression-level resource that should be placed in this
  * position. Actual resources are external (e.g. in the package or even in a different position) and are (an expression
  * or any expression of) a separate Work.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="documentRef" type="linkType"/>
+ *   &lt;xsd:element name="documentRef" type="linkType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

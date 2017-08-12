@@ -9,10 +9,10 @@ import java.io.IOException;
 /**
  * The element docNumber is an inline element within preface to identify the string used by the document for its own
  * number.
- * <p/>
- * <p>
+ *
+ *
  * <pre>
- * 	 <xsd:element name="docNumber" type="inline"/>
+ * 	 &lt;xsd:element name="docNumber" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -19,17 +19,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element session is an inline element within preface to identify the string used by the document for the session
  * of the legislature relative to the document. Use #refersTo to a TLCEvent to refer to the event of the specific
  * session.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="session">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inline">
- * 		     <xsd:attributeGroup ref="optvalue"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="session"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inline"&gt;
+ * 		     &lt;xsd:attributeGroup ref="optvalue"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

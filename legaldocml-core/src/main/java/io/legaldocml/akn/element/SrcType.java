@@ -22,14 +22,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type srcType defines the empty content model and the list of attributes for manifestation-level
  * references to external resources.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="srcType">
- * 	   <xsd:attributeGroup ref="core"/>
- * 	   <xsd:attributeGroup ref="idopt"/>
- * 	   <xsd:attributeGroup ref="src"/>
- * 	   <xsd:attributeGroup ref="show"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="srcType"&gt;
+ * 	   &lt;xsd:attributeGroup ref="core"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="idopt"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="src"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="show"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

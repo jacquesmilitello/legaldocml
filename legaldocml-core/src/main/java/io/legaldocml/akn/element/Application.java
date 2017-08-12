@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element application is a metadata element specifying the period of the application modification.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="application" type="periodType">
+ *   &lt;xsd:element name="application" type="periodType"&gt;
  * </pre>
  */
 public final class Application extends PeriodType {

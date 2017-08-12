@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element duration is a metadata element specifying the period of the duration modification.
- * <p>
+ *
  * <pre>
- *   <xsd:element name="duration" type="periodType">
+ *   &lt;xsd:element name="duration" type="periodType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

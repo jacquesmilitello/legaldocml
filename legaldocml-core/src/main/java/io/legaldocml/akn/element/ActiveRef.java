@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element activeRef is a metadata reference to the Akoma Ntoso IRI of a document that is modified by this document
  * (i.e., an active references).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="activeRef" type="referenceType"/>
+ * 	 &lt;xsd:element name="activeRef" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

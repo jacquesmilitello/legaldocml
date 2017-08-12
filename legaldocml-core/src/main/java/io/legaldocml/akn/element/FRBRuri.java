@@ -8,10 +8,10 @@ import java.io.IOException;
 
 /**
  * The element FRBRuri is the metadata property containing the IRI of the whole document.
- * <p/>
- * <p>
+ *
+ *
  * <pre>
- *   <xsd:element name="FRBRuri" type="valueType"/>
+ *   &lt;xsd:element name="FRBRuri" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

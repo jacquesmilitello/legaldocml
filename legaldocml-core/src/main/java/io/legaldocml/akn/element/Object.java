@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element object is is an inline element to identify a text fragment introducing or referring to an object in the
  * ontology.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="object" type="inlinereqreq"/>
+ *   &lt;xsd:element name="object" type="inlinereqreq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

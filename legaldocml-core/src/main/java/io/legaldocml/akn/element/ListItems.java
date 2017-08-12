@@ -9,14 +9,14 @@ import java.io.IOException;
 /**
  * the complex type listItems specifies the content model of elements ul and ol, and specifies just a sequence of list
  * items (elements li).
- * <p>
+ *
  * <pre>
- *   <xsd:complexType name="listItems">
- * 	   <xsd:sequence>
- *       <xsd:element ref="li" minOccurs="1" maxOccurs="unbounded"/>
- * 	   </xsd:sequence>
- * 	   <xsd:attributeGroup ref="corereq"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="listItems"&gt;
+ * 	   &lt;xsd:sequence&gt;
+ *       &lt;xsd:element ref="li" minOccurs="1" maxOccurs="unbounded"/&gt;
+ * 	   &lt;xsd:sequence&gt;
+ * 	   &lt;xsd:attributeGroup ref="corereq"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

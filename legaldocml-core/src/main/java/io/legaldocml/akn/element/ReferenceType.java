@@ -21,14 +21,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type referenceType defines the empty content model and the list of attributes for metadata elements in
  * the references section.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="referenceType">
- * 	   <xsd:attributeGroup ref="core"/>
- * 	   <xsd:attributeGroup ref="idreq"/>
- * 	   <xsd:attributeGroup ref="link"/>
- * 	   <xsd:attributeGroup ref="show"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="referenceType"&gt;
+ * 	   &lt;xsd:attributeGroup ref="core"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="idreq"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="link"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="show"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

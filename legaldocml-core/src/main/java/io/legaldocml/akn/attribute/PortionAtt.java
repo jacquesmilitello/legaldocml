@@ -6,11 +6,11 @@ import io.legaldocml.util.ReferenceRef;
 /**
  * the attribute includedIn specifies the eId of the element of the references section identifying the document that
  * this portion is a portion of.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="portionAtt">
- * 	   <xsd:attribute name="includedIn"  type="referenceRef" use="required"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="portionAtt"&gt;
+ * 	   &lt;xsd:attribute name="includedIn"  type="referenceRef" use="required"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

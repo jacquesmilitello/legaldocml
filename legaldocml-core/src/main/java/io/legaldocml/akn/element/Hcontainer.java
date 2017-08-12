@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element hcontainer is a generic element for a hierarchical container. It can be placed in a hierarchy instead of
  * any of the other hierarchical containers. The attribute name is required and gives a name to the element.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="hcontainer">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="hierarchy">
- * 		     <xsd:attributeGroup ref="name"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="hcontainer"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="hierarchy"&gt;
+ * 		     &lt;xsd:attributeGroup ref="name"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

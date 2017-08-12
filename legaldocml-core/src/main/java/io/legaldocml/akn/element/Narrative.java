@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element narrative is a block element in a debate to mark description in the third person of events taking place
  * in the meeting, e.g. "Mr X. takes the Chair".
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="narrative" type="inline"/>
+ * 	 &lt;xsd:element name="narrative" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element efficacy is a metadata element specifying the period of the efficacy modification.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="efficacy" type="periodType">
+ *   &lt;xsd:element name="efficacy" type="periodType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

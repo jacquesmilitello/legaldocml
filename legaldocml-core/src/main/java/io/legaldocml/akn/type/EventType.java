@@ -2,16 +2,16 @@ package io.legaldocml.akn.type;
 
 /**
  * This is the list of allowed values for the type attribute of the eventRef element.
- * <p>
+ *
  * <pre>
- *   <xsd:simpleType name="eventType">
- * 	   <xsd:restriction base="xsd:string">
- * 	     <xsd:restriction base="xsd:string">
- * 		 <xsd:enumeration text="generation"/>
- * 	 	 <xsd:enumeration text="amendment"/>
- * 		 <xsd:enumeration text="repeal"/>
- * 	   </xsd:restriction>
- *   </xsd:simpleType>
+ *   &lt;xsd:simpleType name="eventType"&gt;
+ * 	   &lt;xsd:restriction base="xsd:string"&gt;
+ * 	     &lt;xsd:restriction base="xsd:string"&gt;
+ * 		 &lt;xsd:enumeration text="generation"/&gt;
+ * 	 	 &lt;xsd:enumeration text="amendment"/&gt;
+ * 		 &lt;xsd:enumeration text="repeal"/&gt;
+ * 	   &lt;xsd:restriction>
+ *   &lt;xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

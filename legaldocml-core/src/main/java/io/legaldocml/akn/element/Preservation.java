@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element preservation is the metadata property containing an arbitrary list of elements detailing the preservation
  * actions taken for the document is the respective level of the FRBR hierarchy.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="preservation" type="anyOtherType"/>
+ * 	 &lt;xsd:element name="preservation" type="anyOtherType"/&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

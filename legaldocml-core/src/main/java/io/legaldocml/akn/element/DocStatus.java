@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element docStatus is an inline element within preface to identify the string used by the document detailing the
  * status of the document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="docStatus" type="inline"/>
+ * 	 &lt;xsd:element name="docStatus" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

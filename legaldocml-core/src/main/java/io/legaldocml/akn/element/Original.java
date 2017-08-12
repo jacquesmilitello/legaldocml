@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element original is a metadata reference to the Akoma Ntoso IRI of the original version of this document (i.e.,
  * the first expression).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="original" type="referenceType"/>
+ * 	 &lt;xsd:element name="original" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -22,22 +22,22 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The type hierarchicalStructure specifies the overall content model of the document types that are hierarchical in
  * nature, especially acts and bills.
- * <p/>
+ *
  * <pre>
- * 	<xsd:complexType name="hierarchicalStructure">
- * 		<xsd:sequence>
- * 			<xsd:element ref="meta"/>
- * 			<xsd:element ref="coverPage" minOccurs="0" maxOccurs="1"/>
- * 			<xsd:element ref="preface" minOccurs="0" maxOccurs="1"/>
- * 			<xsd:element ref="preamble" minOccurs="0" maxOccurs="1"/>
- * 			<xsd:element ref="body"/>
- * 			<xsd:element ref="conclusions" minOccurs="0" maxOccurs="1"/>
- * 			<xsd:element ref="attachments" minOccurs="0" maxOccurs="1"/>
- * 		    <xsd:element ref="components" minOccurs="0" maxOccurs="1"/>
- * 		</xsd:sequence>
- * 		<xsd:attributeGroup ref="contains"/>
- *   	<xsd:attributeGroup ref="name"/>
- * 	  </xsd:complexType>
+ * 	&lt;xsd:complexType name="hierarchicalStructure"&gt;
+ * 		&lt;xsd:sequence&gt;
+ * 			&lt;xsd:element ref="meta"/&gt;
+ * 			&lt;xsd:element ref="coverPage" minOccurs="0" maxOccurs="1"/&gt;
+ * 			&lt;xsd:element ref="preface" minOccurs="0" maxOccurs="1"/&gt;
+ * 			&lt;xsd:element ref="preamble" minOccurs="0" maxOccurs="1"/&gt;
+ * 			&lt;xsd:element ref="body"/&gt;
+ * 			&lt;xsd:element ref="conclusions" minOccurs="0" maxOccurs="1"/&gt;
+ * 			&lt;xsd:element ref="attachments" minOccurs="0" maxOccurs="1"/&gt;
+ * 		    &lt;xsd:element ref="components" minOccurs="0" maxOccurs="1"/&gt;
+ * 		&lt;xsd:sequence&gt;
+ * 		&lt;xsd:attributeGroup ref="contains"/&gt;
+ *   	&lt;xsd:attributeGroup ref="name"/&gt;
+ * 	  &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

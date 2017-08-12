@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 /**
  * The element attachmentOf is a metadata reference to the Akoma Ntoso IRI of a document of which this document is an
  * attachment.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="attachmentOf" type="referenceType">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="referenceType">
- * 		     <xsd:attributeGroup ref="type"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="attachmentOf" type="referenceType"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="referenceType"&gt;
+ * 		     &lt;xsd:attributeGroup ref="type"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

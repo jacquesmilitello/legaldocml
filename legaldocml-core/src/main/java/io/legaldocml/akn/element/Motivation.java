@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for the section of a judgment containing the motivation.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="motivation" type="maincontent"/>
+ * 	 &lt;xsd:element name="motivation" type="maincontent"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

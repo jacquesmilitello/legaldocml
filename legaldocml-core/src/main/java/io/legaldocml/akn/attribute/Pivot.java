@@ -4,11 +4,11 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * This attribute specifies the human language used as a pivot in the translation. Values are taken from the RFC 4646.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="pivot">
- * 		<xsd:attribute name="pivot" type="language"/>
- * 	 </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="pivot"&gt;
+ * 		&lt;xsd:attribute name="pivot" type="language"/&gt;
+ * 	 &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

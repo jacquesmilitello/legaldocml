@@ -24,18 +24,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * the element noteRef is a reference to a editorial note placed in the notes metadata section.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="noteRef">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="markeropt">
- * 		     <xsd:attributeGroup ref="notes"/>
- * 			 <xsd:attributeGroup ref="link"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="noteRef"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="markeropt"&gt;
+ * 		     &lt;xsd:attributeGroup ref="notes"/&gt;
+ * 			 &lt;xsd:attributeGroup ref="link"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

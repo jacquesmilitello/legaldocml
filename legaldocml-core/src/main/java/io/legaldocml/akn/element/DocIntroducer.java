@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element docIntroducer is an inline element within preface to identify the string used by the document detailing
  * the individual introducing of the document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="docIntroducer" type="inline"/>
+ * 	 &lt;xsd:element name="docIntroducer" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

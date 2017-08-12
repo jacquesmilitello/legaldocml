@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for the section of a judgment containing the background.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="background" type="maincontent"/>
+ * 	 &lt;xsd:element name="background" type="maincontent"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

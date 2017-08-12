@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element jurisprudence is a metadata reference to the Akoma Ntoso IRI of a document providing jurisprudence on
  * this document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="jurisprudence" type="referenceType"/>
+ * 	 &lt;xsd:element name="jurisprudence" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

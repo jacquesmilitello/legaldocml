@@ -19,17 +19,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element person is an inline element to identify a text fragment introducing or referring to a person in the
  * ontology. Attribute as allows to specify a TLCrole the person is holding in the context of the document's mention.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="person">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inlinereqreq">
- * 		     <xsd:attributeGroup ref="role"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="person"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inlinereqreq"&gt;
+ * 		     &lt;xsd:attributeGroup ref="role"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

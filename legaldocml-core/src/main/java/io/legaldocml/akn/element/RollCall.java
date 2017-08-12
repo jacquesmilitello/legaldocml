@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for parts of a debates that contain a roll call of individuals.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="rollCall" type="althierarchy"/>
+ * 	 &lt;xsd:element name="rollCall" type="althierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

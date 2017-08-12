@@ -10,9 +10,9 @@ import java.io.IOException;
  * The element abbr is an HTML element and is used in Akoma Ntoso as in HTML, for the specification of an abbreviation
  * or an acronym (an inline). As in HTML, use attribute title to specify the full expansion of the abbreviation or
  * acronym.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="abbr" type="inline">
+ *   &lt;xsd:element name="abbr" type="inline"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

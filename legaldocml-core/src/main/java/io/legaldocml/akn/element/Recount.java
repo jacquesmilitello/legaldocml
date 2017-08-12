@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element recount is a metadata container containing information about an event of a recount happened within a
  * debate.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="recount" type="parliamentaryAnalysisType"/>
+ *   &lt;xsd:element name="recount" type="parliamentaryAnalysisType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

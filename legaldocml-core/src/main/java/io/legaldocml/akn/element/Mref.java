@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element mref is an inline element containing multiple references (each in turn represented by a ref element)
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="mref" type="inline"/>
+ *   &lt;xsd:element name="mref" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

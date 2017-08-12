@@ -7,18 +7,18 @@ import java.io.IOException;
 
 /**
  * Element amendmentList is used for describing the structure and content of a collection of amendments.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="amendmentList" type="collectionStructure">
- * 	   <xsd:unique name="eId-amendmentList">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@eId"/>
- *     </xsd:unique>
- *     <xsd:unique name="GUID-amendmentList">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@GUID"/>
- *     </xsd:unique>
- *   </xsd:element>
+ *   &lt;xsd:element name="amendmentList" type="collectionStructure"&gt;
+ * 	   &lt;xsd:unique name="eId-amendmentList"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@eId"/&gt;
+ *     &lt;xsd:unique&gt;
+ *     &lt;xsd:unique name="GUID-amendmentList"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@GUID"/&gt;
+ *     &lt;xsd:unique&gt;
+ *   &lt;xsd:element&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

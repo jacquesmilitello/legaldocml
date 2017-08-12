@@ -17,15 +17,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type periodType defines the empty content model and the list of attributes for metadata elements in the
  * analysis section using periods.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="periodType">
- * 	   <xsd:complexContent>
- *       <xsd:extension base="anyOtherType">
- *         <xsd:attributeGroup ref="period"/>
- *       </xsd:extension>
- *     </xsd:complexContent>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="periodType"&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ *       &lt;xsd:extension base="anyOtherType"&gt;
+ *         &lt;xsd:attributeGroup ref="period"/&gt;
+ *       &lt;xsd:extension&gt;
+ *     &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

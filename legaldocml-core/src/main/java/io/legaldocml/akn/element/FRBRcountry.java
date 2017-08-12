@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element FRBRcountry is the metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction
  * to be used in the work-level IRI of this document
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="FRBRcountry" type="valueType"/>
+ * 	 &lt;xsd:element name="FRBRcountry" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

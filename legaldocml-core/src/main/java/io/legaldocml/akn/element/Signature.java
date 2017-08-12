@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element signature is an inline element within conclusions to identify where the document defines one of the
  * signatures.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="signature" type="inline"/>
+ * 	 &lt;xsd:element name="signature" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

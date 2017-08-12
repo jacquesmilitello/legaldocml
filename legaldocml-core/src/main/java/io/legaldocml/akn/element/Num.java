@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element num is a heading element in a hierarchy that contains a number or any other ordered mechanism to identify
  * the structure.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="num" type="inline"/>
+ *   &lt;xsd:element name="num" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

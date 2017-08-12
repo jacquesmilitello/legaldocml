@@ -12,23 +12,23 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 /**
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="citationHierarchy">
- *     <xsd:complexContent>
- * 	     <xsd:extension base="basehierarchy">
- * 		   <xsd:sequence>
- * 			 <xsd:element ref="intro" minOccurs="0" maxOccurs="1"/>
- * 			 <xsd:choice minOccurs="1" maxOccurs="unbounded">
- * 		       <xsd:element ref="componentRef"/>
- * 			   <xsd:element ref="citation"/>
- * 			 </xsd:choice>
- * 			 <xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/>
- * 		   </xsd:sequence>
- * 		   <xsd:attributeGroup ref="corereq"/>
- * 	     </xsd:extension>
- * 	   </xsd:complexContent>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="citationHierarchy"&gt;
+ *     &lt;xsd:complexContent&gt;
+ * 	     &lt;xsd:extension base="basehierarchy"&gt;
+ * 		   &lt;xsd:sequence&gt;
+ * 			 &lt;xsd:element ref="intro" minOccurs="0" maxOccurs="1"/&gt;
+ * 			 &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ * 		       &lt;xsd:element ref="componentRef"/&gt;
+ * 			   &lt;xsd:element ref="citation"/&gt;
+ * 			 &lt;xsd:choice&gt;
+ * 			 &lt;xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/&gt;
+ * 		   &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:attributeGroup ref="corereq"/&gt;
+ * 	     &lt;xsd:extension&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

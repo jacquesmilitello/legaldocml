@@ -7,13 +7,13 @@ import java.util.Arrays;
 /**
  * These values are those of ids such as eId, wId and GUID as a collection of any printable character except
  * whitespaces.
- * <p/>
+ *
  * <pre>
- *   <xsd:simpleType name="noWhiteSpace">
- *     <xsd:restriction base="xsd:string">
- *       <xsd:pattern value="[^\s]+"/>
- *     </xsd:restriction>
- *   </xsd:simpleType>
+ *   &lt;xsd:simpleType name="noWhiteSpace"&gt;
+ *     &lt;xsd:restriction base="xsd:string"&gt;
+ *       &lt;xsd:pattern value="[^\s]+"/&gt;
+ *     &lt;xsd:restriction>
+ *   &lt;xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

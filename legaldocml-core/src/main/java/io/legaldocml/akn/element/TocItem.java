@@ -21,18 +21,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element tocItem is a component of the table of content and contains header information about sections or parts of
  * the rest of the document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="tocItem">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inline">
- * 		     <xsd:attributeGroup ref="link"/>
- * 			 <xsd:attributeGroup ref="level"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="tocItem"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inline"&gt;
+ * 		     &lt;xsd:attributeGroup ref="link"/&gt;
+ * 			 &lt;xsd:attributeGroup ref="level"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * The element amendmentBody is the container of the main hierarchy of a amendment document.
  * <pre>
- *   <xsd:element name="amendmentBody" type="amendmentBodyType">
+ *   &lt;xsd:element name="amendmentBody" type="amendmentBodyType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

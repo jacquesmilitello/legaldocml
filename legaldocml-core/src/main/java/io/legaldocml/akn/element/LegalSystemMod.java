@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element legalSystemMod is a metadata element specifying an (active or passive) modification in the legal system
  * for the document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="legalSystemMod">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="modificationType">
- * 		     <xsd:attributeGroup ref="legalSystemModType"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="legalSystemMod"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="modificationType"&gt;
+ * 		     &lt;xsd:attributeGroup ref="legalSystemModType"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

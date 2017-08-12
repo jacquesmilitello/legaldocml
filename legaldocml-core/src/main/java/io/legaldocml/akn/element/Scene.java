@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element scene is a container of descriptions of the scene elements happening in a given moment during a debate
  * (e.g., applauses).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="scene" type="inline"/>
+ *   &lt;xsd:element name="scene" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

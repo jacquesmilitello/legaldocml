@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element div is an HTML element, but is NOT used in Akoma Ntoso as in HTML. Instead of being used as a generic
  * block, Akoma Ntoso uses div as a generic container (as in common practice).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="div" type="blocksreq">
+ *   &lt;xsd:element name="div" type="blocksreq"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -4,9 +4,9 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * <pre>
- *   <xsd:attributeGroup name="remarkType">
- * 	   <xsd:attribute name="type" type="remarkType"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="remarkType"&gt;
+ * 	   &lt;xsd:attribute name="type" type="remarkType"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

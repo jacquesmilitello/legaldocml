@@ -8,17 +8,17 @@ import java.io.IOException;
 
 /**
  * The group exprProperties lists the properties that are characteristics of the FRBR Expression level.
- * <p>
+ *
  * <pre>
- *   <xsd:group name="exprProperties">
- * 	   <xsd:sequence>
- * 	     <xsd:element ref="FRBRversionNumber" minOccurs="0" maxOccurs="1"/>
- *       <xsd:element ref="FRBRauthoritative" minOccurs="0" maxOccurs="1"/>
- *       <xsd:element ref="FRBRmasterExpression" minOccurs="0" maxOccurs="1"/>
- *       <xsd:element ref="FRBRlanguage" minOccurs="1" maxOccurs="unbounded"/>
- *       <xsd:element ref="FRBRtranslation" minOccurs="0" maxOccurs="unbounded"/>
- * 	   </xsd:sequence>
- *   </xsd:group>
+ *   &lt;xsd:group name="exprProperties"&gt;
+ * 	   &lt;xsd:sequence&gt;
+ * 	     &lt;xsd:element ref="FRBRversionNumber" minOccurs="0" maxOccurs="1"/&gt;
+ *       &lt;xsd:element ref="FRBRauthoritative" minOccurs="0" maxOccurs="1"/&gt;
+ *       &lt;xsd:element ref="FRBRmasterExpression" minOccurs="0" maxOccurs="1"/&gt;
+ *       &lt;xsd:element ref="FRBRlanguage" minOccurs="1" maxOccurs="unbounded"/&gt;
+ *       &lt;xsd:element ref="FRBRtranslation" minOccurs="0" maxOccurs="unbounded"/&gt;
+ * 	   &lt;xsd:sequence&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

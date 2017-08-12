@@ -10,9 +10,9 @@ import java.io.IOException;
  * The element FRBRauthoritative is the metadata property containing a boolean value to determine whether the document
  * contains authoritative text (i.e., content that is the official, authoritative product of an official workflow from
  * an entity that is entrusted with generating an official, authoriative version of the document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRauthoritative" type="booleanValueType"/>
+ *   &lt;xsd:element name="FRBRauthoritative" type="booleanValueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

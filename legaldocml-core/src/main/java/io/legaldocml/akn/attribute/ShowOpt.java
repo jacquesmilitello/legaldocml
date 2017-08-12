@@ -2,10 +2,10 @@ package io.legaldocml.akn.attribute;
 
 /**
  * <pre>
- * 	<xsd:attributeGroup name="show">
- * 		<xsd:attribute name="showAs" type="xsd:string"/>
- * 		<xsd:attribute name="shortForm" type="xsd:string"/>
- * 	</xsd:attributeGroup>
+ * 	&lt;xsd:attributeGroup name="show"&gt;
+ * 		&lt;xsd:attribute name="showAs" type="xsd:string"/&gt;
+ * 		&lt;xsd:attribute name="shortForm" type="xsd:string"/&gt;
+ * 	&lt;xsd:attributeGroup&gt;
  * </pre>
  */
 public interface ShowOpt extends Show {

@@ -5,9 +5,9 @@ import io.legaldocml.akn.type.MeaningMods;
 
 /**
  * <pre>
- * 	<xsd:attributeGroup name="meaningModType">
- * 		<xsd:attribute name="type" type="MeaningMods" use="required"/>
- * 	</xsd:attributeGroup>
+ * 	&lt;xsd:attributeGroup name="meaningModType"&gt;
+ * 		&lt;xsd:attribute name="type" type="MeaningMods" use="required"/&gt;
+ * 	&lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element docJurisdiction is an inline element within preface to identify the string used by the document detailing
  * the jurisdiction of the document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="docJurisdiction" type="inline"/>
+ * 	 &lt;xsd:element name="docJurisdiction" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

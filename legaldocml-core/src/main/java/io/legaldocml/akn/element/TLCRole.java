@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element TLCRole is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Role.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="TLCRole" type="referenceType"/>
+ *   &lt;xsd:element name="TLCRole" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

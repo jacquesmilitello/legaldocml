@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * The element longTitle is the section of the preface or preamble that is called long title.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="longTitle" type="blocksreq">
+ *   &lt;xsd:element name="longTitle" type="blocksreq"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -20,14 +20,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * <pre>
- *   <xsd:element name="temporalData">
- *     <xsd:complexType>
- *       <xsd:sequence>
- *         <xsd:element ref="temporalGroup" minOccurs="1" maxOccurs="unbounded"/>
- *       </xsd:sequence>
- *       <xsd:attributeGroup ref="source"/>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="temporalData"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:sequence&gt;
+ *         &lt;xsd:element ref="temporalGroup" minOccurs="1" maxOccurs="unbounded"/&gt;
+ *       &lt;xsd:sequence&gt;
+ *       &lt;xsd:attributeGroup ref="source"/&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -53,7 +53,7 @@ public final class TemporalData implements Source {
     }
 
     // Mandatory (min 1).
-    private final AknList<TemporalGroup> elements = new AknList<TemporalGroup>(new TemporalGroup[4]);
+    private final AknList<TemporalGroup> elements = new AknList<>(new TemporalGroup[4]);
 
     // Mandatory
     private AgentRef source;

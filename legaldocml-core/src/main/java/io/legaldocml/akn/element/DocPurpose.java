@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element docPurpose is an inline element within preface to identify the string used by the document detailing its
  * own purpose
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="docPurpose" type="inline"/>
+ * 	 &lt;xsd:element name="docPurpose" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

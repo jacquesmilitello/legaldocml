@@ -10,12 +10,12 @@ import java.util.ArrayList;
 /**
  * The complex type metareq defines the content model and attributes shared by all metadata elements. Here the eId
  * attribute is required.
- * <p>
+ *
  * <pre>
- *   <xsd:complexType name="markerreq"/>
- *     <xsd:attributeGroup ref="core"/>
- *     <xsd:attributeGroup ref="idreq"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="markerreq"/&gt;
+ *     &lt;xsd:attributeGroup ref="core"/&gt;
+ *     &lt;xsd:attributeGroup ref="idreq"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

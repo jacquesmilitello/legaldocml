@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * the element intro is a heading element in a hierarchy that contains paragraphs introducing one or more lower
  * hierarchical elements.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="intro" type="blocksreq"/>
+ * 	 &lt;xsd:element name="intro" type="blocksreq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

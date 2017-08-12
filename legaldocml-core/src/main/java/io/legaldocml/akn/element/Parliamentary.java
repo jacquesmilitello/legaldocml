@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element parliamentary is a metadata container of the analysis of the events of a debate.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="parliamentary" type="parliamentaryAnalysis"/>
+ * 	 &lt;xsd:element name="parliamentary" type="parliamentaryAnalysis"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

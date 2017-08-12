@@ -9,16 +9,16 @@ import java.io.IOException;
 
 /**
  * <pre>
- *   <xsd:element name="debate" type="debateStructure">
- *     <xsd:unique name="eId-debate">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@eId"/>
- *     </xsd:unique>
- *     <xsd:unique name="GUID-debate">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@GUID"/>
- *     </xsd:unique>
- * 	 </xsd:element>
+ *   &lt;xsd:element name="debate" type="debateStructure"&gt;
+ *     &lt;xsd:unique name="eId-debate"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@eId"/&gt;
+ *     &lt;xsd:unique&gt;
+ *     &lt;xsd:unique name="GUID-debate"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@GUID"/&gt;
+ *     &lt;xsd:unique&gt;
+ * 	 &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

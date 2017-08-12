@@ -23,18 +23,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * replacement. Attribute quote is used to specify the quote character used in the original; no quote attribute implies
  * that the quote is left in the text; quote="" implies that there is no quote character. Attribute for is used in a
  * mmod or rmod to point to the eId of the corresponding ref element.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="quotedStructure">
- *     <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="subFlowStructure">
- *           <xsd:attributeGroup ref="quote"/>
- *           <xsd:attributeGroup ref="for"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="quotedStructure"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="subFlowStructure"&gt;
+ *           &lt;xsd:attributeGroup ref="quote"/&gt;
+ *           &lt;xsd:attributeGroup ref="for"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * The element p is an HTML element and is used in Akoma Ntoso as in HTML, for the generic paragraph of text (a block).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="p" type="inline"/>
+ * 	 &lt;xsd:element name="p" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

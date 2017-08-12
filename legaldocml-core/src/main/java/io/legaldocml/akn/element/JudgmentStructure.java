@@ -20,21 +20,21 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The type judgmentStructure specifies the overall content model of the document types that describe judgments.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="judgmentStructure">
- * 	   <xsd:sequence>
- * 	     <xsd:element ref="meta"/>
- * 		 <xsd:element ref="coverPage" minOccurs="0" maxOccurs="1"/>
- * 		 <xsd:element ref="header"/>
- * 		 <xsd:element ref="judgmentBody"/>
- * 		 <xsd:element ref="conclusions" minOccurs="0" maxOccurs="1"/>
- * 		 <xsd:element ref="attachments" minOccurs="0" maxOccurs="1"/>
- * 	     <xsd:element ref="components" minOccurs="0" maxOccurs="1"/>
- * 	   </xsd:sequence>
- * 	   <xsd:attributeGroup ref="name"/>
- * 	   <xsd:attributeGroup ref="contains"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="judgmentStructure"&gt;
+ * 	   &lt;xsd:sequence&gt;
+ * 	     &lt;xsd:element ref="meta"/&gt;
+ * 		 &lt;xsd:element ref="coverPage" minOccurs="0" maxOccurs="1"/&gt;
+ * 		 &lt;xsd:element ref="header"/&gt;
+ * 		 &lt;xsd:element ref="judgmentBody"/&gt;
+ * 		 &lt;xsd:element ref="conclusions" minOccurs="0" maxOccurs="1"/&gt;
+ * 		 &lt;xsd:element ref="attachments" minOccurs="0" maxOccurs="1"/&gt;
+ * 	     &lt;xsd:element ref="components" minOccurs="0" maxOccurs="1"/&gt;
+ * 	   &lt;xsd:sequence&gt;
+ * 	   &lt;xsd:attributeGroup ref="name"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="contains"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

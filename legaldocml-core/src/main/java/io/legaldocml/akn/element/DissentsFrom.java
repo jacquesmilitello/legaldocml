@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element dissentsFrom is a metadata element specifying a reference to a source dissented from the argument being
  * described.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="dissentsFrom" type="judicialArgumentType">
+ * 	 &lt;xsd:element name="dissentsFrom" type="judicialArgumentType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

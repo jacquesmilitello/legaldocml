@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element isAnalogTo is a metadata element specifying a reference to a source analog to the argument being
  * described.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="isAnalogTo" type="judicialArgumentType">
+ * 	 &lt;xsd:element name="isAnalogTo" type="judicialArgumentType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

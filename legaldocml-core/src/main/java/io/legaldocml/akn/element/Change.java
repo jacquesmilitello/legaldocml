@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * The element change is an inline element that identifies the changes expressed in the two columns of an amendment
  * document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="change" type="inline"/>
+ *   &lt;xsd:element name="change" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element FRBRItem is the metadata container of identifying properties related to the Item level according to the
  * FRBR hierarchy.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRItem" type="coreProperties"/>
+ *   &lt;xsd:element name="FRBRItem" type="coreProperties"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

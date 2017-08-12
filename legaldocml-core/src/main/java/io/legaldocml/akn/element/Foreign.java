@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element foreign is a generic container for elements not belonging to the Akoma Ntoso namespace (e.g.,
  * mathematical formulas). It is a block element and thus can be placed in a container.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="preservation" type="anyOtherType"/>
+ *   &lt;xsd:element name="preservation" type="anyOtherType"/&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

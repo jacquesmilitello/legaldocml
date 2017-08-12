@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element TLCreference is a generic metadata reference to the Akoma Ntoso IRI of an ontology instance of a class
  * specified through the name attribute.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="TLCReference">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="referenceType">
- * 		     <xsd:attributeGroup ref="name" />
- * 	   	   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="TLCReference"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="referenceType"&gt;
+ * 		     &lt;xsd:attributeGroup ref="name" /&gt;
+ * 	   	   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

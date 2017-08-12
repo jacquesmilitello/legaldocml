@@ -5,7 +5,7 @@ package io.legaldocml.akn.visitor.group;
  */
 public interface InlineCMVisitor  {
 
-// * 			<xsd:group ref="markerElements"/>
-// * 			<xsd:group ref="popupElements"/>
-//    <xsd:group ref="subFlowElements"/>
+// * 			&lt;xsd:group ref="markerElements"/&gt;
+// * 			&lt;xsd:group ref="popupElements"/&gt;
+//    &lt;xsd:group ref="subFlowElements"/&gt;
 }

@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element passiveRef is a metadata reference to the Akoma Ntoso IRI of a document providing modifications on this
  * document (i.e., a passive references).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="passiveRef" type="referenceType"/>
+ * 	 &lt;xsd:element name="passiveRef" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

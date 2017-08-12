@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element component is a container of a subdocument specified in a composite document.
- * <p>
+ *
  * <pre>
- *   <xsd:element name="component" type="docContainerType">
+ *   &lt;xsd:element name="component" type="docContainerType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

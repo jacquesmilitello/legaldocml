@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element wrap is a concluding element in a hierarchy that contains paragraphs wrapping up the preceding lower hierarchical elements.
- * <p/>
+ *
  * <pre>
- * 	<xsd:element name="wrap" type="blocksopt"/>
+ * 	&lt;xsd:element name="wrap" type="blocksopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

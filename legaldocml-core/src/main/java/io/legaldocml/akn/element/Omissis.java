@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element omissis is an inline element for the specification of a text that substitutes a textual omission (e.g.,
  * dots, spaces, the word "omissis", etc.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="omissis" type="inline"/>
+ *   &lt;xsd:element name="omissis" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

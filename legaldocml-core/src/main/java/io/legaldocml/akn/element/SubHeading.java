@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * the element subheading is a heading element in a hierarchy that contains a subtitle or any other textual content to
  * further describe the structure..
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="subheading" type="inlinereq"/>
+ *   &lt;xsd:element name="subheading" type="inlinereq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element collectionBody is the container of a list of other documents (e.g, acts, bills, amendments, etc.)
  * possibly interspersed with interstitial elements with content that does not form an individual document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="collectionBody" type="collectionBodyType">
+ * 	 &lt;xsd:element name="collectionBody" type="collectionBodyType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

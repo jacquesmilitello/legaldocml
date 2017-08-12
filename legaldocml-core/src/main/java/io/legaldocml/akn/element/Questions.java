@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * this element is a structural container for parts of a debates that are relevant to questions.
- * <p/>
+ *
  * <pre>
- *  <xsd:element name="questions" type="althierarchy"/>
+ *  &lt;xsd:element name="questions" type="althierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

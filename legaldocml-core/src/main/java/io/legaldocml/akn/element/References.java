@@ -9,9 +9,9 @@ import java.io.IOException;
  * The element references is a metadata container of all the references to entities external to the document mentioned
  * in the document. They include references to legal documents of any form,a s well as references to people,
  * organizations, events, roles, concepts, and anything else is managed by the Akoma Ntoso ontology.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="references" type="refItems">
+ *   &lt;xsd:element name="references" type="refItems"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -2,15 +2,15 @@ package io.legaldocml.akn.type;
 
 /**
  * This is the list of allowed values for the type attribute of the opinion element.
- * <p>
+ *
  * <pre>
- *   <xsd:simpleType name="opinionType">
- * 	   <xsd:restriction base="xsd:string">
- * 	     <xsd:enumeration text="dissenting"/>
- * 		 <xsd:enumeration text="agreeing"/>
- * 		 <xsd:enumeration text="null"/>
- * 	   </xsd:restriction>
- *   </xsd:simpleType>
+ *   &lt;xsd:simpleType name="opinionType"&gt;
+ * 	   &lt;xsd:restriction base="xsd:string"&gt;
+ * 	     &lt;xsd:enumeration text="dissenting"/&gt;
+ * 		 &lt;xsd:enumeration text="agreeing"/&gt;
+ * 		 &lt;xsd:enumeration text="null"/&gt;
+ * 	   &lt;xsd:restriction>
+ *   &lt;xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

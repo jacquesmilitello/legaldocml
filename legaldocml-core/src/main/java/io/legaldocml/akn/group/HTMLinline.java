@@ -2,20 +2,20 @@ package io.legaldocml.akn.group;
 
 /**
  * The group HTMLinline lists the elements that are inline and were inherited from the HTML vocabulary.
- * <p/>
+ *
  * <pre>
- *   <xsd:group name="HTMLinline">
- * 	   <xsd:choice>
- * 	     <xsd:element ref="b"/>
- * 		 <xsd:element ref="i"/>
- * 		 <xsd:element ref="a"/>
- * 		 <xsd:element ref="u"/>
- * 		 <xsd:element ref="sub"/>
- * 		 <xsd:element ref="sup"/>
- * 		 <xsd:element ref="abbr"/>
- * 		 <xsd:element ref="span"/>
- * 	   </xsd:choice>
- *   </xsd:group>
+ *   &lt;xsd:group name="HTMLinline"&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	     &lt;xsd:element ref="b"/&gt;
+ * 		 &lt;xsd:element ref="i"/&gt;
+ * 		 &lt;xsd:element ref="a"/&gt;
+ * 		 &lt;xsd:element ref="u"/&gt;
+ * 		 &lt;xsd:element ref="sub"/&gt;
+ * 		 &lt;xsd:element ref="sup"/&gt;
+ * 		 &lt;xsd:element ref="abbr"/&gt;
+ * 		 &lt;xsd:element ref="span"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

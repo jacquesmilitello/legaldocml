@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * This element is a hierarchical container called "sublist" either explicitly or due to the local tradition.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="sublist" type="hierarchy"/>
+ * 	 &lt;xsd:element name="sublist" type="hierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -18,15 +18,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element docProponent is an inline element within preface to identify the string used by the document for its
  * proponent.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType mixed="true">
- *     <xsd:complexContent>
- *       <xsd:extension base="inline">
- *         <xsd:attributeGroup ref="role"/>
- *       </xsd:extension>
- *     </xsd:complexContent>
- *   </xsd:complex>
+ *   &lt;xsd:complexType mixed="true"&gt;
+ *     &lt;xsd:complexContent&gt;
+ *       &lt;xsd:extension base="inline"&gt;
+ *         &lt;xsd:attributeGroup ref="role"/&gt;
+ *       &lt;xsd:extension&gt;
+ *     &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complex&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

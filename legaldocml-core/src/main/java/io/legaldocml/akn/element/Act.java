@@ -8,18 +8,18 @@ import java.io.IOException;
 
 /**
  * Element act is used for describing the structure and content of an act.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="act" type="hierarchicalStructure">
- *     <xsd:unique name="eId-act">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@eId"/>
- *     </xsd:unique>
- *     <xsd:unique name="GUID-act">
- *       <xsd:selector xpath=".//*"/>
- *       <xsd:field xpath="@GUID"/>
- *     </xsd:unique>
- *   </xsd:element>
+ *   &lt;xsd:element name="act" type="hierarchicalStructure"&gt;
+ *     &lt;xsd:unique name="eId-act"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@eId"/&gt;
+ *     &lt;xsd:unique&gt;
+ *     &lt;xsd:unique name="GUID-act"&gt;
+ *       &lt;xsd:selector xpath=".//*"/&gt;
+ *       &lt;xsd:field xpath="@GUID"/&gt;
+ *     &lt;xsd:unique&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

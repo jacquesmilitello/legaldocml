@@ -17,14 +17,14 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
 /**
  * the complex type blocksreq defines the content model and attributes shared by all containers. Here the eId attribute
  * is required.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="blocksreq">
- *     <xsd:sequence minOccurs="0" maxOccurs="unbounded">
- *       <xsd:group ref="blockElements" />
- * 	   </xsd:sequence>
- * 	   <xsd:attributeGroup ref="corereq" />
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="blocksreq"&gt;
+ *     &lt;xsd:sequence minOccurs="0" maxOccurs="unbounded"&gt;
+ *       &lt;xsd:group ref="blockElements" /&gt;
+ * 	   &lt;xsd:sequence&gt;
+ * 	   &lt;xsd:attributeGroup ref="corereq" /&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element span is an HTML element and is used in Akoma Ntoso as in HTML, for the generic inline.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="span" type="inline"/>
+ *   &lt;xsd:element name="span" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

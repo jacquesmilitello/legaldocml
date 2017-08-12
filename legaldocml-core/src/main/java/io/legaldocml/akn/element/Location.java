@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element location is an inline element to identify a text fragment introducing or referring to a location in the
  * ontology.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="location" type="inlinereqreq"/>
+ * 	 &lt;xsd:element name="location" type="inlinereqreq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

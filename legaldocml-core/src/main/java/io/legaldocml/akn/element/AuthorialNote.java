@@ -22,17 +22,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element authorialNote is a subFlow element containing an authorial (non-editorial) note in the main flow of the
  * text.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="authorialNote">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="subFlowStructure">
- *           <xsd:attributeGroup ref="notes"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- * 	 </xsd:element>
+ *   &lt;xsd:element name="authorialNote"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="subFlowStructure"&gt;
+ *           &lt;xsd:attributeGroup ref="notes"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ * 	 &lt;xsd:element&gt;
  * </pre>
  */
 public final class AuthorialNote extends SubFlowStructure implements Notes, ANsubFlow {

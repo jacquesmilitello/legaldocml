@@ -23,15 +23,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The complex type refItems is a list of types of references used in the references section.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="refItems">
- * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
- *       <xsd:group ref="docRefs"/>
- *       <xsd:group ref="TLCs"/>
- *     </xsd:choice>
- *     <xsd:attributeGroup ref="source"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="refItems"&gt;
+ * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ *       &lt;xsd:group ref="docRefs"/&gt;
+ *       &lt;xsd:group ref="TLCs"/&gt;
+ *     &lt;xsd:choice&gt;
+ *     &lt;xsd:attributeGroup ref="source"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

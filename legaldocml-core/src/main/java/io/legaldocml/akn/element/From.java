@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element from is a heading element in a debate that contains the name or role or a reference to the person doing
  * the speech.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="from" type="inline"/>
+ * 	 &lt;xsd:element name="from" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

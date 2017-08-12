@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element body is the container of the main hierarchy of a hierarchical document (e.g, an act or a bill).
- * <p>
+ *
  * <pre>
- * 	<xsd:element name="body" type="bodyType"/>
+ * 	&lt;xsd:element name="body" type="bodyType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

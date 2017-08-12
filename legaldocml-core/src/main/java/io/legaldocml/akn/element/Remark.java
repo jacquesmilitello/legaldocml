@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element remark is an inline element for the specification of editorial remarks (e.g., applauses, laughters, etc.)
  * especially within debate records/
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="remark">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inline">
- * 		     <xsd:attributeGroup ref="remarkType"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="remark"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inline"&gt;
+ * 		     &lt;xsd:attributeGroup ref="remarkType"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

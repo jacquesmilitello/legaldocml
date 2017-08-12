@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element argument is an inline element within judgments for classifying the arguments in the motivation part of
  * the judgment.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="argument" type="inline"/>
+ * 	 &lt;xsd:element name="argument" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

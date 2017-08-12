@@ -6,11 +6,11 @@ import io.legaldocml.akn.type.VersionType;
 /**
  * The attribute contains is used in the root of document types to indicate whether the document is original or modified
  * wrt the orignal version.
- * <p/>
+ *
  * <pre>
- * 	<xsd:attributeGroup name="contains">
- * 		<xsd:attribute name="contains" type="versionType" default="originalVersion"/>
- * 	</xsd:attributeGroup>
+ * 	&lt;xsd:attributeGroup name="contains"&gt;
+ * 		&lt;xsd:attribute name="contains" type="versionType" default="originalVersion"/&gt;
+ * 	&lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

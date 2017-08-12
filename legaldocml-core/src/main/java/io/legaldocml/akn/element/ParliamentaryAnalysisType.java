@@ -31,19 +31,19 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type parliamentaryAnalysisType lists all the properties associated to elements in the parliamentary
  * analysis.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="parliamentaryAnalysisType">
- * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
- * 	     <xsd:element ref="quorum"/>
- * 		 <xsd:element ref="count"/>
- * 	   </xsd:choice>
- * 	   <xsd:attributeGroup ref="core"/>
- * 	   <xsd:attributeGroup ref="idreq"/>
- * 	   <xsd:attributeGroup ref="outcome"/>
- * 	   <xsd:attributeGroup ref="refers"/>
- * 	   <xsd:attributeGroup ref="linkopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="parliamentaryAnalysisType"&gt;
+ * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:element ref="quorum"/&gt;
+ * 		 &lt;xsd:element ref="count"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	   &lt;xsd:attributeGroup ref="core"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="idreq"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="outcome"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="refers"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="linkopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

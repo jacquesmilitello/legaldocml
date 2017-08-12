@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * the element mmod is an inline element containing multiple specifications of modifications on another document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="mmod" type="modType"/>
+ *   &lt;xsd:element name="mmod" type="modType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

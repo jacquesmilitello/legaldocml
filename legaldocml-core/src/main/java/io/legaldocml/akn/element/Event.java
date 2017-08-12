@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element event is an inline element to identify a text fragment introducing or referring to an event in the
  * ontology.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="event" type="inlinereqreq">
+ * 	 &lt;xsd:element name="event" type="inlinereqreq"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

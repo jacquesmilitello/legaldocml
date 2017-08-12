@@ -24,18 +24,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * <pre>
- *   <xsd:element name="componentData">
- * 	   <xsd:complexType>
- * 	     <xsd:sequence minOccurs="0" maxOccurs="unbounded">
- * 		   <xsd:element ref="componentData"/>
- * 		 </xsd:sequence>
- * 	     <xsd:attributeGroup ref="core"/>
- * 		 <xsd:attributeGroup ref="idreq"/>
- * 		 <xsd:attributeGroup ref="name"/>
- * 	 	 <xsd:attributeGroup ref="link"/>
- * 		 <xsd:attributeGroup ref="show"/>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="componentData"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:sequence minOccurs="0" maxOccurs="unbounded"&gt;
+ * 		   &lt;xsd:element ref="componentData"/&gt;
+ * 		 &lt;xsd:sequence&gt;
+ * 	     &lt;xsd:attributeGroup ref="core"/&gt;
+ * 		 &lt;xsd:attributeGroup ref="idreq"/&gt;
+ * 		 &lt;xsd:attributeGroup ref="name"/&gt;
+ * 	 	 &lt;xsd:attributeGroup ref="link"/&gt;
+ * 		 &lt;xsd:attributeGroup ref="show"/&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element extractStructure is a popup element containing a full structure used as an extract from another document or position.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="extractStructure" type="popupStructure"/>
+ *   &lt;xsd:element name="extractStructure" type="popupStructure"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

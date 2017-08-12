@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for parts of a debates that are relevant to procedural motions.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="proceduralMotions" type="althierarchy"/>
+ * 	 &lt;xsd:element name="proceduralMotions" type="althierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

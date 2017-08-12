@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element attachment is used as a container of individual attachment elements.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="attachment" type="docContainerType">
+ *   &lt;xsd:element name="attachment" type="docContainerType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

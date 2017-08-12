@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element domain is a metadata element containing (in some non-managed form) the domain to which the modification
  * applies.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="domain" type="anyOtherType"/>
+ *   &lt;xsd:element name="domain" type="anyOtherType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

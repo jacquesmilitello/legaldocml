@@ -13,14 +13,14 @@ import java.util.function.Supplier;
 
 /**
  * <pre>
- *   <xsd:element name="components">
- *     <xsd:complexType>
- *       <xsd:sequence>
- *         <xsd:element ref="component" minOccurs="1" maxOccurs="unbounded"/>
- *       </xsd:sequence>
- *       <xsd:attributeGroup ref="idreq"/>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="components"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:sequence&gt;
+ *         &lt;xsd:element ref="component" minOccurs="1" maxOccurs="unbounded"/&gt;
+ *       &lt;xsd:sequence&gt;
+ *       &lt;xsd:attributeGroup ref="idreq"/&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

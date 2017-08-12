@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element contrasts is a metadata element specifying a reference to a source contrasted by the argument being
  * described.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="contrasts" type="judicialArgumentType">
+ * 	 &lt;xsd:element name="contrasts" type="judicialArgumentType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

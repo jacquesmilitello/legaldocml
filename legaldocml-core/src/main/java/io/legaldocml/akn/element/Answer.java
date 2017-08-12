@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element answer is a container of a single official answer to a question.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="answer" type="speechType"/>
+ * 	 &lt;xsd:element name="answer" type="speechType"/&gt;
  * </pre>
  */
 public final class Answer extends SpeechType implements ANcontainers {

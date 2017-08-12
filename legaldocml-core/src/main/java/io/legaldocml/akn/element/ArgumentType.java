@@ -22,17 +22,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type argumentType defines the empty content model and the list of attributes for metadata elements in the
  * analysis section.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="argumentType">
- *     <xsd:complexContent>
- *       <xsd:extension base="anyOtherType">
- *         <xsd:attributeGroup ref="pos"/>
- *         <xsd:attributeGroup ref="modifiers"/>
- *         <xsd:attributeGroup ref="upToOpt"/>
- *       </xsd:extension>
- *     </xsd:complexContent>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="argumentType"&gt;
+ *     &lt;xsd:complexContent&gt;
+ *       &lt;xsd:extension base="anyOtherType"&gt;
+ *         &lt;xsd:attributeGroup ref="pos"/&gt;
+ *         &lt;xsd:attributeGroup ref="modifiers"/&gt;
+ *         &lt;xsd:attributeGroup ref="upToOpt"/&gt;
+ *       &lt;xsd:extension&gt;
+ *     &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

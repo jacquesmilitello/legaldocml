@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element ol is an HTML element and is used in Akoma Ntoso as in HTML, for an ordered list of list item (elements
  * li).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="ol" type="listItems"/>
+ * 	 &lt;xsd:element name="ol" type="listItems"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

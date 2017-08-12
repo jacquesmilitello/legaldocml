@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for the section of a judgment containing the arguments.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="arguments" type="maincontent"/>
+ * 	 &lt;xsd:element name="arguments" type="maincontent"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

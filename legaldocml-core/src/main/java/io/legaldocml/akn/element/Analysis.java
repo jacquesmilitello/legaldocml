@@ -19,21 +19,21 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * <pre>
- *   <xsd:element name="analysis">
- *     <xsd:complexType>
- *       <xsd:sequence>
- *         <xsd:element ref="activeModifications" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="passiveModifications" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="restrictions" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="judicial" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="parliamentary" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="mappings" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="otherReferences" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="otherAnalysis" minOccurs="0" maxOccurs="unbounded"/>
- *        </xsd:sequence>
- *        <xsd:attributeGroup ref="source" />
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="analysis"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:sequence&gt;
+ *         &lt;xsd:element ref="activeModifications" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="passiveModifications" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="restrictions" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="judicial" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="parliamentary" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="mappings" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="otherReferences" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="otherAnalysis" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *        &lt;xsd:sequence&gt;
+ *        &lt;xsd:attributeGroup ref="source" /&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

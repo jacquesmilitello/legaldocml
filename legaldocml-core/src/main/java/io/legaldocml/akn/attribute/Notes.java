@@ -8,13 +8,13 @@ import io.legaldocml.akn.type.PlacementType;
  * These attributes are used by notes, both authorial and editorial. The marker is the string to be used as a marker of
  * the note, the placement is the position where the note should be placed, and placementBase is the eId of the element
  * respect to which the note should be placed near.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="notes">
- * 	   <xsd:attribute name="marker" type="xsd:string"/>
- * 	   <xsd:attribute name="placement" type="placementType"/>
- * 	   <xsd:attribute name="placementBase" type="eIdRef"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="notes"&gt;
+ * 	   &lt;xsd:attribute name="marker" type="xsd:string"/&gt;
+ * 	   &lt;xsd:attribute name="placement" type="placementType"/&gt;
+ * 	   &lt;xsd:attribute name="placementBase" type="eIdRef"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

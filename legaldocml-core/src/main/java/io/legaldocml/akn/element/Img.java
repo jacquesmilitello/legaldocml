@@ -22,18 +22,18 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
  * The element img is an HTML element and is used in Akoma Ntoso as in HTML, for including an image. It is a marker.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="img">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- *  	   <xsd:extension base="markeropt">
- * 		     <xsd:attributeGroup ref="src"/>
- * 			 <xsd:attributeGroup ref="imgAtts"/>
- * 	 	   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="img"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ *  	   &lt;xsd:extension base="markeropt"&gt;
+ * 		     &lt;xsd:attributeGroup ref="src"/&gt;
+ * 			 &lt;xsd:attributeGroup ref="imgAtts"/&gt;
+ * 	 	   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

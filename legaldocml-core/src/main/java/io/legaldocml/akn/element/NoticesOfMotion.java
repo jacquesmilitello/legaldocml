@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for parts of a debates that are relevant to the notices of motions.
- * <p/>
+ *
  * <pre>
- *  <xsd:element name="noticesOfMotion" type="althierarchy"/>
+ *  &lt;xsd:element name="noticesOfMotion" type="althierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

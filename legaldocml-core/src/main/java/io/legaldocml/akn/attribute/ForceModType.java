@@ -5,9 +5,9 @@ import io.legaldocml.akn.type.ForceMods;
 
 /**
  * <pre>
- *   <xsd:attributeGroup name="forceModType">
- * 	   <xsd:attribute name="type" type="ForceMods" use="required"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="forceModType"&gt;
+ * 	   &lt;xsd:attribute name="type" type="ForceMods" use="required"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

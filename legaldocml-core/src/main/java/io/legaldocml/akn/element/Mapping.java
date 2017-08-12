@@ -30,18 +30,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * (attribute current) such structure had during the time interval included between an initial temporalGroup and a final
  * temporalGroup. This is useful for tracking the evolving ids of documents frequently renumbered (e,g., bills). Every
  * single element whose wId does not match its eId needs to be represented here.
- * <p/>
- * <p>
+ *
+ *
  * <pre>
- *   <xsd:element name="mapping">
- *     <xsd:complexType name="valueType">
- *       <xsd:complexContent>
- *         <xsd:extension base="metareq">
- *           <xsd:attributeGroup ref="mappingAtts"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="mapping"&gt;
+ *     &lt;xsd:complexType name="valueType"&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="metareq"&gt;
+ *           &lt;xsd:attributeGroup ref="mappingAtts"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

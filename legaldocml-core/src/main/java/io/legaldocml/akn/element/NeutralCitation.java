@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element neutralCitation is an inline element within judgments to identify the string declared by the document as
  * being the neutral citation for the judgment.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="neutralCitation" type="inline"/>
+ * 	 &lt;xsd:element name="neutralCitation" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

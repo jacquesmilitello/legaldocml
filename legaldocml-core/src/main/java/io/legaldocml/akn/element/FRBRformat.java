@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element FRBRformat is the metadata property containing the Internet Media Type specification for the data format
  * to be used in the manifestation-level IRI of this document.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="FRBRformat" type="valueType"/>
+ * 	 &lt;xsd:element name="FRBRformat" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

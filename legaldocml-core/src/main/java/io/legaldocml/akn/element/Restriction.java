@@ -21,18 +21,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element restriction specifies information about a restriction (such as a jurisdiction specification) by pointing
  * to a specific legislative, geographic or temporal events through the refersTo attribute.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="restriction" type="anyOtherType">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="anyOtherType">
- *           <xsd:attributeGroup ref="refers"/>
- *           <xsd:attributeGroup ref="restrictionType"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="restriction" type="anyOtherType"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="anyOtherType"&gt;
+ *           &lt;xsd:attributeGroup ref="refers"/&gt;
+ *           &lt;xsd:attributeGroup ref="restrictionType"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * <pre>
  *
  *     @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

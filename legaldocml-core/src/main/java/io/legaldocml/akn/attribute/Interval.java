@@ -6,12 +6,12 @@ import io.legaldocml.akn.type.EventRefRef;
 /**
  * The start and end attributes are used to specify events that mark the beginning and the end of a time interval. Both
  * are references to eventRef elements in the lifecycle element.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="interval">
- *     <xsd:attribute name="start" type="eventRefRef"/>
- *     <xsd:attribute name="end" type="eventRefRef"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="interval"&gt;
+ *     &lt;xsd:attribute name="start" type="eventRefRef"/&gt;
+ *     &lt;xsd:attribute name="end" type="eventRefRef"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

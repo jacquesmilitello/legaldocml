@@ -19,16 +19,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * <pre>
- *   <xsd:element name="table">
- * 	   <xsd:complexType>
- * 	     <xsd:sequence>
- * 		   <xsd:element ref="caption" minOccurs="0" maxOccurs="1"/>
- * 		   <xsd:element ref="tr" minOccurs="1" maxOccurs="unbounded"/>
- * 		 </xsd:sequence>
- * 		 <xsd:attributeGroup ref="corereq"/>
- * 		 <xsd:attributeGroup ref="tableAtts"/>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="table"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:element ref="caption" minOccurs="0" maxOccurs="1"/&gt;
+ * 		   &lt;xsd:element ref="tr" minOccurs="1" maxOccurs="unbounded"/&gt;
+ * 		 &lt;xsd:sequence&gt;
+ * 		 &lt;xsd:attributeGroup ref="corereq"/&gt;
+ * 		 &lt;xsd:attributeGroup ref="tableAtts"/&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

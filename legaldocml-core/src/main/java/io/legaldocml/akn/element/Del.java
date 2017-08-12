@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element del is an inline element for the specification of editorial deletions.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="del" type="inline"/>
+ *   &lt;xsd:element name="del" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

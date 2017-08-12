@@ -21,17 +21,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the element formula is a section of the preface or preamble that contains a formulaic expression that is
  * systematically or frequently present in a preface or a preamble and has e precise legal meaning (e.g. an enacting
  * formula). Use the refersTo attribute for the specification of the actual type of formula.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="formula">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="blocksreq">
- *           <xsd:attributeGroup ref="name"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="formula"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="blocksreq"&gt;
+ *           &lt;xsd:attributeGroup ref="name"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

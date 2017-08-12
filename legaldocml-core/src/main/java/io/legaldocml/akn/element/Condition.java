@@ -16,17 +16,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element condition is a metadata element specifying an open set of conditions on the modification (non managed by
  * Akoma Ntoso).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="condition" type="anyOtherType">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="anyOtherType">
- *           <xsd:attributeGroup ref="frozen"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="condition" type="anyOtherType"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="anyOtherType"&gt;
+ *           &lt;xsd:attributeGroup ref="frozen"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

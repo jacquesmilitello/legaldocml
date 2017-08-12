@@ -19,17 +19,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element quantity is an inline element to identify a text fragment introducing or referring to a quantity. This
  * could be a dimensionless number, or a number referring to a length, weight, duration, etc. or even a sum of money.
  * The attribute normalized contains the value normalized in a number, if appropriate.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="quantity">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inlinereqreq">
- * 		     <xsd:attributeGroup ref="normalizedAtt"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="quantity"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inlinereqreq"&gt;
+ * 		     &lt;xsd:attributeGroup ref="normalizedAtt"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

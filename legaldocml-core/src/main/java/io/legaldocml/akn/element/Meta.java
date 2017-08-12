@@ -12,23 +12,23 @@ import java.io.IOException;
 
 /**
  * <pre>
- *   <xsd:element name="meta">
- *     <xsd:complexType>
- *       <xsd:sequence>
- *         <xsd:element ref="identification"/>
- *         <xsd:element ref="publication" minOccurs="0" maxOccurs="1"/>
- *         <xsd:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="lifecycle" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="workflow" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="analysis" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="temporalData" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="references" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="notes" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="proprietary" minOccurs="0" maxOccurs="unbounded"/>
- *         <xsd:element ref="presentation" minOccurs="0" maxOccurs="unbounded"/>
- *       </xsd:sequence>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="meta"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:sequence&gt;
+ *         &lt;xsd:element ref="identification"/&gt;
+ *         &lt;xsd:element ref="publication" minOccurs="0" maxOccurs="1"/&gt;
+ *         &lt;xsd:element ref="classification" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="lifecycle" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="workflow" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="analysis" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="temporalData" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="references" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="notes" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="proprietary" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *         &lt;xsd:element ref="presentation" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *       &lt;xsd:sequence&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

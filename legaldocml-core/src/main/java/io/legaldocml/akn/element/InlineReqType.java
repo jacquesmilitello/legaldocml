@@ -11,14 +11,14 @@ import java.io.IOException;
 /**
  * The complex type inlinereq defines the content model and attributes shared by all blocks and inlines. Here the eId
  * attribute is required.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="inlinereq" mixed="true">
- * 	   <xsd:choice minOccurs="0" maxOccurs="unbounded">
- * 	     <xsd:group ref="inlineCM"/>
- * 	   </xsd:choice>
- * 	   <xsd:attributeGroup ref="corereq"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="inlinereq" mixed="true"&gt;
+ * 	   &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:group ref="inlineCM"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	   &lt;xsd:attributeGroup ref="corereq"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

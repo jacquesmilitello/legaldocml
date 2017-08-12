@@ -18,15 +18,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The type portionStructure specifies the overall content model of the document type that is a portion of another
  * document.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="portionStructure">
- *     <xsd:sequence>
- * 	     <xsd:element ref="meta"/>
- * 		 <xsd:element ref="portionBody"/>
- *     </xsd:sequence>
- * 	   <xsd:attributeGroup ref="portionAtt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="portionStructure"&gt;
+ *     &lt;xsd:sequence&gt;
+ * 	     &lt;xsd:element ref="meta"/&gt;
+ * 		 &lt;xsd:element ref="portionBody"/&gt;
+ *     &lt;xsd:sequence&gt;
+ * 	   &lt;xsd:attributeGroup ref="portionAtt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

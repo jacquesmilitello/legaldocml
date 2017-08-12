@@ -19,17 +19,17 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 /**
  * The element FRBRlanguage is the metadata property containing a RFC4646 (three-letter code) of the main human language
  * used in the content of this expression.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRlanguage">
- *     <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="metaopt">
- * 		     <xsd:attributeGroup ref="language"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="FRBRlanguage"&gt;
+ *     &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="metaopt"&gt;
+ * 		     &lt;xsd:attributeGroup ref="language"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -19,20 +19,20 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element meaningMod is a metadata element specifying an (active or passive) modification in meaning for the
  * document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="meaningMod">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="modificationType">
- * 		     <xsd:sequence>
- * 			   <xsd:element ref="domain" minOccurs="0" maxOccurs="1"/>
- * 			 </xsd:sequence>
- * 			 <xsd:attributeGroup ref="meaningModType"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="meaningMod"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="modificationType"&gt;
+ * 		     &lt;xsd:sequence&gt;
+ * 			   &lt;xsd:element ref="domain" minOccurs="0" maxOccurs="1"/&gt;
+ * 			 &lt;xsd:sequence&gt;
+ * 			 &lt;xsd:attributeGroup ref="meaningModType"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

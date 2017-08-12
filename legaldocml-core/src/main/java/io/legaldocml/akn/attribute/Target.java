@@ -5,11 +5,11 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * The attribute target specifies the target of the a element.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="target">
- *     <xsd:attribute name="target" type="xsd:string"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="target"&gt;
+ *     &lt;xsd:attribute name="target" type="xsd:string"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

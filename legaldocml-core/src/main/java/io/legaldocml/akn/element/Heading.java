@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * the element heading is a heading element in a hierarchy that contains a title or any other textual content to
  * describe the structure.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="heading" type="inlinereq"/>
+ *   &lt;xsd:element name="heading" type="inlinereq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

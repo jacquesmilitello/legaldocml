@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element ul is an HTML element and is used in Akoma Ntoso as in HTML, for an unordered list of list item (elements
  * li).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="ul" type="listItems"/>
+ * 	 &lt;xsd:element name="ul" type="listItems"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

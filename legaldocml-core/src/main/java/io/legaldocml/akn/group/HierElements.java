@@ -9,14 +9,14 @@ import io.legaldocml.akn.element.SubFlowStructureElement;
 
 /**
  * The group hierElements lists all the elements that are hierarchical.
- * <p/>
+ *
  * <pre>
- *   <xsd:group name="hierElements">
- * 	   <xsd:choice>
- * 	     <xsd:group ref="ANhier"/>
- * 		 <xsd:element ref="hcontainer"/>
- * 	   </xsd:choice>
- *   </xsd:group>
+ *   &lt;xsd:group name="hierElements"&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	     &lt;xsd:group ref="ANhier"/&gt;
+ * 		 &lt;xsd:element ref="hcontainer"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * The element blockList is used as in a block context as a container of many individual item elements to be treated as
  * in a list.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="blockList" type="blockListType">
+ *   &lt;xsd:element name="blockList" type="blockListType"&gt;
  * </pre>
  */
 public final class BlockList extends BlockListType implements ANblock {

@@ -13,17 +13,17 @@ import java.util.function.Supplier;
 /**
  * The complex type maincontent is used by container elements that can contain basically any other Akoma Ntoso
  * structure.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="maincontent">
- * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
- * 	     <xsd:element ref="componentRef"/>
- * 		 <xsd:group ref="hierElements"/>
- * 		 <xsd:group ref="blockElements"/>
- * 		 <xsd:group ref="containerElements"/>
- * 	   </xsd:choice>
- * 	   <xsd:attributeGroup ref="coreopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="maincontent"&gt;
+ * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:element ref="componentRef"/&gt;
+ * 		 &lt;xsd:group ref="hierElements"/&gt;
+ * 		 &lt;xsd:group ref="blockElements"/&gt;
+ * 		 &lt;xsd:group ref="containerElements"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	   &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

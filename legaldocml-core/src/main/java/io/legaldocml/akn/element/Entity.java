@@ -19,17 +19,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element entity is a generic inline element to identify a text fragment introducing or referring to a concept in
  * the ontology.
- * <p/>
+ *
  * <pre>
- * 	<xsd:element name="entity">
- * 		<xsd:complexType mixed="true">
- * 			<xsd:complexContent>
- * 				<xsd:extension base="inlinereqreq">
- * 					<xsd:attributeGroup ref="name"/>
- * 				</xsd:extension>
- * 			</xsd:complexContent>
- * 		</xsd:complexType>
- * 	</xsd:element>
+ * 	&lt;xsd:element name="entity"&gt;
+ * 		&lt;xsd:complexType mixed="true"&gt;
+ * 			&lt;xsd:complexContent&gt;
+ * 				&lt;xsd:extension base="inlinereqreq"&gt;
+ * 					&lt;xsd:attributeGroup ref="name"/&gt;
+ * 				&lt;xsd:extension&gt;
+ * 			&lt;xsd:complexContent&gt;
+ * 		&lt;xsd:complexType&gt;
+ * 	&lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

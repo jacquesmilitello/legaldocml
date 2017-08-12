@@ -18,35 +18,35 @@ import static io.legaldocml.akn.element.Groups.hierElements;
 /**
  * The type subFlowStructure specifies the overall content model of the elements that are subFlows.
  * <pre>
- *   <xsd:complexType name="subFlowStructure">
- *     <xsd:choice>
- *       <xsd:group ref="documentType"/>
- *       <xsd:choice minOccurs="1" maxOccurs="unbounded">
- *         <xsd:group ref="blockElements"/>
- *         <xsd:group ref="containerElements"/>
- *         <xsd:element ref="tr"/>
- *         <xsd:element ref="th"/>
- *         <xsd:element ref="td"/>
- *         <xsd:group ref="hierElements"/>
- *         <xsd:element ref="content"/>
- *         <xsd:group ref="ANcontainers"/>
- *         <xsd:element ref="formula"/>
- *         <xsd:element ref="recitals"/>
- *         <xsd:element ref="citations"/>
- *         <xsd:element ref="longTitle"/>
- *         <xsd:element ref="recital"/>
- *         <xsd:element ref="citation"/>
- *         <xsd:element ref="componentRef"/>
- *         <xsd:element ref="documentRef"/>
- *         <xsd:element ref="intro"/>
- *         <xsd:element ref="wrapUp"/>
- *         <xsd:element ref="heading"/>
- *         <xsd:element ref="subheading"/>
- *         <xsd:element ref="num"/>
- *       </xsd:choice>
- *     </xsd:choice>
- *     <xsd:attributeGroup ref="corereq"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="subFlowStructure"&gt;
+ *     &lt;xsd:choice&gt;
+ *       &lt;xsd:group ref="documentType"/&gt;
+ *       &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ *         &lt;xsd:group ref="blockElements"/&gt;
+ *         &lt;xsd:group ref="containerElements"/&gt;
+ *         &lt;xsd:element ref="tr"/&gt;
+ *         &lt;xsd:element ref="th"/&gt;
+ *         &lt;xsd:element ref="td"/&gt;
+ *         &lt;xsd:group ref="hierElements"/&gt;
+ *         &lt;xsd:element ref="content"/&gt;
+ *         &lt;xsd:group ref="ANcontainers"/&gt;
+ *         &lt;xsd:element ref="formula"/&gt;
+ *         &lt;xsd:element ref="recitals"/&gt;
+ *         &lt;xsd:element ref="citations"/&gt;
+ *         &lt;xsd:element ref="longTitle"/&gt;
+ *         &lt;xsd:element ref="recital"/&gt;
+ *         &lt;xsd:element ref="citation"/&gt;
+ *         &lt;xsd:element ref="componentRef"/&gt;
+ *         &lt;xsd:element ref="documentRef"/&gt;
+ *         &lt;xsd:element ref="intro"/&gt;
+ *         &lt;xsd:element ref="wrapUp"/&gt;
+ *         &lt;xsd:element ref="heading"/&gt;
+ *         &lt;xsd:element ref="subheading"/&gt;
+ *         &lt;xsd:element ref="num"/&gt;
+ *       &lt;xsd:choice&gt;
+ *     &lt;xsd:choice&gt;
+ *     &lt;xsd:attributeGroup ref="corereq"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

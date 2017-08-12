@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element preface is used as a container of all prefacing material (e.g. headers, formulas, etc.).
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="preface" type="prefaceopt"/>
+ * 	 &lt;xsd:element name="preface" type="prefaceopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

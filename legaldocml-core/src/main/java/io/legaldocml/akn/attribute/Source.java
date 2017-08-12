@@ -5,11 +5,11 @@ import io.legaldocml.akn.type.AgentRef;
 
 /**
  * The attribute source links to the agent (person, organization) providing the specific annotation or markup.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="source">
- * 	   <xsd:attribute name="source" type="agentRef" use="required"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="source"&gt;
+ * 	   &lt;xsd:attribute name="source" type="agentRef" use="required"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

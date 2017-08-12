@@ -10,9 +10,9 @@ import java.io.IOException;
  * previous version of the document. This is especially useful when renumbering occurs, so as to specify the eId of the
  * instance that was modified in the previous version. Attribute href points to the eId of the element being modified in
  * the old version, using a full expression-level URI.
- * <p/>
+ *
  * <pre>
- *  <xsd:element name="previous" type="anyOtherType"/>
+ *  &lt;xsd:element name="previous" type="anyOtherType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

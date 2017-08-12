@@ -3,16 +3,16 @@ package io.legaldocml.akn.type;
 /**
  * This is the list of allowed values for the type attribute of the remark element for the specification of editorial
  * remarks (e.g., applauses, laughters, etc.) especially within debate records
- * <p>
+ *
  * <pre>
- *   <xsd:simpleType name="remarkType">
- * 	   <xsd:restriction base="xsd:string">
- * 	     <xsd:enumeration text="sceneDescription"/>
- * 		 <xsd:enumeration text="phenomenon"/>
- * 		 <xsd:enumeration text="caption"/>
- * 		 <xsd:enumeration text="translation"/>
- * 	   </xsd:restriction>
- *   </xsd:simpleType>
+ *   &lt;xsd:simpleType name="remarkType"&gt;
+ * 	   &lt;xsd:restriction base="xsd:string"&gt;
+ * 	     &lt;xsd:enumeration text="sceneDescription"/&gt;
+ * 		 &lt;xsd:enumeration text="phenomenon"/&gt;
+ * 		 &lt;xsd:enumeration text="caption"/&gt;
+ * 		 &lt;xsd:enumeration text="translation"/&gt;
+ * 	   &lt;xsd:restriction>
+ *   &lt;xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

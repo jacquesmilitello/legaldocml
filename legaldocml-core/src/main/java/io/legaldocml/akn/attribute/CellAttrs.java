@@ -4,12 +4,12 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * These attributes are used to specify that table cells span more than one row or one column, exactly as in HTML.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="cellattrs">
- * 	   <xsd:attribute name="rowspan" type="xsd:integer" default="1"/>
- * 	   <xsd:attribute name="colspan" type="xsd:integer" default="1"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="cellattrs"&gt;
+ * 	   &lt;xsd:attribute name="rowspan" type="xsd:integer" default="1"/&gt;
+ * 	   &lt;xsd:attribute name="colspan" type="xsd:integer" default="1"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

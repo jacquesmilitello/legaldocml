@@ -2,15 +2,15 @@ package io.legaldocml.akn.group;
 
 /**
  * The group ANmarker lists the elements that are markers and are specific to the Akoma Ntoso vocabulary.
- * <p/>
+ *
  * <pre>
- *   <xsd:group name="ANmarker">
- * 	   <xsd:choice>
- * 	     <xsd:element ref="noteRef" />
- * 		 <xsd:element ref="eol" />
- * 		 <xsd:element ref="eop" />
- * 	   </xsd:choice>
- *   </xsd:group>
+ *   &lt;xsd:group name="ANmarker"&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	     &lt;xsd:element ref="noteRef" /&gt;
+ * 		 &lt;xsd:element ref="eol" /&gt;
+ * 		 &lt;xsd:element ref="eop" /&gt;
+ * 	   &lt;xsd:choice&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -7,10 +7,10 @@ import java.io.IOException;
 
 /**
  * The element judicial is a metadata container of the analysis of the judicial arguments of a judgment.
- * <p/>
- * <p>
+ *
+ *
  * <pre>
- * 	 <xsd:element name="judicial" type="judicialArguments">
+ * 	 &lt;xsd:element name="judicial" type="judicialArguments"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

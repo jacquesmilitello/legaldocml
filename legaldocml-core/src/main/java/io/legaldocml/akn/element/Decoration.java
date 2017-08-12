@@ -10,9 +10,9 @@ import java.io.IOException;
  * the element decoration is an inline element to represent a decorative aspect that is present in the orignal text and
  * that is meant as additional information to the text (e.g., the annotation 'new' on the side of a freshly inserted
  * structure.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="decoration" type="inline"/>
+ * 	 &lt;xsd:element name="decoration" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

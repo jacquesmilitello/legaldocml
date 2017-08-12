@@ -16,17 +16,17 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 /**
  * the complex type eolType is shared by eol and eop elements as being able to specify a hyphen character and a position
  * within the next word in which the break can happen, and the number if any, associated to the page or line at issue.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="eolType">
- * 	   <xsd:complexContent>
- * 	     <xsd:extension base="markeropt">
- * 	       <xsd:attributeGroup ref="number"/>
- * 		   <xsd:attribute name="breakat" type="xsd:integer" />
- * 	   	   <xsd:attribute name="breakWith" type="xsd:string"/>
- * 	     </xsd:extension>
- *     </xsd:complexContent>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="eolType"&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ * 	     &lt;xsd:extension base="markeropt"&gt;
+ * 	       &lt;xsd:attributeGroup ref="number"/&gt;
+ * 		   &lt;xsd:attribute name="breakat" type="xsd:integer" /&gt;
+ * 	   	   &lt;xsd:attribute name="breakWith" type="xsd:string"/&gt;
+ * 	     &lt;xsd:extension&gt;
+ *     &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

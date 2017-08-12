@@ -12,9 +12,9 @@ import java.io.IOException;
  * word, place the element BEFORE the word and place the number of characters before the break in the attribute breakAt.
  * One can also specify, if relevant, the hyphen or other character used to signal the break of a word at the end of the
  * line with the attribute breakWith.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="eol" type="eolType"/>
+ * 	 &lt;xsd:element name="eol" type="eolType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

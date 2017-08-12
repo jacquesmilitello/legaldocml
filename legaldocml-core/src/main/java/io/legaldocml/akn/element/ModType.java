@@ -24,17 +24,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the complex type modType specifies the content that is allowed within mod, mmod and rmod elements, i.e. it adds
  * quotedText and quotedStructure to the normal list of inline elements. Attribute for is used to point to the eId of
  * the corresponding ref element.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="modType" mixed="true">
- *     <xsd:choice minOccurs="0" maxOccurs="unbounded">
- * 	     <xsd:group ref="inlineCM" />
- * 		 <xsd:element ref="quotedText" />
- * 		 <xsd:element ref="quotedStructure" />
- * 	   </xsd:choice>
- * 	   <xsd:attributeGroup ref="corereq" />
- * 	   <xsd:attributeGroup ref="for"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="modType" mixed="true"&gt;
+ *     &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:group ref="inlineCM" /&gt;
+ * 		 &lt;xsd:element ref="quotedText" /&gt;
+ * 		 &lt;xsd:element ref="quotedStructure" /&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	   &lt;xsd:attributeGroup ref="corereq" /&gt;
+ * 	   &lt;xsd:attributeGroup ref="for"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

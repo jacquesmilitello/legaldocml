@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element FRBRnumber is the metadata property containing a string or number for the number to be used in the
  * work-level IRI of this document.
- * <p>
+ *
  * <pre>
- *   <xsd:element name="FRBRnumber" type="valueType"/>
+ *   &lt;xsd:element name="FRBRnumber" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

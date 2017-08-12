@@ -9,9 +9,9 @@ import java.io.IOException;
 
 /**
  * This element is a hierarchical container called "title" either explicitly or due to the local tradition.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="title" type="hierarchy"/>
+ *   &lt;xsd:element name="title" type="hierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element TLCPerson is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Person.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="TLCPerson" type="referenceType"/>
+ *   &lt;xsd:element name="TLCPerson" type="referenceType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

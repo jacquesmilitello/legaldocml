@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element derogates is a metadata element specifying a reference to a source derogated by the argument being
  * described.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="derogates" type="judicialArgumentType">
+ * 	 &lt;xsd:element name="derogates" type="judicialArgumentType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

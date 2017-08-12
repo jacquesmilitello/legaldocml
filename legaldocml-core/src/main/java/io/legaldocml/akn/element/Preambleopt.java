@@ -17,15 +17,15 @@ import static io.legaldocml.akn.element.Groups.preambleContainers;
 /**
  * The complex type preambleopt defines the content model and attributes used by preambles. Here the eId attribute is
  * optional.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="preambleopt">
- * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
- * 	     <xsd:group ref="blockElements"/>
- * 		 <xsd:group ref="preambleContainers"/>
- * 	   </xsd:choice>
- * 	   <xsd:attributeGroup ref="coreopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="preambleopt"&gt;
+ * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:group ref="blockElements"/&gt;
+ * 		 &lt;xsd:group ref="preambleContainers"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	   &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

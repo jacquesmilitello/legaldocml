@@ -6,10 +6,10 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 /**
- * The element quorum is a metadata container containing the value of a quorum in a vote or a quorum verification.<
- * <p/>
+ * The element quorum is a metadata container containing the value of a quorum in a vote or a quorum verification.
+ *
  * <pre>
- *   <xsd:element name="quorum" type="countType"/>
+ *   &lt;xsd:element name="quorum" type="countType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

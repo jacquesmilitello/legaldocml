@@ -13,14 +13,14 @@ import java.util.function.Supplier;
 
 /**
  * The type judgmentBodyType specifies a content model of the main hierarchy of a judgment document.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="judgmentBodyType">
- *     <xsd:choice minOccurs="1" maxOccurs="unbounded">
- *       <xsd:group ref="judgmentBlock"/>
- *     </xsd:choice>
- *     <xsd:attributeGroup ref="coreopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="judgmentBodyType"&gt;
+ *     &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ *       &lt;xsd:group ref="judgmentBlock"/&gt;
+ *     &lt;xsd:choice&gt;
+ *     &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

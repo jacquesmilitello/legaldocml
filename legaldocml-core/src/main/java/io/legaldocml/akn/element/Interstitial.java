@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * The element interstitial is used as a container of text elements and blocks that are placed for any reason between
  * individual documents in a collection of documents.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="interstitial" type="blocksreq"/>
+ *   &lt;xsd:element name="interstitial" type="blocksreq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

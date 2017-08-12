@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element extractText is an inline element containing a string used as an extract from another document.
- * <p/>
+ *
  * <pre>
- * 	<xsd:element name="extractText" type="inline"/>
+ * 	&lt;xsd:element name="extractText" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

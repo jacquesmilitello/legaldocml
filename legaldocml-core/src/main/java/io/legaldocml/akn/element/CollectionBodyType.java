@@ -17,14 +17,14 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  * the type collectionBodyType specifies a content model of a container of a list of other documents (e.g, acts, bills,
  * amendments, etc.) possibly  interspersed with interstitial elements with content that does not form an individual
  * document.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="collectionBodyType">
- *     <xsd:sequence>
- *       <xsd:element ref="component" minOccurs="1" maxOccurs="unbounded"/>
- *     </xsd:sequence>
- *     <xsd:attributeGroup ref="coreopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="collectionBodyType"&gt;
+ *     &lt;xsd:sequence&gt;
+ *       &lt;xsd:element ref="component" minOccurs="1" maxOccurs="unbounded"/&gt;
+ *     &lt;xsd:sequence&gt;
+ *     &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

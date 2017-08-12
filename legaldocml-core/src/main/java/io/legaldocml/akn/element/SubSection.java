@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * This element is a hierarchical container called "subsection" either explicitly or due to the local tradition.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="subsection" type="hierarchy"/>
+ *   &lt;xsd:element name="subsection" type="hierarchy"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

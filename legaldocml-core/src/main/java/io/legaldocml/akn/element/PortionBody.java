@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element portionBody is the container of a portion of another document.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="portionBody" type="portionBodyType"/>
+ *   &lt;xsd:element name="portionBody" type="portionBodyType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

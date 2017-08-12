@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element br is an HTML element and is used in Akoma Ntoso as in HTML, for the breaking of a line.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="br" type="markeropt"/>
+ *   &lt;xsd:element name="br" type="markeropt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

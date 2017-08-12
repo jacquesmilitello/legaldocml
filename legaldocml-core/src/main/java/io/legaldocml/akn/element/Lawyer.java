@@ -21,17 +21,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element lawyer is an inline element within judgments to identify where the document defines one of the lawyers,
  * his/her role, which party it represents, and the other lawyer, if any, this lawyer received the power delegation of
  * power in some role.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="lawyer">
- * 	   <xsd:complexType mixed="true">
- *       <xsd:complexContent>
- *         <xsd:extension base="inlinereqreq">
- *           <xsd:attributeGroup ref="lawyerAtts"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ * 	 &lt;xsd:element name="lawyer"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="inlinereqreq"&gt;
+ *           &lt;xsd:attributeGroup ref="lawyerAtts"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

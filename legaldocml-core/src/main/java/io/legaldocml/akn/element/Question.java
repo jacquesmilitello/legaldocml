@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element question is a container of a single official question as proposed by an MP to a person holding an
  * official position.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="question" type="speechType"/>
+ * 	 &lt;xsd:element name="question" type="speechType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

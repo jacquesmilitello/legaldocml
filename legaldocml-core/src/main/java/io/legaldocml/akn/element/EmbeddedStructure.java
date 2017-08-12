@@ -23,18 +23,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the element embeddedStructure is a subFlow element containing a full structure used as an extract from another
  * document or position. Attribute quote is used to specify the quote character used in the original; no quote attribute
  * implies that the quote is left in the text; quote="" implies that there is no quote character.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="embeddedStructure">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="subFlowStructure">
- *           <xsd:attributeGroup ref="quote"/>
- *           <xsd:attributeGroup ref="linkopt"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- * 	 </xsd:element>
+ *   &lt;xsd:element name="embeddedStructure"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="subFlowStructure"&gt;
+ *           &lt;xsd:attributeGroup ref="quote"/&gt;
+ *           &lt;xsd:attributeGroup ref="linkopt"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ * 	 &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

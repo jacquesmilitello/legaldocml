@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element count is a metadata container containing the value of a count in a vote or a quorum verification.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="count" type="countType"/>
+ *   &lt;xsd:element name="count" type="countType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

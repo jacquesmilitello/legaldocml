@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * The element other is a container of parts of a debate that are not speeches, nor scene comments (e.g., lists of
  * papers, etc.).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="other" type="blocksopt"/>
+ *   &lt;xsd:element name="other" type="blocksopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

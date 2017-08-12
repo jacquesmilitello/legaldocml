@@ -18,18 +18,18 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
 /**
  * The complex type itemType is similar to a hierarchical element, but is isolated and does not belong to a full
  * hierarchy.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="itemType">
- * 	   <xsd:complexContent>
- * 	     <xsd:extension base="basehierarchy">
- * 		   <xsd:sequence minOccurs="1" maxOccurs="unbounded">
- * 		     <xsd:group ref="blockElements" />
- * 		   </xsd:sequence>
- * 		   <xsd:attributeGroup ref="corereq" />
- * 	     </xsd:extension>
- * 	   </xsd:complexContent>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="itemType"&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ * 	     &lt;xsd:extension base="basehierarchy"&gt;
+ * 		   &lt;xsd:sequence minOccurs="1" maxOccurs="unbounded"&gt;
+ * 		     &lt;xsd:group ref="blockElements" /&gt;
+ * 		   &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:attributeGroup ref="corereq" /&gt;
+ * 	     &lt;xsd:extension&gt;
+ * 	   &lt;xsd:complexContent&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

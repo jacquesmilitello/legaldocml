@@ -5,9 +5,9 @@ import io.legaldocml.akn.type.TextualMods;
 
 /**
  * <pre>
- * 	<xsd:attributeGroup name="textualModType">
- * 		<xsd:attribute name="type" type="TextualMods" use="required"/>
- * 	</xsd:attributeGroup>
+ * 	&lt;xsd:attributeGroup name="textualModType"&gt;
+ * 		&lt;xsd:attribute name="type" type="TextualMods" use="required"/&gt;
+ * 	&lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

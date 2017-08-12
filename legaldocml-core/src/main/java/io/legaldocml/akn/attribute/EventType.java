@@ -5,9 +5,9 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * <pre>
- *  <xsd:attributeGroup name="eventType">
- *      <xsd:attribute name="type" type="eventType"/>
- *  </xsd:attributeGroup>
+ *  &lt;xsd:attributeGroup name="eventType"&gt;
+ *      &lt;xsd:attribute name="type" type="eventType"/&gt;
+ *  &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

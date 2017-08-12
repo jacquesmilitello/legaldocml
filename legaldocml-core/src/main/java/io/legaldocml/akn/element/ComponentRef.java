@@ -10,9 +10,9 @@ import java.io.IOException;
  * The element componentRef is a reference to a separate manifestation-level resource that holds the content of the
  * component of the document not physically placed at the position specified. Actual resources can either be external
  * (e.g. in the package or even in a different position) or internal (within the components element).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="componentRef" type="srcType"/>
+ *   &lt;xsd:element name="componentRef" type="srcType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

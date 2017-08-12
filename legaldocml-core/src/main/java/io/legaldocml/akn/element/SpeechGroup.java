@@ -27,17 +27,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element speechGroup is a container of speech elements. This element is meant to pooint out, in a complex sequence
  * of individual speech elements, the main contributor, i.e., the individual speech who was introducedand expected and
  * that is causing the complex sequence that follows. Attributes by, as and to are those of the main speech.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="speechGroup">
- * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="althierarchy">
- * 		     <xsd:attributeGroup ref="speechAtts"/>
- * 		   </xsd:extension>
- * 		 </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="speechGroup"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="althierarchy"&gt;
+ * 		     &lt;xsd:attributeGroup ref="speechAtts"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 		 &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

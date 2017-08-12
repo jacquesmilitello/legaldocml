@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element new is a metadata element containing (in some non-managed form) the new text of the modification.
  * Attribute href points to the eId of the element old it is substituting.
- * <p>
+ *
  * <pre>
- *   <xsd:element name="new" type="anyOtherType"/>
+ *   &lt;xsd:element name="new" type="anyOtherType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

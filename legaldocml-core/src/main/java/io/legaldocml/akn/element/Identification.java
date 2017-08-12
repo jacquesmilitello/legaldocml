@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * <pre>
- *   <xsd:element name="identification">
- * 	   <xsd:complexType>
- * 	     <xsd:sequence>
- * 		   <xsd:element ref="FRBRWork"/>
- * 		   <xsd:element ref="FRBRExpression"/>
- * 		   <xsd:element ref="FRBRManifestation"/>
- * 		   <xsd:element ref="FRBRItem" minOccurs="0" maxOccurs="1"/>
- * 		 </xsd:sequence>
- * 	   <xsd:attributeGroup ref="source"/>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="identification"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:element ref="FRBRWork"/&gt;
+ * 		   &lt;xsd:element ref="FRBRExpression"/&gt;
+ * 		   &lt;xsd:element ref="FRBRManifestation"/&gt;
+ * 		   &lt;xsd:element ref="FRBRItem" minOccurs="0" maxOccurs="1"/&gt;
+ * 		 &lt;xsd:sequence&gt;
+ * 	   &lt;xsd:attributeGroup ref="source"/&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

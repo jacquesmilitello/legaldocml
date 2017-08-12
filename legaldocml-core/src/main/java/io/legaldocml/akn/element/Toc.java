@@ -12,14 +12,14 @@ import java.io.IOException;
 
 /**
  * <pre>
- *   <xsd:element name="toc">
- * 	   <xsd:complexType>
- * 	     <xsd:sequence>
- * 		   <xsd:element ref="tocItem" minOccurs="1" maxOccurs="unbounded"/>
- * 		 </xsd:sequence>
- * 	     <xsd:attributeGroup ref="corereq"/>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="toc"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:element ref="tocItem" minOccurs="1" maxOccurs="unbounded"/&gt;
+ * 		 &lt;xsd:sequence&gt;
+ * 	     &lt;xsd:attributeGroup ref="corereq"/&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

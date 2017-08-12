@@ -13,26 +13,26 @@ import java.util.function.Supplier;
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
  * of a judgment.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="judicialArguments">
- *     <xsd:sequence>
- *       <xsd:element ref="result"/>
- *       <xsd:choice minOccurs="1" maxOccurs="unbounded">
- *         <xsd:element ref="supports"/>
- *         <xsd:element ref="isAnalogTo"/>
- *         <xsd:element ref="applies"/>
- *         <xsd:element ref="extends"/>
- *         <xsd:element ref="restricts"/>
- *         <xsd:element ref="derogates"/>
- *         <xsd:element ref="contrasts"/>
- *         <xsd:element ref="overrules"/>
- *         <xsd:element ref="dissentsFrom"/>
- *         <xsd:element ref="putsInQuestion"/>
- *         <xsd:element ref="distinguishes"/>
- *       </xsd:choice>
- *     </xsd:sequence>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="judicialArguments"&gt;
+ *     &lt;xsd:sequence&gt;
+ *       &lt;xsd:element ref="result"/&gt;
+ *       &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ *         &lt;xsd:element ref="supports"/&gt;
+ *         &lt;xsd:element ref="isAnalogTo"/&gt;
+ *         &lt;xsd:element ref="applies"/&gt;
+ *         &lt;xsd:element ref="extends"/&gt;
+ *         &lt;xsd:element ref="restricts"/&gt;
+ *         &lt;xsd:element ref="derogates"/&gt;
+ *         &lt;xsd:element ref="contrasts"/&gt;
+ *         &lt;xsd:element ref="overrules"/&gt;
+ *         &lt;xsd:element ref="dissentsFrom"/&gt;
+ *         &lt;xsd:element ref="putsInQuestion"/&gt;
+ *         &lt;xsd:element ref="distinguishes"/&gt;
+ *       &lt;xsd:choice&gt;
+ *     &lt;xsd:sequence&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

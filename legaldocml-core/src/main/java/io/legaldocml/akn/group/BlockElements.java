@@ -12,16 +12,16 @@ import io.legaldocml.akn.element.SubFlowStructureElement;
 
 /**
  * The group blockElements lists all the elements that are blocks.
- * <p/>
+ *
  * <pre>
- *   <xsd:group name="blockElements">
- * 	   <xsd:choice>
- * 	     <xsd:group ref="ANblock"/>
- * 		 <xsd:group ref="HTMLblock"/>
- * 		 <xsd:element ref="foreign"/>
- * 		 <xsd:element ref="block"/>
- * 	   </xsd:choice>
- *   </xsd:group>
+ *   &lt;xsd:group name="blockElements"&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	     &lt;xsd:group ref="ANblock"/&gt;
+ * 		 &lt;xsd:group ref="HTMLblock"/&gt;
+ * 		 &lt;xsd:element ref="foreign"/&gt;
+ * 		 &lt;xsd:element ref="block"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

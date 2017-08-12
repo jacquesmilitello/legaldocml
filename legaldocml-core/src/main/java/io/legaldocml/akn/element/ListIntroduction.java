@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element listIntroduction is an optional element of blockList before any item of the list itself.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="listIntroduction" type="inline"/>
+ *   &lt;xsd:element name="listIntroduction" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

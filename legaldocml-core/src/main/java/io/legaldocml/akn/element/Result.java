@@ -16,17 +16,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element result is a metadata element specifying the overall result of the judgment.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="result" type="anyOtherType">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="anyOtherType">
- *           <xsd:attributeGroup ref="resultType"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="result" type="anyOtherType"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="anyOtherType"&gt;
+ *           &lt;xsd:attributeGroup ref="resultType"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

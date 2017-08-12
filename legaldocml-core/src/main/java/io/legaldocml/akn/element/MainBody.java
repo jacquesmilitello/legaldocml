@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element mainContent is the container of the main part of all other document types.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="mainBody" type="maincontent"/>
+ * 	 &lt;xsd:element name="mainBody" type="maincontent"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

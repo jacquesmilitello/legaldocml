@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element preamble is used as a container of the text that opens the main body of the document as a preamble.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="preamble" type="preambleopt"/>
+ * 	 &lt;xsd:element name="preamble" type="preambleopt"/&gt;
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

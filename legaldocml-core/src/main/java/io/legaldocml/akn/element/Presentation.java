@@ -17,17 +17,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element presentation is a metadata container of any presentation specification for the visual rendering of Akoam
  * Ntoso elements. Anything can be placed in this element.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="presentation">
- *     <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="anyOtherType">
- *           <xsd:attributeGroup ref="source"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="presentation"&gt;
+ *     &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="anyOtherType"&gt;
+ *           &lt;xsd:attributeGroup ref="source"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

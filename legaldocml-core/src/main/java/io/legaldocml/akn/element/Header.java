@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * the element header is used as a container of all prefacing material of judgments (e.g. headers, formulas, etc.).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="header" type="blocksopt"/>
+ *   &lt;xsd:element name="header" type="blocksopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

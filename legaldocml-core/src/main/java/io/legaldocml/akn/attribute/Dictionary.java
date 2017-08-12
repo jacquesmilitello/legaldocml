@@ -6,11 +6,11 @@ import io.legaldocml.akn.type.ReferenceRef;
 /**
  * This attribute specifies the eId of the element in the references section detailing the dictionary used for the
  * keyword.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="dictionary">
- *     <xsd:attribute name="dictionary" type="referenceRef" use="required"/>
- *  </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="dictionary"&gt;
+ *     &lt;xsd:attribute name="dictionary" type="referenceRef" use="required"/&gt;
+ *  &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

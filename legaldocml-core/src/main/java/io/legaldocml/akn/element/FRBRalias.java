@@ -18,9 +18,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element FRBRalias is the metadata property containing additional well-known names of the document in the
  * respective level of the FRBR hierarchy
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRalias" type="valueType"/>
+ *   &lt;xsd:element name="FRBRalias" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -14,22 +14,22 @@ package io.legaldocml.akn.type;
  *<li>undefined: the content of the element or the value of a required attribute is NOT present in the markup (manifestation), because the information is not defined in the original document, or it doesn't exist in some legal tradition (e.g. an anonymous speech cannot specify the attribute by, or some publications do not record the numbering of the items, etc.)</li>
  *<li> ignored: the content of the element or the value of a required attribute is NOT present in the markup (manifestation) because the information exists but the author of the manifestation is not interested in reporting it (e.g., omitted parts of the document due to editorial reasons, etc.)</li>
  *</ul>
- * <p>
+ *
  * <pre>
- *   <xsd:simpleType name="statusType">
- * 	   <xsd:restriction base="xsd:string">
- * 	     <xsd:enumeration value="removed"/>
- *       <xsd:enumeration value="temporarilyRemoved"/>
- *       <xsd:enumeration value="translated"/>
- *       <xsd:enumeration value="editorial"/>
- *       <xsd:enumeration value="edited"/>
- *       <xsd:enumeration value="verbatim"/>
- *       <xsd:enumeration value="incomplete"/>
- *       <xsd:enumeration value="unknown"/>
- *       <xsd:enumeration value="undefined"/>
- *       <xsd:enumeration value="ignored"/>
- * 	   </xsd:restriction>
- *   </xsd:simpleType>
+ *   &lt;xsd:simpleType name="statusType"&gt;
+ * 	   &lt;xsd:restriction base="xsd:string"&gt;
+ * 	     &lt;xsd:enumeration value="removed"/&gt;
+ *       &lt;xsd:enumeration value="temporarilyRemoved"/&gt;
+ *       &lt;xsd:enumeration value="translated"/&gt;
+ *       &lt;xsd:enumeration value="editorial"/&gt;
+ *       &lt;xsd:enumeration value="edited"/&gt;
+ *       &lt;xsd:enumeration value="verbatim"/&gt;
+ *       &lt;xsd:enumeration value="incomplete"/&gt;
+ *       &lt;xsd:enumeration value="unknown"/&gt;
+ *       &lt;xsd:enumeration value="undefined"/&gt;
+ *       &lt;xsd:enumeration value="ignored"/&gt;
+ * 	   &lt;xsd:restriction>
+ *   &lt;xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

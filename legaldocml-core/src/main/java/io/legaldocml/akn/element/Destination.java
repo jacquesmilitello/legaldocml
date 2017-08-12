@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element destination is a metadata element specifying the IRI of the destination of the modification.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="destination" type="argumentType"/>
+ *   &lt;xsd:element name="destination" type="argumentType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

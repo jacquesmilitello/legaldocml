@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element content is the final container in a hierarchy, and is where the blocks of text of the content of the
  * structure are finally specified.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="content" type="blocksopt"/>
+ * 	 &lt;xsd:element name="content" type="blocksopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

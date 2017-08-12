@@ -22,16 +22,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type containerType is the content model for the generic element for a container. It can be placed in a
  * container instead of any of the other containers. The attribute name is required and gives a name to the element.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="containerType">
- * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
- * 	     <xsd:group ref="blockElements"/>
- * 		 <xsd:element ref="container"/>
- * 	   </xsd:choice>
- * 	   <xsd:attributeGroup ref="corereq"/>
- * 	   <xsd:attributeGroup ref="name"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="containerType"&gt;
+ * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:group ref="blockElements"/&gt;
+ * 		 &lt;xsd:element ref="container"/&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	   &lt;xsd:attributeGroup ref="corereq"/&gt;
+ * 	   &lt;xsd:attributeGroup ref="name"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

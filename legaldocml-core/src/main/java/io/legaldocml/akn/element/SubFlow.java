@@ -16,17 +16,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element note is a metadata element containing the text of the footnote and endnote specified.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="subFlow">
- * 	   <xsd:complexType>
- *       <xsd:complexContent>
- *         <xsd:extension base="subFlowStructure">
- *           <xsd:attributeGroup ref="name"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- * 	 </xsd:element>
+ *   &lt;xsd:element name="subFlow"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="subFlowStructure"&gt;
+ *           &lt;xsd:attributeGroup ref="name"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ * 	 &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

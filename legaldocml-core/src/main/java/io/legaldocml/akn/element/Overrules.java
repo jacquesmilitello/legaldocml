@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element overrules is a metadata element specifying a reference to a source overruled by the argument being
  * described.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="overrules" type="judicialArgumentType">
+ * 	 &lt;xsd:element name="overrules" type="judicialArgumentType"&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

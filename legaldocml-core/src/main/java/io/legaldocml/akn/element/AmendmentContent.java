@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * This element is a structural container for the section of an amendment containing the actual amendment text.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="amendmentContent" type="blocksopt"/>
+ *   &lt;xsd:element name="amendmentContent" type="blocksopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

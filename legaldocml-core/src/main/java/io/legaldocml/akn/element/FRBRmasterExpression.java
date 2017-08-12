@@ -15,9 +15,9 @@ import java.io.IOException;
  * expression. If the FRBRmasterEpression is specified, but without a href pointing to the masterExpression, it is
  * assumed that NO master expression exist in reality, but an UR-Expression exist, whose ids are used in this expression
  * as wIds.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRmasterExpression" type="linkType"/>
+ *   &lt;xsd:element name="FRBRmasterExpression" type="linkType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

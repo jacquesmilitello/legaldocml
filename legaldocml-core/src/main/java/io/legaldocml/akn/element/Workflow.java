@@ -19,14 +19,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * <pre>
- *   <xsd:element name="workflow">
- * 	   <xsd:complexType>
- * 	     <xsd:sequence>
- * 		   <xsd:element ref="step" minOccurs="1" maxOccurs="unbounded"/>
- * 		 </xsd:sequence>
- * 	 	 <xsd:attributeGroup ref="source"/>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="workflow"&gt;
+ * 	   &lt;xsd:complexType&gt;
+ * 	     &lt;xsd:sequence&gt;
+ * 		   &lt;xsd:element ref="step" minOccurs="1" maxOccurs="unbounded"/&gt;
+ * 		 &lt;xsd:sequence&gt;
+ * 	 	 &lt;xsd:attributeGroup ref="source"/&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

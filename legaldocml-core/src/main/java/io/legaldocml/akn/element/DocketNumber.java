@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element docketNumber is an inline element within preface to identify the string used by the document for the
  * number of the docket, case, file, etc which the document belongs to.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="docketNumber" type="inline"/>
+ * 	 &lt;xsd:element name="docketNumber" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,18 +8,18 @@ import java.io.IOException;
 
 /**
  * The group workProperties lists the properties that are characteristics of the FRBR Work level.
- * <p>
+ *
  * <pre>
- * 	<xsd:group name="workProperties">
- * 		<xsd:sequence>
- *          <xsd:element ref="FRBRcountry"/>
- *          <xsd:element ref="FRBRsubtype" minOccurs="0" maxOccurs="1"/>
- *          <xsd:element ref="FRBRnumber" minOccurs="0" maxOccurs="unbounded"/>
- *          <xsd:element ref="FRBRname" minOccurs="0" maxOccurs="unbounded"/>
- *          <xsd:element ref="FRBRprescriptive" minOccurs="0" maxOccurs="1"/>
- *          <xsd:element ref="FRBRauthoritative" minOccurs="0" maxOccurs="1"/>
- * 		</xsd:sequence>
- * 	</xsd:group>
+ * 	&lt;xsd:group name="workProperties"&gt;
+ * 		&lt;xsd:sequence&gt;
+ *          &lt;xsd:element ref="FRBRcountry"/&gt;
+ *          &lt;xsd:element ref="FRBRsubtype" minOccurs="0" maxOccurs="1"/&gt;
+ *          &lt;xsd:element ref="FRBRnumber" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *          &lt;xsd:element ref="FRBRname" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *          &lt;xsd:element ref="FRBRprescriptive" minOccurs="0" maxOccurs="1"/&gt;
+ *          &lt;xsd:element ref="FRBRauthoritative" minOccurs="0" maxOccurs="1"/&gt;
+ * 		&lt;xsd:sequence&gt;
+ * 	&lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

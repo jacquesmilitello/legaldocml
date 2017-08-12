@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element FRBRversionNumber is the metadata property containing the value of the version number if appropriate to
  * identify the specific expression here contained. It allows an arbitrary string.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="FRBRversionNumber" type="valueType"/>
+ *   &lt;xsd:element name="FRBRversionNumber" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

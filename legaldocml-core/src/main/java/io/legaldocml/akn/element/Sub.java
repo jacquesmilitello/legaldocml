@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element sub is an HTML element and is used in Akoma Ntoso as in HTML, for the subscript style (an inline).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="sub" type="inline"/>
+ *   &lt;xsd:element name="sub" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

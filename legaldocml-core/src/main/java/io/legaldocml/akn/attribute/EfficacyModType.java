@@ -5,9 +5,9 @@ import io.legaldocml.akn.type.EfficacyMods;
 
 /**
  * <pre>
- *   <xsd:attributeGroup name="efficacyModType">
- * 	   <xsd:attribute name="type" type="EfficacyMods" use="required"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="efficacyModType"&gt;
+ * 	   &lt;xsd:attribute name="type" type="EfficacyMods" use="required"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

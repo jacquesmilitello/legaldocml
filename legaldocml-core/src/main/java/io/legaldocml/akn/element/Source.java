@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * The element source is a metadata element specifying the IRI of the source of the modification.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="source" type="argumentType"/>
+ *   &lt;xsd:element name="source" type="argumentType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

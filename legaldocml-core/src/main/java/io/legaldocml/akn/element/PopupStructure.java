@@ -17,28 +17,28 @@ import static io.legaldocml.akn.element.Groups.hierElements;
 
 /**
  * <pre>
- * 	<xsd:complexType name="popupStructure">
- * 		<xsd:choice minOccurs="1" maxOccurs="unbounded">
- * 			<xsd:group ref="blockElements"/>
- * 			<xsd:group ref="containerElements"/>
- * 			<xsd:group ref="hierElements"/>
- * 			<xsd:element ref="content"/>
- * 			<xsd:group ref="ANcontainers"/>
- * 			<xsd:element ref="formula"/>
- * 			<xsd:element ref="recitals"/>
- * 			<xsd:element ref="citations"/>
- * 			<xsd:element ref="longTitle"/>
- * 			<xsd:element ref="recital"/>
- * 			<xsd:element ref="citation"/>
- * 			<xsd:element ref="componentRef"/>
- * 			<xsd:element ref="intro"/>
- * 			<xsd:element ref="wrap"/>
- * 			<xsd:element ref="heading"/>
- * 			<xsd:element ref="subheading"/>
- * 			<xsd:element ref="num"/>
- * 		</xsd:choice>
- * 		<xsd:attributeGroup ref="corereq" />
- * 	</xsd:complexType>
+ * 	&lt;xsd:complexType name="popupStructure"&gt;
+ * 		&lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
+ * 			&lt;xsd:group ref="blockElements"/&gt;
+ * 			&lt;xsd:group ref="containerElements"/&gt;
+ * 			&lt;xsd:group ref="hierElements"/&gt;
+ * 			&lt;xsd:element ref="content"/&gt;
+ * 			&lt;xsd:group ref="ANcontainers"/&gt;
+ * 			&lt;xsd:element ref="formula"/&gt;
+ * 			&lt;xsd:element ref="recitals"/&gt;
+ * 			&lt;xsd:element ref="citations"/&gt;
+ * 			&lt;xsd:element ref="longTitle"/&gt;
+ * 			&lt;xsd:element ref="recital"/&gt;
+ * 			&lt;xsd:element ref="citation"/&gt;
+ * 			&lt;xsd:element ref="componentRef"/&gt;
+ * 			&lt;xsd:element ref="intro"/&gt;
+ * 			&lt;xsd:element ref="wrap"/&gt;
+ * 			&lt;xsd:element ref="heading"/&gt;
+ * 			&lt;xsd:element ref="subheading"/&gt;
+ * 			&lt;xsd:element ref="num"/&gt;
+ * 		&lt;xsd:choice&gt;
+ * 		&lt;xsd:attributeGroup ref="corereq" /&gt;
+ * 	&lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

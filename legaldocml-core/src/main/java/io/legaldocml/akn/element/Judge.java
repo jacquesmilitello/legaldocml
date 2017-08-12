@@ -18,17 +18,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element judge is an inline element within judgments to identify where the document defines one of the judges, and
  * his/her role.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="judge">
- * 	   <xsd:complexType mixed="true">
- *       <xsd:complexContent>
- *         <xsd:extension base="inlinereqreq">
- *           <xsd:attributeGroup ref="role"/>
- *         </xsd:extension>
- *       </xsd:complexContent>
- *     </xsd:complexType>
- *   </xsd:element>
+ * 	 &lt;xsd:element name="judge"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ *       &lt;xsd:complexContent&gt;
+ *         &lt;xsd:extension base="inlinereqreq"&gt;
+ *           &lt;xsd:attributeGroup ref="role"/&gt;
+ *         &lt;xsd:extension&gt;
+ *       &lt;xsd:complexContent&gt;
+ *     &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

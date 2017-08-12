@@ -13,14 +13,14 @@ import java.util.function.Supplier;
 
 /**
  * The type debateBodyType specifies a content model of the main hierarchy of a debate.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="debateBodyType">
- *     <xsd:sequence minOccurs="1" maxOccurs="unbounded">
- * 	     <xsd:group ref="speechSection"/>
- * 	   </xsd:sequence>
- * 	   <xsd:attributeGroup ref="coreopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="debateBodyType"&gt;
+ *     &lt;xsd:sequence minOccurs="1" maxOccurs="unbounded"&gt;
+ * 	     &lt;xsd:group ref="speechSection"/&gt;
+ * 	   &lt;xsd:sequence&gt;
+ * 	   &lt;xsd:attributeGroup ref="coreopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

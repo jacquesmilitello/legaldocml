@@ -8,9 +8,9 @@ import java.io.IOException;
 /**
  * The element FRBRsubtype is the metadata property containing a string for the specific subtype of the document to be
  * used in the work-level IRI of this document
- * <p/>
+ *
  * <pre>
- *  	<xsd:element name="FRBRsubtype" type="valueType"/>
+ *  	&lt;xsd:element name="FRBRsubtype" type="valueType"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

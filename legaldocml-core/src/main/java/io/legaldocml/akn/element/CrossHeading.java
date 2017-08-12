@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * the element crossHeading is a heading element that is placed side by side with hierarchical containers.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="crossHeading" type="inlinereq"/>
+ *   &lt;xsd:element name="crossHeading" type="inlinereq"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

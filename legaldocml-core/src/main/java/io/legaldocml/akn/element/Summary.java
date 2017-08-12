@@ -9,9 +9,9 @@ import java.io.IOException;
 /**
  * The element summary is a block element in a debate to mark summaries of speeches that are individually not
  * interesting (e.g.: "Question put and agreed to").
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="summary" type="inline"/>
+ * 	 &lt;xsd:element name="summary" type="inline"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -4,11 +4,11 @@ import io.legaldocml.akn.AknObject;
 
 /**
  * The attribute originating is used to identify whether the event is the one originating this expression.
- * <p/>
+ *
  * <pre>
- *   <xsd:attributeGroup name="originating">
- * 	   <xsd:attribute name="originatingExpression" type="xsd:boolean"/>
- *   </xsd:attributeGroup>
+ *   &lt;xsd:attributeGroup name="originating"&gt;
+ * 	   &lt;xsd:attribute name="originatingExpression" type="xsd:boolean"/&gt;
+ *   &lt;xsd:attributeGroup&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

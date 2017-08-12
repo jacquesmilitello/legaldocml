@@ -21,17 +21,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element rref is an inline element containing a range of references between the IRI specified in the from
  * attribute and the one specified in the upTo attribute.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="rref">
- *     <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 	  	   <xsd:extension base="inlinereq">
- * 		     <xsd:attributeGroup ref="range"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="rref"&gt;
+ *     &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	  	   &lt;xsd:extension base="inlinereq"&gt;
+ * 		     &lt;xsd:attributeGroup ref="range"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

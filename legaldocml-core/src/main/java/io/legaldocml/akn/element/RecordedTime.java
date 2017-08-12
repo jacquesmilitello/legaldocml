@@ -24,18 +24,18 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 /**
  * the element recordedTime is an inline element for the specification of an explicit mention of a time (e.g., in a
  * debate).
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="recordedTime">
- *     <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 	 	   <xsd:extension base="inline">
- * 		     <xsd:attributeGroup ref="recordedTimeType"/>
- *           <xsd:attributeGroup ref="time"/>
- * 		   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="recordedTime"&gt;
+ *     &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	 	   &lt;xsd:extension base="inline"&gt;
+ * 		     &lt;xsd:attributeGroup ref="recordedTimeType"/&gt;
+ *           &lt;xsd:attributeGroup ref="time"/&gt;
+ * 		   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

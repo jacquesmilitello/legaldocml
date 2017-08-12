@@ -7,20 +7,20 @@ import io.legaldocml.akn.element.RefItem;
  * The group TLCs is a list of types of Top Level classes of the Akoma Ntoso ontology.
  * 
  * <pre>
- *   <xsd:group name="TLCs">
- * 	   <xsd:choice>
- * 	     <xsd:element ref="TLCPerson"/>
- * 		 <xsd:element ref="TLCOrganization"/>
- * 		 <xsd:element ref="TLCConcept"/>
- * 		 <xsd:element ref="TLCObject"/>
- * 		 <xsd:element ref="TLCEvent"/>
- * 		 <xsd:element ref="TLCLocation"/>
- * 		 <xsd:element ref="TLCProcess"/>
- * 		 <xsd:element ref="TLCRole"/>
- * 		 <xsd:element ref="TLCTerm"/>
- * 		 <xsd:element ref="TLCReference"/>
- *	   </xsd:choice>
- *   </xsd:group>
+ *   &lt;xsd:group name="TLCs"&gt;
+ * 	   &lt;xsd:choice&gt;
+ * 	     &lt;xsd:element ref="TLCPerson"/&gt;
+ * 		 &lt;xsd:element ref="TLCOrganization"/&gt;
+ * 		 &lt;xsd:element ref="TLCConcept"/&gt;
+ * 		 &lt;xsd:element ref="TLCObject"/&gt;
+ * 		 &lt;xsd:element ref="TLCEvent"/&gt;
+ * 		 &lt;xsd:element ref="TLCLocation"/&gt;
+ * 		 &lt;xsd:element ref="TLCProcess"/&gt;
+ * 		 &lt;xsd:element ref="TLCRole"/&gt;
+ * 		 &lt;xsd:element ref="TLCTerm"/&gt;
+ * 		 &lt;xsd:element ref="TLCReference"/&gt;
+ *	   &lt;xsd:choice&gt;
+ *   &lt;xsd:group&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

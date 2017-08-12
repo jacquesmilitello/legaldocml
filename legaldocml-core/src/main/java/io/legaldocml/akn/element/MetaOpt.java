@@ -10,12 +10,12 @@ import java.util.ArrayList;
 /**
  * The complex type metaopt defines the content model and attributes shared by all metadata elements. Here the eId
  * attribute is optional.
- * <p/>
+ *
  * <pre>
- *   <xsd:complexType name="metaopt">
- *     <xsd:attributeGroup ref="core"/>
- *     <xsd:attributeGroup ref="idopt"/>
- *   </xsd:complexType>
+ *   &lt;xsd:complexType name="metaopt"&gt;
+ *     &lt;xsd:attributeGroup ref="core"/&gt;
+ *     &lt;xsd:attributeGroup ref="idopt"/&gt;
+ *   &lt;xsd:complexType&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

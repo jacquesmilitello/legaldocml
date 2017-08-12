@@ -24,18 +24,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * specify the quote character used in the original; no quote attribute implies that the quote is left in the text;
  * quote="" implies that there is no quote character. Attribute for is used to point to the eId of the corresponding ref
  * element.
- * <p/>
+ *
  * <pre>
- *   <xsd:element name="quotedText">
- * 	   <xsd:complexType mixed="true">
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="inline">
- * 		     <xsd:attributeGroup ref="quote"/>
- *           <xsd:attributeGroup ref="for"/>
- * 	 	   </xsd:extension>
- * 	     </xsd:complexContent>
- * 	   </xsd:complexType>
- *   </xsd:element>
+ *   &lt;xsd:element name="quotedText"&gt;
+ * 	   &lt;xsd:complexType mixed="true"&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 		   &lt;xsd:extension base="inline"&gt;
+ * 		     &lt;xsd:attributeGroup ref="quote"/&gt;
+ *           &lt;xsd:attributeGroup ref="for"/&gt;
+ * 	 	   &lt;xsd:extension&gt;
+ * 	     &lt;xsd:complexContent&gt;
+ * 	   &lt;xsd:complexType&gt;
+ *   &lt;xsd:element&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

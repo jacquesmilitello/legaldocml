@@ -8,9 +8,9 @@ import java.io.IOException;
 
 /**
  * The element coverPage is used as a container of the text that acts as a cover page.
- * <p/>
+ *
  * <pre>
- * 	 <xsd:element name="coverPage" type="basicopt"/>
+ * 	 &lt;xsd:element name="coverPage" type="basicopt"/&gt;
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
