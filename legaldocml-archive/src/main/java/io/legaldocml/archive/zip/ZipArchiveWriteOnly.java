@@ -59,13 +59,16 @@ final class ZipArchiveWriteOnly implements Archive {
     private final ZipMeta meta = new ZipMeta();
 
     ZipArchiveWriteOnly(Path path) {
+
+        LOGGER.info("Create archive in [{}]", path);
+
         try {
             fs = FileSystems.newFileSystem(new URI("jar:file:/" + path.toString().replace('\\', '/')), ENV);
         } catch (Exception cause) {
-            throw new ArchiveException(ArchiveException.Type.WRITE_OPEN, cause.getMessage());
+            throw new ArchiveException(ArchiveException.Type.WRITE_OPEN, cause.getMessage(), cause);
         }
 
-        LOGGER.info("Create archive in [{}]", path);
+
     }
 
     /**
