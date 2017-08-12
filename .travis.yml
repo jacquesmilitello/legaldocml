@@ -1,8 +1,7 @@
 sudo: false
 language: java
 
-# for sonarcloud.io
-dist: trusty
+
 jdk:
   - oraclejdk8
 
@@ -11,8 +10,10 @@ cache:
     - $HOME/.m2
 install: true
 
-script:
-  - mvn clean install -DskipTests=true -Dpmd.skip=true -B -V -e
+script: "mvn clean install -DskipTests=true -Dpmd.skip=true -B -V -e"
+
+# for sonarcloud.io
+dist: trusty
 
 after_success:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
