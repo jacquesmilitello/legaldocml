@@ -21,13 +21,6 @@
 
         <dependency>
             <groupId>io.legaldocml</groupId>
-            <artifactId>legaldocml-akn-v3</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.legaldocml</groupId>
             <artifactId>legaldocml-test</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>

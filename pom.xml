@@ -45,8 +45,6 @@
     <modules>
         <module>legaldocml-test</module>
         <module>legaldocml-core</module>
-        <module>legaldocml-akn-v2</module>
-        <module>legaldocml-akn-v3</module>
         <module>legaldocml-archive</module>
         <!--<module>legaldocml-akn-grammar</module>-->
     </modules>
