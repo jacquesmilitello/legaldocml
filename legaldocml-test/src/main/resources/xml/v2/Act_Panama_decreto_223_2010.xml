@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+    <act contains="originalVersion">
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/pm/decreto/2010-06-29/223/main"/>
+                    <FRBRuri value="/pm/decreto/2010-06-29/223"/>
+                    <FRBRdate date="2010-06-29" name="Enactment"/>
+                    <FRBRauthor href="#mdda" as="#author"/>
+                    <FRBRcountry value="pm"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/pm/decreto/2010-06-29/223/esp@/main"/>
+                    <FRBRuri value="/pm/decreto/2010-06-29/223/esp@"/>
+                    <FRBRdate date="2011-01-10" name="Expression"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <FRBRlanguage language="esp"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/pm/decreto/2010-06-29/223/esp@/main.xml"/>
+                    <FRBRuri value="/pm/decreto/2010-06-29/223/esp@/main.akn"/>
+                    <FRBRdate date="2011-01-11" name="XMLConversion"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                </FRBRManifestation>
+            </identification>
+            <publication date="2010-07-07" name="decreto ejecutivo" showAs="Gaceta Oficial Digital"/>
+            <classification source="#library">
+                <keyword id="keyword1" value="agrarianReform" showAs="Agrarian Reform" dictionary="Tesauro"/>
+            </classification>
+            <lifecycle source="#somebody">
+                <eventRef date="2010-06-29" source="#ro1"/>
+            </lifecycle>
+            <references source="#somebody">
+                <original id="ro1" href="/pm/decreto/2010-06-29/223/esp@" showAs="Original"/>
+                <TLCRole id="presidente" href="/ontology/organizations/pm/presidente"
+                         showAs="Presidente de la República de Panamá"/>
+                <TLCRole id="mdda" href="/ontology/organizations/pm/ministroDesarrolloAgropecuario"
+                         showAs="Ministro de Desarrollo Agropecuario"/>
+                <TLCRole id="author" href="/ontology/roles/pm/author" showAs="Author of Document"/>
+                <TLCRole id="editor" href="/ontology/roles/ita/editor" showAs="Editor of Document"/>
+                <TLCOrganization id="library" href="/ontology/organization/ken/library"
+                                 showAs="Library of the Congress"/>
+                <TLCPerson id="Berrocal" href="/ontology/persons/pm/authority/berrocal"
+                           showAs="Ricardo Martinelli Berrocal"/>
+                <TLCPerson id="Perez" href="/ontology/persons/pm/authority/perex" showAs="Víctor Manuel Pérez B."/>
+                <TLCPerson id="somebody" href="/ontology/persons/ita/editors/somebody" showAs="somebody"/>
+                <TLCLocation id="panama" href="/ontology/cities/pm/panama" showAs="Panamá"/>
+            </references>
+        </meta>
+        <preface>
+            <container id="con1" name="preface">
+                <p>
+                    <docProponent>República de Panamá</docProponent>
+                </p>
+                <p>
+                    <docProponent>Ministerio de Desarrolo Agropecuario</docProponent>
+                </p>
+                <p>
+                    <docType>Decreto Ejecutivo</docType>
+                </p>
+                <p>
+                    <docNumber>n. 223</docNumber>
+                </p>
+                <p>
+                    <docDate date="2010-06-29">(De 29 de 06 de 2010)</docDate>
+                </p>
+                <p>
+                    <docTitle>Que reglamenta la Ley 72 de 2008, que establece el procedimento especial para la
+                        adjudicación de la propiedad colectiva de tierras de los pueblo indígenas que no están dentro de
+                        las comarcas.
+                    </docTitle>
+                </p>
+            </container>
+        </preface>
+        <preamble>
+            <container id="con2" name="preamble">
+                <p>El Presidente de la República</p>
+                <p>En uso de sus facultades constitucionales y legales,</p>
+            </container>
+            <container id="con3" name="considerando">
+                <p class="centrado">CONSIDERANDO:</p>
+                <p>Que el <ref id="ref1" href="/pm/costitucion/main#127:2010-06-29">artículo 127 de la Costitución
+                    Política de la República
+                </ref> establece que El Estado garntiza a las comunidades indígenas la propriedad colectiva de tierras.
+                </p>
+                <p>Que mediante <ref id="ref2" href="/pm/ley/2008/72/main:2010-06-29">Ley 72 de 2008</ref> se establece
+                    el procedimiento especial para la adjudicación de la propiedad colectiva de tierras de los pueblos
+                    indígenas que no están dentro de las comarcas.
+                </p>
+                <p>Que el <ref id="ref3" href="/pm/ley/2008/72/main#art18:2010-06-29">artículo 18 de la Ley 72 de 2008
+                </ref> autoriza al Órgano Ejecutivo para reglamentar, mediante decreto, el procedimiento para la
+                    adjudicación de la propiedad colectiva de tierras tradicionalmente ocupadas por los pueblos y
+                    comunidades indígenas.
+                </p>
+            </container>
+            <formula class="centrado">
+                <p>DECRETA:</p>
+            </formula>
+        </preamble>
+        <body>
+            <article id="art1">
+                <num>Artículo 1:</num>
+                <clause id="art1-cls1">
+                    <content>
+                        <p>Dirección Nacional de Reforma Agraria reconoscerá las tierras tradicionalmente ocupadas por
+                            los pueblos indígenas. Para los efectos de la adjudicación de las tierras de propiedad
+                            colectiva se presenterá ante la Oficina Regional de la Dirección Nacional de Reforma Agraria
+                            del Ministeria de Desarrollo Agropecuario, una solicitud del título colectivo en forma
+                            individual o colectiva por la Autoridad o Dirigente Indígena certificado por la Dirección de
+                            Política Indígena. La Oficina Regional de Reforma Agraria, verificará la existencia de
+                            colindantes ausentes o conocidos, y notificará a estos la colicitud, de acuerdo con el
+                            procedimiento establacido en el Código Agrario.
+                        </p>
+                    </content>
+                </clause>
+            </article>
+            <article id="art2" refersTo="#keyword1">
+                <num>Artículo 2:</num>
+                <content>
+                    <blockList id="art2-list1">
+                        <listIntroduction>
+                            La solicitud de título colectivo debe estar acompanada de los siguentes documentos e
+                            información.
+                        </listIntroduction>
+                        <item id="art2-list1-itm1">
+                            <num>1.</num>
+                            <p>El piano o croquis del área a titular.</p>
+                        </item>
+                        <item id="art2-list1-itm2">
+                            <num>2.</num>
+                            <p>La certificación expedida por la Contaloría General de la República del censo poblacional
+                                de la comunidad.
+                            </p>
+                        </item>
+                        <item id="art2-list1-itm3">
+                            <num>3.</num>
+                            <p>La certificación Dirección Nacional Política Indígena del Ministerio de Gobierno y
+                                Justicia, que acredite la existencia de la comunidad o comunidades solicitantes.
+                            </p>
+                        </item>
+                        <item id="art2-list1-itm4">
+                            <num>4.</num>
+                            <p>Nombre y datos generales de la autoridad o persona que hace la solicitud en nombre de los
+                                publos o comunidades indígenas, colindantes, supercicie y localización del terreno.
+                            </p>
+                        </item>
+                    </blockList>
+                </content>
+            </article>
+        </body>
+        <conclusions>
+            <p>Comuníques y Cúmplase:</p>
+            <p>Dado in la cuidad de <location id="loc1" refersTo="#panama">Panamá</location> a los <docDate
+                    date="2010-06-29">29 días del mes de junio de los ano dos mil diez</docDate>.
+            </p>
+            <p>
+                <signature>
+                    <person id="person2334" refersTo="#Berrocal">Ricardo Martinelli Berrocal</person>
+                </signature>
+            </p>
+            <p>
+                <signature>
+                    <person id="person2335" refersTo="#presidente">Presidente de la República de Panamá</person>
+                </signature>
+            </p>
+            <p>
+                <signature>
+                    <person id="person2336" refersTo="#Perez">Víctor Manuel Pérez B.</person>
+                </signature>
+            </p>
+            <p>
+                <signature>
+                    <person id="person2337" refersTo="#mdda">Ministro de Desarrollo Agropecuario</person>
+                </signature>
+            </p>
+        </conclusions>
+    </act>
+</akomaNtoso>

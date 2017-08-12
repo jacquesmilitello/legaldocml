@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+    <amendment>
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/mx/enmienda/2010-10-07/main"/>
+                    <FRBRuri value="/mx/enmienda/2010-10-07/main"/>
+                    <FRBRdate date="2010-10-07" name="Enactment"/>
+                    <FRBRauthor href="#senado" as="#author"/>
+                    <FRBRcountry value="mx"/>
+                    <FRBRname
+                            value="PROPUESTA DE MODIFICACIÓN AL ARTÍCULO PRIMERO POR EL QUE SE EXIDE LA LEY DE ASSOCIACIONES PÚBLICO-PRIVATDAS. "/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/mx/enmienda/2010-10-07/esp@/main"/>
+                    <FRBRuri value="/mx/enmienda/2010-10-07/esp@"/>
+                    <FRBRdate date="2010-10-07" name="Expression"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <FRBRlanguage language="esp"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/mx/enmienda/2010-10-07/esp@/main.xml"/>
+                    <FRBRuri value="/mx/enmienda/2010-10-07/esp@/main.akn"/>
+                    <FRBRdate date="2012-10-11" name="XMLConversion"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                </FRBRManifestation>
+            </identification>
+            <lifecycle source="#somebody">
+                <eventRef date="2010-10-07" source="#ro1" id="e1"/>
+            </lifecycle>
+            <analysis source="#somebody">
+                <activeModifications>
+                    <textualMod id="txt1" type="insertion">
+                        <source href="#mod1"/>
+                        <destination href="/mx/enmienda/2009-02-02/main@art201"/>
+                    </textualMod>
+                </activeModifications>
+            </analysis>
+            <references source="#somebody">
+                <original id="ro1" href="/mx/enmienda/2010-10-07/esp@/main" showAs="Original"/>
+                <activeRef id="ra1" href="/mx/enmienda/2009-02-02/main"
+                           showAs="REGLAMENTO DEL SENADO DE LA REPUBLICA "/>
+                <TLCOrganization id="senado" href="/ontology/organizations/mx/senado" showAs="Senado"/>
+                <TLCRole id="author" href="/ontology/roles/mx/author" showAs="Author of Document"/>
+                <TLCRole id="editor" href="/ontology/roles/mx/editor" showAs="Editor of Document"/>
+                <TLCPerson id="somebody" href="/ontology/persons/ita/somebody" showAs="somebody"/>
+                <TLCPerson id="castellon" href="/ontology/persons/mx/castellon"
+                           showAs="San Francisco Javier Castellon Fonseca"/>
+            </references>
+        </meta>
+        <preface>
+            <container id="con1" name="preface">
+                <p>
+                    <docTitle>PROPUESTA DE MODIFICACIÓN AL ARTÍCULO PRIMERO POR EL QUE SE EXIDE LA LEY DE ASSOCIACIONES
+                        PÚBLICO-PRIVATDAS.
+                    </docTitle>
+                </p>
+            </container>
+        </preface>
+        <amendmentBody>
+            <amendmentHeading>
+                <p>CON FUNDAMENTO EN EL ARTÍCULO 201 DEL REGLAMENTO DEL SENADO DE LA REPUBLICA SOMETO A CONSIDRACIÓN DEL
+                    PLENO DE LA CÁMERA DE SENADORES LA SIGUENTE PROPUESTA DE MODIFICATIÓN:
+                </p>
+            </amendmentHeading>
+            <amendmentContent>
+                <p>
+                    <mod id="mod1">
+                        <quotedStructure id="mod1-qts1">
+                            <article id="mod1-qts1-art3">
+                                <num>Articulo 3</num>
+                                <clause id="mod1-qts1-art3-cls1">
+                                    <content>
+                                        <p>-También podrán ser prouectos de associación público-privada los que se
+                                            realicen en los términos de esta Ley, con cualquier esquema de asociación
+                                            para desarrollar proyectos de inversión productiva, investigación aplicada
+                                            y/o de innovacion tecnológica.
+                                            <ins>En este último caso, las dependencias y entidades optarán en igualdad
+                                                de condiciones, por el desarrollo de proyectos con instituciones de
+                                                educacíon superior y centros de investigación cientifica-tecnologica
+                                                publicas del pais.
+                                            </ins>
+                                        </p>
+                                    </content>
+                                </clause>
+                            </article>
+                        </quotedStructure>
+                    </mod>
+                </p>
+            </amendmentContent>
+            <amendmentJustification>
+                <p>
+                    A estos esquemas de associación publico privada les resultarán applicable los principios orintadores
+                    del apoyo a la investigación cientifica, desarrollo tecnológico e innovación previstas en la Lei de
+                    Ciencia y Tecnologia. Estas asociaciones se regirán por lo dispuesto en esta Ley y en lo que les
+                    resulte aplicable porla Ley de Cienca y Tecnologia.
+                    Los proyectos de inversion productiva se sujetarán a las disposicioned aplicables a la materia
+                    especifica que comprenda.
+                </p>
+            </amendmentJustification>
+        </amendmentBody>
+        <conclusions>
+            <p>
+                Salon de sesiones de la Camera de Senadores, a los
+                <docDate date="2010-10-07">7 dias de mes de octubre de 2010.</docDate>
+                <docProponent refersTo="#castellon">Francisco Javier Castellon Fonseca</docProponent>
+            </p>
+        </conclusions>
+    </amendment>
+</akomaNtoso>

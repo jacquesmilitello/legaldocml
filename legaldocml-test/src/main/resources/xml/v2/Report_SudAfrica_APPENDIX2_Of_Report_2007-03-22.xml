@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.akomantoso.org/2.0 ./akomantoso20.xsd" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+    <!-- one of the annexes of the work: /za/report/2007-03-22 -->
+    <doc name="report">
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/za/report/2007-03-22/main/appendix2"/>
+                    <FRBRuri value="/za/report/2007-03-22"/>
+                    <FRBRdate date="2007-03-22" name="Generation"/>
+                    <FRBRauthor href="#parliament" as="#author"/>
+                    <componentInfo>
+                        <componentData id="wmain" href="#wmain" name="main" showAs="Main document"/>
+                        <componentData id="wappendix1" href="/za/report/2007-03-22/main/appendix1" name="appendix"
+                                       showAs="APPENDIX 1"/>
+                        <componentData id="wappendixe" href="/za/report/2007-03-22/main/appendix2" name="appendix"
+                                       showAs="APPENDIX 2"/>
+                    </componentInfo>
+                    <FRBRcountry value="za"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/za/report/2007-03-22/eng@/main/appendix2"/>
+                    <FRBRuri value="/za/report/2007-03-22/eng@"/>
+                    <FRBRdate date="2007-03-22" name="Generation"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <componentInfo>
+                        <componentData id="emain" href="#emain" name="main" showAs="Main document"/>
+                        <componentData id="eappendix1" href="/za/report/2007-03-22/eng@/main/appendix1" name="appendix"
+                                       showAs="APPENDIX 1"/>
+                        <componentData id="eappendixe" href="/za/report/2007-03-22/eng@/main/appendix2" name="appendix"
+                                       showAs="APPENDIX 2"/>
+                    </componentInfo>
+                    <FRBRlanguage language="eng"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/za/report/2007-03-22/eng@/main/appendix2.xml"/>
+                    <FRBRuri value="/za/report/2007-03-22/eng@.akn"/>
+                    <FRBRdate date="2012-02-21" name="XMLMarkup"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <componentInfo>
+                        <componentData id="mmain" href="main.xml" name="main" showAs="Main document"/>
+                        <componentData id="mappendix1" href="/za/report/2007-03-22/eng@/main/appendix1.xml"
+                                       name="appendix" showAs="APPENDIX 1"/>
+                        <componentData id="mappendixe" href="/za/report/2007-03-22/eng@/main/appendix2.xml"
+                                       name="appendix" showAs="APPENDIX 2"/>
+                    </componentInfo>
+                </FRBRManifestation>
+            </identification>
+            <publication name="publication" date="2007-03-22" showAs="publication" number="555"/>
+            <classification source="#somebody">
+                <keyword value="PORTFOLIO COMMITTEE ON DEFENCE" showAs="PORTFOLIO COMMITTEE ON DEFENCE"
+                         dictionary="UNVOC"/>
+                <keyword value="BUDGET OF THE DEPARTMENT OF DEFENCE" showAs="BUDGET OF THE DEPARTMENT OF DEFENCE"
+                         dictionary="UNVOC"/>
+            </classification>
+            <lifecycle source="#somebody">
+                <eventRef id="e1" date="2007-03-22" source="#ro1" type="generation"/>
+            </lifecycle>
+            <references source="#somebody">
+                <original id="ro1" href="/za/report/2007-03-22/eng@/main/appendix2" showAs="Original"/>
+                <attachmentOf id="rao1" href="/za/report/2007-03-22/eng@/main" showAs="Original"/>
+                <TLCOrganization id="parliament" href="/ontology/organization/za/za.parliament"
+                                 showAs="Parliament of ZA"/>
+                <TLCPerson id="somebody" href="/ontology/person/ak/somebody" showAs="somebody"/>
+                <TLCRole id="author" href="/ontology/roles/author" showAs="Author"/>
+                <TLCRole id="editor" href="/ontology/roles/editor" showAs="Editor"/>
+                <TLCOrganization id="anc" href="/ontology/organization/za/za.africannationalcongress"
+                                 showAs="African National Congress"/>
+                <TLCOrganization id="da" href="/ontology/organization/za/za.democraticalliance"
+                                 showAs="Democratic Alliance"/>
+                <TLCOrganization id="ifp" href="/ontology/organization/za/za.inkhatafreedomparty"
+                                 showAs="Inkhata Freedom Party"/>
+                <TLCOrganization id="pac" href="/ontology/organization/za/za.panafricancongress"
+                                 showAs="Pan African Congress"/>
+                <TLCPerson id="tt" href="/ontology/organization/za/za.africannationalcongress/tobias"
+                           showAs="Ms T V Tobias"/>
+                <TLCPerson id="mb" href="/ontology/organization/za/za.africannationalcongress/booi" showAs="Mr M Booi"/>
+                <TLCPerson id="mmon" href="/ontology/organization/za/za.africannationalcongress/monareng"
+                           showAs="Mr Monareng"/>
+                <TLCPerson id="pd" href="/ontology/organization/za/za.africannationalcongress/daniels"
+                           showAs="Ms P Daniels"/>
+                <TLCPerson id="js" href="/ontology/organization/za/za.africannationalcongress/schippers"
+                           showAs="Mr J Schippers"/>
+                <TLCPerson id="mmoa" href="/ontology/organization/za/za.africannationalcongress/moatshe"
+                           showAs="Mr Moatshe"/>
+                <TLCPerson id="mp" href="/ontology/organization/za/za.africannationalcongress/phungula"
+                           showAs="Mr Phungula"/>
+                <TLCPerson id="aw" href="/ontology/organization/za/za.africannationalcongress/wyk"
+                           showAs="Ms A van Wyk"/>
+                <TLCPerson id="gk" href="/ontology/organization/za/za.africannationalcongress/koornof"
+                           showAs="Dr G W Koornof"/>
+                <TLCPerson id="md" href="/ontology/organization/za/za.africannationalcongress/diale" showAs="Mr Diale"/>
+                <TLCPerson id="sn" href="/ontology/organization/za/za.africannationalcongress/ntuli"
+                           showAs="Mr S B Ntuli"/>
+                <TLCPerson id="hs" href="/ontology/organization/za/za.democraticalliance/schmidt"
+                           showAs="Adv H Schmidt"/>
+                <TLCPerson id="ab" href="/ontology/organization/za/za.democraticalliance/botha" showAs="Mr A Botha"/>
+                <TLCPerson id="vn" href="/ontology/organization/za/za.inkhatafreedomparty/ndlovu" showAs="Mr V Ndlovu"/>
+                <TLCPerson id="sp" href="/ontology/organization/za/za.panafricancongress/pheko" showAs="Dr S Pheko"/>
+            </references>
+        </meta>
+        <preface>
+            <p class="heading">
+                <docTitle>APPENDIX 2</docTitle>
+            </p>
+        </preface>
+        <mainBody>
+            <hcontainer id="hco1" name="members">
+                <heading>Committee Members:</heading>
+                <hcontainer id="hco1-hco1" name="africannationalcongress" class="memberslist">
+                    <heading>
+                        <organization id="org34" refersTo="#anc">African National Congress</organization>
+                    </heading>
+                    <content>
+                        <ul id="hco1-hco1-uli1">
+                            <li>
+                                <person id="person21" refersTo="#tt">Ms T V Tobias</person>
+                                (Chairperson)
+                            </li>
+                            <li>
+                                <person id="person22" refersTo="#mb">Mr M Booi</person>
+                            </li>
+                            <li>
+                                <person id="person31" refersTo="#mmon">Mr Monareng</person>
+                            </li>
+                            <li>
+                                <person id="person32" refersTo="#pd">Ms P Daniels</person>
+                            </li>
+                            <li>
+                                <person id="person33" refersTo="#js">Mr J Schippers</person>
+                            </li>
+                            <li>
+                                <person id="person34" refersTo="#mmoa">Mr Moatshe</person>
+                            </li>
+                            <li>
+                                <person id="person35" refersTo="#mp">Mr Phungula</person>
+                            </li>
+                            <li>
+                                <person id="person36" refersTo="#aw">Ms A van Wyk</person>
+                            </li>
+                            <li>
+                                <person id="person37" refersTo="#gk">Dr G W Koornof</person>
+                            </li>
+                            <li>
+                                <person id="person38" refersTo="#md">Mr Diale</person>
+                            </li>
+                            <li>
+                                <person id="person39" refersTo="#sn">Mr S B Ntuli</person>
+                            </li>
+                        </ul>
+                    </content>
+                </hcontainer>
+                <hcontainer id="hco1-hco2" name="democraticalliance" class="memberslist">
+                    <heading>
+                        <organization id="org23" refersTo="#da">Democratic Alliance</organization>
+                    </heading>
+                    <content>
+                        <ul id="hco1-hco2-uli1">
+                            <li>
+                                <person id="person40" refersTo="#hs">Adv H Schmidt</person>
+                            </li>
+                            <li>
+                                <person id="person41" refersTo="#ab">Mr A Botha</person>
+                            </li>
+                        </ul>
+                    </content>
+                </hcontainer>
+                <hcontainer id="hco1-hco3" name="inkhatafreedomparty" class="memberslist">
+                    <heading>
+                        <organization id="org30" refersTo="#ifp">Inkhata Freedom Party</organization>
+                    </heading>
+                    <content>
+                        <ul id="hco1-hco3-uli1">
+                            <li>
+                                <person id="person42" refersTo="#vn">Mr V Ndlovu</person>
+                            </li>
+                        </ul>
+                    </content>
+                </hcontainer>
+                <hcontainer id="hco1-hco4" name="panafricancongress" class="memberslist">
+                    <heading>
+                        <organization id="org43" refersTo="#pac">Pan African Congress</organization>
+                    </heading>
+                    <content>
+                        <ul id="hco1-hco4-uli1">
+                            <li>
+                                <person id="person44" refersTo="#sp">Dr S Pheko</person>
+                            </li>
+                        </ul>
+                    </content>
+                </hcontainer>
+            </hcontainer>
+        </mainBody>
+    </doc>
+</akomaNtoso>

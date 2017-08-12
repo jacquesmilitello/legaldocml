@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.akomantoso.org/2.0 ./akomantoso20.xsd" xmlns="http://www.akomantoso.org/2.0">
+    <!-- Task funded by UN/DESA. Analysis and markup performed by Monica Palmirani, CIRSFID, University of Bologna -->
+    <!-- Bill in Spanish with a complex signature block-->
+    <bill contains="originalVersion">
+        <!-- example of bill -->
+        <meta>
+            <identification source="#somebody">
+                <FRBRWork>
+                    <FRBRthis value="/cl/bill/2005-03-14/315-352/main"/>
+                    <FRBRuri value="/cl/bill/2005-03-14/315-352"/>
+                    <FRBRdate date="2005-03-14" name="Enactment"/>
+                    <FRBRauthor href="#executivo" as="#author"/>
+                    <FRBRcountry value="cl"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/cl/bill/2005-03-14/315-352/esp@/main"/>
+                    <FRBRuri value="/cl/bill/2005-03-14/315-352/esp@"/>
+                    <FRBRdate date="2005-03-14" name="Expression"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                    <FRBRlanguage language="esp"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/cl/bill/2005-03-14/315-352/esp@/main.xml"/>
+                    <FRBRuri value="/cl/bill/2005-03-14/315-352/esp@/main.akn"/>
+                    <FRBRdate date="2005-03-14" name="XML-markup"/>
+                    <FRBRauthor href="#somebody" as="#editor"/>
+                </FRBRManifestation>
+            </identification>
+            <publication id="publication" date="2010-07-19" showAs="Chile Gazette" name="ChileGazette"/>
+            <classification source="#somebody">
+                <keyword value="discrimination" showAs="DISCRIMINACIÓN" dictionary="/eurovoc/passo1/passo2/voce4"/>
+            </classification>
+            <lifecycle source="#somebody">
+                <eventRef date="2010-07-19" id="e1" source="#ro1" type="generation"/>
+            </lifecycle>
+            <analysis source="#somebody">
+                <activeModifications>
+                    <textualMod id="amod3" type="insertion">
+                        <source href="art9"/>
+                        <destination href="/cl/act/2010/cp/main#art12-21"/>
+                        <new href="#mod1-qtd1"/>
+                    </textualMod>
+                </activeModifications>
+            </analysis>
+            <references source="#somebody">
+                <original id="ro1" href="/cl/bill/2005-03-14/315-352/esp@/main" showAs="Original "/>
+                <activeRef id="ra1" href="/cl/act/2010/cp/main#art12-21" showAs="Código Penal"/>
+                <TLCOrganization id="executivo" href="/ontology/organizations/akn/executivo" showAs="Executivo"/>
+                <TLCRole id="pdlr" href="/ontology/roles/akn/presidenteRepublica" showAs="Presidente de la República"/>
+                <TLCRole id="presidenteCamera" href="/ontology/roles/akn/presidenteCamera"
+                         showAs="PRESIDENTE DE LA H.CAMARA DE DIPUTADOS"/>
+                <TLCRole id="author" href="/ontology/roles/akn/author" showAs="Author of Document"/>
+                <TLCRole id="editor" href="/ontology/roles/akn/editor" showAs="Editor of Document"/>
+                <TLCRole id="msgg" href="/ontology/roles/akn/ministroSecretarioGeneralGobierno"
+                         showAs="Ministro Secretario General de Gobierno"/>
+                <TLCRole id="mdj" href="/ontology/roles/akn/ministroDeJusticia" showAs="Ministro de Justicia"/>
+                <TLCRole id="mdsnm" href="/ontology/roles/akn/ministraDirectoraServicioNationalMujer"
+                         showAs="Ministra Directora Servicio Nacional de la Mujer"/>
+                <TLCPerson id="somebody" href="/ontology/persons/akn/somebody" showAs="somebody"/>
+                <TLCPerson id="lagos" href="/ontology/persons/akn/ricardoLagosEscobar" showAs="RICARDO LAGOS ESCOBAR"/>
+                <TLCPerson id="vidal" href="/ontology/persons/akn/francescoVidalSalinas"
+                           showAs="FRANCISCO VIDAL SALINAS"/>
+                <TLCPerson id="bates" href="/ontology/persons/akn/bates" showAs="LUIS BATES HIDALGO"/>
+                <TLCPerson id="perez" href="/ontology/persons/akn/perez" showAs="CECILIA PÉREZ DÍAZ"/>
+                <TLCLocation id="santiago" href="/ontology/location/akn/santiago" showAs="Santiago"/>
+            </references>
+        </meta>
+        <preface>
+            <p>
+                <docTitle>MENSAJE DE S.E. EL PRESIDENTE DE LA REPUBLICA CON EL QUE INICIA UN PROYECTO DE LEY QUE
+                    ESTABLECE MEDIDAS CONTRA LA DISCRIMINACIÓN.
+                </docTitle>
+            </p>
+            <p>
+                <location id="loc1" refersTo="#santiago">SANTIAGO</location>,
+                <docDate date="2005-03-14">marzo 14 de 2005</docDate>
+            </p>
+            <p>
+                <docType>MENSAJE</docType>
+                <docNumber>Nº 315-352/</docNumber>
+            </p>
+            <p>
+                <span refersTo="#presidenteCamera" class="addressTo">S.E. EL
+                    PRESIDENTE
+                    DE LA H.
+                    CAMARA DE
+                    DIPUTADOS.
+                </span>
+            </p>
+        </preface>
+        <preamble>
+            <p>
+                Honorable Cámara de Diputados:
+            </p>
+            <container id="cnt1" name="subdivision">
+                <blockList id="list1">
+                    <item id="itm1">
+                        <num>I.</num>
+                        <heading>ANTECEDENTES.</heading>
+                        <p>
+                            La “globalización” es un fenómeno que se está produciendo cada vez con mayor rapidez. Los
+                            países, las economías, las culturas y los estilos de vida se acercan, se universalizan y se
+                            funden. No obstante, los contrates se acentúan, la intolerancia aumenta; las sociedades son
+                            más diversas en su conformación, y, a la vez, mantienen en su seno sus propias tensiones
+                            socioculturales, que muchas veces son resueltas a través de conductas discriminatorias,
+                            incluso violentas.
+                        </p>
+                    </item>
+                </blockList>
+            </container>
+            <container id="cnt2" name="subdivision">
+                <p>En consecuencia, tengo el honor de someter a vuestra consideración, para ser tratado en la actual
+                    Legislatura, Extraordinaria, de Sesiones del Congreso Nacional, el siguiente
+                </p>
+            </container>
+            <container id="cnt3" name="subdivision">
+                <p>PROYECTO DE LEY:</p>
+            </container>
+        </preamble>
+        <body>
+            <title id="tit1">
+                <num>“Titulo I</num>
+                <heading>Disposiciones generales.</heading>
+                <article id="art1">
+                    <num>Artículo 1°.-</num>
+                    <clause id="art1-cls1">
+                        <content>
+                            <p>
+                                Las disposiciones de esta ley tienen por objeto prevenir y eliminar todas las formas de
+                                discriminación que se ejerzan contra cualquier persona.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+                <article id="art2">
+                    <num>Artículo 2°.-</num>
+                    <clause id="art2-cls1">
+                        <content>
+                            <p>Corresponde al Estado elaborar las políticas y arbitrar las acciones que sean necesarias
+                                para garantizar a toda persona, sin discriminación alguna, el pleno, efectivo e
+                                igualitario goce y ejercicio de sus derechos y libertades.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art2-cls2">
+                        <content>
+                            <p>
+                                El Estado podrá establecer distinciones o preferencias destinadas a promover y
+                                fortalecer el reconocimiento, goce y ejercicio de los derechos de las personas o grupos
+                                de personas.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+                <article id="art3">
+                    <num>Artículo 3°.-</num>
+                    <clause id="art3-cls1">
+                        <content>
+                            <p>Para efectos de esta ley se entenderá por discriminación toda distinción, exclusión,
+                                restricción o preferencia arbitraria, por acción o por omisión, basada en la raza,
+                                color, origen étnico, edad, sexo, género, religión, creencia, opinión política o de otra
+                                índole, nacimiento, origen nacional, cultural o socioeconómico, idioma o lengua, estado
+                                civil, orientación sexual, enfermedad, discapacidad, estructura genética o cualquiera
+                                otra condición social o individual.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+            </title>
+            <title id="tit2">
+                <num>Título II</num>
+                <heading>Acción especial de no discriminación</heading>
+                <article id="art4">
+                    <num>Artículo 4°.-</num>
+                    <clause id="art4-cls1">
+                        <content>
+                            <p>Sin perjuicio de las acciones especiales que procedan, el directamente afectado, por sí o
+                                cualquiera a su nombre, podrá denunciar los actos u omisiones que importen una
+                                discriminación arbitraria que se hubieren cometido en su contra.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art4-cls2">
+                        <content>
+                            <p>La acción podrá impetrarse dentro de 30 días hábiles, contados desde que se hubiere
+                                ejecutado el acto o producido la omisión o, según la naturaleza de éstos, desde que se
+                                haya tenido noticias o conocimiento ciertos de los mismos, ante la Corte de Apelaciones
+                                respectiva.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art4-cls3">
+                        <content>
+                            <p>La Corte podrá, a petición fundada del interesado, decretar orden de no innovar, cuando
+                                el acto u omisión recurridos pudiese causar daño irreparable o hacer imposible el
+                                cumplimiento de lo que se resolviere, en caso de acogerse la pretensión.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+                <article id="art5">
+                    <num>Artículo 5°.-</num>
+                    <clause id="art5-cls1">
+                        <content>
+                            <p>Deducida la acción, el tribunal deberá investigar la denuncia y dar curso progresivo a
+                                los autos hasta el fallo definitivo.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art5-cls2">
+                        <content>
+                            <p>
+                                La Corte requerirá informe a la persona denunciada de cometer el acto u omisión y a
+                                quien estime pertinente, notificándola por oficio. Esta dispondrá el plazo de diez días
+                                hábiles para formular observaciones.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art5-cls3">
+                        <content>
+                            <p>
+                                Evacuado el informe, o vencido el plazo de que dispone para formular observaciones, el
+                                tribunal ordenará traer los autos en relación y la causa se agregará a la tabla de la
+                                audiencia más próxima, previo sorteo de la Sala. La Corte podrá, si lo estima
+                                pertinente, abrir un término probatorio que no podrá exceder de siete días, y escuchar
+                                los alegatos de las partes.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art5-cls4">
+                        <content>
+                            <p>
+                                La Corte dictará sentencia dentro del término de quince días, desde que quede en estado
+                                de sentencia.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art5-cls5">
+                        <content>
+                            <p>
+                                Un autoacordado de la Corte Suprema regulará los demás aspectos necesarios, para la
+                                debida sustanciación de esta acción.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+                <article id="art6">
+                    <num>Artículo 6°.</num>
+                    <clause id="art6-cls1">
+                        <content>
+                            <p>Sin perjuicio de lo dispuesto en el artículo anterior, la Corte de Apelaciones respectiva
+                                en su sentencia, adoptará de inmediato las providencias que juzgue necesarias para
+                                restablecer el imperio del derecho y asegurar la debida protección del afectado, como
+                                dejar sin efecto el acto discriminatorio u ordenar que cese en su realización.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art6-cls2">
+                        <content>
+                            <p>Asimismo, la Corte podrá declarar la procedencia de indemnizaciones, que en su caso
+                                correspondan, para reparar el daño moral y material ocasionado. En dicho caso, el
+                                afectado podrá demandar ante el juez de letras competente, la determinación de la
+                                indemnización de los perjuicios que procedieren. El monto de la indemnización será
+                                determinado en procedimiento breve y sumario.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art6-cls3">
+                        <content>
+                            <p>Si la sentencia estableciere fundadamente que la denuncia carece de toda base, la Corte
+                                declarará que el denunciante es responsable de los perjuicios que hubiere causado, los
+                                que se perseguirán ante el tribunal civil competente, en procedimiento breve y sumario.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+                <article id="art7">
+                    <num>Artículo 7°.-</num>
+                    <clause id="art7-cls1">
+                        <content>
+                            <p>Contra la sentencia definitiva, procederá el recurso de apelación, el que deberá
+                                interponerse en el plazo de cinco días, para ante la Corte Suprema.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+                <article id="art8">
+                    <num>Artículo 8°.-</num>
+                    <clause id="art8-cls1">
+                        <content>
+                            <p>En caso que la Corte declare que un funcionario público en el ejercicio de su cargo o con
+                                ocasión de él, cometió actos de discriminación arbitraria, a los que se refiere el <ref
+                                        id="ref1" href="thisURI#art3">artículo 3° de esta ley</ref>, respecto de una
+                                persona natural o jurídica, consistente en rehusar el suministro de un bien o servicio a
+                                que ésta tenga derecho, podrá ser sancionado con multa de 50 a 100 UTM.
+                            </p>
+                        </content>
+                    </clause>
+                    <clause id="art8-cls2">
+                        <content>
+                            <p>Si tales actos discriminatorios fueron cometidos en el ejercicio de una actividad
+                                privada, en la que se presten servicios de utilidad pública, el responsable también
+                                podrá ser sancionado con la multa establecida en el inciso anterior.
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+            </title>
+            <title id="tit3">
+                <num>Título III</num>
+                <heading>Norma penal especial</heading>
+                <article id="art9">
+                    <num>Artículo 9°.-</num>
+                    <clause id="art9-cls1">
+                        <content>
+                            <p>Incorpórase al
+                                <mod id="mod1">
+                                    <ref id="ref2" href="/cl/act/2010/cp/main#art12-pnt21">artículo 12 del Código Penal,
+                                        el siguiente numeral 21
+                                    </ref>
+                                    nuevo:“
+                                    <quotedStructure id="mod1-qtd1">
+                                        <point id="mod1-qt1-point21">
+                                            <num>21ª</num>
+                                            <content>
+                                                <p>Cometer el delito por una motivación discriminatoria fundada en la
+                                                    raza, color, origen étnico, edad, sexo, género, religión, creencia,
+                                                    opinión política o de otra índole, nacimiento, origen nacional,
+                                                    cultural o socioeconómico, idioma o lengua, estado civil,
+                                                    orientación sexual, enfermedad, discapacidad, estructura genética o
+                                                    cualquiera otra condición social o individual.”.”.
+                                                </p>
+                                            </content>
+                                        </point>
+                                    </quotedStructure>
+                                </mod>
+                            </p>
+                        </content>
+                    </clause>
+                </article>
+            </title>
+        </body>
+        <conclusions>
+            <container id="cnt4" name="subdivision">
+                <p>Dios guarde a V.E.,</p>
+            </container>
+            <container id="cnt5" name="signatures">
+                <p>
+                    <signature>
+                        <person id="per1" refersTo="#lagos">RICARDO LAGOS ESCOBAR</person>
+                        <role id="role1" refersTo="#pdlr">Presidente de la República</role>
+                    </signature>
+                    <signature>
+                        <person id="per2" refersTo="#vidal">FRANCISCO VIDAL SALINAS</person>
+                        <role id="role2" refersTo="#msgg">Ministro Secretario General de Gobierno</role>
+                    </signature>
+                    <signature>
+                        <person id="per3" refersTo="#bates">LUIS BATES HIDALGO</person>
+                        <role id="role3" refersTo="#mdj">Ministro de Justicia</role>
+                    </signature>
+                    <signature>
+                        <person id="per4" refersTo="#perez">CECILIA PÉREZ DÍAZ</person>
+                        <role id="role4" refersTo="#mdsnm">Ministra Directora Servicio Nacional de la Mujer</role>
+                    </signature>
+                    <location id="loc2" refersTo="#santiago">SANTIAGO</location>,
+                    <docDate date="2005-03-14">marzo 14 de 2005</docDate>
+                </p>
+            </container>
+        </conclusions>
+    </bill>
+</akomaNtoso>
