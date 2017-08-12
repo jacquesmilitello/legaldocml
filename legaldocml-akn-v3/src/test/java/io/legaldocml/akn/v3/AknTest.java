@@ -27,10 +27,10 @@ public class AknTest {
 
     @Test
     public void testOther() throws Exception {
-        test(Paths.get(AknTest.class.getResource("/xml/cl_Sesion56_2.xml").toURI()));
-        test(Paths.get(AknTest.class.getResource("/xml/it_senato_ddl_2013.xml").toURI()));
-        test(Paths.get(AknTest.class.getResource("/xml/uy_bill_2010-09-27.xml").toURI()));
-        test(Paths.get(AknTest.class.getResource("/xml/us_Act_2011-11-29.xml").toURI()));
+        test(Paths.get(AknTest.class.getResource("/xml/v3/cl_Sesion56_2.xml").toURI()));
+        test(Paths.get(AknTest.class.getResource("/xml/v3/it_senato_ddl_2013.xml").toURI()));
+        test(Paths.get(AknTest.class.getResource("/xml/v3/uy_bill_2010-09-27.xml").toURI()));
+        test(Paths.get(AknTest.class.getResource("/xml/v3/us_Act_2011-11-29.xml").toURI()));
     }
 
     public static void test(Path path) throws IOException {
