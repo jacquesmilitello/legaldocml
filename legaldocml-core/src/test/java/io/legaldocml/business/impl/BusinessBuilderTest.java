@@ -23,7 +23,6 @@ public class BusinessBuilderTest {
         builder.getMetaBuilder().setAknIdentifier(newAknIdentifierTransient());
         builder.getMetaBuilder().setLanguage(Language.EN);
 
-
         List<LegalDocMlException> exceptions = writerFactory(3).writePermissive(Channels.newChannel(System.out), builder.getAkomaNtoso());
 
         exceptions.forEach(System.out::println);

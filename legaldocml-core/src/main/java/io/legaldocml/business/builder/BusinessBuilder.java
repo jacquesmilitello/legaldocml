@@ -33,7 +33,6 @@ public abstract class BusinessBuilder<T extends DocumentType> {
 
     protected abstract MetaBuilder<T> newMetaBuilder(BusinessBuilder<T> businessBuilder);
 
-
     public AkomaNtoso<T> getAkomaNtoso() {
         return akomaNtoso;
     }

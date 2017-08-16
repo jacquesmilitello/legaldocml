@@ -3,6 +3,16 @@ package io.legaldocml.util;
 import java.util.Arrays;
 
 /**
+ * <pre>
+ *    foo://example.com:8042/over/there?name=ferret#nose
+ *    \_/   \______________/\_________/ \_________/ \__/
+ *     |           |            |            |        |
+ *   scheme     authority      path        query   fragment
+ *     |   _____________________|__
+ *    / \ /                        \
+ *    urn:example:animal:ferret:nose
+ * </pre>
+ *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public class AbstractUri {

@@ -174,8 +174,8 @@ final class ZipArchiveWriteOnly implements Archive {
         checkAndCreateDir(fs.getPath("/META-INF"));
         try (FileChannel fc = fs.provider().newFileChannel(fs.getPath("/META-INF", "descriptor.xml"), new HashSet<>(CREATE))) {
             ZipMetaXml.write(fc, this.meta);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException cause) {
+           throw new ArchiveException(WRITE_ONLY_MODE, "writeMeta() failed", cause);
         }
     }
 

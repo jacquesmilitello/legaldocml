@@ -101,8 +101,8 @@ final class ZipMetaXml {
 
 
             }
-        } catch (XMLStreamException e) {
-            e.printStackTrace();
+        } catch (XMLStreamException cause) {
+            throw new ArchiveException(ArchiveException.Type.META_READ,"Failed to read meta descriptor", cause);
         }
 
         return zipMeta;

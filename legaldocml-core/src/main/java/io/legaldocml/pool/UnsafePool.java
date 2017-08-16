@@ -3,10 +3,12 @@ package io.legaldocml.pool;
 
 import io.legaldocml.unsafe.UnsafeHelper;
 
+import java.io.Closeable;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-final class UnsafePool<T> implements Pool<PoolHolder<T>> {
+final class UnsafePool<T> implements Pool<PoolHolder<T>>, Closeable{
 
     private final long adr;
 
@@ -20,17 +22,25 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>> {
 
     private int index;
 
-    public UnsafePool(int size, PoolableObject<T> poolableObject) {
+    private boolean isClosed;
+
+    @SuppressWarnings("unchecked")
+    UnsafePool(int size, PoolableObject<T> poolableObject) {
         this.poolableObject = poolableObject;
-        this.adr = UNSAFE.allocateMemory(size * 8);
+        this.adr = UNSAFE.allocateMemory((long)size * 8);
         this.holders = new UnsafeHolder[size];
         for (int i = 0; i < size; i++) {
             holders[i] = new UnsafeHolder(poolableObject.newInstance());
         }
         this.size = size;
+        this.isClosed = false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
+    @SuppressWarnings("unchecked")
     public UnsafeHolder<T> checkOut() {
 
         int size = this.size;
@@ -54,6 +64,7 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>> {
         return checkOut(0, size, holders);
     }
 
+    @SuppressWarnings("unchecked")
     private UnsafeHolder<T> checkOut(int count, int size, UnsafeHolder[] holders) {
 
         if (count == 100) {
@@ -73,6 +84,9 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>> {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void checkIn(PoolHolder<T> holder) {
 
@@ -88,9 +102,23 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>> {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void close() {
+        if (!this.isClosed) {
+            UNSAFE.freeMemory(this.adr);
+            this.isClosed = true;
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void finalize() throws Throwable {
-        UNSAFE.freeMemory(this.adr);
+        close();
         super.finalize();
     }
 }

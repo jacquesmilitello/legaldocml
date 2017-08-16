@@ -537,7 +537,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                             if (c == '>') {
                                 qname(cb);
                                 state = STATE_CHARACTERS;
-                                if (!qName.equals(elemStack[depth - 1])) {
+                                if (!qName.doEquals(elemStack[depth - 1])) {
                                     throw new XmlChannelReaderException(UNEXPECTED_TAG, this);
 
                                     //  throw new XmlChannelReaderException("Unexpected end tag for " + qName, newLocation());
@@ -565,7 +565,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                 case STATE_CLOSE_TAG_ELEM_NAME_READ:
                     if (c == '>') {
                         state = STATE_CHARACTERS;
-                        if (!qName.equals(elemStack[depth])) {
+                        if (!qName.doEquals(elemStack[depth])) {
                             throw new XmlChannelReaderException(UNEXPECTED_TAG, this);
                         }
                         eventType = END_ELEMENT;
