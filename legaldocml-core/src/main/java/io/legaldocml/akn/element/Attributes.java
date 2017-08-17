@@ -395,7 +395,7 @@ public final class Attributes {
 
                 if (module == null) {
                     // use external attribures.
-                    attr = new ExternalAttribute(name, value, ns);
+                    attr = new ExternalAttribute(name, value);
                 } else {
                     attr = module.attributes(name.toString().substring(prefixNS + 1)).get();
                 }

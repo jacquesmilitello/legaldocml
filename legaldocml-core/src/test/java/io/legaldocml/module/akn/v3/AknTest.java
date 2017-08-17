@@ -35,6 +35,8 @@ public class AknTest {
         test("/xml/v3/za_Judgement_2008-11-26.xml");
         test("/xml/v3/us_Title9-Chap3-eng.xml");
         test("/xml/v3/uk_pga-2014-27-enacted-data.xml");
+        test("/xml/v3/ke_Debate_Bungeni_2011-06-10.xml");
+        test("/xml/v3/eu_COM(2013)0619_EN-8.xml");
     }
 
     public static void test(String resource) throws IOException {

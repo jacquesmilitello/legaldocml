@@ -93,7 +93,7 @@ public final class CharArrays {
          */
         @Override
         public char[] value() {
-            throw new UnsupportedOperationException();
+            return this.c;
         }
 
         /**
@@ -117,7 +117,7 @@ public final class CharArrays {
          */
         @Override
         public String toString() {
-            return new String(this.c);
+            return UnsafeString.valueOf(this.c);
         }
 
         @Override

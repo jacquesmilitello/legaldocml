@@ -4,15 +4,17 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
+import io.legaldocml.akn.other.ExternalElementWithNS;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
 import io.legaldocml.util.Uri;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.io.CharArrays.constant;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -39,6 +42,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
+
+    /**
+     * SLF4J Logger.
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnyOtherType.class);
 
     protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -120,13 +128,29 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
         this.others = new AknList<>(new AnyOtherTypeElement[4]);
 
         while (!qName.equals(reader.getQName())) {
-            CharArray array = reader.getNamespaces().get(CharArrays.constant(reader.getQName().getPrefix()));
 
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("External Element prefix [{}]", reader.getQName().getPrefix());
+            }
 
+            CharArray array = reader.getNamespaces().get(constant(reader.getQName().getPrefix()));
             Module module = reader.getContext().getModule(array);
-            AnyOtherTypeElement element = module.element(reader.getQName().getLocalName(), AnyOtherTypeElement.class).get();
+
+            AnyOtherTypeElement element;
+            if (module == null) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("inline declation of namespace -> [{}]" , reader.getQName());
+                }
+                element = new ExternalElementWithNS(reader.getQName(), reader.getNamespaces().get(constant(reader.getQName().getPrefix())));
+            } else {
+                element = module.element(reader.getQName().getLocalName(), AnyOtherTypeElement.class).get();
+
+            }
             element.read(reader);
             this.others.add(element);
+
+
+
             reader.nextStartOrEndElement();
         }
 

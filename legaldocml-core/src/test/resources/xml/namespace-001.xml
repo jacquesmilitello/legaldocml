@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test xmlns="urn:test01">
+    <t1:test1 xmlns:t1="urn:test02">test ns1</t1:test1>
+    <t2:test1 xmlns:t2="urn:test02">test ns2</t2:test1>
+</test>

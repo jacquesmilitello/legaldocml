@@ -99,26 +99,26 @@ public final class Groups {
 
     public static Map<String, Supplier<BlockElements>> blockElements() {
         ImmutableMap.Builder<String, Supplier<BlockElements>> builder = ImmutableMap.builder();
-        // &lt;xsd:group ref="ANblock"/&gt;
+        // <xsd:group ref="ANblock"/>
         builder.putAll(convertSuper(ANblock()));
-        // &lt;xsd:group ref="HTMLblock"/&gt;
+        // <xsd:group ref="HTMLblock"/>
         builder.putAll(convertSuper(HTMLblock()));
-        // &lt;xsd:element ref="foreign"/&gt;
+        // <xsd:element ref="foreign"/>
         builder.put(Foreign.ELEMENT, Foreign::new);
-        // &lt;xsd:element ref="block"/&gt;
+        // <xsd:element ref="block"/>
         builder.put(Block.ELEMENT, Block::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANblock>> ANblock() {
         ImmutableMap.Builder<String, Supplier<ANblock>> builder = ImmutableMap.builder();
-        //&lt;xsd:element ref="blockList"/&gt;
+        //<xsd:element ref="blockList"/>
         builder.put(BlockList.ELEMENT, BlockList::new);
-        // &lt;xsd:element ref="blockContainer"/&gt;
+        // <xsd:element ref="blockContainer"/>
         builder.put(BlockContainer.ELEMENT, BlockContainer::new);
-        // &lt;xsd:element ref="toc"/&gt;
+        // <xsd:element ref="toc"/>
         builder.put(Toc.ELEMENT, Toc::new);
-        // &lt;xsd:element ref="tblock"/&gt;
+        // <xsd:element ref="tblock"/>
         builder.put(Tblock.ELEMENT, Tblock::new);
         return builder.build();
     }
@@ -126,22 +126,22 @@ public final class Groups {
 
     public static Map<String, Supplier<BasicContainers>> basicContainers() {
         ImmutableMap.Builder<String, Supplier<BasicContainers>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="longTitle"/&gt;
+        // <xsd:element ref="longTitle"/>
         builder.put(LongTitle.ELEMENT, LongTitle::new);
-        // &lt;xsd:element ref="formula"/&gt;
+        // <xsd:element ref="formula"/>
         builder.put(Formula.ELEMENT, Formula::new);
-        // &lt;xsd:element ref="container"/&gt;
+        // <xsd:element ref="container"/>
         builder.put(Container.ELEMENT, Container::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<PrefaceContainers>> prefaceContainers() {
         ImmutableMap.Builder<String, Supplier<PrefaceContainers>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="longTitle"/&gt;
+        // <xsd:element ref="longTitle"/>
         builder.put(LongTitle.ELEMENT, LongTitle::new);
-        // &lt;xsd:element ref="formula"/&gt;
+        // <xsd:element ref="formula"/>
         builder.put(Formula.ELEMENT, Formula::new);
-        // &lt;xsd:element ref="container"/&gt;
+        // <xsd:element ref="container"/>
         builder.put(Container.ELEMENT, Container::new);
         return builder.build();
     }
@@ -150,11 +150,11 @@ public final class Groups {
     public static Map<String, Supplier<InlineCM>> inlineCM() {
 
         ImmutableMap.Builder<String, Supplier<InlineCM>> builder = ImmutableMap.builder();
-        //&lt;xsd:group ref="inlineElements"/&gt;
+        //<xsd:group ref="inlineElements"/>
         builder.putAll(convertSuper(inlineElements()));
-        //&lt;xsd:group ref="markerElements"/&gt;
+        //<xsd:group ref="markerElements"/>
         builder.putAll(convertSuper(markerElements()));
-        //&lt;xsd:group ref="popupElements"/&gt;
+        //<xsd:group ref="popupElements"/>
         builder.putAll(convertSuper(popupElements()));
         return builder.build();
     }
@@ -162,13 +162,13 @@ public final class Groups {
     public static Map<String, Supplier<HTMLblock>> HTMLblock() {
 
         ImmutableMap.Builder<String, Supplier<HTMLblock>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="ul"/&gt;
+        // <xsd:element ref="ul"/>
         builder.put(Ul.ELEMENT, Ul::new);
-        // &lt;xsd:element ref="ol"/&gt;
+        // <xsd:element ref="ol"/>
         builder.put(Ol.ELEMENT, Ol::new);
-        // &lt;xsd:element ref="table"/&gt;
+        // <xsd:element ref="table"/>
         builder.put(Table.ELEMENT, Table::new);
-        // &lt;xsd:element ref="p"/&gt;
+        // <xsd:element ref="p"/>
         builder.put(P.ELEMENT, P::new);
         return builder.build();
     }
@@ -176,9 +176,9 @@ public final class Groups {
 
     public static Map<String, Supplier<SubFlowElements>> popupElements() {
         ImmutableMap.Builder<String, Supplier<SubFlowElements>> builder = ImmutableMap.builder();
-        // &lt;xsd:group ref="ANsubFlow"/&gt;
+        // <xsd:group ref="ANsubFlow"/>
         builder.putAll(convertSuper(ANsubFlow()));
-        // &lt;xsd:element ref="popup"/&gt;
+        // <xsd:element ref="popup"/>
         builder.put(Popup.ELEMENT, Popup::new);
         return builder.build();
     }
@@ -187,19 +187,19 @@ public final class Groups {
     public static Map<String, Supplier<InlineElements>> inlineElements() {
 
         ImmutableMap.Builder<String, Supplier<InlineElements>> builder = ImmutableMap.builder();
-        //&lt;xsd:group ref="ANtitleInlineVisitor"/&gt;
+        //<xsd:group ref="ANtitleInlineVisitor"/>
         builder.putAll(convertSuper(ANinline()));
-        //&lt;xsd:group ref="HTMLinline"/&gt;
+        //<xsd:group ref="HTMLinline"/>
         builder.putAll(convertSuper(HTMLinline()));
-        //&lt;xsd:group ref="ANtitleInline"/&gt;
+        //<xsd:group ref="ANtitleInline"/>
         builder.putAll(convertSuper(ANtitleInline()));
-        //&lt;xsd:group ref="ANsemanticInline"/&gt;
+        //<xsd:group ref="ANsemanticInline"/>
         builder.putAll(convertSuper(ANsemanticInline()));
-        //&lt;xsd:group ref="ANheaderInline"/&gt;
+        //<xsd:group ref="ANheaderInline"/>
         builder.putAll(convertSuper(ANheaderInline()));
-        //&lt;xsd:group ref="amendmentInline"/&gt;
+        //<xsd:group ref="amendmentInline"/>
         builder.putAll(convertSuper(amendmentInline()));
-        //&lt;xsd:element ref="inline"/&gt;
+        //<xsd:element ref="inline"/>
         builder.put(Inline.ELEMENT, Inline::new);
 
         return builder.build();
@@ -208,21 +208,21 @@ public final class Groups {
     private static Map<String, Supplier<HTMLinline>> HTMLinline() {
 
         ImmutableMap.Builder<String, Supplier<HTMLinline>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="b"/&gt;
+        // <xsd:element ref="b"/>
         builder.put(B.ELEMENT, B::new);
-        // &lt;xsd:element ref="i"/&gt;
+        // <xsd:element ref="i"/>
         builder.put(I.ELEMENT, I::new);
-        // &lt;xsd:element ref="a"/&gt;
+        // <xsd:element ref="a"/>
         builder.put(A.ELEMENT, A::new);
-        // &lt;xsd:element ref="u"/&gt;
+        // <xsd:element ref="u"/>
         builder.put(U.ELEMENT, U::new);
-        // &lt;xsd:element ref="sub"/&gt;
+        // <xsd:element ref="sub"/>
         builder.put(Sub.ELEMENT, Sub::new);
-        // &lt;xsd:element ref="sup"/&gt;
+        // <xsd:element ref="sup"/>
         builder.put(Sup.ELEMENT, Sup::new);
-        // &lt;xsd:element ref="abbr"/&gt;
+        // <xsd:element ref="abbr"/>
         builder.put(Abbr.ELEMENT, Abbr::new);
-        // &lt;xsd:element ref="span"/&gt;
+        // <xsd:element ref="span"/>
         builder.put(Span.ELEMENT, Span::new);
 
         return builder.build();
@@ -231,43 +231,43 @@ public final class Groups {
     private static Map<String, Supplier<ANinline>> ANinline() {
 
         ImmutableMap.Builder<String, Supplier<ANinline>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="ref"/&gt;
+        // <xsd:element ref="ref"/>
         builder.put(Ref.ELEMENT, Ref::new);
-        // &lt;xsd:element ref="mref"/&gt;
+        // <xsd:element ref="mref"/>
         builder.put(Mref.ELEMENT, Mref::new);
-        // &lt;xsd:element ref="rref"/&gt;
+        // <xsd:element ref="rref"/>
         builder.put(Rref.ELEMENT, Rref::new);
-        // &lt;xsd:element ref="mod"/&gt;
+        // <xsd:element ref="mod"/>
         builder.put(Mod.ELEMENT, Mod::new);
-        // &lt;xsd:element ref="mmod"/&gt;
+        // <xsd:element ref="mmod"/>
         builder.put(Mmod.ELEMENT, Mmod::new);
-        // &lt;xsd:element ref="rmod"/&gt;
+        // <xsd:element ref="rmod"/>
         builder.put(Rmod.ELEMENT, Rmod::new);
-        // &lt;xsd:element ref="remark"/&gt;
+        // <xsd:element ref="remark"/>
         builder.put(Remark.ELEMENT, Remark::new);
-        // &lt;xsd:element ref="recordedTime"/&gt;
+        // <xsd:element ref="recordedTime"/>
         builder.put(RecordedTime.ELEMENT, RecordedTime::new);
-        // &lt;xsd:element ref="vote"/&gt;
+        // <xsd:element ref="vote"/>
         builder.put(Vote.ELEMENT, Vote::new);
-        // &lt;xsd:element ref="outcome"/&gt;
+        // <xsd:element ref="outcome"/>
         builder.put(Outcome.ELEMENT, Outcome::new);
-        // &lt;xsd:element ref="ins"/&gt;
+        // <xsd:element ref="ins"/>
         builder.put(Ins.ELEMENT, Ins::new);
-        // &lt;xsd:element ref="del"/&gt;
+        // <xsd:element ref="del"/>
         builder.put(Del.ELEMENT, Del::new);
-        // &lt;xsd:element ref="omissis"/&gt;
+        // <xsd:element ref="omissis"/>
         builder.put(Omissis.ELEMENT, Omissis::new);
-        // &lt;xsd:element ref="embeddedText"/&gt;
+        // <xsd:element ref="embeddedText"/>
         builder.put(EmbeddedText.ELEMENT, EmbeddedText::new);
-        // &lt;xsd:element ref="embeddedStructure"/&gt;
+        // <xsd:element ref="embeddedStructure"/>
         builder.put(EmbeddedStructure.ELEMENT, EmbeddedStructure::new);
-        // &lt;xsd:element ref="opinion"/&gt;
+        // <xsd:element ref="opinion"/>
         builder.put(Opinion.ELEMENT, Opinion::new);
-        // &lt;xsd:element ref="placeholder"/&gt;
+        // <xsd:element ref="placeholder"/>
         builder.put(Placeholder.ELEMENT, Placeholder::new);
-        // &lt;xsd:element ref="fillIn"/&gt;
+        // <xsd:element ref="fillIn"/>
         builder.put(FillIn.ELEMENT, FillIn::new);
-        // &lt;xsd:element ref="decoration"/&gt;
+        // <xsd:element ref="decoration"/>
         builder.put(Decoration.ELEMENT, Decoration::new);
 
         // V2
@@ -278,342 +278,345 @@ public final class Groups {
 
     private static Map<String, Supplier<AmendmentInline>> amendmentInline() {
         ImmutableMap.Builder<String, Supplier<AmendmentInline>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="affectedDocument" /&gt;
+        // <xsd:element ref="affectedDocument" />
         builder.put(AffectedDocument.ELEMENT, AffectedDocument::new);
-        // &lt;xsd:element ref="relatedDocument" /&gt;
+        // <xsd:element ref="relatedDocument" />
         builder.put(RelatedDocument.ELEMENT, RelatedDocument::new);
-        // &lt;xsd:element ref="change" /&gt;
+        // <xsd:element ref="change" />
         builder.put(Change.ELEMENT, Change::new);
         return builder.build();
     }
 
     private static Map<String, Supplier<HTMLMarker>> HTMLMarker() {
         ImmutableMap.Builder<String, Supplier<HTMLMarker>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="img" /&gt;
+        // <xsd:element ref="img" />
         builder.put(Img.ELEMENT, Img::new);
-        // &lt;xsd:element ref="br"/&gt;
+        // <xsd:element ref="br"/>
         builder.put(Br.ELEMENT, Br::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<MarkerElements>> markerElements() {
         ImmutableMap.Builder<String, Supplier<MarkerElements>> builder = ImmutableMap.builder();
-        // &lt;xsd:group ref="ANmarker"/&gt;
+        // <xsd:group ref="ANmarker"/>
         builder.putAll(convertSuper(ANmarker()));
-        // &lt;xsd:group ref="HTMLmarker"/&gt;
+        // <xsd:group ref="HTMLmarker"/>
         builder.putAll(convertSuper(HTMLMarker()));
-        // &lt;xsd:element ref="marker"/&gt;
+        // <xsd:element ref="marker"/>
+        builder.put(Marker.ELEMENT, Marker::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANmarker>> ANmarker() {
         ImmutableMap.Builder<String, Supplier<ANmarker>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="noteRef" /&gt;
+        // <xsd:element ref="noteRef" />
         builder.put(NoteRef.ELEMENT, NoteRef::new);
-        // &lt;xsd:element ref="eol" /&gt;
+        // <xsd:element ref="eol" />
         builder.put(Eol.ELEMENT, Eol::new);
-        // &lt;xsd:element ref="eop" /&gt;
+        // <xsd:element ref="eop" />
         builder.put(Eop.ELEMENT, Eop::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANsemanticInline>> ANsemanticInline() {
         ImmutableMap.Builder<String, Supplier<ANsemanticInline>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="date" /&gt;
+        // <xsd:element ref="date" />
         builder.put(Date.ELEMENT, Date::new);
-        // &lt;xsd:element ref="time" /&gt;
+        // <xsd:element ref="time" />
         builder.put(Time.ELEMENT, Time::new);
-        // &lt;xsd:element ref="person" /&gt;
+        // <xsd:element ref="person" />
         builder.put(Person.ELEMENT, Person::new);
-        // &lt;xsd:element ref="organization" /&gt;
+        // <xsd:element ref="organization" />
         builder.put(Organization.ELEMENT, Organization::new);
-        // &lt;xsd:element ref="concept" /&gt;
+        // <xsd:element ref="concept" />
         builder.put(Concept.ELEMENT, Concept::new);
-        // &lt;xsd:element ref="object" /&gt;
+        // <xsd:element ref="object" />
         builder.put(Object.ELEMENT, Object::new);
-        // &lt;xsd:element ref="event" /&gt;
+        // <xsd:element ref="event" />
         builder.put(Event.ELEMENT, Event::new);
-        // &lt;xsd:element ref="location" /&gt;
+        // <xsd:element ref="location" />
         builder.put(Location.ELEMENT, Location::new);
-        // &lt;xsd:element ref="process" /&gt;
+        // <xsd:element ref="process" />
         builder.put(Process.ELEMENT, Process::new);
-        // &lt;xsd:element ref="role" /&gt;
+        // <xsd:element ref="role" />
         builder.put(Role.ELEMENT, Role::new);
-        // &lt;xsd:element ref="term" /&gt;
+        // <xsd:element ref="term" />
         builder.put(Term.ELEMENT, Term::new);
-        // &lt;xsd:element ref="quantity" /&gt;
+        // <xsd:element ref="quantity" />
         builder.put(Quantity.ELEMENT, Quantity::new);
-        // &lt;xsd:element ref="def" /&gt;
+        // <xsd:element ref="def" />
         builder.put(Def.ELEMENT, Def::new);
-        // &lt;xsd:element ref="entity" /&gt;
+        // <xsd:element ref="entity" />
         builder.put(Entity.ELEMENT, Entity::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANheaderInline>> ANheaderInline() {
         ImmutableMap.Builder<String, Supplier<ANheaderInline>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="courtType"/&gt;
+        // <xsd:element ref="courtType"/>
         builder.put(CourtType.ELEMENT, CourtType::new);
-        // &lt;xsd:element ref="neutralCitation"/&gt;
+        // <xsd:element ref="neutralCitation"/>
         builder.put(NeutralCitation.ELEMENT, NeutralCitation::new);
-        // &lt;xsd:element ref="party"/&gt;
+        // <xsd:element ref="party"/>
         builder.put(Party.ELEMENT, Party::new);
-        // &lt;xsd:element ref="judge"/&gt;
+        // <xsd:element ref="judge"/>
         builder.put(Judge.ELEMENT, Judge::new);
-        // &lt;xsd:element ref="lawyer"/&gt;
+        // <xsd:element ref="lawyer"/>
         builder.put(Lawyer.ELEMENT, Lawyer::new);
-        // &lt;xsd:element ref="signature"/&gt;
+        // <xsd:element ref="signature"/>
         builder.put(Signature.ELEMENT, Signature::new);
-        // &lt;xsd:element ref="argument"/&gt;
+        // <xsd:element ref="argument"/>
         builder.put(Argument.ELEMENT, Argument::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANtitleInline>> ANtitleInline() {
         ImmutableMap.Builder<String, Supplier<ANtitleInline>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="docType" /&gt;
+        // <xsd:element ref="docType" />
         builder.put(DocType.ELEMENT, DocType::new);
-        //&lt;xsd:element ref="docTitle" /&gt;
+        //<xsd:element ref="docTitle" />
         builder.put(DocTitle.ELEMENT, DocTitle::new);
-        // &lt;xsd:element ref="docNumber" /&gt;
+        // <xsd:element ref="docNumber" />
         builder.put(DocNumber.ELEMENT, DocNumber::new);
-        // &lt;xsd:element ref="docProponent" /&gt;
+        // <xsd:element ref="docProponent" />
         builder.put(DocProponent.ELEMENT, DocProponent::new);
-        // &lt;xsd:element ref="docDate" /&gt;
+        // <xsd:element ref="docDate" />
         builder.put(DocDate.ELEMENT, DocDate::new);
-        // &lt;xsd:element ref="legislature" /&gt;
+        // <xsd:element ref="legislature" />
         builder.put(Legislature.ELEMENT, Legislature::new);
-        // &lt;xsd:element ref="session" /&gt;
+        // <xsd:element ref="session" />
         builder.put(Session.ELEMENT, Session::new);
-        // &lt;xsd:element ref="shortTitle"/&gt;
+        // <xsd:element ref="shortTitle"/>
         builder.put(ShortTitle.ELEMENT, ShortTitle::new);
-        // &lt;xsd:element ref="docPurpose" /&gt;
+        // <xsd:element ref="docAuthority"/>
+        builder.put(DocAuthority.ELEMENT, DocAuthority::new);
+        // <xsd:element ref="docPurpose" />
         builder.put(DocPurpose.ELEMENT, DocPurpose::new);
-        // &lt;xsd:element ref="docCommittee" /&gt;
+        // <xsd:element ref="docCommittee" />
         builder.put(DocCommittee.ELEMENT, DocCommittee::new);
-        // &lt;xsd:element ref="docIntroducer" /&gt;
+        // <xsd:element ref="docIntroducer" />
         builder.put(DocIntroducer.ELEMENT, DocIntroducer::new);
-        // &lt;xsd:element ref="docStage" /&gt;
+        // <xsd:element ref="docStage" />
         builder.put(DocStage.ELEMENT, DocStage::new);
-        // &lt;xsd:element ref="docStatus" /&gt;
+        // <xsd:element ref="docStatus" />
         builder.put(DocStatus.ELEMENT, DocStatus::new);
-        // &lt;xsd:element ref="docJurisdiction" /&gt;
+        // <xsd:element ref="docJurisdiction" />
         builder.put(DocJurisdiction.ELEMENT, DocJurisdiction::new);
-        // &lt;xsd:element ref="docketNumber" /&gt;
+        // <xsd:element ref="docketNumber" />
         builder.put(DocketNumber.ELEMENT, DocketNumber::new);
         return builder.build();
     }
 
     private static Map<String, Supplier<ANsubFlow>> ANsubFlow() {
         ImmutableMap.Builder<String, Supplier<ANsubFlow>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="authorialNote"/&gt;
+        // <xsd:element ref="authorialNote"/>
         builder.put(AuthorialNote.ELEMENT, AuthorialNote::new);
         return builder.build();
     }
 
     static Map<String, Supplier<DocRef>> docRefs() {
         ImmutableMap.Builder<String, Supplier<DocRef>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="original"/&gt;
+        // <xsd:element ref="original"/>
         builder.put(Original.ELEMENT, Original::new);
-        // &lt;xsd:element ref="passiveRef"/&gt;
+        // <xsd:element ref="passiveRef"/>
         builder.put(PassiveRef.ELEMENT, PassiveRef::new);
-        // &lt;xsd:element ref="activeRef"/&gt;
+        // <xsd:element ref="activeRef"/>
         builder.put(ActiveRef.ELEMENT, ActiveRef::new);
-        // &lt;xsd:element ref="jurisprudence"/&gt;
+        // <xsd:element ref="jurisprudence"/>
         builder.put(Jurisprudence.ELEMENT, Jurisprudence::new);
-        // &lt;xsd:element ref="hasAttachment"/&gt;
+        // <xsd:element ref="hasAttachment"/>
         builder.put(HasAttachment.ELEMENT, HasAttachment::new);
-        // &lt;xsd:element ref="attachmentOf"/&gt;
+        // <xsd:element ref="attachmentOf"/>
         builder.put(AttachmentOf.ELEMENT, AttachmentOf::new);
         return builder.build();
     }
 
     static Map<String, Supplier<TLC>> TLCs() {
         ImmutableMap.Builder<String, Supplier<TLC>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="TLCPerson"/&gt;
+        // <xsd:element ref="TLCPerson"/>
         builder.put(TLCPerson.ELEMENT, TLCPerson::new);
-        // &lt;xsd:element ref="TLCOrganization"/&gt;
+        // <xsd:element ref="TLCOrganization"/>
         builder.put(TLCOrganization.ELEMENT, TLCOrganization::new);
-        // &lt;xsd:element ref="TLCConcept"/&gt;
+        // <xsd:element ref="TLCConcept"/>
         builder.put(TLCConcept.ELEMENT, TLCConcept::new);
-        // &lt;xsd:element ref="TLCObject"/&gt;
+        // <xsd:element ref="TLCObject"/>
         builder.put(TLCObject.ELEMENT, TLCObject::new);
-        // &lt;xsd:element ref="TLCEvent"/&gt;
+        // <xsd:element ref="TLCEvent"/>
         builder.put(TLCEvent.ELEMENT, TLCEvent::new);
-        // &lt;xsd:element ref="TLCLocation"/&gt;
+        // <xsd:element ref="TLCLocation"/>
         builder.put(TLCLocation.ELEMENT, TLCLocation::new);
-        // &lt;xsd:element ref="TLCProcess"/&gt;
+        // <xsd:element ref="TLCProcess"/>
         builder.put(TLCProcess.ELEMENT, TLCProcess::new);
-        // &lt;xsd:element ref="TLCRole"/&gt;
+        // <xsd:element ref="TLCRole"/>
         builder.put(TLCRole.ELEMENT, TLCRole::new);
-        // &lt;xsd:element ref="TLCTerm"/&gt;
+        // <xsd:element ref="TLCTerm"/>
         builder.put(TLCTerm.ELEMENT, TLCTerm::new);
-        // &lt;xsd:element ref="TLCReference"/&gt;
+        // <xsd:element ref="TLCReference"/>
         builder.put(TLCReference.ELEMENT, TLCReference::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<PreambleContainers>> preambleContainers() {
         ImmutableMap.Builder<String, Supplier<PreambleContainers>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="recitals"/&gt;
+        // <xsd:element ref="recitals"/>
         builder.put(Recitals.ELEMENT, Recitals::new);
-        // &lt;xsd:element ref="citations"/&gt;
+        // <xsd:element ref="citations"/>
         builder.put(Citations.ELEMENT, Citations::new);
-        // &lt;xsd:element ref="formula"/&gt;
+        // <xsd:element ref="formula"/>
         builder.put(Formula.ELEMENT, Formula::new);
-        // &lt;xsd:element ref="container"/&gt;
+        // <xsd:element ref="container"/>
         builder.put(Container.ELEMENT, Container::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<HierElements>> hierElements() {
         ImmutableMap.Builder<String, Supplier<HierElements>> builder = ImmutableMap.builder();
-        // &lt;xsd:group ref="ANhier"/&gt;
+        // <xsd:group ref="ANhier"/>
         builder.putAll(convertSuper(ANhier()));
-        // &lt;xsd:element ref="hcontainer"/&gt;
+        // <xsd:element ref="hcontainer"/>
         builder.put(Hcontainer.ELEMENT, Hcontainer::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANhier>> ANhier() {
         ImmutableMap.Builder<String, Supplier<ANhier>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="clause"/&gt;
+        // <xsd:element ref="clause"/>
         builder.put(Clause.ELEMENT, Clause::new);
-        // &lt;xsd:element ref="section"/&gt;
+        // <xsd:element ref="section"/>
         builder.put(Section.ELEMENT, Section::new);
-        // &lt;xsd:element ref="part"/&gt;
+        // <xsd:element ref="part"/>
         builder.put(Part.ELEMENT, Part::new);
-        // &lt;xsd:element ref="paragraph"/&gt;
+        // <xsd:element ref="paragraph"/>
         builder.put(Paragraph.ELEMENT, Paragraph::new);
-        // &lt;xsd:element ref="chapter"/&gt;
+        // <xsd:element ref="chapter"/>
         builder.put(Chapter.ELEMENT, Chapter::new);
-        // &lt;xsd:element ref="title"/&gt;
+        // <xsd:element ref="title"/>
         builder.put(Title.ELEMENT, Title::new);
-        // &lt;xsd:element ref="article"/&gt;
+        // <xsd:element ref="article"/>
         builder.put(Article.ELEMENT_ARTICLE, Article::new);
-        // &lt;xsd:element ref="book"/&gt;
+        // <xsd:element ref="book"/>
         builder.put(Book.ELEMENT, Book::new);
-        // &lt;xsd:element ref="tome"/&gt;
+        // <xsd:element ref="tome"/>
         builder.put(Tome.ELEMENT, Tome::new);
-        // &lt;xsd:element ref="division"/&gt;
+        // <xsd:element ref="division"/>
         builder.put(Division.ELEMENT, Division::new);
-        // &lt;xsd:element ref="list"/&gt;
+        // <xsd:element ref="list"/>
         builder.put(List.ELEMENT, List::new);
-        // &lt;xsd:element ref="point"/&gt;
+        // <xsd:element ref="point"/>
         builder.put(Point.ELEMENT, Point::new);
-        // &lt;xsd:element ref="indent"/&gt;
+        // <xsd:element ref="indent"/>
         builder.put(Indent.ELEMENT, Indent::new);
-        // &lt;xsd:element ref="alinea"/&gt;
+        // <xsd:element ref="alinea"/>
         builder.put(Alinea.ELEMENT, Alinea::new);
-        // &lt;xsd:element ref="rule"/&gt;
+        // <xsd:element ref="rule"/>
         builder.put(Rule.ELEMENT, Rule::new);
-        // &lt;xsd:element ref="subrule"/&gt;
+        // <xsd:element ref="subrule"/>
         builder.put(SubRule.ELEMENT, SubRule::new);
-        // &lt;xsd:element ref="proviso"/&gt;
+        // <xsd:element ref="proviso"/>
         builder.put(Proviso.ELEMENT, Proviso::new);
-        // &lt;xsd:element ref="subsection"/&gt;
+        // <xsd:element ref="subsection"/>
         builder.put(SubSection.ELEMENT, SubSection::new);
-        // &lt;xsd:element ref="subpart"/&gt;
+        // <xsd:element ref="subpart"/>
         builder.put(SubPart.ELEMENT, SubPart::new);
-        // &lt;xsd:element ref="subparagraph"/&gt;
+        // <xsd:element ref="subparagraph"/>
         builder.put(SubParagraph.ELEMENT, SubParagraph::new);
-        // &lt;xsd:element ref="subchapter"/&gt;
+        // <xsd:element ref="subchapter"/>
         builder.put(SubChapter.ELEMENT, SubChapter::new);
-        // &lt;xsd:element ref="subtitle"/&gt;
+        // <xsd:element ref="subtitle"/>
         builder.put(SubTitle.ELEMENT, SubTitle::new);
-        // &lt;xsd:element ref="subdivision"/&gt;
+        // <xsd:element ref="subdivision"/>
         builder.put(SubDivision.ELEMENT, SubDivision::new);
-        // &lt;xsd:element ref="subclause"/&gt;
+        // <xsd:element ref="subclause"/>
         builder.put(SubClause.ELEMENT, SubClause::new);
-        // &lt;xsd:element ref="sublist"/&gt;
+        // <xsd:element ref="sublist"/>
         builder.put(SubList.ELEMENT, SubList::new);
-        // &lt;xsd:element ref="level"/&gt;
+        // <xsd:element ref="level"/>
         builder.put(Level.ELEMENT, Level::new);
-        // &lt;xsd:element ref="transitional"/&gt;
+        // <xsd:element ref="transitional"/>
         builder.put(Transitional.ELEMENT, Transitional::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ContainerElements>> containerElements() {
         ImmutableMap.Builder<String, Supplier<ContainerElements>> builder = ImmutableMap.builder();
-        // &lt;xsd:group ref="speechSection"/&gt;
+        // <xsd:group ref="speechSection"/>
         builder.putAll(convertSuper(speechSection()));
-        // &lt;xsd:group ref="HTMLcontainers"/&gt;
+        // <xsd:group ref="HTMLcontainers"/>
         builder.putAll(convertSuper(HTMLcontainers()));
-        // &lt;xsd:element ref="container"/&gt;
+        // <xsd:element ref="container"/>
         builder.put(Container.ELEMENT, Container::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<HTMLcontainers>> HTMLcontainers() {
         ImmutableMap.Builder<String, Supplier<HTMLcontainers>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="div"/&gt;
+        // <xsd:element ref="div"/>
         builder.put(Div.ELEMENT, Div::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANcontainers>> ANcontainers() {
         ImmutableMap.Builder<String, Supplier<ANcontainers>> builder = ImmutableMap.builder();
-        //&lt;xsd:element ref="speechGroup"/
+        //<xsd:element ref="speechGroup"/
         builder.put(SpeechGroup.ELEMENT, SpeechGroup::new);
-        // &lt;xsd:element ref="speech"/&gt;
+        // <xsd:element ref="speech"/>
         builder.put(Speech.ELEMENT, Speech::new);
-        // &lt;xsd:element ref="question"/&gt;
+        // <xsd:element ref="question"/>
         builder.put(Question.ELEMENT, Question::new);
-        // &lt;xsd:element ref="answer"/&gt;
+        // <xsd:element ref="answer"/>
         builder.put(Answer.ELEMENT, Answer::new);
-        // &lt;xsd:element ref="other"/&gt;
+        // <xsd:element ref="other"/>
         builder.put(Other.ELEMENT, Other::new);
-        // &lt;xsd:element ref="scene"/&gt;
+        // <xsd:element ref="scene"/>
         builder.put(Scene.ELEMENT, Scene::new);
-        // &lt;xsd:element ref="narrative"/&gt;
+        // <xsd:element ref="narrative"/>
         builder.put(Narrative.ELEMENT, Narrative::new);
-        // &lt;xsd:element ref="summary"/&gt;
+        // <xsd:element ref="summary"/>
         builder.put(Summary.ELEMENT, Summary::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<SpeechSection>> speechSection() {
         ImmutableMap.Builder<String, Supplier<SpeechSection>> builder = ImmutableMap.builder();
-        // &lt;xsd:element ref="administrationOfOath"/&gt;
+        // <xsd:element ref="administrationOfOath"/>
         builder.put(AdministrationOfOath.ELEMENT, AdministrationOfOath::new);
-        // &lt;xsd:element ref="rollCall"/&gt;
+        // <xsd:element ref="rollCall"/>
         builder.put(RollCall.ELEMENT, RollCall::new);
-        // &lt;xsd:element ref="prayers"/&gt;
+        // <xsd:element ref="prayers"/>
         builder.put(Prayers.ELEMENT, Prayers::new);
-        // &lt;xsd:element ref="oralStatements"/&gt;
+        // <xsd:element ref="oralStatements"/>
         builder.put(OralStatements.ELEMENT, OralStatements::new);
-        // &lt;xsd:element ref="writtenStatements"/&gt;
+        // <xsd:element ref="writtenStatements"/>
         builder.put(WrittenStatements.ELEMENT, WrittenStatements::new);
-        // &lt;xsd:element ref="personalStatements"/&gt;
+        // <xsd:element ref="personalStatements"/>
         builder.put(PersonalStatements.ELEMENT, PersonalStatements::new);
-        // &lt;xsd:element ref="ministerialStatements"/&gt;
+        // <xsd:element ref="ministerialStatements"/>
         builder.put(MinisterialStatements.ELEMENT, MinisterialStatements::new);
-        // &lt;xsd:element ref="resolutions"/&gt;
+        // <xsd:element ref="resolutions"/>
         builder.put(Resolutions.ELEMENT, Resolutions::new);
-        // &lt;xsd:element ref="nationalInterest"/&gt;
+        // <xsd:element ref="nationalInterest"/>
         builder.put(NationalInterest.ELEMENT, NationalInterest::new);
-        // &lt;xsd:element ref="declarationOfVote"/&gt;
+        // <xsd:element ref="declarationOfVote"/>
         builder.put(DeclarationOfVote.ELEMENT, DeclarationOfVote::new);
-        // &lt;xsd:element ref="communication"/&gt;
+        // <xsd:element ref="communication"/>
         builder.put(Communication.ELEMENT, Communication::new);
-        // &lt;xsd:element ref="petitions"/&gt;
+        // <xsd:element ref="petitions"/>
         builder.put(Petitions.ELEMENT, Petitions::new);
-        // &lt;xsd:element ref="papers"/&gt;
+        // <xsd:element ref="papers"/>
         builder.put(Papers.ELEMENT, Papers::new);
-        // &lt;xsd:element ref="noticesOfMotion"/&gt;
+        // <xsd:element ref="noticesOfMotion"/>
         builder.put(NoticesOfMotion.ELEMENT, NoticesOfMotion::new);
-        // &lt;xsd:element ref="questions"/&gt;
+        // <xsd:element ref="questions"/>
         builder.put(Questions.ELEMENT, Questions::new);
-        // &lt;xsd:element ref="address"/&gt;
+        // <xsd:element ref="address"/>
         builder.put(Address.ELEMENT, Address::new);
-        // &lt;xsd:element ref="proceduralMotions"/&gt;
+        // <xsd:element ref="proceduralMotions"/>
         builder.put(ProceduralMotions.ELEMENT, ProceduralMotions::new);
-        // &lt;xsd:element ref="pointOfOrder"/&gt;
+        // <xsd:element ref="pointOfOrder"/>
         builder.put(PointOfOrder.ELEMENT, PointOfOrder::new);
-        // &lt;xsd:element ref="adjournment"/&gt;
+        // <xsd:element ref="adjournment"/>
         builder.put(Adjournment.ELEMENT, Adjournment::new);
-        // &lt;xsd:element ref="debateSection"/&gt;
+        // <xsd:element ref="debateSection"/>
         builder.put(DebateSection.ELEMENT, DebateSection::new);
         return builder.build();
     }

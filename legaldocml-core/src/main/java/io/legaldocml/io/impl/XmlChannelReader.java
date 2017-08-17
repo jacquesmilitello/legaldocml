@@ -16,6 +16,7 @@ import javax.xml.stream.XMLStreamConstants;
 import java.nio.MappedByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import static io.legaldocml.io.impl.XmlChannelReaderException.Type.EXPECTED_EQUALS;
 import static io.legaldocml.io.impl.XmlChannelReaderException.Type.EXPECTED_GREATER;
@@ -48,6 +49,10 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * Holds working stack (by nesting level).
      */
     private final QNameImpl[] elemStack = new QNameImpl[SEQUENCE_LENGTH];
+
+    @SuppressWarnings("unchecked")
+    private final Consumer<NamespacesImpl>[] nsStack = new Consumer[SEQUENCE_LENGTH];
+
 
     /**
      * Cache for Qnames.
@@ -240,6 +245,10 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
             }
         } else if (eventType == END_ELEMENT) {
             depth--;
+            if (this.nsStack[depth] != null) {
+                this.nsStack[depth].accept(this.namespaces);
+                this.nsStack[depth] = null;
+            }
         }
 
         // Reader loop.
@@ -735,7 +744,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         if (attrPrefixSep < 0) {
             if (isXMLNS(attrQName)) {
                 // Sets default namespace.
-                namespaces.setPrefix(Namespaces.DEFAULT_NS_PREFIX, attrValue);
+                namespaces.setPrefix(0, Namespaces.DEFAULT_NS_PREFIX, attrValue);
             } else {
                 attributes.addAttribute(attrQName, 0, attrValue);
             }
@@ -744,7 +753,14 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         CharBuffer cb = attrQName;
         // Prefix.
         if (cb.length() > 6 && (cb.charAt(0) == 'x') && (cb.charAt(1) == 'm') && (cb.charAt(2) == 'l') && (cb.charAt(3) == 'n') && (cb.charAt(4) == 's')) {
-            namespaces.setPrefix(CharArrays.constant(cb, 6, cb.length() - 6), CharArrays.constant(attrValue));
+            this.namespaces.setPrefix(this.depth, CharArrays.constant(cb, 6, cb.length() - 6), CharArrays.constant(attrValue));
+            if (this.nsStack[depth - 1] == null) {
+                this.nsStack[depth - 1] = NamespacesImpl.POP_ACTION;
+            } else {
+                this.nsStack[depth - 1] = this.nsStack[depth - 1].andThen(NamespacesImpl.POP_ACTION);
+            }
+
+
         } else {
             attributes.addAttribute(attrQName, attrPrefixSep, attrValue);
         }

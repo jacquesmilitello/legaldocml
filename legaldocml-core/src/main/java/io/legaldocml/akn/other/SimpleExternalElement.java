@@ -3,17 +3,15 @@ package io.legaldocml.akn.other;
 import io.legaldocml.akn.element.AnyOtherTypeElement;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.StringWriterTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.MappedByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +20,11 @@ import java.util.List;
  */
 public final class SimpleExternalElement implements AnyOtherTypeElement {
 
+    /**
+     * SLF4J Logger.
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleExternalElement.class);
+
     private final String prefix;
     private final String localName;
 
@@ -29,7 +32,7 @@ public final class SimpleExternalElement implements AnyOtherTypeElement {
 
     private List<ExternalAttribute> attributes = new ArrayList<>(2);
 
-    public SimpleExternalElement(String prefix,String localName) {
+    public SimpleExternalElement(String prefix, String localName) {
         this.prefix = prefix;
         this.localName = localName;
     }
@@ -39,34 +42,24 @@ public final class SimpleExternalElement implements AnyOtherTypeElement {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-
         StringBuilder builder = new StringBuilder(prefix).append(':').append(localName);
-
-        MappedByteBuffer buffer = null;
-        try {
-            byte[] bytes = builder.toString().getBytes(StandardCharsets.US_ASCII);
-            buffer = (MappedByteBuffer) ByteBuffer.allocateDirect(bytes.length);
-            buffer.put(bytes);
-            buffer.flip();
-            long addr = ((sun.nio.ch.DirectBuffer) buffer).address();
-
-            writer.writeStart(addr, bytes.length);
+        StringWriterTemplate.writeElement(writer, builder.toString(), w -> {
             if (this.attributes != null) {
                 for (ExternalAttribute attribute : this.attributes) {
-                    attribute.write(writer);
+                    try {
+                        attribute.write(writer);
+                    } catch (IOException cause) {
+                        LOGGER.error("Failed to write external attribute [" + attribute + "]", cause);
+                    }
                 }
             }
 
-            this.data.write(writer);
-
-            writer.writeEnd(addr, bytes.length);
-
-        } finally {
-            if (buffer != null) {
-                Buffers.releaseDirectByteBuffer(buffer);
+            try {
+                this.data.write(writer);
+            } catch (IOException cause) {
+                LOGGER.error("Failed to write content [" + this.data + "]", cause);
             }
-        }
-
+        });
     }
 
     /**
@@ -77,7 +70,7 @@ public final class SimpleExternalElement implements AnyOtherTypeElement {
         QName qname = reader.getQName();
         reader.forEach(this, (object, name, value, prefixNS) -> {
             if (prefixNS == 0) {
-                this.attributes.add(new ExternalAttribute(name, value, CharArrays.constant("")));
+                this.attributes.add(new ExternalAttribute(name, value));
             } else {
                 throw new UnsupportedOperationException();
             }

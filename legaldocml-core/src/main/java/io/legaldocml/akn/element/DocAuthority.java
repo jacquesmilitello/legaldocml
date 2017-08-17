@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
 
@@ -15,7 +16,7 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DocAuthority extends InlineType {
+public final class DocAuthority extends InlineType implements ANtitleInline {
 
     /**
      * XML Tag element name.

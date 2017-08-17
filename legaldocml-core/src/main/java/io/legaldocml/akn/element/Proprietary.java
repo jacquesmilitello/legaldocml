@@ -49,7 +49,8 @@ public final class Proprietary extends AnyOtherType implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put("source", biConsumerAgentRef(getFieldOffset(Proprietary.class, "source")))
+                .putAll(AnyOtherType.ATTRIBUTES)
+                .put(Source.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Proprietary.class, "source")))
                 .build();
     }
 

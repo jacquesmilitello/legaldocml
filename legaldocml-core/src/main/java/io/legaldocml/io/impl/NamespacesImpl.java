@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -21,7 +22,7 @@ final class NamespacesImpl implements Namespaces {
     /**
      * Max namespaces.
      */
-    private static final int MAX = 8;
+    private static final int MAX = 16;
 
     private static final CharArray PREFIX_XML = CharArrays.constant("xml");
 
@@ -66,29 +67,56 @@ final class NamespacesImpl implements Namespaces {
         }
     }
 
+    @Override
+    public int count() {
+        return this.count;
+    }
+
     public void reset() {
         count = 1;
     }
 
-    public void setPrefix(CharArray prefix, CharArray uri) {
+    public void setPrefix(int depth, CharArray prefix, CharArray uri) {
 
         if (prefix.length() == 0) {
             // default namespace -> pos 0;
             this.uris[0] = uri;
             this.prefixes[0] = DEFAULT_NS_PREFIX;
         } else {
-            this.uris[count] = uri;
-            this.prefixes[count++] = prefix;
-        }
 
+            int i = 0;
+            for (;i < count ; i++) {
+                if (prefix.equals(this.prefixes[i])) {
+                    if (uri.equals(this.uris[i])) {
+                        break;
+                    } else {
+                        // same prefix with different uri ?!
+                    }
+                }
+            }
+
+            if (i < count) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Prefix [{}] with URI [{}] already defined => skip", prefix, uri);
+                }
+            } else {
+                this.uris[count] = uri;
+                this.prefixes[count++] = prefix;
+            }
+        }
     }
 
     public CharArray prefixes(int index) {
         return this.prefixes[index];
     }
 
-    public int namespacesCount(int depth) {
-        throw new UnsupportedOperationException();
-    }
+    static final Consumer<NamespacesImpl> POP_ACTION = namespaces -> {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("pop namespaces : prefix=[{}] uri=[{}] ", namespaces.prefixes[namespaces.count-1],namespaces.uris[namespaces.count-1]  );
+        }
+        namespaces.prefixes[namespaces.count-1] = null;
+        namespaces.uris[namespaces.count-1] = null;
+        namespaces.count--;
+    };
 
 }

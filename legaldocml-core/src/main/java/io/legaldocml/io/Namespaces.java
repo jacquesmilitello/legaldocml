@@ -15,5 +15,6 @@ public interface Namespaces {
 
     void forEach(BiConsumer<CharArray, CharArray> consumer);
 
+    int count();
 
 }
