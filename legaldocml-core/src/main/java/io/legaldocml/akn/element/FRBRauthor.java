@@ -5,10 +5,9 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.RoleRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -102,16 +101,6 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
         writeLinkReq(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS, 10);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        // empty node => go to end.
-        reader.nextStartOrEndElement();
     }
 
     /**

@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.io.Attribute;
+import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -33,6 +34,15 @@ public abstract class MetaOpt extends IdOptImpl implements Core {
             this.attributes = new ArrayList<>();
         }
         this.attributes.add(attribute);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void read(XmlReader reader) {
+        super.read(reader);
+        reader.nextStartOrEndElement();
     }
 
     /**

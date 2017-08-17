@@ -4,10 +4,9 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Language;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -84,16 +83,6 @@ public final class FRBRlanguage extends MetaOpt implements Language {
         }
         super.write(writer);
         writer.writeEnd(ADDRESS, 12);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        // empty node => go to end.
-        reader.nextStartOrEndElement();
     }
 
     /**

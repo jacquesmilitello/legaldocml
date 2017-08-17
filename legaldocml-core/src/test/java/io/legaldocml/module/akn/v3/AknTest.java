@@ -33,7 +33,7 @@ public class AknTest {
         test("/xml/v3/uy_bill_2010-09-27.xml");
         test("/xml/v3/us_Act_2011-11-29.xml");
         test("/xml/v3/za_Judgement_2008-11-26.xml");
-
+        test("/xml/v3/us_Title9-Chap3-eng.xml");
     }
 
     public static void test(String resource) throws IOException {

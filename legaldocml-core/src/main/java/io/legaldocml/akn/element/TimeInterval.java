@@ -8,10 +8,9 @@ import io.legaldocml.akn.attribute.RefersReq;
 import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.XmlDuration;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
@@ -152,15 +151,6 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
         writeInterval(writer, this);
         writeDuration(writer, this);
         writer.writeEnd(ADDRESS, 12);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        reader.nextStartOrEndElement();
     }
 
     /**

@@ -8,10 +8,9 @@ import io.legaldocml.akn.attribute.FromLanguage;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.type.AgentRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -186,21 +185,16 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
      * {@inheritDoc}
      */
     @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        reader.nextStartOrEndElement();
+    public String name() {
+        return ELEMENT;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public String name() {
-        return ELEMENT;
-    }
-
-    @Override
     public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
 }

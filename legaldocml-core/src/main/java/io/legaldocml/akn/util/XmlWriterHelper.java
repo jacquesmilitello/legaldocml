@@ -43,6 +43,7 @@ import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.akn.attribute.Pos;
 import io.legaldocml.akn.attribute.Quote;
+import io.legaldocml.akn.attribute.RangeOpt;
 import io.legaldocml.akn.attribute.RangeReq;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.RefersReq;
@@ -284,10 +285,14 @@ public final class XmlWriterHelper {
                 writer.writeAttribute(Attributes.ADDRESS_EVOLVING_ID, 10, getChars(idReq.getEvolvingId()));
             }
         } else {
-
             if (idReq.getEid() != null) {
-
                 writer.writeAttribute(Attributes.ADDRESS_EID, 3, idReq.getEid().getChars());
+            }
+            if (idReq.getWid() != null) {
+                writer.writeAttribute(Attributes.ADDRESS_WID, 3, idReq.getWid().getChars());
+            }
+            if (idReq.getGUID() != null) {
+                writer.writeAttribute(Attributes.ADDRESS_GUID, 4, idReq.getGUID().getChars());
             }
 
         }
@@ -576,6 +581,17 @@ public final class XmlWriterHelper {
             throw new RuntimeException();
         } else {
             writer.writeAttribute(Attributes.ADDRESS_UPTO, 4, rangeReq.getUpTo().getChars());
+        }
+    }
+
+    public static void writeRange(XmlWriter writer, RangeOpt range) throws IOException {
+        if (range.getFrom() == null) {
+            throw new RuntimeException();
+        } else {
+            writer.writeAttribute(Attributes.ADDRESS_FROM, 4, range.getFrom().getChars());
+        }
+        if (range.getUpTo() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_UPTO, 4, range.getUpTo().getChars());
         }
     }
 

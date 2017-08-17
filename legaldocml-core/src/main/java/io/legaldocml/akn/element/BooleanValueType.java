@@ -5,7 +5,6 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.BooleanValue;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -65,15 +64,6 @@ public abstract class BooleanValueType extends MetaOpt implements BooleanValue {
     public void write(XmlWriter writer) throws IOException {
         super.write(writer);
         XmlWriterHelper.writeBooleanValue(writer, this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        reader.nextStartOrEndElement();
     }
 
     /**

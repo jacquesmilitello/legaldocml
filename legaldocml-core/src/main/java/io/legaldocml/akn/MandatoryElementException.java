@@ -20,10 +20,10 @@ public final class MandatoryElementException extends LegalDocMlException {
 
     private static String buildMsg(AknObject aknObject, String expected, XmlReader reader) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Expected [").append(expected).append("]-");
-        builder.append("Actual [").append(reader.getQName()).append("]-");
-        builder.append("AknObject [").append(aknObject).append("]-");
-        builder.append("XmlReader [").append(reader).append("]-");
+        builder.append("Expected [").append(expected).append("] - ");
+        builder.append("Actual [").append(reader.getQName()).append("] - ");
+        builder.append("AknObject [").append(aknObject).append("] - ");
+        builder.append("XmlReader [").append(reader);
         return builder.toString();
     }
 

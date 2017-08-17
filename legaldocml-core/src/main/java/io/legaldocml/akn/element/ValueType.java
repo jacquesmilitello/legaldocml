@@ -7,7 +7,6 @@ import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -131,16 +130,6 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
         writeValue(writer, this);
         writeShow(writer, this);
         writeRefers(writer, this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        // for all FRBR* -> empty node => go to end.
-        reader.nextStartOrEndElement();
     }
 
     /**

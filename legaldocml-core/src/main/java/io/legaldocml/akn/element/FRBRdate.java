@@ -4,10 +4,9 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Name;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -109,16 +108,6 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
         writeName(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS, 8);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        // empty node => go to end.
-        reader.nextStartOrEndElement();
     }
 
     /**

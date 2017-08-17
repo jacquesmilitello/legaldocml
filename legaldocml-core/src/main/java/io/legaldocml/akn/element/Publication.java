@@ -8,10 +8,9 @@ import io.legaldocml.akn.attribute.Number;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -186,15 +185,6 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
         writeNumber(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS, 11);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        reader.nextStartOrEndElement();
     }
 
     /**

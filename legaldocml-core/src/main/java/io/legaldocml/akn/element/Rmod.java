@@ -52,7 +52,7 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModType.ATTRIBUTES)
-                .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rmod.class, "uoTo")))
+                .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rmod.class, "upTo")))
                 .put(Range.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rmod.class, "from")))
                 .build();
 

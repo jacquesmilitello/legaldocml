@@ -96,7 +96,12 @@ public final class Attributes {
      * Memory address.
      */
     public static final long ADDRESS_ID = Buffers.address(Id.ATTRIBUTE_ID);
+
     public static final long ADDRESS_EID = Buffers.address(Id.ATTRIBUTE_EID);
+
+    public static final long ADDRESS_WID = Buffers.address(Id.ATTRIBUTE_WID);
+
+    public static final long ADDRESS_GUID = Buffers.address(Id.ATTRIBUTE_GUID);
 
     public static final long ADDRESS_EVOLVING_ID = Buffers.address(Id.ATTRIBUTE_EVOLVING_ID);
 

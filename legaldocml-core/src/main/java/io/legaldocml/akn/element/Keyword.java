@@ -10,10 +10,9 @@ import io.legaldocml.akn.attribute.Value;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ReferenceRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -195,15 +194,6 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
         writeRefers(writer, this);
 
         writer.writeEnd(ADDRESS, 7);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        reader.nextStartOrEndElement();
     }
 
     /**
