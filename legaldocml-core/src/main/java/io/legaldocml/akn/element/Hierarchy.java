@@ -128,20 +128,29 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
         }
 
         this.elements = new AknList<>(new HierarchyElement[4]);
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
 
+        if (reader.getContext().getAkoXmlModule().getVersion() == 2) {
 
-        if (reader.getContext().getAkoXmlModule().getVersion() == 2 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(Wrap.ELEMENT)) {
-            this.wrap = new Wrap();
-            this.wrap.read(reader);
-            reader.nextStartOrEndElement();
+            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
+
+            if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(Wrap.ELEMENT)) {
+                this.wrap = new Wrap();
+                this.wrap.read(reader);
+                reader.nextStartOrEndElement();
+            }
+
+        } else {
+
+            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WrapUp.ELEMENT);
+
+            if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
+                this.wrapUp = new WrapUp();
+                this.wrapUp.read(reader);
+                reader.nextStartOrEndElement();
+            }
+
         }
 
-        if (reader.getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
-            this.wrapUp = new WrapUp();
-            this.wrapUp.read(reader);
-            reader.nextStartOrEndElement();
-        }
     }
 
     public final Content getContent() {

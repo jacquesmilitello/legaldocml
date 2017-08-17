@@ -33,6 +33,8 @@ import io.legaldocml.akn.attribute.Outcome;
 import io.legaldocml.akn.attribute.Period;
 import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.attribute.PortionAtt;
+import io.legaldocml.akn.attribute.Pos;
+import io.legaldocml.akn.attribute.Quote;
 import io.legaldocml.akn.attribute.Range;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.Role;
@@ -216,6 +218,14 @@ public final class Attributes {
     public static final long ADDRESS_INCLUDED_IN = Buffers.address(PortionAtt.ATTRIBUTE);
 
     public static final long ADDRESS_EMPOWERED_BY = Buffers.address(LawyerAtts.ATTRIBUTE_EMPOWERED_BY);
+
+    public static final long ADDRESS_STARTQUOTE = Buffers.address(Quote.ATTRIBUTE_STARTQUOTE);
+
+    public static final long ADDRESS_INLINEQUOTE = Buffers.address(Quote.ATTRIBUTE_INLINEQUOTE);
+
+    public static final long ADDRESS_ENDQUOTE = Buffers.address(Quote.ATTRIBUTE_ENDQUOTE);
+
+    public static final long ADDRESS_POS = Buffers.address(Pos.ATTRIBUTE);
 
     public static BiConsumer<AknObject, CharArray> biConsumerInteger(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, Integer.valueOf(s.toString()));

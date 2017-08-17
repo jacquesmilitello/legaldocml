@@ -34,9 +34,9 @@ public final class Abbr extends InlineType implements HTMLinline {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS, 4);
     }
 
     /**

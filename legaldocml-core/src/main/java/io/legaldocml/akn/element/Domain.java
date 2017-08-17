@@ -20,7 +20,7 @@ public final class Domain extends AnyOtherType {
     /**
      * XML Tag element name.
      */
-    public static final String ELEMENT = "eventRef";
+    public static final String ELEMENT = "domain";
 
     /**
      * Memory address.

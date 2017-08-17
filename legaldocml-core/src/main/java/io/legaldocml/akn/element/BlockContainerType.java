@@ -89,7 +89,7 @@ public abstract class BlockContainerType extends BaseHierarchyCoreReq {
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
+        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WrapUp.ELEMENT);
 
 
         if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {

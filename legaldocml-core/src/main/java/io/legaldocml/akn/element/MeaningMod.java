@@ -95,6 +95,9 @@ public final class MeaningMod extends ModificationType implements MeaningModType
         writer.writeStart(ADDRESS, 10);
         writeMeaningModType(writer, this);
         super.write(writer);
+        if (this.domain != null) {
+            this.domain.write(writer);
+        }
         writer.writeEnd(ADDRESS, 10);
     }
 

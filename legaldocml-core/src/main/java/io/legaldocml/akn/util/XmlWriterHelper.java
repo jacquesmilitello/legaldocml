@@ -78,6 +78,8 @@ import static io.legaldocml.akn.element.Attributes.ADDRESS_ORIGINATING_EXPRESSIO
 import static io.legaldocml.akn.element.Attributes.ADDRESS_PERIOD;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_PIVOT;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
+import static io.legaldocml.akn.element.Attributes.ADDRESS_POS;
+import static io.legaldocml.akn.element.Attributes.ADDRESS_UPTO;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
@@ -463,11 +465,16 @@ public final class XmlWriterHelper {
         }
     }
 
-    public static void writeUpTo(XmlWriter writer, UpToOpt upTo) {
+    public static void writeUpTo(XmlWriter writer, UpToOpt upTo) throws IOException {
+        if (upTo.getUpTo() != null) {
+            writer.writeAttribute(ADDRESS_UPTO, 4, upTo.getUpTo().getChars());
+        }
     }
 
-    public static void writePos(XmlWriter writer, Pos pos) {
-
+    public static void writePos(XmlWriter writer, Pos pos) throws IOException {
+        if (pos.getPos() != null) {
+            writer.writeAttribute(ADDRESS_POS, 3, getChars(pos.getPos().name()));
+        }
     }
 
     public static void writeOriginating(XmlWriter writer, Originating originating) throws IOException {
@@ -558,7 +565,16 @@ public final class XmlWriterHelper {
         }
     }
 
-    public static void writeQuote(XmlWriter writer, Quote quote) {
+    public static void writeQuote(XmlWriter writer, Quote quote) throws IOException {
+        if (quote.getStartQuote() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_STARTQUOTE, 10, getChars(quote.getStartQuote()));
+        }
+        if (quote.getEndQuote() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_ENDQUOTE, 8, getChars(quote.getEndQuote()));
+        }
+        if (quote.getInlineQuote() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_INLINEQUOTE, 12, getChars(quote.getInlineQuote()));
+        }
     }
 
     public static void writeFillInWidth(XmlWriter writer, FillInWidth fillInWidth) throws IOException {
