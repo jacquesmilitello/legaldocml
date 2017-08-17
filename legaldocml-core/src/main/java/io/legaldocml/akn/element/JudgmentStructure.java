@@ -118,6 +118,7 @@ public abstract class JudgmentStructure extends AbstractStructure implements Nam
         readMeta(reader);
         readCoverPage(reader);
         this.header.read(reader);
+        reader.nextStartOrEndElement();
         this.body.read(reader);
         reader.nextStartOrEndElement();
         readConclusionsAttachments(reader);

@@ -7,14 +7,15 @@ import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.group.ANheaderInline;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.RoleRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeLawyerAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -117,9 +118,10 @@ public final class Lawyer extends InlineReqReqType implements LawyerAtts, ANhead
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS, 6);
+        writeLawyerAtts(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS, 6);
     }
 
     /**

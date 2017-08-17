@@ -8,8 +8,6 @@ import io.legaldocml.io.impl.XmlChannelWriter;
 import io.legaldocml.test.PathForTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.ComparisonControllers;
 import org.xmlunit.diff.Diff;
@@ -28,8 +26,6 @@ import java.util.EnumSet;
 import java.util.Iterator;
 
 public class AknV2Test {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(AknV2Test.class);
 
     private static final XmlReaderFactory XML_READER_FACTORY = XmlReaderFactoryProvider.newXmlReaderFactory(2);
 
@@ -145,7 +141,7 @@ public class AknV2Test {
             AkomaNtoso<?> akomaNtoso = XML_READER_FACTORY.read(out);
 
             XmlChannelWriter writer = new XmlChannelWriterV2();
-            writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
+            writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"), "aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
             akomaNtoso.write(writer);
             writer.flush();
 
@@ -155,10 +151,10 @@ public class AknV2Test {
             }
         }
 
-        compare(Files.newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml").toFile()));
+        compare(Files.newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"), "aknv2-test-001.xml").toFile()));
     }
 
-    public void compare(InputStream controlXml, InputStream testXml) {
+    private void compare(InputStream controlXml, InputStream testXml) {
 
         Diff myDiff = DiffBuilder
                 .compare(controlXml)

@@ -10,6 +10,7 @@ import io.legaldocml.io.ProcessingInstruction;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.unsafe.UnsafeHelper;
+import io.legaldocml.util.ToStringBuilder;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.nio.MappedByteBuffer;
@@ -365,7 +366,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                             }
                             // maybe CDATA => check
                             if (c1 == '[' && c2 == 'C' && nextChar() == 'D' && nextChar() == 'A' && nextChar() == 'T' && nextChar() == 'A' && nextChar() == '[') {
-                                    this.state = STATE_CDATA;
+                                this.state = STATE_CDATA;
                             }
                         }
                     }
@@ -917,4 +918,12 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
     int getPosition() {
         return (this.buf.limit() - (int) (this.max - this.adr));
     }
+
+    @Override
+    public String toString() {
+        ToStringBuilder builder = new ToStringBuilder(false);
+        XmlChannelReaderException.dump(builder, this);
+        return builder.toString();
+    }
+
 }

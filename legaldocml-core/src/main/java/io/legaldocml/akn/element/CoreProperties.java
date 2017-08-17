@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.MandatoryElementException;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 /**
  * The complexType coreProperties lists the identifying properties available at any of the FRBR hierarchy levels.
- *
+ * <p>
  * <pre>
  *   &lt;xsd:complexType name="coreProperties"&gt;
  *     &lt;xsd:sequence&gt;
@@ -32,7 +33,7 @@ public abstract class CoreProperties implements AknObject {
     private final FRBRthis frbrThis = new FRBRthis();
 
     // Mandatory (min 1)
-    private final AknList<FRBRuri> uris = new AknList<FRBRuri>(new FRBRuri[2]);
+    private final AknList<FRBRuri> uris = new AknList<>(new FRBRuri[2]);
 
     // Optional
     private AknList<FRBRalias> aliases;
@@ -41,7 +42,7 @@ public abstract class CoreProperties implements AknObject {
     private final FRBRdate date = new FRBRdate();
 
     // Mandatory (min 1)
-    private final AknList<FRBRauthor> authors = new AknList<FRBRauthor>(new FRBRauthor[4]);
+    private final AknList<FRBRauthor> authors = new AknList<>(new FRBRauthor[4]);
 
     // Optional
     private ComponentInfo componentInfo;
@@ -107,6 +108,9 @@ public abstract class CoreProperties implements AknObject {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void read(XmlReader reader) {
 
@@ -115,10 +119,9 @@ public abstract class CoreProperties implements AknObject {
         if (reader.getQName().equalsLocalName(FRBRthis.ELEMENT)) {
             this.frbrThis.read(reader);
             reader.nextStartOrEndElement();
+        } else {
+            throw new MandatoryElementException(this, FRBRthis.ELEMENT, reader);
         }
-//        else {
-//            throw new BadElementException(FRBRthis.ELEMENT_FRBR_THIS, in);
-//        }
 
         if (reader.getQName().equalsLocalName(FRBRuri.ELEMENT)) {
             FRBRuri uri;
@@ -128,9 +131,9 @@ public abstract class CoreProperties implements AknObject {
                 this.uris.add(uri);
                 reader.nextStartOrEndElement();
             } while (reader.getQName().equalsLocalName(FRBRuri.ELEMENT));
+        } else {
+            throw new MandatoryElementException(this, FRBRuri.ELEMENT, reader);
         }
-//        else {
-//        }
 
         if (reader.getQName().equalsLocalName(FRBRalias.ELEMENT)) {
             FRBRalias alias;
@@ -148,7 +151,7 @@ public abstract class CoreProperties implements AknObject {
             this.date.read(reader);
             reader.nextStartOrEndElement();
         } else {
-
+            throw new MandatoryElementException(this, FRBRdate.ELEMENT, reader);
         }
 
         if (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT)) {
@@ -159,10 +162,9 @@ public abstract class CoreProperties implements AknObject {
                 this.authors.add(author);
                 reader.nextStartOrEndElement();
             } while (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT));
+        } else {
+            throw new MandatoryElementException(this, FRBRauthor.ELEMENT, reader);
         }
-//        else {
-//        }
-
 
         if (reader.getQName().equalsLocalName(ComponentInfo.ELEMENT)) {
             this.componentInfo = new ComponentInfo();

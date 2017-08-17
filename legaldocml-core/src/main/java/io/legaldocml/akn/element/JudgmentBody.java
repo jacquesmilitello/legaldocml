@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class JudgmentBody extends BodyType {
+public final class JudgmentBody extends JudgmentBodyType {
 
     /**
      * XML tag element name.

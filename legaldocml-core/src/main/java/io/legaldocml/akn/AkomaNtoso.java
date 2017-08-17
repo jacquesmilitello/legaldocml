@@ -85,8 +85,8 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
         this.context.writeModules(writer);
         // write external attributes
         if (this.attributes != null) {
-            for (int i = 0, n = this.attributes.size(); i < n; i++) {
-                this.attributes.get(i).write(writer);
+            for (Attribute attribute : this.attributes) {
+                attribute.write(writer);
             }
         }
         super.write(writer);
@@ -100,7 +100,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
     public void read(XmlReader reader) {
 
         if (!ELEMENT.equals(reader.getQName().getLocalName())) {
-            throw new RuntimeException("no <akoma>, found [" + reader.getQName() + "]");
+            throw new MandatoryElementException(this, ELEMENT, reader);
         }
 
         reader.setContext(this.context);
@@ -137,11 +137,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
         }
 
         reader.nextStartOrEndElement();
-
-
-
         super.read(reader);
-
     }
 
     /**

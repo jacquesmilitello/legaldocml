@@ -33,9 +33,9 @@ public final class NeutralCitation extends InlineType implements ANheaderInline 
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS, 15);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS, 15);
     }
 
     /**

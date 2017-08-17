@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.akn.visitor.group.BlockElementsVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -29,10 +28,10 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Blocksopt<T extends BlockElementsVisitor> extends CoreOptImpl {
+public abstract class Blocksopt extends CoreOptImpl {
 
     // Mandatory (min 1).
-    private final AknList<BlockElements> elements = new AknList<BlockElements>(new BlockElements[4]);
+    private final AknList<BlockElements> elements = new AknList<>(new BlockElements[4]);
 
     private static final ImmutableMap<String, Supplier<BlockElements>> ELEMS;
 

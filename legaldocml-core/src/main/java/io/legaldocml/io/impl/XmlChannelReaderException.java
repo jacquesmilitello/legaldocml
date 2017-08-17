@@ -132,20 +132,10 @@ public final class XmlChannelReaderException extends RuntimeException {
     };
 
     private final Type type;
-//    private final int eventType;
-//    private final int state;
-//    private final int seqsIdx;
-//    private final CharBuffer cb;
-//    private final CharArray text;
 
     XmlChannelReaderException(Type type, XmlChannelReader reader) {
-        super(buildMsg(type,reader));
+        super(buildMsg(type, reader));
         this.type = type;
-//        this.eventType = eventType;
-//        this.state = state;
-//        this.seqsIdx = seqsIdx;
-//        this.cb = cb;
-//        this.text = text;
     }
 
     public Type getType() {
@@ -155,45 +145,20 @@ public final class XmlChannelReaderException extends RuntimeException {
 
     private static String buildMsg(Type type, XmlChannelReader reader) {
         ToStringBuilder builder = new ToStringBuilder(true);
-        builder.append("type",type);
+        builder.append("type", type);
+        dump(builder, reader);
+        return builder.toString();
+    }
+
+    static void dump(ToStringBuilder builder, XmlChannelReader reader) {
         builder.append("eventType", reader.getEventType());
         builder.append("eventTypeName", NAMES_OF_EVENTS[reader.getEventType()]);
         builder.append("state", reader.getState());
         builder.append("stateName", NAMES_OF_STATES[reader.getState()]);
         builder.append("depth", reader.getDepth());
-        builder.append("seqsIdx",reader.getSeqsIdx());
-        builder.append("buffer",reader.getCb());
-        builder.append("position",reader.getPosition());
-        return builder.toString();
+        builder.append("seqsIdx", reader.getSeqsIdx());
+        builder.append("buffer", reader.getCb());
+        builder.append("position", reader.getPosition());
     }
-
-    //	/**
-//	 * Exception when we failed to read one byte or more in the XML.
-//	 *
-//	 * @param cause the IO Exception that produce.
-//	 */
-//	XmlChannelReaderException(IOException cause) {
-//		super(cause);
-//	}
-//
-//	/**
-//	 * Invalid state in the XML.
-//	 *
-//	 * @param message the detail message. The detail message is saved for later retrieval by the {@link #getMessage()} method.
-//	 * @param location the location of the source xml that produce this exception.
-//	 */
-//	XmlChannelReaderException(String message, Location location) {
-//		super(new StringBuilder().append(message).append(", [").append(location).append("]").toString());
-//	}
-
-//
-//    StringBuilder builder = new StringBuilder(256);
-//            builder.append("Premature end of file -");
-//            builder.append(" eventType=[").append(NAMES_OF_EVENTS[eventType]).append(']');
-//            builder.append(" state=[").append(this.state).append(']');
-//            builder.append(" depth=[").append(this.depth).append(']');
-//            builder.append(" seqsIdx=[").append(this.seqsIdx).append(']');
-//            builder.append(" buffer=[").append(this.cb).append(']');
-
 
 }

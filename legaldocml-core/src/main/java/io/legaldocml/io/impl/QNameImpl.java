@@ -23,9 +23,9 @@ public final class QNameImpl implements QName {
         System.arraycopy(hb, 0, full, 0, len);
         if (prefixLength < 1) {
             this.prefix = null;
-            this.localname = UnsafeString.valueOf(full).intern();
+            this.localname = UnsafeString.valueOf(full);
         } else {
-            this.prefix = new String(full, 0, prefixLength).intern();
+            this.prefix = new String(full, 0, prefixLength);
             this.localname = new String(full, prefixLength + 1, full.length - prefixLength - 1).intern();
         }
     }
@@ -46,7 +46,7 @@ public final class QNameImpl implements QName {
      */
     @Override
     public boolean equals(Object obj) {
-        return this == obj || obj != null && obj instanceof QNameImpl && doEquals((QNameImpl) obj);
+        return obj instanceof QNameImpl && doEquals((QNameImpl) obj);
     }
 
     /**
@@ -61,6 +61,10 @@ public final class QNameImpl implements QName {
     }
 
     boolean doEquals(QNameImpl qName) {
+
+        if (qName == this) {
+            return true;
+        }
 
         if (qName == null) {
             return false;

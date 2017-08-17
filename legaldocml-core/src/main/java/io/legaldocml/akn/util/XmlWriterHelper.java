@@ -22,6 +22,7 @@ import io.legaldocml.akn.attribute.HTMLattrs;
 import io.legaldocml.akn.attribute.IdOpt;
 import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.Interval;
+import io.legaldocml.akn.attribute.LawyerAtts;
 import io.legaldocml.akn.attribute.LegalSystemModType;
 import io.legaldocml.akn.attribute.Level;
 import io.legaldocml.akn.attribute.LinkOpt;
@@ -203,7 +204,7 @@ public final class XmlWriterHelper {
 
     public static void writeDate(XmlWriter writer, Date date) throws IOException {
         if (date.getDate() == null) {
-            throwException(writer, new MandatoryAttributeException(date,Date.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(date, Date.ATTRIBUTE, writer));
         } else {
             OffsetDateTime dt = date.getDate();
             if ((dt.getHour() == 0) && (dt.getMinute() == 0) && (dt.getSecond() == 0) && (dt.getNano() == 0)) {
@@ -418,8 +419,12 @@ public final class XmlWriterHelper {
     public static void writeDuration(XmlWriter writer, Duration duration) {
     }
 
-    public static void writeResultType(XmlWriter writer, ResultType resultType) {
-
+    public static void writeResultType(XmlWriter writer, ResultType resultType) throws IOException {
+        if (resultType.getType() == null) {
+            throwException(writer, new MandatoryAttributeException(resultType, ResultType.ATTRIBUTE, writer));
+        } else {
+            writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(resultType.getType().name()));
+        }
     }
 
     public static void writeRestrictionType(XmlWriter writer, RestrictionType restrictionType) {
@@ -580,7 +585,11 @@ public final class XmlWriterHelper {
         }
     }
 
-    public static void writeOpinionType(XmlWriter writer, OpinionType opinionType) {
+    public static void writeOpinionType(XmlWriter writer, OpinionType opinionType) throws IOException {
+        writeAgent(writer, opinionType);
+        if (opinionType.getType() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(opinionType.getType().name()));
+        }
     }
 
 
@@ -590,6 +599,17 @@ public final class XmlWriterHelper {
         } else {
             throw exception;
         }
+    }
+
+    public static void writeLawyerAtts(XmlWriter writer, LawyerAtts lawyerAtts) throws IOException {
+        writeRole(writer, lawyerAtts);
+        if (lawyerAtts.getFor() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_FOR, 3, lawyerAtts.getFor().getChars());
+        }
+        if (lawyerAtts.getEmpoweredBy() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_EMPOWERED_BY, 11, lawyerAtts.getEmpoweredBy().getChars());
+        }
+
     }
 }
 

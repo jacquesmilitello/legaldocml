@@ -21,7 +21,7 @@ public interface AknObject extends Externalizable, Visitable {
      * To read attributes.
      */
     default ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
-        throw new UnsupportedOperationException(getClass() + " must implements");
+        throw new UnsupportedOperationException(getClass() + " must implement attributes()");
     }
 
 }

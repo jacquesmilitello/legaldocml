@@ -5,14 +5,15 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.group.ANheaderInline;
 import io.legaldocml.akn.type.RoleRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -78,6 +79,7 @@ public final class Judge extends InlineReqReqType implements Role, ANheaderInlin
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS, 5);
+        writeRole(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS, 5);
     }

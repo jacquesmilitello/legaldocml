@@ -36,7 +36,7 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "restriction";
+    public static final String ELEMENT = "result";
 
     /**
      * Memory address.
@@ -48,7 +48,7 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(io.legaldocml.akn.attribute.ResultType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Result.class, "refersTo"), ResultType.class))
+                .put(io.legaldocml.akn.attribute.ResultType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Result.class, "type"), ResultType.class))
                 .build();
     }
 
@@ -75,10 +75,10 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS, 6);
         writeResultType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS, 6);
     }
 
     /**

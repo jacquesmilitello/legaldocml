@@ -2,34 +2,82 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
-import io.legaldocml.akn.attribute.*;
+import io.legaldocml.akn.attribute.Actor;
+import io.legaldocml.akn.attribute.Agent;
+import io.legaldocml.akn.attribute.Alt;
+import io.legaldocml.akn.attribute.Authoritative;
+import io.legaldocml.akn.attribute.CellAttrs;
+import io.legaldocml.akn.attribute.Contains;
+import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Date;
+import io.legaldocml.akn.attribute.Dictionary;
 import io.legaldocml.akn.attribute.Duration;
+import io.legaldocml.akn.attribute.Enactment;
+import io.legaldocml.akn.attribute.For;
+import io.legaldocml.akn.attribute.FromLanguage;
+import io.legaldocml.akn.attribute.HTMLattrs;
+import io.legaldocml.akn.attribute.Id;
+import io.legaldocml.akn.attribute.ImgAtts;
+import io.legaldocml.akn.attribute.Interval;
+import io.legaldocml.akn.attribute.Language;
+import io.legaldocml.akn.attribute.LawyerAtts;
 import io.legaldocml.akn.attribute.Level;
+import io.legaldocml.akn.attribute.Link;
+import io.legaldocml.akn.attribute.Modifiers;
+import io.legaldocml.akn.attribute.Name;
+import io.legaldocml.akn.attribute.NormalizedAtt;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.attribute.Number;
+import io.legaldocml.akn.attribute.Originating;
 import io.legaldocml.akn.attribute.Outcome;
 import io.legaldocml.akn.attribute.Period;
+import io.legaldocml.akn.attribute.Pivot;
+import io.legaldocml.akn.attribute.PortionAtt;
+import io.legaldocml.akn.attribute.Range;
+import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.Role;
+import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.attribute.Source;
+import io.legaldocml.akn.attribute.SpeechAtts;
+import io.legaldocml.akn.attribute.Src;
+import io.legaldocml.akn.attribute.TableAtts;
+import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.attribute.Time;
+import io.legaldocml.akn.attribute.Type;
+import io.legaldocml.akn.attribute.UpTo;
+import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.other.ExternalAttribute;
-import io.legaldocml.akn.type.*;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.type.AgentRef;
+import io.legaldocml.akn.type.ConceptRef;
+import io.legaldocml.akn.type.EidRef;
+import io.legaldocml.akn.type.EventRefRef;
+import io.legaldocml.akn.type.ListReferenceRef;
+import io.legaldocml.akn.type.ManifestationURI;
+import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.akn.type.RoleRef;
+import io.legaldocml.akn.type.TemporalGroupRef;
+import io.legaldocml.akn.type.VoteRef;
+import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
 import io.legaldocml.util.QnameUtil;
 import io.legaldocml.util.ReferenceRef;
 import io.legaldocml.util.Uri;
-import io.legaldocml.unsafe.UnsafeHelper;
 
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.function.BiConsumer;
+
+import static io.legaldocml.unsafe.UnsafeHelper.getUnsafe;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -162,16 +210,18 @@ public final class Attributes {
 
     public static final long ADDRESS_INCLUDED_IN = Buffers.address(PortionAtt.ATTRIBUTE);
 
+    public static final long ADDRESS_EMPOWERED_BY = Buffers.address(LawyerAtts.ATTRIBUTE_EMPOWERED_BY);
+
     public static BiConsumer<AknObject, CharArray> biConsumerInteger(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, Integer.valueOf(s.toString()));
+        return (i, s) -> getUnsafe().putObject(i, addr, Integer.valueOf(s.toString()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerString(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, s.toString());
+        return (i, s) -> getUnsafe().putObject(i, addr, s.toString());
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerNoWhiteSpace(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new NoWhiteSpace(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new NoWhiteSpace(s.raw()));
     }
 
     /**
@@ -185,14 +235,14 @@ public final class Attributes {
         return new AttributeBiConsumer(name) {
             @Override
             public void accept(AknObject aknObject, CharArray charArray) {
-                UnsafeHelper.getUnsafe().putObject(aknObject, addr, new NoWhiteSpace(charArray.raw()));
+                getUnsafe().putObject(aknObject, addr, new NoWhiteSpace(charArray.raw()));
             }
         };
     }
 
 
     public static <T extends Enum<T>> BiConsumer<AknObject, CharArray> biConsumerEnum(long addr, Class<T> enumClass) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, Enum.valueOf(enumClass, s.toString()));
+        return (i, s) -> getUnsafe().putObject(i, addr, Enum.valueOf(enumClass, s.toString()));
     }
 
 //    public static BiConsumer<AknObject, CharArray> biConsumerDate(long addr) {
@@ -210,7 +260,7 @@ public final class Attributes {
             } catch (DateTimeParseException cause) {
                 throw new RuntimeException();
             }
-            UnsafeHelper.getUnsafe().putObject(i, addr, dateTime);
+            getUnsafe().putObject(i, addr, dateTime);
         };
     }
 
@@ -231,16 +281,16 @@ public final class Attributes {
                     dateTime = OffsetDateTime.parse(s.toString(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
                 }
             }
-            UnsafeHelper.getUnsafe().putObject(i, addr, dateTime);
+            getUnsafe().putObject(i, addr, dateTime);
         };
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerBoolean(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, Boolean.valueOf(s.toString()));
+        return (i, s) -> getUnsafe().putObject(i, addr, Boolean.valueOf(s.toString()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerUri(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new Uri(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new Uri(s.raw()));
     }
 
 
@@ -248,50 +298,50 @@ public final class Attributes {
         return new AttributeBiConsumer(name) {
             @Override
             public void accept(AknObject aknObject, CharArray s) {
-                UnsafeHelper.getUnsafe().putObject(aknObject, addr, new ManifestationURI(s.raw()));
+                getUnsafe().putObject(aknObject, addr, new ManifestationURI(s.raw()));
             }
         };
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerReferenceRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new ReferenceRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new ReferenceRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerEidRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new EidRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new EidRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerWidRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new WidRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new WidRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerAgentRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new AgentRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new AgentRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerRoleRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new RoleRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new RoleRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerVoteRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new VoteRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new VoteRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerConceptRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new ConceptRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new ConceptRef(s.raw()));
     }
 
 
     public static BiConsumer<AknObject, CharArray> biConsumerListReferenceRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new ListReferenceRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new ListReferenceRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerEventRefRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new EventRefRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new EventRefRef(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerTemporalGroupRef(long addr) {
-        return (i, s) -> UnsafeHelper.getUnsafe().putObject(i, addr, new TemporalGroupRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new TemporalGroupRef(s.raw()));
     }
 
 

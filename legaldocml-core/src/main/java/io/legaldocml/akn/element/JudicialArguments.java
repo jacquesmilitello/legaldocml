@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
+import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -76,6 +77,7 @@ public abstract class JudicialArguments implements AknObject {
      */
     @Override
     public void read(XmlReader reader) {
+        final QName parent = reader.getQName();
         reader.nextStartOrEndElement();
 
         if (reader.getQName().equalsLocalName(Result.ELEMENT)) {
@@ -84,7 +86,7 @@ public abstract class JudicialArguments implements AknObject {
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elems, ELEMS);
+        XmlReaderHelper.read(reader, this.elems, ELEMS, parent);
     }
 
 }

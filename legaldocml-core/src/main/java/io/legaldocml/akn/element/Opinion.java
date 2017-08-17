@@ -2,17 +2,19 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.OpinionType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
+import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOpinionType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -50,7 +52,8 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(io.legaldocml.akn.attribute.OpinionType.ATTRIBUTE, biConsumerDateTime(getFieldOffset(Opinion.class, "date")))
+                .put(io.legaldocml.akn.attribute.OpinionType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Opinion.class, "type"), OpinionType.class))
+                .put(Agent.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Opinion.class, "by")))
                 .build();
     }
 
