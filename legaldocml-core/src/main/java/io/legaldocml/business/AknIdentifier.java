@@ -21,6 +21,8 @@ public abstract class AknIdentifier {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(AknIdentifier.class);
 
+    private int hash;
+
     public abstract String work();
 
     public abstract String workPart();
@@ -32,6 +34,7 @@ public abstract class AknIdentifier {
     public abstract String manifestation();
 
     public abstract String manifestationPart();
+
 
     public final <T extends DocumentType> void apply(AkomaNtoso<T> akn) {
 
@@ -65,13 +68,7 @@ public abstract class AknIdentifier {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        return obj instanceof AknIdentifier && doEquals((AknIdentifier) obj);
+        return obj == this || obj != null && obj instanceof AknIdentifier && doEquals((AknIdentifier) obj);
 
     }
 
@@ -80,7 +77,11 @@ public abstract class AknIdentifier {
      */
     @Override
     public int hashCode() {
-        return (int) Hashing.xx(0, manifestation());
+        if (hash == 0) {
+            String manifestation = manifestation();
+            hash = (int) Hashing.xx(manifestation.length(), manifestation);
+        }
+        return hash;
     }
 
     protected abstract boolean doEquals(AknIdentifier aknIdentifier);

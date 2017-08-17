@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -355,6 +356,9 @@ public final class AknList<E extends AknObject> implements List<E> {
 
             @Override
             public E next() {
+                if (i >= max) {
+                    throw new NoSuchElementException();
+                }
                 return iterable[i++];
             }
         };

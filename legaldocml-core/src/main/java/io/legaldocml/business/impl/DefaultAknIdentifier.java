@@ -2,7 +2,6 @@ package io.legaldocml.business.impl;
 
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.util.ToStringBuilder;
-import io.legaldocml.util.Hashing;
 
 import java.util.Objects;
 
@@ -16,7 +15,7 @@ final class DefaultAknIdentifier extends AknIdentifier {
     private final String manifestationPart;
     private final String separator;
 
-    private int hash;
+
 
     public DefaultAknIdentifier(String workPart, String expressionPart, String manifestationPart, String separator) {
         this.workPart = workPart;
@@ -95,15 +94,4 @@ final class DefaultAknIdentifier extends AknIdentifier {
                 .toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int hashCode() {
-        if (hash == 0) {
-            String manifestation = manifestation();
-            hash = (int) Hashing.xx(manifestation.length(), manifestation);
-        }
-        return hash;
-    }
 }

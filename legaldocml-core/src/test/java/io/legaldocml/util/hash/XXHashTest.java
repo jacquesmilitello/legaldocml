@@ -4,23 +4,22 @@ import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.HashReader;
 import io.legaldocml.util.Hashing;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class XXHashTest {
 
     @Test
     public void test() {
-
         String value = "Hello World !";
-        System.out.println("---> [" + Hashing.xx(123456, value) + "]");
+        Assert.assertEquals(-7739591154577084421L,Hashing.xx(123456, value));
 
     }
 
     @Test
     public void tests() {
-
         String value = "Hello World !";
-        System.out.println("2---> [" + Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))) + "]");
+        Assert.assertEquals(-7739591154577084421L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
     }
 
     private static class HashReader4String extends HashReader {

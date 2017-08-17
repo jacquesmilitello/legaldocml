@@ -47,7 +47,17 @@ public final class QNameImpl implements QName {
     @Override
     public boolean equals(Object obj) {
         return this == obj || obj != null && obj instanceof QNameImpl && doEquals((QNameImpl) obj);
+    }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        if (this.cache == null) {
+            this.cache = UnsafeString.valueOf(full);
+        }
+        return this.cache.hashCode();
     }
 
     boolean doEquals(QNameImpl qName) {
