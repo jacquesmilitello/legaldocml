@@ -46,6 +46,7 @@
         <module>legaldocml-test</module>
         <module>legaldocml-core</module>
         <module>legaldocml-archive</module>
+        <module>legaldocml-bom</module>
         <!--<module>legaldocml-akn-grammar</module>-->
     </modules>
 
@@ -78,6 +79,24 @@
                 <artifactId>guava</artifactId>
                 <version>${com.google.guava.version}</version>
                 <scope>compile</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.code.findbugs</groupId>
+                        <artifactId>jsr305</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.errorprone</groupId>
+                        <artifactId>error_prone_annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.j2objc</groupId>
+                        <artifactId>j2objc-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>animal-sniffer-annotations</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -266,15 +285,15 @@
             </plugin>
 
             <!--<plugin>-->
-                <!--<groupId>org.sonatype.plugins</groupId>-->
-                <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
-                <!--<version>1.6.8</version>-->
-                <!--<extensions>true</extensions>-->
-                <!--<configuration>-->
-                    <!--<serverId>ossrh</serverId>-->
-                    <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
-                    <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
-                <!--</configuration>-->
+            <!--<groupId>org.sonatype.plugins</groupId>-->
+            <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+            <!--<version>1.6.8</version>-->
+            <!--<extensions>true</extensions>-->
+            <!--<configuration>-->
+            <!--<serverId>ossrh</serverId>-->
+            <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+            <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+            <!--</configuration>-->
             <!--</plugin>-->
 
         </plugins>

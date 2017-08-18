@@ -1,6 +1,7 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.akn.AkomaNtosoContextV3;
 import io.legaldocml.akn.DocumentType;
 
 /**
@@ -16,7 +17,7 @@ public abstract class BusinessBuilder<T extends DocumentType> {
 
     public BusinessBuilder(Class<T> documentTypeClass) {
         this.documentTypeClass = documentTypeClass;
-        this.akomaNtoso = new AkomaNtoso<>();
+        this.akomaNtoso = new AkomaNtoso<>(new AkomaNtosoContextV3());
         this.akomaNtoso.setDocumentType(newDocumenyType());
         this.metaBuilder = newMetaBuilder(this);
     }

@@ -62,10 +62,11 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void read(XmlReader reader) {
 
-        Supplier<DocumentType> supplier = Groups.getDocumentTypes(reader).get(reader.getQName().getLocalName());
+        Supplier<T> supplier = (Supplier<T>) Groups.getDocumentTypes(reader).get(reader.getQName().getLocalName());
 
         if (supplier == null) {
             throw new RuntimeException("Document type not supported [" + reader.getQName().getLocalName() + "]");
@@ -75,7 +76,7 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
             LOGGER.debug("supplier found : [{}]", supplier);
         }
 
-        this.documentType = (T) supplier.get();
+        this.documentType = supplier.get();
         this.documentType.read(reader);
 
         reader.nextStartOrEndElement();

@@ -2,7 +2,7 @@ package io.legaldocml.module.akn.v3;
 
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.module.akn.ReaderHelper;
+import io.legaldocml.ReaderHelper;
 import io.legaldocml.test.PathForTest;
 import org.junit.Assert;
 import org.junit.Test;

@@ -5,16 +5,10 @@ import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
 import io.legaldocml.io.impl.XmlChannelWriter;
 import io.legaldocml.test.PathForTest;
-import org.junit.Assert;
 import org.junit.Test;
-import org.xmlunit.builder.DiffBuilder;
-import org.xmlunit.diff.ComparisonControllers;
-import org.xmlunit.diff.Diff;
-import org.xmlunit.diff.Difference;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
@@ -22,7 +16,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.EnumSet;
-import java.util.Iterator;
+
+import static io.legaldocml.XmlUnitHelper.compare;
 
 public class AknTest {
 
@@ -66,31 +61,6 @@ public class AknTest {
         }
 
         compare(Files.newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml").toFile()));
-    }
-
-    public static void compare(InputStream controlXml, InputStream testXml) {
-
-        Diff myDiff = DiffBuilder
-                .compare(controlXml)
-                .withTest(testXml)
-                .withComparisonController(ComparisonControllers.StopWhenDifferent)
-                .checkForIdentical()
-                .ignoreComments()
-                .ignoreWhitespace()
-                .normalizeWhitespace()
-                .checkForSimilar()
-                .build();
-
-        Iterator<Difference> iter = myDiff.getDifferences().iterator();
-        int size = 0;
-        while (iter.hasNext()) {
-            System.out.println(iter.next().toString());
-            size++;
-        }
-
-        Assert.assertEquals(0, size);
-
-
     }
 
 }

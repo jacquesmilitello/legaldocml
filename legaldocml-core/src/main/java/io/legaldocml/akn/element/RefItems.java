@@ -73,6 +73,14 @@ public abstract class RefItems implements Source {
         this.source = source;
     }
 
+    public final AknList<RefItem> getRefItems() {
+        return this.refItems;
+    }
+
+    public final void add(RefItem item) {
+        this.refItems.add(item);
+    }
+
     /**
      * {@inheritDoc}
      */

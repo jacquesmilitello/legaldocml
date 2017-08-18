@@ -21,7 +21,7 @@ import java.util.function.BiConsumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class AkomaNtosoContext {
+public class AkomaNtosoContext {
 
     /**
      * SLF4J Logger.

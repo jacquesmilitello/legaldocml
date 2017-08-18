@@ -1,5 +1,8 @@
 package io.legaldocml.util;
 
+import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.unsafe.UnsafeString;
+
 import java.util.Arrays;
 
 /**
@@ -15,7 +18,9 @@ import java.util.Arrays;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class AbstractUri {
+public abstract class AbstractUri {
+
+    public static final char REF = '#';
 
     private final char[] value;
 
@@ -92,4 +97,10 @@ public class AbstractUri {
         return this == o || o != null && getClass() == o.getClass() && Arrays.equals(value, ((AbstractUri) o).value);
     }
 
+    protected static char[] makeRef(NoWhiteSpace noWhiteSpace) {
+        StringBuilder builder = new StringBuilder(64);
+        builder.append(REF);
+        builder.append(noWhiteSpace.getChars());
+        return UnsafeString.getChars(builder.toString());
+    }
 }

@@ -1,11 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
@@ -77,6 +78,29 @@ public final class Meta implements AknObject {
 
     public Identification getIdentification() {
         return this.identification;
+    }
+
+    public AknList<References> getReferences() {
+        return this.references;
+    }
+
+    public References getReferences(AgentRef source) {
+        if (this.references == null) {
+            return null;
+        }
+        for (References ref : this.references) {
+            if (source.equals(ref.getSource())) {
+                return ref;
+            }
+        }
+        return null;
+    }
+
+    public void add(References references) {
+        if (this.references == null) {
+            this.references = new AknList<>(new References[2]);
+        }
+        this.references.add(references);
     }
 
     /**
@@ -207,7 +231,7 @@ public final class Meta implements AknObject {
 
         if (reader.getQName().equalsLocalName(References.ELEMENT)) {
             References ref;
-            this.references = new AknList<>(new References[4]);
+            this.references = new AknList<>(new References[2]);
             do {
                 ref = new References();
                 ref.read(reader);

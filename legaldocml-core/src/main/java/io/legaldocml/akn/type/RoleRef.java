@@ -1,5 +1,6 @@
 package io.legaldocml.akn.type;
 
+import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.AbstractUri;
 
 /**
@@ -14,10 +15,18 @@ import io.legaldocml.util.AbstractUri;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class RoleRef extends AbstractUri {
+public final class RoleRef extends AbstractUri {
 
     public RoleRef(char[] value) {
         super(value);
+    }
+
+    public static RoleRef valueOf(String value) {
+        return new RoleRef(UnsafeString.getChars(value));
+    }
+
+    public static RoleRef valueOf(NoWhiteSpace eid) {
+        return new RoleRef(makeRef(eid));
     }
 
 }

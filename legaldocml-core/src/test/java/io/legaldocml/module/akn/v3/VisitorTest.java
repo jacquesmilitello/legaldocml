@@ -4,7 +4,7 @@ import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.CoverPage;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Preface;
-import io.legaldocml.module.akn.ReaderHelper;
+import io.legaldocml.ReaderHelper;
 import io.legaldocml.test.PathForTest;
 import io.legaldocml.util.ToStringVisitor;
 import org.junit.Test;

@@ -45,6 +45,10 @@ public abstract class InlineType extends CoreOptImpl {
                 .build();
     }
 
+    public final void add(InlineCM inlineCM)  {
+        this.data.add(inlineCM);
+    }
+
     /**
      * {@inheritDoc}
      */
