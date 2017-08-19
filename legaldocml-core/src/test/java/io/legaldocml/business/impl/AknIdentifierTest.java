@@ -4,6 +4,7 @@ import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.Amendment;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.AknIdentifierException;
+import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class AknIdentifierTest {
     public void applyTest() {
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>();
+        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
         akn.setDocumentType(new Amendment());
 
         identifier.apply(akn);
@@ -26,7 +27,7 @@ public class AknIdentifierTest {
     @Test
     public void consistentTest() {
 
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>();
+        AkomaNtoso<Amendment> akn =  new AkomaNtoso<>(new AkomaNtosoContextV3());
         akn.setDocumentType(new Amendment());
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
@@ -48,7 +49,7 @@ public class AknIdentifierTest {
     @Test
     public void extractTest() {
 
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>();
+        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
         akn.setDocumentType(new Amendment());
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
@@ -67,7 +68,7 @@ public class AknIdentifierTest {
     @Test
     public void isEmptyTest() {
 
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>();
+        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
         akn.setDocumentType(new Amendment());
 
         Assert.assertTrue(AknIdentifier.isEmpty(akn));
@@ -85,7 +86,7 @@ public class AknIdentifierTest {
 
         Assert.assertEquals(identifier, identifier1);
         Assert.assertEquals(identifier.hashCode(), identifier1.hashCode());
-        Assert.assertNotSame(identifier,identifier1);
+        Assert.assertNotSame(identifier, identifier1);
     }
 
 }

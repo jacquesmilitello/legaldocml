@@ -2,12 +2,25 @@ package io.legaldocml.akn.util;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.element.StringInlineCM;
+import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.HasMixedContent;
+import io.legaldocml.akn.MandatoryElementException;
+import io.legaldocml.akn.element.StringInlineCM;
+import io.legaldocml.akn.other.UnsupportedModule;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
+import io.legaldocml.io.impl.XmlChannelReader;
+import io.legaldocml.module.AknModule;
+import io.legaldocml.module.Module;
+import io.legaldocml.module.Modules;
+import io.legaldocml.util.Strings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamConstants;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 /**
@@ -15,8 +28,70 @@ import java.util.function.Supplier;
  */
 public final class XmlReaderHelper {
 
+    /**
+     * SLJ4F
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(XmlChannelReader.class);
+
     private XmlReaderHelper() {
     }
+
+
+    public static <T extends DocumentType> AkomaNtoso createAkomaNtoso(XmlReader reader) {
+
+
+        if (!AkomaNtoso.ELEMENT.equals(reader.getQName().getLocalName())) {
+            throw new MandatoryElementException(null, AkomaNtoso.ELEMENT, reader);
+        }
+
+        List<Module> modules = new ArrayList<>(4);
+
+        reader.getNamespaces().forEach((p, n) -> {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("namespace : prefix [{}] -> value [{}]", p, n);
+            }
+
+            if (Strings.isEmpty(p) && Strings.isEmpty(n)) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("default namespace xmlns empty -> skip");
+                }
+                return;
+            }
+
+            Module mod = Modules.get(n);
+            if (mod == null) {
+
+                LOGGER.info("Unsupported module for prefix [{}] and uri [{}]", p, n);
+                mod = new UnsupportedModule(p, n);
+
+            }
+            modules.add(mod);
+        });
+
+        AknModule aknModule = null;
+        for (Module module : modules) {
+            if (module instanceof AknModule) {
+                aknModule = (AknModule) module;
+            }
+        }
+
+        if (aknModule == null) {
+            throw new RuntimeException();
+        }
+
+        AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(aknModule.newAkomaNtosoContext());
+        reader.setContext(akomaNtoso.getContext());
+
+        for (Module module : modules) {
+            if (module != aknModule) {
+                akomaNtoso.getContext().add(module);
+            }
+        }
+
+        reader.nextStartOrEndElement();
+        return akomaNtoso;
+    }
+
 
     public static <T extends AknObject> void read(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map) {
         QName qName = reader.getQName();
@@ -72,6 +147,7 @@ public final class XmlReaderHelper {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static <T extends HasMixedContent> void readWithCharacters(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map) {
         QName qName = reader.getQName();
         int eventType;

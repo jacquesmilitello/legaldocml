@@ -2,6 +2,7 @@ package io.legaldocml.io.impl;
 
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.MandatoryElementException;
+import io.legaldocml.akn.util.XmlReaderHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,9 +18,8 @@ public class XmlChannelReaderBadElementTest {
     public void test001BadAkoElement() throws IOException {
         doTest(path("/xml/cdata-001.xml"), reader -> {
             reader.nextStartOrEndElement();
-            AkomaNtoso akomaNtoso = new AkomaNtoso();
             try {
-                akomaNtoso.read(reader);
+                XmlReaderHelper.createAkomaNtoso(reader);
                 Assert.fail();
             } catch (MandatoryElementException cause) {
                 assertEquals(AkomaNtoso.ELEMENT, cause.getExpected());

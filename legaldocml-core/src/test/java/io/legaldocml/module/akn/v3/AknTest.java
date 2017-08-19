@@ -1,8 +1,9 @@
 package io.legaldocml.module.akn.v3;
 
 import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.io.XmlReaderFactory;
+import io.legaldocml.io.XmlReaderFactoryProvider;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.io.impl.XmlChannelReader;
 import io.legaldocml.io.impl.XmlChannelWriter;
 import io.legaldocml.test.PathForTest;
 import org.junit.Test;
@@ -21,6 +22,8 @@ import static io.legaldocml.XmlUnitHelper.compare;
 
 public class AknTest {
 
+    private static final XmlReaderFactory XML_READER_FACTORY = XmlReaderFactoryProvider.newXmlReaderFactory(2);
+
     @Test
     public void testOther() throws Exception {
         test("/xml/v3/cl_Sesion56_2.xml");
@@ -37,17 +40,13 @@ public class AknTest {
     public static void test(String resource) throws IOException {
 
         Path path = PathForTest.path(resource);
-        XmlChannelReader reader = new XmlChannelReader();
         MappedByteBuffer out = null;
         try (FileChannel channel = FileChannel.open(path, StandardOpenOption.READ)) {
 
             // Mapping a file into memory
             out = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
-            reader.setBuffer(out);
-            reader.nextStartOrEndElement();
 
-            AkomaNtoso<?> akomaNtoso = new AkomaNtoso<>();
-            akomaNtoso.read(reader);
+            AkomaNtoso<?> akomaNtoso = XML_READER_FACTORY.read(out);
 
             XmlChannelWriter writer = new XmlChannelWriterV3();
             writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));

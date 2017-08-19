@@ -2,11 +2,14 @@ package io.legaldocml.io.impl;
 
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
+import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.XmlReaderFactory;
 import io.legaldocml.pool.Pool;
 import io.legaldocml.pool.PoolHolder;
 import io.legaldocml.pool.PoolableObject;
 import io.legaldocml.pool.Pools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.MappedByteBuffer;
 
@@ -14,6 +17,11 @@ import java.nio.MappedByteBuffer;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 final class XmlReaderFactoryImpl implements XmlReaderFactory {
+
+    /**
+     * SLF4J Logger.
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(XmlReaderFactoryImpl.class);
 
     private static final PoolableObject<XmlChannelReader> POOLABLE_OBJECT = new PoolableObject<XmlChannelReader>() {
         @Override
@@ -33,15 +41,20 @@ final class XmlReaderFactoryImpl implements XmlReaderFactory {
         pool = Pools.createPool(size, POOLABLE_OBJECT);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer) {
         PoolHolder<XmlChannelReader> holder = null;
         try {
             holder = this.pool.checkOut();
-            holder.get().setBuffer(buffer);
-            AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>();
-            holder.get().nextStartOrEndElement();
-            akomaNtoso.read(holder.get());
+
+            XmlChannelReader reader = holder.get();
+            reader.setBuffer(buffer);
+            reader.nextStartOrEndElement();
+
+
+            AkomaNtoso<T> akomaNtoso = XmlReaderHelper.<T>createAkomaNtoso(reader);
+            akomaNtoso.read(reader);
             return akomaNtoso;
         } finally {
             if (holder != null) {

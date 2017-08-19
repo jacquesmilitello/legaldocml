@@ -44,6 +44,10 @@ public abstract class MainContent extends CoreOptImpl {
     // Mandatory
     private final AknList<MainContentElement> elements = new AknList<>(new MainContentElement[4]);
 
+    public final void add(MainContentElement mainContentElement) {
+        this.elements.add(mainContentElement);
+    }
+
     /**
      * {@inheritDoc}
      */

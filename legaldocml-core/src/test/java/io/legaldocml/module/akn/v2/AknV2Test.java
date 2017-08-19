@@ -12,13 +12,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.EnumSet;
 
 import static io.legaldocml.XmlUnitHelper.compare;
-import static java.nio.file.Files.newInputStream;
 
 public class AknV2Test {
 
@@ -123,10 +123,9 @@ public class AknV2Test {
         test("/xml/v2/Table_Traffic_Ke_Schedule10_1954.xml");
     }
 
-    private void test(String resource) throws IOException {
+    public static void test(String resource) throws IOException {
 
         Path path = PathForTest.path(resource);
-
         MappedByteBuffer out = null;
         try (FileChannel channel = FileChannel.open(path, StandardOpenOption.READ)) {
 
@@ -136,7 +135,7 @@ public class AknV2Test {
             AkomaNtoso<?> akomaNtoso = XML_READER_FACTORY.read(out);
 
             XmlChannelWriter writer = new XmlChannelWriterV2();
-            writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"), "aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
+            writer.setChannel(FileChannel.open(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml"), EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)));
             akomaNtoso.write(writer);
             writer.flush();
 
@@ -146,7 +145,7 @@ public class AknV2Test {
             }
         }
 
-        compare(newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"), "aknv2-test-001.xml").toFile()));
+        compare(Files.newInputStream(path), new FileInputStream(Paths.get(System.getProperty("java.io.tmpdir"),"aknv2-test-001.xml").toFile()));
     }
 
 

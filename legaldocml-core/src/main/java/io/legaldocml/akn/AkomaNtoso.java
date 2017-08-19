@@ -1,17 +1,12 @@
 package io.legaldocml.akn;
 
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.element.Attributes;
-import io.legaldocml.akn.other.UnsupportedModule;
 import io.legaldocml.akn.util.AknToStringBuilder;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.module.AknModule;
-import io.legaldocml.module.Module;
-import io.legaldocml.module.Modules;
+import io.legaldocml.io.impl.Buffers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,10 +47,6 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
     private final AkomaNtosoContext context;
 
     private List<Attribute> attributes;
-
-    public AkomaNtoso() {
-        this.context = new AkomaNtosoContext();
-    }
 
     public AkomaNtoso(AkomaNtosoContext context) {
         this.context = context;
@@ -98,45 +89,8 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
      */
     @Override
     public void read(XmlReader reader) {
-
-        if (!ELEMENT.equals(reader.getQName().getLocalName())) {
-            throw new MandatoryElementException(this, ELEMENT, reader);
-        }
-
-        reader.setContext(this.context);
-
-        reader.getNamespaces().forEach((p, n) -> {
-
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("namespace : prefix [{}] -> value [{}]", p, n);
-            }
-
-            Module mod = Modules.get(n);
-
-            if (mod == null) {
-                // ERRROR
-
-                LOGGER.info("Unsupported module for prefix [{}] and uri [{}]", p, n);
-                mod = new UnsupportedModule(p, n);
-                this.context.add(mod);
-
-            } else {
-                this.context.add(mod);
-            }
-
-            if (mod instanceof AknModule) {
-                this.context.setAkoXmlModule(((AknModule) mod));
-            }
-
-        });
-
-        Attributes.read(reader, this);
-
-        if (reader.getContext().getAkoXmlModule() == null) {
-            throw new RuntimeException();
-        }
-
-        reader.nextStartOrEndElement();
+        //Attributes.read(reader, this);
+        //reader.nextStartOrEndElement();
         super.read(reader);
     }
 

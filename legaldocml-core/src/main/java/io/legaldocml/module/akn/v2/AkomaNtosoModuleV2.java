@@ -2,6 +2,8 @@ package io.legaldocml.module.akn.v2;
 
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AkomaNtosoContext;
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Act;
 import io.legaldocml.akn.element.Amendment;
 import io.legaldocml.akn.element.AmendmentList;
@@ -11,18 +13,20 @@ import io.legaldocml.akn.element.DebateReport;
 import io.legaldocml.akn.element.Doc;
 import io.legaldocml.akn.element.DocumentCollection;
 import io.legaldocml.akn.element.OfficialGazette;
-import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.module.AknModule;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.akn.DocumentType;
+import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.module.AknModule;
 
 import java.io.IOException;
 import java.util.function.Supplier;
 
-public final class AkomaNtosoModule implements AknModule {
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
+public final class AkomaNtosoModuleV2 implements AknModule {
 
     public static final String NS_VALUE = "http://www.akomantoso.org/2.0";
     public static final String NS_PREFIX = "xmlns";
@@ -30,7 +34,7 @@ public final class AkomaNtosoModule implements AknModule {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    private static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
+    static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
 
     public static final ImmutableMap<String, Supplier<DocumentType>> DOCUMENT_TYPE;
 
@@ -88,5 +92,12 @@ public final class AkomaNtosoModule implements AknModule {
     @Override
     public int getVersion() {
         return 2;
+    }
+
+    @Override
+    public AkomaNtosoContext newAkomaNtosoContext() {
+        AkomaNtosoContext context = new AkomaNtosoContextV2();
+        context.add(this);
+        return context;
     }
 }

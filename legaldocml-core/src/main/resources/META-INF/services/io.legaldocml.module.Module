@@ -1,4 +1,4 @@
 io.legaldocml.module.xml.XmlModule
 io.legaldocml.module.xsi.XsiModule
-io.legaldocml.module.akn.v2.AkomaNtosoModule
-io.legaldocml.module.akn.v3.AkomaNtosoV3Module
+io.legaldocml.module.akn.v2.AkomaNtosoModuleV2
+io.legaldocml.module.akn.v3.AkomaNtosoModuleV3

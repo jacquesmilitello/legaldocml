@@ -1,5 +1,6 @@
 package io.legaldocml.module.akn.v3;
 
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
@@ -10,7 +11,10 @@ import io.legaldocml.module.AknModule;
 import java.io.IOException;
 import java.util.function.Supplier;
 
-public final class AkomaNtosoV3Module implements AknModule {
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
+public final class AkomaNtosoModuleV3 implements AknModule {
 
     public static final String NS_VALUE = "http://docs.oasis-open.org/legaldocml/ns/akn/3.0";
     public static final String NS_PREFIX = "xmlns";
@@ -18,7 +22,7 @@ public final class AkomaNtosoV3Module implements AknModule {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    private static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
+    static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
 
     @Override
     public CharArray namespace() {
@@ -44,5 +48,12 @@ public final class AkomaNtosoV3Module implements AknModule {
     @Override
     public int getVersion() {
         return 3;
+    }
+
+    @Override
+    public AkomaNtosoContext newAkomaNtosoContext() {
+        AkomaNtosoContext context = new AkomaNtosoContextV3();
+        context.add(this);
+        return context;
     }
 }

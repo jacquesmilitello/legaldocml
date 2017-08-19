@@ -21,7 +21,7 @@ import java.util.function.BiConsumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class AkomaNtosoContext {
+public abstract class AkomaNtosoContext {
 
     /**
      * SLF4J Logger.
@@ -46,7 +46,15 @@ public class AkomaNtosoContext {
      */
     private final Map<CharArray, Module> modules = new HashMap<>(4);
 
-    private AknModule aknModule;
+    /**
+     * Akn module for this context
+     */
+    private final AknModule aknModule;
+
+    protected AkomaNtosoContext(AknModule aknModule) {
+        this.aknModule = aknModule;
+        add(aknModule);
+    }
 
     public AknModule getAkoXmlModule() {
         return this.aknModule;
@@ -62,18 +70,9 @@ public class AkomaNtosoContext {
         }
     }
 
-    void add(Module module) {
+    public void add(Module module) {
         this.modules.put(module.namespace(), module);
     }
-
-
-    void setAkoXmlModule(AknModule aknModule) {
-        if (this.aknModule != null) {
-            throw new RuntimeException("alreadyset");
-        }
-        this.aknModule = aknModule;
-    }
-
 
     @SuppressWarnings("unchecked")
     public void update(String name, AknObject akn) {
