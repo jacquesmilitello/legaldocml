@@ -17,7 +17,7 @@ public abstract class MetaBuilder<T extends DocumentType> {
 
     public void setAknIdentifier(AknIdentifier identifier) {
         if (identifier == null) {
-            throw new BusinessBuilderException();
+            throw new BusinessBuilderException("argument identifier is null");
         }
         identifier.apply(this.businessBuilder.getAkomaNtoso());
     }

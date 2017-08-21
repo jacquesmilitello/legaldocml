@@ -13,7 +13,7 @@ import java.util.function.BiConsumer;
 import static io.legaldocml.akn.element.Attributes.biConsumerNoWhiteSpace;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
-abstract class AbstractId implements AknObject, Id {
+public abstract class AbstractId implements AknObject, Id {
 
     protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 

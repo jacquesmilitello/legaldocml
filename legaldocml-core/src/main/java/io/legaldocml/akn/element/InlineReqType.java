@@ -23,12 +23,20 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class InlineReqType extends CoreReqImpl {
+public abstract class InlineReqType extends CoreReqImpl implements InlineCMContainer {
 
     /**
      * Container for all data fors this inline.
      */
     private final AknList<InlineCM> data = new AknList<InlineCM>(new InlineCM[8]);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(InlineCM inlineCM)  {
+        this.data.add(inlineCM);
+    }
 
     /**
      * {@inheritDoc}

@@ -66,7 +66,7 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
      * {@inheritDoc}
      */
     @Override
-    public VersionType getContains() {
+    public final VersionType getContains() {
         return this.versionType;
     }
 
@@ -74,7 +74,7 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
      * {@inheritDoc}
      */
     @Override
-    public void setContains(VersionType type) {
+    public final void setContains(VersionType type) {
         this.versionType = type;
     }
 
@@ -82,7 +82,7 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
      * {@inheritDoc}
      */
     @Override
-    public String getName() {
+    public final String getName() {
         return this.name;
     }
 
@@ -90,8 +90,12 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
      * {@inheritDoc}
      */
     @Override
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
+    }
+
+    public final Body getBody() {
+        return this.body;
     }
 
     /**

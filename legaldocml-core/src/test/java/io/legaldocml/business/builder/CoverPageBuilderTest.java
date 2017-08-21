@@ -1,4 +1,4 @@
-package io.legaldocml.business;
+package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
 import io.legaldocml.XmlUnitHelper;
@@ -8,6 +8,7 @@ import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.CoverPageBuilder;
 import io.legaldocml.io.XmlProvider;

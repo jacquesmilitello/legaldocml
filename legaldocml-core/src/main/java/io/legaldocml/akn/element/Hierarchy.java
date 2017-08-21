@@ -19,7 +19,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
 
 /**
  * The complex type hierarchy is used by most or all the hierarchical elements of act-like documents.
- *
+ * <p>
  * <pre>
  *   &lt;xsd:complexType name="hierarchy"&gt;
  *     &lt;xsd:complexContent&gt;
@@ -70,6 +70,14 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
     private Wrap wrap;
 
     private WrapUp wrapUp;
+
+
+    public final void add(HierarchyElement element) {
+        if (this.elements == null) {
+            this.elements = new AknList<>(new HierarchyElement[4]);
+        }
+        this.elements.add(element);
+    }
 
     /**
      * {@inheritDoc}

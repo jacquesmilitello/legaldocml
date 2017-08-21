@@ -17,7 +17,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
 /**
  * the complex type blocksreq defines the content model and attributes shared by all containers. Here the eId attribute
  * is required.
- *
+ * <p>
  * <pre>
  *   &lt;xsd:complexType name="blocksreq"&gt;
  *     &lt;xsd:sequence minOccurs="0" maxOccurs="unbounded"&gt;
@@ -41,6 +41,10 @@ public abstract class Blocksreq extends CoreReqImpl {
 
     // Mandatory
     private final AknList<BlockElements> elements = new AknList<>(new BlockElements[8]);
+
+    public final void add(BlockElements el) {
+        this.elements.add(el);
+    }
 
     /**
      * {@inheritDoc}

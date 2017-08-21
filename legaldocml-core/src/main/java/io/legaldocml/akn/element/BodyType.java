@@ -42,6 +42,10 @@ public abstract class BodyType extends CoreOptImpl {
     // Mandatory (min 1).
     private final AknList<BodyTypeElement> elements = new AknList<>(new BodyTypeElement[4]);
 
+    public void add(BodyTypeElement element) {
+        this.elements.add(element);
+    }
+
     /**
      * {@inheritDoc}
      */

@@ -65,4 +65,5 @@ public final class Bill extends HierarchicalStructure implements DocumentType {
             visitor.visitLeave(this);
         }
     }
+
 }

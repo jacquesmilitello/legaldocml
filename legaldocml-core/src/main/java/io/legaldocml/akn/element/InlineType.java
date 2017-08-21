@@ -30,7 +30,7 @@ import static io.legaldocml.akn.element.Groups.inlineCM;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class InlineType extends CoreOptImpl {
+public abstract class InlineType extends CoreOptImpl implements InlineCMContainer {
 
     /**
      * Container for all data fors this inline.
@@ -45,6 +45,10 @@ public abstract class InlineType extends CoreOptImpl {
                 .build();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(InlineCM inlineCM)  {
         this.data.add(inlineCM);
     }
