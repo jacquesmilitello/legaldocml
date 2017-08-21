@@ -5,9 +5,9 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.group.HTMLinline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -16,8 +16,8 @@ import java.util.function.BiConsumer;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeTarget;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
-import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
  * The element a is an HTML element and is used in Akoma Ntoso as in HTML, for the generic link to a web resource (NOT
@@ -42,12 +42,12 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "a";
+    public static final String ELEMENT_A = "a";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_A = Buffers.address(ELEMENT_A);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -68,6 +68,7 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Uri getHref() {
         return this.href;
     }
@@ -75,14 +76,23 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void setHref(Uri href) {
         this.href = href;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getTarget() {
         return this.target;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void setTarget(String target) {
         this.target = target;
     }
@@ -92,15 +102,15 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 1);
+        writer.writeStart(ADDRESS_A, 1);
         writeLinkReq(writer, this);
-        if (this.target != null) {
-            writer.writeAttribute(Attributes.ADDRESS_TARGET, 6, getChars(this.target));
-        }
+        writeTarget(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 1);
+        writer.writeEnd(ADDRESS_A, 1);
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
         return ATTRIBUTES;
@@ -111,6 +121,6 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_A;
     }
 }

@@ -27,7 +27,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The complex type anyOtherType defines an open content model for elements that may use elements from other namespaces.
- *
+ * <p>
  * <pre>
  *   &lt;xsd:complexType name="anyOtherType"&gt;
  * 	   &lt;xsd:choice&gt;
@@ -85,12 +85,20 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
      * {@inheritDoc}
      */
     @Override
-    public void add(Attribute attribute) {
+    public final void add(Attribute attribute) {
         if (this.attributes == null) {
             this.attributes = new ArrayList<>();
         }
         this.attributes.add(attribute);
     }
+
+    public final void add(AnyOtherTypeElement el) {
+        if (this.others == null) {
+            this.others = new AknList<>(new AnyOtherTypeElement[4]);
+        }
+        this.others.add(el);
+    }
+
 
     /**
      * {@inheritDoc}
@@ -139,7 +147,7 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
             AnyOtherTypeElement element;
             if (module == null) {
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("inline declation of namespace -> [{}]" , reader.getQName());
+                    LOGGER.debug("inline declation of namespace -> [{}]", reader.getQName());
                 }
                 element = new ExternalElementWithNS(reader.getQName(), reader.getNamespaces().get(constant(reader.getQName().getPrefix())));
             } else {
@@ -148,7 +156,6 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
             }
             element.read(reader);
             this.others.add(element);
-
 
 
             reader.nextStartOrEndElement();

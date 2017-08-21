@@ -53,12 +53,12 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "publication";
+    public static final String ELEMENT_PUBLICATION = "publication";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PUBLICATION = Buffers.address(ELEMENT_PUBLICATION);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -177,14 +177,14 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_PUBLICATION, 11);
         writeDate(writer, this);
         writeName(writer, this);
         writeRefers(writer, this);
         writeShow(writer, this);
         writeNumber(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_PUBLICATION, 11);
     }
 
     /**
@@ -192,7 +192,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_PUBLICATION;
     }
 
     /**

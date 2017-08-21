@@ -45,7 +45,7 @@ public final class Groups {
 
     static {
         DOCUMENT_TYPE_V2 = ImmutableMap.<String, Supplier<DocumentType>>builder()
-                .put(Act.ELEMENT, Act::new)
+                .put(Act.ELEMENT_ACT, Act::new)
                 .put(Amendment.ELEMENT, Amendment::new)
                 .put(AmendmentList.ELEMENT, AmendmentList::new)
                 .put(Bill.ELEMENT, Bill::new)
@@ -58,7 +58,7 @@ public final class Groups {
                 .build();
 
         DOCUMENT_TYPE = ImmutableMap.<String, Supplier<DocumentType>>builder()
-                .put(Act.ELEMENT, Act::new)
+                .put(Act.ELEMENT_ACT, Act::new)
                 .put(Amendment.ELEMENT, Amendment::new)
                 .put(AmendmentList.ELEMENT, AmendmentList::new)
                 .put(Bill.ELEMENT, Bill::new)
@@ -213,7 +213,7 @@ public final class Groups {
         // <xsd:element ref="i"/>
         builder.put(I.ELEMENT, I::new);
         // <xsd:element ref="a"/>
-        builder.put(A.ELEMENT, A::new);
+        builder.put(A.ELEMENT_A, A::new);
         // <xsd:element ref="u"/>
         builder.put(U.ELEMENT, U::new);
         // <xsd:element ref="sub"/>
@@ -221,7 +221,7 @@ public final class Groups {
         // <xsd:element ref="sup"/>
         builder.put(Sup.ELEMENT, Sup::new);
         // <xsd:element ref="abbr"/>
-        builder.put(Abbr.ELEMENT, Abbr::new);
+        builder.put(Abbr.ELEMENT_ABBR, Abbr::new);
         // <xsd:element ref="span"/>
         builder.put(Span.ELEMENT, Span::new);
 
@@ -279,7 +279,7 @@ public final class Groups {
     private static Map<String, Supplier<AmendmentInline>> amendmentInline() {
         ImmutableMap.Builder<String, Supplier<AmendmentInline>> builder = ImmutableMap.builder();
         // <xsd:element ref="affectedDocument" />
-        builder.put(AffectedDocument.ELEMENT, AffectedDocument::new);
+        builder.put(AffectedDocument.ELEMENT_AFFECTED_DOCUMENT, AffectedDocument::new);
         // <xsd:element ref="relatedDocument" />
         builder.put(RelatedDocument.ELEMENT, RelatedDocument::new);
         // <xsd:element ref="change" />
@@ -421,7 +421,7 @@ public final class Groups {
         // <xsd:element ref="passiveRef"/>
         builder.put(PassiveRef.ELEMENT, PassiveRef::new);
         // <xsd:element ref="activeRef"/>
-        builder.put(ActiveRef.ELEMENT, ActiveRef::new);
+        builder.put(ActiveRef.ELEMENT_ACTIVE_REF, ActiveRef::new);
         // <xsd:element ref="jurisprudence"/>
         builder.put(Jurisprudence.ELEMENT, Jurisprudence::new);
         // <xsd:element ref="hasAttachment"/>
@@ -507,7 +507,7 @@ public final class Groups {
         // <xsd:element ref="indent"/>
         builder.put(Indent.ELEMENT, Indent::new);
         // <xsd:element ref="alinea"/>
-        builder.put(Alinea.ELEMENT, Alinea::new);
+        builder.put(Alinea.ELEMENT_ALINEA, Alinea::new);
         // <xsd:element ref="rule"/>
         builder.put(Rule.ELEMENT, Rule::new);
         // <xsd:element ref="subrule"/>
@@ -579,7 +579,7 @@ public final class Groups {
     public static Map<String, Supplier<SpeechSection>> speechSection() {
         ImmutableMap.Builder<String, Supplier<SpeechSection>> builder = ImmutableMap.builder();
         // <xsd:element ref="administrationOfOath"/>
-        builder.put(AdministrationOfOath.ELEMENT, AdministrationOfOath::new);
+        builder.put(AdministrationOfOath.ELEMENT_ADMINISTATION_OF_OATH, AdministrationOfOath::new);
         // <xsd:element ref="rollCall"/>
         builder.put(RollCall.ELEMENT, RollCall::new);
         // <xsd:element ref="prayers"/>
@@ -609,13 +609,13 @@ public final class Groups {
         // <xsd:element ref="questions"/>
         builder.put(Questions.ELEMENT, Questions::new);
         // <xsd:element ref="address"/>
-        builder.put(Address.ELEMENT, Address::new);
+        builder.put(Address.ELEMENT_ADDRESS, Address::new);
         // <xsd:element ref="proceduralMotions"/>
         builder.put(ProceduralMotions.ELEMENT, ProceduralMotions::new);
         // <xsd:element ref="pointOfOrder"/>
         builder.put(PointOfOrder.ELEMENT, PointOfOrder::new);
         // <xsd:element ref="adjournment"/>
-        builder.put(Adjournment.ELEMENT, Adjournment::new);
+        builder.put(Adjournment.ELEMENT_ADJOURNMENT, Adjournment::new);
         // <xsd:element ref="debateSection"/>
         builder.put(DebateSection.ELEMENT, DebateSection::new);
         return builder.build();

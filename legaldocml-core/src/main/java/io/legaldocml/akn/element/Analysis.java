@@ -43,12 +43,12 @@ public final class Analysis implements Source {
     /**
      * Xml element name.
      */
-    public static final String ELEMENT = "analysis";
+    public static final String ELEMENT_ANALYSIS = "analysis";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ANALYSIS = Buffers.address(ELEMENT_ANALYSIS);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -104,7 +104,7 @@ public final class Analysis implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_ANALYSIS, 8);
         writeSource(writer, this);
 
         if (this.activeModifications != null) {
@@ -139,7 +139,7 @@ public final class Analysis implements Source {
             this.otherAnalysis.write(writer);
         }
 
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_ANALYSIS, 8);
     }
 
     /**
@@ -150,7 +150,7 @@ public final class Analysis implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(ActiveModifications.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(ActiveModifications.ELEMENT_ACTIVE_MODIFICATIONS)) {
             this.activeModifications = new ActiveModifications();
             this.activeModifications.read(reader);
             reader.nextStartOrEndElement();
@@ -214,7 +214,7 @@ public final class Analysis implements Source {
      * {@inheritDoc}
      */
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ANALYSIS;
     }
 
 }

@@ -1,18 +1,7 @@
 package io.legaldocml.module.akn.v2;
 
 
-import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.akn.DocumentType;
-import io.legaldocml.akn.element.Act;
-import io.legaldocml.akn.element.Amendment;
-import io.legaldocml.akn.element.AmendmentList;
-import io.legaldocml.akn.element.Bill;
-import io.legaldocml.akn.element.Debate;
-import io.legaldocml.akn.element.DebateReport;
-import io.legaldocml.akn.element.Doc;
-import io.legaldocml.akn.element.DocumentCollection;
-import io.legaldocml.akn.element.OfficialGazette;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
@@ -35,39 +24,6 @@ public final class AkomaNtosoModuleV2 implements AknModule {
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
     static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
-
-    public static final ImmutableMap<String, Supplier<DocumentType>> DOCUMENT_TYPE;
-
-    static {
-
-        /**
-         * <pre>
-         *  <xsd:groupOLD name="documentType">
-         * 		<xsd:choice>
-         * 			<xsd:groupOLD ref="collectionDocs"/>
-         * 			<xsd:groupOLD ref="legislativeDocs"/>
-         * 			<xsd:groupOLD ref="debateDocs"/>
-         * 			<xsd:groupOLD ref="amendmentDocs"/>
-         * 			<xsd:groupOLD ref="judgementDocs"/>
-         * 			<xsd:element ref="doc"/>
-         * 		</xsd:choice>
-         * 	</xsd:groupOLD>
-         * </pre>
-         */
-        DOCUMENT_TYPE = ImmutableMap.<String, Supplier<DocumentType>>builder()
-                .put(Act.ELEMENT, Act::new)
-                .put(Amendment.ELEMENT, Amendment::new)
-                .put(AmendmentList.ELEMENT, AmendmentList::new)
-                .put(Bill.ELEMENT, Bill::new)
-//                    .put(Judgement.ELEMENT, Judgement.INSTANTIATOR)
-                .put(DebateReport.ELEMENT, DebateReport::new)
-                .put(Doc.ELEMENT, Doc::new)
-                .put(Debate.ELEMENT, Debate::new)
-                .put(DocumentCollection.ELEMENT, DocumentCollection::new)
-                .put(OfficialGazette.ELEMENT, OfficialGazette::new)
-                .build();
-//        }
-    }
 
     @Override
     public CharArray namespace() {

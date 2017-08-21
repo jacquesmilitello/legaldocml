@@ -21,21 +21,21 @@ public final class AdministrationOfOath extends AltHierarchy implements SpeechSe
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "administrationOfOath";
+    public static final String ELEMENT_ADMINISTATION_OF_OATH = "administrationOfOath";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ADMINISTATION_OF_OATH = Buffers.address(ELEMENT_ADMINISTATION_OF_OATH);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 20);
+        writer.writeStart(ADDRESS_ADMINISTATION_OF_OATH, 20);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 20);
+        writer.writeEnd(ADDRESS_ADMINISTATION_OF_OATH, 20);
     }
 
     /**
@@ -43,7 +43,7 @@ public final class AdministrationOfOath extends AltHierarchy implements SpeechSe
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ADMINISTATION_OF_OATH;
     }
 
     /**

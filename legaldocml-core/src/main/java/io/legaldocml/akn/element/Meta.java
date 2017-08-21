@@ -168,7 +168,7 @@ public final class Meta implements AknObject {
         reader.nextStartOrEndElement();
         this.identification.read(reader);
 
-        if (reader.getQName().equalsLocalName(Publication.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(Publication.ELEMENT_PUBLICATION)) {
             this.publication = new Publication();
             this.publication.read(reader);
             reader.nextStartOrEndElement();
@@ -207,7 +207,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(Workflow.ELEMENT));
         }
 
-        if (reader.getQName().equalsLocalName(Analysis.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(Analysis.ELEMENT_ANALYSIS)) {
             Analysis analysis;
             this.analysis = new AknList<>(new Analysis[4]);
             do {
@@ -215,7 +215,7 @@ public final class Meta implements AknObject {
                 analysis.read(reader);
                 this.analysis.add(analysis);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Analysis.ELEMENT));
+            } while (reader.getQName().equalsLocalName(Analysis.ELEMENT_ANALYSIS));
         }
 
         if (reader.getQName().equalsLocalName(TemporalData.ELEMENT)) {

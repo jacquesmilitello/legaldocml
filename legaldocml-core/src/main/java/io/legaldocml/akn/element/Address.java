@@ -21,21 +21,21 @@ public final class Address extends AltHierarchy implements SpeechSection {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "address";
+    public static final String ELEMENT_ADDRESS = "address";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ADDRESS = Buffers.address(ELEMENT_ADDRESS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_ADDRESS, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_ADDRESS, 7);
     }
 
     /**
@@ -43,7 +43,7 @@ public final class Address extends AltHierarchy implements SpeechSection {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ADDRESS;
     }
 
     /**

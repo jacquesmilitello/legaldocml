@@ -22,21 +22,21 @@ public final class Abbr extends InlineType implements HTMLinline {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "abbr";
+    public static final String ELEMENT_ABBR = "abbr";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ABBR = Buffers.address(ELEMENT_ABBR);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_ABBR, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_ABBR, 4);
     }
 
     /**
@@ -44,7 +44,7 @@ public final class Abbr extends InlineType implements HTMLinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ABBR;
     }
 
 }

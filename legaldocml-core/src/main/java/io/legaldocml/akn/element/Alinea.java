@@ -21,21 +21,21 @@ public final class Alinea extends Hierarchy implements ANhier {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "alinea";
+    public static final String ELEMENT_ALINEA = "alinea";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ALINEA = Buffers.address(ELEMENT_ALINEA);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_ALINEA, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_ALINEA, 6);
     }
 
     /**
@@ -43,7 +43,7 @@ public final class Alinea extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ALINEA;
     }
 
     /**

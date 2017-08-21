@@ -19,21 +19,21 @@ public final class ActiveModifications extends Amendments {
     /**
      * XML element name.
      */
-    public static final String ELEMENT = "activeModifications";
+    public static final String ELEMENT_ACTIVE_MODIFICATIONS = "activeModifications";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ACTIVE_MODIFICATIONS = Buffers.address(ELEMENT_ACTIVE_MODIFICATIONS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 19);
+        writer.writeStart(ADDRESS_ACTIVE_MODIFICATIONS, 19);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 19);
+        writer.writeEnd(ADDRESS_ACTIVE_MODIFICATIONS, 19);
     }
 
     /**
@@ -41,7 +41,7 @@ public final class ActiveModifications extends Amendments {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ACTIVE_MODIFICATIONS;
     }
 
 }

@@ -21,21 +21,21 @@ public final class ActiveRef extends ReferenceType implements DocRef {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "activeRef";
+    public static final String ELEMENT_ACTIVE_REF = "activeRef";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ACTIVE_REF = Buffers.address(ELEMENT_ACTIVE_REF);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_ACTIVE_REF, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_ACTIVE_REF, 9);
     }
 
     /**
@@ -43,6 +43,6 @@ public final class ActiveRef extends ReferenceType implements DocRef {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ACTIVE_REF;
     }
 }

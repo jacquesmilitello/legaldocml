@@ -39,12 +39,12 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "affectedDocument";
+    public static final String ELEMENT_AFFECTED_DOCUMENT = "affectedDocument";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_AFFECTED_DOCUMENT = Buffers.address(ELEMENT_AFFECTED_DOCUMENT);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -78,10 +78,10 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 16);
+        writer.writeStart(ADDRESS_AFFECTED_DOCUMENT, 16);
         writeLinkReq(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 16);
+        writer.writeEnd(ADDRESS_AFFECTED_DOCUMENT, 16);
     }
 
     /**
@@ -89,7 +89,7 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_AFFECTED_DOCUMENT;
     }
 
     /**

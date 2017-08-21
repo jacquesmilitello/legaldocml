@@ -29,21 +29,21 @@ public final class Act extends HierarchicalStructure implements DocumentType {
     /**
      * XML element name.
      */
-    public static final String ELEMENT = "act";
+    public static final String ELEMENT_ACT = "act";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ACT = Buffers.address(ELEMENT_ACT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_ACT, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_ACT, 3);
     }
 
     /**
@@ -51,7 +51,7 @@ public final class Act extends HierarchicalStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_ACT;
     }
 
 }

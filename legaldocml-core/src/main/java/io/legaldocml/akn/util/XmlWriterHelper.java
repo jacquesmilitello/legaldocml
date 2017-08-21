@@ -57,6 +57,7 @@ import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.attribute.TableAtts;
+import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.attribute.Time;
 import io.legaldocml.akn.attribute.UpToOpt;
@@ -77,8 +78,8 @@ import static io.legaldocml.akn.element.Attributes.ADDRESS_FROM_LANGUAGE;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_ORIGINATING_EXPRESSION;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_PERIOD;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_PIVOT;
-import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_POS;
+import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_UPTO;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -640,6 +641,13 @@ public final class XmlWriterHelper {
         }
         if (lawyerAtts.getEmpoweredBy() != null) {
             writer.writeAttribute(Attributes.ADDRESS_EMPOWERED_BY, 11, lawyerAtts.getEmpoweredBy().getChars());
+        }
+
+    }
+
+    public static void writeTarget(XmlWriter writer, Target target) throws IOException {
+        if (target.getTarget() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_TARGET, 6, getChars(target.getTarget()));
         }
 
     }
