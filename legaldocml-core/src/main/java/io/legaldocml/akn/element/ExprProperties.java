@@ -40,6 +40,18 @@ public abstract class ExprProperties extends CoreProperties {
     // Optional
     private AknList<FRBRtranslation> translations;
 
+
+    public final void add(FRBRlanguage language) {
+        this.languages.add(language);
+    }
+
+    public final void add(FRBRtranslation translation) {
+        if (this.translations == null) {
+            this.translations = new AknList<>(new FRBRtranslation[4]);
+        }
+        this.translations.add(translation);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -86,14 +98,14 @@ public abstract class ExprProperties extends CoreProperties {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRlanguage.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBRlanguage.ELEMENT_FRBR_LANGUAGE)) {
             FRBRlanguage language;
             do {
                 language = new FRBRlanguage();
                 language.read(reader);
                 this.languages.add(language);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRlanguage.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBRlanguage.ELEMENT_FRBR_LANGUAGE));
         }
 
         if (reader.getQName().equalsLocalName(FRBRtranslation.ELEMENT)) {

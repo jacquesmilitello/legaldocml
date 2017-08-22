@@ -36,14 +36,6 @@ final class DefaultAknIdentifier extends AknIdentifier {
      * {@inheritDoc}
      */
     @Override
-    public String workPart() {
-        return workPart;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public String expression() {
         return new StringBuilder().append(workPart).append(separator).append(expressionPart).toString();
     }
@@ -77,7 +69,7 @@ final class DefaultAknIdentifier extends AknIdentifier {
      */
     @Override
     protected boolean doEquals(AknIdentifier aknIdentifier) {
-        return Objects.equals(this.workPart, aknIdentifier.workPart()) &&
+        return Objects.equals(this.workPart, aknIdentifier.work()) &&
                 Objects.equals(this.expressionPart, aknIdentifier.expressionPart()) &&
                 Objects.equals(this.manifestationPart, aknIdentifier.manifestationPart());
     }

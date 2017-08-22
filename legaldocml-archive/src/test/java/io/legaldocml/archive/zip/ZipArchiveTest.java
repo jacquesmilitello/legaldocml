@@ -58,7 +58,7 @@ public class ZipArchiveTest {
     public void testCreateRead2() throws Exception {
 
         Path path = PathForTest.path("/xml/v3/cl_Sesion56_2.xml");
-        AknIdentifier identifier = provider.newAknIdentifier("123", "456", "789", "/");
+        AknIdentifier identifier = provider.newAknIdentifier("123", "456", "789");
 
         try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(identifier, MediaType.LEGALDOCML, path);

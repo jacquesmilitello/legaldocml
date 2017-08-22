@@ -56,7 +56,7 @@ public abstract class BusinessProvider {
 
     public abstract AknIdentifier newAknIdentifier(String work, String expression, String manifestation);
 
-    public abstract AknIdentifier newAknIdentifier(String work, String expressionPart, String manifestationPart, String separator);
+    public abstract AknIdentifier extractAknIdentifier(String work, String expression, String manifestation);
 
     public abstract AknIdentifier newAknIdentifierTransient();
 

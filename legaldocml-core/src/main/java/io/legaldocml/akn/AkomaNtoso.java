@@ -4,11 +4,8 @@ import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.util.AknToStringBuilder;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +14,7 @@ import java.util.List;
 /**
  * The element akomaNtoso is the root element of all document types in Akoma Ntoso. It follows the pattern Universal
  * Root (http://www.xmlpatterns.com/UniversalRootMain.shtml).
- *
+ * <p>
  * <pre>
  *   &lt;xsd:element name="akomaNtoso" type="akomaNtosoType"&gt;
  * </pre>
@@ -25,11 +22,6 @@ import java.util.List;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> implements Core {
-
-    /**
-     * SLF4J Logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(AkomaNtoso.class);
 
     /**
      * Main Element name.
@@ -82,16 +74,6 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
         }
         super.write(writer);
         writer.writeEndDocument(ADDRESS, 10);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        //Attributes.read(reader, this);
-        //reader.nextStartOrEndElement();
-        super.read(reader);
     }
 
     /**

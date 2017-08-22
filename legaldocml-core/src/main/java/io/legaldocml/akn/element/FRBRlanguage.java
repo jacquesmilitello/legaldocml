@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.MandatoryAttributeException;
 import io.legaldocml.akn.attribute.Language;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.util.XmlWriterHelper.throwException;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -38,12 +40,12 @@ public final class FRBRlanguage extends MetaOpt implements Language {
     /**
      * XML Tag element name.
      */
-    public static final String ELEMENT = "FRBRlanguage";
+    public static final String ELEMENT_FRBR_LANGUAGE = "FRBRlanguage";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_LANGUAGE = Buffers.address(ELEMENT_FRBR_LANGUAGE);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -75,14 +77,14 @@ public final class FRBRlanguage extends MetaOpt implements Language {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_FRBR_LANGUAGE, 12);
         if (this.language != null) {
             writer.writeAttribute(Attributes.ADDRESS_LANGUAGE, 8, getChars(this.language));
         } else {
-
+            throwException(writer, new MandatoryAttributeException(this, Language.ATTRIBUTE, writer));
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_FRBR_LANGUAGE, 12);
     }
 
     /**
@@ -90,7 +92,7 @@ public final class FRBRlanguage extends MetaOpt implements Language {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_FRBR_LANGUAGE;
     }
 
     /**

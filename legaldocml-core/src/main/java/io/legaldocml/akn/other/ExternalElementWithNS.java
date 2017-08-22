@@ -44,7 +44,7 @@ public final class ExternalElementWithNS implements AnyOtherTypeElement {
 
             try {
                 // write namespace.
-                writeAttribute(w, new StringBuilder(32).append("xmlns:").append(qName.getPrefix()).toString(), namespace.value());
+                writeAttribute(w, "xmlns:".concat(qName.getPrefix()), namespace.value());
                 // write other attributes
                 if (this.attributes != null) {
                     for (ExternalAttribute attribute : this.attributes) {
@@ -63,10 +63,7 @@ public final class ExternalElementWithNS implements AnyOtherTypeElement {
      */
     @Override
     public void read(XmlReader reader) {
-        QName qname = reader.getQName();
-
         reader.forEach(this, (object, name, value, prefixNS) -> {
-
             LOGGER.debug("read attributes [{}]->[{}]->[{}]", name, value, prefixNS);
 
             if (prefixNS == 0) {
@@ -77,7 +74,6 @@ public final class ExternalElementWithNS implements AnyOtherTypeElement {
         });
 
         reader.nextStartOrEndElement();
-
     }
 
     /**

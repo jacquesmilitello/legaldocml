@@ -18,12 +18,12 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
 
     @Override
     public AknIdentifier newAknIdentifier(String work, String expression, String manifestation) {
-        return new DefaultAknIdentifier(work, expression.substring(work.length() + 1), manifestation.substring(expression.length() + 1), "/");
+        return new DefaultAknIdentifier(work, expression, manifestation, "/");
     }
 
     @Override
-    public AknIdentifier newAknIdentifier(String work, String expressionPart, String manifestationPart, String separator) {
-        return new DefaultAknIdentifier(work, expressionPart, manifestationPart, separator);
+    public AknIdentifier extractAknIdentifier(String work, String expression, String manifestation) {
+        return new DefaultAknIdentifier(work, expression.substring(work.length() +1), manifestation.substring(expression.length() + 1), "/");
     }
 
     @Override

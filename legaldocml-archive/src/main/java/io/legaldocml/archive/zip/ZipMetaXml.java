@@ -121,8 +121,8 @@ final class ZipMetaXml {
         try {
             writer.writeStartElement("resource");
             write(writer, "work", resource.getAknIdentifier().work());
-            write(writer, "expression", resource.getAknIdentifier().expression());
-            write(writer, "manifestation", resource.getAknIdentifier().manifestation());
+            write(writer, "expression", resource.getAknIdentifier().expressionPart());
+            write(writer, "manifestation", resource.getAknIdentifier().manifestationPart());
             write(writer, "name", resource.getName());
             write(writer, "type", resource.getMediaType().toString());
             writer.writeEndElement();

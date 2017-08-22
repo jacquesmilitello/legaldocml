@@ -9,14 +9,22 @@ public final class AknIdentifierException extends BusinessException {
 
     private final Type type;
 
-    AknIdentifierException(Type type) {
-        super(buildMsg(type));
+    public AknIdentifierException(Type type) {
+        super(buildMsg(type, null));
         this.type = type;
     }
 
-    private static String buildMsg(Type type) {
+    public AknIdentifierException(Type type, String message) {
+        super(buildMsg(type, message));
+        this.type = type;
+    }
+
+    private static String buildMsg(Type type, String message) {
         StringBuilder builder = new StringBuilder();
         builder.append("Type=[").append(type).append("]");
+        if (message != null) {
+            builder.append(" : ").append(message);
+        }
         return builder.toString();
     }
 
@@ -33,7 +41,7 @@ public final class AknIdentifierException extends BusinessException {
     }
 
     public enum Type {
-        CONSISTENT, EXTRACT
+        CONSISTENT, EXTRACT, NEW
     }
 
 

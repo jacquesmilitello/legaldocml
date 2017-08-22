@@ -25,8 +25,6 @@ public abstract class AknIdentifier {
 
     public abstract String work();
 
-    public abstract String workPart();
-
     public abstract String expression();
 
     public abstract String expressionPart();
@@ -35,11 +33,10 @@ public abstract class AknIdentifier {
 
     public abstract String manifestationPart();
 
-
     public final <T extends DocumentType> void apply(AkomaNtoso<T> akn) {
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("apply with work part [{}] - expression part [{}] - manifestation part [{}]", workPart(), expressionPart(), manifestationPart());
+            LOGGER.debug("apply with work part [{}] - expression part [{}] - manifestation part [{}]", work(), expressionPart(), manifestationPart());
         }
 
         Identification identification = akn.getDocumentType().getMeta().getIdentification();
@@ -105,7 +102,7 @@ public abstract class AknIdentifier {
             throw AknIdentifierException.extract("Missing FRBRManifestation.FRBRthis.value", identification.getFRBRManifestation());
         }
 
-        return provider.newAknIdentifier(work, expression, manifestation);
+        return provider.extractAknIdentifier(work, expression, manifestation);
 
     }
 
