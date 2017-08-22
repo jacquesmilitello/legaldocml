@@ -9,8 +9,6 @@ import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.BusinessProvider;
-import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.business.builder.CoverPageBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.util.Uri;
 import org.junit.Assert;
@@ -33,7 +31,8 @@ public class CoverPageBuilderTest {
     @Test
     public void testItSenatoDdl2013() throws IOException {
 
-        BusinessBuilder<Debate> debateBusinessBuilder = BusinessProvider.newBusinessBuilder("default", Debate.class);
+        BusinessProvider provider = BusinessProvider.businessProvider("default");
+        BusinessBuilder<Debate> debateBusinessBuilder = provider.newBuilder(Debate.ELEMENT);
 
         CoverPage coverPage = new CoverPage();
         debateBusinessBuilder.getAkomaNtoso().getDocumentType().setCoverPage(coverPage);

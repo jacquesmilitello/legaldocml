@@ -86,8 +86,7 @@ public abstract class AknIdentifier {
 
     protected abstract boolean doEquals(AknIdentifier aknIdentifier);
 
-
-    public static <T extends DocumentType> AknIdentifier extract(AkomaNtoso<T> akn) {
+    public static <T extends DocumentType> AknIdentifier extract(BusinessProvider provider, AkomaNtoso<T> akn) {
 
         Identification identification = akn.getDocumentType().getMeta().getIdentification();
 
@@ -106,8 +105,12 @@ public abstract class AknIdentifier {
             throw AknIdentifierException.extract("Missing FRBRManifestation.FRBRthis.value", identification.getFRBRManifestation());
         }
 
-        return BusinessProvider.INSTANCE.buildAknIdentifier(work, expression, manifestation);
+        return provider.newAknIdentifier(work, expression, manifestation);
 
+    }
+
+    public static <T extends DocumentType> AknIdentifier extract(String provider, AkomaNtoso<T> akn) {
+        return extract(BusinessProvider.businessProvider(provider), akn);
     }
 
 

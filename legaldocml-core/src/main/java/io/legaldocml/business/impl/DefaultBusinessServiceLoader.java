@@ -12,23 +12,29 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
 
 
     @Override
-    public AknIdentifier buildAknIdentifier(String work, String expression, String manifestation) {
+    public String name() {
+        return "default";
+    }
+
+    @Override
+    public AknIdentifier newAknIdentifier(String work, String expression, String manifestation) {
         return new DefaultAknIdentifier(work, expression.substring(work.length() + 1), manifestation.substring(expression.length() + 1), "/");
     }
 
     @Override
-    protected AknIdentifier buildAknIdentifier(String work, String expressionPart, String manifestationPart, String separator) {
+    public AknIdentifier newAknIdentifier(String work, String expressionPart, String manifestationPart, String separator) {
         return new DefaultAknIdentifier(work, expressionPart, manifestationPart, separator);
     }
 
     @Override
-    protected AknIdentifier buildAknIdentifierTransient() {
+    public AknIdentifier newAknIdentifierTransient() {
         return new DefaultAknIdentifier("0", "0", "0", "/");
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    protected <T extends DocumentType> BusinessBuilder<T> newInstance(Class<T> documentType) {
-        return new DefaultBusinessBuilder<>(documentType);
+    public <T extends DocumentType, E extends BusinessBuilder<T>> E newBuilder(String name) {
+        return (E) new DefaultBusinessBuilder<T>(name);
     }
 
 }

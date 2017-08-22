@@ -8,8 +8,8 @@ import io.legaldocml.archive.Meta;
 import io.legaldocml.archive.MetaResource;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.MediaType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlProvider;
+import io.legaldocml.io.impl.Buffers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +48,6 @@ final class ZipArchiveReadOnly implements Archive {
 
     ZipArchiveReadOnly(Path path) {
         LOGGER.info("Open archive in Read-Only Mode [{}]", path);
-
         try {
             fs = FileSystems.newFileSystem(new URI("jar:" + path.toUri()), new HashMap<>());
         } catch (Exception cause) {

@@ -16,7 +16,8 @@ public class HierarchyBuilderTest {
     @Test
     public void testNum() throws IOException {
 
-        BusinessBuilder<Bill> businessBuilder = BusinessProvider.newBusinessBuilder("default", Bill.class);
+        BusinessProvider provider = BusinessProvider.businessProvider("default");
+        BusinessBuilder<Bill> businessBuilder = provider.newBuilder(Bill.ELEMENT);
 
         Article article = new Article();
         businessBuilder.getAkomaNtoso().getDocumentType().getBody().add(article);

@@ -55,7 +55,7 @@ public class AknIdentifierTest {
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
         identifier.apply(akn);
 
-        AknIdentifier id = AknIdentifier.extract(akn);
+        AknIdentifier id = AknIdentifier.extract("default", akn);
 
         Assert.assertEquals("work001", id.work());
         Assert.assertEquals("work001/expression002", id.expression());

@@ -23,6 +23,8 @@ public interface XmlWriter {
 
     void writeAttribute(long name, int nameLen, char[] value) throws IOException;
 
+    void writeAttribute(long name, int nameLen, byte[] value) throws IOException;
+
     void writeAttribute(long name, int nameLen, LocalDate localDate) throws IOException;
 
     void writeAttribute(long name, int nameLen, OffsetDateTime offsetDateTime) throws IOException;

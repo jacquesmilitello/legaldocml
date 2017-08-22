@@ -54,14 +54,15 @@ final class ZipArchiveWriteOnly implements Archive {
         CREATE = ImmutableSet.of(StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE);
     }
 
+    private final BusinessProvider provider;
+
     private final FileSystem fs;
 
     private final ZipMeta meta = new ZipMeta();
 
-    ZipArchiveWriteOnly(Path path) {
-
-        LOGGER.info("Create archive in [{}]", path);
-
+    ZipArchiveWriteOnly(BusinessProvider provider, Path path) {
+        LOGGER.info("Create archive in [{}] with Provider", path, provider.name());
+        this.provider = provider;
         try {
             fs = FileSystems.newFileSystem(new URI("jar:" + path.toUri()), ENV);
         } catch (Exception cause) {
@@ -82,10 +83,10 @@ final class ZipArchiveWriteOnly implements Archive {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("ZipArchiveWriteOnly.add() => akn with empty identifier => create a transient identifier");
             }
-            identifier = BusinessProvider.newAknIdentifierTransient();
+            identifier = provider.newAknIdentifierTransient();
             identifier.apply(akn);
         } else {
-            identifier = AknIdentifier.extract(akn);
+            identifier = AknIdentifier.extract(provider, akn);
         }
 
         String name = this.meta.add(LEGALDOCML, identifier);
@@ -173,7 +174,7 @@ final class ZipArchiveWriteOnly implements Archive {
     private void writeMeta() {
         checkAndCreateDir(fs.getPath("/META-INF"));
         try (FileChannel fc = fs.provider().newFileChannel(fs.getPath("/META-INF", "descriptor.xml"), new HashSet<>(CREATE))) {
-            ZipMetaXml.write(fc, this.meta);
+            ZipMetaXml.write(fc, this.provider, this.meta);
         } catch (IOException cause) {
            throw new ArchiveException(WRITE_ONLY_MODE, "writeMeta() failed", cause);
         }

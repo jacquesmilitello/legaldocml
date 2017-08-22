@@ -23,6 +23,8 @@ public class ZipArchiveTest {
     private static final String FILE = System.getProperty("java.io.tmpdir") + "/test.zip";
     private static final String FILE2 = System.getProperty("java.io.tmpdir") + "/test2.zip";
 
+    private BusinessProvider provider;
+
     @Before
     public void setup() throws IOException {
         Path path = Paths.get(FILE);
@@ -33,17 +35,19 @@ public class ZipArchiveTest {
         if (Files.exists(path)) {
             Files.delete(Paths.get(FILE2));
         }
+        provider = BusinessProvider.businessProvider("default");
     }
 
     @Test
     public void testCreateRead() throws Exception {
+
         AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
-        try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
+        try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(akn);
         }
         try (Archive archive = ArchiveFactory.readOnly("zip", Paths.get(FILE))) {
-            akn = archive.get(AknIdentifier.extract(akn));
-            Assert.assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(akn).manifestation());
+            akn = archive.get(AknIdentifier.extract(provider, akn));
+            Assert.assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(provider, akn).manifestation());
         }
 
 
@@ -54,15 +58,15 @@ public class ZipArchiveTest {
     public void testCreateRead2() throws Exception {
 
         Path path = PathForTest.path("/xml/v3/cl_Sesion56_2.xml");
-        AknIdentifier identifier = BusinessProvider.newAknIdentifier("123", "456", "789", "/");
+        AknIdentifier identifier = provider.newAknIdentifier("123", "456", "789", "/");
 
-        try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
+        try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(identifier, MediaType.LEGALDOCML, path);
         }
 
         try (Archive archive = ArchiveFactory.readOnly("zip", Paths.get(FILE))) {
             AkomaNtoso<Debate> akn = archive.get(identifier);
-            Assert.assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(akn).manifestation());
+            Assert.assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(provider, akn).manifestation());
         }
 
     }
@@ -70,7 +74,7 @@ public class ZipArchiveTest {
     @Test
     public void testMeta() throws Exception {
         AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
-        try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
+        try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(akn);
             Assert.assertEquals(1, archive.getMeta().stream().count());
         }
@@ -79,7 +83,7 @@ public class ZipArchiveTest {
             Assert.assertEquals(1, archive.getMeta().stream().count());
             archive.getMeta().stream().forEach(resource -> {
                 Assert.assertEquals(MediaType.LEGALDOCML, resource.getMediaType());
-                Assert.assertEquals(AknIdentifier.extract(akn), resource.getAknIdentifier());
+                Assert.assertEquals(AknIdentifier.extract(provider, akn), resource.getAknIdentifier());
             });
         }
 
@@ -90,7 +94,7 @@ public class ZipArchiveTest {
     public void testWriteOnlyAddSameResourceTwice() throws Exception {
         AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
 
-        try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
+        try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(akn);
             try {
                 archive.put(akn);
@@ -105,11 +109,11 @@ public class ZipArchiveTest {
     @Test
     public void testReadWrite() throws Exception {
         AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
-        try (Archive archive = ArchiveFactory.writeOnly("zip", Paths.get(FILE))) {
+        try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(akn);
         }
 
-        try (Archive archive = ArchiveFactory.readWrite("zip", Paths.get(FILE), Paths.get(FILE2))) {
+        try (Archive archive = ArchiveFactory.readWrite("zip", provider, Paths.get(FILE), Paths.get(FILE2))) {
             archive.put(akn);
         }
 

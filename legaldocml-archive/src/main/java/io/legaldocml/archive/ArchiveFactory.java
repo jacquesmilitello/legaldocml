@@ -1,6 +1,7 @@
 package io.legaldocml.archive;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.business.BusinessProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,14 +38,14 @@ public abstract class ArchiveFactory {
 
     protected abstract String type();
 
-    protected abstract Archive writeOnly(Path path);
+    protected abstract Archive writeOnly(BusinessProvider provider, Path path);
 
     protected abstract Archive readOnly(Path path);
 
-    protected abstract Archive readWrite(Path source, Path target);
+    protected abstract Archive readWrite(BusinessProvider provider, Path source, Path target);
 
-    public static Archive writeOnly(String type, Path path) {
-        return getArchiveFactory(type).writeOnly(path);
+    public static Archive writeOnly(String type, BusinessProvider provider, Path path) {
+        return getArchiveFactory(type).writeOnly(provider, path);
     }
 
     public static Archive readOnly(String type, Path path) {
@@ -52,8 +53,8 @@ public abstract class ArchiveFactory {
 
     }
 
-    public static Archive readWrite(String type, Path source, Path target) {
-        return getArchiveFactory(type).readWrite(source, target);
+    public static Archive readWrite(String type, BusinessProvider provider, Path source, Path target) {
+        return getArchiveFactory(type).readWrite(provider, source, target);
     }
 
     private static ArchiveFactory getArchiveFactory(String type) {

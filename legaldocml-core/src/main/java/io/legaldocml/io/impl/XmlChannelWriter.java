@@ -26,29 +26,29 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * Constant Char in byte for the start tag.
      */
-    public static final byte START_TAG = '<';
+    private static final byte START_TAG = '<';
     /**
      * Constant Char in byte for the end tag.
      */
-    public static final byte END_TAG = '>';
+    private static final byte END_TAG = '>';
     /**
      * Constant Char in byte for one space.
      */
-    public static final byte SPACE = ' ';
+    private static final byte SPACE = ' ';
     /**
      * Constant Char in byte for the equal.
      */
-    public static final byte EQUALS = '=';
+    private static final byte EQUALS = '=';
     /**
      * Constant Char in byte for double quote.
      */
-    public static final byte DOUBLE_QUOTE = '"';
+    private static final byte DOUBLE_QUOTE = '"';
 
-    public static final byte CHAR_T = 'T';
+    private static final byte CHAR_T = 'T';
 
-    public static final byte CHAR_DASH = '-';
+    private static final byte CHAR_DASH = '-';
 
-    public static final byte CHAR_COLON = ':';
+    private static final byte CHAR_COLON = ':';
 
     /**
      * Unsafe instance for memory maniplulation.
@@ -138,7 +138,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * Internal byteBuffer.
      */
-    private final MappedByteBuffer buffer = (MappedByteBuffer) ByteBuffer.allocateDirect(8192);
+    private final MappedByteBuffer buffer = (MappedByteBuffer) ByteBuffer.allocateDirect(32768);
 
     /**
      * Internal Address.
@@ -220,6 +220,25 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * {@inheritDoc}
      */
+    @Override
+    public void writeAttribute(long name, int nameLen, byte[] value) throws IOException {
+        checkSize(nameLen + value.length + 16);
+
+        long address = this.address + this.buffer.position();
+        UNSAFE.putByte(address++, SPACE);
+        UNSAFE.copyMemory(name, address, nameLen);
+        address += nameLen;
+        UNSAFE.putByte(address++, EQUALS);
+        UNSAFE.putByte(address++, DOUBLE_QUOTE);
+        UNSAFE.copyMemory(value, UnsafeHelper.BYTE_ARRAY_BASE_OFFSET, null, address, value.length);
+        address += value.length;
+        UNSAFE.putByte(address++, DOUBLE_QUOTE);
+        this.buffer.position((int) (address - this.address));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public void writeAttribute(long name, int nameLen, LocalDate date) throws IOException {
         checkSize(nameLen + 20);
 
@@ -271,7 +290,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * {@inheritDoc}
      */
-    public void write(char text[]) throws IOException {
+    public void write(char[] text) throws IOException {
         write(text, 0, text.length);
     }
 
@@ -329,55 +348,55 @@ public abstract class XmlChannelWriter implements XmlWriter {
 
     private int raw(char[] text, int off, int len, int pos) {
         char c;
-        int size = pos;
+        long address = this.address + pos;
         for (int i = off, n = off + len; i < n; i++) {
             c = text[i];
             // ascii
             if (c < 0x80) {
                 switch (c) {
                     case '&':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_AMP, this.address + size, 5);
-                        size += 5;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_AMP, address, 5);
+                        address += 5;
                         break;
                     case '<':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_LT, this.address + size, 4);
-                        size += 4;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_LT, address, 4);
+                        address += 4;
                         break;
                     case '>':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_GT, this.address + size, 4);
-                        size += 4;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_GT, address, 4);
+                        address += 4;
                         break;
                     case '"':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_QUOT, this.address + size, 6);
-                        size += 6;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_QUOT, address, 6);
+                        address += 6;
                         break;
                     default:
-                        UNSAFE.putByte(this.address + size++, (byte) c);
+                        UNSAFE.putByte(address++, (byte) c);
                 }
             } else {
                 // 2-byte
                 if (c < 0x800) {
-                    UNSAFE.putByte(this.address + size++, (byte) (0xc0 | (c >> 6)));
-                    UNSAFE.putByte(this.address + size++, (byte) (0x80 | (c & 0x3f)));
+                    UNSAFE.putByte(address++, (byte) (0xc0 | (c >> 6)));
+                    UNSAFE.putByte(address++, (byte) (0x80 | (c & 0x3f)));
                     // 3 bytes
                 } else if (c <= 0xFFFF) {
-                    UNSAFE.putByte(this.address + size++, (byte) (0xe0 | (c >> 12)));
-                    UNSAFE.putByte(this.address + size++, (byte) (0x80 | ((c >> 6) & 0x3f)));
-                    UNSAFE.putByte(this.address + size++, (byte) (0x80 | (c & 0x3f)));
+                    UNSAFE.putByte(address++, (byte) (0xe0 | (c >> 12)));
+                    UNSAFE.putByte(address++, (byte) (0x80 | ((c >> 6) & 0x3f)));
+                    UNSAFE.putByte(address++, (byte) (0x80 | (c & 0x3f)));
                 } else {
                     // 4 bytes
                     if (c > 0x10FFFF) {
                         // illegal, as per RFC 3629
                         throw new IllegalStateException();
                     }
-                    UNSAFE.putByte(this.address + size++, (byte) (0xf0 | (c >> 18)));
-                    UNSAFE.putByte(this.address + size++, (byte) (0x80 | ((c >> 12) & 0x3f)));
-                    UNSAFE.putByte(this.address + size++, (byte) (0x80 | ((c >> 6) & 0x3f)));
-                    UNSAFE.putByte(this.address + size++, (byte) (0x80 | (c & 0x3f)));
+                    UNSAFE.putByte(address++, (byte) (0xf0 | (c >> 18)));
+                    UNSAFE.putByte(address++, (byte) (0x80 | ((c >> 12) & 0x3f)));
+                    UNSAFE.putByte(address++, (byte) (0x80 | ((c >> 6) & 0x3f)));
+                    UNSAFE.putByte(address++, (byte) (0x80 | (c & 0x3f)));
                 }
             }
         }
-        return size;
+        return (int) (address - this.address);
     }
 
     /**
@@ -507,23 +526,23 @@ public abstract class XmlChannelWriter implements XmlWriter {
     @Override
     public void writeStart(long address, int len) throws IOException {
         checkSize(len << 2);
-        int pos = this.buffer.position();
+        long adr = this.address + this.buffer.position();
         if (hasElements[elem]) {
             hasElements[elem] = false;
-            UNSAFE.putByte(this.address + pos++, END_TAG);
+            UNSAFE.putByte(adr++, END_TAG);
         }
-        UNSAFE.putByte(this.address + pos++, START_TAG);
+        UNSAFE.putByte(adr++, START_TAG);
 
         if (this.namespacesPtr >= 0) {
             long nsAdr = this.namespaces[namespacesPtr];
             long nsLen = this.namespacesSize[namespacesPtr];
-            UNSAFE.copyMemory(nsAdr, this.address + pos, nsLen);
-            pos += nsLen;
-            UNSAFE.putByte(this.address + pos++, CHAR_COLON);
+            UNSAFE.copyMemory(nsAdr, adr, nsLen);
+            adr += nsLen;
+            UNSAFE.putByte(adr++, CHAR_COLON);
         }
 
-        UNSAFE.copyMemory(address, this.address + pos, len);
-        this.buffer.position(pos + len);
+        UNSAFE.copyMemory(address, adr, len);
+        this.buffer.position((int) (adr - this.address) + len);
         hasElements[++elem] = true;
 
     }
@@ -534,23 +553,23 @@ public abstract class XmlChannelWriter implements XmlWriter {
     @Override
     public void writeEnd(long address, int len) throws IOException {
         checkSize(len << 2);
-        int pos = this.buffer.position();
         if (!hasElements[elem--]) {
-
-            UNSAFE.copyMemory(ADDRESS_ARRAY_END, this.address + pos, 2);
-            pos += 2;
+            long adr = this.address + this.buffer.position();
+            UNSAFE.copyMemory(ADDRESS_ARRAY_END, adr, 2);
+            adr += 2;
 
             if (this.namespacesPtr >= 0) {
                 long nsAdr = this.namespaces[namespacesPtr];
                 long nsLen = this.namespacesSize[namespacesPtr];
-                UNSAFE.copyMemory(nsAdr, this.address + pos, nsLen);
-                pos += nsLen;
-                UNSAFE.putByte(this.address + pos++, CHAR_COLON);
+                UNSAFE.copyMemory(nsAdr, adr, nsLen);
+                adr += nsLen;
+                UNSAFE.putByte(adr++, CHAR_COLON);
             }
-            UNSAFE.copyMemory(address, this.address + pos, len);
-            UNSAFE.putByte(this.address + pos + len, END_TAG);
-            this.buffer.position(pos + len + 1);
+            UNSAFE.copyMemory(address, adr, len);
+            UNSAFE.putByte(adr + len, END_TAG);
+            this.buffer.position(((int) (adr - this.address)) + len + 1);
         } else {
+            int pos = this.buffer.position();
             UNSAFE.copyMemory(ADDRESS_END_SINGLE_TAG, this.address + pos, 2);
             this.buffer.position(pos + 2);
         }

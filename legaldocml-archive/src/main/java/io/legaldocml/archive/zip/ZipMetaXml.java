@@ -5,6 +5,7 @@ import io.legaldocml.archive.MetaResource;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.MediaType;
+import io.legaldocml.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,12 +37,13 @@ final class ZipMetaXml {
     private static final XMLInputFactory XML_INPUT_FACTORY = XMLInputFactory.newFactory();
 
 
-    static void write(FileChannel fileChannel, ZipMeta meta) {
+    static void write(FileChannel fileChannel,BusinessProvider provider, ZipMeta meta) {
         try {
             XMLStreamWriter writer = XML_OUTPUT_FACTORY.createXMLStreamWriter(Channels.newOutputStream(fileChannel), StandardCharsets.UTF_8.name());
             writer.writeStartDocument(StandardCharsets.UTF_8.name(), "1.0");
             writer.writeStartElement("legaldocml-archive");
             writer.writeAttribute("version", "1.0");
+            writer.writeAttribute("provider", provider.name());
             meta.stream().forEach(resource -> write(writer, resource));
             writer.writeEndElement();
             writer.writeEndDocument();
@@ -64,11 +66,17 @@ final class ZipMetaXml {
             if ("legaldocml-archive".equals(reader.getLocalName())) {
 
                 String version = reader.getAttributeValue(null, "version");
+                String provider = reader.getAttributeValue(null,"provider");
 
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("version : [{}]", version);
+                    LOGGER.debug("version=[{}], provider=[{}]", version, provider);
                 }
 
+                if (Strings.isEmpty(provider)) {
+                    throw new ArchiveException(ArchiveException.Type.META_READ, "Missing attribute provider");
+                }
+
+                BusinessProvider businessProvider = BusinessProvider.businessProvider(provider);
                 reader.nextTag();
 
                 String work, expression, manifestation, name, type;
@@ -83,7 +91,7 @@ final class ZipMetaXml {
                     name = readTag(reader, "name");
                     type = readTag(reader, "type");
 
-                    AknIdentifier identifier = BusinessProvider.newAknIdentifier(work, expression, manifestation);
+                    AknIdentifier identifier = businessProvider.newAknIdentifier(work, expression, manifestation);
                     ZipMetaResource resource = new ZipMetaResource(identifier, MediaType.valueOf(type), name);
 
                     if (LOGGER.isDebugEnabled()) {

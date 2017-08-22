@@ -1,5 +1,6 @@
 package io.legaldocml.business;
 
+import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.builder.BusinessBuilder;
 import org.slf4j.Logger;
@@ -18,42 +19,47 @@ public abstract class BusinessProvider {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(BusinessProvider.class);
 
-    protected static final BusinessProvider INSTANCE;
+    /**
+     * All providers.
+     */
+    private static final ImmutableMap<String, BusinessProvider> PROVIDERS;
 
     static {
         ServiceLoader<BusinessProvider> serviceLoader = ServiceLoader.load(BusinessProvider.class, Thread.currentThread().getContextClassLoader());
-
         Iterator<BusinessProvider> iterator = serviceLoader.iterator();
+        ImmutableMap.Builder<String, BusinessProvider> builder = ImmutableMap.builder();
+        while (iterator.hasNext()) {
+            BusinessProvider provider = iterator.next();
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("BusinessProvider [{}] -> [{}]", provider.name(), provider);
+            }
+            builder.put(provider.name(), provider);
+        }
+        PROVIDERS = builder.build();
+    }
 
-        INSTANCE = iterator.next();
+    public abstract String name();
 
+    public static BusinessProvider businessProvider(String provider) {
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("BusinessProvider impl -> [{}]", INSTANCE);
+            LOGGER.debug("Business Provider [{}]", provider);
+        }
+
+        BusinessProvider businessProvider = PROVIDERS.get(provider);
+
+        if (businessProvider == null) {
+            throw new BusinessException("Provider [" + provider + "] not found");
+        } else {
+            return businessProvider;
         }
     }
 
-    public static AknIdentifier newAknIdentifier(String work, String expressionPart, String manifestationPart, String separator) {
-        return INSTANCE.buildAknIdentifier(work,expressionPart,manifestationPart, separator);
-    }
+    public abstract AknIdentifier newAknIdentifier(String work, String expression, String manifestation);
 
-    public static AknIdentifier newAknIdentifier(String work, String expression, String manifestation) {
-        return INSTANCE.buildAknIdentifier(work,expression,manifestation);
-    }
+    public abstract AknIdentifier newAknIdentifier(String work, String expressionPart, String manifestationPart, String separator);
 
-    public static AknIdentifier newAknIdentifierTransient() {
-        return INSTANCE.buildAknIdentifierTransient();
-    }
+    public abstract AknIdentifier newAknIdentifierTransient();
 
-    public static <T extends DocumentType> BusinessBuilder<T> newBusinessBuilder(String provider, Class<T> documentType) {
-        return INSTANCE.newInstance(documentType);
-    }
-
-    protected abstract AknIdentifier buildAknIdentifier(String work, String expression, String manifestation);
-
-    protected abstract AknIdentifier buildAknIdentifier(String work, String expressionPart, String manifestationPart, String separator);
-
-    protected abstract AknIdentifier buildAknIdentifierTransient();
-
-    protected abstract <T extends DocumentType> BusinessBuilder<T> newInstance(Class<T> documentType);
+    public abstract <T extends DocumentType, E extends BusinessBuilder<T>> E newBuilder(String name);
 
 }

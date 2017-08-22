@@ -10,7 +10,14 @@ public final class AknIdentifierException extends BusinessException {
     private final Type type;
 
     AknIdentifierException(Type type) {
+        super(buildMsg(type));
         this.type = type;
+    }
+
+    private static String buildMsg(Type type) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Type=[").append(type).append("]");
+        return builder.toString();
     }
 
     public static AknIdentifierException consistent(FRBRExpression frbrExpression, FRBRWork frbrWork) {

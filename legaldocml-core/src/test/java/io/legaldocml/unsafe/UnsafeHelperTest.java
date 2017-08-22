@@ -33,7 +33,6 @@ public class UnsafeHelperTest {
         } catch (RuntimeException e) {
             Assert.assertTrue(true);
         }
-
     }
 
     public static class Toto {

@@ -7,6 +7,7 @@ import io.legaldocml.archive.ArchiveException;
 import io.legaldocml.archive.Meta;
 import io.legaldocml.archive.MetaResource;
 import io.legaldocml.business.AknIdentifier;
+import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,7 @@ final class ZipArchiveReadWrite implements Archive {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(ZipArchiveReadWrite.class);
 
+    private final BusinessProvider provider;
     private final ZipArchiveReadOnly read;
     private final ZipArchiveWriteOnly write;
 
@@ -35,15 +37,16 @@ final class ZipArchiveReadWrite implements Archive {
 
     private final ZipMetaAdapter meta;
 
-    ZipArchiveReadWrite(Path source, Path target) {
+    ZipArchiveReadWrite(BusinessProvider provider, Path source, Path target) {
+        this.provider = provider;
         this.read = new ZipArchiveReadOnly(source);
-        this.write = new ZipArchiveWriteOnly(target);
+        this.write = new ZipArchiveWriteOnly(provider, target);
         this.meta = new ZipMetaAdapter(this);
     }
 
     @Override
     public <T extends DocumentType> void put(AkomaNtoso<T> akn) {
-        AknIdentifier identifier = AknIdentifier.extract(akn);
+        AknIdentifier identifier = AknIdentifier.extract(this.provider, akn);
         if (read.getMeta().exists(identifier)) {
             // source has this identifier => replace it
             doNotCopy.add(identifier);
