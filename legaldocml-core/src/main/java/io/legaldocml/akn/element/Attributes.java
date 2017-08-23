@@ -66,13 +66,13 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
+import io.legaldocml.util.DateHelper;
 import io.legaldocml.util.QnameUtil;
 import io.legaldocml.util.ReferenceRef;
 import io.legaldocml.util.Uri;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -279,8 +279,6 @@ public final class Attributes {
         };
     }
 
-    private static final LocalTime TIME_00_00_00 = LocalTime.of(0, 0, 0, 0);
-
 
     public static BiConsumer<AknObject, CharArray> biConsumerDateTime(long addr) {
         return (i, s) -> {
@@ -288,7 +286,8 @@ public final class Attributes {
             String val = s.toString();
             OffsetDateTime dateTime;
             if (val.length() == 10) {
-                dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE), TIME_00_00_00, ZoneOffset.ofHours(0));
+                dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
+                        DateHelper.TIME_00_00_00, DateHelper.ZONE_OFFSET_0);
             } else {
                 try {
                     dateTime = OffsetDateTime.of(LocalDateTime.parse(s.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME), ZoneOffset.ofHours(0));
@@ -331,11 +330,11 @@ public final class Attributes {
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerAgentRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new AgentRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, AgentRef.raw(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerRoleRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new RoleRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, RoleRef.raw(s.raw()));
     }
 
     public static BiConsumer<AknObject, CharArray> biConsumerVoteRef(long addr) {

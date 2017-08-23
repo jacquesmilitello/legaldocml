@@ -25,6 +25,9 @@ public final class UnsafeString {
     }
 
     public static char[] getChars(String s) {
+        if (s == null) {
+            return null;
+        }
         return (char[]) UNSAFE.getObject(s, VALUE_OFFSET);
     }
 

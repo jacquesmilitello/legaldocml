@@ -39,4 +39,5 @@ public abstract class BusinessBuilder<T extends DocumentType> {
     public AkomaNtoso<T> getAkomaNtoso() {
         return akomaNtoso;
     }
+
 }

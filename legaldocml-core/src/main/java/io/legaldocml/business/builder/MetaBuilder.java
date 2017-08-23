@@ -1,17 +1,22 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.DocumentType;
+import io.legaldocml.akn.element.Identification;
+import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.iso.Language;
+import io.legaldocml.util.DateHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.time.LocalDate;
 
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class MetaBuilder<T extends DocumentType> {
+public class MetaBuilder<T extends DocumentType> {
 
     /**
      * SLF4J Logger.
@@ -20,8 +25,9 @@ public abstract class MetaBuilder<T extends DocumentType> {
 
     private final BusinessBuilder<T> businessBuilder;
 
-    protected MetaBuilder(BusinessBuilder<T> businessBuilder) {
+    protected MetaBuilder(BusinessBuilder<T> businessBuilder, AgentRef source) {
         this.businessBuilder = businessBuilder;
+        businessBuilder.getAkomaNtoso().getDocumentType().getMeta().getIdentification().setSource(source);
     }
 
     public void setAknIdentifier(AknIdentifier identifier) {
@@ -35,12 +41,22 @@ public abstract class MetaBuilder<T extends DocumentType> {
         identifier.apply(this.businessBuilder.getAkomaNtoso());
     }
 
-    public void setLanguage(Language language) {
+    public void addLanguage(Language language) {
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("setLanguage({})", language);
+            LOGGER.debug("addLanguage({})", language);
         }
         this.businessBuilder.getAkomaNtoso().getDocumentType().getMeta()
                 .getIdentification().getFRBRExpression().add(newFRBRlanguage(language));
+    }
+
+    public void setDate(LocalDate date) {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("setDate({})", date);
+        }
+        Identification identification = this.businessBuilder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
+        identification.getFRBRWork().getFRBRdate().setDate(DateHelper.convert(date));
+        identification.getFRBRExpression().getFRBRdate().setDate(DateHelper.convert(date));
+        identification.getFRBRManifestation().getFRBRdate().setDate(DateHelper.convert(date));
     }
 
 }

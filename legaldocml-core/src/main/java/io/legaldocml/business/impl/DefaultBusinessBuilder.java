@@ -15,6 +15,7 @@ import io.legaldocml.akn.element.Judgment;
 import io.legaldocml.akn.element.OfficialGazette;
 import io.legaldocml.akn.element.Portion;
 import io.legaldocml.akn.element.Statement;
+import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.MetaBuilder;
 import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
@@ -64,7 +65,7 @@ public final class DefaultBusinessBuilder<T extends DocumentType> extends Busine
 
     @Override
     protected MetaBuilder<T> newMetaBuilder(BusinessBuilder<T> businessBuilder) {
-        return new MetaBuilder<T>(businessBuilder) {
+        return new MetaBuilder<T>(businessBuilder, AgentRef.valueOf("default")) {
         };
     }
 }

@@ -22,7 +22,7 @@ public class BusinessBuilderTest {
         BusinessBuilder<Debate> builder = provider.newBuilder(Debate.ELEMENT);
 
         builder.getMetaBuilder().setAknIdentifier(provider.newAknIdentifierTransient());
-        builder.getMetaBuilder().setLanguage(Language.EN);
+        builder.getMetaBuilder().addLanguage(Language.EN);
 
         List<LegalDocMlException> exceptions = writerFactory(3).writePermissive(Channels.newChannel(System.out), builder.getAkomaNtoso());
 

@@ -24,7 +24,6 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCPerson;
 import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
 import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.refersTo;
-import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 public class CoverPageBuilderTest {
 
@@ -37,7 +36,7 @@ public class CoverPageBuilderTest {
         CoverPage coverPage = new CoverPage();
         debateBusinessBuilder.getAkomaNtoso().getDocumentType().setCoverPage(coverPage);
 
-        AgentRef source = new AgentRef(getChars("#redattore"));
+        AgentRef source = AgentRef.valueOf("redattore");
 
         TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"FINOCCHIARO");
         TLCPerson person2 = newTLCPerson(new NoWhiteSpace("person_2"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"ZANDA");
