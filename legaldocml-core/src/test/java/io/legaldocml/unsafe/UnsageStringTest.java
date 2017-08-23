@@ -41,7 +41,8 @@ public class UnsageStringTest {
         char[] value = UnsafeString.getChars(helloWorld);
         Assert.assertArrayEquals("HelloWorld".toCharArray(), value);
         value[0] = 'P';
+        Assert.assertArrayEquals("PelloWorld".toCharArray(), value);
         Assert.assertEquals("PelloWorld", helloWorld);
-
+        value[0] = 'H';
     }
 }
