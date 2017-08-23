@@ -1,14 +1,17 @@
 package io.legaldocml.module.akn.v3;
 
+import io.legaldocml.ReaderHelper;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.CoverPage;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Preface;
-import io.legaldocml.ReaderHelper;
 import io.legaldocml.test.PathForTest;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.ToStringVisitor;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class VisitorTest {
 
 

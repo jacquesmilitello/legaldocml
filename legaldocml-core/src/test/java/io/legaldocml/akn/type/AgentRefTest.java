@@ -1,11 +1,14 @@
 package io.legaldocml.akn.type;
 
 import io.legaldocml.akn.AttributeValueException;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class AgentRefTest {
 
     @Rule

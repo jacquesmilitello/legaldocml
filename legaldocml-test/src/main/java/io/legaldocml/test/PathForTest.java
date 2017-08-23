@@ -13,7 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public class PathForTest {
+public final class PathForTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PathForTest.class);
 

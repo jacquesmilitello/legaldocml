@@ -6,7 +6,9 @@ import io.legaldocml.io.XmlReaderFactoryProvider;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.impl.XmlChannelWriter;
 import io.legaldocml.test.PathForTest;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,6 +22,7 @@ import java.util.EnumSet;
 
 import static io.legaldocml.XmlUnitHelper.compare;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class AknV2Test {
 
     private static final XmlReaderFactory XML_READER_FACTORY = XmlReaderFactoryProvider.newXmlReaderFactory(2);

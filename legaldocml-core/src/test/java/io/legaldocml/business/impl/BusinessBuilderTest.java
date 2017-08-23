@@ -5,7 +5,9 @@ import io.legaldocml.akn.element.Debate;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.iso.Language;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.IOException;
 import java.nio.channels.Channels;
@@ -13,6 +15,7 @@ import java.util.List;
 
 import static io.legaldocml.io.XmlProvider.writerFactory;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class BusinessBuilderTest {
 
     @Test

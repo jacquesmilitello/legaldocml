@@ -10,9 +10,11 @@ import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.io.XmlProvider;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.Uri;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayInputStream;
@@ -25,6 +27,7 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
 import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.refersTo;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class CoverPageBuilderTest {
 
     @Test

@@ -14,9 +14,12 @@ import io.legaldocml.akn.element.MainBody;
 import io.legaldocml.akn.element.Point;
 import io.legaldocml.akn.element.WrapUp;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class EidFactoryTest {
 
     /**

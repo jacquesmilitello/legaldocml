@@ -5,9 +5,12 @@ import io.legaldocml.akn.element.Amendment;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.AknIdentifierException;
 import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class AknIdentifierTest {
 
     @Test

@@ -3,10 +3,12 @@ package io.legaldocml.test;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@RunWith(SonarJUnit4ClassRunner.class)
 public class TestsTest {
 
     @Rule

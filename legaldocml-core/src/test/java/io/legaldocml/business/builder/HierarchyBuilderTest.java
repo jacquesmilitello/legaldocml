@@ -6,11 +6,14 @@ import io.legaldocml.akn.element.List;
 import io.legaldocml.akn.element.Paragraph;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.io.XmlProvider;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.IOException;
 import java.nio.channels.Channels;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class HierarchyBuilderTest {
 
     @Test
