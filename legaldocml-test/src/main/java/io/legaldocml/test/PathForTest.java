@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,7 +25,11 @@ public class PathForTest {
 
         URI uri;
         try {
-            uri = PathForTest.class.getResource(resource).toURI();
+            URL url = PathForTest.class.getResource(resource);
+            if (url == null) {
+                throw new IOException("ClassPath resource not found [" + resource + "]");
+            }
+            uri = url.toURI();
         } catch (URISyntaxException e) {
             throw new RuntimeException();
         }
