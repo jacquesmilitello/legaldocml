@@ -43,6 +43,7 @@ import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.akn.attribute.Pos;
 import io.legaldocml.akn.attribute.Quote;
+import io.legaldocml.akn.attribute.Range;
 import io.legaldocml.akn.attribute.RangeOpt;
 import io.legaldocml.akn.attribute.RangeReq;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -60,6 +61,7 @@ import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.attribute.Time;
+import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.attribute.UpToOpt;
 import io.legaldocml.akn.attribute.Value;
 import io.legaldocml.akn.attribute.ValueOpt;
@@ -590,12 +592,12 @@ public final class XmlWriterHelper {
 
     public static void writeRange(XmlWriter writer, RangeReq rangeReq) throws IOException {
         if (rangeReq.getFrom() == null) {
-            throw new RuntimeException();
+            throwException(writer, new MandatoryAttributeException(rangeReq, Range.ATTRIBUTE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, rangeReq.getFrom().getChars());
         }
         if (rangeReq.getUpTo() == null) {
-            throw new RuntimeException();
+            throwException(writer, new MandatoryAttributeException(rangeReq, UpTo.ATTRIBUTE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_UPTO, 4, rangeReq.getUpTo().getChars());
         }
@@ -603,7 +605,7 @@ public final class XmlWriterHelper {
 
     public static void writeRange(XmlWriter writer, RangeOpt range) throws IOException {
         if (range.getFrom() == null) {
-            throw new RuntimeException();
+            throwException(writer, new MandatoryAttributeException(range, Range.ATTRIBUTE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, range.getFrom().getChars());
         }
@@ -625,15 +627,6 @@ public final class XmlWriterHelper {
         }
     }
 
-
-    public static void throwException(XmlWriter writer, LegalDocMlException exception) {
-        if (writer.isPermissive()) {
-            writer.addExpcetion(exception);
-        } else {
-            throw exception;
-        }
-    }
-
     public static void writeLawyerAtts(XmlWriter writer, LawyerAtts lawyerAtts) throws IOException {
         writeRole(writer, lawyerAtts);
         if (lawyerAtts.getFor() != null) {
@@ -649,7 +642,15 @@ public final class XmlWriterHelper {
         if (target.getTarget() != null) {
             writer.writeAttribute(Attributes.ADDRESS_TARGET, 6, getChars(target.getTarget()));
         }
-
     }
+
+    public static void throwException(XmlWriter writer, LegalDocMlException exception) {
+        if (writer.isPermissive()) {
+            writer.addExpcetion(exception);
+        } else {
+            throw exception;
+        }
+    }
+
 }
 

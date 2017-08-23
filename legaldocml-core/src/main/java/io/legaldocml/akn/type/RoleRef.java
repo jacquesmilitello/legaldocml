@@ -18,8 +18,7 @@ import java.util.function.Function;
  */
 public final class RoleRef extends AbstractRef {
 
-    @SuppressWarnings("ALL")
-    private static final Function<char[], RoleRef> INSTANTIATOR_ROLE_REF = array -> new RoleRef(array);
+    private static final Function<char[], RoleRef> INSTANTIATOR_ROLE_REF = RoleRef::new;
 
     private RoleRef(char[] value) {
         super(value);

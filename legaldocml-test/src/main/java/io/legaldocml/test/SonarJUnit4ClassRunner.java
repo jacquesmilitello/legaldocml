@@ -14,12 +14,11 @@ import org.junit.runners.model.InitializationError;
  */
 public class SonarJUnit4ClassRunner extends BlockJUnit4ClassRunner {
 
-    private static final boolean ENABLED = Boolean.valueOf(System.getProperty("sonar","false"));
+    private static final boolean ENABLED = Boolean.parseBoolean(System.getProperty("sonar","false"));
 
     /**
      * Creates a BlockJUnit4ClassRunner to run {@code klass}
      *
-     * @param klass
      * @throws InitializationError if the test class is malformed.
      */
     public SonarJUnit4ClassRunner(Class<?> klass) throws InitializationError {

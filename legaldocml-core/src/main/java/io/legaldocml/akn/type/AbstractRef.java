@@ -16,13 +16,17 @@ import static java.lang.System.arraycopy;
  */
 public abstract class AbstractRef extends AbstractUri {
 
-    public static final char REF = '#';
+    private static final char REF = '#';
 
     protected AbstractRef(char[] value) {
         super(value);
     }
 
-    public String ref() {
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
         return UnsafeString.valueOf(getChars());
     }
 

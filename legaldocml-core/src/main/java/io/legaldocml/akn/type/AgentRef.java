@@ -18,8 +18,7 @@ import java.util.function.Function;
  */
 public final class AgentRef extends AbstractRef {
 
-    @SuppressWarnings("ALL")
-    private static final Function<char[], AgentRef> INSTANTIATOR_AGENT_REF = array -> new AgentRef(array);
+    private static final Function<char[], AgentRef> INSTANTIATOR_AGENT_REF = AgentRef::new;
 
     private AgentRef(char[] value) {
         super(value);

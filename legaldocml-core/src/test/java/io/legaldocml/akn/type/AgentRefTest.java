@@ -16,16 +16,16 @@ public class AgentRefTest {
 
     @Test
     public void testWithRef() {
-        Assert.assertEquals("#toto", AgentRef.valueOf("#toto").ref());
-        Assert.assertEquals("#toto", AgentRef.valueOf("#toto".toCharArray()).ref());
-        Assert.assertEquals("#toto", AgentRef.raw("#toto".toCharArray()).ref());
+        Assert.assertEquals("#toto", AgentRef.valueOf("#toto").toString());
+        Assert.assertEquals("#toto", AgentRef.valueOf("#toto".toCharArray()).toString());
+        Assert.assertEquals("#toto", AgentRef.raw("#toto".toCharArray()).toString());
     }
 
     @Test
     public void testWithOutRef() {
-        Assert.assertEquals("#toto", AgentRef.valueOf("toto").ref());
-        Assert.assertEquals("#toto", AgentRef.valueOf("toto".toCharArray()).ref());
-        Assert.assertEquals("toto", AgentRef.raw("toto".toCharArray()).ref());
+        Assert.assertEquals("#toto", AgentRef.valueOf("toto").toString());
+        Assert.assertEquals("#toto", AgentRef.valueOf("toto".toCharArray()).toString());
+        Assert.assertEquals("toto", AgentRef.raw("toto".toCharArray()).toString());
     }
 
     @Test
