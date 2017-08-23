@@ -32,7 +32,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	   <xsd:sequence>
  * 	   <xsd:attribute name="contains" type="versionType" default="originalVersion" />
  *   <xsd:complexType>
- * <pre>
+ * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

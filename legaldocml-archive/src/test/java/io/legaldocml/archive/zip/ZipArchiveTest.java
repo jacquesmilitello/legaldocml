@@ -9,15 +9,18 @@ import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.MediaType;
 import io.legaldocml.test.PathForTest;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class ZipArchiveTest {
 
     private static final String FILE = System.getProperty("java.io.tmpdir") + "/test.zip";

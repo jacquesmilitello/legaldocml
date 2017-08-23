@@ -1,13 +1,16 @@
 package io.legaldocml.util;
 
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.test.Tests;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.OffsetDateTime;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class DateHelperTest {
 
     @Test

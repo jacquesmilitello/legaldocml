@@ -241,10 +241,6 @@ public final class Attributes {
 
     /**
      * This biConsumer will fill after the {@link io.legaldocml.akn.AkomaNtosoContext}}
-     *
-     * @param name
-     * @param addr
-     * @return
      */
     public static BiConsumer<AknObject, CharArray> biConsumerNoWhiteSpace(String name, long addr) {
         return new AttributeBiConsumer(name) {

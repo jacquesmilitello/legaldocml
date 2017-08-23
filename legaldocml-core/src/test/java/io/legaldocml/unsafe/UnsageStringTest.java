@@ -1,14 +1,16 @@
 package io.legaldocml.unsafe;
 
-import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static io.legaldocml.test.Tests.assertUtilClassIsWellDefined;
 
 /**
  * Test the Dark Side of Java.
  */
+@RunWith(SonarJUnit4ClassRunner.class)
 public class UnsageStringTest {
 
     @Test

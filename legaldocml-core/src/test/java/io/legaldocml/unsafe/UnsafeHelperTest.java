@@ -1,11 +1,13 @@
 package io.legaldocml.unsafe;
 
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static io.legaldocml.test.Tests.assertUtilClassIsWellDefined;
 
-
+@RunWith(SonarJUnit4ClassRunner.class)
 public class UnsafeHelperTest {
 
     @Test

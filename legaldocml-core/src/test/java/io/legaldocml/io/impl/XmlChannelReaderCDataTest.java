@@ -1,13 +1,16 @@
 package io.legaldocml.io.impl;
 
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.IOException;
 
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.doTest;
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.path;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class XmlChannelReaderCDataTest {
 
     @Test

@@ -19,7 +19,7 @@ import java.io.IOException;
  *       <xsd:field xpath="@GUID"/>
  *     <xsd:unique>
  *   <xsd:element>
- * <pre>
+ * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

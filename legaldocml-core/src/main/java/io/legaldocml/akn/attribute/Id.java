@@ -31,10 +31,7 @@ public interface Id extends AknObject {
      * Attribute name "GUID".
      */
     String ATTRIBUTE_GUID = "GUID";
-
-    /**
-     * @return
-     */
+    
     @Deprecated
     String getId();
 

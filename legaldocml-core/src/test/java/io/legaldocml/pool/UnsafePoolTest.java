@@ -1,11 +1,14 @@
 package io.legaldocml.pool;
 
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class UnsafePoolTest {
 
     @Test
