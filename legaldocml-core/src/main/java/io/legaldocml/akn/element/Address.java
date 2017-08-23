@@ -11,7 +11,7 @@ import java.io.IOException;
  * This element is a structural container for parts of a debates that are relevant to addresses.
  *
  * <pre>
- *  &lt;xsd:element name="address" type="althierarchy"/&gt;
+ *  <xsd:element name="address" type="althierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

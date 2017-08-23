@@ -5,11 +5,11 @@ import io.legaldocml.akn.AknObject;
 /**
  * The attribute number is used to specify a number in the publication of the document.
  *
- * <pre>
- * 	&lt;xsd:attributeGroup name="number"&gt;
- * 		&lt;xsd:attribute name="number" type="xsd:string"/&gt;
- * 	&lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="number">
+ *   <xsd:attribute name="number" type="xsd:string"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

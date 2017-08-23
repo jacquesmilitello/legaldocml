@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element conclusion is used as a container of all concluding material (e.g. dates, signatures, formulas, etc.).
  *
  * <pre>
- *   &lt;xsd:element name="conclusions" type="basicopt"/&gt;
+ *   <xsd:element name="conclusions" type="basicopt"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

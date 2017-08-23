@@ -21,25 +21,25 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  * The complex type hierarchy is used by most or all the hierarchical elements of act-like documents.
  * <p>
  * <pre>
- *   &lt;xsd:complexType name="hierarchy"&gt;
- *     &lt;xsd:complexContent&gt;
- * 	     &lt;xsd:extension base="basehierarchy"&gt;
- * 		   &lt;xsd:choice&gt;
- * 		     &lt;xsd:sequence&gt;
- * 			   &lt;xsd:element ref="intro" minOccurs="0" maxOccurs="1"/&gt;
- * 			     &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
- * 				   &lt;xsd:element ref="componentRef"/&gt;
- * 				   &lt;xsd:group ref="hierElements"/&gt;
- * 				   &lt;xsd:element ref="crossHeading"/&gt;
- * 				 &lt;xsd:choice&gt;
- * 			     &lt;xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/&gt;
- * 			   &lt;xsd:sequence&gt;
- * 		     &lt;xsd:element ref="content"/&gt;
- * 		   &lt;xsd:choice&gt;
- * 		   &lt;xsd:attributeGroup ref="corereq"/&gt;
- * 	     &lt;xsd:extension&gt;
- * 	   &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="hierarchy">
+ *     <xsd:complexContent>
+ * 	     <xsd:extension base="basehierarchy">
+ * 		   <xsd:choice>
+ * 		     <xsd:sequence>
+ * 			   <xsd:element ref="intro" minOccurs="0" maxOccurs="1"/>
+ * 			     <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ * 				   <xsd:element ref="componentRef"/>
+ * 				   <xsd:group ref="hierElements"/>
+ * 				   <xsd:element ref="crossHeading"/>
+ * 				 <xsd:choice>
+ * 			     <xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/>
+ * 			   <xsd:sequence>
+ * 		     <xsd:element ref="content"/>
+ * 		   <xsd:choice>
+ * 		   <xsd:attributeGroup ref="corereq"/>
+ * 	     <xsd:extension>
+ * 	   <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

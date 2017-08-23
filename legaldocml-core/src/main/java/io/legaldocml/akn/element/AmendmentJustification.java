@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a structural container for the section of an amendment containing the justification.
  *
  * <pre>
- * 	 &lt;xsd:element name="amendmentJustification" type="blocksopt"/&gt;
+ * 	 <xsd:element name="amendmentJustification" type="blocksopt"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

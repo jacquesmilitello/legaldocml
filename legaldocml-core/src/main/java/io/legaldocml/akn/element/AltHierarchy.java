@@ -15,19 +15,19 @@ import java.util.function.Supplier;
  * The complex type hierarchy is used by most or all the hierarchical elements of act-like documents.
  *
  * <pre>
- *   &lt;xsd:complexType name="althierarchy"&gt;
- * 	   &lt;xsd:complexContent&gt;
- * 	     &lt;xsd:extension base="basehierarchy"&gt;
- * 		   &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
- * 		     &lt;xsd:group ref="containerElements" /&gt;
- * 			 &lt;xsd:element ref="componentRef" /&gt;
- * 			 &lt;xsd:group ref="ANcontainers" /&gt;
- * 			 &lt;xsd:group ref="blockElements" /&gt;
- * 		   &lt;xsd:choice&gt;
- * 		 &lt;xsd:attributeGroup ref="corereq" /&gt;
- * 	     &lt;xsd:extension&gt;
- * 	   &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="althierarchy">
+ * 	   <xsd:complexContent>
+ * 	     <xsd:extension base="basehierarchy">
+ * 		   <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ * 		     <xsd:group ref="containerElements" />
+ * 			 <xsd:element ref="componentRef" />
+ * 			 <xsd:group ref="ANcontainers" />
+ * 			 <xsd:group ref="blockElements" />
+ * 		   <xsd:choice>
+ * 		 <xsd:attributeGroup ref="corereq" />
+ * 	     <xsd:extension>
+ * 	   <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

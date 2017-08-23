@@ -10,7 +10,7 @@ import java.io.IOException;
  * happened within a debate.
  *
  * <pre>
- * 	 &lt;xsd:element name="quorumVerification" type="parliamentaryAnalysisType"/&gt;
+ * 	 <xsd:element name="quorumVerification" type="parliamentaryAnalysisType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

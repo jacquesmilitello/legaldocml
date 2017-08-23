@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element quorum is a metadata container containing the value of a quorum in a vote or a quorum verification.
  *
  * <pre>
- *   &lt;xsd:element name="quorum" type="countType"/&gt;
+ *   <xsd:element name="quorum" type="countType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

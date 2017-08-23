@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element passiveModifications is a metadata container of the passive modifications affecting the document.
  *
  * <pre>
- * 	 &lt;xsd:element name="passiveModifications" type="Amendments"/&gt;
+ * 	 <xsd:element name="passiveModifications" type="Amendments"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

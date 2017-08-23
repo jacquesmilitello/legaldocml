@@ -11,7 +11,7 @@ import java.io.IOException;
  * li).
  *
  * <pre>
- * 	 &lt;xsd:element name="ul" type="listItems"/&gt;
+ * 	 <xsd:element name="ul" type="listItems"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

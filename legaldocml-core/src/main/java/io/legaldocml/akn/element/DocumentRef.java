@@ -14,7 +14,7 @@ import java.io.IOException;
  * or any expression of) a separate Work.
  *
  * <pre>
- *   &lt;xsd:element name="documentRef" type="linkType"/&gt;
+ *   <xsd:element name="documentRef" type="linkType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

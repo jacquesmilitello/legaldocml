@@ -11,16 +11,16 @@ import java.io.IOException;
  * not be normative in structure (e.g., statements, resolutions, etc.).
  *
  * <pre>
- *   &lt;xsd:element name="statement" type="openStructure"/&gt;
- *     &lt;xsd:unique name="eId-doc"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@eId"/&gt;
- *     &lt;xsd:unique&gt;
- *     &lt;xsd:unique name="GUID-doc"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@GUID"/&gt;
- *     &lt;xsd:unique&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="statement" type="openStructure"/>
+ *     <xsd:unique name="eId-doc">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@eId"/>
+ *     <xsd:unique>
+ *     <xsd:unique name="GUID-doc">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@GUID"/>
+ *     <xsd:unique>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

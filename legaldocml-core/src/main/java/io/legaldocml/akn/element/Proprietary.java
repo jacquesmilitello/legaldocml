@@ -20,15 +20,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * Ntoso properties. Anything can be placed in this element.
  *
  * <pre>
- *   &lt;xsd:element name="proprietary"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="anyOtherType"&gt;
- * 		     &lt;xsd:attributeGroup ref="source"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 		 &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="proprietary">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="anyOtherType">
+ * 		     <xsd:attributeGroup ref="source"/>
+ * 		   <xsd:extension>
+ * 		 <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

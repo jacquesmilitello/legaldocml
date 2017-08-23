@@ -11,7 +11,7 @@ import java.io.IOException;
  * the judgment.
  *
  * <pre>
- * 	 &lt;xsd:element name="argument" type="inline"/&gt;
+ * 	 <xsd:element name="argument" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

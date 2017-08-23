@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element FRBRthis is the metadata property containing the IRI of the specific component of the document.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRthis" type="valueType"/&gt;
+ *   <xsd:element name="FRBRthis" type="valueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

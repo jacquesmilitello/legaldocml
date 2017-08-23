@@ -10,13 +10,13 @@ import java.io.IOException;
 
 /**
  * <pre>
- *   &lt;xsd:element name="componentInfo"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:sequence minOccurs="0" maxOccurs="unbounded"&gt;
- * 	 	   &lt;xsd:element ref="componentData"/&gt;
- * 	     &lt;xsd:sequence&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="componentInfo">
+ * 	   <xsd:complexType>
+ * 	     <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+ * 	 	   <xsd:element ref="componentData"/>
+ * 	     <xsd:sequence>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

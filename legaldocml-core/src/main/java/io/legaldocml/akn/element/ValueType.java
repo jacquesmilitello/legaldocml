@@ -24,15 +24,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  *
  * <pre>
- *   &lt;xsd:complexType name="valueType"&gt;
- *     &lt;xsd:complexContent&gt;
- *       &lt;xsd:extension base="metaopt"&gt;
- *         &lt;xsd:attributeGroup ref="value"/&gt;
- *         &lt;xsd:attributeGroup ref="refers"/&gt;
- *         &lt;xsd:attributeGroup ref="showopt"/&gt;
- *       &lt;xsd:extension&gt;
- *     &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="valueType">
+ *     <xsd:complexContent>
+ *       <xsd:extension base="metaopt">
+ *         <xsd:attributeGroup ref="value"/>
+ *         <xsd:attributeGroup ref="refers"/>
+ *         <xsd:attributeGroup ref="showopt"/>
+ *       <xsd:extension>
+ *     <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

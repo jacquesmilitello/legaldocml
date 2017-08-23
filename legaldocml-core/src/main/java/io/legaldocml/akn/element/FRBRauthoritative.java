@@ -12,7 +12,7 @@ import java.io.IOException;
  * an entity that is entrusted with generating an official, authoriative version of the document.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRauthoritative" type="booleanValueType"/&gt;
+ *   <xsd:element name="FRBRauthoritative" type="booleanValueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

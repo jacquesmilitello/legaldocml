@@ -12,17 +12,17 @@ import java.io.IOException;
  * The complexType coreProperties lists the identifying properties available at any of the FRBR hierarchy levels.
  * <p>
  * <pre>
- *   &lt;xsd:complexType name="coreProperties"&gt;
- *     &lt;xsd:sequence&gt;
- * 		 &lt;xsd:element ref="FRBRthis"/&gt;
- * 		 &lt;xsd:element ref="FRBRuri" minOccurs="1" maxOccurs="unbounded"/&gt;
- * 		 &lt;xsd:element ref="FRBRalias" minOccurs="0" maxOccurs="unbounded"/&gt;
- * 		 &lt;xsd:element ref="FRBRdate"/&gt;
- * 		 &lt;xsd:element ref="FRBRauthor" minOccurs="1" maxOccurs="unbounded"/&gt;
- * 		 &lt;xsd:element ref="componentInfo" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="preservation" minOccurs="0" maxOccurs="1"/&gt;
- * 	   &lt;xsd:sequence&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="coreProperties">
+ *     <xsd:sequence>
+ * 		 <xsd:element ref="FRBRthis"/>
+ * 		 <xsd:element ref="FRBRuri" minOccurs="1" maxOccurs="unbounded"/>
+ * 		 <xsd:element ref="FRBRalias" minOccurs="0" maxOccurs="unbounded"/>
+ * 		 <xsd:element ref="FRBRdate"/>
+ * 		 <xsd:element ref="FRBRauthor" minOccurs="1" maxOccurs="unbounded"/>
+ * 		 <xsd:element ref="componentInfo" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="preservation" minOccurs="0" maxOccurs="1"/>
+ * 	   <xsd:sequence>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

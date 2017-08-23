@@ -12,7 +12,7 @@ import java.io.IOException;
  * individual documents in a collection of documents.
  *
  * <pre>
- *   &lt;xsd:element name="interstitial" type="blocksreq"/&gt;
+ *   <xsd:element name="interstitial" type="blocksreq"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

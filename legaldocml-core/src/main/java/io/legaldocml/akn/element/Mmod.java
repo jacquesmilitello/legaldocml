@@ -10,7 +10,7 @@ import java.io.IOException;
  * the element mmod is an inline element containing multiple specifications of modifications on another document.
  *
  * <pre>
- *   &lt;xsd:element name="mmod" type="modType"/&gt;
+ *   <xsd:element name="mmod" type="modType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

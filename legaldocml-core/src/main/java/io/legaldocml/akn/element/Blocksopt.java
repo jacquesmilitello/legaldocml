@@ -18,12 +18,12 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  * is optional.
  *
  * <pre>
- *   &lt;xsd:complexType name="blocksopt"&gt;
- * 	   &lt;xsd:sequence minOccurs="0" maxOccurs="unbounded"&gt;
- * 	     &lt;xsd:group ref="blockElements"/&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	   &lt;xsd:attributeGroup ref="coreopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="blocksopt">
+ * 	   <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+ * 	     <xsd:group ref="blockElements"/>
+ * 	   <xsd:sequence>
+ * 	   <xsd:attributeGroup ref="coreopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

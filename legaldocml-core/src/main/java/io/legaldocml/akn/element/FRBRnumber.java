@@ -11,7 +11,7 @@ import java.io.IOException;
  * work-level IRI of this document.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRnumber" type="valueType"/&gt;
+ *   <xsd:element name="FRBRnumber" type="valueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

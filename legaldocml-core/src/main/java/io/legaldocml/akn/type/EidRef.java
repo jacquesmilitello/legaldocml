@@ -7,9 +7,9 @@ import io.legaldocml.util.AbstractUri;
  * necessarily #XYZ.
  *
  * <pre>
- *   &lt;xsd:simpleType name="eIdRef"&gt;
- *     &lt;xsd:restriction base="xsd:anyURI"/&gt;
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="eIdRef">
+ *     <xsd:restriction base="xsd:anyURI"/>
+ *   <xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

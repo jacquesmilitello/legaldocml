@@ -20,15 +20,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * specified through the name attribute.
  *
  * <pre>
- *   &lt;xsd:element name="TLCReference"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="referenceType"&gt;
- * 		     &lt;xsd:attributeGroup ref="name" /&gt;
- * 	   	   &lt;xsd:extension&gt;
- * 		 &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="TLCReference">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="referenceType">
+ * 		     <xsd:attributeGroup ref="name" />
+ * 	   	   <xsd:extension>
+ * 		 <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

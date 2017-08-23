@@ -11,16 +11,16 @@ import java.io.IOException;
  * Element judgment is used for describing the structure and content of a judgment.
  *
  * <pre>
- *   &lt;xsd:element name="judgment" type="judgmentStructure"&gt;
- *     &lt;xsd:unique name="eId-judgment"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@eId"/&gt;
- *     &lt;xsd:unique&gt;
- *     &lt;xsd:unique name="GUID-judgment"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@GUID"/&gt;
- *     &lt;xsd:unique&gt;
- * 	 &lt;xsd:element&gt;
+ *   <xsd:element name="judgment" type="judgmentStructure">
+ *     <xsd:unique name="eId-judgment">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@eId"/>
+ *     <xsd:unique>
+ *     <xsd:unique name="GUID-judgment">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@GUID"/>
+ *     <xsd:unique>
+ * 	 <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element citation is the individual element of the preface that is called citation.
  *
  * <pre>
- *   &lt;xsd:element name="citations" type="citationHierarchy"&gt;
+ *   <xsd:element name="citations" type="citationHierarchy">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

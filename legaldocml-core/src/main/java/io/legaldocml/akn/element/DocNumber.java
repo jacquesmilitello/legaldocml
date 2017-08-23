@@ -12,7 +12,7 @@ import java.io.IOException;
  *
  *
  * <pre>
- * 	 &lt;xsd:element name="docNumber" type="inline"/&gt;
+ * 	 <xsd:element name="docNumber" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

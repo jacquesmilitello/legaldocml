@@ -11,13 +11,13 @@ import java.io.IOException;
 /**
  *
  * <pre>
- *   &lt;xsd:element name="attachments"&gt;
- *     &lt;xsd:complexType&gt;
- *       &lt;xsd:sequence minOccurs="1" maxOccurs="unbounded"&gt;
- *         &lt;xsd:element ref="attachment"/&gt;
- *       &lt;xsd:sequence&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="attachments">
+ *     <xsd:complexType>
+ *       <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+ *         <xsd:element ref="attachment"/>
+ *       <xsd:sequence>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element role is an inline element to identify a text fragment introducing or referring to a role in the ontology.
  *
  * <pre>
- *   &lt;xsd:element name="role" type="inlinereqreq"/&gt;
+ *   <xsd:element name="role" type="inlinereqreq"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

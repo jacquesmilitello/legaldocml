@@ -32,22 +32,22 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  *
  * <pre>
- *   &lt;xsd:complexType name="modificationType"&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	     &lt;xsd:element ref="source" minOccurs="1" maxOccurs="unbounded" /&gt;
- * 		 &lt;xsd:element ref="destination" minOccurs="1" maxOccurs="unbounded" /&gt;
- * 		 &lt;xsd:element ref="force" minOccurs="0" maxOccurs="1" /&gt;
- * 		 &lt;xsd:element ref="efficacy" minOccurs="0" maxOccurs="1" /&gt;
- * 		 &lt;xsd:element ref="application" minOccurs="0" maxOccurs="1" /&gt;
- * 		 &lt;xsd:element ref="duration" minOccurs="0" maxOccurs="1" /&gt;
- * 		 &lt;xsd:element ref="condition" minOccurs="0" maxOccurs="1" /&gt;
- *     &lt;xsd:sequence&gt;
- * 	   &lt;xsd:attributeGroup ref="core"/&gt;
- * 	   &lt;xsd:attributeGroup ref="idreq" /&gt;
- * 	   &lt;xsd:attributeGroup ref="enactment" /&gt;
- * 	   &lt;xsd:attributeGroup ref="modifiers" /&gt;
- * 	   &lt;xsd:attributeGroup ref="refers" /&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="modificationType">
+ * 	   <xsd:sequence>
+ * 	     <xsd:element ref="source" minOccurs="1" maxOccurs="unbounded" />
+ * 		 <xsd:element ref="destination" minOccurs="1" maxOccurs="unbounded" />
+ * 		 <xsd:element ref="force" minOccurs="0" maxOccurs="1" />
+ * 		 <xsd:element ref="efficacy" minOccurs="0" maxOccurs="1" />
+ * 		 <xsd:element ref="application" minOccurs="0" maxOccurs="1" />
+ * 		 <xsd:element ref="duration" minOccurs="0" maxOccurs="1" />
+ * 		 <xsd:element ref="condition" minOccurs="0" maxOccurs="1" />
+ *     <xsd:sequence>
+ * 	   <xsd:attributeGroup ref="core"/>
+ * 	   <xsd:attributeGroup ref="idreq" />
+ * 	   <xsd:attributeGroup ref="enactment" />
+ * 	   <xsd:attributeGroup ref="modifiers" />
+ * 	   <xsd:attributeGroup ref="refers" />
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

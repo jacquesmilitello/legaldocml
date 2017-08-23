@@ -4,11 +4,11 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.type.TimeType;
 
 /**
- * <pre>
- *   &lt;xsd:attributeGroup name="recordedTimeType"&gt;
- * 	   &lt;xsd:attribute name="type" type="timeType"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="recordedTimeType">
+ *   <xsd:attribute name="type" type="timeType"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

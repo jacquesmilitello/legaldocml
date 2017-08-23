@@ -6,11 +6,11 @@ import io.legaldocml.akn.AknObject;
 /**
  * The attribute originalText contains the original text of a placeholder.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="originalText"&gt;
- *     &lt;xsd:attribute name="originalText" type="xsd:string"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="originalText">
+ *   <xsd:attribute name="originalText" type="xsd:string"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

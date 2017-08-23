@@ -19,12 +19,12 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  * document.
  *
  * <pre>
- *   &lt;xsd:complexType name="collectionBodyType"&gt;
- *     &lt;xsd:sequence&gt;
- *       &lt;xsd:element ref="component" minOccurs="1" maxOccurs="unbounded"/&gt;
- *     &lt;xsd:sequence&gt;
- *     &lt;xsd:attributeGroup ref="coreopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="collectionBodyType">
+ *     <xsd:sequence>
+ *       <xsd:element ref="component" minOccurs="1" maxOccurs="unbounded"/>
+ *     <xsd:sequence>
+ *     <xsd:attributeGroup ref="coreopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

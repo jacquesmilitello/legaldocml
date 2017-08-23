@@ -4,11 +4,11 @@ import io.legaldocml.akn.AknObject;
 
 
 /**
- * <pre>
- *   &lt;xsd:attributeGroup name="resultType"&gt;
- *     &lt;xsd:attribute name="type" type="resultType" use="required"/&gt;
- *   &lt;/xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="resultType">
+ *   <xsd:attribute name="type" type="resultType" use="required"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

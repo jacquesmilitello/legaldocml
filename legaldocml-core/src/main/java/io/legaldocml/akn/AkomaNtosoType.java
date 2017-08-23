@@ -15,14 +15,14 @@ import java.util.function.Supplier;
 /**
  * The complex type akomaNtosoType is the type for the root element in Akoma Ntoso.
  * <pre>
- *   &lt;xsd:complexType name="akomaNtosoType"&gt;
- *     &lt;xsd:sequence&gt;
- *       &lt;xsd:sequence&gt;
- *         &lt;xsd:group ref="documentType"/&gt;
- *       &lt;xsd:sequence&gt;
- *       &lt;xsd:element ref="components" minOccurs="0" maxOccurs="1"/&gt;
- *     &lt;xsd:sequence&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="akomaNtosoType">
+ *     <xsd:sequence>
+ *       <xsd:sequence>
+ *         <xsd:group ref="documentType"/>
+ *       <xsd:sequence>
+ *       <xsd:element ref="components" minOccurs="0" maxOccurs="1"/>
+ *     <xsd:sequence>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

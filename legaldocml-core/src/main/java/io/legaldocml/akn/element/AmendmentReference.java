@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a structural container for the section of an amendment containing the reference.
  *
  * <pre>
- * 	 &lt;xsd:element name="amendmentReference" type="blocksopt"/&gt;
+ * 	 <xsd:element name="amendmentReference" type="blocksopt"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

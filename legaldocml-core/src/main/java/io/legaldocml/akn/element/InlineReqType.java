@@ -13,12 +13,12 @@ import java.io.IOException;
  * attribute is required.
  *
  * <pre>
- *   &lt;xsd:complexType name="inlinereq" mixed="true"&gt;
- * 	   &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
- * 	     &lt;xsd:group ref="inlineCM"/&gt;
- * 	   &lt;xsd:choice&gt;
- * 	   &lt;xsd:attributeGroup ref="corereq"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="inlinereq" mixed="true">
+ * 	   <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ * 	     <xsd:group ref="inlineCM"/>
+ * 	   <xsd:choice>
+ * 	   <xsd:attributeGroup ref="corereq"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

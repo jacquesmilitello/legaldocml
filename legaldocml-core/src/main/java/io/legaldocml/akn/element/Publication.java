@@ -31,19 +31,19 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the document.
  *
  * <pre>
- *   &lt;xsd:element name="publication"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="metaopt"&gt;
- * 		     &lt;xsd:attributeGroup ref="date"/&gt;
- * 			 &lt;xsd:attributeGroup ref="show"/&gt;
- * 			 &lt;xsd:attributeGroup ref="name"/&gt;
- * 			 &lt;xsd:attributeGroup ref="number"/&gt;
- * 			 &lt;xsd:attributeGroup ref="refers"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="publication">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="metaopt">
+ * 		     <xsd:attributeGroup ref="date"/>
+ * 			 <xsd:attributeGroup ref="show"/>
+ * 			 <xsd:attributeGroup ref="name"/>
+ * 			 <xsd:attributeGroup ref="number"/>
+ * 			 <xsd:attributeGroup ref="refers"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -8,13 +8,13 @@ import io.legaldocml.akn.element.ModTypeItem;
  * markers.
  *
  * <pre>
- *   &lt;xsd:group name="inlineCM"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:group ref="inlineElements"/&gt;
- * 		 &lt;xsd:group ref="markerElements"/&gt;
- * 		 &lt;xsd:group ref="subFlowElements"/&gt;
- *     &lt;xsd:choice&gt;
- *   &lt;xsd:group&gt;
+ *   <xsd:group name="inlineCM">
+ * 	   <xsd:choice>
+ * 	     <xsd:group ref="inlineElements"/>
+ * 		 <xsd:group ref="markerElements"/>
+ * 		 <xsd:group ref="subFlowElements"/>
+ *     <xsd:choice>
+ *   <xsd:group>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

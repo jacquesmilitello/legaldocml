@@ -37,19 +37,19 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * outcome, too, can be specified.
  *
  * <pre>
- *   &lt;xsd:element name="step"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="anyOtherType"&gt;
- * 		     &lt;xsd:attributeGroup ref="date"/&gt;
- * 			 &lt;xsd:attributeGroup ref="agent"/&gt;
- * 			 &lt;xsd:attributeGroup ref="actor"/&gt;
- * 		 	 &lt;xsd:attributeGroup ref="role"/&gt;
- * 		 	 &lt;xsd:attributeGroup ref="outcome"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="step">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="anyOtherType">
+ * 		     <xsd:attributeGroup ref="date"/>
+ * 			 <xsd:attributeGroup ref="agent"/>
+ * 			 <xsd:attributeGroup ref="actor"/>
+ * 		 	 <xsd:attributeGroup ref="role"/>
+ * 		 	 <xsd:attributeGroup ref="outcome"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

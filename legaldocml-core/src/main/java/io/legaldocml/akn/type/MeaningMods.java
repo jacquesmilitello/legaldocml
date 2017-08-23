@@ -5,13 +5,13 @@ package io.legaldocml.akn.type;
  * meaningMod element.
  *
  * <pre>
- *   &lt;xsd:simpleType name="MeaningMods"&gt;
- * 	   &lt;xsd:restriction base="xsd:string"&gt;
- * 	     &lt;xsd:enumeration text="variation"/&gt;
- * 		 &lt;xsd:enumeration text="termModification"/&gt;
- * 		 &lt;xsd:enumeration text="authenticInterpretation"/&gt;
- * 	   &lt;xsd:restriction>
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="MeaningMods">
+ * 	   <xsd:restriction base="xsd:string">
+ * 	     <xsd:enumeration text="variation"/>
+ * 		 <xsd:enumeration text="termModification"/>
+ * 		 <xsd:enumeration text="authenticInterpretation"/>
+ * 	   <xsd:restriction>
+ *   <xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

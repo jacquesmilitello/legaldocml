@@ -11,7 +11,7 @@ import java.io.IOException;
  * ontology.
  *
  * <pre>
- *   &lt;xsd:element name="process" type="inlinereqreq"/&gt;
+ *   <xsd:element name="process" type="inlinereqreq"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

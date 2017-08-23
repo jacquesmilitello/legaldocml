@@ -10,7 +10,7 @@ import java.io.IOException;
  * FRBR hierarchy.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRItem" type="coreProperties"/&gt;
+ *   <xsd:element name="FRBRItem" type="coreProperties"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

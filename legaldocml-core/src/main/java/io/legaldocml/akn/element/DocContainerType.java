@@ -17,19 +17,19 @@ import java.util.function.Supplier;
  * attachment, collectionItem, component.
  *
  * <pre>
- *   &lt;xsd:complexType name="docContainerType"&gt;
- *     &lt;xsd:complexContent&gt;
- * 	     &lt;xsd:extension base="basehierarchy"&gt;
- * 		   &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
- * 		     &lt;xsd:group ref="documentType" /&gt;
- * 			 &lt;xsd:element ref="interstitial" /&gt;
- * 			 &lt;xsd:element ref="toc"/&gt;
- * 			 &lt;xsd:element ref="documentRef"/&gt;
- * 		   &lt;xsd:choice&gt;
- *         &lt;xsd:attributeGroup ref="corereq" /&gt;
- *       &lt;xsd:extension&gt;
- *     &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="docContainerType">
+ *     <xsd:complexContent>
+ * 	     <xsd:extension base="basehierarchy">
+ * 		   <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ * 		     <xsd:group ref="documentType" />
+ * 			 <xsd:element ref="interstitial" />
+ * 			 <xsd:element ref="toc"/>
+ * 			 <xsd:element ref="documentRef"/>
+ * 		   <xsd:choice>
+ *         <xsd:attributeGroup ref="corereq" />
+ *       <xsd:extension>
+ *     <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

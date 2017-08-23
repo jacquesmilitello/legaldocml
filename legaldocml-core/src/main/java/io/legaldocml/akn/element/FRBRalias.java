@@ -20,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * respective level of the FRBR hierarchy
  *
  * <pre>
- *   &lt;xsd:element name="FRBRalias" type="valueType"/&gt;
+ *   <xsd:element name="FRBRalias" type="valueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

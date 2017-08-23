@@ -7,11 +7,11 @@ import io.legaldocml.akn.type.ConceptRef;
  * The attribute outcome is used to identify the outcome of a step in a workflow. It is a reference to a TLCConcept
  * element in the references section.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="outcome"&gt;
- *     &lt;xsd:attribute name="outcome" type="conceptRef"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="outcome">
+ *   <xsd:attribute name="outcome" type="conceptRef"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

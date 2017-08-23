@@ -10,7 +10,7 @@ import java.io.IOException;
  * further describe the structure..
  *
  * <pre>
- *   &lt;xsd:element name="subheading" type="inlinereq"/&gt;
+ *   <xsd:element name="subheading" type="inlinereq"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a structural container for parts of a debates that contain written statements by participants.
  *
  * <pre>
- * 	 &lt;xsd:element name="writtenStatements" type="althierarchy"/&gt;
+ * 	 <xsd:element name="writtenStatements" type="althierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

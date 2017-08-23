@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element coverPage is used as a container of the text that acts as a cover page.
  *
  * <pre>
- * 	 &lt;xsd:element name="coverPage" type="basicopt"/&gt;
+ * 	 <xsd:element name="coverPage" type="basicopt"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -26,17 +26,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * content of the document.
  *
  * <pre>
- *   &lt;xsd:element name="implicitReference" type="anyOtherType"&gt;
- * 	   &lt;xsd:complexType&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="anyOtherType"&gt;
- *           &lt;xsd:attribute name="for" type="eIdRef"/&gt;
- *           &lt;xsd:attributeGroup ref="refers"/&gt;
- *           &lt;xsd:attributeGroup ref="showopt"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="implicitReference" type="anyOtherType">
+ * 	   <xsd:complexType>
+ *       <xsd:complexContent>
+ *         <xsd:extension base="anyOtherType">
+ *           <xsd:attribute name="for" type="eIdRef"/>
+ *           <xsd:attributeGroup ref="refers"/>
+ *           <xsd:attributeGroup ref="showopt"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

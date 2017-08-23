@@ -11,7 +11,7 @@ import java.io.IOException;
  * number of the docket, case, file, etc which the document belongs to.
  *
  * <pre>
- * 	 &lt;xsd:element name="docketNumber" type="inline"/&gt;
+ * 	 <xsd:element name="docketNumber" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

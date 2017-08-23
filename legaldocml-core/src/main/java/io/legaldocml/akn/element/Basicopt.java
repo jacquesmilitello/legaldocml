@@ -19,13 +19,13 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  * conclusions. Here the eId attribute is optional
  *
  * <pre>
- *   &lt;xsd:complexType name="basicopt"&gt;
- * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
- * 	     &lt;xsd:group ref="blockElements"/&gt;
- * 		 &lt;xsd:group ref="basicContainers"/&gt;
- * 	   &lt;xsd:choice&gt;
- *     &lt;xsd:attributeGroup ref="coreopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="basicopt">
+ * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
+ * 	     <xsd:group ref="blockElements"/>
+ * 		 <xsd:group ref="basicContainers"/>
+ * 	   <xsd:choice>
+ *     <xsd:attributeGroup ref="coreopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

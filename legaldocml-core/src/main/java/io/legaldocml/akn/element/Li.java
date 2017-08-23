@@ -23,18 +23,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element li is an HTML element and is used in Akoma Ntoso as in HTML, for the generic list item (not a pattern).
  *
  * <pre>
- *   &lt;xsd:element name="li"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- * 	     &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
- * 		   &lt;xsd:group ref="inlineCM"/&gt;
- * 		   &lt;xsd:element ref="ul"/&gt;
- *         &lt;xsd:element ref="ol"/&gt;
- * 	       &lt;xsd:element ref="p"/&gt;
- * 	     &lt;xsd:choice&gt;
- * 	     &lt;xsd:attributeGroup ref="optvalue"/&gt;
- * 	     &lt;xsd:attributeGroup ref="coreopt"/&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="li">
+ * 	   <xsd:complexType mixed="true">
+ * 	     <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ * 		   <xsd:group ref="inlineCM"/>
+ * 		   <xsd:element ref="ul"/>
+ *         <xsd:element ref="ol"/>
+ * 	       <xsd:element ref="p"/>
+ * 	     <xsd:choice>
+ * 	     <xsd:attributeGroup ref="optvalue"/>
+ * 	     <xsd:attributeGroup ref="coreopt"/>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element mod is an inline element containing the specification of a modification on another document.
  *
  * <pre>
- *   &lt;xsd:element name="mod" type="modType"/&gt;
+ *   <xsd:element name="mod" type="modType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

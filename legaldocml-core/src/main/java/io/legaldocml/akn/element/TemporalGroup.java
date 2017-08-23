@@ -11,15 +11,15 @@ import java.io.IOException;
 /**
  *
  * <pre>
- *   &lt;xsd:element name="temporalGroup"&gt;
- *     &lt;xsd:complexType&gt;
- *       &lt;xsd:sequence&gt;
- *         &lt;xsd:element ref="timeInterval" minOccurs="1" maxOccurs="unbounded"/&gt;
- *       &lt;xsd:sequence&gt;
- *       &lt;xsd:attributeGroup ref="core"/&gt;
- *       &lt;xsd:attributeGroup ref="idreq"/&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="temporalGroup">
+ *     <xsd:complexType>
+ *       <xsd:sequence>
+ *         <xsd:element ref="timeInterval" minOccurs="1" maxOccurs="unbounded"/>
+ *       <xsd:sequence>
+ *       <xsd:attributeGroup ref="core"/>
+ *       <xsd:attributeGroup ref="idreq"/>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -19,13 +19,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * analysis section using periods.
  *
  * <pre>
- *   &lt;xsd:complexType name="periodType"&gt;
- * 	   &lt;xsd:complexContent&gt;
- *       &lt;xsd:extension base="anyOtherType"&gt;
- *         &lt;xsd:attributeGroup ref="period"/&gt;
- *       &lt;xsd:extension&gt;
- *     &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="periodType">
+ * 	   <xsd:complexContent>
+ *       <xsd:extension base="anyOtherType">
+ *         <xsd:attributeGroup ref="period"/>
+ *       <xsd:extension>
+ *     <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

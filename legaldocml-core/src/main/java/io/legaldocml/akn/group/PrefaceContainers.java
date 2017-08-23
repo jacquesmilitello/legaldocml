@@ -8,13 +8,13 @@ import io.legaldocml.akn.element.PrefaceoptElement;
  * vocabulary.
  *
  * <pre>
- *   &lt;xsd:group name="prefaceContainers"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:element ref="longTitle"/&gt;
- * 		 &lt;xsd:element ref="formula"/&gt;
- * 		 &lt;xsd:element ref="container"/&gt;
- * 	   &lt;xsd:choice&gt;
- *   &lt;xsd:group&gt;
+ *   <xsd:group name="prefaceContainers">
+ * 	   <xsd:choice>
+ * 	     <xsd:element ref="longTitle"/>
+ * 		 <xsd:element ref="formula"/>
+ * 		 <xsd:element ref="container"/>
+ * 	   <xsd:choice>
+ *   <xsd:group>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

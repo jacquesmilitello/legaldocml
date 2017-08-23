@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element u is an HTML element and is used in Akoma Ntoso as in HTML, for the underline style (an inline).
  *
  * <pre>
- * 	 &lt;xsd:element name="u" type="inline"/&gt;
+ * 	 <xsd:element name="u" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

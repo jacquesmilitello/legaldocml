@@ -7,13 +7,13 @@ import io.legaldocml.akn.AknObject;
  * structure of hierarchical elements.
  *
  * <pre>
- *   &lt;xsd:complexType name="basehierarchy"&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	     &lt;xsd:element ref="num" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="heading" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="subheading" minOccurs="0" maxOccurs="1"/&gt;
- *     &lt;xsd:sequence&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="basehierarchy">
+ * 	   <xsd:sequence>
+ * 	     <xsd:element ref="num" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="heading" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="subheading" minOccurs="0" maxOccurs="1"/>
+ *     <xsd:sequence>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

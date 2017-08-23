@@ -4,11 +4,11 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.type.TextualMods;
 
 /**
- * <pre>
- * 	&lt;xsd:attributeGroup name="textualModType"&gt;
- * 		&lt;xsd:attribute name="type" type="TextualMods" use="required"/&gt;
- * 	&lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="textualModType">
+ *   <xsd:attribute name="type" type="TextualMods" use="required"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

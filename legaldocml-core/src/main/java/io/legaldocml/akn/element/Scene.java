@@ -11,7 +11,7 @@ import java.io.IOException;
  * (e.g., applauses).
  *
  * <pre>
- *   &lt;xsd:element name="scene" type="inline"/&gt;
+ *   <xsd:element name="scene" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

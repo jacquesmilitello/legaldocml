@@ -11,7 +11,7 @@ import java.io.IOException;
  * dots, spaces, the word "omissis", etc.
  *
  * <pre>
- *   &lt;xsd:element name="omissis" type="inline"/&gt;
+ *   <xsd:element name="omissis" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

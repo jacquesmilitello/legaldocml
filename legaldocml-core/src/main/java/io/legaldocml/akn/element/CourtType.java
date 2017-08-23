@@ -11,7 +11,7 @@ import java.io.IOException;
  * of the court doing the judgment.
  *
  * <pre>
- * 	 &lt;xsd:element name="courtType" type="inline"/&gt;
+ * 	 <xsd:element name="courtType" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

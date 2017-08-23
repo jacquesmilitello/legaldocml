@@ -17,13 +17,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The type booleanValueType specifies a boolean value attribute to FRBR elements.
  *
  * <pre>
- *   &lt;xsd:complexType name="booleanValueType"&gt;
- *     &lt;xsd:complexContent&gt;
- *       &lt;xsd:extension base="metaopt"&gt;
- *         &lt;xsd:attributeGroup ref="booleanvalue"/&gt;
- *       &lt;xsd:extension&gt;
- *     &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="booleanValueType">
+ *     <xsd:complexContent>
+ *       <xsd:extension base="metaopt">
+ *         <xsd:attributeGroup ref="booleanvalue"/>
+ *       <xsd:extension>
+ *     <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

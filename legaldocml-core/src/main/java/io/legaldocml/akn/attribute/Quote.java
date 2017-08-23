@@ -8,13 +8,13 @@ import io.legaldocml.akn.AknObject;
  * use only startQuote. Attribute inlineQuote is used for marking the character showing continuation of a quote e.g. at
  * the beginning of each page or at the beginning of each line of the quote
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="quote"&gt;
- * 	    &lt;xsd:attribute name="startQuote" type="xsd:string"/&gt;
- *      &lt;xsd:attribute name="endQuote" type="xsd:string"/&gt;
- *      &lt;xsd:attribute name="inlineQuote" type="xsd:string"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="quote">
+ *   <xsd:attribute name="startQuote" type="xsd:string"/>
+ *   <xsd:attribute name="endQuote" type="xsd:string"/>
+ *   <xsd:attribute name="inlineQuote" type="xsd:string"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

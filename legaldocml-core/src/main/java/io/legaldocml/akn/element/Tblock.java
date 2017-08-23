@@ -11,7 +11,7 @@ import java.io.IOException;
  * The element tblock (titled block) is used to specify a container for blocks introduced by heading elements, similarly
  * to a hierarchical structure.
  * <pre>
- * 	 &lt;xsd:element name="tblock" type="itemType"/&gt;
+ * 	 <xsd:element name="tblock" type="itemType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

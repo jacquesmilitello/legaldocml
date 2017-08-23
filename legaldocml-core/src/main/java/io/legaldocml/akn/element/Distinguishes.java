@@ -10,7 +10,7 @@ import java.io.IOException;
  * argument being described.
  *
  * <pre>
- * 	 &lt;xsd:element name="distinguishes" type="judicialArgumentType"&gt;
+ * 	 <xsd:element name="distinguishes" type="judicialArgumentType">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

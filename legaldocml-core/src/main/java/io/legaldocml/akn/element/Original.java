@@ -11,7 +11,7 @@ import java.io.IOException;
  * the first expression).
  *
  * <pre>
- * 	 &lt;xsd:element name="original" type="referenceType"/&gt;
+ * 	 <xsd:element name="original" type="referenceType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

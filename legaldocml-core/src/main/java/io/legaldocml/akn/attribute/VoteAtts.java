@@ -7,13 +7,13 @@ import io.legaldocml.akn.type.VoteRef;
  * identifies the voter, optional attribute 'as' identifies the role under which the voter is acting, optional attribute
  * 'choice' specifies the vote that was casted.
  *
- * <pre>
- * 	 &lt;xsd:attributeGroup name="voteAtts"&gt;
- * 	   &lt;xsd:attributeGroup ref="agent"/&gt;
- *     &lt;xsd:attributeGroup ref="role"/&gt;
- *     &lt;xsd:attribute name="choice" type="voteRef"/&gt;
- * 	 &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="voteAtts">
+ *   <xsd:attributeGroup ref="agent"/>
+ *   <xsd:attributeGroup ref="role"/>
+ *   <xsd:attribute name="choice" type="voteRef"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

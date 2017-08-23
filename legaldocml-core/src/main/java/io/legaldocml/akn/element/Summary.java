@@ -11,7 +11,7 @@ import java.io.IOException;
  * interesting (e.g.: "Question put and agreed to").
  *
  * <pre>
- * 	 &lt;xsd:element name="summary" type="inline"/&gt;
+ * 	 <xsd:element name="summary" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

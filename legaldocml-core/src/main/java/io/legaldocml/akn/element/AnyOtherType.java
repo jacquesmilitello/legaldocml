@@ -29,14 +29,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The complex type anyOtherType defines an open content model for elements that may use elements from other namespaces.
  * <p>
  * <pre>
- *   &lt;xsd:complexType name="anyOtherType"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/&gt;
- * 	   &lt;xsd:choice&gt;
- * 	   &lt;xsd:attributeGroup ref="core"/&gt;
- * 	   &lt;xsd:attributeGroup ref="idopt"/&gt;
- * 	   &lt;xsd:attributeGroup ref="linkopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="anyOtherType">
+ * 	   <xsd:choice>
+ * 	     <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+ * 	   <xsd:choice>
+ * 	   <xsd:attributeGroup ref="core"/>
+ * 	   <xsd:attributeGroup ref="idopt"/>
+ * 	   <xsd:attributeGroup ref="linkopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element caption is an HTML element and is used in Akoma Ntoso as in HTML, for the caption of a table (a block).
  *
  * <pre>
- * 	 &lt;xsd:element name="caption" type="inline"/&gt;
+ * 	 <xsd:element name="caption" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

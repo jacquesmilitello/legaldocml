@@ -8,12 +8,12 @@ import io.legaldocml.akn.type.ManifestationURI;
  * loaded in place. The src attribute holds the manifestation-level IRI of the resource, while the alt attribute holds
  * the text to be displayed in case the loading of the external resource is not possible for any reason.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="src"&gt;
- * 	   &lt;xsd:attribute name="src" type="manifestationURI" use="required"/&gt;
- * 	   &lt;xsd:attribute name="alt" type="xsd:string"/&gt;
- * 	 &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="src">
+ *   <xsd:attribute name="src" type="manifestationURI" use="required"/>
+ *   <xsd:attribute name="alt" type="xsd:string"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

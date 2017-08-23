@@ -11,7 +11,7 @@ import java.io.IOException;
  * Organization.
  *
  * <pre>
- *   &lt;xsd:element name="TLCOrganization" type="referenceType"/&gt;
+ *   <xsd:element name="TLCOrganization" type="referenceType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

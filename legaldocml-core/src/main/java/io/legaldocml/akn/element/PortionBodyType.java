@@ -13,23 +13,23 @@ import java.util.function.Supplier;
  * The type portionBodyType specifies a content model of a container of a portion of another document.
  *
  * <pre>
- *   &lt;xsd:complexType name="maincontent"&gt;
- *     &lt;xsd:choice&gt;
- *       &lt;xsd:group ref="containerElements"/&gt;
- *       &lt;xsd:group ref="hierElements"/&gt;
- *       &lt;xsd:group ref="ANcontainers"/&gt;
- *       &lt;xsd:element ref="recitals"/&gt;
- *       &lt;xsd:element ref="recital"/&gt;
- *       &lt;xsd:element ref="citations"/&gt;
- *       &lt;xsd:element ref="citation"/&gt;
- *       &lt;xsd:element ref="longTitle"/&gt;
- *       &lt;xsd:element ref="formula"/&gt;
- *       &lt;xsd:element ref="coverPage"/&gt;
- *       &lt;xsd:element ref="preface"/&gt;
- *       &lt;xsd:element ref="preamble"/&gt;
- *     &lt;xsd:choice&gt;
- * 	   &lt;xsd:attributeGroup ref="coreopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="maincontent">
+ *     <xsd:choice>
+ *       <xsd:group ref="containerElements"/>
+ *       <xsd:group ref="hierElements"/>
+ *       <xsd:group ref="ANcontainers"/>
+ *       <xsd:element ref="recitals"/>
+ *       <xsd:element ref="recital"/>
+ *       <xsd:element ref="citations"/>
+ *       <xsd:element ref="citation"/>
+ *       <xsd:element ref="longTitle"/>
+ *       <xsd:element ref="formula"/>
+ *       <xsd:element ref="coverPage"/>
+ *       <xsd:element ref="preface"/>
+ *       <xsd:element ref="preamble"/>
+ *     <xsd:choice>
+ * 	   <xsd:attributeGroup ref="coreopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

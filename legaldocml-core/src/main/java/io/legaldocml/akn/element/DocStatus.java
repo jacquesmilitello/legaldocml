@@ -11,7 +11,7 @@ import java.io.IOException;
  * status of the document.
  *
  * <pre>
- * 	 &lt;xsd:element name="docStatus" type="inline"/&gt;
+ * 	 <xsd:element name="docStatus" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

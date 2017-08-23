@@ -11,16 +11,16 @@ import java.io.IOException;
  * Element bill is used for describing the structure and content of a bill.
  *
  * <pre>
- *   &lt;xsd:element name="bill" type="hierarchicalStructure"&gt;
- *     &lt;xsd:unique name="eId-bill"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@eId"/&gt;
- *     &lt;xsd:unique&gt;
- *     &lt;xsd:unique name="GUID-bill"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@GUID"/&gt;
- *     &lt;xsd:unique&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="bill" type="hierarchicalStructure">
+ *     <xsd:unique name="eId-bill">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@eId"/>
+ *     <xsd:unique>
+ *     <xsd:unique name="GUID-bill">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@GUID"/>
+ *     <xsd:unique>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

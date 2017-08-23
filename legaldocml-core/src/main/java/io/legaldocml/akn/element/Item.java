@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * The element item is a container belonging to a blockList.
  * <pre>
- * 	 &lt;xsd:element name="item" type="itemType"/&gt;
+ * 	 <xsd:element name="item" type="itemType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

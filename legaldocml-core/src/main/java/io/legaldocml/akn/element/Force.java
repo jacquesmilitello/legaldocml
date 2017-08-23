@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element force is a metadata element specifying the period of the force modification.
  *
  * <pre>
- *   &lt;xsd:element name="force" type="periodType"&gt;
+ *   <xsd:element name="force" type="periodType">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

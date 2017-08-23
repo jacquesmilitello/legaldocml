@@ -11,7 +11,7 @@ import java.io.IOException;
  * this document.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRname" type="valueType"/&gt;
+ *   <xsd:element name="FRBRname" type="valueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

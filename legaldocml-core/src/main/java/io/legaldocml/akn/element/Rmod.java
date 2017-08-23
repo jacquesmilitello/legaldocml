@@ -22,15 +22,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the element rmod is an inline element containing the specification of a range of modifications on another document.
  *
  * <pre>
- *   &lt;xsd:element name="rmod"&gt;
- *     &lt;xsd:complexType mixed="true"&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="modType"&gt;
- *           &lt;xsd:attributeGroup ref="range"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="rmod">
+ *     <xsd:complexType mixed="true">
+ *       <xsd:complexContent>
+ *         <xsd:extension base="modType">
+ *           <xsd:attributeGroup ref="range"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

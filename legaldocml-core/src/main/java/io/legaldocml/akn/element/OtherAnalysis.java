@@ -20,13 +20,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the specific categories provided before. Anything can be placed in this element.
  *
  * <pre>
- *   &lt;xsd:complexType&gt;
- *     &lt;xsd:complexContent&gt;
- *       &lt;xsd:extension base="anyOtherType"&gt;
- *         &lt;xsd:attributeGroup ref="source"/&gt;
- *       &lt;xsd:extension&gt;
- *     &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType>
+ *     <xsd:complexContent>
+ *       <xsd:extension base="anyOtherType">
+ *         <xsd:attributeGroup ref="source"/>
+ *       <xsd:extension>
+ *     <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

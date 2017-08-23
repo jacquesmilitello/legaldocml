@@ -20,13 +20,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * document.
  *
  * <pre>
- *   &lt;xsd:complexType name="portionStructure"&gt;
- *     &lt;xsd:sequence&gt;
- * 	     &lt;xsd:element ref="meta"/&gt;
- * 		 &lt;xsd:element ref="portionBody"/&gt;
- *     &lt;xsd:sequence&gt;
- * 	   &lt;xsd:attributeGroup ref="portionAtt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="portionStructure">
+ *     <xsd:sequence>
+ * 	     <xsd:element ref="meta"/>
+ * 		 <xsd:element ref="portionBody"/>
+ *     <xsd:sequence>
+ * 	   <xsd:attributeGroup ref="portionAtt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -6,11 +6,11 @@ package io.legaldocml.akn.attribute;
  * the ontology or a hypertext link. In elements using this attribute definition the href attribute is
  * required.
  *
- * <pre>
- * 	&lt;xsd:attributeGroup name="link"&gt;
- * 		&lt;xsd:attribute name="href" type="xsd:anyURI" use="required"/&gt;
- * 	&lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="link">
+ *   <xsd:attribute name="href" type="xsd:anyURI" use="required"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

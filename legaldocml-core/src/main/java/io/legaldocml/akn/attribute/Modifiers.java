@@ -6,12 +6,12 @@ import io.legaldocml.akn.AknObject;
  * These attributes are used in the analysis to allow manifestation editors to specify whether the analysis is complete
  * and/or ignored in the text.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="modifiers"&gt;
- * 	   &lt;xsd:attribute name="exclusion" type="xsd:boolean" /&gt;
- * 	   &lt;xsd:attribute name="incomplete" type="xsd:boolean" /&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="modifiers">
+ *   <xsd:attribute name="exclusion" type="xsd:boolean" />
+ *   <xsd:attribute name="incomplete" type="xsd:boolean" />
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

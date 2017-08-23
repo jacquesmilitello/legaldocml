@@ -12,7 +12,7 @@ import java.io.IOException;
  * acronym.
  *
  * <pre>
- *   &lt;xsd:element name="abbr" type="inline"&gt;
+ *   <xsd:element name="abbr" type="inline">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

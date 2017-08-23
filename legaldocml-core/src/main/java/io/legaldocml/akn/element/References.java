@@ -11,7 +11,7 @@ import java.io.IOException;
  * organizations, events, roles, concepts, and anything else is managed by the Akoma Ntoso ontology.
  *
  * <pre>
- *   &lt;xsd:element name="references" type="refItems"&gt;
+ *   <xsd:element name="references" type="refItems">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

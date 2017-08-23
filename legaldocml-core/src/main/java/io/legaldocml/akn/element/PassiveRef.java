@@ -11,7 +11,7 @@ import java.io.IOException;
  * document (i.e., a passive references).
  *
  * <pre>
- * 	 &lt;xsd:element name="passiveRef" type="referenceType"/&gt;
+ * 	 <xsd:element name="passiveRef" type="referenceType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

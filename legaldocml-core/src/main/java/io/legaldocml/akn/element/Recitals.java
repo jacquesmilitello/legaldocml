@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element recitals is the section of the preamble that contains recitals.
  *
  * <pre>
- *   &lt;xsd:element name="recitals" type="recitalHierarchy"&gt;
+ *   <xsd:element name="recitals" type="recitalHierarchy">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

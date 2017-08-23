@@ -1,12 +1,12 @@
 package io.legaldocml.akn.attribute;
 
 /**
- * <pre>
- *   &lt;xsd:attributeGroup name="remarkType"&gt;
- *     &lt;xsd:attributeGroup ref="agent"/&gt;
- * 	   &lt;xsd:attribute name="type" type="opinionType"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="remarkType">
+ *   <xsd:attributeGroup ref="agent"/>
+ *   <xsd:attribute name="type" type="opinionType"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

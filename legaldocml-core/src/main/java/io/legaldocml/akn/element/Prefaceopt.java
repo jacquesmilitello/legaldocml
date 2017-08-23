@@ -20,13 +20,13 @@ import static io.legaldocml.akn.element.Groups.prefaceContainers;
  * optional
  *
  * <pre>
- *   &lt;xsd:complexType name="prefaceopt"&gt;
- * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
- * 	     &lt;xsd:group ref="blockElements"/&gt;
- * 		 &lt;xsd:group ref="prefaceContainers"/&gt;
- * 	   &lt;xsd:choice&gt;
- * 	   &lt;xsd:attributeGroup ref="coreopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="prefaceopt">
+ * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
+ * 	     <xsd:group ref="blockElements"/>
+ * 		 <xsd:group ref="prefaceContainers"/>
+ * 	   <xsd:choice>
+ * 	   <xsd:attributeGroup ref="coreopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

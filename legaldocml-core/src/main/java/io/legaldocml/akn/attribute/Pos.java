@@ -8,11 +8,11 @@ import io.legaldocml.akn.type.PosType;
  * The attribute pos is used to identify the specific position of the reference (e.g., in source or destination)
  * with respect to the element being identified with the relative eId.
  *
- * <pre>
- * 	 &lt;xsd:attributeGroup name="pos"&gt;
- * 		&lt;xsd:attribute name="pos" type="posType" /&gt;
- * 	 &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="pos">
+ *   <xsd:attribute name="pos" type="posType" />
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

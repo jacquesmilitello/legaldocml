@@ -5,14 +5,14 @@ import io.legaldocml.akn.AknObject;
 /**
  * These attributes specify the characteristics of the table.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="tableAtts"&gt;
- * 	   &lt;xsd:attribute name="width" type="xsd:integer"/&gt;
- *     &lt;xsd:attribute name="border" type="xsd:integer"/&gt;
- *     &lt;xsd:attribute name="cellspacing" type="xsd:integer"/&gt;
- *     &lt;xsd:attribute name="cellpadding" type="xsd:integer"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="tableAtts">
+ *   <xsd:attribute name="width" type="xsd:integer"/>
+ *   <xsd:attribute name="border" type="xsd:integer"/>
+ *   <xsd:attribute name="cellspacing" type="xsd:integer"/>
+ *   <xsd:attribute name="cellpadding" type="xsd:integer"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

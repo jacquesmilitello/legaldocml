@@ -24,20 +24,20 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * documents.
  *
  * <pre>
- *   &lt;xsd:complexType name="collectionStructure"&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	     &lt;xsd:element ref="meta"/&gt;
- * 		 &lt;xsd:element ref="coverPage" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="preface" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="preamble" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="collectionBody"/&gt;
- * 		 &lt;xsd:element ref="conclusions" minOccurs="0" maxOccurs="1"/&gt;
- * 	  	 &lt;xsd:element ref="attachments" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="components" minOccurs="0" maxOccurs="1"/&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	   &lt;xsd:attributeGroup ref="name"/&gt;
- *     &lt;xsd:attributeGroup ref="contains"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="collectionStructure">
+ * 	   <xsd:sequence>
+ * 	     <xsd:element ref="meta"/>
+ * 		 <xsd:element ref="coverPage" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="preface" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="preamble" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="collectionBody"/>
+ * 		 <xsd:element ref="conclusions" minOccurs="0" maxOccurs="1"/>
+ * 	  	 <xsd:element ref="attachments" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="components" minOccurs="0" maxOccurs="1"/>
+ * 	   <xsd:sequence>
+ * 	   <xsd:attributeGroup ref="name"/>
+ *     <xsd:attributeGroup ref="contains"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

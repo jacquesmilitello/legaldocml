@@ -7,11 +7,11 @@ import io.legaldocml.akn.AknObject;
  * taken from the RFC 4646.
  *
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="language"&gt;
- *     &lt;xsd:attribute name="language" type="language" use="required"/&gt;
- * 	 &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="language">
+ *   <xsd:attribute name="language" type="language" use="required"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

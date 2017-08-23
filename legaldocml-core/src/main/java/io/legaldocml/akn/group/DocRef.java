@@ -6,16 +6,16 @@ import io.legaldocml.akn.element.RefItem;
  * The group docrefs is a list of types of legal references to documents.
  *
  * <pre>
- *   &lt;xsd:group name="docRefs"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:element ref="original"/&gt;
- * 		 &lt;xsd:element ref="passiveRef"/&gt;
- * 		 &lt;xsd:element ref="activeRef"/&gt;
- * 		 &lt;xsd:element ref="jurisprudence"/&gt;
- * 		 &lt;xsd:element ref="hasAttachment"/&gt;
- * 		 &lt;xsd:element ref="attachmentOf"/&gt;
- * 	   &lt;xsd:choice&gt;
- *   &lt;xsd:group&gt;
+ *   <xsd:group name="docRefs">
+ * 	   <xsd:choice>
+ * 	     <xsd:element ref="original"/>
+ * 		 <xsd:element ref="passiveRef"/>
+ * 		 <xsd:element ref="activeRef"/>
+ * 		 <xsd:element ref="jurisprudence"/>
+ * 		 <xsd:element ref="hasAttachment"/>
+ * 		 <xsd:element ref="attachmentOf"/>
+ * 	   <xsd:choice>
+ *   <xsd:group>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -20,15 +20,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * elements as in HTML, i.e. as a way to collect input from the reader and deliver to some server-side process.
  *
  * <pre>
- *   &lt;xsd:element name="fillIn"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="inline"&gt;
- * 		     &lt;xsd:attributeGroup ref="fillInWidth"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="fillIn">
+ * 	   <xsd:complexType mixed="true">
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="inline">
+ * 		     <xsd:attributeGroup ref="fillInWidth"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

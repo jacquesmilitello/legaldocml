@@ -24,15 +24,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * power in some role.
  *
  * <pre>
- * 	 &lt;xsd:element name="lawyer"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="inlinereqreq"&gt;
- *           &lt;xsd:attributeGroup ref="lawyerAtts"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ * 	 <xsd:element name="lawyer">
+ * 	   <xsd:complexType mixed="true">
+ *       <xsd:complexContent>
+ *         <xsd:extension base="inlinereqreq">
+ *           <xsd:attributeGroup ref="lawyerAtts"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

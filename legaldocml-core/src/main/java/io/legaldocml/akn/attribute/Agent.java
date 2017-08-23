@@ -6,12 +6,11 @@ import io.legaldocml.akn.type.AgentRef;
 /**
  * The attribute by is used to identify the agent of an action. It is a reference to a TLCPerson or TLCOrganization
  * element in the references section.
- *
- * <pre>
- *   &lt;xsd:attributeGroup name="agent"&gt;
- * 	   &lt;xsd:attribute name="by" type="agentRef" use="required"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="agent">
+ *   <xsd:attribute name="by" type="agentRef" use="required"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

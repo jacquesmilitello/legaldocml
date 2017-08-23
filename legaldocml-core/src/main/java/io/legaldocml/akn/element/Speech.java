@@ -12,7 +12,7 @@ import java.io.IOException;
  * The element speech is a container of a single speech utterance in a debate. Dialogs between speakers need a speech
  * element each.
  * <pre>
- * 	 &lt;xsd:element name="speech" type="speechType"/&gt;
+ * 	 <xsd:element name="speech" type="speechType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

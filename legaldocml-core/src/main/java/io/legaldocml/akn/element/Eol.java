@@ -14,7 +14,7 @@ import java.io.IOException;
  * line with the attribute breakWith.
  *
  * <pre>
- * 	 &lt;xsd:element name="eol" type="eolType"/&gt;
+ * 	 <xsd:element name="eol" type="eolType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

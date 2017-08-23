@@ -9,11 +9,11 @@ import java.util.Arrays;
  * whitespaces.
  *
  * <pre>
- *   &lt;xsd:simpleType name="noWhiteSpace"&gt;
- *     &lt;xsd:restriction base="xsd:string"&gt;
- *       &lt;xsd:pattern value="[^\s]+"/&gt;
- *     &lt;xsd:restriction>
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="noWhiteSpace">
+ *     <xsd:restriction base="xsd:string">
+ *       <xsd:pattern value="[^\s]+"/>
+ *     <xsd:restriction>
+ *   <xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

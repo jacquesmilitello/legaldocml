@@ -10,13 +10,13 @@ import io.legaldocml.akn.element.SubFlowStructureElement;
  * The group containerElements lists all the elements that are containers.
  *
  * <pre>
- *   &lt;xsd:group name="containerElements"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:group ref="speechSection"/&gt;
- * 		 &lt;xsd:group ref="HTMLcontainers"/&gt;
- * 		 &lt;xsd:element ref="container"/&gt;
- * 	   &lt;xsd:choice&gt;
- *   &lt;xsd:group&gt;
+ *   <xsd:group name="containerElements">
+ * 	   <xsd:choice>
+ * 	     <xsd:group ref="speechSection"/>
+ * 		 <xsd:group ref="HTMLcontainers"/>
+ * 		 <xsd:element ref="container"/>
+ * 	   <xsd:choice>
+ *   <xsd:group>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

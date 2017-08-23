@@ -10,7 +10,7 @@ import java.io.IOException;
  * described.
  *
  * <pre>
- * 	 &lt;xsd:element name="putsInQuestion" type="judicialArgumentType"&gt;
+ * 	 <xsd:element name="putsInQuestion" type="judicialArgumentType">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

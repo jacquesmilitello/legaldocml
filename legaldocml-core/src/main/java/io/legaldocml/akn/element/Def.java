@@ -10,7 +10,7 @@ import java.io.IOException;
  * the element def is an inline element used for the definition of a term used in the rest of the document.
  *
  * <pre>
- * 	 &lt;xsd:element name="def" type="inline"/&gt;
+ * 	 <xsd:element name="def" type="inline"/>
  * </pre>
  */
 public final class Def extends InlineType implements ANsemanticInline {

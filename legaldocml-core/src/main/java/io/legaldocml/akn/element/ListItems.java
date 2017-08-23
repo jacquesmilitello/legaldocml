@@ -11,12 +11,12 @@ import java.io.IOException;
  * items (elements li).
  *
  * <pre>
- *   &lt;xsd:complexType name="listItems"&gt;
- * 	   &lt;xsd:sequence&gt;
- *       &lt;xsd:element ref="li" minOccurs="1" maxOccurs="unbounded"/&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	   &lt;xsd:attributeGroup ref="corereq"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="listItems">
+ * 	   <xsd:sequence>
+ *       <xsd:element ref="li" minOccurs="1" maxOccurs="unbounded"/>
+ * 	   <xsd:sequence>
+ * 	   <xsd:attributeGroup ref="corereq"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * structure are finally specified.
  *
  * <pre>
- * 	 &lt;xsd:element name="content" type="blocksopt"/&gt;
+ * 	 <xsd:element name="content" type="blocksopt"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

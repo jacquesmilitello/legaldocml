@@ -14,16 +14,16 @@ import java.util.function.Supplier;
  * The complex type Amendments is a list of all the amendment elements that can be used on a document analysis.
  *
  * <pre>
- *   &lt;xsd:complexType name="Amendments"&gt;
- * 	   &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
- * 	     &lt;xsd:element ref="textualMod" /&gt;
- * 		 &lt;xsd:element ref="meaningMod" /&gt;
- * 		 &lt;xsd:element ref="scopeMod" /&gt;
- * 		 &lt;xsd:element ref="forceMod" /&gt;
- * 		 &lt;xsd:element ref="efficacyMod" /&gt;
- * 		 &lt;xsd:element ref="legalSystemMod" /&gt;
- * 	   &lt;xsd:choice&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="Amendments">
+ * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
+ * 	     <xsd:element ref="textualMod" />
+ * 		 <xsd:element ref="meaningMod" />
+ * 		 <xsd:element ref="scopeMod" />
+ * 		 <xsd:element ref="forceMod" />
+ * 		 <xsd:element ref="efficacyMod" />
+ * 		 <xsd:element ref="legalSystemMod" />
+ * 	   <xsd:choice>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

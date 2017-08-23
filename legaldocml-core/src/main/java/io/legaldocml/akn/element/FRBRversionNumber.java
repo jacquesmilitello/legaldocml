@@ -11,7 +11,7 @@ import java.io.IOException;
  * identify the specific expression here contained. It allows an arbitrary string.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRversionNumber" type="valueType"/&gt;
+ *   <xsd:element name="FRBRversionNumber" type="valueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element recital is the individual element of the preface that is called recital.
  *
  * <pre>
- *   &lt;xsd:element name="recital" type="itemType"/&gt;
+ *   <xsd:element name="recital" type="itemType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

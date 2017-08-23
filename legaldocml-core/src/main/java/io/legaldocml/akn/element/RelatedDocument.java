@@ -20,15 +20,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element relatedDocument is an inline element to identify the document for which this document is a report of.
  *
  * <pre>
- *   &lt;xsd:element name="relatedDocument"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="inline"&gt;
- * 		     &lt;xsd:attributeGroup ref="link"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 		 &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="relatedDocument">
+ * 	   <xsd:complexType mixed="true">
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="inline">
+ * 		     <xsd:attributeGroup ref="link"/>
+ * 		   <xsd:extension>
+ * 		 <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

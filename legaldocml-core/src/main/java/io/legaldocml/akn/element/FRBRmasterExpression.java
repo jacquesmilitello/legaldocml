@@ -17,7 +17,7 @@ import java.io.IOException;
  * as wIds.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRmasterExpression" type="linkType"/&gt;
+ *   <xsd:element name="FRBRmasterExpression" type="linkType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

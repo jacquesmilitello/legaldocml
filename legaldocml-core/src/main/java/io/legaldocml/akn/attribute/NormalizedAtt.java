@@ -7,11 +7,11 @@ import io.legaldocml.akn.AknObject;
  * The attribute normalized is used in the inline element quantity to provide a normalized value of the number, if
  * appropriate.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="normalizedAtt"&gt;
- *     &lt;xsd:attribute name="normalized" type="xsd:string"/&gt;
- *  &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="normalizedAtt">
+ *   <xsd:attribute name="normalized" type="xsd:string"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

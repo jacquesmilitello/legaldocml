@@ -11,7 +11,7 @@ import java.io.IOException;
  * the jurisdiction of the document.
  *
  * <pre>
- * 	 &lt;xsd:element name="docJurisdiction" type="inline"/&gt;
+ * 	 <xsd:element name="docJurisdiction" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

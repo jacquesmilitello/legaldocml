@@ -11,7 +11,7 @@ import java.io.IOException;
  * in the meeting, e.g. "Mr X. takes the Chair".
  *
  * <pre>
- * 	 &lt;xsd:element name="narrative" type="inline"/&gt;
+ * 	 <xsd:element name="narrative" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

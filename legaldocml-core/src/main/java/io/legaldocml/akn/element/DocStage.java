@@ -11,7 +11,7 @@ import java.io.IOException;
  * stage in which the document sits.
  *
  * <pre>
- *   &lt;xsd:element name="docStage" type="inline"/&gt;
+ *   <xsd:element name="docStage" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

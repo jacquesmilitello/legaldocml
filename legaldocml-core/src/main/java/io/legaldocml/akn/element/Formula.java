@@ -23,15 +23,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * formula). Use the refersTo attribute for the specification of the actual type of formula.
  *
  * <pre>
- *   &lt;xsd:element name="formula"&gt;
- * 	   &lt;xsd:complexType&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="blocksreq"&gt;
- *           &lt;xsd:attributeGroup ref="name"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="formula">
+ * 	   <xsd:complexType>
+ *       <xsd:complexContent>
+ *         <xsd:extension base="blocksreq">
+ *           <xsd:attributeGroup ref="name"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

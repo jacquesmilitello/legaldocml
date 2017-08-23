@@ -14,21 +14,21 @@ import java.util.function.Supplier;
 /**
  *
  * <pre>
- *   &lt;xsd:complexType name="recitalHierarchy"&gt;
- *     &lt;xsd:complexContent&gt;
- * 	     &lt;xsd:extension base="basehierarchy"&gt;
- * 		   &lt;xsd:sequence&gt;
- * 			 &lt;xsd:element ref="intro" minOccurs="0" maxOccurs="1"/&gt;
- * 			 &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
- * 		       &lt;xsd:element ref="componentRef"/&gt;
- * 			   &lt;xsd:element ref="recital"/&gt;
- * 			 &lt;xsd:choice&gt;
- * 			 &lt;xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/&gt;
- * 		   &lt;xsd:sequence&gt;
- * 		   &lt;xsd:attributeGroup ref="corereq"/&gt;
- * 	     &lt;xsd:extension&gt;
- * 	   &lt;xsd:complexContent&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="recitalHierarchy">
+ *     <xsd:complexContent>
+ * 	     <xsd:extension base="basehierarchy">
+ * 		   <xsd:sequence>
+ * 			 <xsd:element ref="intro" minOccurs="0" maxOccurs="1"/>
+ * 			 <xsd:choice minOccurs="1" maxOccurs="unbounded">
+ * 		       <xsd:element ref="componentRef"/>
+ * 			   <xsd:element ref="recital"/>
+ * 			 <xsd:choice>
+ * 			 <xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/>
+ * 		   <xsd:sequence>
+ * 		   <xsd:attributeGroup ref="corereq"/>
+ * 	     <xsd:extension>
+ * 	   <xsd:complexContent>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

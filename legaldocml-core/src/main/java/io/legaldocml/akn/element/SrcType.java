@@ -24,12 +24,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * references to external resources.
  *
  * <pre>
- *   &lt;xsd:complexType name="srcType"&gt;
- * 	   &lt;xsd:attributeGroup ref="core"/&gt;
- * 	   &lt;xsd:attributeGroup ref="idopt"/&gt;
- * 	   &lt;xsd:attributeGroup ref="src"/&gt;
- * 	   &lt;xsd:attributeGroup ref="show"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="srcType">
+ * 	   <xsd:attributeGroup ref="core"/>
+ * 	   <xsd:attributeGroup ref="idopt"/>
+ * 	   <xsd:attributeGroup ref="src"/>
+ * 	   <xsd:attributeGroup ref="show"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

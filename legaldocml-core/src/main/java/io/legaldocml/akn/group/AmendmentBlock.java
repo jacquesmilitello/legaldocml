@@ -6,14 +6,14 @@ import io.legaldocml.akn.AknObject;
  * The group amendmentBlock lists the structures that should be found in an amendment.
  *
  * <pre>
- *   &lt;xsd:group name="amendmentBlock"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:element ref="amendmentHeading" /&gt;
- * 		 &lt;xsd:element ref="amendmentContent" /&gt;
- * 		 &lt;xsd:element ref="amendmentReference" /&gt;
- * 		 &lt;xsd:element ref="amendmentJustification" /&gt;
- * 	   &lt;xsd:choice&gt;
- *   &lt;xsd:group&gt;
+ *   <xsd:group name="amendmentBlock">
+ * 	   <xsd:choice>
+ * 	     <xsd:element ref="amendmentHeading" />
+ * 		 <xsd:element ref="amendmentContent" />
+ * 		 <xsd:element ref="amendmentReference" />
+ * 		 <xsd:element ref="amendmentJustification" />
+ * 	   <xsd:choice>
+ *   <xsd:group>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

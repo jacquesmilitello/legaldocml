@@ -27,15 +27,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * organized by name) in a voting report.
  *
  * <pre>
- *   &lt;xsd:element name="vote"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="inline"&gt;
- * 		     &lt;xsd:attributeGroup ref="voteAtts"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 		 &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="vote">
+ * 	   <xsd:complexType mixed="true">
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="inline">
+ * 		     <xsd:attributeGroup ref="voteAtts"/>
+ * 		   <xsd:extension>
+ * 		 <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

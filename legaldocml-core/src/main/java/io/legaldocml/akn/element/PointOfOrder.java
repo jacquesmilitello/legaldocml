@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a structural container for parts of a debates that are relevant to points of order.
  *
  * <pre>
- * 	 &lt;xsd:element name="pointOfOrder" type="althierarchy"/&gt;
+ * 	 <xsd:element name="pointOfOrder" type="althierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

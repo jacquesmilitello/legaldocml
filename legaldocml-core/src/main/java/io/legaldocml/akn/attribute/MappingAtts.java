@@ -9,14 +9,14 @@ import io.legaldocml.akn.type.WidRef;
  * the eId (attribute current) such structure had during the time interval included between an initial temporalGroup
  * (attribute start) and a final temporalGroup (attribute end).
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="mappingAtts"&gt;
- * 	   &lt;xsd:attribute name="original" type="wIdRef"/&gt;
- *     &lt;xsd:attribute name="current" type="eIdRef"/&gt;
- *     &lt;xsd:attribute name="start" type="eventRefRef"/&gt;
- *     &lt;xsd:attribute name="end" type="eventRefRef"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="mappingAtts">
+ *   <xsd:attribute name="original" type="wIdRef"/>
+ *   <xsd:attribute name="current" type="eIdRef"/>
+ *   <xsd:attribute name="start" type="eventRefRef"/>
+ *   <xsd:attribute name="end" type="eventRefRef"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

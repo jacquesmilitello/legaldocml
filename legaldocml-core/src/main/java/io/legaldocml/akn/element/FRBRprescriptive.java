@@ -12,7 +12,7 @@ import java.io.IOException;
  * as, for instance, a non-normative resolution from an assembly.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRprescriptive" type="booleanValueType"/&gt;
+ *   <xsd:element name="FRBRprescriptive" type="booleanValueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

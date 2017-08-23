@@ -34,19 +34,19 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * a whole.
  *
  * <pre>
- *   &lt;xsd:element name="keyword"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="metaopt"&gt;
- * 		     &lt;xsd:attributeGroup ref="linkopt"/&gt;
- *           &lt;xsd:attributeGroup ref="value"/&gt;
- *           &lt;xsd:attributeGroup ref="show"/&gt;
- *           &lt;xsd:attributeGroup ref="refers"/&gt;
- *           &lt;xsd:attributeGroup ref="dictionary"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="keyword">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="metaopt">
+ * 		     <xsd:attributeGroup ref="linkopt"/>
+ *           <xsd:attributeGroup ref="value"/>
+ *           <xsd:attributeGroup ref="show"/>
+ *           <xsd:attributeGroup ref="refers"/>
+ *           <xsd:attributeGroup ref="dictionary"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

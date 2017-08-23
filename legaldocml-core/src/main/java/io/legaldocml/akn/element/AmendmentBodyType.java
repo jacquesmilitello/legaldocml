@@ -13,14 +13,14 @@ import java.util.function.Supplier;
 
 /**
  * <pre>
- *   &lt;xsd:complexType name="amendmentBodyType"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:sequence minOccurs="1" maxOccurs="unbounded"&gt;
- * 		   &lt;xsd:group ref="amendmentBlock" /&gt;
- * 		&lt;xsd:sequence&gt;
- * 	   &lt;xsd:attributeGroup ref="coreopt" /&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="amendmentBodyType">
+ * 	   <xsd:complexType>
+ * 	     <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+ * 		   <xsd:group ref="amendmentBlock" />
+ * 		<xsd:sequence>
+ * 	   <xsd:attributeGroup ref="coreopt" />
+ * 	   <xsd:complexType>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

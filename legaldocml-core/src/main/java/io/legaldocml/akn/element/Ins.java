@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element ins is an inline element for the specification of editorial insertions.
  *
  * <pre>
- *   &lt;xsd:element name="ins" type="inline"/&gt;
+ *   <xsd:element name="ins" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

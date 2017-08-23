@@ -10,7 +10,7 @@ import java.io.IOException;
  * debate.
  *
  * <pre>
- *   &lt;xsd:element name="recount" type="parliamentaryAnalysisType"/&gt;
+ *   <xsd:element name="recount" type="parliamentaryAnalysisType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

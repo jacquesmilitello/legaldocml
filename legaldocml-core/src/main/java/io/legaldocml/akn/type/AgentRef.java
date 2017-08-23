@@ -9,9 +9,9 @@ import java.util.function.Function;
  * of an agent of the form XYZ, the value is necessarily #XYZ.
  * <p>
  * <pre>
- *   &lt;xsd:simpleType name="agentRef"&gt;
- *     &lt;xsd:restriction base="xsd:anyURI"/&gt;
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="agentRef">
+ *     <xsd:restriction base="xsd:anyURI"/>
+ *   <xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

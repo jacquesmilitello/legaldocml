@@ -6,11 +6,11 @@ import io.legaldocml.akn.AknObject;
  * The attribute value is used here to specify a boolean value for metadata elements. In elements using this attribute
  * definition the value attribute is required.
  *
- * <pre>
- * 	&lt;xsd:attributeGroup name="booleanvalue"&gt;
- * 		&lt;xsd:attribute name="value" type="xsd:boolean" use="required"/&gt;
- * 	&lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="booleanvalue">
+ *   <xsd:attribute name="value" type="xsd:boolean" use="required"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

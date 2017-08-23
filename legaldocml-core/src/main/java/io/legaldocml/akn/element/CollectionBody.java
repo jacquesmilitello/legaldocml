@@ -11,7 +11,7 @@ import java.io.IOException;
  * possibly interspersed with interstitial elements with content that does not form an individual document.
  *
  * <pre>
- * 	 &lt;xsd:element name="collectionBody" type="collectionBodyType"&gt;
+ * 	 <xsd:element name="collectionBody" type="collectionBodyType">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

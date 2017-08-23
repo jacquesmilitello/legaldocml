@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a hierarchical container called "subdivision" either explicitly or due to the local tradition.
  *
  * <pre>
- * 	 &lt;xsd:element name="subdivision" type="hierarchy"/&gt;
+ * 	 <xsd:element name="subdivision" type="hierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

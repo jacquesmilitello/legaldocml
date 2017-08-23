@@ -12,16 +12,16 @@ import java.io.IOException;
  * and combined for any reason whatsoever.
  *
  * <pre>
- *   &lt;xsd:element name="documentCollection" type="collectionStructure"&gt;
- *     &lt;xsd:unique name="eId-documentCollection"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@eId"/&gt;
- *     &lt;xsd:unique&gt;
- *     &lt;xsd:unique name="GUID-documentCollection"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@GUID"/&gt;
- *     &lt;xsd:unique&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="documentCollection" type="collectionStructure">
+ *     <xsd:unique name="eId-documentCollection">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@eId"/>
+ *     <xsd:unique>
+ *     <xsd:unique name="GUID-documentCollection">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@GUID"/>
+ *     <xsd:unique>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

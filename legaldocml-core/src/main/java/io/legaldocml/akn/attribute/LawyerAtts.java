@@ -7,13 +7,13 @@ import io.legaldocml.akn.type.AgentRef;
  * particular, attribute 'as' identifies his/her role, attribute 'for' identifies which party it represents, and
  * attribute 'empoweredBy' identifies another lawyer, if any, this lawyer received the power delegation of power..
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="lawyerAtts"&gt;
- *     &lt;xsd:attributeGroup ref="role"/&gt;
- *     &lt;xsd:attribute name="for" type="agentRef"/&gt;
- *     &lt;xsd:attribute name="empoweredBy" type="agentRef"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="lawyerAtts">
+ *   <xsd:attributeGroup ref="role"/>
+ *   <xsd:attribute name="for" type="agentRef"/>
+ *   <xsd:attribute name="empoweredBy" type="agentRef"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

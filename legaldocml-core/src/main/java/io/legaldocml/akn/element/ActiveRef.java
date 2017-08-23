@@ -11,7 +11,7 @@ import java.io.IOException;
  * (i.e., an active references).
  *
  * <pre>
- * 	 &lt;xsd:element name="activeRef" type="referenceType"/&gt;
+ * 	 <xsd:element name="activeRef" type="referenceType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

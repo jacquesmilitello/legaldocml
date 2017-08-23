@@ -5,12 +5,12 @@ package io.legaldocml.akn.type;
  * explicit mention of a time (e.g., in a debate)
  *
  * <pre>
- *   &lt;xsd:simpleType name="timeType"&gt;
- * 	   &lt;xsd:restriction base="xsd:string"&gt;
- * 	     &lt;xsd:enumeration text="startEvent"/&gt;
- * 		 &lt;xsd:enumeration text="endEvent"/&gt;
- * 	   &lt;xsd:restriction>
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="timeType">
+ * 	   <xsd:restriction base="xsd:string">
+ * 	     <xsd:enumeration text="startEvent"/>
+ * 		 <xsd:enumeration text="endEvent"/>
+ * 	   <xsd:restriction>
+ *   <xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

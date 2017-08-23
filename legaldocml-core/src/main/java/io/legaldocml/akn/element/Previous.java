@@ -12,7 +12,7 @@ import java.io.IOException;
  * the old version, using a full expression-level URI.
  *
  * <pre>
- *  &lt;xsd:element name="previous" type="anyOtherType"/&gt;
+ *  <xsd:element name="previous" type="anyOtherType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

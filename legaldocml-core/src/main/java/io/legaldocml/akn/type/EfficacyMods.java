@@ -5,17 +5,17 @@ package io.legaldocml.akn.type;
  * efficacyMod element.
  *
  * <pre>
- *   &lt;xsd:simpleType name="EfficacyMods"&gt;
- * 	   &lt;xsd:restriction base="xsd:string"&gt;
- * 	     &lt;xsd:enumeration text="entryIntoEfficacy"/&gt;
- * 		 &lt;xsd:enumeration text="endOfEfficacy"/&gt;
- * 		 &lt;xsd:enumeration text="inapplication"/&gt;
- * 		 &lt;xsd:enumeration text="retroactivity"/&gt;
- * 		 &lt;xsd:enumeration text="extraefficacy"/&gt;
- * 		 &lt;xsd:enumeration text="postponementOfEfficacy"/&gt;
- * 		 &lt;xsd:enumeration text="prorogationOfEfficacy"/&gt;
- * 	   &lt;xsd:restriction>
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="EfficacyMods">
+ * 	   <xsd:restriction base="xsd:string">
+ * 	     <xsd:enumeration text="entryIntoEfficacy"/>
+ * 		 <xsd:enumeration text="endOfEfficacy"/>
+ * 		 <xsd:enumeration text="inapplication"/>
+ * 		 <xsd:enumeration text="retroactivity"/>
+ * 		 <xsd:enumeration text="extraefficacy"/>
+ * 		 <xsd:enumeration text="postponementOfEfficacy"/>
+ * 		 <xsd:enumeration text="prorogationOfEfficacy"/>
+ * 	   </xsd:restriction>
+ *   </xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -20,20 +20,20 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element textualMod is a metadata element specifying an (active or passive) textual modification for the document.
  *
  * <pre>
- *   &lt;xsd:element name="textualMod"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	 	   &lt;xsd:extension base="modificationType"&gt;
- * 		     &lt;xsd:sequence&gt;
- * 			   &lt;xsd:element ref="previous" minOccurs="0" maxOccurs="1"/&gt;
- * 			   &lt;xsd:element ref="old" minOccurs="0" maxOccurs="1" /&gt;
- * 			   &lt;xsd:element ref="new" minOccurs="0" maxOccurs="1" /&gt;
- * 			 &lt;xsd:sequence&gt;
- * 			 &lt;xsd:attributeGroup ref="textualModType"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="textualMod">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 	 	   <xsd:extension base="modificationType">
+ * 		     <xsd:sequence>
+ * 			   <xsd:element ref="previous" minOccurs="0" maxOccurs="1"/>
+ * 			   <xsd:element ref="old" minOccurs="0" maxOccurs="1" />
+ * 			   <xsd:element ref="new" minOccurs="0" maxOccurs="1" />
+ * 			 <xsd:sequence>
+ * 			 <xsd:attributeGroup ref="textualModType"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

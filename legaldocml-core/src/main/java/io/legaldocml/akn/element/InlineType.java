@@ -20,12 +20,12 @@ import static io.legaldocml.akn.element.Groups.inlineCM;
  * attribute is optional.
  *
  * <pre>
- *   &lt;xsd:complexType name="inline" mixed="true"&gt;
- *     &lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;
- *       &lt;xsd:group ref="InlineCM"/&gt;
- *     &lt;xsd:choice&gt;
- *     &lt;xsd:attributeGroup ref="coreopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="inline" mixed="true">
+ *     <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ *       <xsd:group ref="InlineCM"/>
+ *     <xsd:choice>
+ *     <xsd:attributeGroup ref="coreopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

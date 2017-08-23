@@ -10,7 +10,7 @@ import java.io.IOException;
  * used in the work-level IRI of this document
  *
  * <pre>
- *  	&lt;xsd:element name="FRBRsubtype" type="valueType"/&gt;
+ *  	<xsd:element name="FRBRsubtype" type="valueType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

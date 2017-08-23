@@ -12,10 +12,10 @@ import java.util.ArrayList;
  * attribute is required.
  *
  * <pre>
- *   &lt;xsd:complexType name="markerreq"/&gt;
- *     &lt;xsd:attributeGroup ref="core"/&gt;
- *     &lt;xsd:attributeGroup ref="idreq"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="markerreq"/>
+ *     <xsd:attributeGroup ref="core"/>
+ *     <xsd:attributeGroup ref="idreq"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

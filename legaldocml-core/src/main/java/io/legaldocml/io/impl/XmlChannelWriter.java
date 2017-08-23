@@ -270,9 +270,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         this.buffer.position(pos);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void write(char[] text, int off, int len) throws IOException {
         checkSize(text.length << 2);
 
@@ -410,9 +407,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void write(long address, int len) throws IOException {
         checkSize(len << 2);
         int pos = this.buffer.position();
@@ -425,9 +419,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         this.buffer.position(pos + len);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void write(long address, int len, Externalizable value) throws IOException {
         checkSize(len << 2);
         int pos = this.buffer.position();
@@ -456,9 +447,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         this.buffer.position(pos);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void write(LocalDateTime dateTime) throws IOException {
         checkSize(32);
 
@@ -575,9 +563,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void write(LocalDate date) throws IOException {
         checkSize(16);
 
@@ -635,18 +620,12 @@ public abstract class XmlChannelWriter implements XmlWriter {
         return PI_END.clone();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void pushNS(long addr, long size) {
         namespacesPtr++;
         this.namespaces[namespacesPtr] = addr;
         this.namespacesSize[namespacesPtr] = size;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void popNS() {
         this.namespacesPtr--;
     }

@@ -7,16 +7,15 @@ import java.time.OffsetDateTime;
 /**
  * The attribute time is used to give a normalized text for a time according to the XSD syntax HH:MM:SS.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="time"&gt;
- *     &lt;xsd:attribute name="date" use="required"&gt;
- * 	     &lt;xsd:simpleType>
- *         &lt;xsd:union memberTypes="xsd:date xsd:dateTime"/&gt;
- *       &lt;xsd:simpleType>
- *     &lt;xsd:attribute>
- * 	 &lt;xsd:attribute>
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="time">
+ *   <xsd:attribute name="date" use="required">
+ *     <xsd:simpleType>
+ *       <xsd:union memberTypes="xsd:date xsd:dateTime"/>
+ *     </xsd:simpleType>
+ *   </xsd:attribute>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

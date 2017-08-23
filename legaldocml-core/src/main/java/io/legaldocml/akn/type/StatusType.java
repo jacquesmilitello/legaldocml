@@ -16,20 +16,20 @@ package io.legaldocml.akn.type;
  *</ul>
  *
  * <pre>
- *   &lt;xsd:simpleType name="statusType"&gt;
- * 	   &lt;xsd:restriction base="xsd:string"&gt;
- * 	     &lt;xsd:enumeration value="removed"/&gt;
- *       &lt;xsd:enumeration value="temporarilyRemoved"/&gt;
- *       &lt;xsd:enumeration value="translated"/&gt;
- *       &lt;xsd:enumeration value="editorial"/&gt;
- *       &lt;xsd:enumeration value="edited"/&gt;
- *       &lt;xsd:enumeration value="verbatim"/&gt;
- *       &lt;xsd:enumeration value="incomplete"/&gt;
- *       &lt;xsd:enumeration value="unknown"/&gt;
- *       &lt;xsd:enumeration value="undefined"/&gt;
- *       &lt;xsd:enumeration value="ignored"/&gt;
- * 	   &lt;xsd:restriction>
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="statusType">
+ * 	   <xsd:restriction base="xsd:string">
+ * 	     <xsd:enumeration value="removed"/>
+ *       <xsd:enumeration value="temporarilyRemoved"/>
+ *       <xsd:enumeration value="translated"/>
+ *       <xsd:enumeration value="editorial"/>
+ *       <xsd:enumeration value="edited"/>
+ *       <xsd:enumeration value="verbatim"/>
+ *       <xsd:enumeration value="incomplete"/>
+ *       <xsd:enumeration value="unknown"/>
+ *       <xsd:enumeration value="undefined"/>
+ *       <xsd:enumeration value="ignored"/>
+ * 	   <xsd:restriction>
+ *   <xsd:simpleType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

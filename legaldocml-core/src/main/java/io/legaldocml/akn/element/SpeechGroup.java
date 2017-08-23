@@ -29,15 +29,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * that is causing the complex sequence that follows. Attributes by, as and to are those of the main speech.
  *
  * <pre>
- *   &lt;xsd:element name="speechGroup"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="althierarchy"&gt;
- * 		     &lt;xsd:attributeGroup ref="speechAtts"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 		 &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="speechGroup">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="althierarchy">
+ * 		     <xsd:attributeGroup ref="speechAtts"/>
+ * 		   <xsd:extension>
+ * 		 <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

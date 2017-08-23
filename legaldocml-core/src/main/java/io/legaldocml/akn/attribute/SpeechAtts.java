@@ -1,6 +1,5 @@
 package io.legaldocml.akn.attribute;
 
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.type.AgentRef;
 
 import java.time.LocalDateTime;
@@ -13,15 +12,15 @@ import java.time.LocalDateTime;
  * to identifies the addressee of the speech. All of them are references to person or organization elements in the
  * references section.
  *
- * <pre>
- *   &lt;xsd:attributeGroup name="speechAtts"&gt;
- *     &lt;xsd:attributeGroup ref="agent"/&gt;
- * 	   &lt;xsd:attributeGroup ref="role"/&gt;
- * 	   &lt;xsd:attribute name="startTime" type="xsd:dateTime"/&gt;
- * 	   &lt;xsd:attribute name="endTime" type="xsd:dateTime"/&gt;
- * 	   &lt;xsd:attribute name="to" type="agentRef"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="speechAtts">
+ *   <xsd:attributeGroup ref="agent"/>
+ *   <xsd:attributeGroup ref="role"/>
+ *   <xsd:attribute name="startTime" type="xsd:dateTime"/>
+ *   <xsd:attribute name="endTime" type="xsd:dateTime"/>
+ *   <xsd:attribute name="to" type="agentRef"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

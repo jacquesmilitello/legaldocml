@@ -7,9 +7,9 @@ import io.legaldocml.unsafe.UnsafeString;
  * These values are references of a manifestation-Level document only
  *
  * <pre>
- *   &lt;xsd:simpleType name="manifestationURI"&gt;
- *     &lt;xsd:restriction base="xsd:anyURI"/&gt;
- *   &lt;xsd:simpleType>
+ *   <xsd:simpleType name="manifestationURI">
+ *     <xsd:restriction base="xsd:anyURI"/>
+ *   <xsd:simpleType>
  * </pre>
  */
 public final class ManifestationURI extends AbstractUri {

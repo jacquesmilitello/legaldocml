@@ -4,11 +4,11 @@ package io.legaldocml.akn.attribute;
 import io.legaldocml.akn.AknObject;
 
 /**
- * <pre>
- *  &lt;xsd:attributeGroup name="eventType"&gt;
- *      &lt;xsd:attribute name="type" type="eventType"/&gt;
- *  &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="eventType">
+ *   <xsd:attribute name="type" type="eventType"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

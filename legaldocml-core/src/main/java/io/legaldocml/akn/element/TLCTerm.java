@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element TLCTerm is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Term.
  *
  * <pre>
- *  &lt;xsd:element name="TLCTerm" type="referenceType"/&gt;
+ *  <xsd:element name="TLCTerm" type="referenceType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

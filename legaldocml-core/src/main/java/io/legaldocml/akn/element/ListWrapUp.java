@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element listWrapUp is an optional element of blockList after all items of the list itself.
  *
  * <pre>
- *   &lt;xsd:element name="listWrapUp" type="inline"/&gt;
+ *   <xsd:element name="listWrapUp" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

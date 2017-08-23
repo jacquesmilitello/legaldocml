@@ -15,13 +15,13 @@ import java.util.function.Supplier;
  * analysis of a debate.
  *
  * <pre>
- *   &lt;xsd:complexType name="parliamentaryAnalysis"&gt;
- *     &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
- *       &lt;xsd:element ref="quorumVerification"/&gt;
- *       &lt;xsd:element ref="voting"/&gt;
- * 	     &lt;xsd:element ref="recount"/&gt;
- * 	   &lt;xsd:choice&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="parliamentaryAnalysis">
+ *     <xsd:choice minOccurs="1" maxOccurs="unbounded">
+ *       <xsd:element ref="quorumVerification"/>
+ *       <xsd:element ref="voting"/>
+ * 	     <xsd:element ref="recount"/>
+ * 	   <xsd:choice>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

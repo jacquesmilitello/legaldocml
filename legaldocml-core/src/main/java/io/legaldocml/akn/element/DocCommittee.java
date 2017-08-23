@@ -14,15 +14,15 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
  * the committee within which the document originated.
  *
  * <pre>
- *   &lt;xsd:element name="docCommittee"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="inline"&gt;
- * 		     &lt;xsd:attributeGroup ref="optvalue"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 		 &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="docCommittee">
+ * 	   <xsd:complexType mixed="true">
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="inline">
+ * 		     <xsd:attributeGroup ref="optvalue"/>
+ * 		   <xsd:extension>
+ * 		 <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

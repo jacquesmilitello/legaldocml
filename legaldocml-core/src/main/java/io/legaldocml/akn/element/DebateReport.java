@@ -10,16 +10,16 @@ import java.io.IOException;
  * Element debateReport is used for descriving the structure and content of a report.
  *
  * <pre>
- *   &lt;xsd:element name="debateReport" type="openStructure"&gt;
- * 	   &lt;xsd:unique name="eId-debateReport"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@eId"/&gt;
- *     &lt;xsd:unique&gt;
- *     &lt;xsd:unique name="GUID-debateReport"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@GUID"/&gt;
- *     &lt;xsd:unique&gt;
- * 	 &lt;xsd:element&gt;
+ *   <xsd:element name="debateReport" type="openStructure">
+ * 	   <xsd:unique name="eId-debateReport">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@eId"/>
+ *     <xsd:unique>
+ *     <xsd:unique name="GUID-debateReport">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@GUID"/>
+ *     <xsd:unique>
+ * 	 <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

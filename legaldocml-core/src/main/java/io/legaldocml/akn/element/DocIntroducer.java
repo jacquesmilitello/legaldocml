@@ -11,7 +11,7 @@ import java.io.IOException;
  * the individual introducing of the document.
  *
  * <pre>
- * 	 &lt;xsd:element name="docIntroducer" type="inline"/&gt;
+ * 	 <xsd:element name="docIntroducer" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

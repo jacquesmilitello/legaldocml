@@ -9,7 +9,7 @@ import java.io.IOException;
  * The element applies is a metadata element specifying a reference to a source applyed by the argument being described.
  *
  * <pre>
- * 	 &lt;xsd:element name="applies" type="judicialArgumentType"&gt;
+ * 	 <xsd:element name="applies" type="judicialArgumentType">
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

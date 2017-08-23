@@ -33,16 +33,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The complex type countType lists all the properties associated to elements of parliamentary count.
  *
  * <pre>
- *   &lt;xsd:complexType name="countType"&gt;
- * 	   &lt;xsd:choice&gt;
- * 	     &lt;xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/&gt;
- * 	   &lt;xsd:choice&gt;
- * 	   &lt;xsd:attributeGroup ref="core"/&gt;
- * 	   &lt;xsd:attributeGroup ref="idreq"/&gt;
- * 	   &lt;xsd:attributeGroup ref="value"/&gt;
- * 	   &lt;xsd:attributeGroup ref="refers"/&gt;
- * 	   &lt;xsd:attributeGroup ref="linkopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="countType">
+ * 	   <xsd:choice>
+ * 	     <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+ * 	   <xsd:choice>
+ * 	   <xsd:attributeGroup ref="core"/>
+ * 	   <xsd:attributeGroup ref="idreq"/>
+ * 	   <xsd:attributeGroup ref="value"/>
+ * 	   <xsd:attributeGroup ref="refers"/>
+ * 	   <xsd:attributeGroup ref="linkopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

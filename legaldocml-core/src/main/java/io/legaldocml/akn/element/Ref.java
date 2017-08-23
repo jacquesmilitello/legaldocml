@@ -19,15 +19,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element ref is an inline element containing a legal reference.
  *
  * <pre>
- *   &lt;xsd:element name="ref"&gt;
- * 	   &lt;xsd:complexType mixed="true"&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="inlinereq"&gt;
- * 		     &lt;xsd:attributeGroup ref="link"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="ref">
+ * 	   <xsd:complexType mixed="true">
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="inlinereq">
+ * 		     <xsd:attributeGroup ref="link"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

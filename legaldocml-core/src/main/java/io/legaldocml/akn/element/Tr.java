@@ -12,15 +12,15 @@ import java.util.function.Supplier;
 
 /**
  * <pre>
- *   &lt;xsd:element name="tr"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:choice minOccurs="1" maxOccurs="unbounded"&gt;
- * 		   &lt;xsd:element ref="th"/&gt;
- * 		   &lt;xsd:element ref="td"/&gt;
- * 		 &lt;xsd:choice&gt;
- * 		 &lt;xsd:attributeGroup ref="coreopt"/&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="tr">
+ * 	   <xsd:complexType>
+ * 	     <xsd:choice minOccurs="1" maxOccurs="unbounded">
+ * 		   <xsd:element ref="th"/>
+ * 		   <xsd:element ref="td"/>
+ * 		 <xsd:choice>
+ * 		 <xsd:attributeGroup ref="coreopt"/>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

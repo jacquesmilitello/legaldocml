@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element TLCConcept is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Concept.
  *
  * <pre>
- *   &lt;xsd:element name="TLCConcept" type="referenceType"/&gt;
+ *   <xsd:element name="TLCConcept" type="referenceType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

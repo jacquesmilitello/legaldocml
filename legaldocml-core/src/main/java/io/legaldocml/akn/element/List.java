@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a hierarchical container called "list" either explicitly or due to the local tradition.
  *
  * <pre>
- *   &lt;xsd:element name="list" type="hierarchy"/&gt;
+ *   <xsd:element name="list" type="hierarchy"/>
  * </pre>
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  *

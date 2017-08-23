@@ -34,19 +34,19 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * each event, a date, a type and a document that generated the event must be referenced.
  *
  * <pre>
- *   &lt;xsd:element name="eventRef"&gt;
- * 	   &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="anyOtherType"&gt;
- * 		     &lt;xsd:attributeGroup ref="date"/&gt;
- *           &lt;xsd:attributeGroup ref="source"/&gt;
- *           &lt;xsd:attributeGroup ref="refers"/&gt;
- *           &lt;xsd:attributeGroup ref="eventType"/&gt;
- *           &lt;xsd:attributeGroup ref="originating"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 	   &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="eventRef">
+ * 	   <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="anyOtherType">
+ * 		     <xsd:attributeGroup ref="date"/>
+ *           <xsd:attributeGroup ref="source"/>
+ *           <xsd:attributeGroup ref="refers"/>
+ *           <xsd:attributeGroup ref="eventType"/>
+ *           <xsd:attributeGroup ref="originating"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ * 	   <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

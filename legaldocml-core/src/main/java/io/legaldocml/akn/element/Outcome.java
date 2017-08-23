@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element outcome is an inline that wraps the outcome of a vote.
  *
  * <pre>
- *   &lt;xsd:element name="outcome" type="inline"/&gt;
+ *   <xsd:element name="outcome" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

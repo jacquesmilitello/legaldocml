@@ -14,10 +14,9 @@ import java.util.List;
 /**
  * The element akomaNtoso is the root element of all document types in Akoma Ntoso. It follows the pattern Universal
  * Root (http://www.xmlpatterns.com/UniversalRootMain.shtml).
- * <p>
- * <pre>
- *   &lt;xsd:element name="akomaNtoso" type="akomaNtosoType"&gt;
- * </pre>
+ * ```xml
+ * <xsd:element name="akomaNtoso" type="akomaNtosoType">
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

@@ -11,7 +11,7 @@ import java.io.IOException;
  * The element p is an HTML element and is used in Akoma Ntoso as in HTML, for the generic paragraph of text (a block).
  *
  * <pre>
- * 	 &lt;xsd:element name="p" type="inline"/&gt;
+ * 	 <xsd:element name="p" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

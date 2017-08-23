@@ -11,7 +11,7 @@ import java.io.IOException;
  * This element is a structural container for parts of a debates that contain prayers.
  *
  * <pre>
- * 	 &lt;xsd:element name="prayers" type="althierarchy"/&gt;
+ * 	 <xsd:element name="prayers" type="althierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

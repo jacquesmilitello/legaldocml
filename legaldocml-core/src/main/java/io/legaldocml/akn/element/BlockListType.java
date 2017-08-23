@@ -11,14 +11,14 @@ import java.io.IOException;
  * The blockListType is the type of element blockList.
  *
  * <pre>
- *   &lt;xsd:complexType name="blockListType"&gt;
- * 	   &lt;xsd:sequence&gt;
- *       &lt;xsd:element ref="listIntroduction" minOccurs="0" maxOccurs="1"/&gt;
- * 		 &lt;xsd:element ref="item" minOccurs="1" maxOccurs="unbounded"/&gt;
- * 		 &lt;xsd:element ref="listWrapUp" minOccurs="0" maxOccurs="1"/&gt;
- * 	   &lt;xsd:sequence&gt;
- * 	 &lt;xsd:attributeGroup ref="corereq"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="blockListType">
+ * 	   <xsd:sequence>
+ *       <xsd:element ref="listIntroduction" minOccurs="0" maxOccurs="1"/>
+ * 		 <xsd:element ref="item" minOccurs="1" maxOccurs="unbounded"/>
+ * 		 <xsd:element ref="listWrapUp" minOccurs="0" maxOccurs="1"/>
+ * 	   <xsd:sequence>
+ * 	 <xsd:attributeGroup ref="corereq"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -11,7 +11,7 @@ import java.io.IOException;
  * This element is a structural container for parts of a debates that contain the administration of an oath.
  *
  * <pre>
- * 	 &lt;xsd:element name="administrationOfOath" type="althierarchy"/&gt;
+ * 	 <xsd:element name="administrationOfOath" type="althierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

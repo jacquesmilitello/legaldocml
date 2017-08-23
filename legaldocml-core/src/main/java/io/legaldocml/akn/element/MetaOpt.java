@@ -13,10 +13,10 @@ import java.util.ArrayList;
  * attribute is optional.
  *
  * <pre>
- *   &lt;xsd:complexType name="metaopt"&gt;
- *     &lt;xsd:attributeGroup ref="core"/&gt;
- *     &lt;xsd:attributeGroup ref="idopt"/&gt;
- *   &lt;xsd:complexType&gt;
+ *   <xsd:complexType name="metaopt">
+ *     <xsd:attributeGroup ref="core"/>
+ *     <xsd:attributeGroup ref="idopt"/>
+ *   <xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

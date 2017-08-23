@@ -10,7 +10,7 @@ import java.io.IOException;
  * hierarchical elements.
  *
  * <pre>
- *   &lt;xsd:element name="wrap" type="blocksreq"/&gt;
+ *   <xsd:element name="wrap" type="blocksreq"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

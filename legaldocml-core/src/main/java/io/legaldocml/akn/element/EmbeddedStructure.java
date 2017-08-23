@@ -25,16 +25,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * implies that the quote is left in the text; quote="" implies that there is no quote character.
  *
  * <pre>
- *   &lt;xsd:element name="embeddedStructure"&gt;
- * 	   &lt;xsd:complexType&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="subFlowStructure"&gt;
- *           &lt;xsd:attributeGroup ref="quote"/&gt;
- *           &lt;xsd:attributeGroup ref="linkopt"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- * 	 &lt;xsd:element&gt;
+ *   <xsd:element name="embeddedStructure">
+ * 	   <xsd:complexType>
+ *       <xsd:complexContent>
+ *         <xsd:extension base="subFlowStructure">
+ *           <xsd:attributeGroup ref="quote"/>
+ *           <xsd:attributeGroup ref="linkopt"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ * 	 <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

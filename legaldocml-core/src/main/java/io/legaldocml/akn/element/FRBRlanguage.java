@@ -22,15 +22,15 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
  * used in the content of this expression.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRlanguage"&gt;
- *     &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="metaopt"&gt;
- * 		     &lt;xsd:attributeGroup ref="language"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="FRBRlanguage">
+ *     <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="metaopt">
+ * 		     <xsd:attributeGroup ref="language"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

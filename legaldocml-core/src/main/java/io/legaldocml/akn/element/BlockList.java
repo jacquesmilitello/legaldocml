@@ -12,7 +12,7 @@ import java.io.IOException;
  * in a list.
  *
  * <pre>
- *   &lt;xsd:element name="blockList" type="blockListType"&gt;
+ *   <xsd:element name="blockList" type="blockListType">
  * </pre>
  */
 public final class BlockList extends BlockListType implements ANblock {

@@ -10,7 +10,7 @@ import java.io.IOException;
  * This element is a hierarchical container called "subtitle" either explicitly or due to the local tradition.
  *
  * <pre>
- * 	 &lt;xsd:element name="subtitle" type="hierarchy"/&gt;
+ * 	 <xsd:element name="subtitle" type="hierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

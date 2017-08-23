@@ -3,11 +3,11 @@ package io.legaldocml.akn.attribute;
 import io.legaldocml.akn.AknObject;
 
 /**
- * <pre>
- *   &lt;xsd:attributeGroup name="remarkType"&gt;
- * 	   &lt;xsd:attribute name="type" type="remarkType"/&gt;
- *   &lt;xsd:attributeGroup&gt;
- * </pre>
+ * ```xml
+ * <xsd:attributeGroup name="remarkType">
+ *   <xsd:attribute name="type" type="remarkType"/>
+ * </xsd:attributeGroup>
+ * ```
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */

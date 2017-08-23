@@ -11,7 +11,7 @@ import java.io.IOException;
  * being the neutral citation for the judgment.
  *
  * <pre>
- * 	 &lt;xsd:element name="neutralCitation" type="inline"/&gt;
+ * 	 <xsd:element name="neutralCitation" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

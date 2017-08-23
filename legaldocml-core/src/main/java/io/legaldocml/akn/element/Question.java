@@ -11,7 +11,7 @@ import java.io.IOException;
  * official position.
  *
  * <pre>
- * 	 &lt;xsd:element name="question" type="speechType"/&gt;
+ * 	 <xsd:element name="question" type="speechType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

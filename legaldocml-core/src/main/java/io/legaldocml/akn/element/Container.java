@@ -13,7 +13,7 @@ import java.io.IOException;
  * The element container is a generic element for a container.
  *
  * <pre>
- * 	 &lt;xsd:element name="container" type="containerType"/&gt;
+ * 	 <xsd:element name="container" type="containerType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

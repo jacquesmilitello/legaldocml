@@ -11,7 +11,7 @@ import java.io.IOException;
  * The element blockContainer is used as a container of many individual block elements in a block context
  *
  * <pre>
- * 	&lt;xsd:element name="blockContainer" type="blockContainerType"/&gt;
+ * 	<xsd:element name="blockContainer" type="blockContainerType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

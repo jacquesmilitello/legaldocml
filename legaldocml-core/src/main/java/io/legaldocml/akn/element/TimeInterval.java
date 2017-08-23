@@ -32,17 +32,17 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * Ntoso ontology and specified in the references section.
  *
  * <pre>
- * 	 &lt;xsd:element name="timeInterval"&gt;
- * 	   &lt;xsd:complexType&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="metaopt"&gt;
- *           &lt;xsd:attributeGroup ref="interval"/&gt;
- *           &lt;xsd:attributeGroup ref="duration"/&gt;
- *           &lt;xsd:attributeGroup ref="refersreq"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ * 	 <xsd:element name="timeInterval">
+ * 	   <xsd:complexType>
+ *       <xsd:complexContent>
+ *         <xsd:extension base="metaopt">
+ *           <xsd:attributeGroup ref="interval"/>
+ *           <xsd:attributeGroup ref="duration"/>
+ *           <xsd:attributeGroup ref="refersreq"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

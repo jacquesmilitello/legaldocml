@@ -5,22 +5,22 @@ import io.legaldocml.akn.element.Meta;
 /**
  * The type documentType lists all the document types that are managed by Akoma Ntoso.
  * <pre>
- *   &lt;xsd:group name="documentType"&gt;
- *     &lt;xsd:choice&gt;
- *       &lt;xsd:element ref="amendmentList"/&gt;
- *       &lt;xsd:element ref="officialGazette"/&gt;
- *       &lt;xsd:element ref="documentCollection"/&gt;
- *       &lt;xsd:element ref="act"/&gt;
- *       &lt;xsd:element ref="bill"/&gt;
- *       &lt;xsd:element ref="debateReport"/&gt;
- *       &lt;xsd:element ref="debate"/&gt;
- *       &lt;xsd:element ref="statement"/&gt;
- *       &lt;xsd:element ref="amendment"/&gt;
- *       &lt;xsd:element ref="judgment"/&gt;
- *       &lt;xsd:element ref="portion"/&gt;
- *       &lt;xsd:element ref="doc"/&gt;
- *     &lt;xsd:choice&gt;
- *   &lt;xsd:group&gt;
+ *   <xsd:group name="documentType">
+ *     <xsd:choice>
+ *       <xsd:element ref="amendmentList"/>
+ *       <xsd:element ref="officialGazette"/>
+ *       <xsd:element ref="documentCollection"/>
+ *       <xsd:element ref="act"/>
+ *       <xsd:element ref="bill"/>
+ *       <xsd:element ref="debateReport"/>
+ *       <xsd:element ref="debate"/>
+ *       <xsd:element ref="statement"/>
+ *       <xsd:element ref="amendment"/>
+ *       <xsd:element ref="judgment"/>
+ *       <xsd:element ref="portion"/>
+ *       <xsd:element ref="doc"/>
+ *     <xsd:choice>
+ *   <xsd:group>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

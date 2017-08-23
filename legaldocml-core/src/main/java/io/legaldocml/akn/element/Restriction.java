@@ -23,16 +23,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * to a specific legislative, geographic or temporal events through the refersTo attribute.
  *
  * <pre>
- *   &lt;xsd:element name="restriction" type="anyOtherType"&gt;
- * 	   &lt;xsd:complexType&gt;
- *       &lt;xsd:complexContent&gt;
- *         &lt;xsd:extension base="anyOtherType"&gt;
- *           &lt;xsd:attributeGroup ref="refers"/&gt;
- *           &lt;xsd:attributeGroup ref="restrictionType"/&gt;
- *         &lt;xsd:extension&gt;
- *       &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="restriction" type="anyOtherType">
+ * 	   <xsd:complexType>
+ *       <xsd:complexContent>
+ *         <xsd:extension base="anyOtherType">
+ *           <xsd:attributeGroup ref="refers"/>
+ *           <xsd:attributeGroup ref="restrictionType"/>
+ *         <xsd:extension>
+ *       <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * <pre>
  *
  *     @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element term is an inline element to identify a text fragment introducing or referring to a term in the ontology
  *
  * <pre>
- * 	 &lt;xsd:element name="term" type="inlinereqreq"/&gt;
+ * 	 <xsd:element name="term" type="inlinereqreq"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

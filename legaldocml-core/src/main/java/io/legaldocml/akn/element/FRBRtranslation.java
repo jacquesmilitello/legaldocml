@@ -32,19 +32,19 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * of.
  *
  * <pre>
- *   &lt;xsd:element name="FRBRtranslation"&gt;
- *     &lt;xsd:complexType&gt;
- * 	     &lt;xsd:complexContent&gt;
- * 		   &lt;xsd:extension base="metaopt"&gt;
- * 		     &lt;xsd:attributeGroup ref="link"/&gt;
- *           &lt;xsd:attributeGroup ref="fromLanguage"/&gt;
- *           &lt;xsd:attributeGroup ref="authoritative"/&gt;
- *           &lt;xsd:attributeGroup ref="pivot"/&gt;
- *           &lt;xsd:attributeGroup ref="agent"/&gt;
- * 		   &lt;xsd:extension&gt;
- * 	     &lt;xsd:complexContent&gt;
- *     &lt;xsd:complexType&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="FRBRtranslation">
+ *     <xsd:complexType>
+ * 	     <xsd:complexContent>
+ * 		   <xsd:extension base="metaopt">
+ * 		     <xsd:attributeGroup ref="link"/>
+ *           <xsd:attributeGroup ref="fromLanguage"/>
+ *           <xsd:attributeGroup ref="authoritative"/>
+ *           <xsd:attributeGroup ref="pivot"/>
+ *           <xsd:attributeGroup ref="agent"/>
+ * 		   <xsd:extension>
+ * 	     <xsd:complexContent>
+ *     <xsd:complexType>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

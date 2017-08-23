@@ -13,7 +13,7 @@ import java.io.IOException;
  * the break of a word at the end of the page with the attribute breakWith.
  *
  * <pre>
- * 	&lt;xsd:element name="eop" type="eolType"/&gt;
+ * 	<xsd:element name="eop" type="eolType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

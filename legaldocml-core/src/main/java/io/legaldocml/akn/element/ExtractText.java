@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element extractText is an inline element containing a string used as an extract from another document.
  *
  * <pre>
- * 	&lt;xsd:element name="extractText" type="inline"/&gt;
+ * 	<xsd:element name="extractText" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element judgmentBody is the container of the main hierarchy of a judgment document.
  *
  * <pre>
- * 	 &lt;xsd:element name="judgmentBody" type="judgmentBodyType"/&gt;
+ * 	 <xsd:element name="judgmentBody" type="judgmentBodyType"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

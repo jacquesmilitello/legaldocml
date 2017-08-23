@@ -12,7 +12,7 @@ import java.io.IOException;
  * papers, etc.).
  *
  * <pre>
- *   &lt;xsd:element name="other" type="blocksopt"/&gt;
+ *   <xsd:element name="other" type="blocksopt"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

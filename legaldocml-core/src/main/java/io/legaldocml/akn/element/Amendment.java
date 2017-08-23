@@ -11,16 +11,16 @@ import java.io.IOException;
  * Element amendment is used for descriving the structure and content of an amendment.
  *
  * <pre>
- *   &lt;xsd:element name="amendment" type="amendmentStructure"&gt;
- * 	   &lt;xsd:unique name="eId-amendment"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@eId"/&gt;
- *     &lt;xsd:unique&gt;
- *     &lt;xsd:unique name="GUID-amendment"&gt;
- *       &lt;xsd:selector xpath=".//*"/&gt;
- *       &lt;xsd:field xpath="@GUID"/&gt;
- *     &lt;xsd:unique&gt;
- *   &lt;xsd:element&gt;
+ *   <xsd:element name="amendment" type="amendmentStructure">
+ * 	   <xsd:unique name="eId-amendment">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@eId"/>
+ *     <xsd:unique>
+ *     <xsd:unique name="GUID-amendment">
+ *       <xsd:selector xpath=".//*"/>
+ *       <xsd:field xpath="@GUID"/>
+ *     <xsd:unique>
+ *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

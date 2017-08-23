@@ -10,7 +10,7 @@ import java.io.IOException;
  * The element docType is an inline element within preface to identify the string used by the document for its own type.
  *
  * <pre>
- * 	 &lt;xsd:element name="docType" type="inline"/&gt;
+ * 	 <xsd:element name="docType" type="inline"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
