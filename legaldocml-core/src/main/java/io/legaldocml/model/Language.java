@@ -1,4 +1,4 @@
-package io.legaldocml.iso;
+package io.legaldocml.model;
 
 /**
  * We use the ISO 639-1:2002 and ISO 639-1:2002, Codes for the representation of names of languages — Part 1: Alpha-2

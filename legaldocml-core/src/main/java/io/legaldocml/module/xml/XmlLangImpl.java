@@ -1,11 +1,11 @@
 package io.legaldocml.module.xml;
 
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.iso.Iso639;
-import io.legaldocml.iso.Language;
+import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.model.Language;
+import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.xml.attribute.XmlLang;
 
 import java.io.IOException;
@@ -60,7 +60,8 @@ final class XmlLangImpl implements XmlLang {
      */
     @Override
     public void read(XmlReader reader, CharArray value) {
-        this.language = Iso639.from(value.toString());
+        ModelProvider provider = reader.getContext().getAkoXmlModule().getModelProvider();
+        this.language = provider.language(value.toString());
     }
     
 }

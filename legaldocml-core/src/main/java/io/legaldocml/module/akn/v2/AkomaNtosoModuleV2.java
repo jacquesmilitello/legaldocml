@@ -7,6 +7,8 @@ import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.model.DefaultModelProvider;
+import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.AknModule;
 
 import java.io.IOException;
@@ -55,5 +57,10 @@ public final class AkomaNtosoModuleV2 implements AknModule {
         AkomaNtosoContext context = new AkomaNtosoContextV2();
         context.add(this);
         return context;
+    }
+
+    @Override
+    public ModelProvider getModelProvider() {
+        return DefaultModelProvider.INSTANCE;
     }
 }

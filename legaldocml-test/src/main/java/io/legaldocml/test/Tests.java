@@ -23,12 +23,8 @@ public final class Tests {
 	 * @throws Exception
 	 */
 	public static void assertUtilClassIsWellDefined(Class<?> clazz) throws Exception {
-		Assert.assertTrue("class must be final", Modifier.isFinal(clazz.getModifiers()));
-		Assert.assertEquals("There must be only one constructor", 1, clazz.getDeclaredConstructors().length);
-		final Constructor<?> constructor = clazz.getDeclaredConstructor();
-		if (constructor.isAccessible() || !Modifier.isPrivate(constructor.getModifiers())) {
-			Assert.fail("constructor is not private");
-		}
+        assertSingletonClassIsWellDefined(clazz);
+        final Constructor<?> constructor = clazz.getDeclaredConstructor();
 		constructor.setAccessible(true);
 		constructor.newInstance();
 		constructor.setAccessible(false);
@@ -37,6 +33,15 @@ public final class Tests {
 				Assert.fail("there exists a non-static method:" + method);
 			}
 		}
+	}
+
+	public static void assertSingletonClassIsWellDefined(Class<?> clazz) throws Exception {
+		Assert.assertTrue("class must be final", Modifier.isFinal(clazz.getModifiers()));
+        Assert.assertEquals("There must be only one constructor", 1, clazz.getDeclaredConstructors().length);
+        final Constructor<?> constructor = clazz.getDeclaredConstructor();
+        if (constructor.isAccessible() || !Modifier.isPrivate(constructor.getModifiers())) {
+            Assert.fail("constructor is not private");
+        }
 	}
 
 }

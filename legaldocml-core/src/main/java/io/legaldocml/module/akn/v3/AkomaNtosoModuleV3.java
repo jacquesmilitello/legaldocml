@@ -1,11 +1,13 @@
 package io.legaldocml.module.akn.v3;
 
 import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.model.DefaultModelProvider;
+import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.AknModule;
 
 import java.io.IOException;
@@ -55,5 +57,10 @@ public final class AkomaNtosoModuleV3 implements AknModule {
         AkomaNtosoContext context = new AkomaNtosoContextV3();
         context.add(this);
         return context;
+    }
+
+    @Override
+    public ModelProvider getModelProvider() {
+        return DefaultModelProvider.INSTANCE;
     }
 }

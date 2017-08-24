@@ -1,6 +1,6 @@
 package io.legaldocml.iso;
 
-import com.google.common.collect.ImmutableMap;
+import io.legaldocml.model.Language;
 
 /**
  * ISO 639-2 is the alpha-3 code in Codes for the representation of names of languages-- Part 2. There are 21 languages
@@ -481,43 +481,16 @@ public enum Iso639 implements Language {
     ZULU("zu", "zul", "Zulu"),
     ZUNI(null, "zun", "Zuni");
 
-    private static final ImmutableMap<String, Iso639> ALL;
-    private static final ImmutableMap<String, Iso639> ISO639_1;
-
-    static {
-        Iso639[] values = Iso639.values();
-
-        ImmutableMap.Builder<String, Iso639> builder = ImmutableMap.builder();
-        ImmutableMap.Builder<String, Iso639> builder2 = ImmutableMap.builder();
-        for (Iso639 val : values) {
-            if (val.getCode() != null) {
-                builder.put(val.code, val);
-                builder2.put(val.code, val);
-            }
-            if (!val.bibliographic.equals(val.terminology)) {
-                builder.put(val.bibliographic, val);
-            }
-            builder.put(val.terminology, val);
-
-        }
-        ALL = builder.build();
-        ISO639_1 = builder2.build();
-    }
-
-    public static Iso639 from(String language) {
-        return ALL.get(language);
-    }
-
     private final String code;
     private final String bibliographic;
     private final String terminology;
     private final String name;
 
-    private Iso639(String code, String iso2, String name) {
+    Iso639(String code, String iso2, String name) {
         this(code, iso2, iso2, name);
     }
 
-    private Iso639(String code, String bibliographic, String terminology, String name) {
+    Iso639(String code, String bibliographic, String terminology, String name) {
         this.code = code;
         this.bibliographic = bibliographic;
         this.terminology = terminology;

@@ -4,7 +4,7 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.AknIdentifier;
-import io.legaldocml.iso.Language;
+import io.legaldocml.model.Language;
 import io.legaldocml.util.DateHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

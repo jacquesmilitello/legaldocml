@@ -1,7 +1,7 @@
 package io.legaldocml.akn.util;
 
 import io.legaldocml.akn.element.FRBRlanguage;
-import io.legaldocml.iso.Language;
+import io.legaldocml.model.Language;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
