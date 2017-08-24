@@ -5,6 +5,8 @@ import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+import java.lang.Object;
+import java.util.Objects;
 
 /**
  * The element FRBRthis is the metadata property containing the IRI of the specific component of the document.
@@ -20,21 +22,21 @@ public final class FRBRthis extends ValueType {
     /**
      * XML Tag element name.
      */
-    public static final String ELEMENT = "FRBRthis";
+    public static final String ELEMENT_FRBRTHIS = "FRBRthis";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBRTHIS = Buffers.address(ELEMENT_FRBRTHIS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_FRBRTHIS, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_FRBRTHIS, 8);
     }
 
     /**
@@ -42,7 +44,14 @@ public final class FRBRthis extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_FRBRTHIS;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return this == obj || obj != null && (obj instanceof FRBRthis) && Objects.equals(getValue(), ((FRBRthis) obj).getValue());
+    }
 }

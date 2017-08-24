@@ -8,9 +8,12 @@ import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.ToStringBuilder;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
+import java.lang.Object;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
@@ -64,6 +67,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     /**
      * {@inheritDoc}
      */
+    @Override
     public Uri getHref() {
         return this.href;
     }
@@ -71,14 +75,23 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void setHref(Uri href) {
         this.href = href;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public RoleRef getAs() {
         return this.as;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void setAs(RoleRef as) {
         this.as = as;
     }
@@ -109,6 +122,23 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     @Override
     public String name() {
         return ELEMENT;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return obj == this || obj != null && obj instanceof FRBRauthor && Objects.equals(href, ((FRBRauthor) obj).href);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void toString(ToStringBuilder builder) {
+        builder.append(LinkReq.ATTRIBUTE, this.href);
+        builder.append(Role.ATTRIBUTE, this.as);
     }
 
 }

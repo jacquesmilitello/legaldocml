@@ -62,6 +62,14 @@ public abstract class CoreProperties implements AknObject {
         return this.date;
     }
 
+    public final AknList<FRBRauthor> getAuthors() {
+        return this.authors;
+    }
+
+    public final void add(FRBRauthor author) {
+        this.authors.add(author);
+    }
+
     public final ComponentInfo getComponentInfo() {
         return this.componentInfo;
     }
@@ -116,11 +124,11 @@ public abstract class CoreProperties implements AknObject {
 
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(FRBRthis.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBRthis.ELEMENT_FRBRTHIS)) {
             this.frbrThis.read(reader);
             reader.nextStartOrEndElement();
         } else {
-            throw new MandatoryElementException(this, FRBRthis.ELEMENT, reader);
+            throw new MandatoryElementException(this, FRBRthis.ELEMENT_FRBRTHIS, reader);
         }
 
         if (reader.getQName().equalsLocalName(FRBRuri.ELEMENT)) {

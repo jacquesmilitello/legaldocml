@@ -11,6 +11,14 @@ public final class Uri extends AbstractUri {
         super(value);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return UnsafeString.valueOf(getChars());
+    }
+
     public static Uri valueOf(String value) {
         return new Uri(UnsafeString.getChars(value));
     }

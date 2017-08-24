@@ -38,9 +38,9 @@ public final class Identification implements AknObject, Source {
     /**
      * XML tag element name.
      */
-    public static final String ELEMENT = "identification";
+    public static final String ELEMENT_IDENTIFICATION = "identification";
 
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_IDENTIFICATION = Buffers.address(ELEMENT_IDENTIFICATION);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -105,7 +105,7 @@ public final class Identification implements AknObject, Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_IDENTIFICATION;
     }
 
     /**
@@ -113,7 +113,7 @@ public final class Identification implements AknObject, Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 14);
+        writer.writeStart(ADDRESS_IDENTIFICATION, 14);
         writeSource(writer, this);
         this.work.write(writer);
         this.expression.write(writer);
@@ -121,8 +121,7 @@ public final class Identification implements AknObject, Source {
         if (this.item != null) {
             this.item.write(writer);
         }
-        writer.writeEnd(ADDRESS, 14);
-
+        writer.writeEnd(ADDRESS_IDENTIFICATION, 14);
     }
 
 
@@ -153,7 +152,7 @@ public final class Identification implements AknObject, Source {
             this.item.read(reader);
         }
 
-        if (reader.getQName().equalsLocalName(ELEMENT)) {
+        if (reader.getQName().equalsLocalName(ELEMENT_IDENTIFICATION)) {
             reader.nextStartOrEndElement();
         } else {
             throw new IllegalStateException();

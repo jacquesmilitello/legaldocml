@@ -337,8 +337,20 @@ public final class AknList<E extends AknObject> implements List<E> {
         throw new UnsupportedOperationException("subList(int fromIndex, int toIndex)");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean contains(Object o) {
+        if (o == null) {
+            return false;
+        }
+        final E[] iterable = this.elems;
+        for (int i = 0, n = this.size; i < n ; i++) {
+            if (iterable[i].equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 

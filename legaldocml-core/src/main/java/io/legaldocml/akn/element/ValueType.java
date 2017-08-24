@@ -8,6 +8,7 @@ import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -140,4 +141,14 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
         return ATTRIBUTES;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void toString(ToStringBuilder builder) {
+        builder.append(ValueReq.ATTRIBUTE, this.value);
+        builder.append(RefersOpt.ATTRIBUTE, this.refersTo);
+        builder.append(ShowOpt.ATTRIBUTE_SHOW_AS, this.showAs);
+        builder.append(ShowOpt.ATTRIBUTE_SHORT_FORM, this.shortForm);
+    }
 }

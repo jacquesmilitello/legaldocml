@@ -9,6 +9,7 @@ import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.DateHelper;
+import io.legaldocml.util.Uri;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -75,6 +76,56 @@ public class MetaBuilderTest {
         Assert.assertEquals(odt, identification.getFRBRExpression().getFRBRdate().getDate());
         Assert.assertEquals(odt, identification.getFRBRManifestation().getFRBRdate().getDate());
 
+        OffsetDateTime odt2 = DateHelper.convert(LocalDate.of(2014, 9, 17));
 
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), MetaBuilder.FRBR_EXPRESSION);
+        Assert.assertEquals(odt, identification.getFRBRWork().getFRBRdate().getDate());
+        Assert.assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
+        Assert.assertEquals(odt, identification.getFRBRManifestation().getFRBRdate().getDate());
+
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), MetaBuilder.FRBR_MANIFESTATION);
+        Assert.assertEquals(odt, identification.getFRBRWork().getFRBRdate().getDate());
+        Assert.assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
+        Assert.assertEquals(odt2, identification.getFRBRManifestation().getFRBRdate().getDate());
+
+        builder.getMetaBuilder().setDate(odt.toLocalDate(), MetaBuilder.FRBR_MANIFESTATION);
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), MetaBuilder.FRBR_WORK);
+        Assert.assertEquals(odt2, identification.getFRBRWork().getFRBRdate().getDate());
+        Assert.assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
+        Assert.assertEquals(odt, identification.getFRBRManifestation().getFRBRdate().getDate());
+    }
+
+    @Test
+    public void testAddAuthor() throws IOException {
+        BusinessProvider provider = BusinessProvider.businessProvider("default");
+        BusinessBuilder<Debate> builder = provider.newBuilder(Debate.ELEMENT);
+
+        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques"));
+
+        Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
+        Assert.assertEquals(1, identification.getFRBRWork().getAuthors().size());
+        Assert.assertEquals(1, identification.getFRBRExpression().getAuthors().size());
+        Assert.assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
+
+        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques"));
+        Assert.assertEquals(1, identification.getFRBRWork().getAuthors().size());
+        Assert.assertEquals(1, identification.getFRBRExpression().getAuthors().size());
+        Assert.assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
+
+        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques2"), MetaBuilder.FRBR_EXPRESSION);
+        Assert.assertEquals(1, identification.getFRBRWork().getAuthors().size());
+        Assert.assertEquals(2, identification.getFRBRExpression().getAuthors().size());
+        Assert.assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
+        Assert.assertEquals("#jacques", identification.getFRBRExpression().getAuthors().get(0).getHref().toString());
+        Assert.assertEquals("#jacques2", identification.getFRBRExpression().getAuthors().get(1).getHref().toString());
+
+        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques3"), MetaBuilder.FRBR_MANIFESTATION);
+        Assert.assertEquals(1, identification.getFRBRWork().getAuthors().size());
+        Assert.assertEquals(2, identification.getFRBRExpression().getAuthors().size());
+        Assert.assertEquals(2, identification.getFRBRManifestation().getAuthors().size());
+        Assert.assertEquals("#jacques", identification.getFRBRExpression().getAuthors().get(0).getHref().toString());
+        Assert.assertEquals("#jacques2", identification.getFRBRExpression().getAuthors().get(1).getHref().toString());
+        Assert.assertEquals("#jacques", identification.getFRBRManifestation().getAuthors().get(0).getHref().toString());
+        Assert.assertEquals("#jacques3", identification.getFRBRManifestation().getAuthors().get(1).getHref().toString());
     }
 }
