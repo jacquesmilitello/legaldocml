@@ -45,6 +45,10 @@ public abstract class ExprProperties extends CoreProperties {
         this.languages.add(language);
     }
 
+    public final AknList<FRBRlanguage> getLanguages() {
+        return this.languages;
+    }
+
     public final void add(FRBRtranslation translation) {
         if (this.translations == null) {
             this.translations = new AknList<>(new FRBRtranslation[4]);

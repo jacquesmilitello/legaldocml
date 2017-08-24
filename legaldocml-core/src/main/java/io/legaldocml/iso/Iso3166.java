@@ -78,7 +78,7 @@ public enum Iso3166 implements Country {
     CHRISTMAS_ISLAND("cx", "cxr", 162),
     COCOS_KEELING_ISLANDS("cc", "cck", 166),
     COLOMBIA("co", "col", 170),
-    COMOROS_("km", "com", 174),
+    COMOROS("km", "com", 174),
     CONGO_THE_DEMOCRATIC_REPUBLIC("cd", "cod", 180),
     CONGO("cg", "cog", 178),
     COOK_ISLANDS("ck", "cok", 184),

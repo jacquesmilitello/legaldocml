@@ -1,11 +1,15 @@
 package io.legaldocml.business;
 
-import io.legaldocml.akn.element.*;
+import io.legaldocml.LegalDocMlException;
+import io.legaldocml.akn.element.CoreProperties;
+import io.legaldocml.akn.element.FRBRExpression;
+import io.legaldocml.akn.element.FRBRManifestation;
+import io.legaldocml.akn.element.FRBRWork;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class AknIdentifierException extends BusinessException {
+public final class AknIdentifierException extends LegalDocMlException {
 
     private final Type type;
 

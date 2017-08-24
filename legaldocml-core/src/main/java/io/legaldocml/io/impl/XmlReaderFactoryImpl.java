@@ -8,8 +8,6 @@ import io.legaldocml.pool.Pool;
 import io.legaldocml.pool.PoolHolder;
 import io.legaldocml.pool.PoolableObject;
 import io.legaldocml.pool.Pools;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.nio.MappedByteBuffer;
 
@@ -17,11 +15,6 @@ import java.nio.MappedByteBuffer;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 final class XmlReaderFactoryImpl implements XmlReaderFactory {
-
-    /**
-     * SLF4J Logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(XmlReaderFactoryImpl.class);
 
     private static final PoolableObject<XmlChannelReader> POOLABLE_OBJECT = new PoolableObject<XmlChannelReader>() {
         @Override
@@ -37,7 +30,7 @@ final class XmlReaderFactoryImpl implements XmlReaderFactory {
 
     private final Pool<PoolHolder<XmlChannelReader>> pool;
 
-    public XmlReaderFactoryImpl(int size) {
+    XmlReaderFactoryImpl(int size) {
         pool = Pools.createPool(size, POOLABLE_OBJECT);
     }
 
