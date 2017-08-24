@@ -4,7 +4,7 @@ import io.legaldocml.LegalDocMlException;
 import io.legaldocml.akn.element.Debate;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.iso.Language;
+import io.legaldocml.iso.Iso639;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +25,7 @@ public class BusinessBuilderTest {
         BusinessBuilder<Debate> builder = provider.newBuilder(Debate.ELEMENT);
 
         builder.getMetaBuilder().setAknIdentifier(provider.newAknIdentifierTransient());
-        builder.getMetaBuilder().addLanguage(Language.EN);
+        builder.getMetaBuilder().addLanguage(Iso639.ENGLISH);
 
         List<LegalDocMlException> exceptions = writerFactory(3).writePermissive(Channels.newChannel(System.out), builder.getAkomaNtoso());
 

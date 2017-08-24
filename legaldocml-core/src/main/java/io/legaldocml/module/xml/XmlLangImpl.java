@@ -4,6 +4,7 @@ import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.iso.Iso639;
 import io.legaldocml.iso.Language;
 import io.legaldocml.module.xml.attribute.XmlLang;
 
@@ -59,7 +60,7 @@ final class XmlLangImpl implements XmlLang {
      */
     @Override
     public void read(XmlReader reader, CharArray value) {
-        this.language = Language.valueOf(value.toString());
+        this.language = Iso639.from(value.toString());
     }
     
 }
