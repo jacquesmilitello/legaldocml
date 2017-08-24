@@ -60,7 +60,7 @@ final class XmlLangImpl implements XmlLang {
      */
     @Override
     public void read(XmlReader reader, CharArray value) {
-        ModelProvider provider = reader.getContext().getAkoXmlModule().getModelProvider();
+        ModelProvider provider = reader.getContext().getModelProvider();
         this.language = provider.language(value.toString());
     }
     

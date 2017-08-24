@@ -7,6 +7,7 @@ import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.AknModule;
 import io.legaldocml.module.Module;
 import org.slf4j.Logger;
@@ -50,6 +51,7 @@ public abstract class AkomaNtosoContext {
      * Akn module for this context
      */
     private final AknModule aknModule;
+    private ModelProvider modelProvider;
 
     protected AkomaNtosoContext(AknModule aknModule) {
         this.aknModule = aknModule;
@@ -97,4 +99,5 @@ public abstract class AkomaNtosoContext {
         return this.eids.values().iterator();
     }
 
+    public abstract ModelProvider getModelProvider();
 }
