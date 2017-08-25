@@ -17,11 +17,6 @@ import io.legaldocml.akn.type.RoleRef;
  */
 public interface Role extends AknObject {
 
-    /**
-     * Attribute name "as".
-     */
-    String ATTRIBUTE = "as";
-
     RoleRef getAs();
 
     void setAs(RoleRef as);

@@ -70,8 +70,8 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(EventRef.class, "date")))
-                .put(Source.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(EventRef.class, "source")))
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(EventRef.class, "refersTo")))
+                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(EventRef.class, "source")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(EventRef.class, "refersTo")))
                 .put(AknAttributes.ORIGINATING_EXPRESSION, biConsumerBoolean(getFieldOffset(EventRef.class, "originatingExpression")))
                 .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(EventRef.class, "type"), EventType.class))
 

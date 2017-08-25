@@ -1,14 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RecordedTimeType;
 import io.legaldocml.akn.attribute.Time;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.TimeType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -58,7 +59,7 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
 
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(RecordedTimeType.ATTRIBUTE, biConsumerEnum(getFieldOffset(RecordedTime.class, "type"), TimeType.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(RecordedTime.class, "type"), TimeType.class))
                 .put(Time.ATTRIBUTE, biConsumerDateTime(getFieldOffset(RecordedTime.class, "time")))
                 .build();
     }

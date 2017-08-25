@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.group.ANheaderInline;
@@ -51,7 +52,7 @@ public final class Judge extends InlineReqReqType implements Role, ANheaderInlin
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Judge.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Judge.class, "as")))
                 .build();
     }
 

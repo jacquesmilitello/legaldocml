@@ -119,7 +119,7 @@ public final class XmlWriterHelper {
 
     public static void writeSource(XmlWriter writer, Source source) throws IOException {
         if (source.getSource() == null) {
-            throwException(writer, new MandatoryAttributeException(source, Source.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(source, AknAttributes.SOURCE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_SOURCE, 6, source.getSource().getChars());
         }
@@ -431,7 +431,7 @@ public final class XmlWriterHelper {
 
     public static void writeResultType(XmlWriter writer, ResultType resultType) throws IOException {
         if (resultType.getType() == null) {
-            throwException(writer, new MandatoryAttributeException(resultType, ResultType.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(resultType, AknAttributes.TYPE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(resultType.getType().name()));
         }

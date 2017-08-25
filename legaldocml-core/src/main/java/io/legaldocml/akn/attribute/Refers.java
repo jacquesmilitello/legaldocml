@@ -8,11 +8,6 @@ import io.legaldocml.akn.type.ListReferenceRef;
  */
 public interface Refers extends AknObject {
 
-    /**
-     * Attribute name "refersTo".
-     */
-    String ATTRIBUTE = "refersTo";
-
     ListReferenceRef getRefersTo();
 
     void setRefersTo(ListReferenceRef refersTo);

@@ -7,7 +7,6 @@ import io.legaldocml.akn.attribute.Dictionary;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowReq;
-import io.legaldocml.akn.attribute.Value;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ReferenceRef;
@@ -69,12 +68,12 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(Keyword.class, "showAs")))
-                .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(Keyword.class, "shortForm")))
-                .put(Value.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "value")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(Keyword.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(Keyword.class, "shortForm")))
+                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(Keyword.class, "value")))
                 .put(AknAttributes.DICTIONARY, biConsumerReferenceRef(getFieldOffset(Keyword.class, "dictionary")))
                 .put(AknAttributes.HREF, biConsumerString(getFieldOffset(Keyword.class, "href")))
-                .put(RefersOpt.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerString(getFieldOffset(Keyword.class, "refersTo")))
                 .build();
     }
 

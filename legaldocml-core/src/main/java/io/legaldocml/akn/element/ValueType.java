@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
@@ -44,10 +45,10 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put(ValueReq.ATTRIBUTE, biConsumerString(getFieldOffset(ValueType.class, "value")))
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ValueType.class, "refersTo")))
-                .put(ShowOpt.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(ValueType.class, "showAs")))
-                .put(ShowOpt.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(ValueType.class, "shortForm")))
+                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(ValueType.class, "value")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ValueType.class, "refersTo")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ValueType.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(ValueType.class, "shortForm")))
                 .putAll(MetaOpt.ATTRIBUTES)
                 .build();
     }
@@ -146,9 +147,9 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(ValueReq.ATTRIBUTE, this.value);
-        builder.append(RefersOpt.ATTRIBUTE, this.refersTo);
-        builder.append(ShowOpt.ATTRIBUTE_SHOW_AS, this.showAs);
-        builder.append(ShowOpt.ATTRIBUTE_SHORT_FORM, this.shortForm);
+        builder.append(AknAttributes.VALUE, this.value);
+        builder.append(AknAttributes.REFERS_TO, this.refersTo);
+        builder.append(AknAttributes.SHOW_AS, this.showAs);
+        builder.append(AknAttributes.SHORT_FORM, this.shortForm);
     }
 }

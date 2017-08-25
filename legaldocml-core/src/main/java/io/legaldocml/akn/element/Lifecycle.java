@@ -1,15 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -47,7 +48,7 @@ public final class Lifecycle implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put(Source.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Lifecycle.class, "source")))
+                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(Lifecycle.class, "source")))
                 .build();
     }
 

@@ -16,12 +16,8 @@ import io.legaldocml.akn.type.AgentRef;
  */
 public interface Source extends AknObject {
 
-    /**
-     * Attribute name "source".
-     */
-    String ATTRIBUTE = "source";
-
     AgentRef getSource();
 
     void setSource(AgentRef source);
+
 }

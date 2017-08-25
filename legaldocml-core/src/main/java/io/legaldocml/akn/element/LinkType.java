@@ -43,8 +43,8 @@ public abstract class LinkType extends IdReqImpl implements Core, ShowReq, LinkR
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(LinkType.class, "href")))
-                .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(LinkType.class, "showAs")))
-                .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(LinkType.class, "shortForm")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(LinkType.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(LinkType.class, "shortForm")))
                 .build();
     }
 

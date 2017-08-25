@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.MappingAtts;
-import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.EventRefRef;
@@ -67,7 +66,7 @@ public final class Mapping extends MetaReq implements MappingAtts {
                 .put(AknAttributes.CURRENT, biConsumerEidRef(getFieldOffset(Mapping.class, "current")))
                 .put(AknAttributes.START, biConsumerEventRefRef(getFieldOffset(Mapping.class, "start")))
                 .put(AknAttributes.END, biConsumerEventRefRef(getFieldOffset(Mapping.class, "end")))
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Mapping.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Mapping.class, "as")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Mapping.class, "by")))
                 .build();
     }

@@ -60,9 +60,9 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(FRBRportion.class, "refersTo")))
-                .put(ShowOpt.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(FRBRportion.class, "showAs")))
-                .put(ShowOpt.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(FRBRportion.class, "shortForm")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(FRBRportion.class, "refersTo")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(FRBRportion.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(FRBRportion.class, "shortForm")))
                 .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(FRBRportion.class, "upTo")))
                 .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(FRBRportion.class, "from")))
                 .build();

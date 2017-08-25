@@ -1,8 +1,8 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.group.ANheaderInline;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.io.CharArray;
@@ -50,7 +50,7 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Party.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Party.class, "as")))
                 .build();
     }
 

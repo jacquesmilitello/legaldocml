@@ -3,7 +3,6 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.group.ANcontainers;
 import io.legaldocml.akn.type.AgentRef;
@@ -59,11 +58,11 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(SpeechGroup.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(SpeechGroup.class, "as")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(SpeechGroup.class, "by")))
-                .put(SpeechAtts.ATTRIBUTE_TO, biConsumerAgentRef(getFieldOffset(SpeechGroup.class, "to")))
-                .put(SpeechAtts.ATTRIBUTE_START_TIME, biConsumerLocalDateTime(getFieldOffset(SpeechGroup.class, "startTime")))
-                .put(SpeechAtts.ATTRIBUTE_END_TIME, biConsumerLocalDateTime(getFieldOffset(SpeechGroup.class, "endTime")))
+                .put(AknAttributes.TO, biConsumerAgentRef(getFieldOffset(SpeechGroup.class, "to")))
+                .put(AknAttributes.START_TIME, biConsumerLocalDateTime(getFieldOffset(SpeechGroup.class, "startTime")))
+                .put(AknAttributes.END_TIME, biConsumerLocalDateTime(getFieldOffset(SpeechGroup.class, "endTime")))
                 .build();
     }
 

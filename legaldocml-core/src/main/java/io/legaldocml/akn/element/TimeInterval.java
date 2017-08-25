@@ -65,7 +65,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(RefersReq.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(TimeInterval.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(TimeInterval.class, "refersTo")))
                 .put(AknAttributes.START, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "start")))
                 .put(AknAttributes.END, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "end")))
                 .put(AknAttributes.DURATION, biConsumerString(getFieldOffset(TimeInterval.class, "duration")))
@@ -175,7 +175,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(RefersReq.ATTRIBUTE, this.refersTo);
+        builder.append(AknAttributes.REFERS_TO, this.refersTo);
         builder.append(AknAttributes.START, this.start);
         builder.append(AknAttributes.END, this.end);
         builder.append(AknAttributes.DURATION, this.duration);

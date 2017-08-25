@@ -58,7 +58,7 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
                 .put(AknAttributes.OUTCOME, biConsumerConceptRef(getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
                 .build();

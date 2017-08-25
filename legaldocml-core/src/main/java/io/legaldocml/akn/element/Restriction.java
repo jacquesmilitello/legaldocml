@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.RestrictionType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -54,8 +55,8 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(Restriction.class, "refersTo")))
-                .put(io.legaldocml.akn.attribute.RestrictionType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(Restriction.class, "refersTo")))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
                 .build();
     }
 

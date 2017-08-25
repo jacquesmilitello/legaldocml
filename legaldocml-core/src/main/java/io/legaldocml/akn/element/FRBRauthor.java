@@ -57,7 +57,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(FRBRauthor.class, "href")))
-                .put(Role.ATTRIBUTE, Attributes.biConsumerRoleRef(getFieldOffset(FRBRauthor.class, "as")))
+                .put(AknAttributes.AS, Attributes.biConsumerRoleRef(getFieldOffset(FRBRauthor.class, "as")))
                 .build();
     }
 
@@ -150,7 +150,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     @Override
     protected void toString(ToStringBuilder builder) {
         builder.append(AknAttributes.HREF, this.href);
-        builder.append(Role.ATTRIBUTE, this.as);
+        builder.append(AknAttributes.AS, this.as);
     }
 
 }

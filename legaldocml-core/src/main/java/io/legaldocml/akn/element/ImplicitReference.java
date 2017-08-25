@@ -59,9 +59,9 @@ public final class ImplicitReference extends AnyOtherType implements RefersOpt, 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ImplicitReference.class, "refersTo")))
-                .put(ShowOpt.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(ImplicitReference.class, "showAs")))
-                .put(ShowOpt.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(ImplicitReference.class, "shortForm")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ImplicitReference.class, "refersTo")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ImplicitReference.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(ImplicitReference.class, "shortForm")))
                 .put(AknAttributes.FOR, biConsumerString(getFieldOffset(ImplicitReference.class, "for_")))
                 .build();
     }

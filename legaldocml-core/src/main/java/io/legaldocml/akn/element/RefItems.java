@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
@@ -44,7 +45,7 @@ public abstract class RefItems implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put(Source.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(RefItems.class, "source")))
+                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(RefItems.class, "source")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<RefItem>>builder()

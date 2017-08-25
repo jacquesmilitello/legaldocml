@@ -56,7 +56,7 @@ public abstract class CountType extends IdReqImpl implements Core, ValueReq, Ref
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(CountType.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(CountType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(CountType.class, "href")))
                 .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(CountType.class, "value")))
                 .build();

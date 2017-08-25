@@ -14,11 +14,6 @@ import io.legaldocml.akn.type.TimeType;
  */
 public interface RecordedTimeType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     TimeType getType();
 
     void setType(TimeType type);

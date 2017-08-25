@@ -62,7 +62,7 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(ModificationType.class, "period")))
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ModificationType.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ModificationType.class, "refersTo")))
                 .put(AknAttributes.EXCLUSION, biConsumerBoolean(getFieldOffset(ModificationType.class, "exclusion")))
                 .put(AknAttributes.INCOMPLETE, biConsumerBoolean(getFieldOffset(ModificationType.class, "incomplete")))
                 .build();

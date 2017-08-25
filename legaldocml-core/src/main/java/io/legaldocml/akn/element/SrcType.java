@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.ShowReq;
@@ -43,8 +44,8 @@ public abstract class SrcType extends IdOptImpl implements Core, ShowReq, Src {
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(Src.ATTRIBUTE_SRC, biConsumerManifestationURI(Src.ATTRIBUTE_SRC, getFieldOffset(SrcType.class, "src")))
                 .put(Src.ATTRIBUTE_ALT, biConsumerString(getFieldOffset(SrcType.class, "alt")))
-                .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(SrcType.class, "showAs")))
-                .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(SrcType.class, "shortForm")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(SrcType.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(SrcType.class, "shortForm")))
                 .build();
     }
 

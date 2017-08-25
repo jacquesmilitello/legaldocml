@@ -67,11 +67,11 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Publication.class, "date")))
-                .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(Publication.class, "showAs")))
-                .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(Publication.class, "shortForm")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(Publication.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(Publication.class, "shortForm")))
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Publication.class, "name")))
                 .put(AknAttributes.NUMBER, biConsumerString(getFieldOffset(Publication.class, "number")))
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(Publication.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(Publication.class, "refersTo")))
                 .build();
     }
 

@@ -13,12 +13,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface RemarkType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     io.legaldocml.akn.type.RemarkType getType();
 
     void setType(io.legaldocml.akn.type.RemarkType type);
+
 }

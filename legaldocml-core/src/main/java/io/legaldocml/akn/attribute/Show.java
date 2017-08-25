@@ -7,15 +7,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Show extends AknObject {
 
-	/**
-	 * Attribute name "showAs".
-	 */
-    String ATTRIBUTE_SHOW_AS = "showAs";
-    /**
-	 * Attribute name "shortForm".
-	 */
-    String ATTRIBUTE_SHORT_FORM = "shortForm";
-
     String getShowAs();
 
     void setShowAs(String showAs);

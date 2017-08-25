@@ -73,7 +73,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Step.class, "date")))
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Step.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Step.class, "as")))
                 .put(AknAttributes.OUTCOME, biConsumerConceptRef(getFieldOffset(Step.class, "outcome")))
                 .put(AknAttributes.ACTOR, biConsumerString(getFieldOffset(Step.class, "actor")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Step.class, "by")))

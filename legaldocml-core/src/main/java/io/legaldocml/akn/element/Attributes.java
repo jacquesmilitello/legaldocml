@@ -4,11 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.RefersOpt;
-import io.legaldocml.akn.attribute.Role;
-import io.legaldocml.akn.attribute.ShowReq;
-import io.legaldocml.akn.attribute.Source;
-import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.attribute.Target;
@@ -75,7 +70,7 @@ public final class Attributes {
 
     public static final long ADDRESS_EVOLVING_ID = Buffers.address(AknAttributes.EVOLVING_ID);
 
-    public static final long ADDRESS_AS = Buffers.address(Role.ATTRIBUTE);
+    public static final long ADDRESS_AS = Buffers.address(AknAttributes.AS);
 
     public static final long ADDRESS_HREF = Buffers.address(AknAttributes.HREF);
 
@@ -93,21 +88,21 @@ public final class Attributes {
 
     public static final long ADDRESS_BY = Buffers.address(AknAttributes.BY);
 
-    public static final long ADDRESS_TO = Buffers.address(SpeechAtts.ATTRIBUTE_TO);
+    public static final long ADDRESS_TO = Buffers.address(AknAttributes.TO);
 
     public static final long ADDRESS_LANGUAGE = Buffers.address(AknAttributes.LANGUAGE);
 
-    public static final long ADDRESS_REFERS = Buffers.address(RefersOpt.ATTRIBUTE);
+    public static final long ADDRESS_REFERS = Buffers.address(AknAttributes.REFERS_TO);
 
     public static final long ADDRESS_OUTCOME = Buffers.address(AknAttributes.OUTCOME);
 
-    public static final long ADDRESS_SOURCE = Buffers.address(Source.ATTRIBUTE);
+    public static final long ADDRESS_SOURCE = Buffers.address(AknAttributes.SOURCE);
 
     public static final long ADDRESS_CONTAINS = Buffers.address(AknAttributes.CONTAINS);
 
-    public static final long ADDRESS_SHOW_AS = Buffers.address(ShowReq.ATTRIBUTE_SHOW_AS);
+    public static final long ADDRESS_SHOW_AS = Buffers.address(AknAttributes.SHOW_AS);
 
-    public static final long ADDRESS_SHORT_FORM = Buffers.address(ShowReq.ATTRIBUTE_SHORT_FORM);
+    public static final long ADDRESS_SHORT_FORM = Buffers.address(AknAttributes.SHORT_FORM);
 
     public static final long ADDRESS_NUMBER = Buffers.address(AknAttributes.NUMBER);
 
@@ -167,7 +162,7 @@ public final class Attributes {
 
     public static final long ADDRESS_ACTOR = Buffers.address(AknAttributes.ACTOR);
 
-    public static final long ADDRESS_ROLE = Buffers.address(Role.ATTRIBUTE);
+    public static final long ADDRESS_ROLE = Buffers.address(AknAttributes.AS);
 
     public static final long ADDRESS_EXCLUSION = Buffers.address(AknAttributes.EXCLUSION);
 

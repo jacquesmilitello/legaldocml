@@ -1,11 +1,12 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.type.ResultType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -48,7 +49,7 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(io.legaldocml.akn.attribute.ResultType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Result.class, "type"), ResultType.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Result.class, "type"), ResultType.class))
                 .build();
     }
 

@@ -1,14 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.group.ANsemanticInline;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -51,7 +52,7 @@ public final class Person extends InlineReqReqType implements Role, ANsemanticIn
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Person.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Person.class, "as")))
                 .build();
     }
 

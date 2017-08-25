@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.RemarkType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.unsafe.UnsafeString;
 
 import java.io.IOException;
@@ -50,7 +51,7 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(io.legaldocml.akn.attribute.RemarkType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Remark.class, "type"), RemarkType.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Remark.class, "type"), RemarkType.class))
                 .build();
     }
 

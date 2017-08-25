@@ -60,8 +60,8 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ComponentData.class, "href")))
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ComponentData.class, "name")))
-                .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(ComponentData.class, "showAs")))
-                .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(ComponentData.class, "shortForm")))
+                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ComponentData.class, "showAs")))
+                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(ComponentData.class, "shortForm")))
                 .build();
     }
 

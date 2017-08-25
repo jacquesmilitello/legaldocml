@@ -14,11 +14,6 @@ import io.legaldocml.akn.type.ScopeMods;
  */
 public interface ScopeModType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     ScopeMods getType();
 
     void setType(ScopeMods type);

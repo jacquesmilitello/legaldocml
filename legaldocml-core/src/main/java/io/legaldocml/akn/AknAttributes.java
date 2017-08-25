@@ -86,6 +86,11 @@ public final class AknAttributes {
      * : * {@link io.legaldocml.akn.attribute.LegalSystemModType}
      * : * {@link io.legaldocml.akn.attribute.MeaningModType}
      * : * {@link io.legaldocml.akn.attribute.OpinionType}
+     * : * {@link io.legaldocml.akn.attribute.RecordedTimeType}
+     * : * {@link io.legaldocml.akn.attribute.RemarkType}
+     * : * {@link io.legaldocml.akn.attribute.RestrictionType}
+     * : * {@link io.legaldocml.akn.attribute.ResultType}
+     * : * {@link io.legaldocml.akn.attribute.ScopeModType}
      */
     public static final String TYPE = "type";
 
@@ -303,6 +308,47 @@ public final class AknAttributes {
      * Attribute for {@link io.legaldocml.akn.attribute.Range}
      */
     public static final String FROM = "from";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Refers}
+     */
+    public static final String REFERS_TO = "refersTo";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Role}
+     */
+    public static final String AS = "as";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Show}
+     */
+    public static final String SHOW_AS = "showAs";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Show}
+     */
+    public static final String SHORT_FORM = "shortForm";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Source}
+     */
+    public static final String SOURCE = "source";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Source}
+     */
+    public static final String TO = "to";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Source}
+     */
+    public static final String START_TIME = "startTime";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Source}
+     */
+    public static final String END_TIME = "endTime";
+
 
 
 }

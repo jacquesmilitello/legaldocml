@@ -26,19 +26,6 @@ import java.time.LocalDateTime;
  */
 public interface SpeechAtts extends Agent, Role {
 
-    /**
-     * Attribute name "to".
-     */
-    String ATTRIBUTE_TO = "to";
-    /**
-     * Attribute name "startTime".
-     */
-    String ATTRIBUTE_START_TIME = "startTime";
-    /**
-     * Attribute name "endTime".
-     */
-    String ATTRIBUTE_END_TIME = "endTime";
-
     AgentRef getTo();
 
     void setTo(AgentRef to);

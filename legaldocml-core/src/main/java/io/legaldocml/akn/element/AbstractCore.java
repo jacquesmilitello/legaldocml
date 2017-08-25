@@ -36,7 +36,7 @@ public abstract class AbstractCore extends AbstractId implements Core {
                 .put(AknAttributes.TITLE, biConsumerString(getFieldOffset(AbstractCore.class, "title")))
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(AbstractCore.class, "status"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(AbstractCore.class, "period")))
-                .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(AbstractCore.class, "refersTo")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(AbstractCore.class, "refersTo")))
                 .put(AknAttributes.ALTERNATIVE_TO, Attributes.biConsumerEidRef(getFieldOffset(AbstractCore.class, "alternativeTo")))
                 .build();
     }
@@ -147,7 +147,7 @@ public abstract class AbstractCore extends AbstractId implements Core {
         builder.append(AknAttributes.TITLE, this.title);
         builder.append(AknAttributes.STATUS, this.status);
         builder.append(AknAttributes.PERIOD, this.period);
-        builder.append(RefersOpt.ATTRIBUTE, this.refersTo);
+        builder.append(AknAttributes.REFERS_TO, this.refersTo);
         builder.append(AknAttributes.ALTERNATIVE_TO, this.alternativeTo);
     }
 

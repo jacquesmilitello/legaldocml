@@ -3,7 +3,6 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.attribute.VoteAtts;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.AgentRef;
@@ -57,7 +56,7 @@ public final class Vote extends InlineType implements VoteAtts, ANinline {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Vote.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Vote.class, "as")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Vote.class, "by")))
                 .put(VoteAtts.ATTRIBUTE, biConsumerVoteRef(getFieldOffset(Vote.class, "choice")))
                 .build();
