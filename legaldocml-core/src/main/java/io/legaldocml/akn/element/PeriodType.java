@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Period;
 import io.legaldocml.akn.type.TemporalGroupRef;
@@ -37,7 +38,7 @@ public abstract class PeriodType extends AnyOtherType implements Period {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(Period.ATTRIBUTE, biConsumerTemporalGroupRef(getFieldOffset(PeriodType.class, "period")))
+                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(PeriodType.class, "period")))
                 .build();
     }
 

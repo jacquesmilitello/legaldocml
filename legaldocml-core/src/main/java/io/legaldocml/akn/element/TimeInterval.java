@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Duration;
 import io.legaldocml.akn.attribute.Interval;
@@ -67,7 +68,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
                 .put(RefersReq.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(TimeInterval.class, "refersTo")))
                 .put(Interval.ATTRIBUTE_START, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "start")))
                 .put(Interval.ATTRIBUTE_END, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "end")))
-                .put(Duration.ATTRIBUTE, biConsumerString(getFieldOffset(TimeInterval.class, "duration")))
+                .put(AknAttributes.DURATION, biConsumerString(getFieldOffset(TimeInterval.class, "duration")))
                 .build();
     }
 
@@ -177,7 +178,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
         builder.append(RefersReq.ATTRIBUTE, this.refersTo);
         builder.append(Interval.ATTRIBUTE_START, this.start);
         builder.append(Interval.ATTRIBUTE_END, this.end);
-        builder.append(Duration.ATTRIBUTE, this.duration);
+        builder.append(AknAttributes.DURATION, this.duration);
     }
 
 }

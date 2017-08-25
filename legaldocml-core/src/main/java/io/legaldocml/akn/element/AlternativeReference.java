@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -8,9 +9,9 @@ import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -62,7 +63,7 @@ public final class AlternativeReference extends AnyOtherType implements RefersOp
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(AlternativeReference.class, "refersTo")))
                 .put(ShowOpt.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(AlternativeReference.class, "showAs")))
                 .put(ShowOpt.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(AlternativeReference.class, "shortForm")))
-                .put(For.ATTRIBUTE, biConsumerString(getFieldOffset(AlternativeReference.class, "for_")))
+                .put(AknAttributes.FOR, biConsumerString(getFieldOffset(AlternativeReference.class, "for_")))
                 .build();
     }
 

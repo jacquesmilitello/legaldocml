@@ -14,12 +14,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface EventType extends AknObject {
 
-    /**
-     * Attribute name "type".
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     io.legaldocml.akn.type.EventType getType();
 
     void setType(io.legaldocml.akn.type.EventType value);
+
 }

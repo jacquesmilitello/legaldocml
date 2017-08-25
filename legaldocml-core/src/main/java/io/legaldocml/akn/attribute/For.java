@@ -17,11 +17,6 @@ import io.legaldocml.akn.type.EidRef;
  */
 public interface For extends AknObject {
 
-    /**
-     * Attribute name "for".
-     */
-    String ATTRIBUTE = "for";
-
     EidRef getFor();
 
     void setFor(EidRef for_);

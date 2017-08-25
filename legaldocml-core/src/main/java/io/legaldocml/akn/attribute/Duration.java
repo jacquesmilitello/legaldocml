@@ -17,12 +17,8 @@ import io.legaldocml.akn.type.XmlDuration;
  */
 public interface Duration extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "duration";
-
     XmlDuration getDuration();
 
     void setDuration(XmlDuration duration);
+
 }

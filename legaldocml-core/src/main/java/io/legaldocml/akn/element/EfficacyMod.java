@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.EfficacyModType;
 import io.legaldocml.akn.type.EfficacyMods;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -50,7 +51,7 @@ public final class EfficacyMod extends ModificationType implements EfficacyModTy
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(EfficacyModType.ATTRIBUTE, biConsumerEnum(getFieldOffset(EfficacyMod.class, "type"), EfficacyMods.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(EfficacyMod.class, "type"), EfficacyMods.class))
                 .build();
     }
 

@@ -14,11 +14,6 @@ import io.legaldocml.akn.type.EfficacyMods;
  */
 public interface EfficacyModType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     EfficacyMods getType();
 
     void setType(EfficacyMods type);

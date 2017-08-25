@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.type.EidRef;
@@ -51,7 +52,7 @@ public abstract class ModType extends CoreReqImpl implements For {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(CoreReqImpl.ATTRIBUTES)
-                .put(For.ATTRIBUTE, biConsumerEidRef(getFieldOffset(ModType.class, "for_")))
+                .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(ModType.class, "for_")))
                 .build();
 
         ELEMS_V2 = ImmutableMap.<String, Supplier<ModTypeItem>>builder()

@@ -15,11 +15,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface FillInWidth extends AknObject {
 
-    /**
-     * Attribute name "width".
-     */
-    String ATTRIBUTE_WIDTH = "width";
-
     String getWidth();
 
     void setWidth(String width);

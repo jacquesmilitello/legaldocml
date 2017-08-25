@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.FillInWidth;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -50,7 +51,7 @@ public final class FillIn extends InlineType implements ANinline, FillInWidth {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(FillInWidth.ATTRIBUTE_WIDTH, Attributes.biConsumerString(getFieldOffset(FillIn.class, "width")))
+                .put(AknAttributes.WIDTH, Attributes.biConsumerString(getFieldOffset(FillIn.class, "width")))
                 .build();
     }
 

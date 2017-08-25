@@ -4,9 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.Duration;
-import io.legaldocml.akn.attribute.Enactment;
-import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.attribute.FromLanguage;
 import io.legaldocml.akn.attribute.HTMLattrs;
 import io.legaldocml.akn.attribute.Id;
@@ -23,7 +20,6 @@ import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.attribute.Number;
 import io.legaldocml.akn.attribute.Originating;
 import io.legaldocml.akn.attribute.Outcome;
-import io.legaldocml.akn.attribute.Period;
 import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.akn.attribute.Pos;
@@ -162,9 +158,9 @@ public final class Attributes {
 
     public static final long ADDRESS_HEIGHT = Buffers.address(ImgAtts.ATTRIBUTE_HEIGHT);
 
-    public static final long ADDRESS_STATUS = Buffers.address(Enactment.ATTRIBUTE);
+    public static final long ADDRESS_STATUS = Buffers.address(AknAttributes.STATUS);
 
-    public static final long ADDRESS_PERIOD = Buffers.address(Period.ATTRIBUTE);
+    public static final long ADDRESS_PERIOD = Buffers.address(AknAttributes.PERIOD);
 
     public static final long ADDRESS_ALTERNATIVE_TO = Buffers.address(AknAttributes.ALTERNATIVE_TO);
 
@@ -188,7 +184,7 @@ public final class Attributes {
 
     public static final long ADDRESS_END = Buffers.address(Interval.ATTRIBUTE_END);
 
-    public static final long ADDRESS_DURATION = Buffers.address(Duration.ATTRIBUTE);
+    public static final long ADDRESS_DURATION = Buffers.address(AknAttributes.DURATION);
 
     public static final long ADDRESS_ACTOR = Buffers.address(AknAttributes.ACTOR);
 
@@ -198,7 +194,7 @@ public final class Attributes {
 
     public static final long ADDRESS_INCOMPLETE = Buffers.address(Modifiers.ATTRIBUTE_INCOMPLETE);
 
-    public static final long ADDRESS_FOR = Buffers.address(For.ATTRIBUTE);
+    public static final long ADDRESS_FOR = Buffers.address(AknAttributes.FOR);
 
     public static final long ADDRESS_FROM = Buffers.address(Range.ATTRIBUTE);
 

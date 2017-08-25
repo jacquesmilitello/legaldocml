@@ -73,4 +73,37 @@ public final class AknAttributes {
      */
     public static final String DICTIONARY = "dictionary";
 
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Duration}
+     */
+    public static final String DURATION = "duration";
+
+    /**
+     * Attribute for :
+     * : * {@link io.legaldocml.akn.attribute.EfficacyModType}
+     * : * {@link io.legaldocml.akn.attribute.EventType}
+     * : * {@link io.legaldocml.akn.attribute.ForceModType}
+     */
+    public static final String TYPE = "type";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Enactment}
+     */
+    public static final String STATUS = "status";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.FillInWidth}
+     */
+    public static final String WIDTH = "width";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Period}
+     */
+    public static final String PERIOD = "period";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.For}
+     */
+    public static final String FOR = "for";
+
 }

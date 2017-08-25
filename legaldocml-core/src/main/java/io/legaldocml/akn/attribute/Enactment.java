@@ -17,12 +17,8 @@ import io.legaldocml.akn.type.StatusType;
  */
 public interface Enactment extends Period {
 
-    /**
-     * Attribute name "status".
-     */
-    String ATTRIBUTE = "status";
-
     StatusType getStatus();
 
     void setStatus(StatusType status);
+
 }

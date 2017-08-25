@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ForceModType;
 import io.legaldocml.akn.type.ForceMods;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -50,7 +51,7 @@ public final class ForceMod extends ModificationType implements ForceModType, Am
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(ForceModType.ATTRIBUTE, biConsumerEnum(getFieldOffset(ForceMod.class, "type"), ForceMods.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(ForceMod.class, "type"), ForceMods.class))
                 .build();
     }
 

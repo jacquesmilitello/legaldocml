@@ -1,11 +1,11 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.For;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -44,7 +44,7 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(PopupStructure.ATTRIBUTES)
-                .put(For.ATTRIBUTE, biConsumerString(getFieldOffset(QuotedStructureV2.class, "_for")))
+                .put(AknAttributes.FOR, biConsumerString(getFieldOffset(QuotedStructureV2.class, "_for")))
                 .build();
 
     }

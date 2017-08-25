@@ -1,11 +1,11 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Enactment;
 import io.legaldocml.akn.attribute.Modifiers;
-import io.legaldocml.akn.attribute.Period;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.StatusType;
@@ -60,8 +60,8 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
 
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
-                .put(Enactment.ATTRIBUTE, biConsumerEnum(getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
-                .put(Period.ATTRIBUTE, biConsumerTemporalGroupRef(getFieldOffset(ModificationType.class, "period")))
+                .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
+                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(ModificationType.class, "period")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ModificationType.class, "refersTo")))
                 .put(Modifiers.ATTRIBUTE_EXCLUSION, biConsumerBoolean(getFieldOffset(ModificationType.class, "exclusion")))
                 .put(Modifiers.ATTRIBUTE_INCOMPLETE, biConsumerBoolean(getFieldOffset(ModificationType.class, "incomplete")))

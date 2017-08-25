@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.attribute.Quote;
@@ -51,7 +52,7 @@ public final class QuotedStructureV3 extends SubFlowStructure implements QuotedS
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(For.ATTRIBUTE, biConsumerEidRef(getFieldOffset(QuotedStructureV3.class, "_for")))
+                .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(QuotedStructureV3.class, "_for")))
                 .put(Quote.ATTRIBUTE_STARTQUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "startQuote")))
                 .put(Quote.ATTRIBUTE_ENDQUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "endQuote")))
                 .put(Quote.ATTRIBUTE_INLINEQUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "inlineQuote")))

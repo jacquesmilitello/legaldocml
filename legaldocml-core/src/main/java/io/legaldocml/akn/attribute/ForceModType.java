@@ -14,11 +14,6 @@ import io.legaldocml.akn.type.ForceMods;
  */
 public interface ForceModType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     ForceMods getType();
 
     void setType(ForceMods type);

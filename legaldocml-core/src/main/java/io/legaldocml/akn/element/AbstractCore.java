@@ -34,8 +34,8 @@ public abstract class AbstractCore extends AbstractId implements Core {
                 .put(HTMLattrs.ATTRIBUTE_CLASS, biConsumerString(getFieldOffset(AbstractCore.class, "clazz")))
                 .put(HTMLattrs.ATTRIBUTE_STYLE, biConsumerString(getFieldOffset(AbstractCore.class, "style")))
                 .put(HTMLattrs.ATTRIBUTE_TITLE, biConsumerString(getFieldOffset(AbstractCore.class, "title")))
-                .put(Enactment.ATTRIBUTE, biConsumerEnum(getFieldOffset(AbstractCore.class, "status"), StatusType.class))
-                .put(Period.ATTRIBUTE, biConsumerTemporalGroupRef(getFieldOffset(AbstractCore.class, "period")))
+                .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(AbstractCore.class, "status"), StatusType.class))
+                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(AbstractCore.class, "period")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(AbstractCore.class, "refersTo")))
                 .put(AknAttributes.ALTERNATIVE_TO, Attributes.biConsumerEidRef(getFieldOffset(AbstractCore.class, "alternativeTo")))
                 .build();
@@ -145,8 +145,8 @@ public abstract class AbstractCore extends AbstractId implements Core {
         builder.append(HTMLattrs.ATTRIBUTE_CLASS, this.clazz);
         builder.append(HTMLattrs.ATTRIBUTE_STYLE, this.style);
         builder.append(HTMLattrs.ATTRIBUTE_TITLE, this.title);
-        builder.append(Enactment.ATTRIBUTE, this.status);
-        builder.append(Period.ATTRIBUTE, this.period);
+        builder.append(AknAttributes.STATUS, this.status);
+        builder.append(AknAttributes.PERIOD, this.period);
         builder.append(RefersOpt.ATTRIBUTE, this.refersTo);
         builder.append(AknAttributes.ALTERNATIVE_TO, this.alternativeTo);
     }

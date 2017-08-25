@@ -17,11 +17,6 @@ import io.legaldocml.akn.type.TemporalGroupRef;
  */
 public interface Period extends AknObject {
 
-    /**
-     * Attribute name "period".
-     */
-    String ATTRIBUTE = "period";
-
     TemporalGroupRef getPeriod();
 
     void setPeriod(TemporalGroupRef period);
