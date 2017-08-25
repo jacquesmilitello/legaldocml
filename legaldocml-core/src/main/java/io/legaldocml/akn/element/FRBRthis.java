@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Strings;
 
 import java.io.IOException;
 import java.lang.Object;
@@ -53,5 +54,13 @@ public final class FRBRthis extends ValueType {
     @Override
     public boolean equals(Object obj) {
         return this == obj || obj != null && (obj instanceof FRBRthis) && Objects.equals(getValue(), ((FRBRthis) obj).getValue());
+    }
+
+    @Override
+    public int hashCode() {
+        if (Strings.isEmpty(getValue())) {
+            return super.hashCode();
+        }
+        return getValue().hashCode();
     }
 }

@@ -44,12 +44,12 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     /**
      * XML Tag element name.
      */
-    public static final String ELEMENT = "FRBRauthor";
+    public static final String ELEMENT_FRBRAUTHOR = "FRBRauthor";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBRAUTHOR = Buffers.address(ELEMENT_FRBRAUTHOR);
 
     private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
 
@@ -109,11 +109,11 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_FRBRAUTHOR, 10);
         writeRole(writer, this);
         writeLinkReq(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_FRBRAUTHOR, 10);
     }
 
     /**
@@ -121,7 +121,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ELEMENT_FRBRAUTHOR;
     }
 
     /**
@@ -130,6 +130,18 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     @Override
     public boolean equals(Object obj) {
         return obj == this || obj != null && obj instanceof FRBRauthor && Objects.equals(href, ((FRBRauthor) obj).href);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        if (href == null) {
+            return super.hashCode();
+        } else {
+            return href.hashCode();
+        }
     }
 
     /**
