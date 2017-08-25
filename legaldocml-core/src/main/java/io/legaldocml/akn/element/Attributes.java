@@ -1,16 +1,9 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
-import io.legaldocml.akn.attribute.Actor;
-import io.legaldocml.akn.attribute.Agent;
-import io.legaldocml.akn.attribute.Alt;
-import io.legaldocml.akn.attribute.Authoritative;
-import io.legaldocml.akn.attribute.CellAttrs;
-import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.Date;
-import io.legaldocml.akn.attribute.Dictionary;
 import io.legaldocml.akn.attribute.Duration;
 import io.legaldocml.akn.attribute.Enactment;
 import io.legaldocml.akn.attribute.For;
@@ -111,7 +104,7 @@ public final class Attributes {
 
     public static final long ADDRESS_HREF = Buffers.address(Link.ATTRIBUTE);
 
-    public static final long ADDRESS_DATE = Buffers.address(Date.ATTRIBUTE);
+    public static final long ADDRESS_DATE = Buffers.address(AknAttributes.DATE);
 
     public static final long ADDRESS_NAME = Buffers.address(Name.ATTRIBUTE);
 
@@ -119,11 +112,11 @@ public final class Attributes {
 
     public static final long ADDRESS_FROM_LANGUAGE = Buffers.address(FromLanguage.ATTRIBUTE);
 
-    public static final long ADDRESS_AUTHORITATIVE = Buffers.address(Authoritative.ATTRIBUTE);
+    public static final long ADDRESS_AUTHORITATIVE = Buffers.address(AknAttributes.AUTHORITATIVE);
 
     public static final long ADDRESS_PIVOT = Buffers.address(Pivot.ATTRIBUTE);
 
-    public static final long ADDRESS_BY = Buffers.address(Agent.ATTRIBUTE);
+    public static final long ADDRESS_BY = Buffers.address(AknAttributes.BY);
 
     public static final long ADDRESS_TO = Buffers.address(SpeechAtts.ATTRIBUTE_TO);
 
@@ -135,7 +128,7 @@ public final class Attributes {
 
     public static final long ADDRESS_SOURCE = Buffers.address(Source.ATTRIBUTE);
 
-    public static final long ADDRESS_CONTAINS = Buffers.address(Contains.ATTRIBUTE);
+    public static final long ADDRESS_CONTAINS = Buffers.address(AknAttributes.CONTAINS);
 
     public static final long ADDRESS_SHOW_AS = Buffers.address(ShowReq.ATTRIBUTE_SHOW_AS);
 
@@ -153,7 +146,7 @@ public final class Attributes {
 
     public static final long ADDRESS_TITLE = Buffers.address(HTMLattrs.ATTRIBUTE_TITLE);
 
-    public static final long ADDRESS_DICTIONARY = Buffers.address(Dictionary.ATTRIBUTE);
+    public static final long ADDRESS_DICTIONARY = Buffers.address(AknAttributes.DICTIONARY);
 
     public static final long ADDRESS_LEVEL = Buffers.address(Level.ATTRIBUTE);
 
@@ -173,7 +166,7 @@ public final class Attributes {
 
     public static final long ADDRESS_PERIOD = Buffers.address(Period.ATTRIBUTE);
 
-    public static final long ADDRESS_ALTERNATIVE_TO = Buffers.address(Alt.ATTRIBUTE);
+    public static final long ADDRESS_ALTERNATIVE_TO = Buffers.address(AknAttributes.ALTERNATIVE_TO);
 
     public static final long ADDRESS_MARKER = Buffers.address(Notes.ATTRIBUTE_MARKER);
 
@@ -181,9 +174,9 @@ public final class Attributes {
 
     public static final long ADDRESS_PLACEMENT_BASE = Buffers.address(Notes.ATTRIBUTE_PLACEMENT_BASE);
 
-    public static final long ADDRESS_COL_SPAN = Buffers.address(CellAttrs.ATTRIBUTE_COL_SPAN);
+    public static final long ADDRESS_COL_SPAN = Buffers.address(AknAttributes.COL_SPAN);
 
-    public static final long ADDRESS_ROW_SPAN = Buffers.address(CellAttrs.ATTRIBUTE_ROW_SPAN);
+    public static final long ADDRESS_ROW_SPAN = Buffers.address(AknAttributes.ROW_SPAN);
 
     public static final long ADDRESS_SRC = Buffers.address(Src.ATTRIBUTE_SRC);
 
@@ -197,7 +190,7 @@ public final class Attributes {
 
     public static final long ADDRESS_DURATION = Buffers.address(Duration.ATTRIBUTE);
 
-    public static final long ADDRESS_ACTOR = Buffers.address(Actor.ATTRIBUTE);
+    public static final long ADDRESS_ACTOR = Buffers.address(AknAttributes.ACTOR);
 
     public static final long ADDRESS_ROLE = Buffers.address(Role.ATTRIBUTE);
 

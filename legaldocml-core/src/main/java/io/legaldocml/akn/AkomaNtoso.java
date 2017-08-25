@@ -50,6 +50,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void add(Attribute attribute) {
         if (this.attributes == null) {
             this.attributes = new ArrayList<>();

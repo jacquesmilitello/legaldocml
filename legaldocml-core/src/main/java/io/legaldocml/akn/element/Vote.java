@@ -1,17 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.attribute.VoteAtts;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.VoteRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -58,7 +58,7 @@ public final class Vote extends InlineType implements VoteAtts, ANinline {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Vote.class, "as")))
-                .put(Agent.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Vote.class, "by")))
+                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Vote.class, "by")))
                 .put(VoteAtts.ATTRIBUTE, biConsumerVoteRef(getFieldOffset(Vote.class, "choice")))
                 .build();
     }

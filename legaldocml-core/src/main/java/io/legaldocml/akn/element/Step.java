@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
@@ -71,11 +72,11 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(Date.ATTRIBUTE, biConsumerDateTime(getFieldOffset(Step.class, "date")))
+                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Step.class, "date")))
                 .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Step.class, "as")))
                 .put(Outcome.ATTRIBUTE, biConsumerConceptRef(getFieldOffset(Step.class, "outcome")))
-                .put(Actor.ATTRIBUTE, biConsumerString(getFieldOffset(Step.class, "actor")))
-                .put(Agent.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Step.class, "by")))
+                .put(AknAttributes.ACTOR, biConsumerString(getFieldOffset(Step.class, "actor")))
+                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Step.class, "by")))
                 .build();
     }
 

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.BooleanValue;
 import io.legaldocml.akn.util.XmlWriterHelper;
@@ -35,7 +36,7 @@ public abstract class BooleanValueType extends MetaOpt implements BooleanValue {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(BooleanValue.ATTRIBUTE, biConsumerBoolean(getFieldOffset(BooleanValueType.class, "value")))
+                .put(AknAttributes.VALUE, biConsumerBoolean(getFieldOffset(BooleanValueType.class, "value")))
                 .build();
     }
 

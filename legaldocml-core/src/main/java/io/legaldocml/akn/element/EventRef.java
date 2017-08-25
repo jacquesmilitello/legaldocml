@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Originating;
@@ -9,9 +10,9 @@ import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EventType;
 import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -68,7 +69,7 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(Date.ATTRIBUTE, biConsumerDateTime(getFieldOffset(EventRef.class, "date")))
+                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(EventRef.class, "date")))
                 .put(Source.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(EventRef.class, "source")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(EventRef.class, "refersTo")))
                 .put(Originating.ATTRIBUTE, biConsumerBoolean(getFieldOffset(EventRef.class, "originatingExpression")))

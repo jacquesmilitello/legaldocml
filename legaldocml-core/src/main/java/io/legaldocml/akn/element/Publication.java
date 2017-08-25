@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Name;
@@ -65,7 +66,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(Date.ATTRIBUTE, biConsumerDateTime(getFieldOffset(Publication.class, "date")))
+                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Publication.class, "date")))
                 .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(Publication.class, "showAs")))
                 .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(Publication.class, "shortForm")))
                 .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(Publication.class, "name")))

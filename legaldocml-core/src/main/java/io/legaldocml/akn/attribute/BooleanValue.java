@@ -16,12 +16,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface BooleanValue extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Value.ATTRIBUTE;
-
     Boolean getValue();
 
     void setValue(Boolean value);
+
 }

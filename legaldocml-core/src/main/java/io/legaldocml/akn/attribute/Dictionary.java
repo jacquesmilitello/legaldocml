@@ -17,11 +17,6 @@ import io.legaldocml.akn.type.ReferenceRef;
  */
 public interface Dictionary extends AknObject {
 
-    /**
-     * Attribute name "dictionary".
-     */
-    String ATTRIBUTE = "dictionary";
-
     ReferenceRef getDictionary();
 
     void setDictionary(ReferenceRef dictionary);

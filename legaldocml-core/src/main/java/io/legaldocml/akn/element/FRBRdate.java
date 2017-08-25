@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Name;
@@ -54,7 +55,7 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(Date.ATTRIBUTE, biConsumerDateTime(getFieldOffset(FRBRdate.class, "date")))
+                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(FRBRdate.class, "date")))
                 .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRdate.class, "name")))
                 .build();
     }

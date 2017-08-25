@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Dictionary;
 import io.legaldocml.akn.attribute.LinkOpt;
@@ -71,7 +72,7 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
                 .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(Keyword.class, "showAs")))
                 .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(Keyword.class, "shortForm")))
                 .put(Value.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "value")))
-                .put(Dictionary.ATTRIBUTE, biConsumerReferenceRef(getFieldOffset(Keyword.class, "dictionary")))
+                .put(AknAttributes.DICTIONARY, biConsumerReferenceRef(getFieldOffset(Keyword.class, "dictionary")))
                 .put(LinkOpt.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "href")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "refersTo")))
                 .build();

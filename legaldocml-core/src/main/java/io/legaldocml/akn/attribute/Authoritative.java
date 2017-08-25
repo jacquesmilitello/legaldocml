@@ -13,12 +13,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Authoritative extends AknObject {
 
-    /**
-     * Attribute "authoritative".
-     */
-    String ATTRIBUTE = "authoritative";
-
     Boolean getAuthoritative();
 
     void setAuthoritative(Boolean authoritative);
+
 }

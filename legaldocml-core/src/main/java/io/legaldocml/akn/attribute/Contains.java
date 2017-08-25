@@ -17,11 +17,6 @@ import io.legaldocml.akn.type.VersionType;
  */
 public interface Contains extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "contains";
-
     VersionType getContains();
 
     void setContains(VersionType versionType);

@@ -16,11 +16,6 @@ import io.legaldocml.akn.type.EidRef;
  */
 public interface Alt extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "alternativeTo";
-
     EidRef getAlternativeTo();
 
     void setAlternativeTo(EidRef alternativeTo);

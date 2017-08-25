@@ -16,11 +16,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Actor extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "actor";
-
     String getActor();
 
     void setActor(String actor);

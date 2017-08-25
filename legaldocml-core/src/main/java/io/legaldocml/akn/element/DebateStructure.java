@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
@@ -47,7 +48,7 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put(Contains.ATTRIBUTE, biConsumerEnum(getFieldOffset(DebateStructure.class, "versionType"), VersionType.class))
+                .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(DebateStructure.class, "versionType"), VersionType.class))
                 .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(DebateStructure.class, "name")))
                 .build();
     }
@@ -138,7 +139,7 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
     public final String toString() {
         ToStringBuilder builder = new ToStringBuilder(this, false);
         builder.append(Name.ATTRIBUTE, this.name);
-        builder.append(Contains.ATTRIBUTE, this.versionType);
+        builder.append(AknAttributes.CONTAINS, this.versionType);
         return builder.toString();
     }
 

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.*;
 import io.legaldocml.akn.type.EidRef;
@@ -36,7 +37,7 @@ public abstract class AbstractCore extends AbstractId implements Core {
                 .put(Enactment.ATTRIBUTE, biConsumerEnum(getFieldOffset(AbstractCore.class, "status"), StatusType.class))
                 .put(Period.ATTRIBUTE, biConsumerTemporalGroupRef(getFieldOffset(AbstractCore.class, "period")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(AbstractCore.class, "refersTo")))
-                .put(Alt.ATTRIBUTE, Attributes.biConsumerEidRef(getFieldOffset(AbstractCore.class, "alternativeTo")))
+                .put(AknAttributes.ALTERNATIVE_TO, Attributes.biConsumerEidRef(getFieldOffset(AbstractCore.class, "alternativeTo")))
                 .build();
     }
 
@@ -147,7 +148,7 @@ public abstract class AbstractCore extends AbstractId implements Core {
         builder.append(Enactment.ATTRIBUTE, this.status);
         builder.append(Period.ATTRIBUTE, this.period);
         builder.append(RefersOpt.ATTRIBUTE, this.refersTo);
-        builder.append(Alt.ATTRIBUTE, this.alternativeTo);
+        builder.append(AknAttributes.ALTERNATIVE_TO, this.alternativeTo);
     }
 
 }

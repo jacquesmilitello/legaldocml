@@ -1,6 +1,7 @@
 package io.legaldocml.akn.util;
 
 import io.legaldocml.LegalDocMlException;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.MandatoryAttributeException;
 import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
@@ -210,7 +211,7 @@ public final class XmlWriterHelper {
 
     public static void writeDate(XmlWriter writer, Date date) throws IOException {
         if (date.getDate() == null) {
-            throwException(writer, new MandatoryAttributeException(date, Date.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(date, AknAttributes.DATE, writer));
         } else {
             OffsetDateTime dt = date.getDate();
             if ((dt.getHour() == 0) && (dt.getMinute() == 0) && (dt.getSecond() == 0) && (dt.getNano() == 0)) {

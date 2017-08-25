@@ -92,6 +92,7 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
     /**
      * {@inheritDoc}
      */
+    @Override
     public void accept(AknVisitor visitor) {
         if (this.documentType != null) {
             this.documentType.accept(visitor);

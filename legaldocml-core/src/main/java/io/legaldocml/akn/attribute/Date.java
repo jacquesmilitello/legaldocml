@@ -22,12 +22,8 @@ import java.time.OffsetDateTime;
  */
 public interface Date extends AknObject {
 
-    /**
-     * Attribute name "date".
-     */
-    String ATTRIBUTE = "date";
-
     OffsetDateTime getDate();
 
     void setDate(OffsetDateTime date);
+
 }

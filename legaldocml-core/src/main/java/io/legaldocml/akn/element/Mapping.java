@@ -1,8 +1,8 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.MappingAtts;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.AgentRef;
@@ -10,9 +10,9 @@ import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.WidRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -68,7 +68,7 @@ public final class Mapping extends MetaReq implements MappingAtts {
                 .put(MappingAtts.ATTRIBUTE_START, biConsumerEventRefRef(getFieldOffset(Mapping.class, "start")))
                 .put(MappingAtts.ATTRIBUTE_END, biConsumerEventRefRef(getFieldOffset(Mapping.class, "end")))
                 .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Mapping.class, "as")))
-                .put(Agent.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Mapping.class, "by")))
+                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Mapping.class, "by")))
                 .build();
     }
 

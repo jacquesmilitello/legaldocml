@@ -1,8 +1,8 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.OpinionType;
@@ -53,7 +53,7 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(io.legaldocml.akn.attribute.OpinionType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Opinion.class, "type"), OpinionType.class))
-                .put(Agent.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(Opinion.class, "by")))
+                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Opinion.class, "by")))
                 .build();
     }
 

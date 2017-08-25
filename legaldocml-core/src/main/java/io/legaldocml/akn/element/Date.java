@@ -1,11 +1,12 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -50,7 +51,7 @@ public final class Date extends InlineType implements io.legaldocml.akn.attribut
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(io.legaldocml.akn.attribute.Date.ATTRIBUTE, biConsumerDateTime(getFieldOffset(Date.class, "date")))
+                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Date.class, "date")))
                 .build();
     }
 

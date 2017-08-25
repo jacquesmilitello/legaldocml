@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Authoritative;
@@ -68,9 +69,9 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(FRBRtranslation.class, "href")))
                 .put(FromLanguage.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRtranslation.class, "fromLanguage")))
-                .put(Agent.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(FRBRtranslation.class, "by")))
+                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(FRBRtranslation.class, "by")))
                 .put(Pivot.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRtranslation.class, "pivot")))
-                .put(Authoritative.ATTRIBUTE, biConsumerBoolean(getFieldOffset(FRBRtranslation.class, "authoritative")))
+                .put(AknAttributes.AUTHORITATIVE, biConsumerBoolean(getFieldOffset(FRBRtranslation.class, "authoritative")))
                 .build();
     }
 

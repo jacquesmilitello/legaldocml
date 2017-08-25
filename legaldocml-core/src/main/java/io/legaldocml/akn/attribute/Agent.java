@@ -16,11 +16,6 @@ import io.legaldocml.akn.type.AgentRef;
  */
 public interface Agent extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "by";
-
     AgentRef getBy();
 
     void setBy(AgentRef by);

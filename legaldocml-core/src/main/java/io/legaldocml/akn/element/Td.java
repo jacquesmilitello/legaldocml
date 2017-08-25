@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CellAttrs;
 import io.legaldocml.io.impl.Buffers;
@@ -48,8 +49,8 @@ public final class Td extends Blocksopt implements CellAttrs, TrElement, SubFlow
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(CellAttrs.ATTRIBUTE_COL_SPAN, biConsumerInteger(getFieldOffset(Td.class, "colSpan")))
-                .put(CellAttrs.ATTRIBUTE_ROW_SPAN, biConsumerInteger(getFieldOffset(Td.class, "rowSpan")))
+                .put(AknAttributes.COL_SPAN, biConsumerInteger(getFieldOffset(Td.class, "colSpan")))
+                .put(AknAttributes.ROW_SPAN, biConsumerInteger(getFieldOffset(Td.class, "rowSpan")))
                 .build();
     }
 
