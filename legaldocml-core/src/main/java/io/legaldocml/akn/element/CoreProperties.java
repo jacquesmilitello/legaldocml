@@ -86,6 +86,9 @@ public abstract class CoreProperties implements AknObject {
         this.preservation = preservation;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void write(XmlWriter writer) throws IOException {
         this.frbrThis.write(writer);
@@ -162,16 +165,16 @@ public abstract class CoreProperties implements AknObject {
             throw new MandatoryElementException(this, FRBRdate.ELEMENT, reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT_FRBRAUTHOR)) {
             FRBRauthor author;
             do {
                 author = new FRBRauthor();
                 author.read(reader);
                 this.authors.add(author);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT_FRBRAUTHOR));
         } else {
-            throw new MandatoryElementException(this, FRBRauthor.ELEMENT, reader);
+            throw new MandatoryElementException(this, FRBRauthor.ELEMENT_FRBRAUTHOR, reader);
         }
 
         if (reader.getQName().equalsLocalName(ComponentInfo.ELEMENT)) {
