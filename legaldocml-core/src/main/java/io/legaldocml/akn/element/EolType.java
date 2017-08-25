@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Number;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -40,7 +41,7 @@ public abstract class EolType extends MarkerOpt implements Number {
                 .putAll(MarkerOpt.ATTRIBUTES)
                 .put("breakat", Attributes.biConsumerInteger(getFieldOffset(EolType.class, "breakat")))
                 .put("breakWith", Attributes.biConsumerInteger(getFieldOffset(EolType.class, "breakWith")))
-                .put(Number.ATTRIBUTE, Attributes.biConsumerInteger(getFieldOffset(EolType.class, "number")))
+                .put(AknAttributes.NUMBER, Attributes.biConsumerInteger(getFieldOffset(EolType.class, "number")))
                 .build();
     }
 

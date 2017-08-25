@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
@@ -25,8 +26,9 @@ import java.util.function.BiConsumer;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
-import static io.legaldocml.akn.util.XmlWriterHelper.*;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeValue;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -55,8 +57,8 @@ public abstract class CountType extends IdReqImpl implements Core, ValueReq, Ref
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(CountType.class, "refersTo")))
-                .put(LinkOpt.ATTRIBUTE, biConsumerUri(getFieldOffset(CountType.class, "href")))
-                .put(ValueReq.ATTRIBUTE, biConsumerString(getFieldOffset(CountType.class, "value")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(CountType.class, "href")))
+                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(CountType.class, "value")))
                 .build();
     }
 

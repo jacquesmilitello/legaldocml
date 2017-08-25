@@ -2,12 +2,13 @@ package io.legaldocml.akn.element;
 
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.BlockElements;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -52,7 +53,7 @@ public final class Block extends InlineType implements Name, BlockElements {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(Block.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Block.class, "name")))
                 .build();
     }
 

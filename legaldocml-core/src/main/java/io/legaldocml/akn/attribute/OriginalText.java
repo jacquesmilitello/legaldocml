@@ -16,11 +16,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface OriginalText extends AknObject {
 
-    /**
-     * Attribute name "originalText".
-     */
-    String ATTRIBUTE = "originalText";
-
     String getOriginalText();
 
     void setOriginalText(String originalText);

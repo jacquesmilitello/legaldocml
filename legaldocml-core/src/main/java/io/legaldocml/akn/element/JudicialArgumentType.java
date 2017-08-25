@@ -60,8 +60,8 @@ public abstract class JudicialArgumentType extends IdReqImpl implements Enactmen
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(JudicialArgumentType.class, "period")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(JudicialArgumentType.class, "refersTo")))
-                .put(Modifiers.ATTRIBUTE_EXCLUSION, biConsumerBoolean(getFieldOffset(JudicialArgumentType.class, "exclusion")))
-                .put(Modifiers.ATTRIBUTE_INCOMPLETE, biConsumerBoolean(getFieldOffset(JudicialArgumentType.class, "incomplete")))
+                .put(AknAttributes.EXCLUSION, biConsumerBoolean(getFieldOffset(JudicialArgumentType.class, "exclusion")))
+                .put(AknAttributes.INCOMPLETE, biConsumerBoolean(getFieldOffset(JudicialArgumentType.class, "incomplete")))
                 .build();
     }
 

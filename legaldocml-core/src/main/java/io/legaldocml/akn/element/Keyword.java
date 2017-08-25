@@ -73,7 +73,7 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
                 .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(Keyword.class, "shortForm")))
                 .put(Value.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "value")))
                 .put(AknAttributes.DICTIONARY, biConsumerReferenceRef(getFieldOffset(Keyword.class, "dictionary")))
-                .put(LinkOpt.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "href")))
+                .put(AknAttributes.HREF, biConsumerString(getFieldOffset(Keyword.class, "href")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerString(getFieldOffset(Keyword.class, "refersTo")))
                 .build();
     }

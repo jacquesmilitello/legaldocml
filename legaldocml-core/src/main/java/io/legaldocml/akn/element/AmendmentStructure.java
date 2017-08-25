@@ -44,7 +44,7 @@ public abstract class AmendmentStructure extends AbstractStructure implements Co
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(AmendmentStructure.class, "contains"), VersionType.class))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(AmendmentStructure.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(AmendmentStructure.class, "name")))
                 .build();
     }
 

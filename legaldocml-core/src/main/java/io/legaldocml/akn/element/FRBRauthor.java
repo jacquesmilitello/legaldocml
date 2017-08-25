@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Role;
@@ -55,7 +56,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, Attributes.biConsumerUri(getFieldOffset(FRBRauthor.class, "href")))
+                .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(FRBRauthor.class, "href")))
                 .put(Role.ATTRIBUTE, Attributes.biConsumerRoleRef(getFieldOffset(FRBRauthor.class, "as")))
                 .build();
     }
@@ -148,7 +149,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(LinkReq.ATTRIBUTE, this.href);
+        builder.append(AknAttributes.HREF, this.href);
         builder.append(Role.ATTRIBUTE, this.as);
     }
 

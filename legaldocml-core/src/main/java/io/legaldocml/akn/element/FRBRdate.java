@@ -56,7 +56,7 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(FRBRdate.class, "date")))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRdate.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(FRBRdate.class, "name")))
                 .build();
     }
 

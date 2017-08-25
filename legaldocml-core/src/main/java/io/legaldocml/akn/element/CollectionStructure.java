@@ -50,7 +50,7 @@ public abstract class CollectionStructure extends AbstractStructureWithPreamble 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(CollectionStructure.class, "versionType"), VersionType.class))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(CollectionStructure.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(CollectionStructure.class, "name")))
                 .build();
     }
 

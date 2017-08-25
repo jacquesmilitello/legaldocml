@@ -57,7 +57,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(TocItem.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(TocItem.class, "href")))
                 .put(AknAttributes.LEVEL, biConsumerString(getFieldOffset(TocItem.class, "level")))
                 .build();
     }

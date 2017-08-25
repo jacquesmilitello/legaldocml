@@ -49,7 +49,7 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(DebateStructure.class, "versionType"), VersionType.class))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(DebateStructure.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(DebateStructure.class, "name")))
                 .build();
     }
 
@@ -138,7 +138,7 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
     @Override
     public final String toString() {
         ToStringBuilder builder = new ToStringBuilder(this, false);
-        builder.append(Name.ATTRIBUTE, this.name);
+        builder.append(AknAttributes.NAME, this.name);
         builder.append(AknAttributes.CONTAINS, this.versionType);
         return builder.toString();
     }

@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -49,7 +50,7 @@ public final class Ref extends InlineReqType implements ANinline, LinkReq {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqType.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, Attributes.biConsumerUri(getFieldOffset(Ref.class, "href")))
+                .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(Ref.class, "href")))
                 .build();
     }
 

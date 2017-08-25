@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.util.AknList;
@@ -45,7 +46,7 @@ public abstract class ContainerType extends CoreReqImpl implements Name {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(CoreReqImpl.ATTRIBUTES)
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(ContainerType.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ContainerType.class, "name")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ContainerElement>>builder()

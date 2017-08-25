@@ -15,11 +15,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Number extends AknObject {
 
-    /**
-     * Attribute name "number".
-     */
-    String ATTRIBUTE = "number";
-
     String getNumber();
 
     void setNumber(String number);

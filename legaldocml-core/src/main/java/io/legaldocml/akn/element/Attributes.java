@@ -4,12 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.Link;
-import io.legaldocml.akn.attribute.Modifiers;
-import io.legaldocml.akn.attribute.Name;
-import io.legaldocml.akn.attribute.NormalizedAtt;
-import io.legaldocml.akn.attribute.Notes;
-import io.legaldocml.akn.attribute.Number;
 import io.legaldocml.akn.attribute.Originating;
 import io.legaldocml.akn.attribute.Outcome;
 import io.legaldocml.akn.attribute.Pivot;
@@ -90,11 +84,11 @@ public final class Attributes {
 
     public static final long ADDRESS_AS = Buffers.address(Role.ATTRIBUTE);
 
-    public static final long ADDRESS_HREF = Buffers.address(Link.ATTRIBUTE);
+    public static final long ADDRESS_HREF = Buffers.address(AknAttributes.HREF);
 
     public static final long ADDRESS_DATE = Buffers.address(AknAttributes.DATE);
 
-    public static final long ADDRESS_NAME = Buffers.address(Name.ATTRIBUTE);
+    public static final long ADDRESS_NAME = Buffers.address(AknAttributes.NAME);
 
     public static final long ADDRESS_VALUE = Buffers.address(ValueReq.ATTRIBUTE);
 
@@ -122,7 +116,7 @@ public final class Attributes {
 
     public static final long ADDRESS_SHORT_FORM = Buffers.address(ShowReq.ATTRIBUTE_SHORT_FORM);
 
-    public static final long ADDRESS_NUMBER = Buffers.address(Number.ATTRIBUTE);
+    public static final long ADDRESS_NUMBER = Buffers.address(AknAttributes.NUMBER);
 
     public static final long ADDRESS_TYPE = Buffers.address(Type.ATTRIBUTE);
 
@@ -156,11 +150,11 @@ public final class Attributes {
 
     public static final long ADDRESS_ALTERNATIVE_TO = Buffers.address(AknAttributes.ALTERNATIVE_TO);
 
-    public static final long ADDRESS_MARKER = Buffers.address(Notes.ATTRIBUTE_MARKER);
+    public static final long ADDRESS_MARKER = Buffers.address(AknAttributes.MARKER);
 
-    public static final long ADDRESS_PLACEMENT = Buffers.address(Notes.ATTRIBUTE_PLACEMENT);
+    public static final long ADDRESS_PLACEMENT = Buffers.address(AknAttributes.PLACEMENT);
 
-    public static final long ADDRESS_PLACEMENT_BASE = Buffers.address(Notes.ATTRIBUTE_PLACEMENT_BASE);
+    public static final long ADDRESS_PLACEMENT_BASE = Buffers.address(AknAttributes.PLACEMENT_BASE);
 
     public static final long ADDRESS_COL_SPAN = Buffers.address(AknAttributes.COL_SPAN);
 
@@ -182,9 +176,9 @@ public final class Attributes {
 
     public static final long ADDRESS_ROLE = Buffers.address(Role.ATTRIBUTE);
 
-    public static final long ADDRESS_EXCLUSION = Buffers.address(Modifiers.ATTRIBUTE_EXCLUSION);
+    public static final long ADDRESS_EXCLUSION = Buffers.address(AknAttributes.EXCLUSION);
 
-    public static final long ADDRESS_INCOMPLETE = Buffers.address(Modifiers.ATTRIBUTE_INCOMPLETE);
+    public static final long ADDRESS_INCOMPLETE = Buffers.address(AknAttributes.INCOMPLETE);
 
     public static final long ADDRESS_FOR = Buffers.address(AknAttributes.FOR);
 
@@ -194,7 +188,7 @@ public final class Attributes {
 
     public static final long ADDRESS_TIME = Buffers.address(Time.ATTRIBUTE);
 
-    public static final long ADDRESS_NORMALIZED = Buffers.address(NormalizedAtt.ATTRIBUTE);
+    public static final long ADDRESS_NORMALIZED = Buffers.address(AknAttributes.NORMALIZED);
 
     public static final long ADDRESS_INCLUDED_IN = Buffers.address(PortionAtt.ATTRIBUTE);
 

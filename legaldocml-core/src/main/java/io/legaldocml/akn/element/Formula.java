@@ -1,14 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.BasicContainers;
 import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -53,7 +54,7 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(Blocksreq.ATTRIBUTES)
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(Formula.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Formula.class, "name")))
                 .build();
     }
 

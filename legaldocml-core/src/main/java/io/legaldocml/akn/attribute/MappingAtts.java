@@ -22,26 +22,6 @@ import io.legaldocml.akn.type.WidRef;
  */
 public interface MappingAtts extends Role, Agent {
 
-    /**
-     * Attribute name "original".
-     */
-    String ATTRIBUTE_ORIGINAL = "original";
-
-    /**
-     * Attribute name "current".
-     */
-    String ATTRIBUTE_CURRENT = "current";
-
-    /**
-     * Attribute name "start".
-     */
-    String ATTRIBUTE_START = "start";
-    /**
-     * Attribute name "end".
-     */
-    String ATTRIBUTE_END = "end";
-
-
     WidRef getOriginal();
 
     void setOriginal(WidRef original);

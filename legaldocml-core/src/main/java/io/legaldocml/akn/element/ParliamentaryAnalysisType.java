@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
@@ -58,7 +59,7 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
-                .put(LinkOpt.ATTRIBUTE, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
                 .put(Outcome.ATTRIBUTE, biConsumerConceptRef(getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
                 .build();
 

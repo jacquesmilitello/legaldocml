@@ -63,10 +63,10 @@ public final class Mapping extends MetaReq implements MappingAtts {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaReq.ATTRIBUTES)
-                .put(MappingAtts.ATTRIBUTE_ORIGINAL, biConsumerWidRef(getFieldOffset(Mapping.class, "original")))
-                .put(MappingAtts.ATTRIBUTE_CURRENT, biConsumerEidRef(getFieldOffset(Mapping.class, "current")))
-                .put(MappingAtts.ATTRIBUTE_START, biConsumerEventRefRef(getFieldOffset(Mapping.class, "start")))
-                .put(MappingAtts.ATTRIBUTE_END, biConsumerEventRefRef(getFieldOffset(Mapping.class, "end")))
+                .put(AknAttributes.ORIGINAL, biConsumerWidRef(getFieldOffset(Mapping.class, "original")))
+                .put(AknAttributes.CURRENT, biConsumerEidRef(getFieldOffset(Mapping.class, "current")))
+                .put(AknAttributes.START, biConsumerEventRefRef(getFieldOffset(Mapping.class, "start")))
+                .put(AknAttributes.END, biConsumerEventRefRef(getFieldOffset(Mapping.class, "end")))
                 .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Mapping.class, "as")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Mapping.class, "by")))
                 .build();

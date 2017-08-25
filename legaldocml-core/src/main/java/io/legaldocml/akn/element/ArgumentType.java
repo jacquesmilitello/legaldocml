@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.Pos;
@@ -16,7 +17,9 @@ import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.util.XmlWriterHelper.*;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
+import static io.legaldocml.akn.util.XmlWriterHelper.writePos;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeUpTo;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -47,8 +50,8 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(Pos.ATTRIBUTE, biConsumerEnum(getFieldOffset(ArgumentType.class, "pos"), PosType.class))
                 .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "upTo")))
-                .put(Modifiers.ATTRIBUTE_EXCLUSION, biConsumerEidRef(getFieldOffset(ArgumentType.class, "exclusion")))
-                .put(Modifiers.ATTRIBUTE_INCOMPLETE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "incomplete")))
+                .put(AknAttributes.EXCLUSION, biConsumerEidRef(getFieldOffset(ArgumentType.class, "exclusion")))
+                .put(AknAttributes.INCOMPLETE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "incomplete")))
                 .build();
     }
 

@@ -52,7 +52,7 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(io.legaldocml.akn.attribute.OpinionType.ATTRIBUTE, biConsumerEnum(getFieldOffset(Opinion.class, "type"), OpinionType.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Opinion.class, "type"), OpinionType.class))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Opinion.class, "by")))
                 .build();
     }

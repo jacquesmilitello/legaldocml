@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.ANsemanticInline;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -51,7 +52,7 @@ public final class Entity extends InlineReqReqType implements Name, ANsemanticIn
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(Hierarchy.ATTRIBUTES)
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(Entity.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Entity.class, "name")))
                 .build();
     }
 

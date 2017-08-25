@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.Quote;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -53,7 +54,7 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(LinkOpt.ATTRIBUTE, biConsumerUri(getFieldOffset(EmbeddedText.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(EmbeddedText.class, "href")))
                 .put(Quote.ATTRIBUTE_STARTQUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "startQuote")))
                 .put(Quote.ATTRIBUTE_ENDQUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "endQuote")))
                 .put(Quote.ATTRIBUTE_INLINEQUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "inlineQuote")))

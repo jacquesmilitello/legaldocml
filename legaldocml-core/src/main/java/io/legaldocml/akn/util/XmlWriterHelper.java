@@ -156,7 +156,7 @@ public final class XmlWriterHelper {
 
     public static void writeName(XmlWriter writer, Name name) throws IOException {
         if (name.getName() == null) {
-            throwException(writer, new MandatoryAttributeException(name, Name.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(name, AknAttributes.NAME, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_NAME, 4, getChars(name.getName()));
         }

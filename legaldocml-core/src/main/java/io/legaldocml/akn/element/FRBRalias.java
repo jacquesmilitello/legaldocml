@@ -2,11 +2,12 @@ package io.legaldocml.akn.element;
 
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -42,7 +43,7 @@ public final class FRBRalias extends ValueType implements Name {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ValueType.ATTRIBUTES)
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRalias.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(FRBRalias.class, "name")))
                 .build();
     }
 

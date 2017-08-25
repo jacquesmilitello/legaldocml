@@ -67,7 +67,7 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(FRBRtranslation.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(FRBRtranslation.class, "href")))
                 .put(AknAttributes.FROM_LANGUAGE, biConsumerString(getFieldOffset(FRBRtranslation.class, "fromLanguage")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(FRBRtranslation.class, "by")))
                 .put(Pivot.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRtranslation.class, "pivot")))

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Target;
@@ -55,7 +56,7 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(Target.ATTRIBUTE, biConsumerString(getFieldOffset(A.class, "target")))
-                .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(A.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(A.class, "href")))
                 .build();
     }
 

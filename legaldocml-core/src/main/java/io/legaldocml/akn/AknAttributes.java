@@ -84,6 +84,8 @@ public final class AknAttributes {
      * : * {@link io.legaldocml.akn.attribute.EventType}
      * : * {@link io.legaldocml.akn.attribute.ForceModType}
      * : * {@link io.legaldocml.akn.attribute.LegalSystemModType}
+     * : * {@link io.legaldocml.akn.attribute.MeaningModType}
+     * : * {@link io.legaldocml.akn.attribute.OpinionType}
      */
     public static final String TYPE = "type";
 
@@ -169,12 +171,16 @@ public final class AknAttributes {
     public static final String HEIGHT = "height";
 
     /**
-     * Attribute for {@link io.legaldocml.akn.attribute.Interval}
+     * Attribute for :
+     * : * {@link io.legaldocml.akn.attribute.Interval}
+     * : * {@link io.legaldocml.akn.attribute.MappingAtts}
      */
     public static final String START = "start";
 
     /**
-     * Attribute for {@link io.legaldocml.akn.attribute.Interval}
+     * Attribute for :
+     * : * {@link io.legaldocml.akn.attribute.Interval}
+     * : * {@link io.legaldocml.akn.attribute.MappingAtts}
      */
     public static final String END = "end";
 
@@ -193,5 +199,63 @@ public final class AknAttributes {
      */
     public static final String LEVEL = "level";
 
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Link}
+     */
+    public static final String HREF = "href";
 
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.MappingAtts}
+     */
+    public static final String ORIGINAL = "original";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.MappingAtts}
+     */
+    public static final String CURRENT = "current";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Modifiers}
+     */
+    public static final String EXCLUSION = "exclusion";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Modifiers}
+     */
+    public static final String INCOMPLETE = "incomplete";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Name}
+     */
+    public static final String NAME = "name";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.NormalizedAtt}
+     */
+    public static final String NORMALIZED = "normalized";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Notes}
+     */
+    public static final String MARKER = "marker";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Notes}
+     */
+    public static final String PLACEMENT = "placement";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Notes}
+     */
+    public static final String PLACEMENT_BASE = "placementBase";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Number}
+     */
+    public static final String NUMBER = "number";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.OriginalText}
+     */
+    public static final String ORIGINAL_TEXT = "originalText";
 }

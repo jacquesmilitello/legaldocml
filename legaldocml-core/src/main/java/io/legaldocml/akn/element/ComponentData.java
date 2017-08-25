@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkReq;
@@ -9,10 +10,10 @@ import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -57,8 +58,8 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(ComponentData.class, "href")))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(ComponentData.class, "name")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ComponentData.class, "href")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ComponentData.class, "name")))
                 .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(ComponentData.class, "showAs")))
                 .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(ComponentData.class, "shortForm")))
                 .build();

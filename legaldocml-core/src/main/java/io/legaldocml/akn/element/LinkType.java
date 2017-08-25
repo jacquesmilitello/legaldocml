@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkReq;
@@ -41,7 +42,7 @@ public abstract class LinkType extends IdReqImpl implements Core, ShowReq, LinkR
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(LinkType.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(LinkType.class, "href")))
                 .put(ShowReq.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(LinkType.class, "showAs")))
                 .put(ShowReq.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(LinkType.class, "shortForm")))
                 .build();

@@ -22,19 +22,6 @@ import io.legaldocml.akn.type.PlacementType;
 
 public interface Notes extends AknObject {
 
-    /**
-     * Attribute name "marker".
-     */
-    String ATTRIBUTE_MARKER = "marker";
-    /**
-     * Attribute name "placement".
-     */
-    String ATTRIBUTE_PLACEMENT = "placement";
-    /**
-     * Attribute name "placementBase".
-     */
-    String ATTRIBUTE_PLACEMENT_BASE = "placementBase";
-
     String getMarker();
 
     void setMarker(String marker);
@@ -46,4 +33,5 @@ public interface Notes extends AknObject {
     EidRef getPlacementBase();
 
     void setPlacementBase(EidRef placementBase);
+
 }

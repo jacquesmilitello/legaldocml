@@ -17,9 +17,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Modifiers extends AknObject {
 
-    String ATTRIBUTE_EXCLUSION = "exclusion";
-    String ATTRIBUTE_INCOMPLETE = "incomplete";
-
     Boolean getExclusion();
 
     void setExclusion(Boolean exclusion);
@@ -27,4 +24,5 @@ public interface Modifiers extends AknObject {
     Boolean getIncomplete();
 
     void setIncomplete(Boolean incomplete);
+
 }

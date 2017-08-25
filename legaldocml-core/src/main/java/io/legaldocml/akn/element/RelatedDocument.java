@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.group.AmendmentInline;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -50,7 +51,7 @@ public final class RelatedDocument extends InlineType implements LinkReq, Amendm
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, Attributes.biConsumerUri(getFieldOffset(RelatedDocument.class, "href")))
+                .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(RelatedDocument.class, "href")))
                 .build();
     }
 

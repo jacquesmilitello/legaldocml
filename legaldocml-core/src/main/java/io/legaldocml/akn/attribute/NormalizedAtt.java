@@ -17,11 +17,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface NormalizedAtt extends AknObject {
 
-    /**
-     * Attribute name "normalized".
-     */
-    String ATTRIBUTE = "normalized";
-
     String getNormalized();
 
     void setNormalized(String normalized);

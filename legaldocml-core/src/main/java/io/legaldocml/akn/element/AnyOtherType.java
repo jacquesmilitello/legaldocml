@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
@@ -53,7 +54,7 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(IdOptImpl.ATTRIBUTES)
-                .put(LinkOpt.ATTRIBUTE, biConsumerUri(getFieldOffset(AnyOtherType.class, "href")))
+                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(AnyOtherType.class, "href")))
                 .build();
     }
 

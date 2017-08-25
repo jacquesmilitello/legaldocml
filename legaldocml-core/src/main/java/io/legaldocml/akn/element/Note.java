@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PlacementType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -53,9 +54,9 @@ public final class Note extends SubFlowStructure implements Notes {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(Notes.ATTRIBUTE_MARKER, biConsumerString(getFieldOffset(Note.class, "marker")))
-                .put(Notes.ATTRIBUTE_PLACEMENT_BASE, biConsumerEidRef(getFieldOffset(Note.class, "placementBase")))
-                .put(Notes.ATTRIBUTE_PLACEMENT, biConsumerEnum(getFieldOffset(Note.class, "placement"), PlacementType.class))
+                .put(AknAttributes.MARKER, biConsumerString(getFieldOffset(Note.class, "marker")))
+                .put(AknAttributes.PLACEMENT_BASE, biConsumerEidRef(getFieldOffset(Note.class, "placementBase")))
+                .put(AknAttributes.PLACEMENT, biConsumerEnum(getFieldOffset(Note.class, "placement"), PlacementType.class))
                 .build();
     }
 

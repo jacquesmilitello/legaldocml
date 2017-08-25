@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.MeaningModType;
 import io.legaldocml.akn.type.MeaningMods;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -55,7 +56,7 @@ public final class MeaningMod extends ModificationType implements MeaningModType
 
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(MeaningModType.ATTRIBUTE, biConsumerEnum(getFieldOffset(MeaningMod.class, "type"), MeaningMods.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(MeaningMod.class, "type"), MeaningMods.class))
                 .build();
     }
 

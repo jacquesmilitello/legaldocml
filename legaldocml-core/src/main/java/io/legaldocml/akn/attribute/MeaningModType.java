@@ -14,12 +14,8 @@ import io.legaldocml.akn.type.MeaningMods;
  */
 public interface MeaningModType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     MeaningMods getType();
 
     void setType(MeaningMods type);
+
 }

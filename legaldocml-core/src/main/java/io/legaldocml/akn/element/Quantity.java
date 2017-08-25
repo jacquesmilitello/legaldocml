@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.NormalizedAtt;
 import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -51,7 +52,7 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(NormalizedAtt.ATTRIBUTE, biConsumerString(getFieldOffset(Quantity.class, "normalized")))
+                .put(AknAttributes.NORMALIZED, biConsumerString(getFieldOffset(Quantity.class, "normalized")))
                 .build();
     }
 

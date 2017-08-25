@@ -51,7 +51,7 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(HierarchicalStructure.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(HierarchicalStructure.class, "name")))
                 .build();
     }
 

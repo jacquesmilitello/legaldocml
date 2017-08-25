@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.OriginalText;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -49,7 +50,7 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(OriginalText.ATTRIBUTE, Attributes.biConsumerUri(getFieldOffset(Placeholder.class, "originalText")))
+                .put(AknAttributes.ORIGINAL_TEXT, Attributes.biConsumerUri(getFieldOffset(Placeholder.class, "originalText")))
                 .build();
     }
 

@@ -48,7 +48,7 @@ public abstract class JudgmentStructure extends AbstractStructure implements Nam
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(JudgmentStructure.class, "versionType"), VersionType.class))
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(JudgmentStructure.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(JudgmentStructure.class, "name")))
                 .build();
     }
 

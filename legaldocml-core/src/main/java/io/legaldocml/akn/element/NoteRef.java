@@ -1,15 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.group.ANmarker;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PlacementType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -57,10 +58,10 @@ public final class NoteRef extends MarkerOpt implements LinkReq, Notes, ANmarker
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MarkerOpt.ATTRIBUTES)
-                .put(LinkReq.ATTRIBUTE, Attributes.biConsumerUri(getFieldOffset(NoteRef.class, "href")))
-                .put(Notes.ATTRIBUTE_MARKER, biConsumerString(getFieldOffset(NoteRef.class, "marker")))
-                .put(Notes.ATTRIBUTE_PLACEMENT_BASE, biConsumerEidRef(getFieldOffset(NoteRef.class, "placementBase")))
-                .put(Notes.ATTRIBUTE_PLACEMENT, biConsumerEnum(getFieldOffset(NoteRef.class, "placementType"), PlacementType.class))
+                .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(NoteRef.class, "href")))
+                .put(AknAttributes.MARKER, biConsumerString(getFieldOffset(NoteRef.class, "marker")))
+                .put(AknAttributes.PLACEMENT_BASE, biConsumerEidRef(getFieldOffset(NoteRef.class, "placementBase")))
+                .put(AknAttributes.PLACEMENT, biConsumerEnum(getFieldOffset(NoteRef.class, "placementType"), PlacementType.class))
                 .build();
     }
 

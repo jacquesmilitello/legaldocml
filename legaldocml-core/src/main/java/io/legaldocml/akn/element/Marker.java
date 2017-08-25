@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.MarkerElements;
@@ -50,7 +51,7 @@ public final class Marker extends MarkerReq implements Name, MarkerElements {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MarkerReq.ATTRIBUTES)
-                .put(Name.ATTRIBUTE, biConsumerString(getFieldOffset(Marker.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Marker.class, "name")))
                 .build();
     }
 

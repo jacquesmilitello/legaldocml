@@ -10,12 +10,8 @@ import io.legaldocml.util.Uri;
  */
 public interface Link extends AknObject {
 
-    /**
-     * Attribute name "href".
-     */
-    String ATTRIBUTE = "href";
-
     Uri getHref();
 
     void setHref(Uri href);
+    
 }

@@ -12,12 +12,8 @@ package io.legaldocml.akn.attribute;
  */
 public interface OpinionType extends Agent {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     io.legaldocml.akn.type.OpinionType getType();
 
     void setType(io.legaldocml.akn.type.OpinionType type);
+
 }
