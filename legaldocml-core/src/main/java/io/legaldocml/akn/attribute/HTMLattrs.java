@@ -17,19 +17,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface HTMLattrs extends AknObject {
 
-    /**
-     * Attribute name "class".
-     */
-    String ATTRIBUTE_CLASS = "class";
-    /**
-     * Attribute name "style".
-     */
-    String ATTRIBUTE_STYLE = "style";
-    /**
-     * Attribute name "title".
-     */
-    String ATTRIBUTE_TITLE = "title";
-
     String getClazz();
 
     void setClazz(String clazz);

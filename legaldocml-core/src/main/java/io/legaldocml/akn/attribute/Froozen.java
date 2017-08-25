@@ -16,12 +16,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Froozen extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "frozen";
-
     Boolean getFrozen();
 
     void setFrozen(Boolean frozen);
+
 }

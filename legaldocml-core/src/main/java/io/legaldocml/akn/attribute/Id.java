@@ -8,30 +8,6 @@ import io.legaldocml.akn.type.NoWhiteSpace;
  */
 public interface Id extends AknObject {
 
-    /**
-     * Attribute name "id".
-     */
-    String ATTRIBUTE_ID = "id";
-    /**
-     * Attribute name "evolvingId".
-     */
-    String ATTRIBUTE_EVOLVING_ID = "evolvingId";
-
-    /**
-     * Attribute name "eId".
-     */
-    String ATTRIBUTE_EID = "eId";
-
-    /**
-     * Attribute name "wId".
-     */
-    String ATTRIBUTE_WID = "wId";
-
-    /**
-     * Attribute name "GUID".
-     */
-    String ATTRIBUTE_GUID = "GUID";
-    
     @Deprecated
     String getId();
 

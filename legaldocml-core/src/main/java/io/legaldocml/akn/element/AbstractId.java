@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -19,11 +20,11 @@ public abstract class AbstractId implements AknObject, Id {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put(ATTRIBUTE_ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "eid")))
-                .put(ATTRIBUTE_EVOLVING_ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wid")))
-                .put(ATTRIBUTE_EID, biConsumerNoWhiteSpace(ATTRIBUTE_EID,getFieldOffset(AbstractId.class, "eid")))
-                .put(ATTRIBUTE_WID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wid")))
-                .put(ATTRIBUTE_GUID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "guid")))
+                .put(AknAttributes.ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "eid")))
+                .put(AknAttributes.EVOLVING_ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wid")))
+                .put(AknAttributes.EID, biConsumerNoWhiteSpace(AknAttributes.EID,getFieldOffset(AbstractId.class, "eid")))
+                .put(AknAttributes.WID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wid")))
+                .put(AknAttributes.GUID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "guid")))
                 .build();
     }
 
@@ -144,8 +145,8 @@ public abstract class AbstractId implements AknObject, Id {
     @Override
     public final String toString() {
         ToStringBuilder builder = new ToStringBuilder(this, false);
-        builder.append(ATTRIBUTE_EID, this.eid);
-        builder.append(ATTRIBUTE_WID, this.wid);
+        builder.append(AknAttributes.EID, this.eid);
+        builder.append(AknAttributes.WID, this.wid);
         toString(builder);
         return builder.toString();
     }

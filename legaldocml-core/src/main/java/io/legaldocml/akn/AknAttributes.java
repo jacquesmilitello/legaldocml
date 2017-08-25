@@ -106,4 +106,57 @@ public final class AknAttributes {
      */
     public static final String FOR = "for";
 
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.FromLanguage}
+     */
+    public static final String FROM_LANGUAGE = "fromLanguage";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Froozen}
+     */
+    public static final String FROZEN = "frozen";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.HTMLattrs}
+     */
+    public static final String CLASS = "class";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.HTMLattrs}
+     */
+    public static final String STYLE = "style";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.HTMLattrs}
+     */
+    public static final String TITLE = "title";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     */
+    @Deprecated
+    public static final String ID = "id";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     */
+    @Deprecated
+    public static final String EVOLVING_ID = "evolvingId";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     */
+    public static final String EID = "eId";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     */
+    public static final String WID = "wId";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     */
+    public static final String GUID = "GUID";
+
+
 }

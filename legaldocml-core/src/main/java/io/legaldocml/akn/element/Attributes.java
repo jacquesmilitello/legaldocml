@@ -4,9 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.FromLanguage;
-import io.legaldocml.akn.attribute.HTMLattrs;
-import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.ImgAtts;
 import io.legaldocml.akn.attribute.Interval;
 import io.legaldocml.akn.attribute.Language;
@@ -86,15 +83,15 @@ public final class Attributes {
     /**
      * Memory address.
      */
-    public static final long ADDRESS_ID = Buffers.address(Id.ATTRIBUTE_ID);
+    public static final long ADDRESS_ID = Buffers.address(AknAttributes.ID);
 
-    public static final long ADDRESS_EID = Buffers.address(Id.ATTRIBUTE_EID);
+    public static final long ADDRESS_EID = Buffers.address(AknAttributes.EID);
 
-    public static final long ADDRESS_WID = Buffers.address(Id.ATTRIBUTE_WID);
+    public static final long ADDRESS_WID = Buffers.address(AknAttributes.WID);
 
-    public static final long ADDRESS_GUID = Buffers.address(Id.ATTRIBUTE_GUID);
+    public static final long ADDRESS_GUID = Buffers.address(AknAttributes.GUID);
 
-    public static final long ADDRESS_EVOLVING_ID = Buffers.address(Id.ATTRIBUTE_EVOLVING_ID);
+    public static final long ADDRESS_EVOLVING_ID = Buffers.address(AknAttributes.EVOLVING_ID);
 
     public static final long ADDRESS_AS = Buffers.address(Role.ATTRIBUTE);
 
@@ -106,7 +103,7 @@ public final class Attributes {
 
     public static final long ADDRESS_VALUE = Buffers.address(ValueReq.ATTRIBUTE);
 
-    public static final long ADDRESS_FROM_LANGUAGE = Buffers.address(FromLanguage.ATTRIBUTE);
+    public static final long ADDRESS_FROM_LANGUAGE = Buffers.address(AknAttributes.FROM_LANGUAGE);
 
     public static final long ADDRESS_AUTHORITATIVE = Buffers.address(AknAttributes.AUTHORITATIVE);
 
@@ -136,11 +133,11 @@ public final class Attributes {
 
     public static final long ADDRESS_ORIGINATING_EXPRESSION = Buffers.address(Originating.ATTRIBUTE);
 
-    public static final long ADDRESS_CLASS = Buffers.address(HTMLattrs.ATTRIBUTE_CLASS);
+    public static final long ADDRESS_CLASS = Buffers.address(AknAttributes.CLASS);
 
-    public static final long ADDRESS_STYLE = Buffers.address(HTMLattrs.ATTRIBUTE_STYLE);
+    public static final long ADDRESS_STYLE = Buffers.address(AknAttributes.STYLE);
 
-    public static final long ADDRESS_TITLE = Buffers.address(HTMLattrs.ATTRIBUTE_TITLE);
+    public static final long ADDRESS_TITLE = Buffers.address(AknAttributes.TITLE);
 
     public static final long ADDRESS_DICTIONARY = Buffers.address(AknAttributes.DICTIONARY);
 

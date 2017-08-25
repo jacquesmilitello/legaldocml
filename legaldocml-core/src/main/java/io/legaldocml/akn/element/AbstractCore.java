@@ -31,9 +31,9 @@ public abstract class AbstractCore extends AbstractId implements Core {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(HTMLattrs.ATTRIBUTE_CLASS, biConsumerString(getFieldOffset(AbstractCore.class, "clazz")))
-                .put(HTMLattrs.ATTRIBUTE_STYLE, biConsumerString(getFieldOffset(AbstractCore.class, "style")))
-                .put(HTMLattrs.ATTRIBUTE_TITLE, biConsumerString(getFieldOffset(AbstractCore.class, "title")))
+                .put(AknAttributes.CLASS, biConsumerString(getFieldOffset(AbstractCore.class, "clazz")))
+                .put(AknAttributes.STYLE, biConsumerString(getFieldOffset(AbstractCore.class, "style")))
+                .put(AknAttributes.TITLE, biConsumerString(getFieldOffset(AbstractCore.class, "title")))
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(AbstractCore.class, "status"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(AbstractCore.class, "period")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(AbstractCore.class, "refersTo")))
@@ -142,9 +142,9 @@ public abstract class AbstractCore extends AbstractId implements Core {
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(HTMLattrs.ATTRIBUTE_CLASS, this.clazz);
-        builder.append(HTMLattrs.ATTRIBUTE_STYLE, this.style);
-        builder.append(HTMLattrs.ATTRIBUTE_TITLE, this.title);
+        builder.append(AknAttributes.CLASS, this.clazz);
+        builder.append(AknAttributes.STYLE, this.style);
+        builder.append(AknAttributes.TITLE, this.title);
         builder.append(AknAttributes.STATUS, this.status);
         builder.append(AknAttributes.PERIOD, this.period);
         builder.append(RefersOpt.ATTRIBUTE, this.refersTo);

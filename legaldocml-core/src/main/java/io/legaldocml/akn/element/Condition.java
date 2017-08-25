@@ -1,11 +1,12 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Froozen;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -48,7 +49,7 @@ public final class Condition extends AnyOtherType implements Froozen {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(Froozen.ATTRIBUTE, biConsumerDateTime(getFieldOffset(Condition.class, "frozen")))
+                .put(AknAttributes.FROZEN, biConsumerDateTime(getFieldOffset(Condition.class, "frozen")))
                 .build();
     }
 
