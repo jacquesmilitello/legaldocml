@@ -44,10 +44,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *           <xsd:attributeGroup ref="refers"/>
  *           <xsd:attributeGroup ref="eventType"/>
  *           <xsd:attributeGroup ref="originating"/>
- * 		   <xsd:extension>
- * 	     <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 	     </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -72,8 +72,8 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(EventRef.class, "date")))
                 .put(Source.ATTRIBUTE, biConsumerAgentRef(getFieldOffset(EventRef.class, "source")))
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(EventRef.class, "refersTo")))
-                .put(Originating.ATTRIBUTE, biConsumerBoolean(getFieldOffset(EventRef.class, "originatingExpression")))
-                .put("type", biConsumerEnum(getFieldOffset(EventRef.class, "type"), EventType.class))
+                .put(AknAttributes.ORIGINATING_EXPRESSION, biConsumerBoolean(getFieldOffset(EventRef.class, "originatingExpression")))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(EventRef.class, "type"), EventType.class))
 
                 .build();
     }

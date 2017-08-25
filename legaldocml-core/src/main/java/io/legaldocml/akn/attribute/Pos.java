@@ -18,12 +18,8 @@ import io.legaldocml.akn.type.PosType;
  */
 public interface Pos extends AknObject {
 
-    /**
-     * Attribute name "pos".
-     */
-    String ATTRIBUTE = "pos";
-
     PosType getPos();
 
     void setPos(PosType posType);
+
 }

@@ -13,12 +13,8 @@ import io.legaldocml.akn.type.EidRef;
  */
 public interface Range extends AknObject {
 
-    /**
-     * Attribute name "from".
-     */
-    String ATTRIBUTE = "from";
-
     EidRef getFrom();
 
     void setFrom(EidRef from);
+
 }

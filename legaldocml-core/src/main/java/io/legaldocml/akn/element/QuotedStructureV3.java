@@ -53,9 +53,9 @@ public final class QuotedStructureV3 extends SubFlowStructure implements QuotedS
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
                 .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(QuotedStructureV3.class, "_for")))
-                .put(Quote.ATTRIBUTE_STARTQUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "startQuote")))
-                .put(Quote.ATTRIBUTE_ENDQUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "endQuote")))
-                .put(Quote.ATTRIBUTE_INLINEQUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "inlineQuote")))
+                .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "startQuote")))
+                .put(AknAttributes.END_QUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "endQuote")))
+                .put(AknAttributes.INLINE_QUOTE, biConsumerString(getFieldOffset(QuotedStructureV3.class, "inlineQuote")))
                 .build();
 
     }

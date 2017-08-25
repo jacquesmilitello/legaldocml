@@ -38,13 +38,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
  * 	     <xsd:element ref="quorum"/>
  * 		 <xsd:element ref="count"/>
- * 	   <xsd:choice>
+ * 	   </xsd:choice>
  * 	   <xsd:attributeGroup ref="core"/>
  * 	   <xsd:attributeGroup ref="idreq"/>
  * 	   <xsd:attributeGroup ref="outcome"/>
  * 	   <xsd:attributeGroup ref="refers"/>
  * 	   <xsd:attributeGroup ref="linkopt"/>
- *   <xsd:complexType>
+ *   </xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -60,7 +60,7 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(RefersOpt.ATTRIBUTE, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
-                .put(Outcome.ATTRIBUTE, biConsumerConceptRef(getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
+                .put(AknAttributes.OUTCOME, biConsumerConceptRef(getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ParliamentaryAnalysisTypeElement>>builder()

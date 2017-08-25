@@ -20,20 +20,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Quote extends AknObject {
 
-    /**
-     * Attribute name "startQuote".
-     */
-    String ATTRIBUTE_STARTQUOTE = "startQuote";
-    /**
-     * Attribute name "endQuote".
-     */
-    String ATTRIBUTE_ENDQUOTE = "endQuote";
-    /**
-     * Attribute name "inlineQuote".
-     */
-    String ATTRIBUTE_INLINEQUOTE = "inlineQuote";
-
-
     String getStartQuote();
 
     void setStartQuote(String startQuote);
@@ -45,4 +31,5 @@ public interface Quote extends AknObject {
     String getInlineQuote();
 
     void setInlineQuote(String inlineQuote);
+
 }

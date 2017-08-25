@@ -42,10 +42,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *           <xsd:attributeGroup ref="authoritative"/>
  *           <xsd:attributeGroup ref="pivot"/>
  *           <xsd:attributeGroup ref="agent"/>
- * 		   <xsd:extension>
- * 	     <xsd:complexContent>
- *     <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 	     </xsd:complexContent>
+ *     </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -70,7 +70,7 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(FRBRtranslation.class, "href")))
                 .put(AknAttributes.FROM_LANGUAGE, biConsumerString(getFieldOffset(FRBRtranslation.class, "fromLanguage")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(FRBRtranslation.class, "by")))
-                .put(Pivot.ATTRIBUTE, biConsumerString(getFieldOffset(FRBRtranslation.class, "pivot")))
+                .put(AknAttributes.PIVOT, biConsumerString(getFieldOffset(FRBRtranslation.class, "pivot")))
                 .put(AknAttributes.AUTHORITATIVE, biConsumerBoolean(getFieldOffset(FRBRtranslation.class, "authoritative")))
                 .build();
     }

@@ -55,9 +55,9 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(EmbeddedText.class, "href")))
-                .put(Quote.ATTRIBUTE_STARTQUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "startQuote")))
-                .put(Quote.ATTRIBUTE_ENDQUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "endQuote")))
-                .put(Quote.ATTRIBUTE_INLINEQUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "inlineQuote")))
+                .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "startQuote")))
+                .put(AknAttributes.END_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "endQuote")))
+                .put(AknAttributes.INLINE_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "inlineQuote")))
                 .build();
     }
 

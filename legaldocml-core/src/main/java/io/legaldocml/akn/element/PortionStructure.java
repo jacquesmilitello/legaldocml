@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.io.CharArray;
@@ -24,9 +25,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *     <xsd:sequence>
  * 	     <xsd:element ref="meta"/>
  * 		 <xsd:element ref="portionBody"/>
- *     <xsd:sequence>
+ *     </xsd:sequence>
  * 	   <xsd:attributeGroup ref="portionAtt"/>
- *   <xsd:complexType>
+ *   </xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -38,7 +39,7 @@ public abstract class PortionStructure implements PortionAtt {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
-                .put(PortionAtt.ATTRIBUTE, biConsumerReferenceRef(getFieldOffset(PortionStructure.class, "referenceRef")))
+                .put(AknAttributes.INCLUDED_IN, biConsumerReferenceRef(getFieldOffset(PortionStructure.class, "referenceRef")))
                 .build();
     }
 

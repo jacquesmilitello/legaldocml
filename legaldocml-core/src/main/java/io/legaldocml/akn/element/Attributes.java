@@ -4,13 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.Originating;
-import io.legaldocml.akn.attribute.Outcome;
-import io.legaldocml.akn.attribute.Pivot;
-import io.legaldocml.akn.attribute.PortionAtt;
-import io.legaldocml.akn.attribute.Pos;
-import io.legaldocml.akn.attribute.Quote;
-import io.legaldocml.akn.attribute.Range;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.attribute.ShowReq;
@@ -96,7 +89,7 @@ public final class Attributes {
 
     public static final long ADDRESS_AUTHORITATIVE = Buffers.address(AknAttributes.AUTHORITATIVE);
 
-    public static final long ADDRESS_PIVOT = Buffers.address(Pivot.ATTRIBUTE);
+    public static final long ADDRESS_PIVOT = Buffers.address(AknAttributes.PIVOT);
 
     public static final long ADDRESS_BY = Buffers.address(AknAttributes.BY);
 
@@ -106,7 +99,7 @@ public final class Attributes {
 
     public static final long ADDRESS_REFERS = Buffers.address(RefersOpt.ATTRIBUTE);
 
-    public static final long ADDRESS_OUTCOME = Buffers.address(Outcome.ATTRIBUTE);
+    public static final long ADDRESS_OUTCOME = Buffers.address(AknAttributes.OUTCOME);
 
     public static final long ADDRESS_SOURCE = Buffers.address(Source.ATTRIBUTE);
 
@@ -120,7 +113,7 @@ public final class Attributes {
 
     public static final long ADDRESS_TYPE = Buffers.address(Type.ATTRIBUTE);
 
-    public static final long ADDRESS_ORIGINATING_EXPRESSION = Buffers.address(Originating.ATTRIBUTE);
+    public static final long ADDRESS_ORIGINATING_EXPRESSION = Buffers.address(AknAttributes.ORIGINATING_EXPRESSION);
 
     public static final long ADDRESS_CLASS = Buffers.address(AknAttributes.CLASS);
 
@@ -182,7 +175,7 @@ public final class Attributes {
 
     public static final long ADDRESS_FOR = Buffers.address(AknAttributes.FOR);
 
-    public static final long ADDRESS_FROM = Buffers.address(Range.ATTRIBUTE);
+    public static final long ADDRESS_FROM = Buffers.address(AknAttributes.FROM);
 
     public static final long ADDRESS_BREAKAT = Buffers.address(BREAKAT);
 
@@ -190,17 +183,17 @@ public final class Attributes {
 
     public static final long ADDRESS_NORMALIZED = Buffers.address(AknAttributes.NORMALIZED);
 
-    public static final long ADDRESS_INCLUDED_IN = Buffers.address(PortionAtt.ATTRIBUTE);
+    public static final long ADDRESS_INCLUDED_IN = Buffers.address(AknAttributes.INCLUDED_IN);
 
     public static final long ADDRESS_EMPOWERED_BY = Buffers.address(AknAttributes.EMPOWERED_BY);
 
-    public static final long ADDRESS_STARTQUOTE = Buffers.address(Quote.ATTRIBUTE_STARTQUOTE);
+    public static final long ADDRESS_STARTQUOTE = Buffers.address(AknAttributes.START_QUOTE);
 
-    public static final long ADDRESS_INLINEQUOTE = Buffers.address(Quote.ATTRIBUTE_INLINEQUOTE);
+    public static final long ADDRESS_INLINEQUOTE = Buffers.address(AknAttributes.INLINE_QUOTE);
 
-    public static final long ADDRESS_ENDQUOTE = Buffers.address(Quote.ATTRIBUTE_ENDQUOTE);
+    public static final long ADDRESS_ENDQUOTE = Buffers.address(AknAttributes.END_QUOTE);
 
-    public static final long ADDRESS_POS = Buffers.address(Pos.ATTRIBUTE);
+    public static final long ADDRESS_POS = Buffers.address(AknAttributes.POS);
 
     public static BiConsumer<AknObject, CharArray> biConsumerInteger(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, Integer.valueOf(s.toString()));

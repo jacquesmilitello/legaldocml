@@ -258,4 +258,51 @@ public final class AknAttributes {
      * Attribute for {@link io.legaldocml.akn.attribute.OriginalText}
      */
     public static final String ORIGINAL_TEXT = "originalText";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Originating}
+     */
+    public static final String ORIGINATING_EXPRESSION = "originatingExpression";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Outcome}
+     */
+    public static final String OUTCOME = "outcome";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Pivot}
+     */
+    public static final String PIVOT = "pivot";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.PortionAtt}
+     */
+    public static final String INCLUDED_IN = "includedIn";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Pos}
+     */
+    public static final String POS = "pos";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Quote}
+     */
+    public static final String START_QUOTE = "startQuote";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Quote}
+     */
+    public static final String END_QUOTE = "endQuote";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Quote}
+     */
+    public static final String INLINE_QUOTE = "inlineQuote";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Range}
+     */
+    public static final String FROM = "from";
+
+
 }

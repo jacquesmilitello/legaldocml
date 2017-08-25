@@ -17,11 +17,6 @@ import io.legaldocml.util.ReferenceRef;
  */
 public interface PortionAtt extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "includedIn";
-
     ReferenceRef getIncludedIn();
 
     void setIncludedIn(ReferenceRef referenceRef);

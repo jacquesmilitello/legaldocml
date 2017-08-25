@@ -17,11 +17,6 @@ import io.legaldocml.akn.type.ConceptRef;
  */
 public interface Outcome extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = "outcome";
-
     ConceptRef getOutcome();
 
     void setOutcome(ConceptRef outcome);

@@ -59,9 +59,9 @@ public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(EmbeddedStructure.class, "href")))
-                .put(Quote.ATTRIBUTE_STARTQUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "startQuote")))
-                .put(Quote.ATTRIBUTE_ENDQUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "endQuote")))
-                .put(Quote.ATTRIBUTE_INLINEQUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "inlineQuote")))
+                .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "startQuote")))
+                .put(AknAttributes.END_QUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "endQuote")))
+                .put(AknAttributes.INLINE_QUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "inlineQuote")))
                 .build();
     }
 

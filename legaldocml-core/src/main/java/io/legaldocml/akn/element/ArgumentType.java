@@ -48,7 +48,7 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
 
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(Pos.ATTRIBUTE, biConsumerEnum(getFieldOffset(ArgumentType.class, "pos"), PosType.class))
+                .put(AknAttributes.POS, biConsumerEnum(getFieldOffset(ArgumentType.class, "pos"), PosType.class))
                 .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "upTo")))
                 .put(AknAttributes.EXCLUSION, biConsumerEidRef(getFieldOffset(ArgumentType.class, "exclusion")))
                 .put(AknAttributes.INCOMPLETE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "incomplete")))

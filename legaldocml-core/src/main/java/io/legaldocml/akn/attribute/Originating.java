@@ -15,12 +15,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Originating extends AknObject {
 
-    /**
-     * Attribute name "originatingExpression".
-     */
-    String ATTRIBUTE = "originatingExpression";
-
     Boolean getOriginatingExpression();
 
     void setOriginatingExpression(Boolean originatingExpression);
+
 }

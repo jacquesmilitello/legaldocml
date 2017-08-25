@@ -1,15 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Range;
 import io.legaldocml.akn.attribute.RangeReq;
 import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.EidRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -53,7 +53,7 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModType.ATTRIBUTES)
                 .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rmod.class, "upTo")))
-                .put(Range.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rmod.class, "from")))
+                .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(Rmod.class, "from")))
                 .build();
 
     }

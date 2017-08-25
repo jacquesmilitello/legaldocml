@@ -44,7 +44,6 @@ import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.akn.attribute.Pos;
 import io.legaldocml.akn.attribute.Quote;
-import io.legaldocml.akn.attribute.Range;
 import io.legaldocml.akn.attribute.RangeOpt;
 import io.legaldocml.akn.attribute.RangeReq;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -593,7 +592,7 @@ public final class XmlWriterHelper {
 
     public static void writeRange(XmlWriter writer, RangeReq rangeReq) throws IOException {
         if (rangeReq.getFrom() == null) {
-            throwException(writer, new MandatoryAttributeException(rangeReq, Range.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(rangeReq, AknAttributes.FROM, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, rangeReq.getFrom().getChars());
         }
@@ -606,7 +605,7 @@ public final class XmlWriterHelper {
 
     public static void writeRange(XmlWriter writer, RangeOpt range) throws IOException {
         if (range.getFrom() == null) {
-            throwException(writer, new MandatoryAttributeException(range, Range.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(range, AknAttributes.FROM_LANGUAGE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, range.getFrom().getChars());
         }

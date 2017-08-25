@@ -2,8 +2,8 @@ package io.legaldocml.akn.element;
 
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Range;
 import io.legaldocml.akn.attribute.RangeOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
@@ -35,10 +35,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *           <xsd:attributeGroup ref="refers"/>
  *           <xsd:attributeGroup ref="showopt"/>
  *           <xsd:attributeGroup ref="rangeOpt"/>
- *         <xsd:extension>
- *       <xsd:complexContent>
- *     <xsd:complexType>
- *   <xsd:element>
+ *         </xsd:extension>
+ *       </xsd:complexContent>
+ *     </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -64,7 +64,7 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
                 .put(ShowOpt.ATTRIBUTE_SHOW_AS, biConsumerString(getFieldOffset(FRBRportion.class, "showAs")))
                 .put(ShowOpt.ATTRIBUTE_SHORT_FORM, biConsumerString(getFieldOffset(FRBRportion.class, "shortForm")))
                 .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(FRBRportion.class, "upTo")))
-                .put(Range.ATTRIBUTE, biConsumerEidRef(getFieldOffset(FRBRportion.class, "from")))
+                .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(FRBRportion.class, "from")))
                 .build();
     }
 

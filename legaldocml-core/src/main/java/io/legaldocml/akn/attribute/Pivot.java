@@ -15,11 +15,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Pivot extends AknObject {
 
-    /**
-     * Attribute name "language".
-     */
-    String ATTRIBUTE = "pivot";
-
     String getPivot();
 
     void setPivot(String language);
