@@ -83,7 +83,6 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
 
 
                 ((Role)object).setAs(RoleRef.valueOf(role.getEid()));
-                // todo link TLCRole
 
                 References ref = akn.getDocumentType().getMeta().getReferences(source);
 

@@ -203,6 +203,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void writeAttribute(long name, int nameLen, char[] value) throws IOException {
         checkSize(nameLen + value.length + 4);
 
@@ -224,21 +225,22 @@ public abstract class XmlChannelWriter implements XmlWriter {
     public void writeAttribute(long name, int nameLen, byte[] value) throws IOException {
         checkSize(nameLen + value.length + 16);
 
-        long address = this.address + this.buffer.position();
-        UNSAFE.putByte(address++, SPACE);
-        UNSAFE.copyMemory(name, address, nameLen);
-        address += nameLen;
-        UNSAFE.putByte(address++, EQUALS);
-        UNSAFE.putByte(address++, DOUBLE_QUOTE);
-        UNSAFE.copyMemory(value, UnsafeHelper.BYTE_ARRAY_BASE_OFFSET, null, address, value.length);
-        address += value.length;
-        UNSAFE.putByte(address++, DOUBLE_QUOTE);
-        this.buffer.position((int) (address - this.address));
+        long addr = this.address + this.buffer.position();
+        UNSAFE.putByte(addr++, SPACE);
+        UNSAFE.copyMemory(name, addr, nameLen);
+        addr += nameLen;
+        UNSAFE.putByte(addr++, EQUALS);
+        UNSAFE.putByte(addr++, DOUBLE_QUOTE);
+        UNSAFE.copyMemory(value, UnsafeHelper.BYTE_ARRAY_BASE_OFFSET, null, addr, value.length);
+        addr += value.length;
+        UNSAFE.putByte(addr++, DOUBLE_QUOTE);
+        this.buffer.position((int) (addr - this.address));
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void writeAttribute(long name, int nameLen, LocalDate date) throws IOException {
         checkSize(nameLen + 20);
 
@@ -256,6 +258,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void writeAttribute(long name, int nameLen, OffsetDateTime offsetDateTime) throws IOException {
         checkSize(nameLen + 30);
 
@@ -287,6 +290,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void write(char[] text) throws IOException {
         write(text, 0, text.length);
     }
@@ -345,55 +349,55 @@ public abstract class XmlChannelWriter implements XmlWriter {
 
     private int raw(char[] text, int off, int len, int pos) {
         char c;
-        long address = this.address + pos;
+        long addr = this.address + pos;
         for (int i = off, n = off + len; i < n; i++) {
             c = text[i];
             // ascii
             if (c < 0x80) {
                 switch (c) {
                     case '&':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_AMP, address, 5);
-                        address += 5;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_AMP, addr, 5);
+                        addr += 5;
                         break;
                     case '<':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_LT, address, 4);
-                        address += 4;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_LT, addr, 4);
+                        addr += 4;
                         break;
                     case '>':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_GT, address, 4);
-                        address += 4;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_GT, addr, 4);
+                        addr += 4;
                         break;
                     case '"':
-                        UNSAFE.copyMemory(ADDRESS_ENTITY_QUOT, address, 6);
-                        address += 6;
+                        UNSAFE.copyMemory(ADDRESS_ENTITY_QUOT, addr, 6);
+                        addr += 6;
                         break;
                     default:
-                        UNSAFE.putByte(address++, (byte) c);
+                        UNSAFE.putByte(addr++, (byte) c);
                 }
             } else {
                 // 2-byte
                 if (c < 0x800) {
-                    UNSAFE.putByte(address++, (byte) (0xc0 | (c >> 6)));
-                    UNSAFE.putByte(address++, (byte) (0x80 | (c & 0x3f)));
+                    UNSAFE.putByte(addr++, (byte) (0xc0 | (c >> 6)));
+                    UNSAFE.putByte(addr++, (byte) (0x80 | (c & 0x3f)));
                     // 3 bytes
                 } else if (c <= 0xFFFF) {
-                    UNSAFE.putByte(address++, (byte) (0xe0 | (c >> 12)));
-                    UNSAFE.putByte(address++, (byte) (0x80 | ((c >> 6) & 0x3f)));
-                    UNSAFE.putByte(address++, (byte) (0x80 | (c & 0x3f)));
+                    UNSAFE.putByte(addr++, (byte) (0xe0 | (c >> 12)));
+                    UNSAFE.putByte(addr++, (byte) (0x80 | ((c >> 6) & 0x3f)));
+                    UNSAFE.putByte(addr++, (byte) (0x80 | (c & 0x3f)));
                 } else {
                     // 4 bytes
                     if (c > 0x10FFFF) {
                         // illegal, as per RFC 3629
                         throw new IllegalStateException();
                     }
-                    UNSAFE.putByte(address++, (byte) (0xf0 | (c >> 18)));
-                    UNSAFE.putByte(address++, (byte) (0x80 | ((c >> 12) & 0x3f)));
-                    UNSAFE.putByte(address++, (byte) (0x80 | ((c >> 6) & 0x3f)));
-                    UNSAFE.putByte(address++, (byte) (0x80 | (c & 0x3f)));
+                    UNSAFE.putByte(addr++, (byte) (0xf0 | (c >> 18)));
+                    UNSAFE.putByte(addr++, (byte) (0x80 | ((c >> 12) & 0x3f)));
+                    UNSAFE.putByte(addr++, (byte) (0x80 | ((c >> 6) & 0x3f)));
+                    UNSAFE.putByte(addr++, (byte) (0x80 | (c & 0x3f)));
                 }
             }
         }
-        return (int) (address - this.address);
+        return (int) (addr - this.address);
     }
 
     /**

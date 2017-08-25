@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import static io.legaldocml.io.impl.XmlChannelReaderException.Type.NAMESPACE_ERROR;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -76,20 +78,18 @@ final class NamespacesImpl implements Namespaces {
         count = 1;
     }
 
-    public void setPrefix(int depth, CharArray prefix, CharArray uri) {
+    public void setPrefix(XmlChannelReader reader, CharArray prefix, CharArray uri) {
 
         if (prefix.length() == 0) {
-            // default namespace -> pos 0;
-            this.uris[0] = uri;
-            this.prefixes[0] = DEFAULT_NS_PREFIX;
+            setPrefixDefault(uri);
         } else {
-
             int i = 0;
             for (;i < count ; i++) {
                 if (prefix.equals(this.prefixes[i])) {
                     if (uri.equals(this.uris[i])) {
                         break;
                     } else {
+                        throw new XmlChannelReaderException(NAMESPACE_ERROR, reader);
                         // same prefix with different uri ?!
                     }
                 }
@@ -119,4 +119,9 @@ final class NamespacesImpl implements Namespaces {
         namespaces.count--;
     };
 
+    public void setPrefixDefault(CharArray uri) {
+        // default namespace in index 0;
+        this.uris[0] = uri;
+        this.prefixes[0] = DEFAULT_NS_PREFIX;
+    }
 }

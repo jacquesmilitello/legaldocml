@@ -51,7 +51,6 @@ public abstract class AkomaNtosoContext {
      * Akn module for this context
      */
     private final AknModule aknModule;
-    private ModelProvider modelProvider;
 
     protected AkomaNtosoContext(AknModule aknModule) {
         this.aknModule = aknModule;

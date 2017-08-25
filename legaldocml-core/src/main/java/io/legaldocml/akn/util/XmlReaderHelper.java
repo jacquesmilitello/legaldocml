@@ -2,12 +2,14 @@ package io.legaldocml.akn.util;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.AknReadException;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.HasMixedContent;
 import io.legaldocml.akn.MandatoryElementException;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.other.UnsupportedModule;
+import io.legaldocml.io.CharArray;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.impl.XmlChannelReader;
@@ -21,7 +23,10 @@ import org.slf4j.LoggerFactory;
 import javax.xml.stream.XMLStreamConstants;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
+
+import static io.legaldocml.akn.AknReadException.*;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -38,51 +43,23 @@ public final class XmlReaderHelper {
 
 
     public static <T extends DocumentType> AkomaNtoso createAkomaNtoso(XmlReader reader) {
-
-
         if (!AkomaNtoso.ELEMENT.equals(reader.getQName().getLocalName())) {
             throw new MandatoryElementException(null, AkomaNtoso.ELEMENT, reader);
         }
 
-        List<Module> modules = new ArrayList<>(4);
+        NamespaceConsumer namespaceConsumer = new NamespaceConsumer();
+        reader.getNamespaces().forEach(namespaceConsumer);
 
-        reader.getNamespaces().forEach((p, n) -> {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("namespace : prefix [{}] -> value [{}]", p, n);
-            }
-
-            if (Strings.isEmpty(p) && Strings.isEmpty(n)) {
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("default namespace xmlns empty -> skip");
-                }
-                return;
-            }
-
-            Module mod = Modules.get(n);
-            if (mod == null) {
-
-                LOGGER.info("Unsupported module for prefix [{}] and uri [{}]", p, n);
-                mod = new UnsupportedModule(p, n);
-
-            }
-            modules.add(mod);
-        });
-
-        AknModule aknModule = null;
-        for (Module module : modules) {
-            if (module instanceof AknModule) {
-                aknModule = (AknModule) module;
-            }
-        }
+        AknModule aknModule = namespaceConsumer.getAknModules();
 
         if (aknModule == null) {
-            throw new RuntimeException();
+           throw new AknReadException(Type.AKN_MODULE_NOT_FOUND,reader, null);
         }
 
         AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(aknModule.newAkomaNtosoContext());
         reader.setContext(akomaNtoso.getContext());
 
-        for (Module module : modules) {
+        for (Module module : namespaceConsumer.getModules()) {
             if (module != aknModule) {
                 akomaNtoso.getContext().add(module);
             }
@@ -103,13 +80,7 @@ public final class XmlReaderHelper {
 
             eventType = reader.next();
             if (eventType == XMLStreamConstants.START_ELEMENT) {
-                Supplier<T> supplier = map.get(reader.getQName().getLocalName());
-                if (supplier == null) {
-                    throw new RuntimeException("Missing Element [" + reader.getQName() + "] in [" + qName + "]");
-                }
-                T ako = supplier.get();
-                ako.read(reader);
-                list.add(ako);
+                onStartElement(reader, list, map, qName);
             }
             if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && qName.equals(reader.getQName())) {
                 break;
@@ -122,13 +93,7 @@ public final class XmlReaderHelper {
         while (true) {
 
             if (reader.getEventType() == XMLStreamConstants.START_ELEMENT) {
-                Supplier<T> supplier = map.get(reader.getQName().getLocalName());
-                if (supplier == null) {
-                    throw new RuntimeException("Missing [" + reader.getQName() + "] in [" + parent + "]");
-                }
-                T ako = supplier.get();
-                ako.read(reader);
-                list.add(ako);
+                onStartElement(reader, list, map, parent);
                 reader.nextStartOrEndElement();
                 continue;
             }
@@ -158,13 +123,7 @@ public final class XmlReaderHelper {
 
             eventType = reader.next();
             if (eventType == XMLStreamConstants.START_ELEMENT) {
-                Supplier<T> supplier = map.get(reader.getQName().getLocalName());
-                if (supplier == null) {
-                    throw new RuntimeException("Missing [" + reader.getQName() + "] in [" + qName + "]");
-                }
-                T ako = supplier.get();
-                ako.read(reader);
-                list.add(ako);
+                onStartElement(reader, list, map, qName);
             }
 
             if (reader.getEventType() == XMLStreamConstants.CHARACTERS) {
@@ -194,14 +153,7 @@ public final class XmlReaderHelper {
                     return;
                 }
 
-                Supplier<T> supplier = map.get(reader.getQName().getLocalName());
-                if (supplier == null) {
-                    throw new RuntimeException("Missing [" + reader.getQName() + "] in [" + parent + "]");
-                }
-                T ako = supplier.get();
-                ako.read(reader);
-                list.add(ako);
-                //continue;
+                onStartElement(reader, list, map, parent);
             }
 
             if (reader.getEventType() == XMLStreamConstants.END_DOCUMENT) {
@@ -221,4 +173,63 @@ public final class XmlReaderHelper {
             }
         }
     }
+
+    private static <T extends AknObject> void onStartElement(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parent) {
+        Supplier<T> supplier = map.get(reader.getQName().getLocalName());
+        if (supplier == null) {
+            throw new AknReadException(Type.MISSING_ELEMENT, reader, parent);
+        }
+        T ako = supplier.get();
+        ako.read(reader);
+        list.add(ako);
+    }
+
+    private static final class NamespaceConsumer implements BiConsumer<CharArray, CharArray> {
+
+        private final List<Module> modules = new ArrayList<>(4);
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void accept(CharArray prefix, CharArray ns) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("namespace : prefix [{}] -> value [{}]", prefix, ns);
+            }
+
+            if (Strings.isEmpty(prefix) && Strings.isEmpty(ns)) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("default namespace xmlns empty -> skip");
+                }
+                return;
+            }
+
+            Module mod = Modules.get(ns);
+            if (mod == null) {
+
+                LOGGER.info("Unsupported module for prefix [{}] and uri [{}]", prefix, ns);
+                mod = new UnsupportedModule(prefix, ns);
+
+            }
+            modules.add(mod);
+        }
+
+        List<Module> getModules() {
+            return modules;
+        }
+
+        AknModule getAknModules() {
+            AknModule aknModule = null;
+            for (Module module : this.modules) {
+                if (module instanceof AknModule) {
+                    if (aknModule != null) {
+                        throw new RuntimeException();
+                    }
+                    aknModule = (AknModule) module;
+                }
+            }
+            return aknModule;
+        }
+    }
+
 }

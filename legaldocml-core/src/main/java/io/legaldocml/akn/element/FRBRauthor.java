@@ -12,7 +12,6 @@ import io.legaldocml.util.ToStringBuilder;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
-import java.lang.Object;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
@@ -128,7 +127,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(java.lang.Object obj) {
         return obj == this || obj != null && obj instanceof FRBRauthor && Objects.equals(href, ((FRBRauthor) obj).href);
     }
 
