@@ -18,16 +18,6 @@ import io.legaldocml.akn.type.EventRefRef;
  */
 public interface Interval extends AknObject {
 
-    /**
-     * Attribute name "start".
-     */
-    String ATTRIBUTE_START = "start";
-
-    /**
-     * Attribute name "end".
-     */
-    String ATTRIBUTE_END = "end";
-
     EventRefRef getStart();
 
     void setStart(EventRefRef number);

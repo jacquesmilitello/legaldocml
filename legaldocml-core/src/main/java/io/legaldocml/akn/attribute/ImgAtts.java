@@ -16,15 +16,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface ImgAtts extends AknObject {
 
-    /**
-     * Attribute name "width".
-     */
-    String ATTRIBUTE_WIDTH = "width";
-    /**
-     * Attribute name "height".
-     */
-    String ATTRIBUTE_HEIGHT = "height";
-
     Integer getWidth();
 
     void setWidth(Integer width);

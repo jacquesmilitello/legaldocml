@@ -4,11 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.ImgAtts;
-import io.legaldocml.akn.attribute.Interval;
-import io.legaldocml.akn.attribute.Language;
-import io.legaldocml.akn.attribute.LawyerAtts;
-import io.legaldocml.akn.attribute.Level;
 import io.legaldocml.akn.attribute.Link;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.Name;
@@ -113,7 +108,7 @@ public final class Attributes {
 
     public static final long ADDRESS_TO = Buffers.address(SpeechAtts.ATTRIBUTE_TO);
 
-    public static final long ADDRESS_LANGUAGE = Buffers.address(Language.ATTRIBUTE);
+    public static final long ADDRESS_LANGUAGE = Buffers.address(AknAttributes.LANGUAGE);
 
     public static final long ADDRESS_REFERS = Buffers.address(RefersOpt.ATTRIBUTE);
 
@@ -141,7 +136,7 @@ public final class Attributes {
 
     public static final long ADDRESS_DICTIONARY = Buffers.address(AknAttributes.DICTIONARY);
 
-    public static final long ADDRESS_LEVEL = Buffers.address(Level.ATTRIBUTE);
+    public static final long ADDRESS_LEVEL = Buffers.address(AknAttributes.LEVEL);
 
     public static final long ADDRESS_TARGET = Buffers.address(Target.ATTRIBUTE);
 
@@ -151,9 +146,9 @@ public final class Attributes {
 
     public static final long ADDRESS_BORDER = Buffers.address(TableAtts.ATTRIBUTE_BORDER);
 
-    public static final long ADDRESS_WIDTH = Buffers.address(ImgAtts.ATTRIBUTE_WIDTH);
+    public static final long ADDRESS_WIDTH = Buffers.address(AknAttributes.WIDTH);
 
-    public static final long ADDRESS_HEIGHT = Buffers.address(ImgAtts.ATTRIBUTE_HEIGHT);
+    public static final long ADDRESS_HEIGHT = Buffers.address(AknAttributes.HEIGHT);
 
     public static final long ADDRESS_STATUS = Buffers.address(AknAttributes.STATUS);
 
@@ -177,9 +172,9 @@ public final class Attributes {
 
     public static final long ADDRESS_UPTO = Buffers.address(UpTo.ATTRIBUTE);
 
-    public static final long ADDRESS_START = Buffers.address(Interval.ATTRIBUTE_START);
+    public static final long ADDRESS_START = Buffers.address(AknAttributes.START);
 
-    public static final long ADDRESS_END = Buffers.address(Interval.ATTRIBUTE_END);
+    public static final long ADDRESS_END = Buffers.address(AknAttributes.END);
 
     public static final long ADDRESS_DURATION = Buffers.address(AknAttributes.DURATION);
 
@@ -203,7 +198,7 @@ public final class Attributes {
 
     public static final long ADDRESS_INCLUDED_IN = Buffers.address(PortionAtt.ATTRIBUTE);
 
-    public static final long ADDRESS_EMPOWERED_BY = Buffers.address(LawyerAtts.ATTRIBUTE_EMPOWERED_BY);
+    public static final long ADDRESS_EMPOWERED_BY = Buffers.address(AknAttributes.EMPOWERED_BY);
 
     public static final long ADDRESS_STARTQUOTE = Buffers.address(Quote.ATTRIBUTE_STARTQUOTE);
 

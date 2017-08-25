@@ -1,12 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Level;
 import io.legaldocml.akn.attribute.LinkReq;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -57,7 +58,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(LinkReq.ATTRIBUTE, biConsumerUri(getFieldOffset(TocItem.class, "href")))
-                .put(Level.ATTRIBUTE, biConsumerString(getFieldOffset(TocItem.class, "level")))
+                .put(AknAttributes.LEVEL, biConsumerString(getFieldOffset(TocItem.class, "level")))
                 .build();
     }
 

@@ -1,15 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ImgAtts;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.group.HTMLMarker;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -57,8 +58,8 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
                 .putAll(Blocksopt.ATTRIBUTES)
                 .put(Src.ATTRIBUTE_ALT, biConsumerString(getFieldOffset(Img.class, "alt")))
                 .put(Src.ATTRIBUTE_SRC, biConsumerManifestationURI(Src.ATTRIBUTE_SRC, getFieldOffset(Img.class, "src")))
-                .put(ImgAtts.ATTRIBUTE_WIDTH, biConsumerInteger(getFieldOffset(Img.class, "width")))
-                .put(ImgAtts.ATTRIBUTE_HEIGHT, biConsumerInteger(getFieldOffset(Img.class, "height")))
+                .put(AknAttributes.WIDTH, biConsumerInteger(getFieldOffset(Img.class, "width")))
+                .put(AknAttributes.HEIGHT, biConsumerInteger(getFieldOffset(Img.class, "height")))
                 .build();
     }
 

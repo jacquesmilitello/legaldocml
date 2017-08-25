@@ -14,12 +14,8 @@ import io.legaldocml.akn.type.LegalSystemMods;
  */
 public interface LegalSystemModType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     LegalSystemMods getType();
 
     void setType(LegalSystemMods type);
+
 }

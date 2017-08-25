@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LawyerAtts;
 import io.legaldocml.akn.attribute.Role;
@@ -55,8 +56,8 @@ public final class Lawyer extends InlineReqReqType implements LawyerAtts, ANhead
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
                 .put(Role.ATTRIBUTE, biConsumerRoleRef(getFieldOffset(Lawyer.class, "as")))
-                .put(LawyerAtts.ATTRIBUTE_FOR, biConsumerRoleRef(getFieldOffset(Lawyer.class, "_for")))
-                .put(LawyerAtts.ATTRIBUTE_EMPOWERED_BY, biConsumerRoleRef(getFieldOffset(Lawyer.class, "empoweredBy")))
+                .put(AknAttributes.FOR, biConsumerRoleRef(getFieldOffset(Lawyer.class, "_for")))
+                .put(AknAttributes.EMPOWERED_BY, biConsumerRoleRef(getFieldOffset(Lawyer.class, "empoweredBy")))
                 .build();
     }
 

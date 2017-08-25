@@ -17,11 +17,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Language extends AknObject {
 
-    /**
-     * Attribute name "language".
-     */
-    String ATTRIBUTE = "language";
-
     String getLanguage();
 
     void setLanguage(String language);

@@ -15,11 +15,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Level extends AknObject {
 
-    /**
-     * Attribute name "level".
-     */
-    String ATTRIBUTE = "level";
-
     String getLevel();
 
     void setLevel(String level);

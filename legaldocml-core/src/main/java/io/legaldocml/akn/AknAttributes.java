@@ -83,6 +83,7 @@ public final class AknAttributes {
      * : * {@link io.legaldocml.akn.attribute.EfficacyModType}
      * : * {@link io.legaldocml.akn.attribute.EventType}
      * : * {@link io.legaldocml.akn.attribute.ForceModType}
+     * : * {@link io.legaldocml.akn.attribute.LegalSystemModType}
      */
     public static final String TYPE = "type";
 
@@ -92,7 +93,9 @@ public final class AknAttributes {
     public static final String STATUS = "status";
 
     /**
-     * Attribute for {@link io.legaldocml.akn.attribute.FillInWidth}
+     * Attribute for :
+     * : * {@link io.legaldocml.akn.attribute.FillInWidth}
+     * : * {@link io.legaldocml.akn.attribute.ImgAtts}
      */
     public static final String WIDTH = "width";
 
@@ -102,7 +105,9 @@ public final class AknAttributes {
     public static final String PERIOD = "period";
 
     /**
-     * Attribute for {@link io.legaldocml.akn.attribute.For}
+     * Attribute for :
+     * : * {@link io.legaldocml.akn.attribute.For}
+     * : * {@link io.legaldocml.akn.attribute.LawyerAtts}
      */
     public static final String FOR = "for";
 
@@ -157,6 +162,36 @@ public final class AknAttributes {
      * Attribute for {@link io.legaldocml.akn.attribute.Id}
      */
     public static final String GUID = "GUID";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.ImgAtts}
+     */
+    public static final String HEIGHT = "height";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Interval}
+     */
+    public static final String START = "start";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Interval}
+     */
+    public static final String END = "end";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Language}
+     */
+    public static final String LANGUAGE = "language";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.LawyerAtts}
+     */
+    public static final String EMPOWERED_BY = "empoweredBy";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Level}
+     */
+    public static final String LEVEL = "level";
 
 
 }

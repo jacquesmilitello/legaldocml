@@ -19,16 +19,6 @@ import io.legaldocml.akn.type.AgentRef;
  */
 public interface LawyerAtts extends Role {
 
-    /**
-     * Attribute name "for".
-     */
-    String ATTRIBUTE_FOR = "for";
-
-    /**
-     * Attribute name "empoweredBy".
-     */
-    String ATTRIBUTE_EMPOWERED_BY = "empoweredBy";
-
     AgentRef getFor();
 
     void setFor(AgentRef for_);
