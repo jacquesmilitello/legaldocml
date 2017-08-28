@@ -5,7 +5,7 @@ import io.legaldocml.akn.element.Blocksreq;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.business.util.EidFactory;
 
-public class BlocksreqBuilder<T extends Blocksreq> {
+public class BlocksreqBuilder<T extends Blocksreq> implements HasPBuilder {
 
     private final Id parent;
     private final Blocksreq blocksreq;
@@ -20,6 +20,10 @@ public class BlocksreqBuilder<T extends Blocksreq> {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public PBuilder p() {
         P p = new P();
         this.blocksreq.add(p);

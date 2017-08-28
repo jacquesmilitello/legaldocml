@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.HasCoverPage;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -12,7 +13,7 @@ import java.io.IOException;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-abstract class AbstractStructure implements AknObject, Core {
+abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
 
     // Mandatory
     private final Meta meta = new Meta();
@@ -36,10 +37,18 @@ abstract class AbstractStructure implements AknObject, Core {
         return meta;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final CoverPage getCoverPage() {
         return this.coverPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void setCoverPage(CoverPage coverPage) {
         this.coverPage = coverPage;
     }

@@ -22,10 +22,12 @@ public class HierarchyBuilderTest {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder<Bill> businessBuilder = provider.newBuilder(Bill.ELEMENT);
 
+        HierarchyStrategy strategy = new HierarchyStrategyBuilder().article().paragraph().build();
+
         Article article = new Article();
         businessBuilder.getAkomaNtoso().getDocumentType().getBody().add(article);
 
-        HierarchyBuilder<Article> builder = new HierarchyBuilder<>(businessBuilder, article);
+        HierarchyBuilder<Article> builder = new HierarchyBuilder<>(businessBuilder, strategy, article);
         builder.eId("1");
         builder.num().text("Art. 1.");
         builder.heading()
@@ -34,11 +36,11 @@ public class HierarchyBuilderTest {
                 .eol()
                 .text("Camera dei deputati)");
 
-        HierarchyBuilder<Paragraph> paragraphBuilder = builder.paragraph();
+        HierarchyBuilder<Paragraph> paragraphBuilder = builder.next();
         paragraphBuilder.num().text("1.");
         paragraphBuilder.eId("1");
 
-        HierarchyBuilder<List> listBuilder = paragraphBuilder.list();
+        HierarchyBuilder<List> listBuilder = paragraphBuilder.newChild(List.ELEMENT);
         listBuilder.eId("1");
         listBuilder.intro()
                 .eid("1")

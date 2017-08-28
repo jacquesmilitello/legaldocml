@@ -6,6 +6,7 @@ import io.legaldocml.akn.element.FRBRExpression;
 import io.legaldocml.akn.element.FRBRManifestation;
 import io.legaldocml.akn.element.FRBRWork;
 import io.legaldocml.akn.element.FRBRauthor;
+import io.legaldocml.akn.element.FRBRdate;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
@@ -95,21 +96,23 @@ public class MetaBuilder<T extends DocumentType> {
         this.identification.getFRBRExpression().add(newFRBRlanguage(mapper.apply(language)));
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDate date, String name) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
-        this.identification.getFRBRWork().getFRBRdate().setDate(DateHelper.convert(date));
-        this.identification.getFRBRExpression().getFRBRdate().setDate(DateHelper.convert(date));
-        this.identification.getFRBRManifestation().getFRBRdate().setDate(DateHelper.convert(date));
+        setDate(date, name, FRBR_WORK);
+        setDate(date, name, FRBR_EXPRESSION);
+        setDate(date, name, FRBR_MANIFESTATION);
     }
 
-    public void setDate(LocalDate date, Function<Identification, CoreProperties> map) {
+    public void setDate(LocalDate date, String name, Function<Identification, CoreProperties> map) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
 
-        map.apply(this.identification).getFRBRdate().setDate(DateHelper.convert(date));
+        FRBRdate frbr = map.apply(this.identification).getFRBRdate();
+        frbr.setDate(DateHelper.convert(date));
+        frbr.setName(name);
     }
 
     public void setCountry(Country country) {

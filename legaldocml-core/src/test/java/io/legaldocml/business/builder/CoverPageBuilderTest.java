@@ -2,7 +2,6 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
 import io.legaldocml.XmlUnitHelper;
-import io.legaldocml.akn.element.CoverPage;
 import io.legaldocml.akn.element.Debate;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
@@ -36,17 +35,13 @@ public class CoverPageBuilderTest {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder<Debate> debateBusinessBuilder = provider.newBuilder(Debate.ELEMENT);
 
-        CoverPage coverPage = new CoverPage();
-        debateBusinessBuilder.getAkomaNtoso().getDocumentType().setCoverPage(coverPage);
-
         AgentRef source = AgentRef.valueOf("redattore");
-
         TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"FINOCCHIARO");
         TLCPerson person2 = newTLCPerson(new NoWhiteSpace("person_2"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"ZANDA");
         TLCRole role = newTLCRole(new NoWhiteSpace("role_1"),Uri.valueOf("http://dati.senato./akn/it/osr/Senatore"),"Senatore");
 
 
-        CoverPageBuilder coverPageBuilder = new CoverPageBuilder(debateBusinessBuilder, coverPage);
+        CoverPageBuilder coverPageBuilder = new CoverPageBuilder(debateBusinessBuilder);
         coverPageBuilder.p().text("SENATO DELLA REPUBBLICA");
         coverPageBuilder.p().docType("DISEGNO DI LEGGE");
         coverPageBuilder.p().docNumber("N. 356");
