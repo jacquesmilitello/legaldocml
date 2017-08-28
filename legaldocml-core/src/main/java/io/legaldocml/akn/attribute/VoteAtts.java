@@ -19,11 +19,6 @@ import io.legaldocml.akn.type.VoteRef;
  */
 public interface VoteAtts extends Role, Agent {
 
-    /**
-     * Attribute name "choice".
-     */
-    String ATTRIBUTE = "choice";
-
     VoteRef getChoice();
 
     void setChoice(VoteRef choice);

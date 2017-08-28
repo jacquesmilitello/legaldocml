@@ -55,7 +55,7 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(Target.ATTRIBUTE, biConsumerString(getFieldOffset(A.class, "target")))
+                .put(AknAttributes.TARGET, biConsumerString(getFieldOffset(A.class, "target")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(A.class, "href")))
                 .build();
     }

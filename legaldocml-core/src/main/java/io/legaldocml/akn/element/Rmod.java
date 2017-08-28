@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RangeReq;
-import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.io.CharArray;
@@ -27,10 +26,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *       <xsd:complexContent>
  *         <xsd:extension base="modType">
  *           <xsd:attributeGroup ref="range"/>
- *         <xsd:extension>
- *       <xsd:complexContent>
- *     <xsd:complexType>
- *   <xsd:element>
+ *         </xsd:extension>
+ *       </xsd:complexContent>
+ *     </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -52,7 +51,7 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModType.ATTRIBUTES)
-                .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rmod.class, "upTo")))
+                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(Rmod.class, "upTo")))
                 .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(Rmod.class, "from")))
                 .build();
 

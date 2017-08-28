@@ -16,11 +16,6 @@ import io.legaldocml.akn.type.EidRef;
  */
 public interface UpTo extends AknObject {
 
-    /**
-     * Attribute name "upTo".
-     */
-    String ATTRIBUTE = "upTo";
-
     EidRef getUpTo();
 
     void setUpTo(EidRef upTo);

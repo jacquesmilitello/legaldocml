@@ -31,10 +31,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	     <xsd:complexContent>
  * 		   <xsd:extension base="inline">
  * 		     <xsd:attributeGroup ref="voteAtts"/>
- * 		   <xsd:extension>
- * 		 <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 		 </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -58,7 +58,7 @@ public final class Vote extends InlineType implements VoteAtts, ANinline {
                 .putAll(InlineType.ATTRIBUTES)
                 .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Vote.class, "as")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Vote.class, "by")))
-                .put(VoteAtts.ATTRIBUTE, biConsumerVoteRef(getFieldOffset(Vote.class, "choice")))
+                .put(AknAttributes.CHOICE, biConsumerVoteRef(getFieldOffset(Vote.class, "choice")))
                 .build();
     }
 

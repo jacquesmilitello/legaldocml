@@ -45,6 +45,7 @@ public final class AknAttributes {
 
     /**
      * Attribute for {@link io.legaldocml.akn.attribute.BooleanValue}
+     * Attribute for {@link io.legaldocml.akn.attribute.Value}
      */
     public static final String VALUE = "value";
 
@@ -91,6 +92,8 @@ public final class AknAttributes {
      * : * {@link io.legaldocml.akn.attribute.RestrictionType}
      * : * {@link io.legaldocml.akn.attribute.ResultType}
      * : * {@link io.legaldocml.akn.attribute.ScopeModType}
+     * : * {@link io.legaldocml.akn.attribute.TextualModType}
+     * : * {@link io.legaldocml.akn.attribute.Type}
      */
     public static final String TYPE = "type";
 
@@ -349,6 +352,50 @@ public final class AknAttributes {
      */
     public static final String END_TIME = "endTime";
 
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Src}
+     */
+    public static final String SRC = "src";
 
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Src}
+     */
+    public static final String ALT = "alt";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.TableAtts}
+     */
+    public static final String BORDER = "border";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.TableAtts}
+     */
+
+    public static final String CELLSPACING = "cellspacing";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.TableAtts}
+     */
+    public static final String CELLPADDING = "cellpadding";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Target}
+     */
+    public static final String TARGET = "target";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.Time}
+     */
+    public static final String TIME = "time";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.UpTo}
+     */
+    public static final String UP_TO = "upTo";
+
+    /**
+     * Attribute for {@link io.legaldocml.akn.attribute.VoteAtts}
+     */
+    public static final String CHOICE = "choice";
 
 }

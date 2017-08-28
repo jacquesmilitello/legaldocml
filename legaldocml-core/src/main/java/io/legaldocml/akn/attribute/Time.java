@@ -21,12 +21,8 @@ import java.time.OffsetDateTime;
  */
 public interface Time extends AknObject {
 
-    /**
-     * Attribute name "time".
-     */
-    String ATTRIBUTE = "time";
-
     OffsetDateTime getTime();
 
     void setTime(OffsetDateTime time);
+
 }

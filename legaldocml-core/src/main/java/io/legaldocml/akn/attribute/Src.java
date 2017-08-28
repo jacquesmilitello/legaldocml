@@ -19,15 +19,6 @@ import io.legaldocml.akn.type.ManifestationURI;
  */
 public interface Src extends AknObject {
 
-    /**
-     * Attribute name "src".
-     */
-    String ATTRIBUTE_SRC = "src";
-    /**
-     * Attribute name "alt".
-     */
-    String ATTRIBUTE_ALT = "alt";
-
     ManifestationURI getSrc();
 
     void setSrc(ManifestationURI src);

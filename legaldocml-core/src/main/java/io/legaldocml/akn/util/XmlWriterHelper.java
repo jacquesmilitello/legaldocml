@@ -61,9 +61,7 @@ import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.attribute.Time;
-import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.attribute.UpToOpt;
-import io.legaldocml.akn.attribute.Value;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.attribute.VoteAtts;
@@ -164,7 +162,7 @@ public final class XmlWriterHelper {
 
     public static void writeValue(XmlWriter writer, ValueReq value) throws IOException {
         if (value.getValue() == null) {
-            throwException(writer, new MandatoryAttributeException(value, Value.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(value, AknAttributes.VALUE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_VALUE, 5, getChars(value.getValue()));
         }
@@ -597,7 +595,7 @@ public final class XmlWriterHelper {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, rangeReq.getFrom().getChars());
         }
         if (rangeReq.getUpTo() == null) {
-            throwException(writer, new MandatoryAttributeException(rangeReq, UpTo.ATTRIBUTE, writer));
+            throwException(writer, new MandatoryAttributeException(rangeReq, AknAttributes.UP_TO, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_UPTO, 4, rangeReq.getUpTo().getChars());
         }

@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RangeReq;
-import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.io.CharArray;
@@ -54,7 +53,7 @@ public final class Rref extends InlineReqType implements RangeReq, ANinline {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(InlineReqType.ATTRIBUTES)
                 .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(Rref.class, "from")))
-                .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(Rref.class, "upTo")))
+                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(Rref.class, "upTo")))
                 .build();
     }
 

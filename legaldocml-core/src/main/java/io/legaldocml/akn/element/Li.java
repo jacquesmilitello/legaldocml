@@ -1,14 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -30,11 +31,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 		   <xsd:element ref="ul"/>
  *         <xsd:element ref="ol"/>
  * 	       <xsd:element ref="p"/>
- * 	     <xsd:choice>
+ * 	     </xsd:choice>
  * 	     <xsd:attributeGroup ref="optvalue"/>
  * 	     <xsd:attributeGroup ref="coreopt"/>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -58,7 +59,7 @@ public final class Li extends CoreOptImpl implements ValueOpt {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(CoreOptImpl.ATTRIBUTES)
-                .put(ValueOpt.ATTRIBUTE, biConsumerString(getFieldOffset(Li.class, "value")))
+                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(Li.class, "value")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<LiElement>>builder()

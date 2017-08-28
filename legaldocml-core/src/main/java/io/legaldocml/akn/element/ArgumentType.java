@@ -5,7 +5,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.Pos;
-import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.attribute.UpToOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PosType;
@@ -49,7 +48,7 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(AknAttributes.POS, biConsumerEnum(getFieldOffset(ArgumentType.class, "pos"), PosType.class))
-                .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "upTo")))
+                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(ArgumentType.class, "upTo")))
                 .put(AknAttributes.EXCLUSION, biConsumerEidRef(getFieldOffset(ArgumentType.class, "exclusion")))
                 .put(AknAttributes.INCOMPLETE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "incomplete")))
                 .build();

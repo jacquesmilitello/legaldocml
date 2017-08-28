@@ -1,14 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -50,10 +51,10 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(TableAtts.ATTRIBUTE_WIDTH, biConsumerInteger(getFieldOffset(Table.class, "width")))
-                .put(TableAtts.ATTRIBUTE_BORDER, biConsumerInteger(getFieldOffset(Table.class, "border")))
-                .put(TableAtts.ATTRIBUTE_CELLSPACING, biConsumerInteger(getFieldOffset(Table.class, "cellspacing")))
-                .put(TableAtts.ATTRIBUTE_CELLPADDING, biConsumerInteger(getFieldOffset(Table.class, "cellpadding")))
+                .put(AknAttributes.WIDTH, biConsumerInteger(getFieldOffset(Table.class, "width")))
+                .put(AknAttributes.BORDER, biConsumerInteger(getFieldOffset(Table.class, "border")))
+                .put(AknAttributes.CELLSPACING, biConsumerInteger(getFieldOffset(Table.class, "cellspacing")))
+                .put(AknAttributes.CELLPADDING, biConsumerInteger(getFieldOffset(Table.class, "cellpadding")))
                 .build();
     }
 

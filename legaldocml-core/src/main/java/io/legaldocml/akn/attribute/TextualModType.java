@@ -14,12 +14,8 @@ import io.legaldocml.akn.type.TextualMods;
  */
 public interface TextualModType extends AknObject {
 
-    /**
-     * Attribute name.
-     */
-    String ATTRIBUTE = Type.ATTRIBUTE;
-
     TextualMods getType();
 
     void setType(TextualMods type);
+
 }

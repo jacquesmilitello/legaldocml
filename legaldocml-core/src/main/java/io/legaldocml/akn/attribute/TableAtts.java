@@ -18,23 +18,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface TableAtts extends AknObject {
 
-    /**
-     * Attribute name "width".
-     */
-    String ATTRIBUTE_WIDTH = "width";
-    /**
-     * Attribute name "border".
-     */
-    String ATTRIBUTE_BORDER = "border";
-    /**
-     * Attribute name "cellspacing".
-     */
-    String ATTRIBUTE_CELLSPACING = "cellspacing";
-    /**
-     * Attribute name "cellpadding".
-     */
-    String ATTRIBUTE_CELLPADDING = "cellpadding";
-
     Integer getWidth();
 
     void setWidth(Integer width);

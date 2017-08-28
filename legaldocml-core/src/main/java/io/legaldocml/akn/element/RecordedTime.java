@@ -60,7 +60,7 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
                 .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(RecordedTime.class, "type"), TimeType.class))
-                .put(Time.ATTRIBUTE, biConsumerDateTime(getFieldOffset(RecordedTime.class, "time")))
+                .put(AknAttributes.TIME, biConsumerDateTime(getFieldOffset(RecordedTime.class, "time")))
                 .build();
     }
 

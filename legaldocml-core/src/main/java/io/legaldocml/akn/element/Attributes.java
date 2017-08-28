@@ -4,13 +4,6 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.Src;
-import io.legaldocml.akn.attribute.TableAtts;
-import io.legaldocml.akn.attribute.Target;
-import io.legaldocml.akn.attribute.Time;
-import io.legaldocml.akn.attribute.Type;
-import io.legaldocml.akn.attribute.UpTo;
-import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.other.ExternalAttribute;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ConceptRef;
@@ -78,7 +71,7 @@ public final class Attributes {
 
     public static final long ADDRESS_NAME = Buffers.address(AknAttributes.NAME);
 
-    public static final long ADDRESS_VALUE = Buffers.address(ValueReq.ATTRIBUTE);
+    public static final long ADDRESS_VALUE = Buffers.address(AknAttributes.VALUE);
 
     public static final long ADDRESS_FROM_LANGUAGE = Buffers.address(AknAttributes.FROM_LANGUAGE);
 
@@ -106,7 +99,7 @@ public final class Attributes {
 
     public static final long ADDRESS_NUMBER = Buffers.address(AknAttributes.NUMBER);
 
-    public static final long ADDRESS_TYPE = Buffers.address(Type.ATTRIBUTE);
+    public static final long ADDRESS_TYPE = Buffers.address(AknAttributes.TYPE);
 
     public static final long ADDRESS_ORIGINATING_EXPRESSION = Buffers.address(AknAttributes.ORIGINATING_EXPRESSION);
 
@@ -120,13 +113,13 @@ public final class Attributes {
 
     public static final long ADDRESS_LEVEL = Buffers.address(AknAttributes.LEVEL);
 
-    public static final long ADDRESS_TARGET = Buffers.address(Target.ATTRIBUTE);
+    public static final long ADDRESS_TARGET = Buffers.address(AknAttributes.TARGET);
 
-    public static final long ADDRESS_CELLSPACING = Buffers.address(TableAtts.ATTRIBUTE_CELLSPACING);
+    public static final long ADDRESS_CELLSPACING = Buffers.address(AknAttributes.CELLSPACING);
 
-    public static final long ADDRESS_CELLPADDING = Buffers.address(TableAtts.ATTRIBUTE_CELLPADDING);
+    public static final long ADDRESS_CELLPADDING = Buffers.address(AknAttributes.CELLPADDING);
 
-    public static final long ADDRESS_BORDER = Buffers.address(TableAtts.ATTRIBUTE_BORDER);
+    public static final long ADDRESS_BORDER = Buffers.address(AknAttributes.BORDER);
 
     public static final long ADDRESS_WIDTH = Buffers.address(AknAttributes.WIDTH);
 
@@ -148,11 +141,11 @@ public final class Attributes {
 
     public static final long ADDRESS_ROW_SPAN = Buffers.address(AknAttributes.ROW_SPAN);
 
-    public static final long ADDRESS_SRC = Buffers.address(Src.ATTRIBUTE_SRC);
+    public static final long ADDRESS_SRC = Buffers.address(AknAttributes.SRC);
 
-    public static final long ADDRESS_ALT = Buffers.address(Src.ATTRIBUTE_ALT);
+    public static final long ADDRESS_ALT = Buffers.address(AknAttributes.ALT);
 
-    public static final long ADDRESS_UPTO = Buffers.address(UpTo.ATTRIBUTE);
+    public static final long ADDRESS_UPTO = Buffers.address(AknAttributes.UP_TO);
 
     public static final long ADDRESS_START = Buffers.address(AknAttributes.START);
 
@@ -174,7 +167,7 @@ public final class Attributes {
 
     public static final long ADDRESS_BREAKAT = Buffers.address(BREAKAT);
 
-    public static final long ADDRESS_TIME = Buffers.address(Time.ATTRIBUTE);
+    public static final long ADDRESS_TIME = Buffers.address(AknAttributes.TIME);
 
     public static final long ADDRESS_NORMALIZED = Buffers.address(AknAttributes.NORMALIZED);
 

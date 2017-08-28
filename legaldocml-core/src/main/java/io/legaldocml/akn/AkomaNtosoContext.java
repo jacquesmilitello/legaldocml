@@ -34,7 +34,7 @@ public abstract class AkomaNtosoContext {
     static {
         REFS = ImmutableMap.<String, BiConsumer<AkomaNtosoContext, AknObject>>builder()
                 .put(AknAttributes.EID, (context, aknObject) -> context.eids.put(((Id)aknObject).getEid(), (Id)aknObject))
-                .put(Src.ATTRIBUTE_SRC, (context, aknObject) -> context.srcs.put(((Src)aknObject).getSrc(), (Src)aknObject))
+                .put(AknAttributes.SRC, (context, aknObject) -> context.srcs.put(((Src)aknObject).getSrc(), (Src)aknObject))
                 .build();
     }
 

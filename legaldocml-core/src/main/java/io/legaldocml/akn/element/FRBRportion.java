@@ -7,10 +7,8 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RangeOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
-import io.legaldocml.akn.attribute.UpTo;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -21,6 +19,9 @@ import java.util.function.BiConsumer;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRange;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -63,7 +64,7 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(FRBRportion.class, "refersTo")))
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(FRBRportion.class, "showAs")))
                 .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(FRBRportion.class, "shortForm")))
-                .put(UpTo.ATTRIBUTE, biConsumerEidRef(getFieldOffset(FRBRportion.class, "upTo")))
+                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(FRBRportion.class, "upTo")))
                 .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(FRBRportion.class, "from")))
                 .build();
     }
@@ -155,16 +156,15 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
     }
 
 
-
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS, 11);
-        XmlWriterHelper.writeRefers(writer, this);
-        XmlWriterHelper.writeShow(writer, this);
-        XmlWriterHelper.writeRange(writer, this);
+        writeRefers(writer, this);
+        writeShow(writer, this);
+        writeRange(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS, 11);
     }

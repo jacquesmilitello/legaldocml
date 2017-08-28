@@ -42,8 +42,8 @@ public abstract class SrcType extends IdOptImpl implements Core, ShowReq, Src {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(Src.ATTRIBUTE_SRC, biConsumerManifestationURI(Src.ATTRIBUTE_SRC, getFieldOffset(SrcType.class, "src")))
-                .put(Src.ATTRIBUTE_ALT, biConsumerString(getFieldOffset(SrcType.class, "alt")))
+                .put(AknAttributes.SRC, biConsumerManifestationURI(AknAttributes.SRC, getFieldOffset(SrcType.class, "src")))
+                .put(AknAttributes.ALT, biConsumerString(getFieldOffset(SrcType.class, "alt")))
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(SrcType.class, "showAs")))
                 .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(SrcType.class, "shortForm")))
                 .build();

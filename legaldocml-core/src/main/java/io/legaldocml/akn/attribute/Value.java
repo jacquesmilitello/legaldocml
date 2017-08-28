@@ -8,12 +8,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Value extends AknObject {
 
-    /**
-     * Attribute name "value".
-     */
-    String ATTRIBUTE = "value";
-
     String getValue();
 
     void setValue(String value);
+
 }

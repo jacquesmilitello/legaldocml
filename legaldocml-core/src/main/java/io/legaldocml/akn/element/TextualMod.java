@@ -1,13 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.type.TextualMods;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -45,7 +46,7 @@ public final class TextualMod extends ModificationType implements TextualModType
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TextualModType.ATTRIBUTE, biConsumerEnum(getFieldOffset(TextualMod.class, "type"), TextualMods.class))
+                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(TextualMod.class, "type"), TextualMods.class))
                 .build();
     }
 

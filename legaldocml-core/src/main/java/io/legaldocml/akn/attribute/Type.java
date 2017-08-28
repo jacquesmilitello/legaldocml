@@ -15,12 +15,8 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Type extends AknObject {
 
-    /**
-     * Attribute name "type".
-     */
-    String ATTRIBUTE = "type";
-
     String getType();
 
     void setType(String value);
+
 }

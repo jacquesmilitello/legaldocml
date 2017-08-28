@@ -56,8 +56,8 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(Src.ATTRIBUTE_ALT, biConsumerString(getFieldOffset(Img.class, "alt")))
-                .put(Src.ATTRIBUTE_SRC, biConsumerManifestationURI(Src.ATTRIBUTE_SRC, getFieldOffset(Img.class, "src")))
+                .put(AknAttributes.ALT, biConsumerString(getFieldOffset(Img.class, "alt")))
+                .put(AknAttributes.SRC, biConsumerManifestationURI(AknAttributes.SRC, getFieldOffset(Img.class, "src")))
                 .put(AknAttributes.WIDTH, biConsumerInteger(getFieldOffset(Img.class, "width")))
                 .put(AknAttributes.HEIGHT, biConsumerInteger(getFieldOffset(Img.class, "height")))
                 .build();

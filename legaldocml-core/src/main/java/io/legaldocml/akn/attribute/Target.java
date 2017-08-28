@@ -16,11 +16,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface Target extends AknObject {
 
-    /**
-     * Attribute name "value".
-     */
-    String ATTRIBUTE = "target";
-
     String getTarget();
 
     void setTarget(String value);
