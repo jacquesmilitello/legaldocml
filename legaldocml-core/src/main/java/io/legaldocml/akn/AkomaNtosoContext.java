@@ -6,6 +6,7 @@ import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.AknModule;
@@ -22,7 +23,7 @@ import java.util.function.BiConsumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class AkomaNtosoContext {
+public abstract class AkomaNtosoContext implements XmlReaderContext {
 
     /**
      * SLF4J Logger.

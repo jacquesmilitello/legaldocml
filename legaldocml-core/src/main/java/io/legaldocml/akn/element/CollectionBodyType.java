@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.CollectionBodyElement;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -69,7 +70,7 @@ public abstract class CollectionBodyType extends CoreOptImpl {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
             XmlReaderHelper.read(reader, elements, COLLECTION_BODY_TYPE_V2);
         } else {
             reader.nextStartOrEndElement();

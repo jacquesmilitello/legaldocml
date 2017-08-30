@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.HasCoverPage;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -162,7 +163,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
         }
 
         if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(Attachments.ELEMENT)) {
-            if (reader.getContext().getAkoXmlModule().getVersion() == 2) {
+            if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
                 this.attachments = new AttachmentsV2();
             } else {
                 this.attachments = new AttachmentsV3();

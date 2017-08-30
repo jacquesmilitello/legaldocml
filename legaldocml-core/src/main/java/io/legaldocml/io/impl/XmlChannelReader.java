@@ -1,6 +1,5 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.io.AttributeConsumer;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
@@ -9,6 +8,7 @@ import io.legaldocml.io.Namespaces;
 import io.legaldocml.io.ProcessingInstruction;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
+import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.util.ToStringBuilder;
 
@@ -142,9 +142,9 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
     private ProcessingInstruction prolog;
 
     /**
-     * Set the Akoma Ntoso Context for this reader.
+     * Set the XML Reader Context for this reader.
      */
-    private AkomaNtosoContext context;
+    private XmlReaderContext context;
 
     /**
      * Depth element that hold preserve space.
@@ -214,20 +214,22 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         this.preserveSpace = this.depth;
     }
 
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setContext(AkomaNtosoContext context) {
+    public  <T extends XmlReaderContext> void setContext(T context) {
         this.context = context;
     }
 
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
-    public AkomaNtosoContext getContext() {
-        return this.context;
+    public <T extends XmlReaderContext> T getContext() {
+        return (T) this.context;
     }
 
     /**

@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.other.ExternalAttribute;
@@ -366,7 +367,7 @@ public final class Attributes {
             cons.accept(akn, value);
 
             if (cons instanceof AttributeBiConsumer) {
-                reader.getContext().update(((AttributeBiConsumer) cons).getName(), akoObject);
+                reader.<AkomaNtosoContext>getContext().update(((AttributeBiConsumer) cons).getName(), akoObject);
             }
 
         });

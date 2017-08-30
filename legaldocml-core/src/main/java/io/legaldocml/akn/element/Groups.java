@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.ANcontainers;
@@ -8,8 +9,8 @@ import io.legaldocml.akn.group.ANheaderInline;
 import io.legaldocml.akn.group.ANhier;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.group.ANmarker;
-import io.legaldocml.akn.group.ANsubFlow;
 import io.legaldocml.akn.group.ANsemanticInline;
+import io.legaldocml.akn.group.ANsubFlow;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.AmendmentInline;
 import io.legaldocml.akn.group.BasicContainers;
@@ -24,10 +25,10 @@ import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.akn.group.InlineElements;
 import io.legaldocml.akn.group.MarkerElements;
-import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
 import io.legaldocml.akn.group.SpeechSection;
+import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.akn.group.TLC;
 import io.legaldocml.io.XmlReader;
 
@@ -623,7 +624,7 @@ public final class Groups {
 
 
     public static ImmutableMap<String, Supplier<DocumentType>> getDocumentTypes(XmlReader reader) {
-        if (reader.getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
             return DOCUMENT_TYPE_V2;
         }
         return DOCUMENT_TYPE;

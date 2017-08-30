@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.other.ExternalElementWithNS;
@@ -143,7 +144,7 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
             }
 
             CharArray array = reader.getNamespaces().get(constant(reader.getQName().getPrefix()));
-            Module module = reader.getContext().getModule(array);
+            Module module = reader.<AkomaNtosoContext>getContext().getModule(array);
 
             AnyOtherTypeElement element;
             if (module == null) {

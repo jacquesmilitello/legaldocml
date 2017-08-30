@@ -1,5 +1,6 @@
 package io.legaldocml.module.xml;
 
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -60,7 +61,7 @@ final class XmlLangImpl implements XmlLang {
      */
     @Override
     public void read(XmlReader reader, CharArray value) {
-        ModelProvider provider = reader.getContext().getModelProvider();
+        ModelProvider provider = reader.<AkomaNtosoContext>getContext().getModelProvider();
         this.language = provider.language(value.toString());
     }
     

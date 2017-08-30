@@ -1,7 +1,5 @@
 package io.legaldocml.io;
 
-import io.legaldocml.akn.AkomaNtosoContext;
-
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -61,7 +59,7 @@ public interface XmlReader {
 
     void preserveSpace();
 
-    void setContext(AkomaNtosoContext context);
+    <T extends XmlReaderContext> void setContext(T context);
 
-    AkomaNtosoContext getContext();
+    <T extends XmlReaderContext> T getContext();
 }

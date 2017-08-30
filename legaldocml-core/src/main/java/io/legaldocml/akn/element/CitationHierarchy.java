@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.QName;
@@ -90,7 +91,7 @@ public abstract class CitationHierarchy extends BaseHierarchyCoreReq  {
         XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
 
 
-        if (reader.getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
+        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
             this.wrapUp = new WrapUp();
             this.wrapUp.read(reader);
             reader.nextStartOrEndElement();

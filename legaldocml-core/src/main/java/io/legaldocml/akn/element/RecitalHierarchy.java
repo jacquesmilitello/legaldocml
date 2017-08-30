@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.QName;
@@ -58,7 +59,7 @@ public abstract class RecitalHierarchy extends BaseHierarchyCoreReq {
         if (this.intro != null) {
             this.intro.write(writer);
         }
-        if (this.elements != null && this.elements.size() > 0) {
+        if (this.elements.size() > 0) {
             this.elements.write(writer);
         }
 
@@ -77,10 +78,6 @@ public abstract class RecitalHierarchy extends BaseHierarchyCoreReq {
         QName qName = reader.getQName();
         super.read(reader);
 
-//        if (LOGGER.isTraceEnabled()) {
-//            LOGGER.trace("Hierarchy -> [{}] -> [{}]" , getClass().getSimpleName(), this);
-//        }
-
         if (reader.getQName().equalsLocalName(Intro.ELEMENT)) {
             this.intro = new Intro();
             this.intro.read(reader);
@@ -90,7 +87,7 @@ public abstract class RecitalHierarchy extends BaseHierarchyCoreReq {
         XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
 
 
-        if (reader.getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
+        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
             this.wrapUp = new WrapUp();
             this.wrapUp.read(reader);
             reader.nextStartOrEndElement();

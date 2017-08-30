@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -135,7 +136,7 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
 
         this.elements = new AknList<>(new HierarchyElement[4]);
 
-        if (reader.getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
 
             XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
 
