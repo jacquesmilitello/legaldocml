@@ -55,7 +55,7 @@ public interface XmlReader {
 
     Namespaces getNamespaces();
 
-    <T> void forEach(T object, AttributeConsumer<T> consumer);
+    void forEach(Externalizable object, AttributeConsumer consumer);
 
     void preserveSpace();
 

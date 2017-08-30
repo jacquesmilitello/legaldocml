@@ -2,11 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CellAttrs;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -44,10 +44,10 @@ public final class Td extends Blocksopt implements CellAttrs, TrElement, SubFlow
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
                 .put(AknAttributes.COL_SPAN, biConsumerInteger(getFieldOffset(Td.class, "colSpan")))
                 .put(AknAttributes.ROW_SPAN, biConsumerInteger(getFieldOffset(Td.class, "rowSpan")))
@@ -100,7 +100,7 @@ public final class Td extends Blocksopt implements CellAttrs, TrElement, SubFlow
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

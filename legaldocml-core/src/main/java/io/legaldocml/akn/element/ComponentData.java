@@ -3,7 +3,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Name;
@@ -11,6 +10,7 @@ import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -53,10 +53,10 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ComponentData.class, "href")))
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ComponentData.class, "name")))
@@ -156,7 +156,7 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
     /**
      * {@inheritDoc}
      */
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

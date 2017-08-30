@@ -2,8 +2,8 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -39,10 +39,10 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(PopupStructure.ATTRIBUTES)
                 .put(AknAttributes.FOR, biConsumerString(getFieldOffset(QuotedStructureV2.class, "_for")))
                 .build();
@@ -77,7 +77,7 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

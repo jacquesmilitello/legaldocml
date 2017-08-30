@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Duration;
 import io.legaldocml.akn.attribute.Interval;
 import io.legaldocml.akn.attribute.RefersReq;
@@ -10,6 +9,7 @@ import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.XmlDuration;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.ToStringBuilder;
@@ -60,10 +60,10 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(TimeInterval.class, "refersTo")))
                 .put(AknAttributes.START, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "start")))
@@ -166,7 +166,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -2,10 +2,10 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Level;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
@@ -51,11 +51,11 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(TocItem.class, "href")))
                 .put(AknAttributes.LEVEL, biConsumerString(getFieldOffset(TocItem.class, "level")))
@@ -121,7 +121,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

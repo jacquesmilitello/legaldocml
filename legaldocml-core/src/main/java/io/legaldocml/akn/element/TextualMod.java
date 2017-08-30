@@ -2,10 +2,10 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.type.TextualMods;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -41,10 +41,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class TextualMod extends ModificationType implements TextualModType, AmendmentsElement {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
                 .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(TextualMod.class, "type"), TextualMods.class))
                 .build();
@@ -141,7 +141,7 @@ public final class TextualMod extends ModificationType implements TextualModType
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

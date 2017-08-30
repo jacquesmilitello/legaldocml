@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.type.EidRef;
@@ -10,6 +9,7 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -48,10 +48,10 @@ public abstract class ModType extends CoreReqImpl implements For {
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS_V2;
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS;
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(CoreReqImpl.ATTRIBUTES)
                 .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(ModType.class, "for_")))
                 .build();
@@ -114,7 +114,7 @@ public abstract class ModType extends CoreReqImpl implements For {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

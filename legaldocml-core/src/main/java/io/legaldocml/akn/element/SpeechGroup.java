@@ -2,13 +2,13 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.group.ANcontainers;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -53,10 +53,10 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
                 .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(SpeechGroup.class, "as")))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(SpeechGroup.class, "by")))
@@ -175,7 +175,7 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

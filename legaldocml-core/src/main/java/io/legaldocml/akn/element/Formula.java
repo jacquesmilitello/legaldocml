@@ -2,12 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.BasicContainers;
 import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -49,10 +49,10 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(Blocksreq.ATTRIBUTES)
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Formula.class, "name")))
                 .build();
@@ -101,7 +101,7 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

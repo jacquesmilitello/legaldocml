@@ -2,11 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.OpinionType;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -47,10 +47,10 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Opinion.class, "type"), OpinionType.class))
                 .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Opinion.class, "by")))
@@ -116,7 +116,7 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

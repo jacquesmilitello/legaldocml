@@ -2,10 +2,10 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Number;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -34,10 +34,10 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
  */
 public abstract class EolType extends MarkerOpt implements Number {
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MarkerOpt.ATTRIBUTES)
                 .put("breakat", Attributes.biConsumerInteger(getFieldOffset(EolType.class, "breakat")))
                 .put("breakWith", Attributes.biConsumerInteger(getFieldOffset(EolType.class, "breakWith")))
@@ -96,7 +96,7 @@ public abstract class EolType extends MarkerOpt implements Number {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

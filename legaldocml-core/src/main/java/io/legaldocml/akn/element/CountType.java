@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -12,6 +11,7 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -51,10 +51,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class CountType extends IdReqImpl implements Core, ValueReq, RefersOpt, LinkOpt {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(CountType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(CountType.class, "href")))
@@ -180,7 +180,7 @@ public abstract class CountType extends IdReqImpl implements Core, ValueReq, Ref
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

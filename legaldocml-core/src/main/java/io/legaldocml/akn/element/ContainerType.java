@@ -2,11 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -39,12 +39,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ContainerType extends CoreReqImpl implements Name {
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<ContainerElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(CoreReqImpl.ATTRIBUTES)
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ContainerType.class, "name")))
                 .build();
@@ -98,7 +98,7 @@ public abstract class ContainerType extends CoreReqImpl implements Name {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

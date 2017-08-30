@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Authoritative;
 import io.legaldocml.akn.attribute.FromLanguage;
@@ -10,6 +9,7 @@ import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
@@ -62,10 +62,10 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(FRBRtranslation.class, "href")))
                 .put(AknAttributes.FROM_LANGUAGE, biConsumerString(getFieldOffset(FRBRtranslation.class, "fromLanguage")))
@@ -194,7 +194,7 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

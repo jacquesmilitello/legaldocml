@@ -2,13 +2,13 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -54,10 +54,10 @@ public final class ImplicitReference extends AnyOtherType implements RefersOpt, 
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ImplicitReference.class, "refersTo")))
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ImplicitReference.class, "showAs")))
@@ -152,7 +152,7 @@ public final class ImplicitReference extends AnyOtherType implements RefersOpt, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

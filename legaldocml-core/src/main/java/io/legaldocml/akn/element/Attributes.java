@@ -19,6 +19,7 @@ import io.legaldocml.akn.type.VoteRef;
 import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
@@ -184,32 +185,32 @@ public final class Attributes {
 
     public static final long ADDRESS_POS = Buffers.address(AknAttributes.POS);
 
-    public static BiConsumer<AknObject, CharArray> biConsumerInteger(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerInteger(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, Integer.valueOf(s.toString()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerString(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerString(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, s.toString());
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerNoWhiteSpace(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerNoWhiteSpace(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new NoWhiteSpace(s.raw()));
     }
 
     /**
      * This biConsumer will fill after the {@link io.legaldocml.akn.AkomaNtosoContext}}
      */
-    public static BiConsumer<AknObject, CharArray> biConsumerNoWhiteSpace(String name, long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerNoWhiteSpace(String name, long addr) {
         return new AttributeBiConsumer(name) {
             @Override
-            public void accept(AknObject aknObject, CharArray charArray) {
-                getUnsafe().putObject(aknObject, addr, new NoWhiteSpace(charArray.raw()));
+            public void accept(Externalizable object, CharArray charArray) {
+                getUnsafe().putObject(object, addr, new NoWhiteSpace(charArray.raw()));
             }
         };
     }
 
 
-    public static <T extends Enum<T>> BiConsumer<AknObject, CharArray> biConsumerEnum(long addr, Class<T> enumClass) {
+    public static <T extends Enum<T>> BiConsumer<Externalizable, CharArray> biConsumerEnum(long addr, Class<T> enumClass) {
         return (i, s) -> getUnsafe().putObject(i, addr, Enum.valueOf(enumClass, s.toString()));
     }
 
@@ -219,7 +220,7 @@ public final class Attributes {
 //        };
 //    }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerLocalDateTime(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerLocalDateTime(long addr) {
         return (i, s) -> {
 
             LocalDateTime dateTime;
@@ -233,7 +234,7 @@ public final class Attributes {
     }
 
 
-    public static BiConsumer<AknObject, CharArray> biConsumerDateTime(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerDateTime(long addr) {
         return (i, s) -> {
 
             String val = s.toString();
@@ -252,72 +253,72 @@ public final class Attributes {
         };
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerBoolean(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerBoolean(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, Boolean.valueOf(s.toString()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerUri(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerUri(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new Uri(s.raw()));
     }
 
 
-    public static BiConsumer<AknObject, CharArray> biConsumerManifestationURI(String name, long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerManifestationURI(String name, long addr) {
         return new AttributeBiConsumer(name) {
             @Override
-            public void accept(AknObject aknObject, CharArray s) {
-                getUnsafe().putObject(aknObject, addr, new ManifestationURI(s.raw()));
+            public void accept(Externalizable object, CharArray s) {
+                getUnsafe().putObject(object, addr, new ManifestationURI(s.raw()));
             }
         };
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerReferenceRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerReferenceRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new ReferenceRef(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerEidRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerEidRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new EidRef(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerWidRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerWidRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new WidRef(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerAgentRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerAgentRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, AgentRef.raw(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerRoleRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerRoleRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, RoleRef.raw(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerVoteRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerVoteRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new VoteRef(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerConceptRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerConceptRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new ConceptRef(s.raw()));
     }
 
 
-    public static BiConsumer<AknObject, CharArray> biConsumerListReferenceRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerListReferenceRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new ListReferenceRef(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerEventRefRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerEventRefRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new EventRefRef(s.raw()));
     }
 
-    public static BiConsumer<AknObject, CharArray> biConsumerTemporalGroupRef(long addr) {
+    public static BiConsumer<Externalizable, CharArray> biConsumerTemporalGroupRef(long addr) {
         return (i, s) -> getUnsafe().putObject(i, addr, new TemporalGroupRef(s.raw()));
     }
 
 
-    public static void read4Extension(XmlReader reader, AknObject akoObject) {
+    public static void read4Extension(XmlReader reader, Object akoObject) {
         reader.forEach(akoObject, (object, name, value, prefixNS) -> {
 
             if (prefixNS > 0) {
                 if (name.toString().startsWith(reader.getQName().getPrefix())) {
-                    BiConsumer<AknObject, CharArray> cons = akoObject.attributes().get(QnameUtil.localName(name));
+                    BiConsumer<Externalizable, CharArray> cons = akoObject.attributes().get(QnameUtil.localName(name));
                     if (cons == null) {
                         throw new RuntimeException("Missing [" + QnameUtil.localName(name) + "] for [" + akoObject.getClass().getSimpleName() + "]");
                     }
@@ -331,8 +332,8 @@ public final class Attributes {
         });
     }
 
-    public static void read(XmlReader reader, AknObject akoObject) {
-        reader.forEach(akoObject, (akn, name, value, prefixNS) -> {
+    public static void read(XmlReader reader, AknObject object) {
+        reader.forEach(object, (akn, name, value, prefixNS) -> {
             if (prefixNS > 0) {
 
                 CharArray ns = reader.getNamespaces().get(name.prefix(prefixNS));
@@ -359,7 +360,7 @@ public final class Attributes {
 
 
             }
-            BiConsumer<AknObject, CharArray> cons = akn.attributes().get(name.toString());
+            BiConsumer<Externalizable, CharArray> cons = akn.attributes().get(name.toString());
             if (cons == null) {
                 throw new RuntimeException("Missing [" + name + "] for [" + akn.getClass().getSimpleName() + "]");
             }
@@ -367,7 +368,7 @@ public final class Attributes {
             cons.accept(akn, value);
 
             if (cons instanceof AttributeBiConsumer) {
-                reader.<AkomaNtosoContext>getContext().update(((AttributeBiConsumer) cons).getName(), akoObject);
+                reader.<AkomaNtosoContext>getContext().update(((AttributeBiConsumer) cons).getName(), akn);
             }
 
         });

@@ -2,13 +2,13 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.Pos;
 import io.legaldocml.akn.attribute.UpToOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PosType;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -41,11 +41,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ArgumentType extends AnyOtherType implements Pos, Modifiers, UpToOpt {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
 
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(AknAttributes.POS, biConsumerEnum(getFieldOffset(ArgumentType.class, "pos"), PosType.class))
                 .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(ArgumentType.class, "upTo")))
@@ -132,7 +132,7 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

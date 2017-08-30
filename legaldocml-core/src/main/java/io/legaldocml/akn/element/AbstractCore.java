@@ -2,14 +2,14 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.*;
+import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.StatusType;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.ToStringBuilder;
 
@@ -18,7 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-import static io.legaldocml.akn.element.Attributes.*;
+import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.biConsumerTemporalGroupRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -26,10 +29,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class AbstractCore extends AbstractId implements Core {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.CLASS, biConsumerString(getFieldOffset(AbstractCore.class, "clazz")))
                 .put(AknAttributes.STYLE, biConsumerString(getFieldOffset(AbstractCore.class, "style")))
@@ -110,7 +113,7 @@ public abstract class AbstractCore extends AbstractId implements Core {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

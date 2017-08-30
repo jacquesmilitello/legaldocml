@@ -2,12 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -37,10 +37,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class SrcType extends IdOptImpl implements Core, ShowReq, Src {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.SRC, biConsumerManifestationURI(AknAttributes.SRC, getFieldOffset(SrcType.class, "src")))
                 .put(AknAttributes.ALT, biConsumerString(getFieldOffset(SrcType.class, "alt")))
@@ -138,7 +138,7 @@ public abstract class SrcType extends IdOptImpl implements Core, ShowReq, Src {
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

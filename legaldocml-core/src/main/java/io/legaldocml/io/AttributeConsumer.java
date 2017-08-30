@@ -3,8 +3,8 @@ package io.legaldocml.io;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface AttributeConsumer<T> {
+public interface AttributeConsumer {
 
-    void set(T object, CharArray name, CharArray value, int prefixNS);
+    void set(Externalizable object, CharArray name, CharArray value, int prefixNS);
 
 }

@@ -2,12 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RecordedTimeType;
 import io.legaldocml.akn.attribute.Time;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.TimeType;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -53,11 +53,11 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
 
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
                 .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(RecordedTime.class, "type"), TimeType.class))
                 .put(AknAttributes.TIME, biConsumerDateTime(getFieldOffset(RecordedTime.class, "time")))
@@ -125,7 +125,7 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

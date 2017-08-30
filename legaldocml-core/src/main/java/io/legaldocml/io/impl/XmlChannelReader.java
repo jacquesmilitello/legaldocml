@@ -4,6 +4,7 @@ import io.legaldocml.io.AttributeConsumer;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.CharBuffer;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.Namespaces;
 import io.legaldocml.io.ProcessingInstruction;
 import io.legaldocml.io.QName;
@@ -697,7 +698,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
     /**
      * {@inheritDoc}
      */
-    public <T> void forEach(T object, AttributeConsumer<T> consumer) {
+    public void forEach(Externalizable object, AttributeConsumer consumer) {
         attributes.forEach(object, consumer);
     }
 

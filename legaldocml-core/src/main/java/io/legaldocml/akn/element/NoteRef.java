@@ -2,13 +2,13 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.group.ANmarker;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PlacementType;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
@@ -53,10 +53,10 @@ public final class NoteRef extends MarkerOpt implements LinkReq, Notes, ANmarker
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MarkerOpt.ATTRIBUTES)
                 .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(NoteRef.class, "href")))
                 .put(AknAttributes.MARKER, biConsumerString(getFieldOffset(NoteRef.class, "marker")))
@@ -158,7 +158,7 @@ public final class NoteRef extends MarkerOpt implements LinkReq, Notes, ANmarker
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

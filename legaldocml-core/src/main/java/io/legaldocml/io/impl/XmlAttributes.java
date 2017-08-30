@@ -4,6 +4,7 @@ package io.legaldocml.io.impl;
 import io.legaldocml.io.AttributeConsumer;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharBuffer;
+import io.legaldocml.io.Externalizable;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -45,7 +46,7 @@ final class XmlAttributes {
         pos = 0;
     }
 
-    public <T> void forEach(T object, AttributeConsumer<T> consumer) {
+    public void forEach(Externalizable object, AttributeConsumer consumer) {
         for (int i = 0; i < pos; i++) {
             consumer.set(object, this.names[i], this.values[i], this.prefixes[i]);
         }

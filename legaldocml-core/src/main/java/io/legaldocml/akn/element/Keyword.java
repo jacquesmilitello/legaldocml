@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Dictionary;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -11,6 +10,7 @@ import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
@@ -63,10 +63,10 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(Keyword.class, "showAs")))
                 .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(Keyword.class, "shortForm")))
@@ -205,7 +205,7 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Enactment;
 import io.legaldocml.akn.attribute.Modifiers;
@@ -13,6 +12,7 @@ import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -52,10 +52,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class JudicialArgumentType extends IdReqImpl implements Enactment, RefersOpt, Modifiers, Core {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(JudicialArgumentType.class, "period")))
@@ -233,7 +233,7 @@ public abstract class JudicialArgumentType extends IdReqImpl implements Enactmen
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

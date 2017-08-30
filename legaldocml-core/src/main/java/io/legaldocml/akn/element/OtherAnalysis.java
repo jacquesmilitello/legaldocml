@@ -1,13 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -43,11 +43,11 @@ public final class OtherAnalysis extends AnyOtherType implements Source {
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put("source", biConsumerAgentRef(getFieldOffset(OtherAnalysis.class, "source")))
                 .build();
@@ -84,7 +84,7 @@ public final class OtherAnalysis extends AnyOtherType implements Source {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

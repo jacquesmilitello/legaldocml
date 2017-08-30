@@ -2,11 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.Quote;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Uri;
@@ -49,10 +49,10 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(EmbeddedText.class, "href")))
                 .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "startQuote")))
@@ -152,7 +152,7 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

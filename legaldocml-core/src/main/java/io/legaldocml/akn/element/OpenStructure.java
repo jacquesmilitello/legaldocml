@@ -1,12 +1,12 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -45,10 +45,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public abstract class OpenStructure extends AbstractStructureWithPreamble implements Name, Contains {
 
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .put("contains", biConsumerEnum(getFieldOffset(OpenStructure.class, "versionType"), VersionType.class))
                 .put("name", biConsumerString(getFieldOffset(OpenStructure.class, "name")))
                 .build();
@@ -125,7 +125,7 @@ public abstract class OpenStructure extends AbstractStructureWithPreamble implem
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

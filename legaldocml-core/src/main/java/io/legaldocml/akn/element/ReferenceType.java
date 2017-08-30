@@ -1,11 +1,11 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Uri;
 
@@ -35,10 +35,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ReferenceType extends IdReqImpl implements LinkReq, ShowReq, Core {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put("showAs", biConsumerString(getFieldOffset(ReferenceType.class, "showAs")))
                 .put("shortForm", biConsumerString(getFieldOffset(ReferenceType.class, "shortForm")))
@@ -99,7 +99,7 @@ public abstract class ReferenceType extends IdReqImpl implements LinkReq, ShowRe
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

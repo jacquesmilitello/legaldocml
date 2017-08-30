@@ -1,12 +1,12 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.group.ANtitleInline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -46,10 +46,10 @@ public final class Session extends InlineType implements ValueOpt, ANtitleInline
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put("value", biConsumerString(getFieldOffset(Session.class, "value")))
                 .build();
@@ -96,7 +96,7 @@ public final class Session extends InlineType implements ValueOpt, ANtitleInline
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

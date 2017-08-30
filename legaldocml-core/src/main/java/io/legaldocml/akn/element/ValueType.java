@@ -2,12 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.ToStringBuilder;
 
@@ -41,10 +41,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, ShowOpt {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(ValueType.class, "value")))
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ValueType.class, "refersTo")))
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ValueType.class, "showAs")))
@@ -138,7 +138,7 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 

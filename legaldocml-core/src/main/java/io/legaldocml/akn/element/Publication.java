@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.attribute.Number;
@@ -10,6 +9,7 @@ import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -61,10 +61,10 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      */
     private static final long ADDRESS_PUBLICATION = Buffers.address(ELEMENT_PUBLICATION);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Publication.class, "date")))
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(Publication.class, "showAs")))
@@ -200,7 +200,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

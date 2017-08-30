@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.Outcome;
@@ -12,6 +11,7 @@ import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Uri;
@@ -51,12 +51,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Core, RefersOpt, LinkOpt, Outcome {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<ParliamentaryAnalysisTypeElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
@@ -155,7 +155,7 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

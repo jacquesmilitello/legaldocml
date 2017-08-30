@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Enactment;
 import io.legaldocml.akn.attribute.Modifiers;
@@ -12,6 +11,7 @@ import io.legaldocml.akn.type.StatusType;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -54,11 +54,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ModificationType extends IdReqImpl implements Core, Enactment, Modifiers, RefersOpt {
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
 
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(IdReqImpl.ATTRIBUTES)
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(ModificationType.class, "period")))
@@ -249,37 +249,9 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 
-    //	/** {@inheritDoc} */
-//	public void readExternal(Input in) throws IOException {
-//		in.read(this);
-//		in.nextStartOrEndElement();
-//
-//		// handle source
-//		Source source;
-//		while (Source.ELEMENT_SOURCE == in.getLocalName()) {
-//			source = new Source();
-//			source.readExternal(in);
-//			_sources.add(source);
-//			in.nextStartOrEndElement();
-//		}
-//
-//		// handle destination
-//		Destination destination;
-//		while (Destination.ELEMENT_DESTINATION == in.getLocalName()) {
-//			destination = new Destination();
-//			destination.readExternal(in);
-//			_destinations.add(destination);
-//			in.nextStartOrEndElement();
-//		}
-//
-//		if (Duration.ELEMENT_DURATION == in.getLocalName()) {
-//			_duration = new Duration();
-//			_duration.readExternal(in);
-//		}
-//	}
 
 }

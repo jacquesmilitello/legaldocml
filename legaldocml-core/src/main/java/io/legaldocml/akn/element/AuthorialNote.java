@@ -2,12 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.group.ANsubFlow;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PlacementType;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -49,10 +49,10 @@ public final class AuthorialNote extends SubFlowStructure implements Notes, ANsu
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
                 .put(AknAttributes.MARKER, biConsumerString(getFieldOffset(AuthorialNote.class, "marker")))
                 .put(AknAttributes.PLACEMENT_BASE, biConsumerEidRef(getFieldOffset(AuthorialNote.class, "placementBase")))
@@ -136,7 +136,7 @@ public final class AuthorialNote extends SubFlowStructure implements Notes, ANsu
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

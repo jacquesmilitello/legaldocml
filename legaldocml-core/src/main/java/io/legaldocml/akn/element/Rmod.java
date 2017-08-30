@@ -2,11 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RangeReq;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -46,10 +46,10 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    protected static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(ModType.ATTRIBUTES)
                 .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(Rmod.class, "upTo")))
                 .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(Rmod.class, "from")))
@@ -111,4 +111,11 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
         return ELEMENT;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+        return ATTRIBUTES;
+    }
 }

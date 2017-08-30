@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Date;
@@ -11,10 +10,11 @@ import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.RoleRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -67,10 +67,10 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Step.class, "date")))
                 .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Step.class, "as")))
@@ -194,7 +194,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

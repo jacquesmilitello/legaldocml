@@ -2,11 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -46,10 +46,10 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
                 .put(AknAttributes.WIDTH, biConsumerInteger(getFieldOffset(Table.class, "width")))
                 .put(AknAttributes.BORDER, biConsumerInteger(getFieldOffset(Table.class, "border")))
@@ -193,7 +193,7 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

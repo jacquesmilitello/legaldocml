@@ -2,13 +2,13 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ImgAtts;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.group.HTMLMarker;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -51,10 +51,10 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
      */
     private static final long ADDRESS = Buffers.address(ELEMENT);
 
-    private static final ImmutableMap<String, BiConsumer<AknObject, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<AknObject, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
                 .put(AknAttributes.ALT, biConsumerString(getFieldOffset(Img.class, "alt")))
                 .put(AknAttributes.SRC, biConsumerManifestationURI(AknAttributes.SRC, getFieldOffset(Img.class, "src")))
@@ -161,7 +161,7 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<AknObject, CharArray>> attributes() {
+    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 }

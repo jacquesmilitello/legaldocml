@@ -6,6 +6,7 @@ import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.io.CharArray;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.model.ModelProvider;
@@ -77,7 +78,7 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
     }
 
     @SuppressWarnings("unchecked")
-    public void update(String name, AknObject akn) {
+    public void update(String name, Externalizable akn) {
         BiConsumer consumer = REFS.get(name);
 
         if (consumer == null) {
