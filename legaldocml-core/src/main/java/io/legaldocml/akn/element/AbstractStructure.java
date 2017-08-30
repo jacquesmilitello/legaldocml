@@ -180,50 +180,50 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
     }
 
     protected final void visitMeta(AknVisitor visitor) {
-        Meta meta = this.meta;
-        if (visitor.visitEnter(meta)) {
-            meta.accept(visitor);
-            visitor.visitLeave(meta);
+        Meta m = this.meta;
+        if (visitor.visitEnter(m)) {
+            m.accept(visitor);
+            visitor.visitLeave(m);
         }
     }
 
     protected final void visitCoverPage(AknVisitor visitor) {
-        CoverPage coverPage = this.coverPage;
-        if (coverPage != null && visitor.visitEnter(coverPage)) {
-            coverPage.accept(visitor);
-            visitor.visitLeave(coverPage);
+        CoverPage cp = this.coverPage;
+        if (cp != null && visitor.visitEnter(cp)) {
+            cp.accept(visitor);
+            visitor.visitLeave(cp);
         }
     }
 
     protected final void visitPreface(AknVisitor visitor) {
-        Preface preface = this.preface;
-        if (preface != null && visitor.visitEnter(preface)) {
-            preface.accept(visitor);
-            visitor.visitLeave(preface);
+        Preface p = this.preface;
+        if (p != null && visitor.visitEnter(p)) {
+            p.accept(visitor);
+            visitor.visitLeave(p);
         }
     }
 
     protected final void visitConclusions(AknVisitor visitor) {
-        Conclusions conclusions = this.conclusions;
-        if (conclusions != null && visitor.visitEnter(conclusions)) {
-            conclusions.accept(visitor);
-            visitor.visitLeave(conclusions);
+        Conclusions c = this.conclusions;
+        if (c != null && visitor.visitEnter(c)) {
+            c.accept(visitor);
+            visitor.visitLeave(c);
         }
     }
 
     protected final void visitAttachments(AknVisitor visitor) {
-        Attachments attachments = this.attachments;
-        if (attachments != null && visitor.visitEnter(attachments)) {
-            attachments.accept(visitor);
-            visitor.visitLeave(attachments);
+        Attachments a = this.attachments;
+        if (a != null && visitor.visitEnter(a)) {
+            a.accept(visitor);
+            visitor.visitLeave(a);
         }
     }
 
     protected final void visitComponents(AknVisitor visitor) {
-        Components components = this.components;
-        if (components != null && visitor.visitEnter(components)) {
-            components.accept(visitor);
-            visitor.visitLeave(components);
+        Components c = this.components;
+        if (c != null && visitor.visitEnter(c)) {
+            c.accept(visitor);
+            visitor.visitLeave(c);
         }
     }
 

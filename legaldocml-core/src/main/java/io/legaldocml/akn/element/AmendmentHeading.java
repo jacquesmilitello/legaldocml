@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.group.AmendmentBlock;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -18,14 +19,9 @@ import java.io.IOException;
 public final class AmendmentHeading extends Blocksopt implements AmendmentBlock {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "amendmentHeading";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(AknElements.AMENDMENT_HEADING);
 
     /**
      * {@inheritDoc}
@@ -42,7 +38,7 @@ public final class AmendmentHeading extends Blocksopt implements AmendmentBlock 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AknElements.AMENDMENT_HEADING;
     }
 
 }
