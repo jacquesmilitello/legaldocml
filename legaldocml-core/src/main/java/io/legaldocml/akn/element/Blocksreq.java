@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -13,6 +14,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
+import static java.util.Objects.requireNonNull;
 
 /**
  * the complex type blocksreq defines the content model and attributes shared by all containers. Here the eId attribute
@@ -29,7 +31,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Blocksreq extends CoreReqImpl {
+public abstract class Blocksreq extends CoreReqImpl implements BlockElementsContainer {
 
     private static final ImmutableMap<String, Supplier<BlockElements>> ELEMS;
 
@@ -42,8 +44,12 @@ public abstract class Blocksreq extends CoreReqImpl {
     // Mandatory
     private final AknList<BlockElements> elements = new AknList<>(new BlockElements[8]);
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(BlockElements el) {
-        this.elements.add(el);
+        this.elements.add(requireNonNull(el));
     }
 
     /**

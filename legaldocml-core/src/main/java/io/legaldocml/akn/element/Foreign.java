@@ -11,7 +11,7 @@ import java.io.IOException;
  * mathematical formulas). It is a block element and thus can be placed in a container.
  *
  * <pre>
- *   <xsd:element name="preservation" type="anyOtherType"/>
+ *   <xsd:element name="foreign" type="anyOtherType"/>
  * <pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

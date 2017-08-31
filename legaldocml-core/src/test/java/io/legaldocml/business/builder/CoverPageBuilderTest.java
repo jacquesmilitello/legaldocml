@@ -33,7 +33,7 @@ public class CoverPageBuilderTest {
     public void testItSenatoDdl2013() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder<Debate> debateBusinessBuilder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder debateBusinessBuilder = provider.newBuilder(Debate.ELEMENT);
 
         AgentRef source = AgentRef.valueOf("redattore");
         TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"FINOCCHIARO");

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -12,6 +13,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type blocksopt defines the content model and attributes shared by all containers. Here the eId attribute
@@ -28,10 +30,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Blocksopt extends CoreOptImpl {
-
-    // Mandatory (min 1).
-    private final AknList<BlockElements> elements = new AknList<>(new BlockElements[4]);
+public abstract class Blocksopt extends CoreOptImpl implements BlockElementsContainer {
 
     private static final ImmutableMap<String, Supplier<BlockElements>> ELEMS;
 
@@ -39,6 +38,17 @@ public abstract class Blocksopt extends CoreOptImpl {
         ELEMS = ImmutableMap.<String, Supplier<BlockElements>>builder()
                 .putAll(convertSuper(blockElements()))
                 .build();
+    }
+
+    // Mandatory (min 1).
+    private final AknList<BlockElements> elements = new AknList<>(new BlockElements[4]);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(BlockElements element) {
+        this.elements.add(requireNonNull(element));
     }
 
     /**

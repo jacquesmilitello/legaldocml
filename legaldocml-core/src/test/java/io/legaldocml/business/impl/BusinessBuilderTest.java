@@ -22,7 +22,7 @@ public class BusinessBuilderTest {
     public void testDebate() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder<Debate> builder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder builder = provider.newBuilder(Debate.ELEMENT);
 
         builder.getMetaBuilder().setAknIdentifier(provider.newAknIdentifierTransient());
         builder.getMetaBuilder().addLanguage(Iso639.ENGLISH);

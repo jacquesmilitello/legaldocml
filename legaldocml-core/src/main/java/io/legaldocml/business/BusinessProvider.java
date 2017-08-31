@@ -1,7 +1,6 @@
 package io.legaldocml.business;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.builder.BusinessBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,6 +59,6 @@ public abstract class BusinessProvider {
 
     public abstract AknIdentifier newAknIdentifierTransient();
 
-    public abstract <T extends DocumentType, E extends BusinessBuilder<T>> E newBuilder(String name);
+    public abstract <E extends BusinessBuilder> E newBuilder(String name);
 
 }

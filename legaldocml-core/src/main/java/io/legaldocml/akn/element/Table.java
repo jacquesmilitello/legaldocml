@@ -73,7 +73,7 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
         this.caption = caption;
     }
 
-    public void addTr(Tr tr) {
+    public void add(Tr tr) {
         this.trs.add(tr);
     }
 

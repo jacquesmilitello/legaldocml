@@ -1,6 +1,5 @@
 package io.legaldocml.business.builder;
 
-import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.CoreProperties;
 import io.legaldocml.akn.element.FRBRExpression;
 import io.legaldocml.akn.element.FRBRManifestation;
@@ -27,7 +26,7 @@ import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class MetaBuilder<T extends DocumentType> {
+public class MetaBuilder {
 
     public static final Function<Identification, CoreProperties> FRBR_WORK = new CorePropertiesGetter(FRBRWork.ELEMENT) {
         /**
@@ -64,11 +63,11 @@ public class MetaBuilder<T extends DocumentType> {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(MetaBuilder.class);
 
-    private final BusinessBuilder<T> businessBuilder;
+    private final BusinessBuilder businessBuilder;
 
     private final Identification identification;
 
-    protected MetaBuilder(BusinessBuilder<T> businessBuilder, AgentRef source) {
+    protected MetaBuilder(BusinessBuilder businessBuilder, AgentRef source) {
         this.businessBuilder = businessBuilder;
         this.identification = businessBuilder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
         this.identification.setSource(source);

@@ -72,7 +72,7 @@ public abstract class SubFlowStructure extends CoreReqImpl {
                 .put(Recital.ELEMENT, Recital::new)
                 .put(Citation.ELEMENT, Citation::new)
                 .put(ComponentRef.ELEMENT, ComponentRef::new)
-                //.put(DocumentRef.ELEMENT, DocumentRef::new)
+                .put(DocumentRef.ELEMENT, DocumentRef::new)
                 .put(Intro.ELEMENT, Intro::new)
                 .put(Wrap.ELEMENT, Wrap::new)
                 .put(Heading.ELEMENT, Heading::new)
@@ -83,6 +83,10 @@ public abstract class SubFlowStructure extends CoreReqImpl {
 
     // Mandatory (min 1).
     private final AknList<SubFlowStructureElement> elems = new AknList<>(new SubFlowStructureElement[8]);
+
+    public final void add(SubFlowStructureElement element) {
+        this.elems.add(element);
+    }
 
     /**
      * {@inheritDoc}

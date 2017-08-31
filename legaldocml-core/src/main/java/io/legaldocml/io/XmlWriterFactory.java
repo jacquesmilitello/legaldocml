@@ -1,7 +1,6 @@
 package io.legaldocml.io;
 
 import io.legaldocml.LegalDocMlException;
-import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 
 import java.io.IOException;
@@ -13,8 +12,8 @@ import java.util.List;
  */
 public interface XmlWriterFactory {
 
-    <T extends DocumentType> void write(WritableByteChannel wbc, AkomaNtoso<T> akn) throws IOException;
+    <T extends DocumentType> void write(WritableByteChannel wbc, Externalizable externalizable) throws IOException;
 
-    <T extends DocumentType> List<LegalDocMlException> writePermissive(WritableByteChannel wbc, AkomaNtoso<T> akn) throws IOException;
+    <T extends DocumentType> List<LegalDocMlException> writePermissive(WritableByteChannel wbc, Externalizable externalizable) throws IOException;
 
 }

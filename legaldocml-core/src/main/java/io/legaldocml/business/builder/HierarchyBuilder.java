@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.element.Content;
 import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.Hierarchy;
 import io.legaldocml.akn.element.HierarchyElement;
@@ -7,34 +8,22 @@ import io.legaldocml.akn.element.Intro;
 import io.legaldocml.akn.element.Num;
 import io.legaldocml.akn.element.SubHeading;
 import io.legaldocml.business.util.EidFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class HierarchyBuilder<T extends Hierarchy> {
-
-    /**
-     * SLF4J Logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(HierarchyBuilder.class);
-
-    private final BusinessBuilder businessBuilder;
+public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBuilder {
 
     private final HierarchyStrategy strategy;
     private final Hierarchy parent;
     private final T hierarchy;
 
     public HierarchyBuilder(BusinessBuilder businessBuilder, HierarchyStrategy strategy, T hierarchy) {
-        this.businessBuilder = businessBuilder;
-        this.strategy = strategy;
-        this.parent = null;
-        this.hierarchy = hierarchy;
+        this(businessBuilder, strategy, null, hierarchy);
     }
 
     public HierarchyBuilder(BusinessBuilder businessBuilder, HierarchyStrategy strategy, Hierarchy parent, T hierarchy) {
-        this.businessBuilder = businessBuilder;
+        super(businessBuilder);
         this.strategy = strategy;
         this.parent = parent;
         this.hierarchy = hierarchy;
@@ -46,7 +35,7 @@ public final class HierarchyBuilder<T extends Hierarchy> {
         }
         Num num = new Num();
         this.hierarchy.setNum(num);
-        return new InlineTypeBuilder<>(num);
+        return new InlineTypeBuilder<>(getBusinessBuilder(), num);
     }
 
     public InlineReqTypeBuilder<Heading> heading() {
@@ -55,7 +44,7 @@ public final class HierarchyBuilder<T extends Hierarchy> {
         }
         Heading heading = new Heading();
         this.hierarchy.setHeading(heading);
-        return new InlineReqTypeBuilder<>(heading);
+        return new InlineReqTypeBuilder<>(getBusinessBuilder(), heading);
     }
 
     public InlineReqTypeBuilder<SubHeading> subHeading() {
@@ -64,16 +53,7 @@ public final class HierarchyBuilder<T extends Hierarchy> {
         }
         SubHeading subHeading = new SubHeading();
         this.hierarchy.setSubheading(subHeading);
-        return new InlineReqTypeBuilder<>(subHeading);
-    }
-
-    public BlocksreqBuilder<Intro> intro() {
-        if (hierarchy.getIntro() != null) {
-            throw new BusinessBuilderException("<intro> is not null : [" + hierarchy.getIntro() + "]");
-        }
-        Intro intro = new Intro();
-        this.hierarchy.setIntro(intro);
-        return new BlocksreqBuilder<>(this.hierarchy, intro);
+        return new InlineReqTypeBuilder<>(getBusinessBuilder(), subHeading);
     }
 
     public HierarchyBuilder<T> eId(String number) {
@@ -81,13 +61,33 @@ public final class HierarchyBuilder<T extends Hierarchy> {
         return this;
     }
 
-    public <T extends Hierarchy> HierarchyBuilder<T> next() {
-        return new HierarchyBuilder<T>(this.businessBuilder, this.strategy, this.hierarchy, this.strategy.next(this.hierarchy));
+    public <T extends Hierarchy & HierarchyElement> HierarchyBuilder<T> next() {
+        T el = this.strategy.next(this.hierarchy);
+        this.hierarchy.add(el);
+        return new HierarchyBuilder<>(getBusinessBuilder(), this.strategy, this.hierarchy, el);
     }
 
     public <T extends Hierarchy> HierarchyBuilder<T> newChild(String element) {
         HierarchyElement el = Hierarchy.ELEMS.get(element).get();
         this.hierarchy.add(el);
-        return new HierarchyBuilder<T>(this.businessBuilder, this.strategy, this.hierarchy, (T) el);
+        return new HierarchyBuilder<T>(getBusinessBuilder(), this.strategy, this.hierarchy, (T) el);
+    }
+
+    public BlocksBuilder<Intro> intro() {
+        if (hierarchy.getIntro() != null) {
+            throw new BusinessBuilderException("<intro> is not null : [" + hierarchy.getIntro() + "]");
+        }
+        Intro intro = new Intro();
+        this.hierarchy.setIntro(intro);
+        return new BlocksBuilder<>(getBusinessBuilder(), this.hierarchy, intro);
+    }
+
+    public BlocksBuilder<Content> content() {
+        if (hierarchy.getContent() != null) {
+            throw new BusinessBuilderException("<content> is not null : [" + hierarchy.getContent() + "]");
+        }
+        Content content = new Content();
+        this.hierarchy.setContent(content);
+        return new BlocksBuilder<>(getBusinessBuilder(), this.hierarchy, content);
     }
 }

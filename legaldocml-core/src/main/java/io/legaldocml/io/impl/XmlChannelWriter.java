@@ -641,6 +641,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
         this.namespacesPtr = -1;
         this.permissive = false;
         this.exceptions = null;
+        this.buffer.clear();
     }
 
     /**

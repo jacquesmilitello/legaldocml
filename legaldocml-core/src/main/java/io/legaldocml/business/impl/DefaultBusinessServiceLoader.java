@@ -1,6 +1,5 @@
 package io.legaldocml.business.impl;
 
-import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
@@ -33,8 +32,8 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T extends DocumentType, E extends BusinessBuilder<T>> E newBuilder(String name) {
-        return (E) new DefaultBusinessBuilder<T>(name);
+    public <E extends BusinessBuilder> E newBuilder(String name) {
+        return (E) new DefaultBusinessBuilder(name);
     }
 
 }

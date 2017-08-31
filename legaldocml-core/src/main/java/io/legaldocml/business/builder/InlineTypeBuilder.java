@@ -7,8 +7,8 @@ import io.legaldocml.akn.element.InlineType;
  */
 public class InlineTypeBuilder<T extends InlineType> extends InlineCMContainerBuilder<T,InlineTypeBuilder<T>> {
 
-    public InlineTypeBuilder(T container) {
-        super(container);
+    public InlineTypeBuilder(BusinessBuilder builder,T container) {
+        super(builder,container);
     }
 
 }

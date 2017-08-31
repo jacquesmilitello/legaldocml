@@ -7,37 +7,31 @@ import io.legaldocml.akn.DocumentType;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BusinessBuilder<T extends DocumentType> {
+public abstract class BusinessBuilder {
 
-    private final AkomaNtoso<T> akomaNtoso;
+    private final AkomaNtoso<? extends DocumentType> akomaNtoso;
 
-    private final MetaBuilder<T> metaBuilder;
+    private final MetaBuilder metaBuilder;
 
-    private final Class<T> documentTypeClass;
-
-    public BusinessBuilder(Class<T> documentTypeClass) {
-        this.documentTypeClass = documentTypeClass;
+    public BusinessBuilder() {
         this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
         this.akomaNtoso.setDocumentType(newDocumenyType());
         this.metaBuilder = newMetaBuilder(this);
     }
 
-    public final MetaBuilder<T> getMetaBuilder() {
+    public final MetaBuilder getMetaBuilder() {
         return this.metaBuilder;
-    }
-
-    public final Class<T> getDocumentTypeClass() {
-        return documentTypeClass;
     }
 
     protected abstract AkomaNtosoContext newAkomaNtosoContext();
 
-    protected abstract T newDocumenyType();
+    protected abstract <T extends DocumentType> T newDocumenyType();
 
-    protected abstract MetaBuilder<T> newMetaBuilder(BusinessBuilder<T> businessBuilder);
+    protected abstract MetaBuilder newMetaBuilder(BusinessBuilder businessBuilder);
 
-    public AkomaNtoso<T> getAkomaNtoso() {
-        return akomaNtoso;
+    @SuppressWarnings("unchecked")
+    public <T extends DocumentType> AkomaNtoso<T> getAkomaNtoso() {
+        return (AkomaNtoso<T>) akomaNtoso;
     }
 
 }

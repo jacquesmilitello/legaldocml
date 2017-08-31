@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DocumentRef extends LinkType implements DocContainerTypeElement {
+public final class DocumentRef extends LinkType implements DocContainerTypeElement, SubFlowStructureElement {
 
     /**
      * XML Tag element name.

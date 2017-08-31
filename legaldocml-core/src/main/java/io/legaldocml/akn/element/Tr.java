@@ -49,6 +49,10 @@ public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
     // Mandatory (min 1)
     private final AknList<TrElement> trs = new AknList<TrElement>(new TrElement[6]);
 
+    public void add(TrElement element) {
+        this.trs.add(element);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -68,31 +72,6 @@ public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
         super.read(reader);
         XmlReaderHelper.read(reader, this.trs, ELEMS);
     }
-
-//    /** {@inheritDoc} */
-//    @Override
-//    public void readExternal(Input in) throws IOException {
-//        super.readExternal(in);
-//        if (Tr.ELEMENT_TR == in.getLocalName()) {
-//            final String localName = in.getLocalName();
-//            TrElement element;
-//            int eventType = in.next();
-//            while (true) {
-//                if (eventType == InputConstants.START_ELEMENT) {
-//                    final Instantiator<? extends TrElement> instantiator = MAP.get(in.getLocalName());
-//                    if (instantiator == null) {
-//                    	throw new UnsupportedElementException(localName,MAP.keySet(), in);
-//                    }
-//                    element = instantiator.instantiate();
-//                    element.readExternal(in);
-//                    _trs.add(element);
-//                } else if (in.getEventType() == InputConstants.END_ELEMENT && localName == in.getLocalName()) {
-//                    return;
-//                }
-//                eventType = in.next();
-//            }
-//        }
-//    }
 
     /**
      * {@inheritDoc}

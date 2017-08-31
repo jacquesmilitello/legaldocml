@@ -1,8 +1,7 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.LegalDocMlException;
-import io.legaldocml.akn.AkomaNtoso;
-import io.legaldocml.akn.DocumentType;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriterFactory;
 import io.legaldocml.pool.Pool;
 import io.legaldocml.pool.PoolHolder;
@@ -34,12 +33,12 @@ public abstract class DefaultXmlWriterFactory implements XmlWriterFactory {
     }
 
     @Override
-    public <T extends DocumentType> void write(WritableByteChannel wbc, AkomaNtoso<T> akn) throws IOException {
+    public void write(WritableByteChannel wbc, Externalizable externalizable) throws IOException {
         PoolHolder<XmlChannelWriter> holder = pool.checkOut();
         try {
             XmlChannelWriter writer = holder.get();
             writer.setChannel(wbc);
-            akn.write(writer);
+            externalizable.write(writer);
             writer.flush();
         } finally {
             pool.checkIn(holder);
@@ -47,14 +46,14 @@ public abstract class DefaultXmlWriterFactory implements XmlWriterFactory {
     }
 
     @Override
-    public <T extends DocumentType> List<LegalDocMlException> writePermissive(WritableByteChannel wbc, AkomaNtoso<T> akn) throws IOException {
+    public List<LegalDocMlException> writePermissive(WritableByteChannel wbc, Externalizable externalizable) throws IOException {
         PoolHolder<XmlChannelWriter> holder = pool.checkOut();
         List<LegalDocMlException> exceptions;
         try {
             XmlChannelWriter writer = holder.get();
             writer.setPermissive(true);
             writer.setChannel(wbc);
-            akn.write(writer);
+            externalizable.write(writer);
             writer.flush();
             exceptions = writer.getExceptions();
         } finally {
