@@ -9,14 +9,14 @@ import io.legaldocml.akn.DocumentType;
  */
 public abstract class BusinessBuilder {
 
-    private final AkomaNtoso<? extends DocumentType> akomaNtoso;
+    private final AkomaNtoso<DocumentType> akomaNtoso;
 
     private final MetaBuilder metaBuilder;
 
-    public BusinessBuilder() {
+    public BusinessBuilder(DocumentType documentType) {
         this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
-        this.akomaNtoso.setDocumentType(newDocumenyType());
-        this.metaBuilder = newMetaBuilder(this);
+        this.akomaNtoso.setDocumentType(documentType);
+        this.metaBuilder = newMetaBuilder();
     }
 
     public final MetaBuilder getMetaBuilder() {
@@ -25,9 +25,7 @@ public abstract class BusinessBuilder {
 
     protected abstract AkomaNtosoContext newAkomaNtosoContext();
 
-    protected abstract <T extends DocumentType> T newDocumenyType();
-
-    protected abstract MetaBuilder newMetaBuilder(BusinessBuilder businessBuilder);
+    protected abstract MetaBuilder newMetaBuilder();
 
     @SuppressWarnings("unchecked")
     public <T extends DocumentType> AkomaNtoso<T> getAkomaNtoso() {

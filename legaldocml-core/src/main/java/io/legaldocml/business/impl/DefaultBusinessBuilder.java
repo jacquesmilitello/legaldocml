@@ -25,7 +25,7 @@ import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
  */
 public final class DefaultBusinessBuilder extends BusinessBuilder {
 
-    static final ImmutableMap<String, Class<? extends DocumentType>> DOCUMENT_TYPE;
+    private static final ImmutableMap<String, Class<? extends DocumentType>> DOCUMENT_TYPE;
 
     static {
         DOCUMENT_TYPE = ImmutableMap.<String, Class<? extends DocumentType>>builder()
@@ -44,12 +44,9 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
                 .build();
     }
 
-    private final Class<? extends DocumentType> documentTypeClass;
-
-
     @SuppressWarnings("unchecked")
-    public DefaultBusinessBuilder(String name) {
-        this.documentTypeClass =  DOCUMENT_TYPE.get(name);
+    DefaultBusinessBuilder(String name) {
+        super(newDocumenyType(name));
 
     }
 
@@ -58,18 +55,17 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
         return new AkomaNtosoContextV3();
     }
 
-    @Override
-    protected <T extends DocumentType> T newDocumenyType() {
+    private static DocumentType newDocumenyType(String name) {
         try {
-            return (T) documentTypeClass.newInstance();
+            return DOCUMENT_TYPE.get(name).newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             throw new RuntimeException();
         }
     }
 
     @Override
-    protected MetaBuilder newMetaBuilder(BusinessBuilder businessBuilder) {
-        return new MetaBuilder(businessBuilder, AgentRef.valueOf("default")) {
+    protected MetaBuilder newMetaBuilder() {
+        return new MetaBuilder(this, AgentRef.valueOf("default")) {
         };
     }
 }
