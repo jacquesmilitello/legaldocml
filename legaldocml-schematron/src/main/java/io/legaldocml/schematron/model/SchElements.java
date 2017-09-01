@@ -83,7 +83,7 @@ public final class SchElements {
             reader.next();
 
             switch (reader.getEventType()) {
-                case START_ELEMENT: {
+                case START_ELEMENT:
                     Supplier<T> sup = map.get(reader.getQName().getLocalName());
                     if (sup == null) {
                         throw new SchReadException(SchReadException.Type.MISSING_ELEMENT, reader, reader.getQName(), parent);
@@ -92,15 +92,15 @@ public final class SchElements {
                     elem.read(reader);
                     list.add(elem);
                     break;
-                }
-                case PROCESSING_INSTRUCTION: {
 
-                }
-                case END_ELEMENT: {
+                case PROCESSING_INSTRUCTION:
+
+                    break;
+                case END_ELEMENT:
                     if (parent.equals(reader.getQName())) {
                         return;
                     }
-                }
+                    break;
             }
         }
 
@@ -111,7 +111,7 @@ public final class SchElements {
             reader.next();
 
             switch (reader.getEventType()) {
-                case START_ELEMENT: {
+                case START_ELEMENT:
                     if (LOGGER.isDebugEnabled()) {
                         LOGGER.debug("START ELEMENT : [{}]", reader.getQName());
                     }
@@ -126,7 +126,7 @@ public final class SchElements {
                     mixedContent.read(reader);
                     list.add(mixedContent);
                     break;
-                }
+
                 case CHARACTERS: {
                     char[] content = reader.getText().value();
                     if (content != null && content.length > 0) {
@@ -137,17 +137,19 @@ public final class SchElements {
                     }
                     break;
                 }
-                case PROCESSING_INSTRUCTION: {
+                case PROCESSING_INSTRUCTION:
 
-                }
-                case END_ELEMENT: {
+
+                    break;
+                case END_ELEMENT:
                     if (LOGGER.isDebugEnabled()) {
                         LOGGER.debug("END_ELEMENT : [{}]", reader.getQName());
                     }
                     if (qName.equals(reader.getQName())) {
                         return;
                     }
-                }
+
+                    break;
             }
         }
 

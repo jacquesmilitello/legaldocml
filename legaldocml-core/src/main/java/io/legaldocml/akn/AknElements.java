@@ -33,4 +33,9 @@ public final class AknElements {
      */
     public static final String AMENDMENT_HEADING = "amendmentHeading";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRthis}
+     */
+    public static final String FRBRTHIS = "FRBRthis";
+
 }

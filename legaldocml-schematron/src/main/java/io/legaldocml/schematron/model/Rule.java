@@ -46,7 +46,7 @@ public final class Rule extends AbstractLinkableRich implements PatternElement {
 
     private String context;
 
-    private final ExternalizableList<RuleElement> elems = new ExternalizableList<>(new RuleElement[8]);
+    private final ExternalizableList<RuleElement> elements = new ExternalizableList<>(new RuleElement[8]);
 
     public String getContext() {
         return context;
@@ -76,7 +76,7 @@ public final class Rule extends AbstractLinkableRich implements PatternElement {
             LOGGER.debug("[{}] with context [{}]",qName, this.context);
         }
 
-        SchElements.read(reader, elems, ELEMS, qName);
+        SchElements.read(reader, elements, ELEMS, qName);
 
         if (!SchElements.RULE.equals(qName.getLocalName())) {
             throw new SchReadException(INVALID_STATE, reader, reader.getQName(), SchElements.RULE);

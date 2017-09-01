@@ -10,15 +10,13 @@ import io.legaldocml.business.util.EidFactory;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class BlocksBuilder<T extends BlockElementsContainer> implements HasPBuilder {
+public class BlocksBuilder<T extends BlockElementsContainer> extends BusinessPartBuilder implements HasPBuilder {
 
-    private final BusinessBuilder businessBuilder;
     private final Id parent;
     private final T container;
 
-
     public BlocksBuilder(BusinessBuilder businessBuilder, Id parent, T container) {
-        this.businessBuilder = businessBuilder;
+        super(businessBuilder);
         this.parent = parent;
         this.container = container;
     }
@@ -35,18 +33,21 @@ public class BlocksBuilder<T extends BlockElementsContainer> implements HasPBuil
     public PBuilder p() {
         P p = new P();
         this.container.add(p);
-        return new PBuilder(p, this.businessBuilder);
+        return new PBuilder(p, getBusinessBuilder());
     }
 
     public TableBuilder table() {
         Table table = new Table();
         this.container.add(table);
-        return new TableBuilder(this.businessBuilder, table);
+        return new TableBuilder(getBusinessBuilder(), table);
     }
 
     public <T extends BusinessPartBuilder> T foreign(String businessPartBuilderName) {
         Foreign foreign = new Foreign();
         this.container.add(foreign);
+
+       // getBusinessBuilder().getProvider();
+
 
         //BusinessProvider.businessProvider("toto").
         return null;

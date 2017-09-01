@@ -1,12 +1,12 @@
 package io.legaldocml.akn.element;
 
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Strings;
 
 import java.io.IOException;
-import java.lang.Object;
 import java.util.Objects;
 
 /**
@@ -21,14 +21,9 @@ import java.util.Objects;
 public final class FRBRthis extends ValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT_FRBRTHIS = "FRBRthis";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_FRBRTHIS = Buffers.address(ELEMENT_FRBRTHIS);
+    private static final long ADDRESS_FRBRTHIS = Buffers.address(AknElements.FRBRTHIS);
 
     /**
      * {@inheritDoc}
@@ -45,17 +40,20 @@ public final class FRBRthis extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT_FRBRTHIS;
+        return AknElements.FRBRTHIS;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(java.lang.Object obj) {
         return this == obj || obj != null && (obj instanceof FRBRthis) && Objects.equals(getValue(), ((FRBRthis) obj).getValue());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int hashCode() {
         if (Strings.isEmpty(getValue())) {

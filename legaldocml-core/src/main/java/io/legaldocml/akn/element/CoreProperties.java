@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.MandatoryElementException;
 import io.legaldocml.akn.util.AknList;
@@ -127,11 +128,11 @@ public abstract class CoreProperties implements AknObject {
 
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(FRBRthis.ELEMENT_FRBRTHIS)) {
+        if (reader.getQName().equalsLocalName(AknElements.FRBRTHIS)) {
             this.frbrThis.read(reader);
             reader.nextStartOrEndElement();
         } else {
-            throw new MandatoryElementException(this, FRBRthis.ELEMENT_FRBRTHIS, reader);
+            throw new MandatoryElementException(this, AknElements.FRBRTHIS, reader);
         }
 
         if (reader.getQName().equalsLocalName(FRBRuri.ELEMENT)) {

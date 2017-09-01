@@ -148,12 +148,16 @@ public final class AknAttributes {
 
     /**
      * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     *
+     * @deprecated
      */
     @Deprecated
     public static final String ID = "id";
 
     /**
      * Attribute for {@link io.legaldocml.akn.attribute.Id}
+     *
+     * @deprecated
      */
     @Deprecated
     public static final String EVOLVING_ID = "evolvingId";

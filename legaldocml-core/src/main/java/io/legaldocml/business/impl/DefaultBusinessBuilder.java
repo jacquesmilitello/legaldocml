@@ -16,6 +16,7 @@ import io.legaldocml.akn.element.OfficialGazette;
 import io.legaldocml.akn.element.Portion;
 import io.legaldocml.akn.element.Statement;
 import io.legaldocml.akn.type.AgentRef;
+import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.MetaBuilder;
 import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
@@ -45,8 +46,8 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
     }
 
     @SuppressWarnings("unchecked")
-    DefaultBusinessBuilder(String name) {
-        super(newDocumenyType(name));
+    DefaultBusinessBuilder(BusinessProvider provider,String name) {
+        super(provider,newDocumenyType(name));
 
     }
 

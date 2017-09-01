@@ -33,7 +33,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
     @SuppressWarnings("unchecked")
     @Override
     public <E extends BusinessBuilder> E newBuilder(String name) {
-        return (E) new DefaultBusinessBuilder(name);
+        return (E) new DefaultBusinessBuilder(this, name);
     }
 
 }

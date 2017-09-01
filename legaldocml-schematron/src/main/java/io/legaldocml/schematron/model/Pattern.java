@@ -26,7 +26,7 @@ public final class Pattern implements SchemaElement{
     /**
      * SLF4J logger.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(Schema.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Pattern.class);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -44,7 +44,7 @@ public final class Pattern implements SchemaElement{
 
     private String id;
 
-    private final ExternalizableList<PatternElement> elems = new ExternalizableList<>(new PatternElement[8]);
+    private final ExternalizableList<PatternElement> elements = new ExternalizableList<>(new PatternElement[8]);
 
     /**
      * {@inheritDoc}
@@ -66,7 +66,7 @@ public final class Pattern implements SchemaElement{
             LOGGER.debug("[{}] with id [{}]",qName, this.id);
         }
 
-        SchElements.read(reader, elems, ELEMS, qName);
+        SchElements.read(reader, elements, ELEMS, qName);
 
         if (!SchElements.PATTERN.equals(qName.getLocalName())) {
             throw new SchReadException(INVALID_STATE, reader, reader.getQName(), SchElements.PATTERN);
