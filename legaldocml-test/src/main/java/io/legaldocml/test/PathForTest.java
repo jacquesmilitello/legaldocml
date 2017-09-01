@@ -30,8 +30,8 @@ public final class PathForTest {
                 throw new IOException("ClassPath resource not found [" + resource + "]");
             }
             uri = url.toURI();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException();
+        } catch (URISyntaxException cause) {
+            throw new IOException(cause);
         }
 
         Path path;
