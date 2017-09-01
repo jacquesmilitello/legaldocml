@@ -1,4 +1,7 @@
-package io.legaldocml.akn;
+package io.legaldocml.akn.element;
+
+import io.legaldocml.akn.AknElements;
+import io.legaldocml.io.impl.Buffers;
 
 /**
  * All default attributes name.
@@ -18,33 +21,19 @@ package io.legaldocml.akn;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class AknElements {
+final class AknElementsAddress {
 
-    private AknElements() {
+    private AknElementsAddress() {
     }
 
     /**
-     * Element for {@link io.legaldocml.akn.element.AmendmentContent}
+     * Address for element {@link Br}
      */
-    public static final String AMENDMENT_CONTENT = "amendmentContent";
+    static final long BR = Buffers.address(AknElements.BR);
 
     /**
-     * Element for {@link io.legaldocml.akn.element.AmendmentHeading}
+     * Address for element {@link Alinea}
      */
-    public static final String AMENDMENT_HEADING = "amendmentHeading";
+    static final long ALINEA = Buffers.address(AknElements.ALINEA);
 
-    /**
-     * Element for {@link io.legaldocml.akn.element.FRBRthis}
-     */
-    public static final String FRBRTHIS = "FRBRthis";
-
-    /**
-     * Element for {@link io.legaldocml.akn.element.Br}
-     */
-    public static final String BR = "br";
-
-    /**
-     * Element for {@link io.legaldocml.akn.element.Alinea}
-     */
-    public static final String ALINEA = "alinea";
 }

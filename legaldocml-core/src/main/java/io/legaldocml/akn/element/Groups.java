@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.group.ANblock;
@@ -295,7 +296,7 @@ public final class Groups {
         // <xsd:element ref="img" />
         builder.put(Img.ELEMENT, Img::new);
         // <xsd:element ref="br"/>
-        builder.put(Br.ELEMENT, Br::new);
+        builder.put(AknElements.BR, Br::new);
         return builder.build();
     }
 
@@ -510,7 +511,7 @@ public final class Groups {
         // <xsd:element ref="indent"/>
         builder.put(Indent.ELEMENT, Indent::new);
         // <xsd:element ref="alinea"/>
-        builder.put(Alinea.ELEMENT_ALINEA, Alinea::new);
+        builder.put(AknElements.ALINEA, Alinea::new);
         // <xsd:element ref="rule"/>
         builder.put(Rule.ELEMENT, Rule::new);
         // <xsd:element ref="subrule"/>

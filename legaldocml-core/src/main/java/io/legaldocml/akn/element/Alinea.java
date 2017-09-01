@@ -2,10 +2,11 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANhier;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ALINEA;
 
 /**
  * This element is a hierarchical container called "alinea" either explicitly or due to the local tradition.
@@ -19,23 +20,13 @@ import java.io.IOException;
 public final class Alinea extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ALINEA = "alinea";
-
-    /**
-     * Memory address.
-     */
-    private static final long ADDRESS_ALINEA = Buffers.address(ELEMENT_ALINEA);
-
-    /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS_ALINEA, 6);
+        writer.writeStart(AknElementsAddress.ALINEA, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS_ALINEA, 6);
+        writer.writeEnd(AknElementsAddress.ALINEA, 6);
     }
 
     /**
@@ -43,7 +34,7 @@ public final class Alinea extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT_ALINEA;
+        return ALINEA;
     }
 
     /**
@@ -56,4 +47,5 @@ public final class Alinea extends Hierarchy implements ANhier {
             visitor.visitLeave(this);
         }
     }
+
 }
