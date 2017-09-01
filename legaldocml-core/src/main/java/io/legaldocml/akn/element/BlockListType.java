@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * The blockListType is the type of element blockList.
  *
@@ -28,6 +30,11 @@ public abstract class BlockListType extends CoreReqImpl {
     private ListIntroduction listIntroduction;
     private final AknList<Item> items = new AknList<Item>(new Item[4]);
     private ListWrapUp listWrapUp;
+
+
+    public final void add(Item item) {
+        this.items.add(requireNonNull(item));
+    }
 
     /**
      * {@inheritDoc}

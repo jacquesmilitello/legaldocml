@@ -2,12 +2,12 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.HasCoverPage;
 import io.legaldocml.akn.element.CoverPage;
-import io.legaldocml.akn.element.P;
+import io.legaldocml.business.builder.support.PSupport;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class CoverPageBuilder extends BusinessPartBuilder implements HasPBuilder {
+public class CoverPageBuilder extends BusinessPartBuilder implements PSupport<CoverPage> {
 
     private final CoverPage coverPage;
 
@@ -20,14 +20,9 @@ public class CoverPageBuilder extends BusinessPartBuilder implements HasPBuilder
         ((HasCoverPage) builder.getAkomaNtoso().getDocumentType()).setCoverPage(coverPage);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public PBuilder p() {
-        P p = new P();
-        this.coverPage.add(p);
-        return new PBuilder(p, getBusinessBuilder());
-    }
 
+    @Override
+    public CoverPage getParent() {
+        return coverPage;
+    }
 }

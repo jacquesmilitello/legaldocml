@@ -1,6 +1,10 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.group.ANblock;
+import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -8,11 +12,13 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Groups.basicContainers;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
+import static java.util.Objects.requireNonNull;
 
 /**
  * the complex type basicopt defines the content model and attributes used by basic containers such as coverPage and
@@ -30,7 +36,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Basicopt extends CoreOptImpl {
+public abstract class Basicopt extends CoreOptImpl implements BlockElementsContainer {
 
     private static final ImmutableMap<String, Supplier<BasicoptElement>> ELEMS;
 
@@ -46,6 +52,30 @@ public abstract class Basicopt extends CoreOptImpl {
 
     public final void add(BasicoptElement element) {
         this.elements.add(element);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(BlockElements elements) {
+        this.elements.add(Objects.requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HTMLblock block) {
+        this.elements.add(Objects.requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANblock block) {
+        this.elements.add(requireNonNull(block));
     }
 
     /**

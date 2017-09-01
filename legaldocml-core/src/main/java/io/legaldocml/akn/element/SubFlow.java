@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Name;
+import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -16,7 +17,7 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
- * The element note is a metadata element containing the text of the footnote and endnote specified.
+ * The element subFlow is a generic element for a subFlow.
  *
  * <pre>
  *   <xsd:element name="subFlow">
@@ -32,7 +33,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class SubFlow extends SubFlowStructure implements Name {
+public final class SubFlow extends SubFlowStructure implements SubFlowElements, Name {
 
     /**
      * XML tag element name.

@@ -1,7 +1,9 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.InlineCM;
+import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.QName;
@@ -49,8 +51,16 @@ public abstract class InlineType extends CoreOptImpl implements InlineCMContaine
      * {@inheritDoc}
      */
     @Override
-    public final void add(InlineCM inlineCM)  {
+    public final void add(InlineCM inlineCM) {
         this.data.add(inlineCM);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(SubFlowElements subFlowElements) {
+        this.data.add(subFlowElements);
     }
 
     /**

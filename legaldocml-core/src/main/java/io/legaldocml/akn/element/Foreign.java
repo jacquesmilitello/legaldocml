@@ -7,7 +7,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 /**
- * the element foreign is a generic container for elements not belonging to the Akoma Ntoso namespace (e.g.,
+ * The element foreign is a generic container for elements not belonging to the Akoma Ntoso namespace (e.g.,
  * mathematical formulas). It is a block element and thus can be placed in a container.
  *
  * <pre>

@@ -2,15 +2,16 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.container.BlockElementsContainer;
-import io.legaldocml.akn.element.Foreign;
-import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.element.Table;
+import io.legaldocml.business.builder.support.BlockListSupport;
+import io.legaldocml.business.builder.support.ForeignSupport;
+import io.legaldocml.business.builder.support.PSupport;
 import io.legaldocml.business.util.EidFactory;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class BlocksBuilder<T extends BlockElementsContainer> extends BusinessPartBuilder implements HasPBuilder {
+public class BlocksBuilder<T extends BlockElementsContainer> extends BusinessPartBuilder implements PSupport<T>, ForeignSupport<T>, BlockListSupport<T> {
 
     private final Id parent;
     private final T container;
@@ -26,32 +27,14 @@ public class BlocksBuilder<T extends BlockElementsContainer> extends BusinessPar
         return this;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public PBuilder p() {
-        P p = new P();
-        this.container.add(p);
-        return new PBuilder(p, getBusinessBuilder());
-    }
-
     public TableBuilder table() {
         Table table = new Table();
         this.container.add(table);
         return new TableBuilder(getBusinessBuilder(), table);
     }
 
-    public <T extends BusinessPartBuilder> T foreign(String businessPartBuilderName) {
-        Foreign foreign = new Foreign();
-        this.container.add(foreign);
-
-       // getBusinessBuilder().getProvider();
-
-
-        //BusinessProvider.businessProvider("toto").
-        return null;
-
+    @Override
+    public T getParent() {
+        return container;
     }
-
 }

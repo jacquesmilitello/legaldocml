@@ -27,7 +27,7 @@ public class HierarchyBuilderTest {
         Article article = new Article();
         businessBuilder.<Bill>getAkomaNtoso().getDocumentType().getBody().add(article);
 
-        HierarchyBuilder<Article> builder = new HierarchyBuilder<>(businessBuilder, strategy, article);
+        HierarchyBuilder<Article> builder = new HierarchyBuilder<>(businessBuilder, article);
         builder.eId("1");
         builder.num().text("Art. 1.");
         builder.heading()

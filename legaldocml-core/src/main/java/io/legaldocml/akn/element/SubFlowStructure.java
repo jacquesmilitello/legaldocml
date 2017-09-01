@@ -1,6 +1,13 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.container.HierElementsContainer;
+import io.legaldocml.akn.group.ANblock;
+import io.legaldocml.akn.group.ANhier;
+import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
+import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.XmlReader;
@@ -14,6 +21,7 @@ import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.containerElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The type subFlowStructure specifies the overall content model of the elements that are subFlows.
@@ -51,7 +59,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SubFlowStructure extends CoreReqImpl {
+public abstract class SubFlowStructure extends CoreReqImpl implements BlockElementsContainer, HierElementsContainer {
 
     private static final ImmutableMap<String, Supplier<SubFlowStructureElement>> ELEMS;
 
@@ -86,6 +94,45 @@ public abstract class SubFlowStructure extends CoreReqImpl {
 
     public final void add(SubFlowStructureElement element) {
         this.elems.add(element);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(BlockElements elements) {
+        this.elems.add(requireNonNull(elements));
+    }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HTMLblock block) {
+        this.elems.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HierElements hier) {
+        this.elems.add(requireNonNull(hier));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANhier hier) {
+        this.elems.add(requireNonNull(hier));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANblock block) {
+        this.elems.add(requireNonNull(block));
     }
 
     /**

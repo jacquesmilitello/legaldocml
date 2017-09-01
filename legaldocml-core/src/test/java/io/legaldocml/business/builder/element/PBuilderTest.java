@@ -1,4 +1,4 @@
-package io.legaldocml.business.builder;
+package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.element.P;
 import io.legaldocml.io.XmlProvider;
@@ -18,7 +18,7 @@ public class PBuilderTest {
     @Test
     public void testAuthorialNote() throws IOException {
         P p = new P();
-        PBuilder pBuilder = new PBuilder(p, null);
+        PBuilder pBuilder = new PBuilder(null, p);
         pBuilder.authorialNote();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         XmlProvider.writerFactory(3).write(Channels.newChannel(baos), p);
@@ -28,7 +28,7 @@ public class PBuilderTest {
     @Test
     public void testBold() throws IOException {
         P p = new P();
-        PBuilder pBuilder = new PBuilder(p, null);
+        PBuilder pBuilder = new PBuilder(null, p);
         pBuilder.b("hello");
         pBuilder.b().text("hello2");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -39,7 +39,7 @@ public class PBuilderTest {
     @Test
     public void testItablic() throws IOException {
         P p = new P();
-        PBuilder pBuilder = new PBuilder(p, null);
+        PBuilder pBuilder = new PBuilder(null, p);
         pBuilder.i("hello");
         pBuilder.i().text("hello2");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

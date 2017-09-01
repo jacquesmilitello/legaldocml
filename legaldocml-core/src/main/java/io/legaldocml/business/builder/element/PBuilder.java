@@ -1,4 +1,4 @@
-package io.legaldocml.business.builder;
+package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.element.AuthorialNote;
 import io.legaldocml.akn.element.B;
@@ -10,6 +10,9 @@ import io.legaldocml.akn.element.I;
 import io.legaldocml.akn.element.Inline;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.element.StringInlineCM;
+import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.InlineTypeBuilder;
+import io.legaldocml.business.builder.support.SubFlowSupport;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.business.util.AknReferenceHelper;
 
@@ -18,25 +21,21 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class PBuilder {
+public class PBuilder extends ElementBuilder<P> implements SubFlowSupport<P> {
 
-    private final P p;
-    private final BusinessBuilder businessBuilder;
-
-    public PBuilder(P p, BusinessBuilder businessBuilder) {
-        this.p = p;
-        this.businessBuilder = businessBuilder;
+    public PBuilder(BusinessBuilder businessBuilder, P p) {
+        super(businessBuilder, p);
     }
 
     public PBuilder text(String text) {
-        this.p.add(new StringInlineCM(text));
+        getParent().add(new StringInlineCM(text));
         return this;
     }
 
     public PBuilder docType(String text) {
         DocType docType = new DocType();
         docType.add(new StringInlineCM(text));
-        this.p.add(docType);
+        getParent().add(docType);
         return this;
     }
 
@@ -44,22 +43,22 @@ public class PBuilder {
     public PBuilder docProponent(String text, AknReference... refs) {
         DocProponent docProponent = new DocProponent();
         docProponent.add(new StringInlineCM(text));
-        this.p.add(docProponent);
-        AknReferenceHelper.apply(this.businessBuilder.getAkomaNtoso(), docProponent, refs);
+        getParent().add(docProponent);
+        AknReferenceHelper.apply(getBusinessBuilder().getAkomaNtoso(), docProponent, refs);
         return this;
     }
 
     public PBuilder docNumber(String text) {
         DocNumber number = new DocNumber();
         number.add(new StringInlineCM(text));
-        this.p.add(number);
+        getParent().add(number);
         return this;
     }
 
     public PBuilder docTitle(String text) {
         DocTitle title = new DocTitle();
         title.add(new StringInlineCM(text));
-        this.p.add(title);
+        getParent().add(title);
         return this;
     }
 
@@ -70,8 +69,8 @@ public class PBuilder {
 
     public InlineTypeBuilder<B> b() {
         B b = new B();
-        this.p.add(b);
-        return new InlineTypeBuilder<>(this.businessBuilder, b);
+        getParent().add(b);
+        return new InlineTypeBuilder<>(getBusinessBuilder(), b);
     }
 
     public PBuilder i(String text) {
@@ -81,17 +80,17 @@ public class PBuilder {
 
     public InlineTypeBuilder<I> i() {
         I i = new I();
-        this.p.add(i);
-        return new InlineTypeBuilder<>(this.businessBuilder, i);
+        getParent().add(i);
+        return new InlineTypeBuilder<>(getBusinessBuilder(), i);
     }
 
     @SuppressWarnings("unchecked")
     public InlineTypeBuilder<Inline> inline(String name, AknReference... refs) {
         Inline inline = new Inline();
-        this.p.add(inline);
+        getParent().add(inline);
         inline.setName(name);
-        AknReferenceHelper.apply(this.businessBuilder.getAkomaNtoso(), inline, refs);
-        return new InlineTypeBuilder<>(this.businessBuilder, inline);
+        AknReferenceHelper.apply(getBusinessBuilder().getAkomaNtoso(), inline, refs);
+        return new InlineTypeBuilder<>(getBusinessBuilder(), inline);
     }
 
     public PBuilder authorialNote() {
@@ -100,16 +99,13 @@ public class PBuilder {
 
     public PBuilder authorialNote(Consumer<AuthorialNote> consumer) {
         AuthorialNote note = new AuthorialNote();
-        this.p.add(note);
+        getParent().add(note);
         P noteP = new P();
         note.add(noteP);
         if (consumer != null) {
             consumer.accept(note);
         }
-        return new PBuilder(noteP, businessBuilder);
+        return new PBuilder(getBusinessBuilder(), noteP);
     }
-
-
-
 
 }

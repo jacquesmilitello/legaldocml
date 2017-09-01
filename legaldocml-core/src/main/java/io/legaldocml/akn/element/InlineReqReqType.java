@@ -1,6 +1,8 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.InlineCM;
+import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -34,10 +36,17 @@ public abstract class InlineReqReqType extends CoreReqReqImpl implements InlineC
      * {@inheritDoc}
      */
     @Override
-    public final void add(InlineCM inlineCM)  {
+    public final void add(InlineCM inlineCM) {
         this.data.add(inlineCM);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(SubFlowElements el) {
+        this.data.add(el);
+    }
 
     /**
      * {@inheritDoc}

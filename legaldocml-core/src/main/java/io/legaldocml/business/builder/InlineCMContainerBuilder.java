@@ -4,7 +4,7 @@ import io.legaldocml.akn.element.B;
 import io.legaldocml.akn.element.Eol;
 import io.legaldocml.akn.element.I;
 import io.legaldocml.akn.element.Inline;
-import io.legaldocml.akn.element.InlineCMContainer;
+import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.element.Sup;
 import io.legaldocml.business.util.AknReference;

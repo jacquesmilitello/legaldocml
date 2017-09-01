@@ -11,7 +11,7 @@ public abstract class BusinessPartBuilder {
         this.businessBuilder = businessBuilder;
     }
 
-    protected final BusinessBuilder getBusinessBuilder() {
+    public final BusinessBuilder getBusinessBuilder() {
         return businessBuilder;
     }
 }

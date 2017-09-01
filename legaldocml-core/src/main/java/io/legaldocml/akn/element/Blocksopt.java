@@ -2,7 +2,9 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.XmlReader;
@@ -49,6 +51,22 @@ public abstract class Blocksopt extends CoreOptImpl implements BlockElementsCont
     @Override
     public final void add(BlockElements element) {
         this.elements.add(requireNonNull(element));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HTMLblock block) {
+        this.elements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANblock block) {
+        this.elements.add(requireNonNull(block));
     }
 
     /**

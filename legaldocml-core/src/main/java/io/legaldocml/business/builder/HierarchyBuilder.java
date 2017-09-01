@@ -14,17 +14,15 @@ import io.legaldocml.business.util.EidFactory;
  */
 public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBuilder {
 
-    private final HierarchyStrategy strategy;
     private final Hierarchy parent;
     private final T hierarchy;
 
-    public HierarchyBuilder(BusinessBuilder businessBuilder, HierarchyStrategy strategy, T hierarchy) {
-        this(businessBuilder, strategy, null, hierarchy);
+    public HierarchyBuilder(BusinessBuilder businessBuilder, T hierarchy) {
+        this(businessBuilder, null, hierarchy);
     }
 
-    public HierarchyBuilder(BusinessBuilder businessBuilder, HierarchyStrategy strategy, Hierarchy parent, T hierarchy) {
+    public HierarchyBuilder(BusinessBuilder businessBuilder, Hierarchy parent, T hierarchy) {
         super(businessBuilder);
-        this.strategy = strategy;
         this.parent = parent;
         this.hierarchy = hierarchy;
     }
@@ -62,15 +60,15 @@ public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBui
     }
 
     public <T extends Hierarchy & HierarchyElement> HierarchyBuilder<T> next() {
-        T el = this.strategy.next(this.hierarchy);
+        T el = this.getBusinessBuilder().getStrategy().next(this.hierarchy);
         this.hierarchy.add(el);
-        return new HierarchyBuilder<>(getBusinessBuilder(), this.strategy, this.hierarchy, el);
+        return new HierarchyBuilder<>(getBusinessBuilder(), this.hierarchy, el);
     }
 
     public <T extends Hierarchy> HierarchyBuilder<T> newChild(String element) {
         HierarchyElement el = Hierarchy.ELEMS.get(element).get();
         this.hierarchy.add(el);
-        return new HierarchyBuilder<T>(getBusinessBuilder(), this.strategy, this.hierarchy, (T) el);
+        return new HierarchyBuilder<T>(getBusinessBuilder(), this.hierarchy, (T) el);
     }
 
     public BlocksBuilder<Intro> intro() {

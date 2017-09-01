@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
@@ -16,19 +17,26 @@ public abstract class BusinessBuilder {
 
     private final MetaBuilder metaBuilder;
 
-    public BusinessBuilder(BusinessProvider provider, DocumentType documentType) {
+    private final HierarchyStrategy strategy;
+
+    public BusinessBuilder(BusinessProvider provider, DocumentType documentType,HierarchyStrategy strategy) {
         this.provider = provider;
         this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
         this.akomaNtoso.setDocumentType(documentType);
         this.metaBuilder = newMetaBuilder();
+        this.strategy = strategy;
     }
 
     public final MetaBuilder getMetaBuilder() {
         return this.metaBuilder;
     }
 
-    protected final BusinessProvider getProvider() {
+    public final BusinessProvider getProvider() {
         return this.provider;
+    }
+
+    public final HierarchyStrategy getStrategy() {
+        return this.strategy;
     }
 
     protected abstract AkomaNtosoContext newAkomaNtosoContext();
@@ -36,8 +44,11 @@ public abstract class BusinessBuilder {
     protected abstract MetaBuilder newMetaBuilder();
 
     @SuppressWarnings("unchecked")
-    public <T extends DocumentType> AkomaNtoso<T> getAkomaNtoso() {
+    public final <T extends DocumentType> AkomaNtoso<T> getAkomaNtoso() {
         return (AkomaNtoso<T>) akomaNtoso;
     }
 
+    public final <T extends BusinessPartBuilder> T newPartBuilder(AknObject parent, String businessPartBuilderName) {
+        return this.provider.newPartBuilder(this, parent, businessPartBuilderName);
+    }
 }

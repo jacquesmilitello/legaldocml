@@ -180,7 +180,9 @@ public final class Groups {
         // <xsd:group ref="ANsubFlow"/>
         builder.putAll(convertSuper(ANsubFlow()));
         // <xsd:element ref="popup"/>
-        builder.put(Popup.ELEMENT, Popup::new);
+        //builder.put(Popup.ELEMENT, Popup::new);
+         //<xsd:element ref="subFlow"/>
+        builder.put(SubFlow.ELEMENT, SubFlow::new);
         return builder.build();
     }
 

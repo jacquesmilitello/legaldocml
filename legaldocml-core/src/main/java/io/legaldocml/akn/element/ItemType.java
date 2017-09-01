@@ -1,7 +1,10 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -14,6 +17,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type itemType is similar to a hierarchical element, but is isolated and does not belong to a full
@@ -34,7 +38,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ItemType extends BaseHierarchyCoreReq {
+public abstract class ItemType extends BaseHierarchyCoreReq implements BlockElementsContainer{
 
     // Mandatory (min 1)
     private final AknList<BlockElements> blockElements = new AknList<>(new BlockElements[4]);
@@ -45,6 +49,30 @@ public abstract class ItemType extends BaseHierarchyCoreReq {
         ELEMS = ImmutableMap.<String, Supplier<BlockElements>>builder()
                 .putAll(convertSuper(blockElements()))
                 .build();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(BlockElements elements) {
+        this.blockElements.add(requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANblock block) {
+        this.blockElements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HTMLblock block) {
+        this.blockElements.add(requireNonNull(block));
     }
 
     /**

@@ -30,14 +30,14 @@ public abstract class AbstractRef extends AbstractUri {
         return UnsafeString.valueOf(getChars());
     }
 
-    static char[] makeRef(NoWhiteSpace noWhiteSpace) {
+    protected static char[] makeRef(NoWhiteSpace noWhiteSpace) {
         StringBuilder builder = new StringBuilder(64);
         builder.append(REF);
         builder.append(noWhiteSpace.getChars());
         return UnsafeString.getChars(builder.toString());
     }
 
-    static <T extends AbstractRef> T valueOf(char[] value, Function<char[], T> instantiator) {
+    protected static <T extends AbstractRef> T valueOf(char[] value, Function<char[], T> instantiator) {
         if (value == null || value.length == 0) {
             throw new AttributeValueException("Value is null or empty : " + Arrays.toString(value));
         }
