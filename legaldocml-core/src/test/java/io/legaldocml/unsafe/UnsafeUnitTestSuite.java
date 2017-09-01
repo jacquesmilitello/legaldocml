@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ UnsafeHelperTest.class, UnsageStringTest.class })
+@SuiteClasses({ UnsafeHelperTest.class, UnsafeStringTest.class })
 public class UnsafeUnitTestSuite {
 
 }

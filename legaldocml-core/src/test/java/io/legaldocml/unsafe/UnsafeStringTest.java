@@ -1,6 +1,7 @@
 package io.legaldocml.unsafe;
 
 import io.legaldocml.test.SonarJUnit4ClassRunner;
+import io.legaldocml.util.Strings;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +12,7 @@ import static io.legaldocml.test.Tests.assertUtilClassIsWellDefined;
  * Test the Dark Side of Java.
  */
 @RunWith(SonarJUnit4ClassRunner.class)
-public class UnsageStringTest {
+public class UnsafeStringTest {
 
     @Test
     public void testPrivateConstructor() throws Exception {
@@ -45,4 +46,17 @@ public class UnsageStringTest {
         Assert.assertEquals("PelloWorld", helloWorld);
         value[0] = 'H';
     }
+
+    @Test
+    public void testNull() {
+        Assert.assertEquals(Strings.EMPTY,UnsafeString.valueOf(null));
+        Assert.assertEquals(Strings.EMPTY,UnsafeString.valueOf(new char[0]));
+        Assert.assertEquals(Strings.EMPTY,UnsafeString.buildUnsafe(null));
+        Assert.assertEquals(Strings.EMPTY,UnsafeString.buildUnsafe(new char[0]));
+
+        Assert.assertNotNull(UnsafeString.getChars(null));
+        Assert.assertEquals(0,UnsafeString.buildUnsafe(new char[0]).length());
+    }
+
+
 }
