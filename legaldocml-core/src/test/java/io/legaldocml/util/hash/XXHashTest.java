@@ -1,5 +1,6 @@
 package io.legaldocml.util.hash;
 
+import io.legaldocml.test.Tests;
 import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.HashReader;
@@ -10,6 +11,11 @@ import org.junit.Test;
 public class XXHashTest {
 
     @Test
+    public void testUtilConstructor() throws Exception {
+        Tests.assertUtilClassIsWellDefined(Hashing.class);
+    }
+
+    @Test
     public void test() {
         String value = "Hello World !";
         Assert.assertEquals(-7739591154577084421L,Hashing.xx(123456, value));
@@ -17,9 +23,15 @@ public class XXHashTest {
     }
 
     @Test
-    public void tests() {
+    public void testReader() {
         String value = "Hello World !";
         Assert.assertEquals(-7739591154577084421L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
+    }
+
+    @Test
+    public void testReaderLong() {
+        String value = "Hello World !Hello World !Hello World !Hello World !Hello World !Hello World !Hello World !";
+        Assert.assertEquals(2875214966217480447L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
     }
 
     private static class HashReader4String extends HashReader {
