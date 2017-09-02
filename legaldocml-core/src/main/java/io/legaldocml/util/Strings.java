@@ -35,8 +35,8 @@ public final class Strings {
 	 * Strings.isBlank(null)      = true
 	 * Strings.isBlank("")        = true
 	 * Strings.isBlank(" ")       = true
-	 * Strings.isBlank("bob")     = false
-	 * Strings.isBlank("  bob  ") = false
+	 * Strings.isBlank("jacques")     = false
+	 * Strings.isBlank("  jacques  ") = false
 	 * </pre>
 	 *
 	 * @param cs the CharSequence to check, may be null
@@ -62,8 +62,8 @@ public final class Strings {
 	 * Strings.isEmpty(null)      = true
 	 * Strings.isEmpty("")        = true
 	 * Strings.isEmpty(" ")       = false
-	 * Strings.isEmpty("bob")     = false
-	 * Strings.isEmpty("  bob  ") = false
+	 * Strings.isEmpty("jacques")     = false
+	 * Strings.isEmpty("  jacques  ") = false
 	 * </pre>
 	 * 
 	 * @param cs the CharSequence to check, may be null.

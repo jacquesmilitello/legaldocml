@@ -30,10 +30,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 		   <xsd:extension base="inline">
  * 		     <xsd:attributeGroup ref="link"/>
  * 			 <xsd:attributeGroup ref="target"/>
- * 		   <xsd:extension>
- * 	     <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 	     </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

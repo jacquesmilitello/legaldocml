@@ -58,7 +58,7 @@ public class ToStringBuilder {
     }
 
     public ToStringBuilder(Object object) {
-        this(object,true);
+        this(object, true);
     }
 
     public ToStringBuilder(Object object, boolean appendNull) {
@@ -132,25 +132,8 @@ public class ToStringBuilder {
         return this;
     }
 
-
-
-//    /**
-//     * Append.
-//     *
-//     * @param key    the key
-//     * @param values the values
-//     * @return the to string builder
-//     */
-//    public ToStringBuilder append(String key, Object[] values) {
-//        if (!this.appendNull && (values == null || values.length == 0)) {
-//            return this;
-//        }
-//        insert(key).insert("=").insert(Arrays.toString(values)).insert(" ");
-//        return this;
-//    }
-
     /**
-     * Append a java.util.Calendar.
+     * Append a java.time.LocalDate
      *
      * @param key   the key
      * @param value the value
@@ -180,7 +163,12 @@ public class ToStringBuilder {
         if (!this.appendNull && value == null) {
             return this;
         }
-       // insert(key).insert("=[").append(value == null ? NULL : DateTimeFormatter.ISO_LOCAL_TIME.format(value)).append("] ");
+        insertKey(UnsafeString.getChars(key));
+        if (value == null) {
+            insertNullValue();
+        } else {
+            insertValue(value);
+        }
         return this;
     }
 
@@ -195,7 +183,12 @@ public class ToStringBuilder {
         if (!this.appendNull && value == null) {
             return this;
         }
-       // insert(key).insert("=[").insert(value == null ? NULL : DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(value)).insert("] ");
+        insertKey(UnsafeString.getChars(key));
+        if (value == null) {
+            insertNullValue();
+        } else {
+            insertValue(value);
+        }
         return this;
     }
 
@@ -205,24 +198,16 @@ public class ToStringBuilder {
      * @return the string
      */
     public String toString() {
-        int idx = this.idx;
-        if (this.value[this.idx - 1] != '{') {
-            this.value[this.idx - 1] = '}';
+        int i = this.idx;
+        if (this.value[i - 1] == ',') {
+            this.value[i - 1] = '}';
         } else {
-            this.value[this.idx] = '}';
+            this.value[i++] = '}';
         }
 
-        char[] value = new char[idx];
-        System.arraycopy(this.value,0,value, 0, idx);
-
-
-        //String value = new String(this.value, 0, idx);
-//        if (this.ptr > 1) {
-//            this.value[this.ptr - 1] = ' ';
-//        } else {
-//            this.ptr--;
-//        }
-        return UnsafeString.buildUnsafe(value);
+        char[] v = new char[i];
+        System.arraycopy(this.value, 0, v, 0, i);
+        return UnsafeString.buildUnsafe(v);
     }
 
     private void expandCapacity(int minimumCapacity) {
@@ -245,9 +230,9 @@ public class ToStringBuilder {
         }
         char[] val = this.value;
         val[idx] = '"';
-        System.arraycopy(value,0, this.value, idx + 1, len);
-        val[max-2] = '"';
-        val[max-1] = ':';
+        System.arraycopy(value, 0, this.value, idx + 1, len);
+        val[max - 2] = '"';
+        val[max - 1] = ':';
         this.idx = max;
     }
 
@@ -259,24 +244,46 @@ public class ToStringBuilder {
         }
         char[] val = this.value;
         val[this.idx] = '"';
-        System.arraycopy(value,0, this.value, this.idx + 1, len);
-        val[max-2] = '"';
-        val[max-1] = ',';
+        System.arraycopy(value, 0, this.value, this.idx + 1, len);
+        val[max - 2] = '"';
+        val[max - 1] = ',';
         this.idx = max;
+    }
+
+    private void insertValue(LocalDateTime dateTime) {
+        int ptr = this.idx;
+        int max = ptr + 24;
+        if (max > this.value.length) {
+            expandCapacity(max);
+        }
+        this.value[ptr++] = '[';
+        ptr = appendValue(this.value, ptr, dateTime.toLocalDate());
+        this.value[ptr++] = ',';
+        ptr = appendValue(this.value, ptr, dateTime.toLocalTime());
+        this.value[ptr++] = ']';
+        this.idx = ptr;
     }
 
     private void insertValue(LocalDate date) {
         int ptr = this.idx;
-        int max = ptr + 8 + 2;
-        if (max > this.value.length) {
-            expandCapacity(max);
+        if (ptr + 12 > this.value.length) {
+            expandCapacity(ptr + 12);
         }
-        char[] val = this.value;
-        val[ptr++] = '[';
-        val[ptr++] = ',';
-        val[ptr++] = ',';
-        val[ptr++] = ']';
-        this.idx = max;
+        this.value[ptr++] = '[';
+        ptr = appendValue(this.value, ptr, date);
+        this.value[ptr++] = ']';
+        this.idx = ptr;
+    }
+
+    private void insertValue(LocalTime time) {
+        int ptr = this.idx;
+        if (ptr + 10 > this.value.length) {
+            expandCapacity(ptr + 10);
+        }
+        this.value[ptr++] = '[';
+        ptr = appendValue(this.value, ptr, time);
+        this.value[ptr++] =  ']';
+        this.idx = ptr;
     }
 
     private void insertNullValue() {
@@ -286,6 +293,36 @@ public class ToStringBuilder {
         }
         System.arraycopy(NULL, 0, this.value, this.idx, 4);
         this.idx = max;
+    }
+
+    private static int appendValue(char[] val, int ptr, LocalDate date) {
+        int year = date.getYear();
+        val[ptr + 3] = (char) (48 + year % 10);
+        year = Maths.unsignedDiv10(year);
+        val[ptr + 2] = (char) (48 + year % 10);
+        year = Maths.unsignedDiv10(year);
+        val[ptr + 1] = (char) (48 + year % 10);
+        val[ptr] = (char) (48 + (Maths.unsignedDiv1000(date.getYear())));
+        ptr += 4;
+        val[ptr++] = ',';
+        val[ptr++] = (char) (48 + Maths.unsignedDiv10(date.getMonthValue()));
+        val[ptr++] = (char) (48 + date.getMonthValue() % 10);
+        val[ptr++] = ',';
+        val[ptr++] = (char) (48 + Maths.unsignedDiv10(date.getDayOfMonth()));
+        val[ptr++] = (char) (48 + date.getDayOfMonth() % 10);
+        return ptr;
+    }
+
+    private static int appendValue(char[] val, int ptr, LocalTime time) {
+        val[ptr++] = (char) (48 + Maths.unsignedDiv10(time.getHour()));
+        val[ptr++] = (char) (48 + time.getHour() % 10);
+        val[ptr++] = ',';
+        val[ptr++] = (char) (48 + Maths.unsignedDiv10(time.getMinute()));
+        val[ptr++] = (char) (48 + time.getMinute() % 10);
+        val[ptr++] = ',';
+        val[ptr++] = (char) (48 + Maths.unsignedDiv10(time.getSecond()));
+        val[ptr++] = (char) (48 + time.getSecond() % 10);
+        return ptr;
     }
 
 }
