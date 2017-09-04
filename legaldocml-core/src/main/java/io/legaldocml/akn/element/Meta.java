@@ -11,6 +11,8 @@ import io.legaldocml.io.impl.Buffers;
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ANALYSIS;
+
 /**
  * <pre>
  *   <xsd:element name="meta">
@@ -207,7 +209,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(Workflow.ELEMENT));
         }
 
-        if (reader.getQName().equalsLocalName(Analysis.ELEMENT_ANALYSIS)) {
+        if (reader.getQName().equalsLocalName(ANALYSIS)) {
             Analysis analysis;
             this.analysis = new AknList<>(new Analysis[4]);
             do {
@@ -215,7 +217,7 @@ public final class Meta implements AknObject {
                 analysis.read(reader);
                 this.analysis.add(analysis);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Analysis.ELEMENT_ANALYSIS));
+            } while (reader.getQName().equalsLocalName(ANALYSIS));
         }
 
         if (reader.getQName().equalsLocalName(TemporalData.ELEMENT)) {

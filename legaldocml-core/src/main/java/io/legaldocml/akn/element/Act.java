@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.DocumentType;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ACT;
 
 /**
  * Element act is used for describing the structure and content of an act.
@@ -27,14 +29,9 @@ import java.io.IOException;
 public final class Act extends HierarchicalStructure implements DocumentType {
 
     /**
-     * XML element name.
-     */
-    public static final String ELEMENT_ACT = "act";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ACT = Buffers.address(ELEMENT_ACT);
+    private static final long ADDRESS_ACT = Buffers.address(ACT);
 
     /**
      * {@inheritDoc}
@@ -51,7 +48,7 @@ public final class Act extends HierarchicalStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT_ACT;
+        return ACT;
     }
 
 }

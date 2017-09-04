@@ -16,15 +16,6 @@ import io.legaldocml.akn.AknObject;
  */
 public interface CellAttrs extends AknObject {
 
-    /**
-     * Default rowspan value (1).
-     */
-    int ATTRIBUTE_DEFAULT_VALUE_ROWSPAN = 1;
-    /**
-     * Default colspan value (1).
-     */
-    int ATTRIBUTE_DEFAULT_VALUE_COLSPAN = 1;
-
     Integer getRowSpan();
 
     void setRowSpan(Integer rowspan);

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.legaldocml.akn.AknElements.AKOMANTOSO;
+
 /**
  * The element akomaNtoso is the root element of all document types in Akoma Ntoso. It follows the pattern Universal
  * Root (http://www.xmlpatterns.com/UniversalRootMain.shtml).
@@ -23,14 +25,9 @@ import java.util.List;
 public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> implements Core {
 
     /**
-     * Main Element name.
-     */
-    public static final String ELEMENT = "akomaNtoso";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(AKOMANTOSO);
 
     /**
      * Context for this instance of akomaNtoso instance.
@@ -81,7 +78,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AKOMANTOSO;
     }
 
     /**

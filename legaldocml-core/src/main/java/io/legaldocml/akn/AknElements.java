@@ -23,6 +23,34 @@ public final class AknElements {
     private AknElements() {
     }
 
+    public static final String AKOMANTOSO = "akomaNtoso";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.A}
+     */
+    public static final String A = "a";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Abbr}
+     */
+    public static final String ABBR = "abbr";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Act}
+     */
+    public static final String ACT = "act";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ActiveModifications}
+     */
+    public static final String ACTIVE_MODIFICATIONS = "activeModifications";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ActiveRef}
+     */
+    public static final String ACTIVE_REF = "activeRef";
+
+
     /**
      * Element for {@link io.legaldocml.akn.element.AmendmentContent}
      */
@@ -32,6 +60,11 @@ public final class AknElements {
      * Element for {@link io.legaldocml.akn.element.AmendmentHeading}
      */
     public static final String AMENDMENT_HEADING = "amendmentHeading";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Analysis}
+     */
+    public static final String ANALYSIS = "analysis";
 
     /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}

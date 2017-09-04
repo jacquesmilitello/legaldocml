@@ -36,6 +36,8 @@ import io.legaldocml.io.XmlReader;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.ACT;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -47,7 +49,7 @@ public final class Groups {
 
     static {
         DOCUMENT_TYPE_V2 = ImmutableMap.<String, Supplier<DocumentType>>builder()
-                .put(Act.ELEMENT_ACT, Act::new)
+                .put(ACT, Act::new)
                 .put(Amendment.ELEMENT, Amendment::new)
                 .put(AmendmentList.ELEMENT, AmendmentList::new)
                 .put(Bill.ELEMENT, Bill::new)
@@ -60,7 +62,7 @@ public final class Groups {
                 .build();
 
         DOCUMENT_TYPE = ImmutableMap.<String, Supplier<DocumentType>>builder()
-                .put(Act.ELEMENT_ACT, Act::new)
+                .put(ACT, Act::new)
                 .put(Amendment.ELEMENT, Amendment::new)
                 .put(AmendmentList.ELEMENT, AmendmentList::new)
                 .put(Bill.ELEMENT, Bill::new)
@@ -217,7 +219,7 @@ public final class Groups {
         // <xsd:element ref="i"/>
         builder.put(I.ELEMENT, I::new);
         // <xsd:element ref="a"/>
-        builder.put(A.ELEMENT_A, A::new);
+        builder.put(AknElements.A, A::new);
         // <xsd:element ref="u"/>
         builder.put(U.ELEMENT, U::new);
         // <xsd:element ref="sub"/>
@@ -225,7 +227,7 @@ public final class Groups {
         // <xsd:element ref="sup"/>
         builder.put(Sup.ELEMENT, Sup::new);
         // <xsd:element ref="abbr"/>
-        builder.put(Abbr.ELEMENT_ABBR, Abbr::new);
+        builder.put(AknElements.ABBR, Abbr::new);
         // <xsd:element ref="span"/>
         builder.put(Span.ELEMENT, Span::new);
 
@@ -425,7 +427,7 @@ public final class Groups {
         // <xsd:element ref="passiveRef"/>
         builder.put(PassiveRef.ELEMENT, PassiveRef::new);
         // <xsd:element ref="activeRef"/>
-        builder.put(ActiveRef.ELEMENT_ACTIVE_REF, ActiveRef::new);
+        builder.put(AknElements.ACTIVE_REF, ActiveRef::new);
         // <xsd:element ref="jurisprudence"/>
         builder.put(Jurisprudence.ELEMENT, Jurisprudence::new);
         // <xsd:element ref="hasAttachment"/>

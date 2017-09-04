@@ -51,10 +51,10 @@ import static java.util.Objects.requireNonNull;
  *         <xsd:element ref="heading"/>
  *         <xsd:element ref="subheading"/>
  *         <xsd:element ref="num"/>
- *       <xsd:choice>
- *     <xsd:choice>
+ *       </xsd:choice>
+ *     </xsd:choice>
  *     <xsd:attributeGroup ref="corereq"/>
- *   <xsd:complexType>
+ *   </xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -103,6 +103,7 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
     public void add(BlockElements elements) {
         this.elems.add(requireNonNull(elements));
     }
+
     /**
      * {@inheritDoc}
      */

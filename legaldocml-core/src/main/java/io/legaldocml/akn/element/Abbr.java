@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ABBR;
+
 /**
  * The element abbr is an HTML element and is used in Akoma Ntoso as in HTML, for the specification of an abbreviation
  * or an acronym (an inline). As in HTML, use attribute title to specify the full expansion of the abbreviation or
@@ -20,14 +22,9 @@ import java.io.IOException;
 public final class Abbr extends InlineType implements HTMLinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ABBR = "abbr";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ABBR = Buffers.address(ELEMENT_ABBR);
+    private static final long ADDRESS_ABBR = Buffers.address(ABBR);
 
     /**
      * {@inheritDoc}
@@ -44,7 +41,7 @@ public final class Abbr extends InlineType implements HTMLinline {
      */
     @Override
     public String name() {
-        return ELEMENT_ABBR;
+        return ABBR;
     }
 
 }

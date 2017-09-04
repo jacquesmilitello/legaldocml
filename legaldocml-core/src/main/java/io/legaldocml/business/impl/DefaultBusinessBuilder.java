@@ -1,6 +1,7 @@
 package io.legaldocml.business.impl;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Act;
@@ -31,7 +32,7 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
 
     static {
         DOCUMENT_TYPE = ImmutableMap.<String, Class<? extends DocumentType>>builder()
-                .put(Act.ELEMENT_ACT, Act.class)
+                .put(AknElements.ACT, Act.class)
                 .put(Amendment.ELEMENT, Amendment.class)
                 .put(AmendmentList.ELEMENT, AmendmentList.class)
                 .put(Bill.ELEMENT, Bill.class)

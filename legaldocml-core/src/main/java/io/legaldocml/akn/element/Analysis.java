@@ -14,6 +14,8 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.ACTIVE_MODIFICATIONS;
+import static io.legaldocml.akn.AknElements.ANALYSIS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -41,15 +43,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class Analysis implements Source {
 
-    /**
-     * Xml element name.
-     */
-    public static final String ELEMENT_ANALYSIS = "analysis";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS_ANALYSIS = Buffers.address(ELEMENT_ANALYSIS);
+    private static final long ADDRESS_ANALYSIS = Buffers.address(ANALYSIS);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -151,7 +149,7 @@ public final class Analysis implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(ActiveModifications.ELEMENT_ACTIVE_MODIFICATIONS)) {
+        if (reader.getQName().equalsLocalName(ACTIVE_MODIFICATIONS)) {
             this.activeModifications = new ActiveModifications();
             this.activeModifications.read(reader);
             reader.nextStartOrEndElement();
@@ -215,7 +213,7 @@ public final class Analysis implements Source {
      * {@inheritDoc}
      */
     public String name() {
-        return ELEMENT_ANALYSIS;
+        return ANALYSIS;
     }
 
 }

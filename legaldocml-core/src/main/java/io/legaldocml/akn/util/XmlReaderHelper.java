@@ -26,7 +26,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
-import static io.legaldocml.akn.AknReadException.*;
+import static io.legaldocml.akn.AknElements.AKOMANTOSO;
+import static io.legaldocml.akn.AknReadException.Type;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -42,9 +43,9 @@ public final class XmlReaderHelper {
     }
 
 
-    public static <T extends DocumentType> AkomaNtoso createAkomaNtoso(XmlReader reader) {
-        if (!AkomaNtoso.ELEMENT.equals(reader.getQName().getLocalName())) {
-            throw new MandatoryElementException(null, AkomaNtoso.ELEMENT, reader);
+    public static <T extends DocumentType> AkomaNtoso<T> createAkomaNtoso(XmlReader reader) {
+        if (!AKOMANTOSO.equals(reader.getQName().getLocalName())) {
+            throw new MandatoryElementException(null, AKOMANTOSO, reader);
         }
 
         NamespaceConsumer namespaceConsumer = new NamespaceConsumer();
@@ -53,7 +54,7 @@ public final class XmlReaderHelper {
         AknModule aknModule = namespaceConsumer.getAknModules();
 
         if (aknModule == null) {
-           throw new AknReadException(Type.AKN_MODULE_NOT_FOUND,reader, null);
+           throw new AknReadException(Type.AKN_MODULE_NOT_FOUND,reader);
         }
 
         AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(aknModule.newAkomaNtosoContext());

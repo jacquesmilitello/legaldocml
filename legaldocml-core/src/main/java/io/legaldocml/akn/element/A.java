@@ -14,6 +14,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.A;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
@@ -41,14 +42,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class A extends InlineType implements HTMLinline, LinkReq, Target {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_A = "a";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_A = Buffers.address(ELEMENT_A);
+    private static final long ADDRESS_A = Buffers.address(A);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -122,6 +118,7 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
      */
     @Override
     public String name() {
-        return ELEMENT_A;
+        return A;
     }
+
 }

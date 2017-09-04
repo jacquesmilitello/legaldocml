@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.DocRef;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ACTIVE_REF;
 
 /**
  * The element activeRef is a metadata reference to the Akoma Ntoso IRI of a document that is modified by this document
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class ActiveRef extends ReferenceType implements DocRef {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ACTIVE_REF = "activeRef";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ACTIVE_REF = Buffers.address(ELEMENT_ACTIVE_REF);
+    private static final long ADDRESS_ACTIVE_REF = Buffers.address(ACTIVE_REF);
 
     /**
      * {@inheritDoc}
@@ -43,6 +40,7 @@ public final class ActiveRef extends ReferenceType implements DocRef {
      */
     @Override
     public String name() {
-        return ELEMENT_ACTIVE_REF;
+        return ACTIVE_REF;
     }
+
 }
