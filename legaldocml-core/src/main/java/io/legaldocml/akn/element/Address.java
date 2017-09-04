@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ADDRESS;
+
 /**
  * This element is a structural container for parts of a debates that are relevant to addresses.
  *
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class Address extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ADDRESS = "address";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ADDRESS = Buffers.address(ELEMENT_ADDRESS);
+    private static final long ADDRESS_ADDRESS = Buffers.address(ADDRESS);
 
     /**
      * {@inheritDoc}
@@ -43,7 +40,7 @@ public final class Address extends AltHierarchy implements SpeechSection {
      */
     @Override
     public String name() {
-        return ELEMENT_ADDRESS;
+        return ADDRESS;
     }
 
     /**

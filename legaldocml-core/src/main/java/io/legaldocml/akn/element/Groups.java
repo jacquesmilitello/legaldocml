@@ -37,6 +37,8 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.ACT;
+import static io.legaldocml.akn.AknElements.AMENDMENT;
+import static io.legaldocml.akn.AknElements.AMENDMENT_LIST;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -50,8 +52,8 @@ public final class Groups {
     static {
         DOCUMENT_TYPE_V2 = ImmutableMap.<String, Supplier<DocumentType>>builder()
                 .put(ACT, Act::new)
-                .put(Amendment.ELEMENT, Amendment::new)
-                .put(AmendmentList.ELEMENT, AmendmentList::new)
+                .put(AMENDMENT, Amendment::new)
+                .put(AMENDMENT_LIST, AmendmentList::new)
                 .put(Bill.ELEMENT, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
                 .put(DebateReport.ELEMENT, DebateReport::new)
@@ -63,8 +65,8 @@ public final class Groups {
 
         DOCUMENT_TYPE = ImmutableMap.<String, Supplier<DocumentType>>builder()
                 .put(ACT, Act::new)
-                .put(Amendment.ELEMENT, Amendment::new)
-                .put(AmendmentList.ELEMENT, AmendmentList::new)
+                .put(AMENDMENT, Amendment::new)
+                .put(AMENDMENT_LIST, AmendmentList::new)
                 .put(Bill.ELEMENT, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
                 .put(DebateReport.ELEMENT, DebateReport::new)
@@ -285,7 +287,7 @@ public final class Groups {
     private static Map<String, Supplier<AmendmentInline>> amendmentInline() {
         ImmutableMap.Builder<String, Supplier<AmendmentInline>> builder = ImmutableMap.builder();
         // <xsd:element ref="affectedDocument" />
-        builder.put(AffectedDocument.ELEMENT_AFFECTED_DOCUMENT, AffectedDocument::new);
+        builder.put(AknElements.AFFECTED_DOCUMENT, AffectedDocument::new);
         // <xsd:element ref="relatedDocument" />
         builder.put(RelatedDocument.ELEMENT, RelatedDocument::new);
         // <xsd:element ref="change" />
@@ -570,7 +572,7 @@ public final class Groups {
         // <xsd:element ref="question"/>
         builder.put(Question.ELEMENT, Question::new);
         // <xsd:element ref="answer"/>
-        builder.put(Answer.ELEMENT, Answer::new);
+        builder.put(AknElements.ANSWER, Answer::new);
         // <xsd:element ref="other"/>
         builder.put(Other.ELEMENT, Other::new);
         // <xsd:element ref="scene"/>
@@ -585,7 +587,7 @@ public final class Groups {
     public static Map<String, Supplier<SpeechSection>> speechSection() {
         ImmutableMap.Builder<String, Supplier<SpeechSection>> builder = ImmutableMap.builder();
         // <xsd:element ref="administrationOfOath"/>
-        builder.put(AdministrationOfOath.ELEMENT_ADMINISTATION_OF_OATH, AdministrationOfOath::new);
+        builder.put(AknElements.ADMINISTATION_OF_OATH, AdministrationOfOath::new);
         // <xsd:element ref="rollCall"/>
         builder.put(RollCall.ELEMENT, RollCall::new);
         // <xsd:element ref="prayers"/>
@@ -615,13 +617,13 @@ public final class Groups {
         // <xsd:element ref="questions"/>
         builder.put(Questions.ELEMENT, Questions::new);
         // <xsd:element ref="address"/>
-        builder.put(Address.ELEMENT_ADDRESS, Address::new);
+        builder.put(AknElements.ADDRESS, Address::new);
         // <xsd:element ref="proceduralMotions"/>
         builder.put(ProceduralMotions.ELEMENT, ProceduralMotions::new);
         // <xsd:element ref="pointOfOrder"/>
         builder.put(PointOfOrder.ELEMENT, PointOfOrder::new);
         // <xsd:element ref="adjournment"/>
-        builder.put(Adjournment.ELEMENT_ADJOURNMENT, Adjournment::new);
+        builder.put(AknElements.ADJOURNMENT, Adjournment::new);
         // <xsd:element ref="debateSection"/>
         builder.put(DebateSection.ELEMENT, DebateSection::new);
         return builder.build();

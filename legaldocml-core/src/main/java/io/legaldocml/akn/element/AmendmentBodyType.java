@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.group.AmendmentBlock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -11,6 +10,11 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.util.function.Supplier;
+
+import static io.legaldocml.akn.AknElements.AMENDMENT_CONTENT;
+import static io.legaldocml.akn.AknElements.AMENDMENT_HEADING;
+import static io.legaldocml.akn.AknElements.AMENDMENT_JUSTIFICATION;
+import static io.legaldocml.akn.AknElements.AMENDMENT_REFERENCE;
 
 /**
  * <pre>
@@ -32,10 +36,10 @@ public abstract class AmendmentBodyType extends CoreOptImpl {
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<AmendmentBlock>>builder()
-                .put(AknElements.AMENDMENT_HEADING, AmendmentHeading::new)
-                .put(AknElements.AMENDMENT_CONTENT, AmendmentContent::new)
-                .put(AmendmentReference.ELEMENT, AmendmentReference::new)
-                .put(AmendmentJustification.ELEMENT, AmendmentJustification::new)
+                .put(AMENDMENT_HEADING, AmendmentHeading::new)
+                .put(AMENDMENT_CONTENT, AmendmentContent::new)
+                .put(AMENDMENT_REFERENCE, AmendmentReference::new)
+                .put(AMENDMENT_JUSTIFICATION, AmendmentJustification::new)
                 .build();
     }
 

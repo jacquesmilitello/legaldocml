@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.AMENDMENT_JUSTIFICATION;
+
 /**
  * This element is a structural container for the section of an amendment containing the justification.
  *
@@ -18,14 +20,9 @@ import java.io.IOException;
 public final class AmendmentJustification extends Blocksopt implements AmendmentBlock {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "amendmentJustification";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(AMENDMENT_JUSTIFICATION);
 
     /**
      * {@inheritDoc}
@@ -42,7 +39,7 @@ public final class AmendmentJustification extends Blocksopt implements Amendment
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AMENDMENT_JUSTIFICATION;
     }
 
 }

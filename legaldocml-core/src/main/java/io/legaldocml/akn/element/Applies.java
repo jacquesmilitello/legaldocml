@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.APPLIES;
+
 /**
  * The element applies is a metadata element specifying a reference to a source applyed by the argument being described.
  *
@@ -17,14 +19,9 @@ import java.io.IOException;
 public final class Applies extends JudicialArgumentType implements JudicialArgumentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "applies";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(APPLIES);
 
     /**
      * {@inheritDoc}
@@ -41,7 +38,7 @@ public final class Applies extends JudicialArgumentType implements JudicialArgum
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return APPLIES;
     }
 
 }

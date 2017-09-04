@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.AMENDMENT;
 
 /**
  * Element amendment is used for descriving the structure and content of an amendment.
@@ -28,14 +30,9 @@ import java.io.IOException;
 public final class Amendment extends AmendmentStructure implements DocumentType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "amendment";
-
-    /**
      * Memory address.
-     */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+            */
+    private static final long ADDRESS = Buffers.address(AMENDMENT);
 
     /**
      * {@inheritDoc}
@@ -52,7 +49,7 @@ public final class Amendment extends AmendmentStructure implements DocumentType 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AMENDMENT;
     }
 
     /**

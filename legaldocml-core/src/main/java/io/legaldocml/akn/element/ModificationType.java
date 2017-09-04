@@ -18,6 +18,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.APPLICATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -234,7 +235,7 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
             this.efficacy = new Efficacy();
             this.efficacy.read(reader);
         }
-        if (reader.getQName().equalsLocalName(Application.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(APPLICATION)) {
             this.application = new Application();
             this.application.read(reader);
         }

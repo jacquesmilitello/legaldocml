@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANcontainers;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ANSWER;
 
 /**
  * The element answer is a container of a single official answer to a question.
@@ -16,23 +18,18 @@ import java.io.IOException;
 public final class Answer extends SpeechType implements ANcontainers {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "answer";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ANSWER = Buffers.address(ANSWER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_ANSWER, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_ANSWER, 6);
     }
 
     /**
@@ -40,7 +37,7 @@ public final class Answer extends SpeechType implements ANcontainers {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ANSWER;
     }
 
 }

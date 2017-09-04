@@ -33,8 +33,8 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
     static {
         DOCUMENT_TYPE = ImmutableMap.<String, Class<? extends DocumentType>>builder()
                 .put(AknElements.ACT, Act.class)
-                .put(Amendment.ELEMENT, Amendment.class)
-                .put(AmendmentList.ELEMENT, AmendmentList.class)
+                .put(AknElements.AMENDMENT, Amendment.class)
+                .put(AknElements.AMENDMENT_LIST, AmendmentList.class)
                 .put(Bill.ELEMENT, Bill.class)
                 .put(Judgment.ELEMENT, Judgment.class)
                 .put(DebateReport.ELEMENT, DebateReport.class)

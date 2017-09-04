@@ -1,9 +1,11 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.AMENDMENT_LIST;
 
 /**
  * Element amendmentList is used for describing the structure and content of a collection of amendments.
@@ -26,28 +28,26 @@ import java.io.IOException;
 public final class AmendmentList extends CollectionStructure implements CollectionDocs {
 
     /**
-     * XML element name.
+     * Memory address.
      */
-    public static final String ELEMENT = "amendmentList";
-
-    private static final long ADDRESS = Buffers.address(ELEMENT);
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String name() {
-        return ELEMENT;
-    }
+    private static final long ADDRESS_AMENDMENT_LIST = Buffers.address(AMENDMENT_LIST);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_AMENDMENT_LIST, 13);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_AMENDMENT_LIST, 13);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String name() {
+        return AMENDMENT_LIST;
     }
 
 }

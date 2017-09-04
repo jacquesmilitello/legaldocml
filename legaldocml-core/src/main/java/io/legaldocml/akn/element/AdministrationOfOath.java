@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.SpeechSection;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ADMINISTATION_OF_OATH;
 
 /**
  * This element is a structural container for parts of a debates that contain the administration of an oath.
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class AdministrationOfOath extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ADMINISTATION_OF_OATH = "administrationOfOath";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ADMINISTATION_OF_OATH = Buffers.address(ELEMENT_ADMINISTATION_OF_OATH);
+    private static final long ADDRESS_ADMINISTATION_OF_OATH = Buffers.address(ADMINISTATION_OF_OATH);
 
     /**
      * {@inheritDoc}
@@ -43,7 +40,7 @@ public final class AdministrationOfOath extends AltHierarchy implements SpeechSe
      */
     @Override
     public String name() {
-        return ELEMENT_ADMINISTATION_OF_OATH;
+        return ADMINISTATION_OF_OATH;
     }
 
     /**

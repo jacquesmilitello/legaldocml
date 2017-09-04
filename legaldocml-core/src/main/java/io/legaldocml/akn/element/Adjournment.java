@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.SpeechSection;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ADJOURNMENT;
 
 /**
  * This element is a structural container for parts of a debates that contain adjournment notices.
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class Adjournment extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ADJOURNMENT = "adjournment";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ADJOURNMENT = Buffers.address(ELEMENT_ADJOURNMENT);
+    private static final long ADDRESS_ADJOURNMENT = Buffers.address(ADJOURNMENT);
 
     /**
      * {@inheritDoc}
@@ -43,7 +40,7 @@ public final class Adjournment extends AltHierarchy implements SpeechSection {
      */
     @Override
     public String name() {
-        return ELEMENT_ADJOURNMENT;
+        return ADJOURNMENT;
     }
 
     /**

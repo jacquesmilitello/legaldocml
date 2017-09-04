@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.AMENDMENT_BODY;
 
 /**
  * The element amendmentBody is the container of the main hierarchy of a amendment document.
@@ -17,14 +19,9 @@ import java.io.IOException;
 public final class AmendmentBody extends AmendmentBodyType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "amendmentBody";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(AMENDMENT_BODY);
 
     /**
      * {@inheritDoc}
@@ -41,7 +38,7 @@ public final class AmendmentBody extends AmendmentBodyType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AMENDMENT_BODY;
     }
 
     /**

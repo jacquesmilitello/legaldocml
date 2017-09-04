@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -46,7 +47,7 @@ public abstract class JudicialArguments implements AknObject {
         ELEMS = ImmutableMap.<String, Supplier<JudicialArgumentsElement>>builder()
                 .put(Supports.ELEMENT, Supports::new)
                 .put(IsAnalogTo.ELEMENT, IsAnalogTo::new)
-                .put(Applies.ELEMENT, Applies::new)
+                .put(AknElements.APPLIES, Applies::new)
                 .put(Extends.ELEMENT, Extends::new)
                 .put(Restricts.ELEMENT, Restricts::new)
                 .put(Derogates.ELEMENT, Derogates::new)

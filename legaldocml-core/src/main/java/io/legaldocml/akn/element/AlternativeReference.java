@@ -16,6 +16,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.ALTERNATIVE_REFERENCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
@@ -46,14 +47,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class AlternativeReference extends AnyOtherType implements RefersOpt, ShowOpt, For, OtherReferencesElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "alternativeReference";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(ALTERNATIVE_REFERENCE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -146,7 +142,7 @@ public final class AlternativeReference extends AnyOtherType implements RefersOp
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ALTERNATIVE_REFERENCE;
     }
 
     /**

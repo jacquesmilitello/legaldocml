@@ -50,6 +50,40 @@ public final class AknElements {
      */
     public static final String ACTIVE_REF = "activeRef";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Address}
+     */
+    public static final String ADDRESS = "address";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Adjournment}
+     */
+    public static final String ADJOURNMENT = "adjournment";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AdministrationOfOath}
+     */
+    public static final String ADMINISTATION_OF_OATH = "administrationOfOath";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AffectedDocument}
+     */
+    public static final String AFFECTED_DOCUMENT = "affectedDocument";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AlternativeReference}
+     */
+    public static final String ALTERNATIVE_REFERENCE = "alternativeReference";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Amendment}
+     */
+    public static final String AMENDMENT = "amendment";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AmendmentBody}
+     */
+    public static final String AMENDMENT_BODY = "amendmentBody";
 
     /**
      * Element for {@link io.legaldocml.akn.element.AmendmentContent}
@@ -62,9 +96,40 @@ public final class AknElements {
     public static final String AMENDMENT_HEADING = "amendmentHeading";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.AmendmentJustification}
+     */
+    public static final String AMENDMENT_JUSTIFICATION = "amendmentJustification";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AmendmentList}
+     */
+    public static final String AMENDMENT_LIST = "amendmentList";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AmendmentReference}
+     */
+    public static final String AMENDMENT_REFERENCE = "amendmentReference";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Analysis}
      */
     public static final String ANALYSIS = "analysis";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Answer}
+     */
+    public static final String ANSWER = "answer";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Application}
+     */
+    public static final String APPLICATION = "application";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Applies}
+     */
+    public static final String APPLIES = "applies";
+
 
     /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
