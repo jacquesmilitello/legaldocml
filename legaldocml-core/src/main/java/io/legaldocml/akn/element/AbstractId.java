@@ -21,23 +21,23 @@ public abstract class AbstractId implements AknObject, Id {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "eid")))
-                .put(AknAttributes.EVOLVING_ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wid")))
-                .put(AknAttributes.EID, biConsumerNoWhiteSpace(AknAttributes.EID,getFieldOffset(AbstractId.class, "eid")))
-                .put(AknAttributes.WID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wid")))
+                .put(AknAttributes.ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "eId")))
+                .put(AknAttributes.EVOLVING_ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wId")))
+                .put(AknAttributes.EID, biConsumerNoWhiteSpace(AknAttributes.EID,getFieldOffset(AbstractId.class, "eId")))
+                .put(AknAttributes.WID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wId")))
                 .put(AknAttributes.GUID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "guid")))
                 .build();
     }
 
     /**
-     * Attribute "id" for v2 or "eid" for "v3".
+     * Attribute "id" for v2 or "eId" for "v3".
      */
-    private NoWhiteSpace eid;
+    private NoWhiteSpace eId;
 
     /**
      * Attribute "evolvingId" for v2 or "wid" for "v3".
      */
-    private NoWhiteSpace wid;
+    private NoWhiteSpace wId;
 
 
     private NoWhiteSpace guid;
@@ -46,34 +46,34 @@ public abstract class AbstractId implements AknObject, Id {
      * {@inheritDoc}
      */
     public final String getId() {
-        if (this.eid == null) {
+        if (this.eId == null) {
             return null;
         }
-        return this.eid.toString();
+        return this.eId.toString();
     }
 
     /**
      * {@inheritDoc}
      */
     public final void setId(String id) {
-        this.eid = new NoWhiteSpace(id);
+        this.eId = new NoWhiteSpace(id);
     }
 
     /**
      * {@inheritDoc}
      */
     public final String getEvolvingId() {
-        if (this.wid == null) {
+        if (this.wId == null) {
             return null;
         }
-        return this.wid.toString();
+        return this.wId.toString();
     }
 
     /**
      * {@inheritDoc}
      */
     public final void setEvolvingId(String evolvingId) {
-        this.wid = new NoWhiteSpace(evolvingId);
+        this.wId = new NoWhiteSpace(evolvingId);
     }
 
     /**
@@ -81,15 +81,15 @@ public abstract class AbstractId implements AknObject, Id {
      */
     @Override
     public NoWhiteSpace getEid() {
-        return this.eid;
+        return this.eId;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setEid(NoWhiteSpace eid) {
-        this.eid = eid;
+    public void setEid(NoWhiteSpace eId) {
+        this.eId = eId;
     }
 
     /**
@@ -97,15 +97,15 @@ public abstract class AbstractId implements AknObject, Id {
      */
     @Override
     public NoWhiteSpace getWid() {
-        return this.wid;
+        return this.wId;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setWid(NoWhiteSpace wid) {
-        this.wid = wid;
+    public void setWid(NoWhiteSpace wId) {
+        this.wId = wId;
     }
 
     /**
@@ -146,8 +146,8 @@ public abstract class AbstractId implements AknObject, Id {
     @Override
     public final String toString() {
         ToStringBuilder builder = new ToStringBuilder(this, false);
-        builder.append(AknAttributes.EID, this.eid);
-        builder.append(AknAttributes.WID, this.wid);
+        builder.append(AknAttributes.EID, this.eId);
+        builder.append(AknAttributes.WID, this.wId);
         toString(builder);
         return builder.toString();
     }

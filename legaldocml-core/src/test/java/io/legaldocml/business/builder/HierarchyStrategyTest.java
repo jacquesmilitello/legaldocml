@@ -4,9 +4,15 @@ import io.legaldocml.akn.element.Book;
 import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.akn.element.SubSection;
 import io.legaldocml.akn.element.Tome;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
+@RunWith(SonarJUnit4ClassRunner.class)
 public class HierarchyStrategyTest {
 
     @Test

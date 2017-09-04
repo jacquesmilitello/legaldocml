@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 @RunWith(SonarJUnit4ClassRunner.class)
 public class MetaBuilderTest {
 

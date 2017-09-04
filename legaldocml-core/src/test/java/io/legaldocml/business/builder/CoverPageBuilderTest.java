@@ -8,6 +8,7 @@ import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.element.PBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.Uri;
@@ -26,6 +27,9 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
 import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.refersTo;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 @RunWith(SonarJUnit4ClassRunner.class)
 public class CoverPageBuilderTest {
 
@@ -36,20 +40,22 @@ public class CoverPageBuilderTest {
         BusinessBuilder debateBusinessBuilder = provider.newBuilder(Debate.ELEMENT);
 
         AgentRef source = AgentRef.valueOf("redattore");
-        TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"FINOCCHIARO");
-        TLCPerson person2 = newTLCPerson(new NoWhiteSpace("person_2"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"),"ZANDA");
-        TLCRole role = newTLCRole(new NoWhiteSpace("role_1"),Uri.valueOf("http://dati.senato./akn/it/osr/Senatore"),"Senatore");
+        TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");
+        TLCPerson person2 = newTLCPerson(new NoWhiteSpace("person_2"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"), "ZANDA");
+        TLCRole role = newTLCRole(new NoWhiteSpace("role_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Senatore"), "Senatore");
 
 
         CoverPageBuilder coverPageBuilder = new CoverPageBuilder(debateBusinessBuilder);
         coverPageBuilder.p().text("SENATO DELLA REPUBBLICA");
-        coverPageBuilder.p().docType("DISEGNO DI LEGGE");
+        coverPageBuilder.p().docType().text("DISEGNO DI LEGGE");
         coverPageBuilder.p().docNumber("N. 356");
         coverPageBuilder.p().docTitle("Modifiche al testo unico di cui al decreto del Presidente della Repubblica 30 marzo 1957, n. 361, in materia di elezione della Camera dei deputati, e al testo unico di cui al decreto legislativo 20 dicembre 1993, n. 533, in materia di elezione del Senato della Repubblica, nonché delega al Governo per la determinazione dei collegi uninominali");
-        coverPageBuilder.p().text("d’iniziativa del senatori ")
-                .docProponent("FINOCCHIARO", refersTo(source, person1), as(source, role))
-                .text(" e ")
-                .docProponent("ZANDA", refersTo(source, person2), as(source, role));
+
+        PBuilder pBuilder = coverPageBuilder.p();
+        pBuilder.text("d’iniziativa del senatori ");
+        pBuilder.docProponent(refersTo(source, person1), as(source, role)).text("FINOCCHIARO");
+        pBuilder.text(" e ");
+        pBuilder.docProponent(refersTo(source, person2), as(source, role)).text("ZANDA");
         coverPageBuilder.p().b("COMUNICATO ALLA PRESIDENZA IL 29 MARZO 2013");
 
 
@@ -60,26 +66,26 @@ public class CoverPageBuilderTest {
         Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
 
         XmlUnitHelper.compare(
-                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","coverPage").item(0),
-                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","coverPage").item(0)
-                );
+                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "coverPage").item(0),
+                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "coverPage").item(0)
+        );
 
-        Assert.assertEquals(1, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCRole").getLength());
-        Assert.assertEquals(2, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCPerson").getLength());
+        Assert.assertEquals(1, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").getLength());
+        Assert.assertEquals(2, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").getLength());
 
         XmlUnitHelper.compare(
-                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCRole").item(0),
-                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCRole").item(0)
+                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").item(0),
+                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").item(0)
         );
 
         XmlUnitHelper.compare(
-                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCPerson").item(0),
-                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCPerson").item(0)
+                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(0),
+                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(0)
         );
 
         XmlUnitHelper.compare(
-                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCPerson").item(1),
-                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0","TLCPerson").item(1)
+                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(1),
+                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(1)
         );
 
 

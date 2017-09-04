@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.container.InlineCMContainer;
+import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.akn.util.AknList;
@@ -9,6 +10,8 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type inlinereq defines the content model and attributes shared by all blocks and inlines. Here the eId
@@ -46,6 +49,14 @@ public abstract class InlineReqType extends CoreReqImpl implements InlineCMConta
     @Override
     public void add(SubFlowElements el) {
         this.data.add(el);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANtitleInline titleInline) {
+        this.data.add(requireNonNull(titleInline));
     }
 
     /**

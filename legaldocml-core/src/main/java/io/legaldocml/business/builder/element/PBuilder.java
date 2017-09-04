@@ -3,15 +3,15 @@ package io.legaldocml.business.builder.element;
 import io.legaldocml.akn.element.AuthorialNote;
 import io.legaldocml.akn.element.B;
 import io.legaldocml.akn.element.DocNumber;
-import io.legaldocml.akn.element.DocProponent;
 import io.legaldocml.akn.element.DocTitle;
-import io.legaldocml.akn.element.DocType;
 import io.legaldocml.akn.element.I;
 import io.legaldocml.akn.element.Inline;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.InlineTypeBuilder;
+import io.legaldocml.business.builder.support.DocProponentSupport;
+import io.legaldocml.business.builder.support.DocTypeSupport;
 import io.legaldocml.business.builder.support.SubFlowSupport;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.business.util.AknReferenceHelper;
@@ -21,7 +21,7 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class PBuilder extends ElementBuilder<P> implements SubFlowSupport<P> {
+public class PBuilder extends ElementBuilder<P> implements SubFlowSupport<P>, DocProponentSupport<P>, DocTypeSupport<P> {
 
     public PBuilder(BusinessBuilder businessBuilder, P p) {
         super(businessBuilder, p);
@@ -29,22 +29,6 @@ public class PBuilder extends ElementBuilder<P> implements SubFlowSupport<P> {
 
     public PBuilder text(String text) {
         getParent().add(new StringInlineCM(text));
-        return this;
-    }
-
-    public PBuilder docType(String text) {
-        DocType docType = new DocType();
-        docType.add(new StringInlineCM(text));
-        getParent().add(docType);
-        return this;
-    }
-
-    @SuppressWarnings("unchecked")
-    public PBuilder docProponent(String text, AknReference... refs) {
-        DocProponent docProponent = new DocProponent();
-        docProponent.add(new StringInlineCM(text));
-        getParent().add(docProponent);
-        AknReferenceHelper.apply(getBusinessBuilder().getAkomaNtoso(), docProponent, refs);
         return this;
     }
 

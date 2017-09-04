@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.container.InlineCMContainer;
+import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.akn.group.SubFlowElements;
 import io.legaldocml.akn.util.AknList;
@@ -16,6 +17,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Groups.convert;
 import static io.legaldocml.akn.element.Groups.inlineCM;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type inline defines the content model and attributes shared by all blocks and inlines. Here the eId
@@ -61,6 +63,14 @@ public abstract class InlineType extends CoreOptImpl implements InlineCMContaine
     @Override
     public final void add(SubFlowElements subFlowElements) {
         this.data.add(subFlowElements);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANtitleInline titleInline) {
+        this.data.add(requireNonNull(titleInline));
     }
 
     /**
