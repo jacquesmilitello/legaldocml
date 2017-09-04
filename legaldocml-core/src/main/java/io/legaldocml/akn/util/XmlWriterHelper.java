@@ -61,6 +61,7 @@ import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.attribute.Time;
+import io.legaldocml.akn.attribute.Type;
 import io.legaldocml.akn.attribute.UpToOpt;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.attribute.ValueReq;
@@ -642,6 +643,12 @@ public final class XmlWriterHelper {
         }
     }
 
+    public static void writeType(XmlWriter writer, Type type) throws IOException {
+        if (type.getType() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(type.getType()));
+        }
+    }
+
     public static void throwException(XmlWriter writer, LegalDocMlException exception) {
         if (writer.isPermissive()) {
             writer.addExpcetion(exception);
@@ -649,6 +656,8 @@ public final class XmlWriterHelper {
             throw exception;
         }
     }
+
+
 
 }
 

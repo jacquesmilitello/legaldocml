@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.impl.Buffers;
@@ -7,6 +8,8 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ATTACHMENTS;
 
 /**
  *
@@ -27,7 +30,7 @@ public final class AttachmentsV3 implements Attachments {
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ATTACHMENTS = Buffers.address(ATTACHMENTS);
 
     // Mandatory (min 1).
     private final AknList<Attachment> elements = new AknList<>(new Attachment[4]);
@@ -37,9 +40,9 @@ public final class AttachmentsV3 implements Attachments {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_ATTACHMENTS, 11);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_ATTACHMENTS, 11);
     }
 
     /**
@@ -48,14 +51,14 @@ public final class AttachmentsV3 implements Attachments {
     @Override
     public void read(XmlReader reader) {
         reader.nextStartOrEndElement();
-        if (reader.getQName().equalsLocalName(Attachment.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(AknElements.ATTACHMENT)) {
             Attachment attachment;
             do {
                 attachment = new Attachment();
                 attachment.read(reader);
                 this.elements.add(attachment);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Attachment.ELEMENT));
+            } while (reader.getQName().equalsLocalName(AknElements.ATTACHMENT));
         }
     }
 

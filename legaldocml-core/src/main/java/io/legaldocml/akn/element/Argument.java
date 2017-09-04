@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANheaderInline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ARGUMENT;
 
 /**
  * the element argument is an inline element within judgments for classifying the arguments in the motivation part of
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Argument extends InlineType implements ANheaderInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "argument";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ARGUMENT = Buffers.address(ARGUMENT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_ARGUMENT, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_ARGUMENT, 8);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Argument extends InlineType implements ANheaderInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ARGUMENT;
     }
 
 }

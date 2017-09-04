@@ -10,6 +10,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.ATTACHMENTS;
+
 /**
  *
  * <pre>
@@ -28,14 +30,9 @@ import java.util.function.Supplier;
 public final class AttachmentsV2 extends CoreOptImpl implements Attachments{
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "attachments";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ATTACHMENTS = Buffers.address(ATTACHMENTS);
 
     private static final ImmutableMap<String, Supplier<ComponentRef>> ELEMS;
 
@@ -52,9 +49,9 @@ public final class AttachmentsV2 extends CoreOptImpl implements Attachments{
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_ATTACHMENTS, 11);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_ATTACHMENTS, 11);
     }
 
     /**

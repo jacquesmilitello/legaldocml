@@ -2,6 +2,8 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
 
+import static io.legaldocml.akn.AknElements.ATTACHMENTS;
+
 /**
  *
  * <pre>
@@ -20,16 +22,11 @@ import io.legaldocml.akn.AknObject;
 public interface Attachments extends AknObject {
 
     /**
-     * XML tag element name.
-     */
-    String ELEMENT = "attachments";
-
-    /**
      * {@inheritDoc}
      */
     @Override
     default String name() {
-        return ELEMENT;
+        return ATTACHMENTS;
     }
 
 }

@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.JudgmentBlock;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ARGUMENTS;
 
 /**
  * This element is a structural container for the section of a judgment containing the arguments.
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class Arguments extends MainContent implements JudgmentBlock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "arguments";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ARGUMENTS = Buffers.address(ARGUMENTS);
 
 
     /**
@@ -34,9 +31,9 @@ public final class Arguments extends MainContent implements JudgmentBlock {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_ARGUMENTS, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_ARGUMENTS, 9);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class Arguments extends MainContent implements JudgmentBlock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ARGUMENTS;
     }
 
     /**

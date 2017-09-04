@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANhier;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.ARTICLE;
 
 /**
  * This element is a hierarchical container called "article" either explicitly or due to the local tradition.
@@ -18,14 +20,9 @@ import java.io.IOException;
 public final class Article extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_ARTICLE = "article";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_ARTICLE = Buffers.address(ELEMENT_ARTICLE);
+    private static final long ADDRESS_ARTICLE = Buffers.address(ARTICLE);
 
     /**
      * {@inheritDoc}
@@ -42,7 +39,7 @@ public final class Article extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT_ARTICLE;
+        return ARTICLE;
     }
 
     /**

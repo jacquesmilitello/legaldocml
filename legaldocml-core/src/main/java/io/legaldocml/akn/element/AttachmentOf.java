@@ -12,9 +12,10 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.ATTACHMENT_OF;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
-import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
  * The element attachmentOf is a metadata reference to the Akoma Ntoso IRI of a document of which this document is an
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 public final class AttachmentOf extends ReferenceType implements DocRef, Type {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "attachmentOf";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ATTACHMENT_OF = Buffers.address(ATTACHMENT_OF);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,12 +74,10 @@ public final class AttachmentOf extends ReferenceType implements DocRef, Type {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
-        if (this.type != null) {
-            writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(this.type));
-        }
+        writer.writeStart(ADDRESS_ATTACHMENT_OF, 12);
+        writeType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_ATTACHMENT_OF, 12);
     }
 
     /**
@@ -91,7 +85,7 @@ public final class AttachmentOf extends ReferenceType implements DocRef, Type {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ATTACHMENT_OF;
     }
 
     /**

@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ATTACHMENT;
+
 /**
  * The element attachment is used as a container of individual attachment elements.
  *
@@ -18,20 +20,15 @@ import java.io.IOException;
 public final class Attachment extends DocContainerType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "attachment";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ATTACHMENT = Buffers.address(ATTACHMENT);
 
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_ATTACHMENT, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_ATTACHMENT, 10);
     }
 
     /**
@@ -39,7 +36,7 @@ public final class Attachment extends DocContainerType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ATTACHMENT;
     }
 
     /**

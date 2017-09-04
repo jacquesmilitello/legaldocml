@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.group.JudgmentBlock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -33,7 +34,7 @@ public abstract class JudgmentBodyType extends CoreOptImpl {
         ELEMS = ImmutableMap.<String, Supplier<JudgmentBlock>>builder()
                 .put(Introduction.ELEMENT, Introduction::new)
                 .put(Background.ELEMENT, Background::new)
-                .put(Arguments.ELEMENT, Arguments::new)
+                .put(AknElements.ARGUMENTS, Arguments::new)
                 .put(Motivation.ELEMENT, Motivation::new)
                 .put(Decision.ELEMENT, Decision::new)
                 .build();

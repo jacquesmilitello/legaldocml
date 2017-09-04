@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -80,6 +81,7 @@ public final class HasAttachment extends ReferenceType implements DocRef, Type {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS, 13);
+        writeType(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS, 13);
     }

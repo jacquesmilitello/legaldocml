@@ -374,7 +374,7 @@ public final class Groups {
         // <xsd:element ref="signature"/>
         builder.put(Signature.ELEMENT, Signature::new);
         // <xsd:element ref="argument"/>
-        builder.put(Argument.ELEMENT, Argument::new);
+        builder.put(AknElements.ARGUMENT, Argument::new);
         return builder.build();
     }
 
@@ -418,7 +418,7 @@ public final class Groups {
     private static Map<String, Supplier<ANsubFlow>> ANsubFlow() {
         ImmutableMap.Builder<String, Supplier<ANsubFlow>> builder = ImmutableMap.builder();
         // <xsd:element ref="authorialNote"/>
-        builder.put(AuthorialNote.ELEMENT, AuthorialNote::new);
+        builder.put(AknElements.AUTHORIAL_NOTE, AuthorialNote::new);
         return builder.build();
     }
 
@@ -435,7 +435,7 @@ public final class Groups {
         // <xsd:element ref="hasAttachment"/>
         builder.put(HasAttachment.ELEMENT, HasAttachment::new);
         // <xsd:element ref="attachmentOf"/>
-        builder.put(AttachmentOf.ELEMENT, AttachmentOf::new);
+        builder.put(AknElements.ATTACHMENT_OF, AttachmentOf::new);
         return builder.build();
     }
 
@@ -501,7 +501,7 @@ public final class Groups {
         // <xsd:element ref="title"/>
         builder.put(Title.ELEMENT, Title::new);
         // <xsd:element ref="article"/>
-        builder.put(Article.ELEMENT_ARTICLE, Article::new);
+        builder.put(AknElements.ARTICLE, Article::new);
         // <xsd:element ref="book"/>
         builder.put(Book.ELEMENT, Book::new);
         // <xsd:element ref="tome"/>

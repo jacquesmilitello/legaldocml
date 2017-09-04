@@ -11,6 +11,8 @@ import io.legaldocml.io.XmlWriter;
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ATTACHMENTS;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -162,7 +164,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(Attachments.ELEMENT)) {
+        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(ATTACHMENTS)) {
             if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
                 this.attachments = new AttachmentsV2();
             } else {

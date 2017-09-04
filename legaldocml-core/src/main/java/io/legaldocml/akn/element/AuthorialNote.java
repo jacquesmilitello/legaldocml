@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.AUTHORIAL_NOTE;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -39,14 +40,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class AuthorialNote extends SubFlowStructure implements Notes, ANsubFlow {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "authorialNote";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(AUTHORIAL_NOTE);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -129,7 +125,7 @@ public final class AuthorialNote extends SubFlowStructure implements Notes, ANsu
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AUTHORIAL_NOTE;
     }
 
     /**

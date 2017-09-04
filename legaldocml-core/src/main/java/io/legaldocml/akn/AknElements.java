@@ -130,6 +130,44 @@ public final class AknElements {
      */
     public static final String APPLIES = "applies";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Argument}
+     */
+    public static final String ARGUMENT = "argument";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Arguments}
+     */
+    public static final String ARGUMENTS = "arguments";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Article}
+     */
+    public static final String ARTICLE = "article";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Attachment}
+     */
+    public static final String ATTACHMENT = "attachment";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Attachment}
+     */
+    public static final String ATTACHMENT_OF = "attachmentOf";
+
+    /**
+     * Element for :
+     * * - {@link io.legaldocml.akn.element.AttachmentsV2}
+     * * - {@link io.legaldocml.akn.element.AttachmentsV3}
+     */
+    public static final String ATTACHMENTS = "attachments";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.AuthorialNote}
+     */
+    public static final String AUTHORIAL_NOTE = "authorialNote";
+
+
 
     /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
