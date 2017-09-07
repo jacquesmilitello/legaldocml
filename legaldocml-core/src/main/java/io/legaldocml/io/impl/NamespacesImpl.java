@@ -76,6 +76,10 @@ final class NamespacesImpl implements Namespaces {
 
     public void reset() {
         count = 1;
+        for (int i = 0 ; i < MAX ; i++) {
+            this.uris[i] = null;
+            this.prefixes[i] = null;
+        }
     }
 
     public void setPrefix(XmlChannelReader reader, CharArray prefix, CharArray uri) {
