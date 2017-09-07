@@ -48,6 +48,14 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
         this.documentType = documentType;
     }
 
+    public final Components getComponents() {
+        return components;
+    }
+
+    public final void setComponents(Components components) {
+        this.components = components;
+    }
+
     /**
      * {@inheritDoc}
      */

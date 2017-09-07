@@ -9,6 +9,9 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
+
+import static io.legaldocml.akn.AknElements.VOTING;
 
 /**
  * The complex type parliamentaryAnalysis is a list of all the parliamentary analysis elements that can be used on the
@@ -28,17 +31,22 @@ import java.util.function.Supplier;
  */
 public abstract class ParliamentaryAnalysis implements AknObject {
 
-    // Mandatory (min 1).
-    private final AknList<ParliamentaryAnalysisElement> elements = new AknList<>(new ParliamentaryAnalysisElement[6]);
-
     private static final ImmutableMap<String, Supplier<ParliamentaryAnalysisElement>> ELEMS;
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<ParliamentaryAnalysisElement>>builder()
                 .put(QuorumVerification.ELEMENT, QuorumVerification::new)
-                .put(Voting.ELEMENT, Voting::new)
+                .put(VOTING, Voting::new)
                 .put(Recount.ELEMENT, Recount::new)
                 .build();
+    }
+
+    // Mandatory (min 1).
+    private final AknList<ParliamentaryAnalysisElement> elements = new AknList<>(new ParliamentaryAnalysisElement[6]);
+
+
+    public Stream<ParliamentaryAnalysisElement> getElements() {
+        return this.elements.stream();
     }
 
     /**

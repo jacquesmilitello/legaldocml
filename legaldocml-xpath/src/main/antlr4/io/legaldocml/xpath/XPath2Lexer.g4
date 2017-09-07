@@ -46,12 +46,20 @@ STRING_LITERAL : StringLiteral;
 //      ->  Char	   ::=   	#x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
 fragment
 Char
-    : '\u0009'
-    | '\u000A'
-    | '\u000D'
-    | [\u0020-\uD7FF]
-    | [\uE000-\uFFFD]
-	;
+  :  'A'..'Z'
+  |   '_'
+  |  'a'..'z'
+  |  '\u00C0'..'\u00D6'
+  |  '\u00D8'..'\u00F6'
+  |  '\u00F8'..'\u02FF'
+  |  '\u0370'..'\u037D'
+  |  '\u037F'..'\u1FFF'
+  |  '\u200C'..'\u200D'
+  |  '\u2070'..'\u218F'
+  |  '\u2C00'..'\u2FEF'
+  |  '\u3001'..'\uD7FF'
+  |  '\uF900'..'\uFDCF'
+  |  '\uFDF0'..'\uFFFD';
 
 
 fragment

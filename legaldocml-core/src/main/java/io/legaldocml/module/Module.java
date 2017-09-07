@@ -1,5 +1,6 @@
 package io.legaldocml.module;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
@@ -22,4 +23,5 @@ public interface Module {
         throw new UnsupportedOperationException();
     }
 
+    Class<? extends AknObject> getAknClass(String localName);
 }

@@ -287,11 +287,12 @@ public class ToStringBuilder {
     }
 
     private void insertNullValue() {
-        int max = this.idx + 4;
+        int max = this.idx + 5;
         if (max > this.value.length) {
             expandCapacity(max);
         }
         System.arraycopy(NULL, 0, this.value, this.idx, 4);
+        this.value[max - 1] = ',';
         this.idx = max;
     }
 

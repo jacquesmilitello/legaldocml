@@ -1,7 +1,10 @@
 /*******************************************************************************
  Grammar based on https://www.w3.org/TR/xpath20/
  *******************************************************************************/
-parser grammar XPath2;
+parser grammar XPath2Parser;
+
+@parser::header {
+}
 
 options {
 	tokenVocab = XPath2Lexer;
@@ -516,14 +519,14 @@ stringLiteral
 ///* gn: comments */
 
 //[78]   	QName	   ::=   	[http://www.w3.org/TR/REC-xml-names/#NT-QName]Names	/* xgs: xml-version */
-     qName
-     	:	nCName
-     	|	nCName COLON nCName
+qName
+     	:	nCName                 //{ builder.qName($nCName.text); }
+     	|	nCName COLON nCName     //{ builder.qName($nCName.text, $nCName.text); }
      	;
 
 //[79]   	NCName	   ::=   	[http://www.w3.org/TR/REC-xml-names/#NT-NCName]Names	/* xgs: xml-version */
 nCName
-	:	NCNAME
+	:	NCNAME                 // { builder.nCName($NCNAME.text); }
 	|	TO
 	|	CHILD
 	|	DESCENDANT

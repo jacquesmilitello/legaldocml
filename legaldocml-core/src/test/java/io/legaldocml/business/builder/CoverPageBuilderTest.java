@@ -2,7 +2,6 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
 import io.legaldocml.XmlUnitHelper;
-import io.legaldocml.akn.element.Debate;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
@@ -22,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.channels.Channels;
 
+import static io.legaldocml.akn.AknElements.DEBATE;
 import static io.legaldocml.akn.util.TLCFactory.newTLCPerson;
 import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
 import static io.legaldocml.business.util.AknReference.as;
@@ -37,7 +37,7 @@ public class CoverPageBuilderTest {
     public void testItSenatoDdl2013() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder debateBusinessBuilder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder debateBusinessBuilder = provider.newBuilder(DEBATE);
 
         AgentRef source = AgentRef.valueOf("redattore");
         TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");

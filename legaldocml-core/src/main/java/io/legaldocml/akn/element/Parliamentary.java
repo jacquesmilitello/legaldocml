@@ -1,9 +1,11 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 
 /**
  * The element parliamentary is a metadata container of the analysis of the events of a debate.
@@ -16,24 +18,20 @@ import java.io.IOException;
  */
 public final class Parliamentary extends ParliamentaryAnalysis {
 
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "parliamentary";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PARLIAMENTARY = Buffers.address(PARLIAMENTARY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_PARLIAMENTARY, 13);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_PARLIAMENTARY, 13);
     }
 
     /**
@@ -41,7 +39,7 @@ public final class Parliamentary extends ParliamentaryAnalysis {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PARLIAMENTARY;
     }
 
 }

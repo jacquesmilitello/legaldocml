@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
+import java.util.stream.Stream;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -58,6 +59,10 @@ public final class Workflow implements Source {
 
     // Mandatory
     private AgentRef source;
+
+    public Stream<Step> getSteps() {
+        return this.steps.stream();
+    }
 
     /**
      * {@inheritDoc}

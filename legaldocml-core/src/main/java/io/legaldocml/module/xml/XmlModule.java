@@ -2,12 +2,13 @@ package io.legaldocml.module.xml;
 
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
-import io.legaldocml.module.Module;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.module.Module;
 import io.legaldocml.module.xml.attribute.XmlLang;
 import io.legaldocml.module.xml.attribute.XmlSpace;
 
@@ -62,4 +63,11 @@ public final class XmlModule implements Module {
         return getClass().getName() + " for [" + NAMESPACE + "]";
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<? extends AknObject> getAknClass(String localName) {
+        throw new IllegalStateException("No AKN Class for XML prefix");
+    }
 }

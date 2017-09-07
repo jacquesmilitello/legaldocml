@@ -1,5 +1,7 @@
 package io.legaldocml.module.akn.v3;
 
+import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
@@ -22,7 +24,7 @@ public final class AkomaNtosoModuleV3 implements AknModule {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
+    public static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
 
     /**
      * {@inheritDoc}
@@ -46,6 +48,14 @@ public final class AkomaNtosoModuleV3 implements AknModule {
     @Override
     public Supplier<Attribute> attributes(String name) {
         throw new IllegalStateException();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<? extends AknObject> getAknClass(String localName) {
+        return AknElements.getAknClass(localName);
     }
 
     /**

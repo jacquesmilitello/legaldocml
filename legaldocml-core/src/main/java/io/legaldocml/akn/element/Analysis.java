@@ -13,12 +13,15 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
+import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.ACTIVE_MODIFICATIONS;
 import static io.legaldocml.akn.AknElements.ANALYSIS;
+import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+import static io.legaldocml.util.Streams.stream;
 
 /**
  * <pre>
@@ -88,6 +91,54 @@ public final class Analysis implements Source {
 
     public void setActiveModifications(ActiveModifications activeModifications) {
         this.activeModifications = activeModifications;
+    }
+
+    public PassiveModifications getPassiveModifications() {
+        return passiveModifications;
+    }
+
+    public void setPassiveModifications(PassiveModifications passiveModifications) {
+        this.passiveModifications = passiveModifications;
+    }
+
+    public Restrictions getRestrictions() {
+        return restrictions;
+    }
+
+    public void setRestrictions(Restrictions restrictions) {
+        this.restrictions = restrictions;
+    }
+
+    public Judicial getJudicial() {
+        return judicial;
+    }
+
+    public void setJudicial(Judicial judicial) {
+        this.judicial = judicial;
+    }
+
+    public Parliamentary getParliamentary() {
+        return parliamentary;
+    }
+
+    public void setParliamentary(Parliamentary parliamentary) {
+        this.parliamentary = parliamentary;
+    }
+
+    public Mappings getMappings() {
+        return mappings;
+    }
+
+    public void setMappings(Mappings mappings) {
+        this.mappings = mappings;
+    }
+
+    public Stream<OtherReferences> getOtherReferences() {
+        return stream(this.otherReferences);
+    }
+
+    public Stream<OtherAnalysis> getOtherAnalysis() {
+        return stream(this.otherAnalysis);
     }
 
     /**
@@ -173,7 +224,7 @@ public final class Analysis implements Source {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Parliamentary.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PARLIAMENTARY)) {
             this.parliamentary = new Parliamentary();
             this.parliamentary.read(reader);
             reader.nextStartOrEndElement();

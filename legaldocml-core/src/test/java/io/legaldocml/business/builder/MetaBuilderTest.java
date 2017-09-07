@@ -1,6 +1,5 @@
 package io.legaldocml.business.builder;
 
-import io.legaldocml.akn.element.Debate;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.iso.Iso3166;
@@ -18,6 +17,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
+import static io.legaldocml.akn.AknElements.DEBATE;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -27,7 +28,7 @@ public class MetaBuilderTest {
     @Test
     public void testSetAknIdentifier() throws IOException {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder builder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setAknIdentifier(provider.newAknIdentifier("work", "expression", "manifestation"));
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
         Assert.assertEquals("work", identification.getFRBRWork().getFRBRthis().getValue());
@@ -39,7 +40,7 @@ public class MetaBuilderTest {
     @Test
     public void testAddLanguage() throws IOException {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder builder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().addLanguage(Iso639.ENGLISH);
 
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
@@ -55,7 +56,7 @@ public class MetaBuilderTest {
     @Test
     public void testSetCountry() throws IOException {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder builder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setCountry(Iso3166.BELGIUM);
 
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
@@ -71,7 +72,7 @@ public class MetaBuilderTest {
         OffsetDateTime odt = DateHelper.convert(LocalDate.of(2011, 3, 9));
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder builder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setDate(odt.toLocalDate(), "test");
 
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
@@ -114,7 +115,7 @@ public class MetaBuilderTest {
     @Test
     public void testAddAuthor() throws IOException {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder builder = provider.newBuilder(Debate.ELEMENT);
+        BusinessBuilder builder = provider.newBuilder(DEBATE);
 
         builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques"));
 

@@ -1,9 +1,10 @@
 package io.legaldocml.akn.other;
 
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
 
 import java.io.IOException;
@@ -44,6 +45,15 @@ public final class UnsupportedModule implements Module {
     @SuppressWarnings("unchecked")
     @Override
     public <T> Supplier<T> element(String localName, Class<T> clazz) {
-        return () -> (T) new SimpleExternalElement(prefix,localName);
+        return () -> (T) new SimpleExternalElement(prefix, localName);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<? extends AknObject> getAknClass(String localName) {
+        // TODO....
+        return null;
     }
 }

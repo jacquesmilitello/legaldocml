@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.BILL;
 
 /**
  * Element bill is used for describing the structure and content of a bill.
@@ -28,23 +30,18 @@ import java.io.IOException;
 public final class Bill extends HierarchicalStructure implements DocumentType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "bill";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_BILL = Buffers.address(BILL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_BILL, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_BILL, 4);
     }
 
     /**
@@ -52,7 +49,7 @@ public final class Bill extends HierarchicalStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return BILL;
     }
 
     /**

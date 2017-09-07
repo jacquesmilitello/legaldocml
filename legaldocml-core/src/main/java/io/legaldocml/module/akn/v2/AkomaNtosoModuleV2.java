@@ -1,6 +1,8 @@
 package io.legaldocml.module.akn.v2;
 
 
+import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
@@ -73,6 +75,14 @@ public final class AkomaNtosoModuleV2 implements AknModule {
         AkomaNtosoContext context = new AkomaNtosoContextV2();
         context.add(this);
         return context;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<? extends AknObject> getAknClass(String localName) {
+        return AknElements.getAknClass(localName);
     }
 
 }

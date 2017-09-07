@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.element.Article;
 import io.legaldocml.akn.element.Bill;
 import io.legaldocml.akn.element.List;
@@ -20,7 +21,7 @@ public class HierarchyBuilderTest {
     public void testNum() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder businessBuilder = provider.newBuilder(Bill.ELEMENT);
+        BusinessBuilder businessBuilder = provider.newBuilder(AknElements.BILL);
 
         HierarchyStrategy strategy = new HierarchyStrategyBuilder().article().paragraph().build();
 

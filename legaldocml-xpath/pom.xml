@@ -19,6 +19,11 @@
          <artifactId>antlr4-runtime</artifactId>
       </dependency>
 
+      <dependency>
+         <groupId>io.legaldocml</groupId>
+         <artifactId>legaldocml-core</artifactId>
+         <version>${project.version}</version>
+      </dependency>
 
       <dependency>
          <groupId>io.legaldocml</groupId>

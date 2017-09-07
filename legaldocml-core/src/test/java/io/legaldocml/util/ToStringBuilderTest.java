@@ -84,6 +84,18 @@ public class ToStringBuilderTest {
 
     }
 
+    @Test
+    public void test2Append() {
+        ToStringBuilder builder = new ToStringBuilder(true);
+        builder.append("key1","hello1");
+        builder.append("key2","hello2");
+        Assert.assertEquals("{\"key1\":\"hello1\",\"key2\":\"hello2\"}", builder.toString());
+
+        builder = new ToStringBuilder(true);
+        builder.append("key1",(String)null);
+        builder.append("key2","hello2");
+        Assert.assertEquals("{\"key1\":null,\"key2\":\"hello2\"}", builder.toString());
+    }
 
 
     private static final class Toto {

@@ -10,8 +10,11 @@ import io.legaldocml.io.impl.Buffers;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
+import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.ANALYSIS;
+import static io.legaldocml.akn.AknElements.META;
+import static io.legaldocml.util.Streams.stream;
 
 /**
  * <pre>
@@ -38,12 +41,7 @@ import static io.legaldocml.akn.AknElements.ANALYSIS;
  */
 public final class Meta implements AknObject {
 
-    /**
-     * Xml element name.
-     */
-    public static final String ELEMENT = "meta";
-
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_META = Buffers.address(META);
 
     // Mandatory
     private final Identification identification = new Identification();
@@ -82,8 +80,44 @@ public final class Meta implements AknObject {
         return this.identification;
     }
 
-    public AknList<References> getReferences() {
-        return this.references;
+    public Publication getPublication() {
+        return publication;
+    }
+
+    public Stream<Classification> getClassifications() {
+        return stream(this.classifications);
+    }
+
+    public Stream<Lifecycle> getLifecycles() {
+        return stream(this.lifecycles);
+    }
+
+    public Stream<Workflow> getWorkflows() {
+        return stream(this.workflows);
+    }
+
+    public Stream<Analysis> getAnalysis() {
+        return stream(this.analysis);
+    }
+
+    public Stream<TemporalData> getTemporalData() {
+        return stream(this.temporalData);
+    }
+
+    public Stream<Notes> getNotes() {
+        return stream(this.notes);
+    }
+
+    public Stream<Proprietary> getProprietaries() {
+        return stream(this.proprietaries);
+    }
+
+    public Stream<Presentation> getPresentations() {
+        return stream(this.presentations);
+    }
+
+    public Stream<References> getReferences() {
+        return stream(this.references);
     }
 
     public References getReferences(AgentRef source) {
@@ -110,7 +144,7 @@ public final class Meta implements AknObject {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return META;
     }
 
     /**
@@ -119,7 +153,7 @@ public final class Meta implements AknObject {
     @Override
     public void write(XmlWriter writer) throws IOException {
 
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_META, 4);
         this.identification.write(writer);
 
         if (this.publication != null) {
@@ -158,7 +192,7 @@ public final class Meta implements AknObject {
             this.proprietaries.write(writer);
         }
 
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_META, 4);
     }
 
     /**
@@ -275,7 +309,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(Presentation.ELEMENT));
         }
 
-        if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && reader.getQName().equalsLocalName(ELEMENT)) {
+        if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && reader.getQName().equalsLocalName(META)) {
             reader.nextStartOrEndElement();
         }
     }

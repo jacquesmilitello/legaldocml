@@ -1,5 +1,9 @@
 package io.legaldocml.akn;
 
+import com.google.common.collect.ImmutableMap;
+
+import java.lang.reflect.Field;
+
 /**
  * All default attributes name.
  *
@@ -22,6 +26,32 @@ public final class AknElements {
 
     private AknElements() {
     }
+
+    private static final ImmutableMap<String, Class<? extends AknObject>> ELEMENTS;
+
+    static {
+        ImmutableMap.Builder<String, Class<? extends AknObject>> builder = ImmutableMap.builder();
+        for (Field field : AknElements.class.getDeclaredFields()) {
+            if (!String.class.equals(field.getType())) {
+                continue;
+            }
+            try {
+                String value = field.get(null).toString();
+                if ("akomaNtoso".equals(value)) {
+                    builder.put(value, AkomaNtoso.class);
+                } else {
+                    //noinspection unchecked
+                    //noinspection unchecked
+                    builder.put(value, (Class<? extends AknObject>) Class.forName("io.legaldocml.akn.element." + firstLetterUpperCase(value)));
+                }
+            } catch (Exception cause) {
+                throw new IllegalStateException("Failed to get value from field [" + field + "]", cause);
+            }
+        }
+
+        ELEMENTS = builder.build();
+    }
+
 
     public static final String AKOMANTOSO = "akomaNtoso";
 
@@ -74,6 +104,11 @@ public final class AknElements {
      * Element for {@link io.legaldocml.akn.element.AlternativeReference}
      */
     public static final String ALTERNATIVE_REFERENCE = "alternativeReference";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Alinea}
+     */
+    public static final String ALINEA = "alinea";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Amendment}
@@ -167,7 +202,20 @@ public final class AknElements {
      */
     public static final String AUTHORIAL_NOTE = "authorialNote";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Br}
+     */
+    public static final String BR = "br";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Bill}
+     */
+    public static final String BILL = "bill";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Debate}
+     */
+    public static final String DEBATE = "debate";
 
     /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
@@ -175,12 +223,42 @@ public final class AknElements {
     public static final String FRBRTHIS = "FRBRthis";
 
     /**
-     * Element for {@link io.legaldocml.akn.element.Br}
+     * Element for {@link io.legaldocml.akn.element.Identification}
      */
-    public static final String BR = "br";
+    public static final String IDENTIFICATION = "identification";
 
     /**
-     * Element for {@link io.legaldocml.akn.element.Alinea}
+     * Element for {@link io.legaldocml.akn.element.Meta}
      */
-    public static final String ALINEA = "alinea";
+    public static final String META = "meta";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Parliamentary}
+     */
+    public static final String PARLIAMENTARY = "parliamentary";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Voting}
+     */
+    public static final String VOTING = "voting";
+
+
+    public static boolean exists(String name) {
+        return ELEMENTS.containsKey(name);
+    }
+
+
+    public static Class<? extends AknObject> getAknClass(String name) {
+        return ELEMENTS.get(name);
+    }
+
+
+    private static String firstLetterUpperCase(String value) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(Character.toUpperCase(value.charAt(0)));
+        if (value.length() > 1) {
+            builder.append(value.substring(1));
+        }
+        return builder.toString();
+    }
 }

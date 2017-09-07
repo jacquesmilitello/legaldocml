@@ -2,6 +2,7 @@ package io.legaldocml.module.xsi;
 
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
@@ -54,6 +55,11 @@ public final class XsiModule implements Module {
     @Override
     public Supplier<Attribute> attributes(String name) {
         return ATTRIBUTES.get(name);
+    }
+
+    @Override
+    public Class<? extends AknObject> getAknClass(String localName) {
+        throw new IllegalStateException("No AknClass for XSI");
     }
 
     /**

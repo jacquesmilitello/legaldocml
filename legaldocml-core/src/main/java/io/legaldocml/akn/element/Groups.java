@@ -39,6 +39,8 @@ import java.util.function.Supplier;
 import static io.legaldocml.akn.AknElements.ACT;
 import static io.legaldocml.akn.AknElements.AMENDMENT;
 import static io.legaldocml.akn.AknElements.AMENDMENT_LIST;
+import static io.legaldocml.akn.AknElements.BILL;
+import static io.legaldocml.akn.AknElements.DEBATE;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -54,11 +56,11 @@ public final class Groups {
                 .put(ACT, Act::new)
                 .put(AMENDMENT, Amendment::new)
                 .put(AMENDMENT_LIST, AmendmentList::new)
-                .put(Bill.ELEMENT, Bill::new)
+                .put(BILL, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
                 .put(DebateReport.ELEMENT, DebateReport::new)
                 .put(Doc.ELEMENT, Doc::new)
-                .put(Debate.ELEMENT, Debate::new)
+                .put(DEBATE, Debate::new)
                 .put(DocumentCollection.ELEMENT, DocumentCollection::new)
                 .put(OfficialGazette.ELEMENT, OfficialGazette::new)
                 .build();
@@ -67,11 +69,11 @@ public final class Groups {
                 .put(ACT, Act::new)
                 .put(AMENDMENT, Amendment::new)
                 .put(AMENDMENT_LIST, AmendmentList::new)
-                .put(Bill.ELEMENT, Bill::new)
+                .put(BILL, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
                 .put(DebateReport.ELEMENT, DebateReport::new)
                 .put(Doc.ELEMENT, Doc::new)
-                .put(Debate.ELEMENT, Debate::new)
+                .put(DEBATE, Debate::new)
                 .put(DocumentCollection.ELEMENT, DocumentCollection::new)
                 .put(OfficialGazette.ELEMENT, OfficialGazette::new)
                 .put(Portion.ELEMENT, Portion::new)

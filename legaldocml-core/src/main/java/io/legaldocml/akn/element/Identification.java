@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.IDENTIFICATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,12 +38,8 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class Identification implements AknObject, Source {
 
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_IDENTIFICATION = "identification";
 
-    private static final long ADDRESS_IDENTIFICATION = Buffers.address(ELEMENT_IDENTIFICATION);
+    private static final long ADDRESS_IDENTIFICATION = Buffers.address(IDENTIFICATION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -107,7 +104,7 @@ public final class Identification implements AknObject, Source {
      */
     @Override
     public String name() {
-        return ELEMENT_IDENTIFICATION;
+        return IDENTIFICATION;
     }
 
     /**
@@ -154,7 +151,7 @@ public final class Identification implements AknObject, Source {
             this.item.read(reader);
         }
 
-        if (reader.getQName().equalsLocalName(ELEMENT_IDENTIFICATION)) {
+        if (reader.getQName().equalsLocalName(IDENTIFICATION)) {
             reader.nextStartOrEndElement();
         } else {
             throw new IllegalStateException();
