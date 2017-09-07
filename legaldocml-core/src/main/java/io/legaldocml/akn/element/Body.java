@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.BODY;
+
 /**
  * The element body is the container of the main hierarchy of a hierarchical document (e.g, an act or a bill).
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Body extends BodyType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "body";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_BODY = Buffers.address(BODY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_BODY, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_BODY, 4);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Body extends BodyType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return BODY;
     }
 
     /**

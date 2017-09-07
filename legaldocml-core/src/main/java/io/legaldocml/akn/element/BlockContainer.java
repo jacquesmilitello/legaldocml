@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.BLOCK_CONTAINER;
+
 /**
  * The element blockContainer is used as a container of many individual block elements in a block context
  *
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class BlockContainer extends BlockContainerType implements ANblock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "blockContainer";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_BLOCK_CONTAINER = Buffers.address(BLOCK_CONTAINER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 14);
+        writer.writeStart(ADDRESS_BLOCK_CONTAINER, 14);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 14);
+        writer.writeEnd(ADDRESS_BLOCK_CONTAINER, 14);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class BlockContainer extends BlockContainerType implements ANblock 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return BLOCK_CONTAINER;
     }
 
     /**

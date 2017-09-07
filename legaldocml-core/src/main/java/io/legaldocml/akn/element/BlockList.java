@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.BLOCK_LIST;
+
 /**
  * The element blockList is used as in a block context as a container of many individual item elements to be treated as
  * in a list.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class BlockList extends BlockListType implements ANblock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "blockList";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_BLOCK_LIST = Buffers.address(BLOCK_LIST);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_BLOCK_LIST, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_BLOCK_LIST, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class BlockList extends BlockListType implements ANblock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return BLOCK_LIST;
     }
 
     /**

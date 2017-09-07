@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.BLOCK;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -39,14 +40,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Block extends InlineType implements Name, BlockElements {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "block";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_BLOCK = Buffers.address(BLOCK);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -81,10 +77,10 @@ public final class Block extends InlineType implements Name, BlockElements {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_BLOCK, 5);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_BLOCK, 5);
     }
 
     /**
@@ -92,7 +88,7 @@ public final class Block extends InlineType implements Name, BlockElements {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return BLOCK;
     }
 
     /**

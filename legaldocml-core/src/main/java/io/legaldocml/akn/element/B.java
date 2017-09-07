@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.group.HTMLinline;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
@@ -18,23 +19,18 @@ import java.io.IOException;
 public final class B extends InlineType implements HTMLinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "b";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_B = Buffers.address(AknElements.B);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 1);
+        writer.writeStart(ADDRESS_B, 1);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 1);
+        writer.writeEnd(ADDRESS_B, 1);
     }
 
     /**
@@ -42,7 +38,7 @@ public final class B extends InlineType implements HTMLinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AknElements.B;
     }
 
 }

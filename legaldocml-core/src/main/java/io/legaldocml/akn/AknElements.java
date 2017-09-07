@@ -203,6 +203,41 @@ public final class AknElements {
     public static final String AUTHORIAL_NOTE = "authorialNote";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.B}
+     */
+    public static final String B = "b";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.B}
+     */
+    public static final String BACKGROUND = "background";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Block}
+     */
+    public static final String BLOCK = "block";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.BlockContainer}
+     */
+    public static final String BLOCK_CONTAINER = "blockContainer";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.BlockList}
+     */
+    public static final String BLOCK_LIST = "blockList";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Body}
+     */
+    public static final String BODY = "body";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Book}
+     */
+    public static final String BOOK = "book";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Br}
      */
     public static final String BR = "br";

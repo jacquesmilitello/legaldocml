@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.group.JudgmentBlock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -11,6 +10,9 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.util.function.Supplier;
+
+import static io.legaldocml.akn.AknElements.ARGUMENTS;
+import static io.legaldocml.akn.AknElements.BACKGROUND;
 
 /**
  * The type judgmentBodyType specifies a content model of the main hierarchy of a judgment document.
@@ -33,8 +35,8 @@ public abstract class JudgmentBodyType extends CoreOptImpl {
     static {
         ELEMS = ImmutableMap.<String, Supplier<JudgmentBlock>>builder()
                 .put(Introduction.ELEMENT, Introduction::new)
-                .put(Background.ELEMENT, Background::new)
-                .put(AknElements.ARGUMENTS, Arguments::new)
+                .put(BACKGROUND, Background::new)
+                .put(ARGUMENTS, Arguments::new)
                 .put(Motivation.ELEMENT, Motivation::new)
                 .put(Decision.ELEMENT, Decision::new)
                 .build();

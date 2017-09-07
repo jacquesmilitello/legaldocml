@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.BACKGROUND;
+
 /**
  * This element is a structural container for the section of a judgment containing the background.
  *
@@ -19,24 +21,18 @@ import java.io.IOException;
 public final class Background extends MainContent implements JudgmentBlock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "background";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
-
+    private static final long ADDRESS_BACKGROUND = Buffers.address(BACKGROUND);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_BACKGROUND, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_BACKGROUND, 10);
     }
 
     /**
@@ -44,7 +40,7 @@ public final class Background extends MainContent implements JudgmentBlock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return BACKGROUND;
     }
 
     /**

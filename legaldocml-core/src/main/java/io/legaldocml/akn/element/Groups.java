@@ -40,6 +40,10 @@ import static io.legaldocml.akn.AknElements.ACT;
 import static io.legaldocml.akn.AknElements.AMENDMENT;
 import static io.legaldocml.akn.AknElements.AMENDMENT_LIST;
 import static io.legaldocml.akn.AknElements.BILL;
+import static io.legaldocml.akn.AknElements.BLOCK;
+import static io.legaldocml.akn.AknElements.BLOCK_CONTAINER;
+import static io.legaldocml.akn.AknElements.BLOCK_LIST;
+import static io.legaldocml.akn.AknElements.BOOK;
 import static io.legaldocml.akn.AknElements.DEBATE;
 
 /**
@@ -114,16 +118,16 @@ public final class Groups {
         // <xsd:element ref="foreign"/>
         builder.put(Foreign.ELEMENT, Foreign::new);
         // <xsd:element ref="block"/>
-        builder.put(Block.ELEMENT, Block::new);
+        builder.put(BLOCK, Block::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANblock>> ANblock() {
         ImmutableMap.Builder<String, Supplier<ANblock>> builder = ImmutableMap.builder();
         //<xsd:element ref="blockList"/>
-        builder.put(BlockList.ELEMENT, BlockList::new);
+        builder.put(BLOCK_LIST, BlockList::new);
         // <xsd:element ref="blockContainer"/>
-        builder.put(BlockContainer.ELEMENT, BlockContainer::new);
+        builder.put(BLOCK_CONTAINER, BlockContainer::new);
         // <xsd:element ref="toc"/>
         builder.put(Toc.ELEMENT, Toc::new);
         // <xsd:element ref="tblock"/>
@@ -219,7 +223,7 @@ public final class Groups {
 
         ImmutableMap.Builder<String, Supplier<HTMLinline>> builder = ImmutableMap.builder();
         // <xsd:element ref="b"/>
-        builder.put(B.ELEMENT, B::new);
+        builder.put(AknElements.B, B::new);
         // <xsd:element ref="i"/>
         builder.put(I.ELEMENT, I::new);
         // <xsd:element ref="a"/>
@@ -505,7 +509,7 @@ public final class Groups {
         // <xsd:element ref="article"/>
         builder.put(AknElements.ARTICLE, Article::new);
         // <xsd:element ref="book"/>
-        builder.put(Book.ELEMENT, Book::new);
+        builder.put(BOOK, Book::new);
         // <xsd:element ref="tome"/>
         builder.put(Tome.ELEMENT, Tome::new);
         // <xsd:element ref="division"/>
