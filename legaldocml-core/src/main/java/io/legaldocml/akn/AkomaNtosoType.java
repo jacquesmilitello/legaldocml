@@ -12,6 +12,8 @@ import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENTS;
+
 /**
  * The complex type akomaNtosoType is the type for the root element in Akoma Ntoso.
  * <pre>
@@ -89,7 +91,7 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
 
         reader.nextStartOrEndElement();
 
-        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(Components.ELEMENT)) {
+        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(COMPONENTS)) {
             this.components = new Components();
             this.components.read(reader);
             reader.nextStartOrEndElement();

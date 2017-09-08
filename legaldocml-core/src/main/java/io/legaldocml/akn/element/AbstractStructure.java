@@ -12,6 +12,9 @@ import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.ATTACHMENTS;
+import static io.legaldocml.akn.AknElements.COMPONENTS;
+import static io.legaldocml.akn.AknElements.CONCLUSIONS;
+import static io.legaldocml.akn.AknElements.COVER_PAGE;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -131,7 +134,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
     }
 
     protected final void readCoverPage(XmlReader reader) {
-        if (reader.getQName().equalsLocalName(CoverPage.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(COVER_PAGE)) {
             this.coverPage = new CoverPage();
             this.coverPage.read(reader);
             reader.nextStartOrEndElement();
@@ -142,7 +145,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
 
         this.meta.read(reader);
 
-        if (reader.getQName().equalsLocalName(CoverPage.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(COVER_PAGE)) {
             this.coverPage = new CoverPage();
             this.coverPage.read(reader);
             reader.nextStartOrEndElement();
@@ -158,7 +161,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
 
     protected final void readConclusionsAttachments(XmlReader reader) {
 
-        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(Conclusions.ELEMENT)) {
+        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(CONCLUSIONS)) {
             this.conclusions = new Conclusions();
             this.conclusions.read(reader);
             reader.nextStartOrEndElement();
@@ -174,7 +177,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(Components.ELEMENT)) {
+        if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(COMPONENTS)) {
             this.components = new Components();
             this.components.read(reader);
             reader.nextStartOrEndElement();

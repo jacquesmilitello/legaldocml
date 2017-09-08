@@ -9,6 +9,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_INFO;
+
 /**
  * The complexType coreProperties lists the identifying properties available at any of the FRBR hierarchy levels.
  * <p>
@@ -178,7 +180,7 @@ public abstract class CoreProperties implements AknObject {
             throw new MandatoryElementException(this, FRBRauthor.ELEMENT_FRBRAUTHOR, reader);
         }
 
-        if (reader.getQName().equalsLocalName(ComponentInfo.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(COMPONENT_INFO)) {
             this.componentInfo = new ComponentInfo();
             this.componentInfo.read(reader);
             reader.nextStartOrEndElement();

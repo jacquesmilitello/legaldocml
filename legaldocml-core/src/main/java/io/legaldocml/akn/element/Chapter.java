@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CHAPTER;
+
 /**
  * This element is a hierarchical container called "chapter" either explicitly or due to the local tradition.
  *
@@ -18,32 +20,26 @@ import java.io.IOException;
 public final class Chapter extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "chapter";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CHAPTER = Buffers.address(CHAPTER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_CHAPTER, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_CHAPTER, 7);
     }
-
 
     /**
      * {@inheritDoc}
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CHAPTER;
     }
 
 }

@@ -12,6 +12,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT;
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 
 /**
@@ -37,7 +39,7 @@ public abstract class CollectionBodyType extends CoreOptImpl {
 
     static {
         COLLECTION_BODY_TYPE_V2 = ImmutableMap.<String, Supplier<CollectionBodyElement>>builder()
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .put(Interstitial.ELEMENT, Interstitial::new)
                 .putAll(convertSuper(Groups.DOCUMENT_TYPE_V2))
                 .build();
@@ -74,14 +76,14 @@ public abstract class CollectionBodyType extends CoreOptImpl {
             XmlReaderHelper.read(reader, elements, COLLECTION_BODY_TYPE_V2);
         } else {
             reader.nextStartOrEndElement();
-            if (reader.getQName().equalsLocalName(Component.ELEMENT)) {
+            if (reader.getQName().equalsLocalName(COMPONENT)) {
                 Component component;
                 do {
                     component = new Component();
                     component.read(reader);
                     this.components.add(component);
                     reader.nextStartOrEndElement();
-                } while (reader.getQName().equalsLocalName(Component.ELEMENT));
+                } while (reader.getQName().equalsLocalName(COMPONENT));
             }
         }
 

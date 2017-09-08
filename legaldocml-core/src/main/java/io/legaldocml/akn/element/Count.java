@@ -5,6 +5,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.COUNT;
+
 /**
  * The element count is a metadata container containing the value of a count in a vote or a quorum verification.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class Count extends CountType implements ParliamentaryAnalysisTypeElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "count";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COUNT = Buffers.address(COUNT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_COUNT, 5);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_COUNT, 5);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class Count extends CountType implements ParliamentaryAnalysisTypeE
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COUNT;
     }
 
 

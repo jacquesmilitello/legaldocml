@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.APPLICATION;
+import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -79,8 +80,8 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
     private Boolean incomplete;
 
 
-    private final AknList<Source> sources = new AknList<Source>(new Source[2]);
-    private final AknList<Destination> destinations = new AknList<Destination>(new Destination[2]);
+    private final AknList<Source> sources = new AknList<>(new Source[2]);
+    private final AknList<Destination> destinations = new AknList<>(new Destination[2]);
 
     private Force force;
     private Efficacy efficacy;
@@ -243,7 +244,7 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
             this.duration = new Duration();
             this.duration.read(reader);
         }
-        if (reader.getQName().equalsLocalName(Condition.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(CONDITION)) {
             this.condition = new Condition();
             this.condition.read(reader);
         }

@@ -1,9 +1,11 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.CAPTION;
 
 /**
  * The element caption is an HTML element and is used in Akoma Ntoso as in HTML, for the caption of a table (a block).
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class Caption extends InlineType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "caption";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CAPTION = Buffers.address(CAPTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_CAPTION, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_CAPTION, 7);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class Caption extends InlineType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CAPTION;
     }
 
 }

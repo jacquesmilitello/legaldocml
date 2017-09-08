@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+
 /**
  * The element componentRef is a reference to a separate manifestation-level resource that holds the content of the
  * component of the document not physically placed at the position specified. Actual resources can either be external
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class ComponentRef extends SrcType implements BodyTypeElement, HierarchyElement, PopupStructureElement, MainContentElement, CollectionBodyElement, AltHierarchyElement, SubFlowStructureElement, ReciltalHierarchyElement, CitationHierarchyElement, BlockContainerTypeElement {
 
     /**
-     * Xml Element Name.
-     */
-    public static final String ELEMENT = "componentRef";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COMPONENT_REF = Buffers.address(COMPONENT_REF);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_COMPONENT_REF, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_COMPONENT_REF, 12);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class ComponentRef extends SrcType implements BodyTypeElement, Hier
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COMPONENT_REF;
     }
 
 }

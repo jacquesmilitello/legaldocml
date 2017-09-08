@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CITATIONS;
+
 /**
  * The element citation is the individual element of the preface that is called citation.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Citations extends CitationHierarchy implements PreambleContainers, PopupStructureElement, SubFlowStructureElement, PortionBodyTypeElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "citations";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CITATIONS = Buffers.address(CITATIONS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_CITATIONS, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_CITATIONS, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Citations extends CitationHierarchy implements PreambleContai
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CITATIONS;
     }
 
 }

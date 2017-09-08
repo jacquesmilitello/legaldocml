@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CONTRASTS;
+
 /**
  * The element contrasts is a metadata element specifying a reference to a source contrasted by the argument being
  * described.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Contrasts extends JudicialArgumentType implements JudicialArgumentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "contrasts";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CONTRASTS = Buffers.address(CONTRASTS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_CONTRASTS, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_CONTRASTS, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Contrasts extends JudicialArgumentType implements JudicialArg
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CONTRASTS;
     }
 
 }

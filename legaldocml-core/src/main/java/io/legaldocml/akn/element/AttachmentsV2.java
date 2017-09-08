@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.ATTACHMENTS;
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 
 /**
  *
@@ -37,7 +38,7 @@ public final class AttachmentsV2 extends CoreOptImpl implements Attachments{
     private static final ImmutableMap<String, Supplier<ComponentRef>> ELEMS;
 
     static {
-        ELEMS = ImmutableMap.of(ComponentRef.ELEMENT, ComponentRef::new);
+        ELEMS = ImmutableMap.of(COMPONENT_REF, ComponentRef::new);
     }
 
 

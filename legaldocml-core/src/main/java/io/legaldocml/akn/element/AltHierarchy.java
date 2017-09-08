@@ -11,6 +11,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+
 /**
  * The complex type hierarchy is used by most or all the hierarchical elements of act-like documents.
  *
@@ -41,7 +43,7 @@ public abstract class AltHierarchy extends BaseHierarchyCoreReq {
                 .putAll(Groups.convertSuper(Groups.containerElements()))
                 .putAll(Groups.convertSuper(Groups.ANcontainers()))
                 .putAll(Groups.convertSuper(Groups.blockElements()))
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .build();
     }
 

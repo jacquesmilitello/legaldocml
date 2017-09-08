@@ -15,6 +15,9 @@ import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static io.legaldocml.akn.AknElements.CONTENT;
+import static io.legaldocml.akn.AknElements.CROSS_HEADING;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
 
@@ -57,8 +60,8 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
     static {
         ELEMS = ImmutableMap.<String, Supplier<HierarchyElement>>builder()
                 .putAll(convertSuper(hierElements()))
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
-                .put(CrossHeading.ELEMENT, CrossHeading::new)
+                .put(COMPONENT_REF, ComponentRef::new)
+                .put(CROSS_HEADING, CrossHeading::new)
                 .build();
     }
 
@@ -121,7 +124,7 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
 //            LOGGER.trace("Hierarchy -> [{}] -> [{}]" , getClass().getSimpleName(), this);
 //        }
 
-        if (reader.getQName().equalsLocalName(Content.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(CONTENT)) {
             this.content = new Content();
             this.content.read(reader);
             reader.nextStartOrEndElement();

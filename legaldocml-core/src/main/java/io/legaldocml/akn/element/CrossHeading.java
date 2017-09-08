@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CROSS_HEADING;
+
 /**
  * the element crossHeading is a heading element that is placed side by side with hierarchical containers.
  *
@@ -17,14 +19,9 @@ import java.io.IOException;
 public final class CrossHeading extends InlineReqType implements HierarchyElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "crossHeading";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(CROSS_HEADING);
 
     /**
      * {@inheritDoc}
@@ -41,7 +38,7 @@ public final class CrossHeading extends InlineReqType implements HierarchyElemen
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CROSS_HEADING;
     }
 
 }

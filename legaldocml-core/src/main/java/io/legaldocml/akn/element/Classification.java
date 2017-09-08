@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.CLASSIFICATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -35,14 +36,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Classification implements Source {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "classification";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CLASSIFICATION = Buffers.address(CLASSIFICATION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -96,10 +92,10 @@ public final class Classification implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 14);
+        writer.writeStart(ADDRESS_CLASSIFICATION, 14);
         writeSource(writer, this);
         this.keywords.write(writer);
-        writer.writeEnd(ADDRESS, 14);
+        writer.writeEnd(ADDRESS_CLASSIFICATION, 14);
     }
 
     /**
@@ -107,7 +103,7 @@ public final class Classification implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CLASSIFICATION;
     }
 
     @Override

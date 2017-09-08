@@ -12,6 +12,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.CONTRASTS;
+
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
  * of a judgment.
@@ -51,7 +53,7 @@ public abstract class JudicialArguments implements AknObject {
                 .put(Extends.ELEMENT, Extends::new)
                 .put(Restricts.ELEMENT, Restricts::new)
                 .put(Derogates.ELEMENT, Derogates::new)
-                .put(Contrasts.ELEMENT, Contrasts::new)
+                .put(CONTRASTS, Contrasts::new)
                 .put(Overrules.ELEMENT, Overrules::new)
                 .put(DissentsFrom.ELEMENT, DissentsFrom::new)
                 .put(PutsInQuestion.ELEMENT, PutsInQuestion::new)

@@ -11,6 +11,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -35,14 +36,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Condition extends AnyOtherType implements Froozen {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "condition";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CONDITION = Buffers.address(CONDITION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -76,9 +72,9 @@ public final class Condition extends AnyOtherType implements Froozen {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_CONDITION, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_CONDITION, 9);
     }
 
     /**
@@ -86,7 +82,7 @@ public final class Condition extends AnyOtherType implements Froozen {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CONDITION;
     }
 
     /**

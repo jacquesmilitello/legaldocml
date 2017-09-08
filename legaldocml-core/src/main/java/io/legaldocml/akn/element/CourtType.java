@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANheaderInline;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.COURT_TYPE;
 
 /**
  * The element courtType is an inline element within judgments to identify the string used by the document for the type
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class CourtType extends InlineType implements ANheaderInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "courtType";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COURT_TYPE = Buffers.address(COURT_TYPE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_COURT_TYPE, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_COURT_TYPE, 9);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class CourtType extends InlineType implements ANheaderInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COURT_TYPE;
     }
 
 }

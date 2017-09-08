@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CONTENT;
+
 /**
  * The element content is the final container in a hierarchy, and is where the blocks of text of the content of the
  * structure are finally specified.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Content extends Blocksreq implements SubFlowStructureElement, PopupStructureElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "content";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CONTENT = Buffers.address(CONTENT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_CONTENT, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_CONTENT, 7);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Content extends Blocksreq implements SubFlowStructureElement,
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CONTENT;
     }
 
 //    /**

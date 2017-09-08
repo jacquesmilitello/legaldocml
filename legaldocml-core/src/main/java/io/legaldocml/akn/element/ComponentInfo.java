@@ -8,6 +8,9 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_DATA;
+import static io.legaldocml.akn.AknElements.COMPONENT_INFO;
+
 /**
  * <pre>
  *   <xsd:element name="componentInfo">
@@ -24,14 +27,9 @@ import java.io.IOException;
 public final class ComponentInfo implements AknObject {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "componentInfo";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COMPONENT_INFO = Buffers.address(COMPONENT_INFO);
 
     private AknList<ComponentData> componentData;
 
@@ -40,11 +38,11 @@ public final class ComponentInfo implements AknObject {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_COMPONENT_INFO, 13);
         if (this.componentData != null) {
             this.componentData.write(writer);
         }
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_COMPONENT_INFO, 13);
     }
 
     /**
@@ -53,7 +51,7 @@ public final class ComponentInfo implements AknObject {
     @Override
     public void read(XmlReader reader) {
         reader.nextStartOrEndElement();
-        if (reader.getQName().equalsLocalName(ComponentData.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(COMPONENT_DATA)) {
             ComponentData data;
             this.componentData = new AknList<>(new ComponentData[4]);
             do {
@@ -61,7 +59,7 @@ public final class ComponentInfo implements AknObject {
                 data.read(reader);
                 this.componentData.add(data);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(ComponentData.ELEMENT));
+            } while (reader.getQName().equalsLocalName(COMPONENT_DATA));
         }
     }
 
@@ -70,7 +68,7 @@ public final class ComponentInfo implements AknObject {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COMPONENT_INFO;
     }
 
 }

@@ -248,6 +248,126 @@ public final class AknElements {
     public static final String BILL = "bill";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Caption}
+     */
+    public static final String CAPTION = "caption";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Change}
+     */
+    public static final String CHANGE = "change";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Chapter}
+     */
+    public static final String CHAPTER = "chapter";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Citation}
+     */
+    public static final String CITATION = "citation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Citations}
+     */
+    public static final String CITATIONS = "citations";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Classification}
+     */
+    public static final String CLASSIFICATION = "classification";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Clause}
+     */
+    public static final String CLAUSE = "clause";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Clause}
+     */
+    public static final String COLLECTION_BODY = "collectionBody";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Communication}
+     */
+    public static final String COMMUNICATION = "communication";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Component}
+     */
+    public static final String COMPONENT = "component";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ComponentData}
+     */
+    public static final String COMPONENT_DATA = "componentData";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ComponentInfo}
+     */
+    public static final String COMPONENT_INFO = "componentInfo";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ComponentRef}
+     */
+    public static final String COMPONENT_REF = "componentRef";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Components}
+     */
+    public static final String COMPONENTS = "components";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Concept}
+     */
+    public static final String CONCEPT = "concept";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Conclusions}
+     */
+    public static final String CONCLUSIONS = "conclusions";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Condition}
+     */
+    public static final String CONDITION = "condition";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Container}
+     */
+    public static final String CONTAINER = "container";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Content}
+     */
+    public static final String CONTENT = "content";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Contrasts}
+     */
+    public static final String CONTRASTS = "contrasts";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Count}
+     */
+    public static final String COUNT = "count";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.CourtType}
+     */
+    public static final String COURT_TYPE = "courtType";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.CoverPage}
+     */
+    public static final String COVER_PAGE = "coverPage";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.CrossHeading}
+     */
+    public static final String CROSS_HEADING = "crossHeading";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Debate}
      */
     public static final String DEBATE = "debate";

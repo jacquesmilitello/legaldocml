@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -76,8 +77,8 @@ public abstract class JudicialArgumentType extends IdReqImpl implements Enactmen
     // Core
     private java.util.List<Attribute> attributes;
 
-    private final AknList<Source> sources = new AknList<Source>(new Source[2]);
-    private final AknList<Destination> destinations = new AknList<Destination>(new Destination[2]);
+    private final AknList<Source> sources = new AknList<>(new Source[2]);
+    private final AknList<Destination> destinations = new AknList<>(new Destination[2]);
     private Condition condition;
 
     /**
@@ -223,7 +224,7 @@ public abstract class JudicialArgumentType extends IdReqImpl implements Enactmen
             } while (reader.getQName().equalsLocalName(Destination.ELEMENT));
         }
 
-        if (reader.getQName().equalsLocalName(Condition.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(CONDITION)) {
             this.condition = new Condition();
             this.condition.read(reader);
         }

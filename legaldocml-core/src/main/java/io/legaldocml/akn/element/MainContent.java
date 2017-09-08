@@ -10,6 +10,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+
 /**
  * The complex type maincontent is used by container elements that can contain basically any other Akoma Ntoso
  * structure.
@@ -37,7 +39,7 @@ public abstract class MainContent extends CoreOptImpl {
                 .putAll(Groups.convertSuper(Groups.hierElements()))
                 .putAll(Groups.convertSuper(Groups.containerElements()))
                 .putAll(Groups.convertSuper(Groups.blockElements()))
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .build();
     }
 

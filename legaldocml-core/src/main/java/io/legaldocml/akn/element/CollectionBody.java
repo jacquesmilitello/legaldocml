@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.COLLECTION_BODY;
+
 /**
  * the element collectionBody is the container of a list of other documents (e.g, acts, bills, amendments, etc.)
  * possibly interspersed with interstitial elements with content that does not form an individual document.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class CollectionBody extends CollectionBodyType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "collectionBody";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COLLECTION_BODY = Buffers.address(COLLECTION_BODY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 14);
+        writer.writeStart(ADDRESS_COLLECTION_BODY, 14);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 14);
+        writer.writeEnd(ADDRESS_COLLECTION_BODY, 14);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class CollectionBody extends CollectionBodyType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COLLECTION_BODY;
     }
 
     /**

@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CONCEPT;
+
 /**
  * The element concept is is an inline element to identify a text fragment introducing or referring to a concept in the
  * ontology.
@@ -19,32 +21,26 @@ import java.io.IOException;
 public final class Concept extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "concept";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CONCEPT = Buffers.address(CONCEPT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_CONCEPT, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_CONCEPT, 7);
     }
-
 
     /**
      * {@inheritDoc}
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CONCEPT;
     }
 
 }

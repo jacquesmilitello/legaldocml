@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANhier;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.CLAUSE;
 
 /**
  * This element is a hierarchical container called "clause" either explicitly or due to the local tradition.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Clause extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "clause";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CLAUSE = Buffers.address(CLAUSE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_CLAUSE, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_CLAUSE, 6);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Clause extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CLAUSE;
     }
 
 }

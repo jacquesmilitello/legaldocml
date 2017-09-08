@@ -9,6 +9,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static io.legaldocml.akn.AknElements.CONTENT;
 import static io.legaldocml.akn.element.Groups.ANcontainers;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.containerElements;
@@ -53,10 +55,10 @@ public abstract class PopupStructure extends CoreReqImpl {
                 .putAll(convertSuper(blockElements()))
                 .putAll(convertSuper(containerElements()))
                 .putAll(convertSuper(hierElements()))
-                .put(Content.ELEMENT, Content::new)
+                .put(CONTENT, Content::new)
                 .putAll(convertSuper(ANcontainers()))
 
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .put(Intro.ELEMENT, Intro::new)
                 .put(Wrap.ELEMENT, Wrap::new)
                 .put(Heading.ELEMENT, Heading::new)
@@ -68,7 +70,7 @@ public abstract class PopupStructure extends CoreReqImpl {
 
 
     // Mandatory (min 1).
-    private final AknList<PopupStructureElement> elems = new AknList<PopupStructureElement>(new PopupStructureElement[8]);
+    private final AknList<PopupStructureElement> elems = new AknList<>(new PopupStructureElement[8]);
 
     /**
      * {@inheritDoc}

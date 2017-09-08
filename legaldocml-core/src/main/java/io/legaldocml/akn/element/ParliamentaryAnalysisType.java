@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COUNT;
 import static io.legaldocml.akn.element.Attributes.biConsumerConceptRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
@@ -65,7 +66,7 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
 
         ELEMS = ImmutableMap.<String, Supplier<ParliamentaryAnalysisTypeElement>>builder()
                 .put(Quorum.ELEMENT, Quorum::new)
-                .put(Count.ELEMENT, Count::new)
+                .put(COUNT, Count::new)
                 .build();
     }
 

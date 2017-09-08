@@ -12,6 +12,7 @@ import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 
@@ -45,7 +46,7 @@ public abstract class BlockContainerType extends BaseHierarchyCoreReq {
     static {
         ELEMS = ImmutableMap.<String, Supplier<BlockContainerTypeElement>>builder()
                 .putAll(convertSuper(blockElements()))
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .build();
     }
 

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.CONTAINER;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
@@ -51,11 +52,11 @@ public abstract class ContainerType extends CoreReqImpl implements Name {
 
         ELEMS = ImmutableMap.<String, Supplier<ContainerElement>>builder()
                 .putAll(convertSuper(blockElements()))
-                .put(Container.ELEMENT, Container::new)
+                .put(CONTAINER, Container::new)
                 .build();
     }
 
-    private final AknList<ContainerElement> elements = new AknList<ContainerElement>(new ContainerElement[6]);
+    private final AknList<ContainerElement> elements = new AknList<>(new ContainerElement[6]);
 
     private String name;
 

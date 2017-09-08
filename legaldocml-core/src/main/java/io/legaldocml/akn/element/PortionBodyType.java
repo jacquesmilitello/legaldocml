@@ -9,6 +9,10 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.CITATION;
+import static io.legaldocml.akn.AknElements.CITATIONS;
+import static io.legaldocml.akn.AknElements.COVER_PAGE;
+
 /**
  * The type portionBodyType specifies a content model of a container of a portion of another document.
  *
@@ -45,11 +49,11 @@ public abstract class PortionBodyType extends CoreOptImpl {
                 .putAll(Groups.convertSuper(Groups.ANcontainers()))
                 .put(Recitals.ELEMENT, Recitals::new)
                 .put(Recital.ELEMENT, Recital::new)
-                .put(Citations.ELEMENT, Citations::new)
-                .put(Citation.ELEMENT, Citation::new)
+                .put(CITATIONS, Citations::new)
+                .put(CITATION, Citation::new)
                 .put(LongTitle.ELEMENT, LongTitle::new)
                 .put(Formula.ELEMENT, Formula::new)
-                .put(CoverPage.ELEMENT, CoverPage::new)
+                .put(COVER_PAGE, CoverPage::new)
                 .put(Preface.ELEMENT, Preface::new)
                 .put(Preamble.ELEMENT, Preamble::new)
                 .build();

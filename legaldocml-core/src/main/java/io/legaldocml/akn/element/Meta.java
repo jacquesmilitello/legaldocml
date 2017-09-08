@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.ANALYSIS;
+import static io.legaldocml.akn.AknElements.CLASSIFICATION;
 import static io.legaldocml.akn.AknElements.META;
 import static io.legaldocml.util.Streams.stream;
 
@@ -210,7 +211,7 @@ public final class Meta implements AknObject {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Classification.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(CLASSIFICATION)) {
             Classification classification;
             this.classifications = new AknList<>(new Classification[4]);
             do {
@@ -218,7 +219,7 @@ public final class Meta implements AknObject {
                 classification.read(reader);
                 this.classifications.add(classification);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Classification.ELEMENT));
+            } while (reader.getQName().equalsLocalName(CLASSIFICATION));
         }
 
         if (reader.getQName().equalsLocalName(Lifecycle.ELEMENT)) {

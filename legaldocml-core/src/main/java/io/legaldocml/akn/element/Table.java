@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.CAPTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTableAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -58,7 +59,7 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
                 .build();
     }
 
-    private final AknList<Tr> trs = new AknList<Tr>(new Tr[4]);
+    private final AknList<Tr> trs = new AknList<>(new Tr[4]);
     private Caption caption;
     private Integer width;
     private Integer border;
@@ -164,7 +165,7 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
         super.read(reader);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Caption.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(CAPTION)) {
             this.caption = new Caption();
             this.caption.read(reader);
             reader.nextStartOrEndElement();

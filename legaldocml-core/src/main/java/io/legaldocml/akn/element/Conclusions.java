@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CONCLUSIONS;
+
 /**
  * The element conclusion is used as a container of all concluding material (e.g. dates, signatures, formulas, etc.).
  *
@@ -17,24 +19,20 @@ import java.io.IOException;
  */
 public final class Conclusions extends Basicopt {
 
-    /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "conclusions";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_CONCLUSIONS = Buffers.address(CONCLUSIONS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_CONCLUSIONS, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_CONCLUSIONS, 11);
     }
 
     /**
@@ -42,7 +40,7 @@ public final class Conclusions extends Basicopt {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CONCLUSIONS;
     }
 
     /**

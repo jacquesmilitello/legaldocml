@@ -12,6 +12,9 @@ import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.CITATION;
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+
 /**
  *
  * <pre>
@@ -40,8 +43,8 @@ public abstract class CitationHierarchy extends BaseHierarchyCoreReq  {
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<CitationHierarchyElement>>builder()
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
-                .put(Citation.ELEMENT, Citation::new)
+                .put(COMPONENT_REF, ComponentRef::new)
+                .put(CITATION, Citation::new)
                 .build();
     }
 
@@ -59,7 +62,7 @@ public abstract class CitationHierarchy extends BaseHierarchyCoreReq  {
         if (this.intro != null) {
             this.intro.write(writer);
         }
-        if (this.elements != null && this.elements.size() > 0) {
+        if (this.elements.size() > 0) {
             this.elements.write(writer);
         }
 

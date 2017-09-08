@@ -19,6 +19,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_DATA;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -44,14 +45,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class ComponentData extends IdReqImpl implements Name, LinkReq, ShowReq, Core {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "componentData";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COMPONENT_DATA = Buffers.address(COMPONENT_DATA);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -133,7 +129,7 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_COMPONENT_DATA, 13);
         XmlWriterHelper.writeLinkReq(writer, this);
         XmlWriterHelper.writeName(writer, this);
         XmlWriterHelper.writeShow(writer, this);
@@ -141,7 +137,7 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
         if (this.componentData != null) {
             this.componentData.write(writer);
         }
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_COMPONENT_DATA, 13);
     }
 
     /**
@@ -165,7 +161,7 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COMPONENT_DATA;
     }
 
 }

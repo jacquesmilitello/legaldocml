@@ -16,6 +16,10 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.CITATION;
+import static io.legaldocml.akn.AknElements.CITATIONS;
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static io.legaldocml.akn.AknElements.CONTENT;
 import static io.legaldocml.akn.element.Groups.ANcontainers;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.containerElements;
@@ -71,15 +75,15 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
                 .put(Th.ELEMENT, Th::new)
                 .put(Td.ELEMENT, Td::new)
                 .putAll(convertSuper(hierElements()))
-                .put(Content.ELEMENT, Content::new)
+                .put(CONTENT, Content::new)
                 .putAll(convertSuper(ANcontainers()))
                 .put(Formula.ELEMENT, Formula::new)
                 .put(Recitals.ELEMENT, Recitals::new)
-                .put(Citations.ELEMENT, Citations::new)
+                .put(CITATIONS, Citations::new)
                 .put(LongTitle.ELEMENT, LongTitle::new)
                 .put(Recital.ELEMENT, Recital::new)
-                .put(Citation.ELEMENT, Citation::new)
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(CITATION, Citation::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .put(DocumentRef.ELEMENT, DocumentRef::new)
                 .put(Intro.ELEMENT, Intro::new)
                 .put(Wrap.ELEMENT, Wrap::new)

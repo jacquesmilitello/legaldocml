@@ -11,6 +11,9 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT;
+import static io.legaldocml.akn.AknElements.COMPONENTS;
+
 /**
  * <pre>
  *   <xsd:element name="components">
@@ -28,19 +31,14 @@ import java.util.function.Supplier;
 public final class Components extends IdReqImpl {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "components";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_COMPONENTS = Buffers.address(COMPONENTS);
 
     private static final ImmutableMap<String, Supplier<Component>> ELEMS;
 
     static {
-        ELEMS = ImmutableMap.of(Component.ELEMENT, Component::new);
+        ELEMS = ImmutableMap.of(COMPONENT, Component::new);
     }
 
     // Mandatory (min 1).
@@ -51,10 +49,10 @@ public final class Components extends IdReqImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_COMPONENTS, 10);
         super.write(writer);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_COMPONENTS, 10);
     }
 
     /**
@@ -72,7 +70,7 @@ public final class Components extends IdReqImpl {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return COMPONENTS;
     }
 
     /**

@@ -9,6 +9,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.CONTAINER;
+
 /**
  * The element container is a generic element for a container.
  *
@@ -22,14 +24,9 @@ public final class Container extends ContainerType implements BasicContainers, P
         ContainerElements, PreambleContainers {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "container";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(CONTAINER);
 
     /**
      * {@inheritDoc}
@@ -46,7 +43,7 @@ public final class Container extends ContainerType implements BasicContainers, P
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return CONTAINER;
     }
 
 }

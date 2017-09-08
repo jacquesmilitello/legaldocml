@@ -12,6 +12,8 @@ import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+
 /**
  *
  * <pre>
@@ -40,7 +42,7 @@ public abstract class RecitalHierarchy extends BaseHierarchyCoreReq {
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<ReciltalHierarchyElement>>builder()
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .put(Recital.ELEMENT, Recital::new)
                 .build();
     }

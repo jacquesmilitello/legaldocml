@@ -10,6 +10,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
 
@@ -35,7 +36,7 @@ public abstract class BodyType extends CoreOptImpl {
     static {
         ELEMS = ImmutableMap.<String, Supplier<BodyTypeElement>>builder()
                 .putAll(convertSuper(hierElements()))
-                .put(ComponentRef.ELEMENT, ComponentRef::new)
+                .put(COMPONENT_REF, ComponentRef::new)
                 .build();
     }
 
