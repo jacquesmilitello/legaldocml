@@ -19,7 +19,7 @@ final class XPathExpressionBuilder extends XPath2ParserBaseListener {
     private final XPathImpl xpath;
     private final XPath2Parser parser;
 
-    public boolean predicate = false;
+    private boolean predicate = false;
 
 
     public XPathExpressionBuilder(XPathImpl xpath, XPath2Parser parser) {
