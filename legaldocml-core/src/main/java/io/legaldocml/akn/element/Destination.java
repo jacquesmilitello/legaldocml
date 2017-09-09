@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DESTINATION;
+
 /**
  * The element destination is a metadata element specifying the IRI of the destination of the modification.
  *
@@ -17,20 +19,15 @@ import java.io.IOException;
 public final class Destination extends ArgumentType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "destination";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DESTINATION = Buffers.address(DESTINATION);
 
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_DESTINATION, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_DESTINATION, 11);
     }
 
     /**
@@ -38,6 +35,6 @@ public final class Destination extends ArgumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DESTINATION;
     }
 }

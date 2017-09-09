@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DECORATION;
+
 /**
  * the element decoration is an inline element to represent a decorative aspect that is present in the orignal text and
  * that is meant as additional information to the text (e.g., the annotation 'new' on the side of a freshly inserted
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class Decoration extends InlineType implements ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "decoration";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DECORATION = Buffers.address(DECORATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_DECORATION, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_DECORATION, 10);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class Decoration extends InlineType implements ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DECORATION;
     }
 
 }

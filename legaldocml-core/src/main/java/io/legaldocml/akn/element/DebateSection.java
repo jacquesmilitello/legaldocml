@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.DEBATE_SECTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -27,10 +28,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	     <xsd:complexContent>
  * 		   <xsd:extension base="althierarchy">
  * 		     <xsd:attributeGroup ref="name"/>
- * 		   <xsd:extension>
- * 		 <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 		 </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -38,14 +39,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class DebateSection extends AltHierarchy implements Name, SpeechSection {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "debateSection";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DEBATE_SECTION = Buffers.address(DEBATE_SECTION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -77,10 +73,10 @@ public final class DebateSection extends AltHierarchy implements Name, SpeechSec
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_DEBATE_SECTION, 13);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_DEBATE_SECTION, 13);
     }
 
     /**
@@ -88,7 +84,7 @@ public final class DebateSection extends AltHierarchy implements Name, SpeechSec
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DEBATE_SECTION;
     }
 
     /**

@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DECLARATION_OF_VOTE;
+
 /**
  * This element is a structural container for parts of a debates that are relevant to the declaration of votes.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class DeclarationOfVote extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "declarationOfVote";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DECLARATION_OF_VOTE = Buffers.address(DECLARATION_OF_VOTE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_DECLARATION_OF_VOTE, 17);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_DECLARATION_OF_VOTE, 17);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class DeclarationOfVote extends AltHierarchy implements SpeechSecti
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DECLARATION_OF_VOTE;
     }
 
 }

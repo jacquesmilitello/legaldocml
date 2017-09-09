@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DISSENTS_FROM;
+
 /**
  * The element dissentsFrom is a metadata element specifying a reference to a source dissented from the argument being
  * described.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class DissentsFrom extends JudicialArgumentType implements JudicialArgumentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "dissentsFrom";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DISSENTS_FROM = Buffers.address(DISSENTS_FROM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_DISSENTS_FROM, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_DISSENTS_FROM, 12);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class DissentsFrom extends JudicialArgumentType implements Judicial
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DISSENTS_FROM;
     }
 
 }

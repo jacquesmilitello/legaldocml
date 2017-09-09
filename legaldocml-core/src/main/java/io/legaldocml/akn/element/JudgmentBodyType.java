@@ -13,6 +13,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.ARGUMENTS;
 import static io.legaldocml.akn.AknElements.BACKGROUND;
+import static io.legaldocml.akn.AknElements.DECISION;
 
 /**
  * The type judgmentBodyType specifies a content model of the main hierarchy of a judgment document.
@@ -38,7 +39,7 @@ public abstract class JudgmentBodyType extends CoreOptImpl {
                 .put(BACKGROUND, Background::new)
                 .put(ARGUMENTS, Arguments::new)
                 .put(Motivation.ELEMENT, Motivation::new)
-                .put(Decision.ELEMENT, Decision::new)
+                .put(DECISION, Decision::new)
                 .build();
     }
 

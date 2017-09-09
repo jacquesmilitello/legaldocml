@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DEBATE_BODY;
+
 /**
  * The type debateBodyType specifies a content model of the main hierarchy of a debate.
  *
@@ -18,14 +20,9 @@ import java.io.IOException;
 public final class DebateBody extends DebateBodyType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "debateBody";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DEBATE_BODY = Buffers.address(DEBATE_BODY);
 
 
     /**
@@ -33,9 +30,9 @@ public final class DebateBody extends DebateBodyType {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_DEBATE_BODY, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_DEBATE_BODY, 10);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class DebateBody extends DebateBodyType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DEBATE_BODY;
     }
 
     /**

@@ -20,6 +20,7 @@ import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.APPLICATION;
 import static io.legaldocml.akn.AknElements.CONDITION;
+import static io.legaldocml.akn.AknElements.DESTINATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -218,14 +219,14 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
             } while (reader.getQName().equalsLocalName(Source.ELEMENT));
         }
 
-        if (reader.getQName().equalsLocalName(Destination.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(DESTINATION)) {
             Destination destination;
             do {
                 destination = new Destination();
                 destination.read(reader);
                 this.destinations.add(destination);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Destination.ELEMENT));
+            } while (reader.getQName().equalsLocalName(DESTINATION));
         }
 
         if (reader.getQName().equalsLocalName(Force.ELEMENT)) {

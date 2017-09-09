@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.CONTRASTS;
+import static io.legaldocml.akn.AknElements.DEROGATES;
+import static io.legaldocml.akn.AknElements.DISSENTS_FROM;
 
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
@@ -52,10 +54,10 @@ public abstract class JudicialArguments implements AknObject {
                 .put(AknElements.APPLIES, Applies::new)
                 .put(Extends.ELEMENT, Extends::new)
                 .put(Restricts.ELEMENT, Restricts::new)
-                .put(Derogates.ELEMENT, Derogates::new)
+                .put(DEROGATES, Derogates::new)
                 .put(CONTRASTS, Contrasts::new)
                 .put(Overrules.ELEMENT, Overrules::new)
-                .put(DissentsFrom.ELEMENT, DissentsFrom::new)
+                .put(DISSENTS_FROM, DissentsFrom::new)
                 .put(PutsInQuestion.ELEMENT, PutsInQuestion::new)
                 .put(Distinguishes.ELEMENT, Distinguishes::new)
                 .build();

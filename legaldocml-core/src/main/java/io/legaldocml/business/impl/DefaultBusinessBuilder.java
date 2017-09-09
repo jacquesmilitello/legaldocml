@@ -25,6 +25,7 @@ import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
 
 import static io.legaldocml.akn.AknElements.BILL;
 import static io.legaldocml.akn.AknElements.DEBATE;
+import static io.legaldocml.akn.AknElements.DEBATE_REPORT;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -40,7 +41,7 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
                 .put(AknElements.AMENDMENT_LIST, AmendmentList.class)
                 .put(BILL, Bill.class)
                 .put(Judgment.ELEMENT, Judgment.class)
-                .put(DebateReport.ELEMENT, DebateReport.class)
+                .put(DEBATE_REPORT, DebateReport.class)
                 .put(Doc.ELEMENT, Doc.class)
                 .put(DEBATE, Debate.class)
                 .put(DocumentCollection.ELEMENT, DocumentCollection.class)

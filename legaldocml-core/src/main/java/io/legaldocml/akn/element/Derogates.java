@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DEROGATES;
+
 /**
  * The element derogates is a metadata element specifying a reference to a source derogated by the argument being
  * described.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Derogates extends JudicialArgumentType implements JudicialArgumentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "derogates";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DEROGATES = Buffers.address(DEROGATES);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_DEROGATES, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_DEROGATES, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Derogates extends JudicialArgumentType implements JudicialArg
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DEROGATES;
     }
 
 }

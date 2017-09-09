@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.group.ANsemanticInline;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
@@ -12,6 +11,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,21 +37,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Date extends InlineType implements io.legaldocml.akn.attribute.Date, ANsemanticInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "date";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DATE = Buffers.address(DATE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Date.class, "date")))
+                .put(DATE, biConsumerDateTime(getFieldOffset(Date.class, "date")))
                 .build();
     }
 
@@ -79,10 +74,10 @@ public final class Date extends InlineType implements io.legaldocml.akn.attribut
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_DATE, 4);
         writeDate(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_DATE, 4);
     }
 
     /**
@@ -90,7 +85,7 @@ public final class Date extends InlineType implements io.legaldocml.akn.attribut
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DATE;
     }
 
     /**

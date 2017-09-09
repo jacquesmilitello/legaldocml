@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DEL;
+
 /**
  * The element del is an inline element for the specification of editorial deletions.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Del extends InlineType implements ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "del";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DEL = Buffers.address(DEL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_DEL, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_DEL, 3);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Del extends InlineType implements ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DEL;
     }
 
 }

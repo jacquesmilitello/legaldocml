@@ -52,7 +52,14 @@ import static io.legaldocml.akn.AknElements.COMMUNICATION;
 import static io.legaldocml.akn.AknElements.CONCEPT;
 import static io.legaldocml.akn.AknElements.CONTAINER;
 import static io.legaldocml.akn.AknElements.COURT_TYPE;
+import static io.legaldocml.akn.AknElements.DATE;
 import static io.legaldocml.akn.AknElements.DEBATE;
+import static io.legaldocml.akn.AknElements.DEBATE_REPORT;
+import static io.legaldocml.akn.AknElements.DEBATE_SECTION;
+import static io.legaldocml.akn.AknElements.DECLARATION_OF_VOTE;
+import static io.legaldocml.akn.AknElements.DECORATION;
+import static io.legaldocml.akn.AknElements.DEF;
+import static io.legaldocml.akn.AknElements.DEL;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -70,7 +77,7 @@ public final class Groups {
                 .put(AMENDMENT_LIST, AmendmentList::new)
                 .put(BILL, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
-                .put(DebateReport.ELEMENT, DebateReport::new)
+                .put(DEBATE_REPORT, DebateReport::new)
                 .put(Doc.ELEMENT, Doc::new)
                 .put(DEBATE, Debate::new)
                 .put(DocumentCollection.ELEMENT, DocumentCollection::new)
@@ -83,7 +90,7 @@ public final class Groups {
                 .put(AMENDMENT_LIST, AmendmentList::new)
                 .put(BILL, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
-                .put(DebateReport.ELEMENT, DebateReport::new)
+                .put(DEBATE_REPORT, DebateReport::new)
                 .put(Doc.ELEMENT, Doc::new)
                 .put(DEBATE, Debate::new)
                 .put(DocumentCollection.ELEMENT, DocumentCollection::new)
@@ -276,7 +283,7 @@ public final class Groups {
         // <xsd:element ref="ins"/>
         builder.put(Ins.ELEMENT, Ins::new);
         // <xsd:element ref="del"/>
-        builder.put(Del.ELEMENT, Del::new);
+        builder.put(DEL, Del::new);
         // <xsd:element ref="omissis"/>
         builder.put(Omissis.ELEMENT, Omissis::new);
         // <xsd:element ref="embeddedText"/>
@@ -290,7 +297,7 @@ public final class Groups {
         // <xsd:element ref="fillIn"/>
         builder.put(FillIn.ELEMENT, FillIn::new);
         // <xsd:element ref="decoration"/>
-        builder.put(Decoration.ELEMENT, Decoration::new);
+        builder.put(DECORATION, Decoration::new);
 
         // V2
         builder.put(ExtractText.ELEMENT, ExtractText::new);
@@ -343,7 +350,7 @@ public final class Groups {
     public static Map<String, Supplier<ANsemanticInline>> ANsemanticInline() {
         ImmutableMap.Builder<String, Supplier<ANsemanticInline>> builder = ImmutableMap.builder();
         // <xsd:element ref="date" />
-        builder.put(Date.ELEMENT, Date::new);
+        builder.put(DATE, Date::new);
         // <xsd:element ref="time" />
         builder.put(Time.ELEMENT, Time::new);
         // <xsd:element ref="person" />
@@ -367,7 +374,7 @@ public final class Groups {
         // <xsd:element ref="quantity" />
         builder.put(Quantity.ELEMENT, Quantity::new);
         // <xsd:element ref="def" />
-        builder.put(Def.ELEMENT, Def::new);
+        builder.put(DEF, Def::new);
         // <xsd:element ref="entity" />
         builder.put(Entity.ELEMENT, Entity::new);
         return builder.build();
@@ -619,7 +626,7 @@ public final class Groups {
         // <xsd:element ref="nationalInterest"/>
         builder.put(NationalInterest.ELEMENT, NationalInterest::new);
         // <xsd:element ref="declarationOfVote"/>
-        builder.put(DeclarationOfVote.ELEMENT, DeclarationOfVote::new);
+        builder.put(DECLARATION_OF_VOTE, DeclarationOfVote::new);
         // <xsd:element ref="communication"/>
         builder.put(COMMUNICATION, Communication::new);
         // <xsd:element ref="petitions"/>
@@ -639,7 +646,7 @@ public final class Groups {
         // <xsd:element ref="adjournment"/>
         builder.put(AknElements.ADJOURNMENT, Adjournment::new);
         // <xsd:element ref="debateSection"/>
-        builder.put(DebateSection.ELEMENT, DebateSection::new);
+        builder.put(DEBATE_SECTION, DebateSection::new);
         return builder.build();
     }
 

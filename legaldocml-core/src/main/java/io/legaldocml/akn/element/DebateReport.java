@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DEBATE_REPORT;
+
 /**
  * Element debateReport is used for descriving the structure and content of a report.
  *
@@ -27,23 +29,18 @@ import java.io.IOException;
 public final class DebateReport extends OpenStructure implements DocumentType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "debateReport";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DEBATE_REPORT = Buffers.address(DEBATE_REPORT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_DEBATE_REPORT, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_DEBATE_REPORT, 12);
     }
 
     /**
@@ -51,7 +48,7 @@ public final class DebateReport extends OpenStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DEBATE_REPORT;
     }
 
 }

@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DECISION;
+
 /**
  * This element is a structural container for the section of a judgment containing the decision.
  *
@@ -19,24 +21,18 @@ import java.io.IOException;
 public final class Decision extends MainContent implements JudgmentBlock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "decision";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
-
+    private static final long ADDRESS_DECISION = Buffers.address(DECISION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_DECISION, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_DECISION, 8);
     }
 
     /**
@@ -44,7 +40,7 @@ public final class Decision extends MainContent implements JudgmentBlock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DECISION;
     }
 
     /**

@@ -368,9 +368,69 @@ public final class AknElements {
     public static final String CROSS_HEADING = "crossHeading";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Date}
+     */
+    public static final String DATE = "date";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Debate}
      */
     public static final String DEBATE = "debate";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DebateBody}
+     */
+    public static final String DEBATE_BODY = "debateBody";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DebateReport}
+     */
+    public static final String DEBATE_REPORT = "debateReport";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DebateSection}
+     */
+    public static final String DEBATE_SECTION = "debateSection";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Decision}
+     */
+    public static final String DECISION = "decision";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DeclarationOfVote}
+     */
+    public static final String DECLARATION_OF_VOTE = "declarationOfVote";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Decoration}
+     */
+    public static final String DECORATION = "decoration";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Def}
+     */
+    public static final String DEF = "def";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Del}
+     */
+    public static final String DEL = "del";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Derogates}
+     */
+    public static final String DEROGATES = "derogates";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Destination}
+     */
+    public static final String DESTINATION = "destination";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DissentsFrom}
+     */
+    public static final String DISSENTS_FROM = "dissentsFrom";
 
     /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
