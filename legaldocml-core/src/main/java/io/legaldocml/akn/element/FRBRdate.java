@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Name;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -117,6 +118,14 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
     @Override
     public String name() {
         return ELEMENT;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
     }
 
 }

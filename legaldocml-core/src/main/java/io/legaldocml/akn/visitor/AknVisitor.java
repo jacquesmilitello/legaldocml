@@ -23,8 +23,10 @@ import io.legaldocml.akn.visitor.group.JudgmentBlockVisitor;
 import io.legaldocml.akn.visitor.group.PrefaceContainersVisitor;
 import io.legaldocml.akn.visitor.group.SpeechSectionVisitor;
 import io.legaldocml.akn.visitor.stuct.BodyVisitor;
+import io.legaldocml.akn.visitor.stuct.FRBRVisitor;
 import io.legaldocml.akn.visitor.stuct.OtherVisitior;
 import io.legaldocml.akn.visitor.stuct.StructureVisitor;
+import io.legaldocml.akn.visitor.stuct.TLCVisitor;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -34,7 +36,7 @@ public interface AknVisitor extends DocumentTypeVisitor, ANhierVisitor, ANblockV
         BasicContainersVisitor, SpeechSectionVisitor, ANcontainersVisitor, ANmarkerVisitor, JudgmentBlockVisitor,
         ContainerElementsVisitor, HTMLinlineVisitor, PrefaceContainersVisitor,
         InlineCMVisitor, InlineElementsVisitor,
-        StructureVisitor, BodyVisitor, OtherVisitior {
+        StructureVisitor, BodyVisitor, OtherVisitior, FRBRVisitor, TLCVisitor {
 
     default boolean visitEnter(AkomaNtoso<?> akomaNtoso) {
         return true;

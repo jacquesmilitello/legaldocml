@@ -5,6 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
@@ -158,9 +159,28 @@ public final class Identification implements AknObject, Source {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            this.work.accept(visitor);
+            this.expression.accept(visitor);
+            this.manifestation.accept(visitor);
+            if (this.item != null) {
+                this.item.accept(visitor);
+            }
+            visitor.visitLeave(this);
+        }
     }
 
 }

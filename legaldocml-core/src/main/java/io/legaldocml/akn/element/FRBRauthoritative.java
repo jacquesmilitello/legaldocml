@@ -1,8 +1,9 @@
 package io.legaldocml.akn.element;
 
 
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -45,5 +46,13 @@ public final class FRBRauthoritative extends BooleanValueType {
     @Override
     public String name() {
         return ELEMENT;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
     }
 }

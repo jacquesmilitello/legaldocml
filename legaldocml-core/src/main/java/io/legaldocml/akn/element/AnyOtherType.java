@@ -7,6 +7,7 @@ import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.other.ExternalElementWithNS;
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
@@ -171,6 +172,14 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+
     }
 
 }

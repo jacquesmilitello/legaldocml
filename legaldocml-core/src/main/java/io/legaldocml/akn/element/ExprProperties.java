@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -39,7 +40,6 @@ public abstract class ExprProperties extends CoreProperties {
 
     // Optional
     private AknList<FRBRtranslation> translations;
-
 
     public final void add(FRBRlanguage language) {
         this.languages.add(language);
@@ -123,6 +123,27 @@ public abstract class ExprProperties extends CoreProperties {
             } while (reader.getQName().equalsLocalName(FRBRtranslation.ELEMENT));
         }
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        super.accept(visitor);
+        if (this.versionNumber != null) {
+            this.versionNumber.accept(visitor);
+        }
+        if (this.authoritative != null) {
+            this.authoritative.accept(visitor);
+        }
+        if (this.masterExpression != null) {
+            this.masterExpression.accept(visitor);
+        }
+        this.languages.accept(visitor);
+        if (this.translations != null) {
+            this.translations.accept(visitor);
+        }
     }
 
 }

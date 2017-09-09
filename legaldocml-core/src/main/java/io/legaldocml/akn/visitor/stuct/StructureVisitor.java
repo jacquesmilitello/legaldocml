@@ -1,12 +1,17 @@
 package io.legaldocml.akn.visitor.stuct;
 
+import io.legaldocml.akn.element.Analysis;
 import io.legaldocml.akn.element.Attachments;
 import io.legaldocml.akn.element.Components;
 import io.legaldocml.akn.element.Conclusions;
 import io.legaldocml.akn.element.CoverPage;
+import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Preamble;
 import io.legaldocml.akn.element.Preface;
+import io.legaldocml.akn.element.Publication;
+import io.legaldocml.akn.element.References;
+import io.legaldocml.akn.element.Workflow;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -68,4 +73,41 @@ public interface StructureVisitor {
     default void visitLeave(Components components) {
         // default -> nothing to do.
     }
+
+    default boolean visitEnter(Identification identification) {
+        return true;
+    }
+
+    default void visitLeave(Identification identification) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Analysis analysis) {
+        return true;
+    }
+
+    default void visitLeave(Analysis analysis) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(References references) {
+        return true;
+    }
+
+    default void visitLeave(References references) {
+        // default -> nothing to do.
+    }
+
+    default void visit(Publication publication) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Workflow workflow) {
+        return true;
+    }
+
+    default void visitLeave(Workflow workflow) {
+        // default -> nothing to do.
+    }
+
 }

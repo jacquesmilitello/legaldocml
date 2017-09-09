@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -59,6 +60,20 @@ public abstract class ManifProperties extends CoreProperties {
             reader.nextStartOrEndElement();
         }
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+       super.accept(visitor);
+       if (this.format != null) {
+           this.format.accept(visitor);
+       }
+       if (this.portion != null) {
+           this.portion.accept(visitor);
+       }
     }
 
 }

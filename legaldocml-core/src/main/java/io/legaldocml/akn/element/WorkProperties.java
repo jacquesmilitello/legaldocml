@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -127,7 +128,29 @@ public abstract class WorkProperties extends CoreProperties {
             this.authoritative.read(reader);
             reader.nextStartOrEndElement();
         }
-
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        super.accept(visitor);
+        country.accept(visitor);
+        if (this.subtype != null) {
+            this.subtype.accept(visitor);
+        }
+        if (this.numbers != null) {
+            this.numbers.accept(visitor);
+        }
+        if (this.names != null) {
+            this.names.accept(visitor);
+        }
+        if (this.prescriptive != null) {
+            this.prescriptive.accept(visitor);
+        }
+        if (this.authoritative != null) {
+            this.authoritative.accept(visitor);
+        }
+    }
 }

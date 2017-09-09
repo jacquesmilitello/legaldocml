@@ -5,6 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.RoleRef;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -151,6 +152,14 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     protected void toString(ToStringBuilder builder) {
         builder.append(AknAttributes.HREF, this.href);
         builder.append(AknAttributes.AS, this.as);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
     }
 
 }

@@ -4,6 +4,7 @@ import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.MandatoryElementException;
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -192,6 +193,27 @@ public abstract class CoreProperties implements AknObject {
             reader.nextStartOrEndElement();
         }
 
+    }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        this.frbrThis.accept(visitor);
+        this.uris.accept(visitor);
+        if (this.aliases != null) {
+            this.aliases.accept(visitor);
+        }
+        this.date.accept(visitor);
+        this.authors.accept(visitor);
+        if (this.componentInfo != null) {
+            this.componentInfo.accept(visitor);
+        }
+        if (this.preservation != null) {
+            this.preservation.accept(visitor);
+        }
     }
 
 }

@@ -2,9 +2,10 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -71,4 +72,16 @@ public final class ComponentInfo implements AknObject {
         return COMPONENT_INFO;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            if (this.componentData != null) {
+                this.componentData.accept(visitor);
+            }
+            visitor.visitLeave(this);
+        }
+    }
 }

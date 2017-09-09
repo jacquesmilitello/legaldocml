@@ -8,6 +8,7 @@ import io.legaldocml.akn.attribute.FromLanguage;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Pivot;
 import io.legaldocml.akn.type.AgentRef;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -196,6 +197,14 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
     }
 
 }

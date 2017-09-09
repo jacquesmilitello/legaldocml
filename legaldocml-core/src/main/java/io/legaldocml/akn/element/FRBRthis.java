@@ -2,8 +2,9 @@ package io.legaldocml.akn.element;
 
 
 import io.legaldocml.akn.AknElements;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.Strings;
 
 import java.io.IOException;
@@ -61,4 +62,13 @@ public final class FRBRthis extends ValueType {
         }
         return getValue().hashCode();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
+    }
+
 }

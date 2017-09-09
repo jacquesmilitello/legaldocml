@@ -9,6 +9,7 @@ import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlWriterHelper;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
@@ -162,6 +163,19 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
     @Override
     public String name() {
         return COMPONENT_DATA;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            if (this.componentData != null) {
+                this.componentData.accept(visitor);
+            }
+            visitor.visitLeave(this);
+        }
     }
 
 }
