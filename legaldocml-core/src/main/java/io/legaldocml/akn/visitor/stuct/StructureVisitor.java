@@ -1,12 +1,18 @@
 package io.legaldocml.akn.visitor.stuct;
 
+import io.legaldocml.akn.element.ActiveRef;
 import io.legaldocml.akn.element.Analysis;
 import io.legaldocml.akn.element.Attachments;
+import io.legaldocml.akn.element.Classification;
 import io.legaldocml.akn.element.Components;
 import io.legaldocml.akn.element.Conclusions;
 import io.legaldocml.akn.element.CoverPage;
+import io.legaldocml.akn.element.EventRef;
 import io.legaldocml.akn.element.Identification;
+import io.legaldocml.akn.element.Keyword;
+import io.legaldocml.akn.element.Lifecycle;
 import io.legaldocml.akn.element.Meta;
+import io.legaldocml.akn.element.Original;
 import io.legaldocml.akn.element.Preamble;
 import io.legaldocml.akn.element.Preface;
 import io.legaldocml.akn.element.Publication;
@@ -107,6 +113,42 @@ public interface StructureVisitor {
     }
 
     default void visitLeave(Workflow workflow) {
+        // default -> nothing to do.
+    }
+
+    default void visit(Original original) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Classification classification) {
+        return true;
+    }
+
+    default void visitLeave(Classification classification) {
+        // default -> nothing to do.
+    }
+
+    default void visit(Keyword keyword) {
+        // default -> nothing to do.
+    }
+
+    default void visit(ActiveRef ref) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Lifecycle lifecycle) {
+        return true;
+    }
+
+    default void visitLeave(Lifecycle lifecycle) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(EventRef eventRef) {
+        return true;
+    }
+
+    default void visitLeave(EventRef eventRef) {
         // default -> nothing to do.
     }
 

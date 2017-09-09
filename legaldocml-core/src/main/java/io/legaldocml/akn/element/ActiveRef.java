@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.DocRef;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -41,6 +42,15 @@ public final class ActiveRef extends ReferenceType implements DocRef {
     @Override
     public String name() {
         return ACTIVE_REF;
+    }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
     }
 
 }

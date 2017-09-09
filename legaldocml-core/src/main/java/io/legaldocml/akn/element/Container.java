@@ -4,8 +4,9 @@ import io.legaldocml.akn.group.BasicContainers;
 import io.legaldocml.akn.group.ContainerElements;
 import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -44,6 +45,17 @@ public final class Container extends ContainerType implements BasicContainers, P
     @Override
     public String name() {
         return CONTAINER;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
 }

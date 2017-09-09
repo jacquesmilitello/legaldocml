@@ -9,6 +9,7 @@ import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ReferenceRef;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -204,10 +205,19 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
         return ELEMENT;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+       visitor.visit(this);
+    }
 }
