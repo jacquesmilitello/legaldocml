@@ -5,6 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
@@ -197,4 +198,19 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            if (this.caption != null) {
+                this.caption.accept(visitor);
+            }
+            this.trs.accept(visitor);
+            visitor.visitLeave(this);
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.group.HTMLMarker;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.util.XmlWriterHelper;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -164,4 +165,13 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
+    }
+
 }

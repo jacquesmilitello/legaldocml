@@ -7,6 +7,7 @@ import io.legaldocml.akn.element.DocumentRef;
 import io.legaldocml.akn.element.Header;
 import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.ImplicitReference;
+import io.legaldocml.akn.element.Tr;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -56,6 +57,14 @@ public interface OtherVisitior {
     }
 
     default void visitLeave(Header header) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Tr tr) {
+        return true;
+    }
+
+    default void visitLeave(Tr tr) {
         // default -> nothing to do.
     }
 }

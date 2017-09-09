@@ -8,6 +8,7 @@ import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCProcess;
 import io.legaldocml.akn.element.TLCReference;
 import io.legaldocml.akn.element.TLCRole;
+import io.legaldocml.akn.element.TLCTerm;
 
 public interface TLCVisitor {
 
@@ -40,6 +41,10 @@ public interface TLCVisitor {
     }
 
     default void visit(TLCProcess process) {
+        // default -> nothing to do.
+    }
+
+    default void visit(TLCTerm term) {
         // default -> nothing to do.
     }
 }

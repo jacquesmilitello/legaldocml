@@ -44,7 +44,9 @@ public class VisitorTest {
         akn.accept(new AknVisitor() {
         });
 
-        /*
-        test("/xml/v3/eu_COM(2013)0619_EN-8.xml");*/
+        akn = ReaderHelper.read(PathForTest.path("/xml/v3/eu_COM(2013)0619_EN-8.xml"));
+        akn.accept(new AknVisitor() {
+        });
+        
     }
 }
