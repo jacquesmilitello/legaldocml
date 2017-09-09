@@ -32,4 +32,7 @@ public interface ANmarkerVisitor {
     default void visitLeave(Eop eop) {
     }
 
+    default void visit(NoteRef noteRef) {
+    }
+
 }

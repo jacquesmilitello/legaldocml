@@ -7,6 +7,7 @@ import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -85,6 +86,14 @@ public abstract class Blocksopt extends CoreOptImpl implements BlockElementsCont
     public void write(XmlWriter writer) throws IOException {
         super.write(writer);
         this.elements.write(writer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        this.elements.accept(visitor);
     }
 
 }

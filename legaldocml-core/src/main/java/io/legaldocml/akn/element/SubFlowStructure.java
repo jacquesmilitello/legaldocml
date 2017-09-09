@@ -10,6 +10,7 @@ import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -157,4 +158,13 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
         super.write(writer);
         this.elems.write(writer);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        this.elems.accept(visitor);
+    }
+
 }

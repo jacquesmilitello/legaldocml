@@ -6,6 +6,7 @@ import io.legaldocml.akn.element.CollectionBody;
 import io.legaldocml.akn.element.DebateBody;
 import io.legaldocml.akn.element.JudgmentBody;
 import io.legaldocml.akn.element.MainBody;
+import io.legaldocml.akn.element.PortionBody;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -60,5 +61,13 @@ public interface BodyVisitor {
         // default -> nothing to do.
     }
 
+
+    default boolean visitEnter(PortionBody body) {
+        return true;
+    }
+
+    default void visitLeave(PortionBody body) {
+        // default -> nothing to do.
+    }
 
 }

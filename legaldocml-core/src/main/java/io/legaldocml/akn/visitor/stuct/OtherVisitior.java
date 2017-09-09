@@ -4,6 +4,7 @@ import io.legaldocml.akn.element.AlternativeReference;
 import io.legaldocml.akn.element.Attachment;
 import io.legaldocml.akn.element.ComponentRef;
 import io.legaldocml.akn.element.DocumentRef;
+import io.legaldocml.akn.element.Header;
 import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.ImplicitReference;
 
@@ -50,4 +51,11 @@ public interface OtherVisitior {
         // default -> nothing to do.
     }
 
+    default boolean visitEnter(Header header) {
+        return true;
+    }
+
+    default void visitLeave(Header header) {
+        // default -> nothing to do.
+    }
 }

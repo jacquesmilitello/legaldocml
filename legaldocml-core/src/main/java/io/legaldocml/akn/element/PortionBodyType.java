@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
@@ -78,6 +79,14 @@ public abstract class PortionBodyType extends CoreOptImpl {
     public void read(XmlReader reader) {
         super.read(reader);
         XmlReaderHelper.read(reader, this.elements, ELEMS);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        this.elements.accept(visitor);
     }
 
 }

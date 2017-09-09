@@ -8,12 +8,14 @@ import io.legaldocml.akn.visitor.group.ANheaderInlineVisitor;
 import io.legaldocml.akn.visitor.group.ANhierVisitor;
 import io.legaldocml.akn.visitor.group.ANmarkerVisitor;
 import io.legaldocml.akn.visitor.group.ANsemanticInlineVisitor;
+import io.legaldocml.akn.visitor.group.ANsubFlowVisitor;
 import io.legaldocml.akn.visitor.group.ANtitleInlineVisitor;
 import io.legaldocml.akn.visitor.group.ANtitleVisitor;
 import io.legaldocml.akn.visitor.group.AmendmentInlineVisitor;
 import io.legaldocml.akn.visitor.group.BasicContainersVisitor;
 import io.legaldocml.akn.visitor.group.BlockElementsVisitor;
 import io.legaldocml.akn.visitor.group.ContainerElementsVisitor;
+import io.legaldocml.akn.visitor.group.DocRefVisitor;
 import io.legaldocml.akn.visitor.group.DocumentTypeVisitor;
 import io.legaldocml.akn.visitor.group.HTMLBlockVisitor;
 import io.legaldocml.akn.visitor.group.HTMLinlineVisitor;
@@ -34,8 +36,8 @@ import io.legaldocml.akn.visitor.stuct.TLCVisitor;
 public interface AknVisitor extends DocumentTypeVisitor, ANhierVisitor, ANblockVisitor, ANtitleVisitor, BlockElementsVisitor,
         HTMLBlockVisitor, ANtitleInlineVisitor, AmendmentInlineVisitor, ANheaderInlineVisitor, ANsemanticInlineVisitor,
         BasicContainersVisitor, SpeechSectionVisitor, ANcontainersVisitor, ANmarkerVisitor, JudgmentBlockVisitor,
-        ContainerElementsVisitor, HTMLinlineVisitor, PrefaceContainersVisitor,
-        InlineCMVisitor, InlineElementsVisitor,
+        ContainerElementsVisitor, HTMLinlineVisitor, PrefaceContainersVisitor, ANsubFlowVisitor,
+        InlineCMVisitor, InlineElementsVisitor, DocRefVisitor,
         StructureVisitor, BodyVisitor, OtherVisitior, FRBRVisitor, TLCVisitor {
 
     default boolean visitEnter(AkomaNtoso<?> akomaNtoso) {

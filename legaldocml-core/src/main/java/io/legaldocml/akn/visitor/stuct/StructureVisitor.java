@@ -12,6 +12,7 @@ import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.element.Keyword;
 import io.legaldocml.akn.element.Lifecycle;
 import io.legaldocml.akn.element.Meta;
+import io.legaldocml.akn.element.Notes;
 import io.legaldocml.akn.element.Original;
 import io.legaldocml.akn.element.Preamble;
 import io.legaldocml.akn.element.Preface;
@@ -152,4 +153,11 @@ public interface StructureVisitor {
         // default -> nothing to do.
     }
 
+    default boolean visitEnter(Notes notes) {
+        return true;
+    }
+
+    default void visitLeave(Notes notes) {
+        // default -> nothing to do.
+    }
 }

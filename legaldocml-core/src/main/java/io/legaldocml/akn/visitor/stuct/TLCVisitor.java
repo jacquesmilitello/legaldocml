@@ -5,6 +5,7 @@ import io.legaldocml.akn.element.TLCEvent;
 import io.legaldocml.akn.element.TLCLocation;
 import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
+import io.legaldocml.akn.element.TLCProcess;
 import io.legaldocml.akn.element.TLCReference;
 import io.legaldocml.akn.element.TLCRole;
 
@@ -35,6 +36,10 @@ public interface TLCVisitor {
     }
 
     default void visit(TLCEvent event) {
+        // default -> nothing to do.
+    }
+
+    default void visit(TLCProcess process) {
         // default -> nothing to do.
     }
 }
