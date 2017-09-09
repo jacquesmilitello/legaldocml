@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_STAGE;
+
 /**
  * the element docStage is an inline element within preface to identify the string used by the document detailing the
  * stage in which the document sits.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class DocStage extends InlineType implements ANtitleInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "docStage";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_STAGE = Buffers.address(DOC_STAGE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_DOC_STAGE, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_DOC_STAGE, 8);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class DocStage extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_STAGE;
     }
 
 }

@@ -1,7 +1,6 @@
 package io.legaldocml.business.impl;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Act;
@@ -23,9 +22,13 @@ import io.legaldocml.business.builder.HierarchyStrategy;
 import io.legaldocml.business.builder.MetaBuilder;
 import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
 
+import static io.legaldocml.akn.AknElements.ACT;
+import static io.legaldocml.akn.AknElements.AMENDMENT;
+import static io.legaldocml.akn.AknElements.AMENDMENT_LIST;
 import static io.legaldocml.akn.AknElements.BILL;
 import static io.legaldocml.akn.AknElements.DEBATE;
 import static io.legaldocml.akn.AknElements.DEBATE_REPORT;
+import static io.legaldocml.akn.AknElements.DOC;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -36,13 +39,13 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
 
     static {
         DOCUMENT_TYPE = ImmutableMap.<String, Class<? extends DocumentType>>builder()
-                .put(AknElements.ACT, Act.class)
-                .put(AknElements.AMENDMENT, Amendment.class)
-                .put(AknElements.AMENDMENT_LIST, AmendmentList.class)
+                .put(ACT, Act.class)
+                .put(AMENDMENT, Amendment.class)
+                .put(AMENDMENT_LIST, AmendmentList.class)
                 .put(BILL, Bill.class)
                 .put(Judgment.ELEMENT, Judgment.class)
                 .put(DEBATE_REPORT, DebateReport.class)
-                .put(Doc.ELEMENT, Doc.class)
+                .put(DOC, Doc.class)
                 .put(DEBATE, Debate.class)
                 .put(DocumentCollection.ELEMENT, DocumentCollection.class)
                 .put(OfficialGazette.ELEMENT, OfficialGazette.class)

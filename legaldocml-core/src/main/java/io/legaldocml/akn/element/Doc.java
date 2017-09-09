@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC;
+
 /**
  * Element doc is used for describing the structure and content of any other document that is not included in the list
  * of document explicitly managed by Akoma Ntoso.
@@ -29,23 +31,18 @@ import java.io.IOException;
 public final class Doc extends OpenStructure implements DocumentType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "doc";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC = Buffers.address(DOC);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_DOC, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_DOC, 3);
     }
 
     /**
@@ -53,7 +50,7 @@ public final class Doc extends OpenStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC;
     }
 
     /**

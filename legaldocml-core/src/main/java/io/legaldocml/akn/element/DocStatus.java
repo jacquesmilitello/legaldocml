@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_STATUS;
+
 /**
  * The element docStatus is an inline element within preface to identify the string used by the document detailing the
  * status of the document.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class DocStatus extends InlineType implements ANtitleInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "docStatus";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_STATUS = Buffers.address(DOC_STATUS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_DOC_STATUS, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_DOC_STATUS, 9);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class DocStatus extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_STATUS;
     }
 
 }

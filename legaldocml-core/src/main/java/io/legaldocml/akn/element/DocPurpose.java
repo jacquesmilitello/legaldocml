@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_PURPOSE;
+
 /**
  * The element docPurpose is an inline element within preface to identify the string used by the document detailing its
  * own purpose
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class DocPurpose extends InlineType implements ANtitleInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "docPurpose";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_PURPOSE = Buffers.address(DOC_PURPOSE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_DOC_PURPOSE, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_DOC_PURPOSE, 10);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class DocPurpose extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_PURPOSE;
     }
 
 }

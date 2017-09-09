@@ -433,6 +433,86 @@ public final class AknElements {
     public static final String DISSENTS_FROM = "dissentsFrom";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Div}
+     */
+    public static final String DIV = "div";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Division}
+     */
+    public static final String DIVISION = "division";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Doc}
+     */
+    public static final String DOC = "doc";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocAuthority}
+     */
+    public static final String DOC_AUTHORITY = "docAuthority";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocCommittee}
+     */
+    public static final String DOC_COMMITTEE = "docCommittee";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocDate}
+     */
+    public static final String DOC_DATE = "docDate";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocIntroducer}
+     */
+    public static final String DOC_INTRODUCER = "docIntroducer";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocJurisdiction}
+     */
+    public static final String DOC_JURISDICTION = "docJurisdiction";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocJurisdiction}
+     */
+    public static final String DOCKET_NUMBER = "docketNumber";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocNumber}
+     */
+    public static final String DOC_NUMBER = "docNumber";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocProponent}
+     */
+    public static final String DOC_PROPONENT = "docProponent";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocPurpose}
+     */
+    public static final String DOC_PURPOSE = "docPurpose";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocStage}
+     */
+    public static final String DOC_STAGE = "docStage";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocStatus}
+     */
+    public static final String DOC_STATUS = "docStatus";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocTitle}
+     */
+    public static final String DOC_TITLE = "docTitle";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocType}
+     */
+    public static final String DOC_TYPE = "docType";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
      */
     public static final String FRBRTHIS = "FRBRthis";

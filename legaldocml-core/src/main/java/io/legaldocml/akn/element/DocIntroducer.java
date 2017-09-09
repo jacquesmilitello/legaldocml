@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_INTRODUCER;
+
 /**
  * The element docIntroducer is an inline element within preface to identify the string used by the document detailing
  * the individual introducing of the document.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class DocIntroducer extends InlineType implements ANtitleInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "docIntroducer";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_INTRODUCER = Buffers.address(DOC_INTRODUCER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_DOC_INTRODUCER, 13);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_DOC_INTRODUCER, 13);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class DocIntroducer extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_INTRODUCER;
     }
 
 }

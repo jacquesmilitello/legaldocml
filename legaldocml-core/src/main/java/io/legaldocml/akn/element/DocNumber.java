@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_NUMBER;
+
 /**
  * The element docNumber is an inline element within preface to identify the string used by the document for its own
  * number.
@@ -19,24 +21,20 @@ import java.io.IOException;
  */
 public final class DocNumber extends InlineType implements ANtitleInline {
 
-    /**
-     * Xml Element Name.
-     */
-    public static final String ELEMENT = "docNumber";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_NUMBER = Buffers.address(DOC_NUMBER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_DOC_NUMBER, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_DOC_NUMBER, 9);
     }
 
     /**
@@ -44,7 +42,7 @@ public final class DocNumber extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_NUMBER;
     }
 
 }

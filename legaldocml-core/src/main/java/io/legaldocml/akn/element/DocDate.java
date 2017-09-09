@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.DOC_DATE;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class DocDate extends InlineType implements Date, ANtitleInline {
 
     /**
-     * Xml Element Name.
-     */
-    public static final String ELEMENT = "docDate";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_DATE = Buffers.address(DOC_DATE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -79,10 +75,10 @@ public final class DocDate extends InlineType implements Date, ANtitleInline {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_DOC_DATE, 7);
         writeDate(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_DOC_DATE, 7);
     }
 
     /**
@@ -98,7 +94,7 @@ public final class DocDate extends InlineType implements Date, ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_DATE;
     }
 
 }

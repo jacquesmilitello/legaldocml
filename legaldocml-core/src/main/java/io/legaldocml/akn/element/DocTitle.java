@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_TITLE;
+
 /**
  * the element docTitle is an inline element within preface to identify the string used by the document for its own
  * title.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class DocTitle extends InlineType implements ANtitleInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "docTitle";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_TITLE = Buffers.address(DOC_TITLE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_DOC_TITLE, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_DOC_TITLE, 8);
     }
 
     /**
@@ -43,6 +40,6 @@ public final class DocTitle extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_TITLE;
     }
 }

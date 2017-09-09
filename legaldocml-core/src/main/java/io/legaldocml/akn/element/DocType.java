@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_TYPE;
+
 /**
  * The element docType is an inline element within preface to identify the string used by the document for its own type.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class DocType extends InlineType implements ANtitleInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "docType";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_TYPE = Buffers.address(DOC_TYPE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_DOC_TYPE, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_DOC_TYPE, 7);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class DocType extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_TYPE;
     }
 
 }

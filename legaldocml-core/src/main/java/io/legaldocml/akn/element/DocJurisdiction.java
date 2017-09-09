@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_JURISDICTION;
+
 /**
  * The element docJurisdiction is an inline element within preface to identify the string used by the document detailing
  * the jurisdiction of the document.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class DocJurisdiction extends InlineType implements ANtitleInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "docJurisdiction";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_JURISDICTION = Buffers.address(DOC_JURISDICTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_DOC_JURISDICTION, 15);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_DOC_JURISDICTION, 15);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class DocJurisdiction extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_JURISDICTION;
     }
 
 }

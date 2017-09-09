@@ -7,6 +7,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOC_COMMITTEE;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 
 /**
@@ -30,14 +31,9 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 public final class DocCommittee extends InlineType implements ANtitleInline, ValueOpt {
 
     /**
-     * XML element name.
-     */
-    public static final String ELEMENT = "docCommittee";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOC_COMMITTEE = Buffers.address(DOC_COMMITTEE);
 
     private String value;
 
@@ -46,10 +42,10 @@ public final class DocCommittee extends InlineType implements ANtitleInline, Val
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_DOC_COMMITTEE, 12);
         writeOptValue(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_DOC_COMMITTEE, 12);
     }
 
     /**
@@ -73,7 +69,7 @@ public final class DocCommittee extends InlineType implements ANtitleInline, Val
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOC_COMMITTEE;
     }
 
 }

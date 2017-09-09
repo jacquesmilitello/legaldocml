@@ -60,6 +60,22 @@ import static io.legaldocml.akn.AknElements.DECLARATION_OF_VOTE;
 import static io.legaldocml.akn.AknElements.DECORATION;
 import static io.legaldocml.akn.AknElements.DEF;
 import static io.legaldocml.akn.AknElements.DEL;
+import static io.legaldocml.akn.AknElements.DIV;
+import static io.legaldocml.akn.AknElements.DIVISION;
+import static io.legaldocml.akn.AknElements.DOC;
+import static io.legaldocml.akn.AknElements.DOCKET_NUMBER;
+import static io.legaldocml.akn.AknElements.DOC_AUTHORITY;
+import static io.legaldocml.akn.AknElements.DOC_COMMITTEE;
+import static io.legaldocml.akn.AknElements.DOC_DATE;
+import static io.legaldocml.akn.AknElements.DOC_INTRODUCER;
+import static io.legaldocml.akn.AknElements.DOC_JURISDICTION;
+import static io.legaldocml.akn.AknElements.DOC_NUMBER;
+import static io.legaldocml.akn.AknElements.DOC_PROPONENT;
+import static io.legaldocml.akn.AknElements.DOC_PURPOSE;
+import static io.legaldocml.akn.AknElements.DOC_STAGE;
+import static io.legaldocml.akn.AknElements.DOC_STATUS;
+import static io.legaldocml.akn.AknElements.DOC_TITLE;
+import static io.legaldocml.akn.AknElements.DOC_TYPE;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -78,7 +94,7 @@ public final class Groups {
                 .put(BILL, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
                 .put(DEBATE_REPORT, DebateReport::new)
-                .put(Doc.ELEMENT, Doc::new)
+                .put(DOC, Doc::new)
                 .put(DEBATE, Debate::new)
                 .put(DocumentCollection.ELEMENT, DocumentCollection::new)
                 .put(OfficialGazette.ELEMENT, OfficialGazette::new)
@@ -91,7 +107,7 @@ public final class Groups {
                 .put(BILL, Bill::new)
                 .put(Judgment.ELEMENT, Judgment::new)
                 .put(DEBATE_REPORT, DebateReport::new)
-                .put(Doc.ELEMENT, Doc::new)
+                .put(DOC, Doc::new)
                 .put(DEBATE, Debate::new)
                 .put(DocumentCollection.ELEMENT, DocumentCollection::new)
                 .put(OfficialGazette.ELEMENT, OfficialGazette::new)
@@ -402,15 +418,15 @@ public final class Groups {
     public static Map<String, Supplier<ANtitleInline>> ANtitleInline() {
         ImmutableMap.Builder<String, Supplier<ANtitleInline>> builder = ImmutableMap.builder();
         // <xsd:element ref="docType" />
-        builder.put(DocType.ELEMENT, DocType::new);
+        builder.put(DOC_TYPE, DocType::new);
         //<xsd:element ref="docTitle" />
-        builder.put(DocTitle.ELEMENT, DocTitle::new);
+        builder.put(DOC_TITLE, DocTitle::new);
         // <xsd:element ref="docNumber" />
-        builder.put(DocNumber.ELEMENT, DocNumber::new);
+        builder.put(DOC_NUMBER, DocNumber::new);
         // <xsd:element ref="docProponent" />
-        builder.put(DocProponent.ELEMENT, DocProponent::new);
+        builder.put(DOC_PROPONENT, DocProponent::new);
         // <xsd:element ref="docDate" />
-        builder.put(DocDate.ELEMENT, DocDate::new);
+        builder.put(DOC_DATE, DocDate::new);
         // <xsd:element ref="legislature" />
         builder.put(Legislature.ELEMENT, Legislature::new);
         // <xsd:element ref="session" />
@@ -418,21 +434,21 @@ public final class Groups {
         // <xsd:element ref="shortTitle"/>
         builder.put(ShortTitle.ELEMENT, ShortTitle::new);
         // <xsd:element ref="docAuthority"/>
-        builder.put(DocAuthority.ELEMENT, DocAuthority::new);
+        builder.put(DOC_AUTHORITY, DocAuthority::new);
         // <xsd:element ref="docPurpose" />
-        builder.put(DocPurpose.ELEMENT, DocPurpose::new);
+        builder.put(DOC_PURPOSE, DocPurpose::new);
         // <xsd:element ref="docCommittee" />
-        builder.put(DocCommittee.ELEMENT, DocCommittee::new);
+        builder.put(DOC_COMMITTEE, DocCommittee::new);
         // <xsd:element ref="docIntroducer" />
-        builder.put(DocIntroducer.ELEMENT, DocIntroducer::new);
+        builder.put(DOC_INTRODUCER, DocIntroducer::new);
         // <xsd:element ref="docStage" />
-        builder.put(DocStage.ELEMENT, DocStage::new);
+        builder.put(DOC_STAGE, DocStage::new);
         // <xsd:element ref="docStatus" />
-        builder.put(DocStatus.ELEMENT, DocStatus::new);
+        builder.put(DOC_STATUS, DocStatus::new);
         // <xsd:element ref="docJurisdiction" />
-        builder.put(DocJurisdiction.ELEMENT, DocJurisdiction::new);
+        builder.put(DOC_JURISDICTION, DocJurisdiction::new);
         // <xsd:element ref="docketNumber" />
-        builder.put(DocketNumber.ELEMENT, DocketNumber::new);
+        builder.put(DOCKET_NUMBER, DocketNumber::new);
         return builder.build();
     }
 
@@ -528,7 +544,7 @@ public final class Groups {
         // <xsd:element ref="tome"/>
         builder.put(Tome.ELEMENT, Tome::new);
         // <xsd:element ref="division"/>
-        builder.put(Division.ELEMENT, Division::new);
+        builder.put(DIVISION, Division::new);
         // <xsd:element ref="list"/>
         builder.put(List.ELEMENT, List::new);
         // <xsd:element ref="point"/>
@@ -580,7 +596,7 @@ public final class Groups {
     public static Map<String, Supplier<HTMLcontainers>> HTMLcontainers() {
         ImmutableMap.Builder<String, Supplier<HTMLcontainers>> builder = ImmutableMap.builder();
         // <xsd:element ref="div"/>
-        builder.put(Div.ELEMENT, Div::new);
+        builder.put(DIV, Div::new);
         return builder.build();
     }
 
