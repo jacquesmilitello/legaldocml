@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOCUMENT_COLLECTION;
+
 /**
  * Element documentCollection is used for describing the structure and content of a collection of other documents chosen
  * and combined for any reason whatsoever.
@@ -29,23 +31,18 @@ import java.io.IOException;
 public final class DocumentCollection extends CollectionStructure implements DocumentType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "documentCollection";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOCUMENT_COLLECTION = Buffers.address(DOCUMENT_COLLECTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 18);
+        writer.writeStart(ADDRESS_DOCUMENT_COLLECTION, 18);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 18);
+        writer.writeEnd(ADDRESS_DOCUMENT_COLLECTION, 18);
     }
 
     /**
@@ -53,7 +50,7 @@ public final class DocumentCollection extends CollectionStructure implements Doc
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOCUMENT_COLLECTION;
     }
 
     /**

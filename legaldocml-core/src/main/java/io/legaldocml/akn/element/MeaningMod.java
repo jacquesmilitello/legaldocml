@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.DOMAIN;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeMeaningModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -108,7 +109,7 @@ public final class MeaningMod extends ModificationType implements MeaningModType
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.getQName().equalsLocalName(Domain.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(DOMAIN)) {
             this.domain = new Domain();
             this.domain.read(reader);
             reader.nextStartOrEndElement();

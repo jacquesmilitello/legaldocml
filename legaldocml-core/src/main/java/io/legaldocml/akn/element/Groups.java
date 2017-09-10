@@ -64,6 +64,7 @@ import static io.legaldocml.akn.AknElements.DIV;
 import static io.legaldocml.akn.AknElements.DIVISION;
 import static io.legaldocml.akn.AknElements.DOC;
 import static io.legaldocml.akn.AknElements.DOCKET_NUMBER;
+import static io.legaldocml.akn.AknElements.DOCUMENT_COLLECTION;
 import static io.legaldocml.akn.AknElements.DOC_AUTHORITY;
 import static io.legaldocml.akn.AknElements.DOC_COMMITTEE;
 import static io.legaldocml.akn.AknElements.DOC_DATE;
@@ -96,7 +97,7 @@ public final class Groups {
                 .put(DEBATE_REPORT, DebateReport::new)
                 .put(DOC, Doc::new)
                 .put(DEBATE, Debate::new)
-                .put(DocumentCollection.ELEMENT, DocumentCollection::new)
+                .put(DOCUMENT_COLLECTION, DocumentCollection::new)
                 .put(OfficialGazette.ELEMENT, OfficialGazette::new)
                 .build();
 
@@ -109,7 +110,7 @@ public final class Groups {
                 .put(DEBATE_REPORT, DebateReport::new)
                 .put(DOC, Doc::new)
                 .put(DEBATE, Debate::new)
-                .put(DocumentCollection.ELEMENT, DocumentCollection::new)
+                .put(DOCUMENT_COLLECTION, DocumentCollection::new)
                 .put(OfficialGazette.ELEMENT, OfficialGazette::new)
                 .put(Portion.ELEMENT, Portion::new)
                 .put(Statement.ELEMENT, Statement::new)

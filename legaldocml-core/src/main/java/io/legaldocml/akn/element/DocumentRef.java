@@ -8,6 +8,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOCUMENT_REF;
+
 /**
  * the element documentRef is a reference to a separate work- or expression-level resource that should be placed in this
  * position. Actual resources are external (e.g. in the package or even in a different position) and are (an expression
@@ -22,23 +24,18 @@ import java.io.IOException;
 public final class DocumentRef extends LinkType implements DocContainerTypeElement, SubFlowStructureElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "documentRef";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOCUMENT_REF = Buffers.address(DOCUMENT_REF);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_DOCUMENT_REF, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_DOCUMENT_REF, 11);
     }
 
     /**
@@ -46,7 +43,7 @@ public final class DocumentRef extends LinkType implements DocContainerTypeEleme
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOCUMENT_REF;
     }
 
     /**

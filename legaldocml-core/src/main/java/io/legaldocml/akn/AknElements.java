@@ -513,6 +513,26 @@ public final class AknElements {
     public static final String DOC_TYPE = "docType";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.DocumentCollection}
+     */
+    public static final String DOCUMENT_COLLECTION = "documentCollection";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.DocumentRef}
+     */
+    public static final String DOCUMENT_REF = "documentRef";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Domain}
+     */
+    public static final String DOMAIN = "domain";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Duration}
+     */
+    public static final String DURATION = "duration";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
      */
     public static final String FRBRTHIS = "FRBRthis";

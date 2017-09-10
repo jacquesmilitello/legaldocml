@@ -12,6 +12,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.DOCUMENT_REF;
+
 /**
  * The complex type docContainerType defines a shared content model for elements that contain whole documents, namely
  * attachment, collectionItem, component.
@@ -43,7 +45,7 @@ public abstract class DocContainerType extends BaseHierarchyCoreReq {
                 .putAll(Groups.convertSuper(Groups.DOCUMENT_TYPE))
                 .put(Interstitial.ELEMENT, Interstitial::new)
                 .put(Toc.ELEMENT, Toc::new)
-                .put(DocumentRef.ELEMENT, DocumentRef::new)
+                .put(DOCUMENT_REF, DocumentRef::new)
                 .build();
     }
 

@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DOMAIN;
+
 /**
  * The element domain is a metadata element containing (in some non-managed form) the domain to which the modification
  * applies.
@@ -18,14 +20,9 @@ import java.io.IOException;
 public final class Domain extends AnyOtherType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "domain";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DOMAIN = Buffers.address(DOMAIN);
 
 
     /**
@@ -33,9 +30,9 @@ public final class Domain extends AnyOtherType {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_DOMAIN, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_DOMAIN, 6);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Domain extends AnyOtherType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DOMAIN;
     }
 
 }
