@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.EFFICACY;
+
 /**
  * The element efficacy is a metadata element specifying the period of the efficacy modification.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class Efficacy extends PeriodType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "efficacy";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EFFICACY = Buffers.address(EFFICACY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_EFFICACY, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_EFFICACY, 8);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class Efficacy extends PeriodType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EFFICACY;
     }
 
 }

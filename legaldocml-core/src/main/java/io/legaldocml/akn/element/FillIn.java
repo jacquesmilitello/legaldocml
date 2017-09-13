@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FILL_IN;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFillInWidth;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class FillIn extends InlineType implements ANinline, FillInWidth {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "fillIn";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FILL_IN = Buffers.address(FILL_IN);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,10 +74,10 @@ public final class FillIn extends InlineType implements ANinline, FillInWidth {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_FILL_IN, 6);
         writeFillInWidth(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_FILL_IN, 6);
     }
 
     /**
@@ -89,7 +85,7 @@ public final class FillIn extends InlineType implements ANinline, FillInWidth {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FILL_IN;
     }
 
     /**

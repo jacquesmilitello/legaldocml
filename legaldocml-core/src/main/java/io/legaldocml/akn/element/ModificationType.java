@@ -22,6 +22,7 @@ import static io.legaldocml.akn.AknElements.APPLICATION;
 import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.AknElements.DESTINATION;
 import static io.legaldocml.akn.AknElements.DURATION;
+import static io.legaldocml.akn.AknElements.EFFICACY;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -234,7 +235,7 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
             this.force = new Force();
             this.force.read(reader);
         }
-        if (reader.getQName().equalsLocalName(Efficacy.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(EFFICACY)) {
             this.efficacy = new Efficacy();
             this.efficacy.read(reader);
         }

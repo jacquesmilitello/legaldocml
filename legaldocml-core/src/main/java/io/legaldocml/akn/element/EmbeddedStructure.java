@@ -14,6 +14,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.EMBEDDED_STRUCTURE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
@@ -32,10 +33,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *         <xsd:extension base="subFlowStructure">
  *           <xsd:attributeGroup ref="quote"/>
  *           <xsd:attributeGroup ref="linkopt"/>
- *         <xsd:extension>
- *       <xsd:complexContent>
- *     <xsd:complexType>
- * 	 <xsd:element>
+ *         </xsd:extension>
+ *       </xsd:complexContent>
+ *     </xsd:complexType>
+ * 	 </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -43,14 +44,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt, Quote, ANinline{
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "embeddedStructure";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EMBEDDED_STRUCTURE = Buffers.address(EMBEDDED_STRUCTURE);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -139,11 +135,11 @@ public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_EMBEDDED_STRUCTURE, 17);
         writeLinkOpt(writer, this);
         writeQuote(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_EMBEDDED_STRUCTURE, 17);
     }
 
     /**
@@ -151,7 +147,7 @@ public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EMBEDDED_STRUCTURE;
     }
 
     /**

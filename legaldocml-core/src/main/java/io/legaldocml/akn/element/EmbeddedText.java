@@ -14,6 +14,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.EMBEDDED_TEXT;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -39,15 +40,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class EmbeddedText extends InlineType implements ANinline, Quote, LinkOpt {
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "embeddedText";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EMBEDDED_TEXT = Buffers.address(EMBEDDED_TEXT);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -135,9 +132,9 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_EMBEDDED_TEXT, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_EMBEDDED_TEXT, 11);
     }
 
     /**
@@ -145,7 +142,7 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EMBEDDED_TEXT;
     }
 
     /**

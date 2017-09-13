@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.EOL;
+
 /**
  * The element eol (end of line) is a marker for where in the original text the line breaks. If the line breaks within a
  * word, place the element BEFORE the word and place the number of characters before the break in the attribute breakAt.
@@ -22,23 +24,18 @@ import java.io.IOException;
 public final class Eol extends EolType implements ANmarker {
 
     /**
-     * XML Element Name.
-     */
-    public static final String ELEMENT = "eol";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EOL = Buffers.address(EOL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_EOL, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_EOL, 3);
     }
 
     /**
@@ -46,7 +43,7 @@ public final class Eol extends EolType implements ANmarker {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EOL;
     }
 
     /**

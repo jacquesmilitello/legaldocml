@@ -16,6 +16,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.EVENT_REF;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -54,7 +55,7 @@ public final class Lifecycle implements Source {
     }
 
     // Mandatory (min 1)
-    private final AknList<EventRef> eventRefs = new AknList<EventRef>(new EventRef[6]);
+    private final AknList<EventRef> eventRefs = new AknList<>(new EventRef[6]);
 
     // Optional
     private AgentRef source;
@@ -92,14 +93,14 @@ public final class Lifecycle implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(EventRef.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(EVENT_REF)) {
             EventRef eventRef;
             do {
                 eventRef = new EventRef();
                 eventRef.read(reader);
                 this.eventRefs.add(eventRef);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(EventRef.ELEMENT));
+            } while (reader.getQName().equalsLocalName(EVENT_REF));
         }
 
     }

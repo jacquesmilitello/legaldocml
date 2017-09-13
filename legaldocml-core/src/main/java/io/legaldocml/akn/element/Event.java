@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.EVENT;
+
 /**
  * The element event is an inline element to identify a text fragment introducing or referring to an event in the
  * ontology.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Event extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "event";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EVENT = Buffers.address(EVENT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_EVENT, 5);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_EVENT, 5);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Event extends InlineReqReqType implements ANsemanticInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EVENT;
     }
 
 }

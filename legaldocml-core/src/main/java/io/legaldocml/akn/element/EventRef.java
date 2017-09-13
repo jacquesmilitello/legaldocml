@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.EVENT_REF;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
@@ -56,14 +57,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class EventRef extends AnyOtherType implements Date, Source, RefersOpt, Originating, io.legaldocml.akn.attribute.EventType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "eventRef";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EVENT_REF = Buffers.address(EVENT_REF);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -170,14 +166,14 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_EVENT_REF, 8);
         writeDate(writer, this);
         writeSource(writer, this);
         writeRefers(writer, this);
         writeOriginating(writer, this);
         writeEventType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_EVENT_REF, 8);
     }
 
     /**
@@ -193,7 +189,7 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EVENT_REF;
     }
 
     /**

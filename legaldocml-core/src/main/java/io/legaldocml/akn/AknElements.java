@@ -533,6 +533,61 @@ public final class AknElements {
     public static final String DURATION = "duration";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Efficacy}
+     */
+    public static final String EFFICACY = "efficacy";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.EfficacyMod}
+     */
+    public static final String EFFICACY_MOD = "efficacyMod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.EmbeddedStructure}
+     */
+    public static final String EMBEDDED_STRUCTURE = "embeddedStructure";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.EmbeddedText}
+     */
+    public static final String EMBEDDED_TEXT = "embeddedText";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Entity}
+     */
+    public static final String ENTITY = "entity";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Eol}
+     */
+    public static final String EOL = "eol";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Eop}
+     */
+    public static final String EOP = "eop";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Event}
+     */
+    public static final String EVENT = "event";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.EventRef}
+     */
+    public static final String EVENT_REF = "eventRef";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Extends}
+     */
+    public static final String EXTENDS = "extends";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Extends}
+     */
+    public static final String FILL_IN = "fillIn";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
      */
     public static final String FRBRTHIS = "FRBRthis";

@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.EOP;
+
 /**
  * The element eop (end of page) is a marker for where in the original text the page breaks. Do NOT use a eol element,
  * too. If the page breaks within a word, place the element BEFORE the word and place the number of characters before
@@ -21,23 +23,18 @@ import java.io.IOException;
 public final class Eop extends EolType implements ANmarker {
 
     /**
-     * XML Element Name.
-     */
-    public static final String ELEMENT = "eop";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_EOP = Buffers.address(EOP);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_EOP, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_EOP, 3);
     }
 
     /**
@@ -45,7 +42,7 @@ public final class Eop extends EolType implements ANmarker {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return EOP;
     }
 
 }

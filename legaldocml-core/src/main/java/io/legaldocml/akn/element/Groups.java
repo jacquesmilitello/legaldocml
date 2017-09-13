@@ -77,6 +77,13 @@ import static io.legaldocml.akn.AknElements.DOC_STAGE;
 import static io.legaldocml.akn.AknElements.DOC_STATUS;
 import static io.legaldocml.akn.AknElements.DOC_TITLE;
 import static io.legaldocml.akn.AknElements.DOC_TYPE;
+import static io.legaldocml.akn.AknElements.EMBEDDED_STRUCTURE;
+import static io.legaldocml.akn.AknElements.EMBEDDED_TEXT;
+import static io.legaldocml.akn.AknElements.ENTITY;
+import static io.legaldocml.akn.AknElements.EOL;
+import static io.legaldocml.akn.AknElements.EOP;
+import static io.legaldocml.akn.AknElements.EVENT;
+import static io.legaldocml.akn.AknElements.FILL_IN;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -304,15 +311,15 @@ public final class Groups {
         // <xsd:element ref="omissis"/>
         builder.put(Omissis.ELEMENT, Omissis::new);
         // <xsd:element ref="embeddedText"/>
-        builder.put(EmbeddedText.ELEMENT, EmbeddedText::new);
+        builder.put(EMBEDDED_TEXT, EmbeddedText::new);
         // <xsd:element ref="embeddedStructure"/>
-        builder.put(EmbeddedStructure.ELEMENT, EmbeddedStructure::new);
+        builder.put(EMBEDDED_STRUCTURE, EmbeddedStructure::new);
         // <xsd:element ref="opinion"/>
         builder.put(Opinion.ELEMENT, Opinion::new);
         // <xsd:element ref="placeholder"/>
         builder.put(Placeholder.ELEMENT, Placeholder::new);
         // <xsd:element ref="fillIn"/>
-        builder.put(FillIn.ELEMENT, FillIn::new);
+        builder.put(FILL_IN, FillIn::new);
         // <xsd:element ref="decoration"/>
         builder.put(DECORATION, Decoration::new);
 
@@ -358,9 +365,9 @@ public final class Groups {
         // <xsd:element ref="noteRef" />
         builder.put(NoteRef.ELEMENT, NoteRef::new);
         // <xsd:element ref="eol" />
-        builder.put(Eol.ELEMENT, Eol::new);
+        builder.put(EOL, Eol::new);
         // <xsd:element ref="eop" />
-        builder.put(Eop.ELEMENT, Eop::new);
+        builder.put(EOP, Eop::new);
         return builder.build();
     }
 
@@ -379,7 +386,7 @@ public final class Groups {
         // <xsd:element ref="object" />
         builder.put(Object.ELEMENT, Object::new);
         // <xsd:element ref="event" />
-        builder.put(Event.ELEMENT, Event::new);
+        builder.put(EVENT, Event::new);
         // <xsd:element ref="location" />
         builder.put(Location.ELEMENT, Location::new);
         // <xsd:element ref="process" />
@@ -393,7 +400,7 @@ public final class Groups {
         // <xsd:element ref="def" />
         builder.put(DEF, Def::new);
         // <xsd:element ref="entity" />
-        builder.put(Entity.ELEMENT, Entity::new);
+        builder.put(ENTITY, Entity::new);
         return builder.build();
     }
 
