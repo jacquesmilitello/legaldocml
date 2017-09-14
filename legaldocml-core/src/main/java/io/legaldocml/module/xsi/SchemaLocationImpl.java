@@ -1,15 +1,17 @@
 package io.legaldocml.module.xsi;
 
-
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
+import io.legaldocml.unsafe.UnsafeString;
 
 import java.io.IOException;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 final class SchemaLocationImpl implements SchemaLocation {
 
     public static final String ATTRIBUTE = "xsi:schemaLocation";

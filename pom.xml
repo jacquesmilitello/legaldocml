@@ -28,11 +28,14 @@
       <com.google.guava.version>23.0</com.google.guava.version>
       <org.antlr.version>4.7</org.antlr.version>
 
-      <org.apache.logging.log4j.version>2.8.2</org.apache.logging.log4j.version>
+      <org.apache.logging.log4j.version>2.9.0</org.apache.logging.log4j.version>
+
       <junit.version>4.12</junit.version>
       <org.xmlunit.version>2.4.0</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
-      <org.mockito.version>2.9.0</org.mockito.version>
+      <org.mockito.version>2.10.0</org.mockito.version>
+      <com.jayway.jsonpath.version>2.4.0</com.jayway.jsonpath.version>
+
       <!-- for sonar -->
       <org.jacoco.version>0.7.9</org.jacoco.version>
       <sonar.sources>src/main</sonar.sources>
@@ -138,8 +141,15 @@
          <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.9.0</version>
+            <version>${org.mockito.version}</version>
          </dependency>
+
+         <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path-assert</artifactId>
+            <version>${com.jayway.jsonpath.version}</version>
+         </dependency>
+
       </dependencies>
 
    </dependencyManagement>

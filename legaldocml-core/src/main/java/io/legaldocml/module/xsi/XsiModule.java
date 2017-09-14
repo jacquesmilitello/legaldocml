@@ -10,19 +10,24 @@ import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
+import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
 import java.util.function.Supplier;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 public final class XsiModule implements Module {
 
-    public static final String NS_VALUE = "http://www.w3.org/2001/XMLSchema-instance";
-    public static final String NS_PREFIX = "xmlns:xsi";
+    public static final String NAMESPACE_SCHEMA_INSTANCE = "http://www.w3.org/2001/XMLSchema-instance";
 
-    private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
-    private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
+    public static final String NAMESPACE_PREFIX_XSI = "xmlns:xsi";
 
-    private static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
+    private static final long ADDRESS_NAMESPACE_SCHEMA_INSTANCE = Buffers.address(NAMESPACE_SCHEMA_INSTANCE);
+    private static final long ADDRESS_NAMESPACE_PREFIX_XSI = Buffers.address(NAMESPACE_PREFIX_XSI);
+
+    private static final CharArray NAMESPACE_XSI = CharArrays.constant(NAMESPACE_SCHEMA_INSTANCE);
 
     private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
 
@@ -37,7 +42,7 @@ public final class XsiModule implements Module {
      */
     @Override
     public CharArray namespace() {
-        return NAMESPACE;
+        return NAMESPACE_XSI;
     }
 
 
@@ -46,7 +51,7 @@ public final class XsiModule implements Module {
      */
     @Override
     public void writeNamespace(XmlWriter writer) throws IOException {
-        writer.writeNamespace(NS_PREFIX_ADDRESS, 9, NS_VALUE_ADDRESS, 41);
+        writer.writeNamespace(ADDRESS_NAMESPACE_SCHEMA_INSTANCE, 9, ADDRESS_NAMESPACE_PREFIX_XSI, 41);
     }
 
     /**
@@ -57,6 +62,9 @@ public final class XsiModule implements Module {
         return ATTRIBUTES.get(name);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<? extends AknObject> getAknClass(String localName) {
         throw new IllegalStateException("No AknClass for XSI");
@@ -67,6 +75,10 @@ public final class XsiModule implements Module {
      */
     @Override
     public String toString() {
-        return getClass().getName() + " for [" + NAMESPACE + "]";
+        return new ToStringBuilder(this)
+                .append("prefix",NAMESPACE_PREFIX_XSI)
+                .append("namespace", NAMESPACE_SCHEMA_INSTANCE)
+                .toString();
     }
+
 }
