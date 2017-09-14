@@ -3,11 +3,11 @@ package io.legaldocml.module.xsi;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.CharArrays;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
 import io.legaldocml.util.ToStringBuilder;
@@ -51,7 +51,7 @@ public final class XsiModule implements Module {
      */
     @Override
     public void writeNamespace(XmlWriter writer) throws IOException {
-        writer.writeNamespace(ADDRESS_NAMESPACE_SCHEMA_INSTANCE, 9, ADDRESS_NAMESPACE_PREFIX_XSI, 41);
+        writer.writeNamespace(ADDRESS_NAMESPACE_PREFIX_XSI, 9, ADDRESS_NAMESPACE_SCHEMA_INSTANCE, 41);
     }
 
     /**
@@ -76,7 +76,7 @@ public final class XsiModule implements Module {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .append("prefix",NAMESPACE_PREFIX_XSI)
+                .append("prefix", NAMESPACE_PREFIX_XSI)
                 .append("namespace", NAMESPACE_SCHEMA_INSTANCE)
                 .toString();
     }
