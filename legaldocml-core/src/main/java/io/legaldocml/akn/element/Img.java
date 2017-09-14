@@ -6,7 +6,6 @@ import io.legaldocml.akn.attribute.ImgAtts;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.group.HTMLMarker;
 import io.legaldocml.akn.type.ManifestationURI;
-import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
@@ -16,9 +15,11 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.IMG;
 import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
 import static io.legaldocml.akn.element.Attributes.biConsumerManifestationURI;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeSrc;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -43,14 +44,9 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "img";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_IMG = Buffers.address(IMG);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -138,8 +134,8 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
-        XmlWriterHelper.writeSrc(writer, this);
+        writer.writeStart(ADDRESS_IMG, 3);
+        writeSrc(writer, this);
         if (this.width != null) {
             writer.writeAttribute(Attributes.ADDRESS_WIDTH, 5, getChars(this.width.toString()));
         }
@@ -147,7 +143,7 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
             writer.writeAttribute(Attributes.ADDRESS_HEIGHT, 5, getChars(this.height.toString()));
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 2);
+        writer.writeEnd(ADDRESS_IMG, 2);
     }
 
     /**
@@ -155,7 +151,7 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return IMG;
     }
 
     /**

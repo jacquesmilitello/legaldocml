@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.INTERSTITIAL;
+
 /**
  * The element interstitial is used as a container of text elements and blocks that are placed for any reason between
  * individual documents in a collection of documents.
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class Interstitial extends Blocksreq implements CollectionBodyElement, DocContainerTypeElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "interstitial";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_INTERSTITIAL = Buffers.address(INTERSTITIAL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_INTERSTITIAL, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_INTERSTITIAL, 12);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class Interstitial extends Blocksreq implements CollectionBodyEleme
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return INTERSTITIAL;
     }
 
 }

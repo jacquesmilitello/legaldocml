@@ -17,6 +17,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.ALTERNATIVE_REFERENCE;
+import static io.legaldocml.akn.AknElements.IMPLICIT_REFERENCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -59,7 +60,7 @@ public final class OtherReferences implements Source {
 
         ELEMS = ImmutableMap.<String, Supplier<OtherReferencesElement>>builder()
                 .put(ALTERNATIVE_REFERENCE, AlternativeReference::new)
-                .put(ImplicitReference.ELEMENT, ImplicitReference::new)
+                .put(IMPLICIT_REFERENCE, ImplicitReference::new)
                 .build();
     }
 

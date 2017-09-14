@@ -15,6 +15,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.IMPLICIT_REFERENCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
@@ -45,14 +46,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class ImplicitReference extends AnyOtherType implements RefersOpt, ShowOpt, For, OtherReferencesElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "implicitReference";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_IMPLICIT_REFERENCE = Buffers.address(IMPLICIT_REFERENCE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -132,12 +128,12 @@ public final class ImplicitReference extends AnyOtherType implements RefersOpt, 
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_IMPLICIT_REFERENCE, 17);
         writeRefers(writer, this);
         writeShow(writer, this);
         writeFor(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_IMPLICIT_REFERENCE, 17);
     }
 
     /**
@@ -145,7 +141,7 @@ public final class ImplicitReference extends AnyOtherType implements RefersOpt, 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return IMPLICIT_REFERENCE;
     }
 
     /**

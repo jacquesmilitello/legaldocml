@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.HAS_ATTACHMENT;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -25,10 +26,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	     <xsd:complexContent>
  * 		   <xsd:extension base="referenceType">
  *  	     <xsd:attributeGroup ref="type"/>
- * 		   <xsd:extension>
- * 		 <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 		 </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class HasAttachment extends ReferenceType implements DocRef, Type {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "hasAttachment";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_HAS_ATTACHMENT = Buffers.address(HAS_ATTACHMENT);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -80,10 +76,10 @@ public final class HasAttachment extends ReferenceType implements DocRef, Type {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_HAS_ATTACHMENT, 13);
         writeType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_HAS_ATTACHMENT, 13);
     }
 
     /**
@@ -91,7 +87,7 @@ public final class HasAttachment extends ReferenceType implements DocRef, Type {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return HAS_ATTACHMENT;
     }
 
     /**

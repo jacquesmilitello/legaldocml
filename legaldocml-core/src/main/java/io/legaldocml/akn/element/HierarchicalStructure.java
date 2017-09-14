@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
@@ -14,6 +13,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.CONTAINS;
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
@@ -50,8 +51,8 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(HierarchicalStructure.class, "name")))
+                .put(CONTAINS, biConsumerEnum(getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
+                .put(NAME, biConsumerString(getFieldOffset(HierarchicalStructure.class, "name")))
                 .build();
     }
 

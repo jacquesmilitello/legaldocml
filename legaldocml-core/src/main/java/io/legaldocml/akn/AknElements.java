@@ -713,9 +713,84 @@ public final class AknElements {
     public static final String FRBR_WORK = "FRBRWork";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.HasAttachment}
+     */
+    public static final String HAS_ATTACHMENT = "hasAttachment";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Hcontainer}
+     */
+    public static final String H_CONTAINER = "hcontainer";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Header}
+     */
+    public static final String HEADER = "header";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Heading}
+     */
+    public static final String HEADING = "heading";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.I}
+     */
+    public static final String I = "i";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Identification}
      */
     public static final String IDENTIFICATION = "identification";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Img}
+     */
+    public static final String IMG = "img";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ImplicitReference}
+     */
+    public static final String IMPLICIT_REFERENCE = "implicitReference";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Indent}
+     */
+    public static final String INDENT = "indent";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Inline}
+     */
+    public static final String INLINE = "inline";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Ins}
+     */
+    public static final String INS = "ins";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Interstitial}
+     */
+    public static final String INTERSTITIAL = "interstitial";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Intro}
+     */
+    public static final String INTRO = "intro";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Introduction}
+     */
+    public static final String INTRODUCTION = "introduction";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.IsAnalogTo}
+     */
+    public static final String IS_ANALOG_TO = "isAnalogTo";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Item}
+     */
+    public static final String ITEM = "item";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Meta}
@@ -723,9 +798,19 @@ public final class AknElements {
     public static final String META = "meta";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Motivation}
+     */
+    public static final String MOTIVATION = "motivation";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Parliamentary}
      */
     public static final String PARLIAMENTARY = "parliamentary";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Toc}
+     */
+    public static final String TOC = "toc";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Voting}

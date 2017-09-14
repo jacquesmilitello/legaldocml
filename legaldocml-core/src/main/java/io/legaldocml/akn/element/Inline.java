@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.INLINE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -26,10 +27,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	     <xsd:complexContent>
  * 		   <xsd:extension base="inline">
  * 		     <xsd:attributeGroup ref="name"/>
- * 	   	   <xsd:extension>
- *       <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 	   	   </xsd:extension>
+ *       </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Inline extends InlineType implements Name, InlineElements {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "inline";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_INLINE = Buffers.address(INLINE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -76,10 +72,10 @@ public final class Inline extends InlineType implements Name, InlineElements {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_INLINE, 6);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_INLINE, 6);
     }
 
     /**
@@ -87,7 +83,7 @@ public final class Inline extends InlineType implements Name, InlineElements {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return INLINE;
     }
 
     @Override

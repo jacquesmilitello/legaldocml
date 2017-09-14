@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.CITATION;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static io.legaldocml.akn.AknElements.INTRO;
 
 /**
  *
@@ -85,7 +86,7 @@ public abstract class CitationHierarchy extends BaseHierarchyCoreReq  {
 //            LOGGER.trace("Hierarchy -> [{}] -> [{}]" , getClass().getSimpleName(), this);
 //        }
 
-        if (reader.getQName().equalsLocalName(Intro.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(INTRO)) {
             this.intro = new Intro();
             this.intro.read(reader);
             reader.nextStartOrEndElement();

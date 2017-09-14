@@ -11,6 +11,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.H_CONTAINER;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Hcontainer extends Hierarchy implements Name, HierElements {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "hcontainer";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_H_CONTAINER = Buffers.address(H_CONTAINER);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -81,10 +77,10 @@ public final class Hcontainer extends Hierarchy implements Name, HierElements {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_H_CONTAINER, 10);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_H_CONTAINER, 10);
     }
 
     /**
@@ -92,7 +88,7 @@ public final class Hcontainer extends Hierarchy implements Name, HierElements {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return H_CONTAINER;
     }
 
     /**

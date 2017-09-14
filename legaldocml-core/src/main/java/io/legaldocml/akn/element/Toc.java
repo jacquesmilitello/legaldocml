@@ -10,6 +10,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TOC;
+
 /**
  * <pre>
  *   <xsd:element name="toc">
@@ -27,25 +29,20 @@ import java.io.IOException;
 public final class Toc extends CoreReqImpl implements ANblock, DocContainerTypeElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "toc";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TOC = Buffers.address(TOC);
 
-    private final AknList<TocItem> tocItems = new AknList<TocItem>(new TocItem[6]);
+    private final AknList<TocItem> tocItems = new AknList<>(new TocItem[6]);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_TOC, 3);
         this.tocItems.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_TOC, 3);
     }
 
     /**
@@ -73,7 +70,7 @@ public final class Toc extends CoreReqImpl implements ANblock, DocContainerTypeE
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TOC;
     }
 
     /**

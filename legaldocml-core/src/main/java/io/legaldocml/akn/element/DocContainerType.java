@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.DOCUMENT_REF;
+import static io.legaldocml.akn.AknElements.INTERSTITIAL;
+import static io.legaldocml.akn.AknElements.TOC;
 
 /**
  * The complex type docContainerType defines a shared content model for elements that contain whole documents, namely
@@ -43,8 +45,8 @@ public abstract class DocContainerType extends BaseHierarchyCoreReq {
     static {
         ELEMS = ImmutableMap.<String, Supplier<DocContainerTypeElement>>builder()
                 .putAll(Groups.convertSuper(Groups.DOCUMENT_TYPE))
-                .put(Interstitial.ELEMENT, Interstitial::new)
-                .put(Toc.ELEMENT, Toc::new)
+                .put(INTERSTITIAL, Interstitial::new)
+                .put(TOC, Toc::new)
                 .put(DOCUMENT_REF, DocumentRef::new)
                 .build();
     }

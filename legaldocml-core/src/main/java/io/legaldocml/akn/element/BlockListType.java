@@ -7,6 +7,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ITEM;
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -28,7 +29,7 @@ import static java.util.Objects.requireNonNull;
 public abstract class BlockListType extends CoreReqImpl {
 
     private ListIntroduction listIntroduction;
-    private final AknList<Item> items = new AknList<Item>(new Item[4]);
+    private final AknList<Item> items = new AknList<>(new Item[4]);
     private ListWrapUp listWrapUp;
 
 
@@ -61,14 +62,14 @@ public abstract class BlockListType extends CoreReqImpl {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Item.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(ITEM)) {
             Item item;
             do {
                 item = new Item();
                 item.read(reader);
                 this.items.add(item);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Item.ELEMENT));
+            } while (reader.getQName().equalsLocalName(ITEM));
         }
 
         if (reader.getQName().equalsLocalName(ListWrapUp.ELEMENT)) {

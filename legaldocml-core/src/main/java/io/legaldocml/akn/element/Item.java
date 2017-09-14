@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ITEM;
+
 /**
  * The element item is a container belonging to a blockList.
  * <pre>
@@ -16,23 +18,18 @@ import java.io.IOException;
 public final class Item extends ItemType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "item";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ITEM = Buffers.address(ITEM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_ITEM, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_ITEM, 4);
     }
 
     /**
@@ -40,7 +37,7 @@ public final class Item extends ItemType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ITEM;
     }
 
 }

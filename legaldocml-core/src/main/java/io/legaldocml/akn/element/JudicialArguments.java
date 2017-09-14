@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -12,10 +11,12 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.APPLIES;
 import static io.legaldocml.akn.AknElements.CONTRASTS;
 import static io.legaldocml.akn.AknElements.DEROGATES;
 import static io.legaldocml.akn.AknElements.DISSENTS_FROM;
 import static io.legaldocml.akn.AknElements.EXTENDS;
+import static io.legaldocml.akn.AknElements.IS_ANALOG_TO;
 
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
@@ -51,8 +52,8 @@ public abstract class JudicialArguments implements AknObject {
     static {
         ELEMS = ImmutableMap.<String, Supplier<JudicialArgumentsElement>>builder()
                 .put(Supports.ELEMENT, Supports::new)
-                .put(IsAnalogTo.ELEMENT, IsAnalogTo::new)
-                .put(AknElements.APPLIES, Applies::new)
+                .put(IS_ANALOG_TO, IsAnalogTo::new)
+                .put(APPLIES, Applies::new)
                 .put(EXTENDS, Extends::new)
                 .put(Restricts.ELEMENT, Restricts::new)
                 .put(DEROGATES, Derogates::new)

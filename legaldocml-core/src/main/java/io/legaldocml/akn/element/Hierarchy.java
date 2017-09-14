@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.CONTENT;
 import static io.legaldocml.akn.AknElements.CROSS_HEADING;
+import static io.legaldocml.akn.AknElements.INTRO;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
 
@@ -31,12 +32,12 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  * 		   <xsd:choice>
  * 		     <xsd:sequence>
  * 			   <xsd:element ref="intro" minOccurs="0" maxOccurs="1"/>
- * 			     <xsd:choice minOccurs="0" maxOccurs="unbounded">
- * 				   <xsd:element ref="componentRef"/>
- * 				   <xsd:group ref="hierElements"/>
- * 				   <xsd:element ref="crossHeading"/>
- * 				 </xsd:choice>
- * 			     <xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/>
+ * 			   <xsd:choice minOccurs="0" maxOccurs="unbounded">
+ * 			     <xsd:element ref="componentRef"/>
+ * 				 <xsd:group ref="hierElements"/>
+ * 				 <xsd:element ref="crossHeading"/>
+ * 			   </xsd:choice>
+ * 			   <xsd:element ref="wrapUp" minOccurs="0" maxOccurs="1"/>
  * 			   </xsd:sequence>
  * 		     <xsd:element ref="content"/>
  * 		   </xsd:choice>
@@ -131,7 +132,7 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
             return;
         }
 
-        if (reader.getQName().equalsLocalName(Intro.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(INTRO)) {
             this.intro = new Intro();
             this.intro.read(reader);
             reader.nextStartOrEndElement();
@@ -184,24 +185,18 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
      */
     @Override
     public void accept(AknVisitor visitor) {
-
-//        private Content content;
-//        // or
-//        private Intro intro;
-//        private AknList<HierarchyElement> elements;
-//
-//        @Deprecated
-//        private Wrap wrap;
-//
-//        private WrapUp wrapUp;
-
-//        if (content != null) {
-//            if (visitor.visitEnter(this.content)) {
-//                super.accept(visitor);
-//                visitor.visitLeave(this.content);
-//            }
-//        }
-
-
+        if (this.content != null) {
+            this.content.accept(visitor);
+        } else {
+            if (this.intro != null) {
+                this.intro.accept(visitor);
+            }
+            if (this.elements != null) {
+                this.elements.accept(visitor);
+            }
+            if (this.wrapUp != null) {
+                this.wrapUp.accept(visitor);
+            }
+        }
     }
 }

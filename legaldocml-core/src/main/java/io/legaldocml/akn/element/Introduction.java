@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.INTRODUCTION;
+
 /**
  * This element is a structural container for the section of a judgment containing introductory material.
  *
@@ -19,24 +21,18 @@ import java.io.IOException;
 public final class Introduction extends MainContent implements JudgmentBlock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "introduction";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
-
+    private static final long ADDRESS_INTRODUCTION = Buffers.address(INTRODUCTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_INTRODUCTION, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_INTRODUCTION, 12);
     }
 
     /**
@@ -44,7 +40,7 @@ public final class Introduction extends MainContent implements JudgmentBlock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return INTRODUCTION;
     }
 
     /**

@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.HEADER;
+
 /**
  * the element header is used as a container of all prefacing material of judgments (e.g. headers, formulas, etc.).
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Header extends Blocksopt {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "header";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_HEADER = Buffers.address(HEADER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_HEADER, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_HEADER, 6);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Header extends Blocksopt {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return HEADER;
     }
 
     /**

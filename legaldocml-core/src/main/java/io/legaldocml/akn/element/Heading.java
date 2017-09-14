@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.HEADING;
+
 /**
  * the element heading is a heading element in a hierarchy that contains a title or any other textual content to
  * describe the structure.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Heading extends InlineReqType implements PopupStructureElement, SubFlowStructureElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "heading";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_HEADING = Buffers.address(HEADING);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_HEADING, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_HEADING, 7);
     }
 
 
@@ -44,7 +41,7 @@ public final class Heading extends InlineReqType implements PopupStructureElemen
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return HEADING;
     }
 
     /**

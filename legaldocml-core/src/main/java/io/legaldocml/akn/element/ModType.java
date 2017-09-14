@@ -8,6 +8,7 @@ import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.util.XmlWriterHelper;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
@@ -43,8 +44,6 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ModType extends CoreReqImpl implements For {
 
-    private final AknList<ModTypeItem> elements = new AknList<>(new ModTypeItem[4]);
-
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS_V2;
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS;
 
@@ -68,6 +67,8 @@ public abstract class ModType extends CoreReqImpl implements For {
                 .put(QuotedText.ELEMENT, QuotedText::new)
                 .build();
     }
+
+    private final AknList<ModTypeItem> elements = new AknList<>(new ModTypeItem[4]);
 
     private EidRef for_;
 
@@ -116,5 +117,13 @@ public abstract class ModType extends CoreReqImpl implements For {
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        this.elements.accept(visitor);
     }
 }

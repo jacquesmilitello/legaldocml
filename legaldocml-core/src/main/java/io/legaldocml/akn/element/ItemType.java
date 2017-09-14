@@ -31,14 +31,14 @@ import static java.util.Objects.requireNonNull;
  * 		     <xsd:group ref="blockElements" />
  * 		   <xsd:sequence>
  * 		   <xsd:attributeGroup ref="corereq" />
- * 	     <xsd:extension>
- * 	   <xsd:complexContent>
- *   <xsd:complexType>
+ * 	     </xsd:extension>
+ * 	   </xsd:complexContent>
+ *   </xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ItemType extends BaseHierarchyCoreReq implements BlockElementsContainer{
+public abstract class ItemType extends BaseHierarchyCoreReq implements BlockElementsContainer {
 
     // Mandatory (min 1)
     private final AknList<BlockElements> blockElements = new AknList<>(new BlockElements[4]);

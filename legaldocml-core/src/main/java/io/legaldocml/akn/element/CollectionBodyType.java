@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.COMPONENT;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static io.legaldocml.akn.AknElements.INTERSTITIAL;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 
 /**
@@ -40,7 +41,7 @@ public abstract class CollectionBodyType extends CoreOptImpl {
     static {
         COLLECTION_BODY_TYPE_V2 = ImmutableMap.<String, Supplier<CollectionBodyElement>>builder()
                 .put(COMPONENT_REF, ComponentRef::new)
-                .put(Interstitial.ELEMENT, Interstitial::new)
+                .put(INTERSTITIAL, Interstitial::new)
                 .putAll(convertSuper(Groups.DOCUMENT_TYPE_V2))
                 .build();
     }

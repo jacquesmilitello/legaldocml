@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANinline;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -43,6 +44,17 @@ public final class Mod extends ModType implements ANinline {
     @Override
     public String name() {
         return ELEMENT;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
 }

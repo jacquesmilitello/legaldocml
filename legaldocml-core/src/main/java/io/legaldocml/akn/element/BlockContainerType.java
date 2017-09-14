@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static io.legaldocml.akn.AknElements.INTRO;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 
@@ -84,7 +85,7 @@ public abstract class BlockContainerType extends BaseHierarchyCoreReq {
         QName qName = reader.getQName();
         super.read(reader);
 
-        if (reader.getQName().equalsLocalName(Intro.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(INTRO)) {
             this.intro = new Intro();
             this.intro.read(reader);
             reader.nextStartOrEndElement();
