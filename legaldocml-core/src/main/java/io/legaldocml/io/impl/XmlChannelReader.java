@@ -783,7 +783,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         int hashCode = cb.hashCode();
         QNameImpl qName = elemStackCache.get(hashCode);
         if (qName == null) {
-            qName = new QNameImpl(cb.raw(), cb.pos(), prefixSep);
+            qName = new QNameImpl(cb.value(), cb.pos(), prefixSep);
             this.elemStackCache.put(hashCode, qName);
         }
         this.qName = qName;

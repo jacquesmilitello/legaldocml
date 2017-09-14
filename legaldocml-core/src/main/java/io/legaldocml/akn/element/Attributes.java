@@ -194,7 +194,7 @@ public final class Attributes {
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerNoWhiteSpace(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new NoWhiteSpace(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new NoWhiteSpace(s.value()));
     }
 
     /**
@@ -204,7 +204,7 @@ public final class Attributes {
         return new AttributeBiConsumer(name) {
             @Override
             public void accept(Externalizable object, CharArray charArray) {
-                getUnsafe().putObject(object, addr, new NoWhiteSpace(charArray.raw()));
+                getUnsafe().putObject(object, addr, new NoWhiteSpace(charArray.value()));
             }
         };
     }
@@ -258,7 +258,7 @@ public final class Attributes {
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerUri(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new Uri(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new Uri(s.value()));
     }
 
 
@@ -266,50 +266,50 @@ public final class Attributes {
         return new AttributeBiConsumer(name) {
             @Override
             public void accept(Externalizable object, CharArray s) {
-                getUnsafe().putObject(object, addr, new ManifestationURI(s.raw()));
+                getUnsafe().putObject(object, addr, new ManifestationURI(s.value()));
             }
         };
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerReferenceRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new ReferenceRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new ReferenceRef(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerEidRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new EidRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new EidRef(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerWidRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new WidRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new WidRef(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerAgentRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, AgentRef.raw(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, AgentRef.raw(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerRoleRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, RoleRef.raw(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, RoleRef.raw(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerVoteRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new VoteRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new VoteRef(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerConceptRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new ConceptRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new ConceptRef(s.value()));
     }
 
 
     public static BiConsumer<Externalizable, CharArray> biConsumerListReferenceRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new ListReferenceRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new ListReferenceRef(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerEventRefRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new EventRefRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new EventRefRef(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerTemporalGroupRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new TemporalGroupRef(s.raw()));
+        return (i, s) -> getUnsafe().putObject(i, addr, new TemporalGroupRef(s.value()));
     }
 
 

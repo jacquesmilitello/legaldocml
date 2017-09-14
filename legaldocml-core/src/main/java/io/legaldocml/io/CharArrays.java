@@ -100,14 +100,6 @@ public final class CharArrays {
          * {@inheritDoc}
          */
         @Override
-        public char[] raw() {
-            throw new UnsupportedOperationException();
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
         public CharArray prefix(int prefixNS) {
             throw new UnsupportedOperationException();
         }

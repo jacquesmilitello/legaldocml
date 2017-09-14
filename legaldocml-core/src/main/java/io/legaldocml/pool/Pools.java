@@ -12,6 +12,7 @@ public final class Pools {
      * create a Pool of objects with the given size.
      */
     public static <T> Pool<PoolHolder<T>> createPool(int size, PoolableObject<T> poolableObject) {
-        return new UnsafePool<T>(size, poolableObject);
+        return new UnsafePool<>(size, poolableObject);
     }
+
 }

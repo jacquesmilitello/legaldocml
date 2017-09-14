@@ -10,10 +10,5 @@ public interface CharArray extends CharSequence {
 	 */
 	char[] value();
 
-	/**
-	 * @return a new char array
-	 */
-	char[] raw();
-
     CharArray prefix(int prefixNS);
 }
