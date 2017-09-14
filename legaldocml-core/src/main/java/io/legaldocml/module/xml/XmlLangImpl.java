@@ -13,6 +13,9 @@ import java.io.IOException;
 
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 final class XmlLangImpl implements XmlLang {
 
     public static final String ATTRIBUTE = "xml:lang";
@@ -23,10 +26,6 @@ final class XmlLangImpl implements XmlLang {
     private static final long ADDRESS = Buffers.address(ATTRIBUTE);
 
     private Language language;
-
-    //XmlLangImpl(CharArray c) {
-    //    this.language = Language.valueOf(c.toString());
-    //}
 
     /**
      * {@inheritDoc}
@@ -41,7 +40,7 @@ final class XmlLangImpl implements XmlLang {
      */
     @Override
     public void setXmlLang(Language xmlLang) {
-        this.language = language;
+        this.language = xmlLang;
     }
 
     /**
@@ -49,9 +48,7 @@ final class XmlLangImpl implements XmlLang {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        if (this.language == null) {
-
-        } else {
+        if (this.language != null) {
             writer.writeAttribute(ADDRESS, 8, getChars(this.language.getCode()));
         }
     }
