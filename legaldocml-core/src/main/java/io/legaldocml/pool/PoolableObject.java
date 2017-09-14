@@ -7,5 +7,6 @@ public interface PoolableObject<T> {
 
     T newInstance();
 
-    void passivate(T t);
+    default void passivate(T t) {}
+
 }
