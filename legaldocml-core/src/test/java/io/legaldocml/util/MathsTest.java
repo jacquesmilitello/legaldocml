@@ -20,6 +20,11 @@ public final class MathsTest {
     }
 
     @Test
+    public void testMul100() {
+        Assert.assertEquals(1000*100, Maths.mul100(1000));
+    }
+
+    @Test
     public void testDiv10() {
         Assert.assertEquals(1000/10, Maths.div10(1000));
         Assert.assertEquals(990/10, Maths.div10(990));

@@ -5,13 +5,16 @@ package io.legaldocml.util;
  */
 public final class Maths {
 
-    private static final int[] TABLE = {0, 1, 2, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 8, 9, 0};
-
     private Maths() {
     }
 
     public static int mul10(int value) {
         return (value << 3) + (value << 1);
+    }
+
+    public static int mul100(int value) {
+        // (value * 100) = (value * 64) + (value * 32) + (value * 4)
+        return (value << 6) + (value << 5) + (value << 2);
     }
 
     /**
@@ -50,7 +53,7 @@ public final class Maths {
                 (n >> 12) + (n >> 13) - (n >> 16);
         q = q + (q >> 20);
         q = q >> 6;
-        r = n - q * 100;
+        r = n - ((q << 6) + (q << 5) + + (q << 2));
         return q + ((r + 28) >> 7);
     }
 
