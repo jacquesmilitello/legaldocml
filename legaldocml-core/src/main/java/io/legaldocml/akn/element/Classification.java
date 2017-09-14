@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.CLASSIFICATION;
+import static io.legaldocml.akn.AknElements.KEYWORD;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -49,7 +50,7 @@ public final class Classification implements Source {
                 .build();
     }
 
-    private final AknList<Keyword> keywords = new AknList<Keyword>(new Keyword[4]);
+    private final AknList<Keyword> keywords = new AknList<>(new Keyword[4]);
 
     private AgentRef source;
 
@@ -77,14 +78,14 @@ public final class Classification implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Keyword.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(KEYWORD)) {
             Keyword keyword;
             do {
                 keyword = new Keyword();
                 keyword.read(reader);
                 this.keywords.add(keyword);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Keyword.ELEMENT));
+            } while (reader.getQName().equalsLocalName(KEYWORD));
         }
     }
 

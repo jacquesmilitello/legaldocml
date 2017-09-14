@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.LEVEL;
+
 /**
  * This element is a hierarchical container called "level" either explicitly or due to the local tradition.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Level extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "level";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LEVEL = Buffers.address(LEVEL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_LEVEL, 5);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_LEVEL, 5);
     }
 
     /**
@@ -42,6 +39,6 @@ public final class Level extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LEVEL;
     }
 }

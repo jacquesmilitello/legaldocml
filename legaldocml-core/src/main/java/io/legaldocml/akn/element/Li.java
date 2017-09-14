@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.LI;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
@@ -43,14 +44,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Li extends CoreOptImpl implements ValueOpt {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "li";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LI = Buffers.address(LI);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -93,7 +89,7 @@ public final class Li extends CoreOptImpl implements ValueOpt {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LI;
     }
 
     /**
@@ -110,10 +106,10 @@ public final class Li extends CoreOptImpl implements ValueOpt {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 2);
+        writer.writeStart(ADDRESS_LI, 2);
         super.write(writer);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 2);
+        writer.writeEnd(ADDRESS_LI, 2);
     }
 
     /**

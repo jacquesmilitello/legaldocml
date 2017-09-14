@@ -106,7 +106,7 @@ public final class Groups {
                 .put(AMENDMENT, Amendment::new)
                 .put(AMENDMENT_LIST, AmendmentList::new)
                 .put(BILL, Bill::new)
-                .put(Judgment.ELEMENT, Judgment::new)
+                .put(JUDGMENT, Judgment::new)
                 .put(DEBATE_REPORT, DebateReport::new)
                 .put(DOC, Doc::new)
                 .put(DEBATE, Debate::new)
@@ -119,7 +119,7 @@ public final class Groups {
                 .put(AMENDMENT, Amendment::new)
                 .put(AMENDMENT_LIST, AmendmentList::new)
                 .put(BILL, Bill::new)
-                .put(Judgment.ELEMENT, Judgment::new)
+                .put(JUDGMENT, Judgment::new)
                 .put(DEBATE_REPORT, DebateReport::new)
                 .put(DOC, Doc::new)
                 .put(DEBATE, Debate::new)
@@ -184,7 +184,7 @@ public final class Groups {
     public static Map<String, Supplier<BasicContainers>> basicContainers() {
         ImmutableMap.Builder<String, Supplier<BasicContainers>> builder = ImmutableMap.builder();
         // <xsd:element ref="longTitle"/>
-        builder.put(LongTitle.ELEMENT, LongTitle::new);
+        builder.put(LONG_TITLE, LongTitle::new);
         // <xsd:element ref="formula"/>
         builder.put(FORMULA, Formula::new);
         // <xsd:element ref="container"/>
@@ -195,7 +195,7 @@ public final class Groups {
     public static Map<String, Supplier<PrefaceContainers>> prefaceContainers() {
         ImmutableMap.Builder<String, Supplier<PrefaceContainers>> builder = ImmutableMap.builder();
         // <xsd:element ref="longTitle"/>
-        builder.put(LongTitle.ELEMENT, LongTitle::new);
+        builder.put(LONG_TITLE, LongTitle::new);
         // <xsd:element ref="formula"/>
         builder.put(FORMULA, Formula::new);
         // <xsd:element ref="container"/>
@@ -394,7 +394,7 @@ public final class Groups {
         // <xsd:element ref="event" />
         builder.put(EVENT, Event::new);
         // <xsd:element ref="location" />
-        builder.put(Location.ELEMENT, Location::new);
+        builder.put(LOCATION, Location::new);
         // <xsd:element ref="process" />
         builder.put(Process.ELEMENT, Process::new);
         // <xsd:element ref="role" />
@@ -419,9 +419,9 @@ public final class Groups {
         // <xsd:element ref="party"/>
         builder.put(Party.ELEMENT, Party::new);
         // <xsd:element ref="judge"/>
-        builder.put(Judge.ELEMENT, Judge::new);
+        builder.put(JUDGE, Judge::new);
         // <xsd:element ref="lawyer"/>
-        builder.put(Lawyer.ELEMENT, Lawyer::new);
+        builder.put(LAWYER, Lawyer::new);
         // <xsd:element ref="signature"/>
         builder.put(Signature.ELEMENT, Signature::new);
         // <xsd:element ref="argument"/>
@@ -442,7 +442,7 @@ public final class Groups {
         // <xsd:element ref="docDate" />
         builder.put(DOC_DATE, DocDate::new);
         // <xsd:element ref="legislature" />
-        builder.put(Legislature.ELEMENT, Legislature::new);
+        builder.put(LEGISLATURE, Legislature::new);
         // <xsd:element ref="session" />
         builder.put(Session.ELEMENT, Session::new);
         // <xsd:element ref="shortTitle"/>
@@ -482,7 +482,7 @@ public final class Groups {
         // <xsd:element ref="activeRef"/>
         builder.put(ACTIVE_REF, ActiveRef::new);
         // <xsd:element ref="jurisprudence"/>
-        builder.put(Jurisprudence.ELEMENT, Jurisprudence::new);
+        builder.put(JURISPRUDENCE, Jurisprudence::new);
         // <xsd:element ref="hasAttachment"/>
         builder.put(HAS_ATTACHMENT, HasAttachment::new);
         // <xsd:element ref="attachmentOf"/>
@@ -560,7 +560,7 @@ public final class Groups {
         // <xsd:element ref="division"/>
         builder.put(DIVISION, Division::new);
         // <xsd:element ref="list"/>
-        builder.put(List.ELEMENT, List::new);
+        builder.put(LIST, List::new);
         // <xsd:element ref="point"/>
         builder.put(Point.ELEMENT, Point::new);
         // <xsd:element ref="indent"/>
@@ -590,7 +590,7 @@ public final class Groups {
         // <xsd:element ref="sublist"/>
         builder.put(SubList.ELEMENT, SubList::new);
         // <xsd:element ref="level"/>
-        builder.put(Level.ELEMENT, Level::new);
+        builder.put(LEVEL, Level::new);
         // <xsd:element ref="transitional"/>
         builder.put(Transitional.ELEMENT, Transitional::new);
         return builder.build();

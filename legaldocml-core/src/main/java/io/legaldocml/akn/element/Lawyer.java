@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.LAWYER;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLawyerAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -40,14 +41,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Lawyer extends InlineReqReqType implements LawyerAtts, ANheaderInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "lawyer";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LAWYER = Buffers.address(LAWYER);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -118,10 +114,10 @@ public final class Lawyer extends InlineReqReqType implements LawyerAtts, ANhead
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_LAWYER, 6);
         writeLawyerAtts(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_LAWYER, 6);
     }
 
     /**
@@ -129,7 +125,7 @@ public final class Lawyer extends InlineReqReqType implements LawyerAtts, ANhead
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LAWYER;
     }
 
     /**

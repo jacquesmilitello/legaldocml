@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.LIST_INTRODUCTION;
+
 /**
  * The element listIntroduction is an optional element of blockList before any item of the list itself.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class ListIntroduction extends InlineType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "listIntroduction";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LIST_INTRODUCTION = Buffers.address(LIST_INTRODUCTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 16);
+        writer.writeStart(ADDRESS_LIST_INTRODUCTION, 16);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 16);
+        writer.writeEnd(ADDRESS_LIST_INTRODUCTION, 16);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class ListIntroduction extends InlineType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LIST_INTRODUCTION;
     }
 
 }

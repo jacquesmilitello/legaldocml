@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.EVENT_REF;
+import static io.legaldocml.akn.AknElements.LIFECYCLE;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Lifecycle implements Source {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "lifecycle";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LIFECYCLE = Buffers.address(LIFECYCLE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -79,10 +75,10 @@ public final class Lifecycle implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_LIFECYCLE, 9);
         XmlWriterHelper.writeSource(writer, this);
         this.eventRefs.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_LIFECYCLE, 9);
     }
 
     /**
@@ -110,7 +106,7 @@ public final class Lifecycle implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LIFECYCLE;
     }
 
     /**

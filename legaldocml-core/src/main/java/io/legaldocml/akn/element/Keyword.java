@@ -19,6 +19,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.KEYWORD;
 import static io.legaldocml.akn.element.Attributes.biConsumerReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDictionary;
@@ -44,10 +45,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *           <xsd:attributeGroup ref="show"/>
  *           <xsd:attributeGroup ref="refers"/>
  *           <xsd:attributeGroup ref="dictionary"/>
- * 		   <xsd:extension>
- * 	     <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 	     </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -55,14 +56,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq, RefersOpt, Dictionary {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "keyword";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_KEYWORD = Buffers.address(KEYWORD);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -186,15 +182,14 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_KEYWORD, 7);
         super.write(writer);
         writeShow(writer, this);
         writeValue(writer, this);
         writeDictionary(writer, this);
         writeLinkOpt(writer, this);
         writeRefers(writer, this);
-
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_KEYWORD, 7);
     }
 
     /**
@@ -202,7 +197,7 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return KEYWORD;
     }
 
     /**

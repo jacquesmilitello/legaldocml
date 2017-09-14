@@ -713,6 +713,11 @@ public final class AknElements {
     public static final String FRBR_WORK = "FRBRWork";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.FRBRWork}
+     */
+    public static final String FROM = "from";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.HasAttachment}
      */
     public static final String HAS_ATTACHMENT = "hasAttachment";
@@ -791,6 +796,91 @@ public final class AknElements {
      * Element for {@link io.legaldocml.akn.element.Item}
      */
     public static final String ITEM = "item";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Judge}
+     */
+    public static final String JUDGE = "judge";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Judgment}
+     */
+    public static final String JUDGMENT = "judgment";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.JudgmentBody}
+     */
+    public static final String JUDGMENT_BODY = "judgmentBody";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Judicial}
+     */
+    public static final String JUDICIAL = "judicial";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Jurisprudence}
+     */
+    public static final String JURISPRUDENCE = "jurisprudence";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Keyword}
+     */
+    public static final String KEYWORD = "keyword";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Lawyer}
+     */
+    public static final String LAWYER = "lawyer";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.LegalSystemMod}
+     */
+    public static final String LEGAL_SYSTEM_MOD = "legalSystemMod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Legislature}
+     */
+    public static final String LEGISLATURE = "legislature";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Level}
+     */
+    public static final String LEVEL = "level";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Li}
+     */
+    public static final String LI = "li";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Lifecycle}
+     */
+    public static final String LIFECYCLE = "lifecycle";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Lifecycle}
+     */
+    public static final String LIST = "list";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Lifecycle}
+     */
+    public static final String LIST_INTRODUCTION = "listIntroduction";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ListWrapUp}
+     */
+    public static final String LIST_WRAP_UP = "listWrapUp";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Location}
+     */
+    public static final String LOCATION = "location";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.LongTitle}
+     */
+    public static final String LONG_TITLE = "longTitle";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Meta}

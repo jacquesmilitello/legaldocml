@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.LOCATION;
+
 /**
  * The element location is an inline element to identify a text fragment introducing or referring to a location in the
  * ontology.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Location extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "location";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LOCATION = Buffers.address(LOCATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_LOCATION, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_LOCATION, 8);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Location extends InlineReqReqType implements ANsemanticInline
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LOCATION;
     }
 
 }

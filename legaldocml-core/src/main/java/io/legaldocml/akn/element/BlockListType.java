@@ -8,6 +8,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.ITEM;
+import static io.legaldocml.akn.AknElements.LIST_INTRODUCTION;
+import static io.legaldocml.akn.AknElements.LIST_WRAP_UP;
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -56,7 +58,7 @@ public abstract class BlockListType extends CoreReqImpl {
     public void read(XmlReader reader) {
         super.read(reader);
         reader.nextStartOrEndElement();
-        if (reader.getQName().equalsLocalName(ListIntroduction.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(LIST_INTRODUCTION)) {
             this.listIntroduction = new ListIntroduction();
             this.listIntroduction.read(reader);
             reader.nextStartOrEndElement();
@@ -72,7 +74,7 @@ public abstract class BlockListType extends CoreReqImpl {
             } while (reader.getQName().equalsLocalName(ITEM));
         }
 
-        if (reader.getQName().equalsLocalName(ListWrapUp.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(LIST_WRAP_UP)) {
             this.listWrapUp = new ListWrapUp();
             this.listWrapUp.read(reader);
             reader.nextStartOrEndElement();

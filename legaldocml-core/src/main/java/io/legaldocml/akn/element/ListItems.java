@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.LI;
+
 /**
  * the complex type listItems specifies the content model of elements ul and ol, and specifies just a sequence of list
  * items (elements li).
@@ -42,14 +44,14 @@ public abstract class ListItems extends CoreReqImpl {
         super.read(reader);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Li.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(LI)) {
             Li li;
             do {
                 li = new Li();
                 li.read(reader);
                 this.lis.add(li);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Li.ELEMENT));
+            } while (reader.getQName().equalsLocalName(LI));
         }
 
     }

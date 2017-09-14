@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.LEGAL_SYSTEM_MOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLegalSystemMods;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -26,10 +27,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	     <xsd:complexContent>
  * 		   <xsd:extension base="modificationType">
  * 		     <xsd:attributeGroup ref="legalSystemModType"/>
- * 		   <xsd:extension>
- * 	     <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 	     </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class LegalSystemMod extends ModificationType implements LegalSystemModType, AmendmentsElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "legalSystemMod";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LEGAL_SYSTEM_MOD = Buffers.address(LEGAL_SYSTEM_MOD);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,10 +74,10 @@ public final class LegalSystemMod extends ModificationType implements LegalSyste
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_LEGAL_SYSTEM_MOD, 11);
         writeLegalSystemMods(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_LEGAL_SYSTEM_MOD, 11);
     }
 
     /**
@@ -89,7 +85,7 @@ public final class LegalSystemMod extends ModificationType implements LegalSyste
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LEGAL_SYSTEM_MOD;
     }
 
     /**

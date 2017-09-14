@@ -14,6 +14,8 @@ import org.junit.runner.RunWith;
 import java.io.IOException;
 import java.nio.channels.Channels;
 
+import static io.legaldocml.akn.AknElements.LIST;
+
 @RunWith(SonarJUnit4ClassRunner.class)
 public class HierarchyBuilderTest {
 
@@ -41,7 +43,7 @@ public class HierarchyBuilderTest {
         paragraphBuilder.num().text("1.");
         paragraphBuilder.eId("1");
 
-        HierarchyBuilder<List> listBuilder = paragraphBuilder.newChild(List.ELEMENT);
+        HierarchyBuilder<List> listBuilder = paragraphBuilder.newChild(LIST);
         listBuilder.eId("1");
         listBuilder.intro()
                 .eid("1")

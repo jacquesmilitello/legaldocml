@@ -20,6 +20,12 @@ import java.time.LocalDateTime;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknAttributes.AS;
+import static io.legaldocml.akn.AknAttributes.BY;
+import static io.legaldocml.akn.AknAttributes.END_TIME;
+import static io.legaldocml.akn.AknAttributes.START_TIME;
+import static io.legaldocml.akn.AknAttributes.TO;
+import static io.legaldocml.akn.AknElements.FROM;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
@@ -59,11 +65,11 @@ public abstract class SpeechType extends BaseHierarchyCoreOpt implements SpeechA
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put("by", biConsumerAgentRef(getFieldOffset(SpeechType.class, "by")))
-                .put("as", biConsumerRoleRef(getFieldOffset(SpeechType.class, "as")))
-                .put("to", biConsumerAgentRef(getFieldOffset(SpeechType.class, "to")))
-                .put("startTime", biConsumerDateTime(getFieldOffset(SpeechType.class, "startTime")))
-                .put("endTime", biConsumerDateTime(getFieldOffset(SpeechType.class, "endTime")))
+                .put(BY, biConsumerAgentRef(getFieldOffset(SpeechType.class, "by")))
+                .put(AS, biConsumerRoleRef(getFieldOffset(SpeechType.class, "as")))
+                .put(TO, biConsumerAgentRef(getFieldOffset(SpeechType.class, "to")))
+                .put(START_TIME, biConsumerDateTime(getFieldOffset(SpeechType.class, "startTime")))
+                .put(END_TIME, biConsumerDateTime(getFieldOffset(SpeechType.class, "endTime")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<BlockElements>>builder()
@@ -181,7 +187,7 @@ public abstract class SpeechType extends BaseHierarchyCoreOpt implements SpeechA
     public void read(XmlReader reader) {
         QName qName = reader.getQName();
         super.read(reader);
-        if (reader.getQName().equalsLocalName(From.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FROM)) {
             this.from = new From();
             this.from.read(reader);
             reader.nextStartOrEndElement();

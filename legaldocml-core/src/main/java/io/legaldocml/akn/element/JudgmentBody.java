@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.JUDGMENT_BODY;
 
 /**
  * The element judgmentBody is the container of the main hierarchy of a judgment document.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class JudgmentBody extends JudgmentBodyType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "judgmentBody";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_JUDGMENT_BODY = Buffers.address(JUDGMENT_BODY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_JUDGMENT_BODY, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_JUDGMENT_BODY, 12);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class JudgmentBody extends JudgmentBodyType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return JUDGMENT_BODY;
     }
 
     /**

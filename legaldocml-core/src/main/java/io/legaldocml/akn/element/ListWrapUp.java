@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.LIST_WRAP_UP;
+
 /**
  * The element listWrapUp is an optional element of blockList after all items of the list itself.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class ListWrapUp extends InlineType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "listWrapUp";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LIST_WRAP_UP = Buffers.address(LIST_WRAP_UP);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_LIST_WRAP_UP, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_LIST_WRAP_UP, 10);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class ListWrapUp extends InlineType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LIST_WRAP_UP;
     }
 
 }

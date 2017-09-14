@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.ANALYSIS;
 import static io.legaldocml.akn.AknElements.CLASSIFICATION;
+import static io.legaldocml.akn.AknElements.LIFECYCLE;
 import static io.legaldocml.akn.AknElements.META;
 import static io.legaldocml.util.Streams.stream;
 
@@ -222,7 +223,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(CLASSIFICATION));
         }
 
-        if (reader.getQName().equalsLocalName(Lifecycle.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(LIFECYCLE)) {
             Lifecycle lifecycle;
             this.lifecycles = new AknList<>(new Lifecycle[4]);
             do {
@@ -230,7 +231,7 @@ public final class Meta implements AknObject {
                 lifecycle.read(reader);
                 this.lifecycles.add(lifecycle);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Lifecycle.ELEMENT));
+            } while (reader.getQName().equalsLocalName(LIFECYCLE));
         }
 
         if (reader.getQName().equalsLocalName(Workflow.ELEMENT)) {

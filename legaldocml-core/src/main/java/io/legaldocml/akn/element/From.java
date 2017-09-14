@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FROM;
+
 /**
  * The element from is a heading element in a debate that contains the name or role or a reference to the person doing
  * the speech.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class From extends InlineType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "from";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FROM = Buffers.address(FROM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_FROM, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_FROM, 4);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class From extends InlineType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FROM;
     }
 
 }

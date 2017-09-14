@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.LONG_TITLE;
+
 /**
  * The element longTitle is the section of the preface or preamble that is called long title.
  *
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class LongTitle extends Blocksreq implements PrefaceContainers, PopupStructureElement, SubFlowStructureElement, PortionBodyTypeElement, BasicContainers {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "longTitle";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_LONG_TITLE = Buffers.address(LONG_TITLE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_LONG_TITLE, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_LONG_TITLE, 9);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class LongTitle extends Blocksreq implements PrefaceContainers, Pop
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return LONG_TITLE;
     }
 
 }

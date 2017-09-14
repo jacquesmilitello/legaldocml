@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.JUDGMENT;
+
 /**
  * Element judgment is used for describing the structure and content of a judgment.
  *
@@ -28,23 +30,18 @@ import java.io.IOException;
 public final class Judgment extends JudgmentStructure implements DocumentType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "judgment";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_JUDGMENT = Buffers.address(JUDGMENT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_JUDGMENT, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_JUDGMENT, 8);
     }
 
     /**
@@ -52,7 +49,7 @@ public final class Judgment extends JudgmentStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return JUDGMENT;
     }
 
     /**

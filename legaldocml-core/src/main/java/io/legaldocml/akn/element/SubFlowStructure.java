@@ -25,6 +25,7 @@ import static io.legaldocml.akn.AknElements.DOCUMENT_REF;
 import static io.legaldocml.akn.AknElements.FORMULA;
 import static io.legaldocml.akn.AknElements.HEADING;
 import static io.legaldocml.akn.AknElements.INTRO;
+import static io.legaldocml.akn.AknElements.LONG_TITLE;
 import static io.legaldocml.akn.element.Groups.ANcontainers;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.containerElements;
@@ -85,7 +86,7 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
                 .put(FORMULA, Formula::new)
                 .put(Recitals.ELEMENT, Recitals::new)
                 .put(CITATIONS, Citations::new)
-                .put(LongTitle.ELEMENT, LongTitle::new)
+                .put(LONG_TITLE, LongTitle::new)
                 .put(Recital.ELEMENT, Recital::new)
                 .put(CITATION, Citation::new)
                 .put(COMPONENT_REF, ComponentRef::new)
