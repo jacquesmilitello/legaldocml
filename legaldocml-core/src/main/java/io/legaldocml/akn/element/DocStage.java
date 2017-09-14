@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANtitleInline;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
@@ -43,4 +44,14 @@ public final class DocStage extends InlineType implements ANtitleInline {
         return DOC_STAGE;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
+    }
 }

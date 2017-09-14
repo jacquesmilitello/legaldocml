@@ -1,8 +1,9 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANtitleInline;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -32,6 +33,17 @@ public final class DocType extends InlineType implements ANtitleInline {
         writer.writeStart(ADDRESS_DOC_TYPE, 7);
         super.write(writer);
         writer.writeEnd(ADDRESS_DOC_TYPE, 7);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
     /**

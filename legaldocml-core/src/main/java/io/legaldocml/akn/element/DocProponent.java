@@ -1,8 +1,10 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.type.RoleRef;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -44,7 +46,7 @@ public final class DocProponent extends InlineType implements ANtitleInline, io.
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put("as", biConsumerRoleRef(getFieldOffset(DocProponent.class, "as")))
+                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(DocProponent.class, "as")))
                 .build();
     }
 
@@ -92,4 +94,16 @@ public final class DocProponent extends InlineType implements ANtitleInline, io.
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
+    }
+
 }

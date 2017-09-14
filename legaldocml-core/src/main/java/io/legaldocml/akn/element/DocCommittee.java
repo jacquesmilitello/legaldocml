@@ -2,8 +2,9 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.group.ANtitleInline;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -70,6 +71,17 @@ public final class DocCommittee extends InlineType implements ANtitleInline, Val
     @Override
     public String name() {
         return DOC_COMMITTEE;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
 }
