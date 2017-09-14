@@ -17,6 +17,7 @@ public class TestsTest {
     @Test
     public void testOk() throws Exception {
         Tests.assertUtilClassIsWellDefined(Test01.class);
+        Tests.assertUtilClassIsWellDefined(Tests.class);
     }
 
     @Test
