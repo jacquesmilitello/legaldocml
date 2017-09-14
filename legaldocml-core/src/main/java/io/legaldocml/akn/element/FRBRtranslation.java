@@ -18,6 +18,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_TRANSLATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -54,14 +55,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class FRBRtranslation extends MetaOpt implements LinkReq, Authoritative, Agent, Pivot, FromLanguage {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRtranslation";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_TRANSLATION = Buffers.address(FRBR_TRANSLATION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -173,14 +169,14 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_FRBR_TRANSLATION, 15);
         writeLinkReq(writer, this);
         writeFromLanguage(writer, this);
         writeAgent(writer, this);
         writeAuthoritative(writer, this);
         writePivot(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_FRBR_TRANSLATION, 15);
     }
 
     /**
@@ -188,7 +184,7 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_TRANSLATION;
     }
 
     /**

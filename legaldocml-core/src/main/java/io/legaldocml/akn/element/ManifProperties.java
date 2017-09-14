@@ -6,6 +6,9 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_FORMAT;
+import static io.legaldocml.akn.AknElements.FRBR_PORTION;
+
 /**
  * The group ManifProperties lists the properties that are characteristics of the FRBR Manifestation level.
  *
@@ -48,13 +51,13 @@ public abstract class ManifProperties extends CoreProperties {
     public void read(XmlReader reader) {
         super.read(reader);
 
-        if (reader.getQName().equalsLocalName(FRBRformat.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_FORMAT)) {
             this.format = new FRBRformat();
             this.format.read(reader);
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRportion.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_PORTION)) {
             this.portion = new FRBRportion();
             this.portion.read(reader);
             reader.nextStartOrEndElement();

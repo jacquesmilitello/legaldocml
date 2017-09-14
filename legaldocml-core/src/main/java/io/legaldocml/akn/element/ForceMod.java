@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FORCE_MOD;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 public final class ForceMod extends ModificationType implements ForceModType, AmendmentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "forceMod";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FORCE_MOD = Buffers.address(FORCE_MOD);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,12 +74,12 @@ public final class ForceMod extends ModificationType implements ForceModType, Am
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_FORCE_MOD, 8);
         if (this.type != null) {
             writer.writeAttribute(ADDRESS_TYPE, 4, getChars(this.type.name()));
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_FORCE_MOD, 8);
     }
 
     /**
@@ -91,7 +87,7 @@ public final class ForceMod extends ModificationType implements ForceModType, Am
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FORCE_MOD;
     }
 
     /**

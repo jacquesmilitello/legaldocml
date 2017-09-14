@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_COUNTRY;
+
 /**
  * The element FRBRcountry is the metadata property containing a ISO 3166-1 Alpha-2 code for the country or jurisdiction
  * to be used in the work-level IRI of this document
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class FRBRcountry extends ValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRcountry";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_COUNTRY = Buffers.address(FRBR_COUNTRY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_FRBR_COUNTRY, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_FRBR_COUNTRY, 11);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class FRBRcountry extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_COUNTRY;
     }
 
     /**

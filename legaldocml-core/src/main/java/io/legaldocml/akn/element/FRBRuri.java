@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_URI;
+
 /**
  * The element FRBRuri is the metadata property containing the IRI of the whole document.
  *
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class FRBRuri extends ValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRuri";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_URI = Buffers.address(FRBR_URI);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_FRBR_URI, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_FRBR_URI, 7);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class FRBRuri extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_URI;
     }
 
     /**

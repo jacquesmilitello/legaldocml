@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_AUTHOR;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -43,14 +44,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT_FRBRAUTHOR = "FRBRauthor";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_FRBRAUTHOR = Buffers.address(ELEMENT_FRBRAUTHOR);
+    private static final long ADDRESS_FRBR_AUTHOR = Buffers.address(FRBR_AUTHOR);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -110,11 +106,11 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS_FRBRAUTHOR, 10);
+        writer.writeStart(ADDRESS_FRBR_AUTHOR, 10);
         writeRole(writer, this);
         writeLinkReq(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS_FRBRAUTHOR, 10);
+        writer.writeEnd(ADDRESS_FRBR_AUTHOR, 10);
     }
 
     /**
@@ -122,7 +118,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     public String name() {
-        return ELEMENT_FRBRAUTHOR;
+        return FRBR_AUTHOR;
     }
 
     /**

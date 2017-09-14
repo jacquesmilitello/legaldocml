@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_EXPRESSION;
+
 /**
  * The element FRBRExpression is the metadata container of identifying properties related to the Expression level
  * according to the FRBR hierarchy.
@@ -30,23 +32,18 @@ import java.io.IOException;
 public final class FRBRExpression extends ExprProperties {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRExpression";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_EXPRESSION = Buffers.address(FRBR_EXPRESSION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 14);
+        writer.writeStart(ADDRESS_FRBR_EXPRESSION, 14);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 14);
+        writer.writeEnd(ADDRESS_FRBR_EXPRESSION, 14);
     }
 
     /**
@@ -55,7 +52,7 @@ public final class FRBRExpression extends ExprProperties {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.getQName().equalsLocalName(ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_EXPRESSION)) {
             reader.nextStartOrEndElement();
         } else {
             throw new IllegalStateException();
@@ -67,7 +64,7 @@ public final class FRBRExpression extends ExprProperties {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_EXPRESSION;
     }
 
     /**

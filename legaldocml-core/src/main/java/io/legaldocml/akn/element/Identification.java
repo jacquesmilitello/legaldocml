@@ -15,6 +15,10 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_EXPRESSION;
+import static io.legaldocml.akn.AknElements.FRBR_ITEM;
+import static io.legaldocml.akn.AknElements.FRBR_MANIFESTATION;
+import static io.legaldocml.akn.AknElements.FRBR_WORK;
 import static io.legaldocml.akn.AknElements.IDENTIFICATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
@@ -135,19 +139,19 @@ public final class Identification implements AknObject, Source {
 
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(FRBRWork.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_WORK)) {
             this.work.read(reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRExpression.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_EXPRESSION)) {
             this.expression.read(reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRManifestation.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_MANIFESTATION)) {
             this.manifestation.read(reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRItem.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_ITEM)) {
             this.item = new FRBRItem();
             this.item.read(reader);
         }

@@ -1,6 +1,5 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.MandatoryElementException;
 import io.legaldocml.akn.util.AknList;
@@ -11,6 +10,11 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_INFO;
+import static io.legaldocml.akn.AknElements.FRBR_ALIAS;
+import static io.legaldocml.akn.AknElements.FRBR_AUTHOR;
+import static io.legaldocml.akn.AknElements.FRBR_DATE;
+import static io.legaldocml.akn.AknElements.FRBR_THIS;
+import static io.legaldocml.akn.AknElements.FRBR_URI;
 
 /**
  * The complexType coreProperties lists the identifying properties available at any of the FRBR hierarchy levels.
@@ -131,26 +135,26 @@ public abstract class CoreProperties implements AknObject {
 
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(AknElements.FRBRTHIS)) {
+        if (reader.getQName().equalsLocalName(FRBR_THIS)) {
             this.frbrThis.read(reader);
             reader.nextStartOrEndElement();
         } else {
-            throw new MandatoryElementException(this, AknElements.FRBRTHIS, reader);
+            throw new MandatoryElementException(this, FRBR_THIS, reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRuri.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_URI)) {
             FRBRuri uri;
             do {
                 uri = new FRBRuri();
                 uri.read(reader);
                 this.uris.add(uri);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRuri.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBR_URI));
         } else {
-            throw new MandatoryElementException(this, FRBRuri.ELEMENT, reader);
+            throw new MandatoryElementException(this, FRBR_URI, reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRalias.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_ALIAS)) {
             FRBRalias alias;
             this.aliases = new AknList<>(new FRBRalias[4]);
             do {
@@ -158,27 +162,27 @@ public abstract class CoreProperties implements AknObject {
                 alias.read(reader);
                 this.aliases.add(alias);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRalias.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBR_ALIAS));
         }
 
 
-        if (reader.getQName().equalsLocalName(FRBRdate.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_DATE)) {
             this.date.read(reader);
             reader.nextStartOrEndElement();
         } else {
-            throw new MandatoryElementException(this, FRBRdate.ELEMENT, reader);
+            throw new MandatoryElementException(this, FRBR_DATE, reader);
         }
 
-        if (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT_FRBRAUTHOR)) {
+        if (reader.getQName().equalsLocalName(FRBR_AUTHOR)) {
             FRBRauthor author;
             do {
                 author = new FRBRauthor();
                 author.read(reader);
                 this.authors.add(author);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRauthor.ELEMENT_FRBRAUTHOR));
+            } while (reader.getQName().equalsLocalName(FRBR_AUTHOR));
         } else {
-            throw new MandatoryElementException(this, FRBRauthor.ELEMENT_FRBRAUTHOR, reader);
+            throw new MandatoryElementException(this, FRBR_AUTHOR, reader);
         }
 
         if (reader.getQName().equalsLocalName(COMPONENT_INFO)) {

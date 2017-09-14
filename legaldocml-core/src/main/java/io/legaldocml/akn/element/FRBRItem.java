@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_ITEM;
+
 /**
  * The element FRBRItem is the metadata container of identifying properties related to the Item level according to the
  * FRBR hierarchy.
@@ -18,20 +20,15 @@ import java.io.IOException;
 public final class FRBRItem extends CoreProperties {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRItem";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_ITEM = Buffers.address(FRBR_ITEM);
 
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_FRBR_ITEM, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_FRBR_ITEM, 8);
     }
 
     /**
@@ -39,7 +36,7 @@ public final class FRBRItem extends CoreProperties {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_ITEM;
     }
 
 }

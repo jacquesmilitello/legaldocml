@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_AUTHORITATIVE;
+
 /**
  * The element FRBRauthoritative is the metadata property containing a boolean value to determine whether the document
  * contains authoritative text (i.e., content that is the official, authoritative product of an official workflow from
@@ -21,23 +23,18 @@ import java.io.IOException;
 public final class FRBRauthoritative extends BooleanValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRauthoritative";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_AUTHORITATIVE = Buffers.address(FRBR_AUTHORITATIVE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_FRBR_AUTHORITATIVE, 17);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_FRBR_AUTHORITATIVE, 17);
     }
 
     /**
@@ -45,7 +42,7 @@ public final class FRBRauthoritative extends BooleanValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_AUTHORITATIVE;
     }
 
     /**
@@ -55,4 +52,5 @@ public final class FRBRauthoritative extends BooleanValueType {
     public void accept(AknVisitor visitor) {
         visitor.visit(this);
     }
+
 }

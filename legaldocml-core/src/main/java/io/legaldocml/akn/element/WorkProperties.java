@@ -7,6 +7,13 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_AUTHORITATIVE;
+import static io.legaldocml.akn.AknElements.FRBR_COUNTRY;
+import static io.legaldocml.akn.AknElements.FRBR_NAME;
+import static io.legaldocml.akn.AknElements.FRBR_NUMBER;
+import static io.legaldocml.akn.AknElements.FRBR_PRESCRIPTIVE;
+import static io.legaldocml.akn.AknElements.FRBR_SUBTYPE;
+
 /**
  * The group workProperties lists the properties that are characteristics of the FRBR Work level.
  *
@@ -82,20 +89,20 @@ public abstract class WorkProperties extends CoreProperties {
     public void read(XmlReader reader) {
         super.read(reader);
 
-        if (reader.getQName().equalsLocalName(FRBRcountry.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_COUNTRY)) {
             this.country.read(reader);
             reader.nextStartOrEndElement();
         } else {
 
         }
 
-        if (reader.getQName().equalsLocalName(FRBRsubtype.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_SUBTYPE)) {
             this.subtype = new FRBRsubtype();
             this.subtype.read(reader);
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRnumber.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_NUMBER)) {
             FRBRnumber number;
             this.numbers = new AknList<>(new FRBRnumber[4]);
             do {
@@ -103,10 +110,10 @@ public abstract class WorkProperties extends CoreProperties {
                 number.read(reader);
                 this.numbers.add(number);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRnumber.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBR_NUMBER));
         }
 
-        if (reader.getQName().equalsLocalName(FRBRname.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_NAME)) {
             FRBRname name;
             this.names = new AknList<>(new FRBRname[4]);
             do {
@@ -114,16 +121,16 @@ public abstract class WorkProperties extends CoreProperties {
                 name.read(reader);
                 this.names.add(name);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRname.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBR_NAME));
         }
 
-        if (reader.getQName().equalsLocalName(FRBRprescriptive.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_PRESCRIPTIVE)) {
             this.prescriptive = new FRBRprescriptive();
             this.prescriptive.read(reader);
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRauthoritative.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_AUTHORITATIVE)) {
             this.authoritative = new FRBRauthoritative();
             this.authoritative.read(reader);
             reader.nextStartOrEndElement();

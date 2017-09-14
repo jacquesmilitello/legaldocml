@@ -1,9 +1,7 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.element.CoreProperties;
-import io.legaldocml.akn.element.FRBRExpression;
-import io.legaldocml.akn.element.FRBRManifestation;
-import io.legaldocml.akn.element.FRBRWork;
 import io.legaldocml.akn.element.FRBRauthor;
 import io.legaldocml.akn.element.FRBRdate;
 import io.legaldocml.akn.element.Identification;
@@ -28,7 +26,7 @@ import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
  */
 public class MetaBuilder {
 
-    public static final Function<Identification, CoreProperties> FRBR_WORK = new CorePropertiesGetter(FRBRWork.ELEMENT) {
+    public static final Function<Identification, CoreProperties> FRBR_WORK = new CorePropertiesGetter(AknElements.FRBR_WORK) {
         /**
          * {@inheritDoc}
          */
@@ -38,7 +36,7 @@ public class MetaBuilder {
         }
     };
 
-    public static final Function<Identification, CoreProperties> FRBR_EXPRESSION = new CorePropertiesGetter(FRBRExpression.ELEMENT) {
+    public static final Function<Identification, CoreProperties> FRBR_EXPRESSION = new CorePropertiesGetter(AknElements.FRBR_EXPRESSION) {
         /**
          * {@inheritDoc}
          */
@@ -48,7 +46,7 @@ public class MetaBuilder {
         }
     };
 
-    public static final Function<Identification, CoreProperties> FRBR_MANIFESTATION = new CorePropertiesGetter(FRBRManifestation.ELEMENT) {
+    public static final Function<Identification, CoreProperties> FRBR_MANIFESTATION = new CorePropertiesGetter(AknElements.FRBR_MANIFESTATION) {
         /**
          * {@inheritDoc}
          */

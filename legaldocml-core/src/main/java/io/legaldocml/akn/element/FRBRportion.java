@@ -17,6 +17,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_PORTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -48,14 +49,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, RangeOpt {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRportion";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_PORTION = Buffers.address(FRBR_PORTION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -137,7 +133,7 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
      */
     @Override
     public void setFrom(EidRef eidRef) {
-        this.from = from;
+        this.from = eidRef;
     }
 
     /**
@@ -162,12 +158,12 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_FRBR_PORTION, 11);
         writeRefers(writer, this);
         writeShow(writer, this);
         writeRange(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_FRBR_PORTION, 11);
     }
 
     /**
@@ -175,7 +171,7 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_PORTION;
     }
 
     /**

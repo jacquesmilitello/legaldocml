@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_MANIFESTATION;
+
 /**
  * The element FRBRManifestation is the metadata container of identifying properties related to the Manifestation level
  * according to the FRBR hierarchy.
@@ -30,23 +32,18 @@ import java.io.IOException;
 public final class FRBRManifestation extends ManifProperties {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRManifestation";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_MANIFESTATION = Buffers.address(FRBR_MANIFESTATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_FRBR_MANIFESTATION, 17);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_FRBR_MANIFESTATION, 17);
     }
 
     /**
@@ -55,7 +52,7 @@ public final class FRBRManifestation extends ManifProperties {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.getQName().equalsLocalName(ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_MANIFESTATION)) {
             reader.nextStartOrEndElement();
         } else {
             throw new IllegalStateException(reader.getQName().toString());
@@ -67,7 +64,7 @@ public final class FRBRManifestation extends ManifProperties {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_MANIFESTATION;
     }
 
     /**

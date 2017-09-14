@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_ALIAS;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -30,14 +31,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class FRBRalias extends ValueType implements Name {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRalias";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_ALIAS = Buffers.address(FRBR_ALIAS);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -71,12 +67,12 @@ public final class FRBRalias extends ValueType implements Name {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_FRBR_ALIAS, 9);
         if (writer.getVersion() >= 3) {
             writeName(writer, this);
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_FRBR_ALIAS, 9);
     }
 
     /**
@@ -84,7 +80,7 @@ public final class FRBRalias extends ValueType implements Name {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_ALIAS;
     }
 
     /**

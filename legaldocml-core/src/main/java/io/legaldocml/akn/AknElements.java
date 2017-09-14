@@ -583,14 +583,134 @@ public final class AknElements {
     public static final String EXTENDS = "extends";
 
     /**
-     * Element for {@link io.legaldocml.akn.element.Extends}
+     * Element for {@link io.legaldocml.akn.element.FillIn}
      */
     public static final String FILL_IN = "fillIn";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Force}
+     */
+    public static final String FORCE = "force";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ForceMod}
+     */
+    public static final String FORCE_MOD = "forceMod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Foreign}
+     */
+    public static final String FOREIGN = "foreign";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Formula}
+     */
+    public static final String FORMULA = "formula";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRalias}
+     */
+    public static final String FRBR_ALIAS = "FRBRalias";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRauthor}
+     */
+    public static final String FRBR_AUTHOR = "FRBRauthor";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRauthoritative}
+     */
+    public static final String FRBR_AUTHORITATIVE = "FRBRauthoritative";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRcountry}
+     */
+    public static final String FRBR_COUNTRY = "FRBRcountry";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRdate}
+     */
+    public static final String FRBR_DATE = "FRBRdate";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRExpression}
+     */
+    public static final String FRBR_EXPRESSION = "FRBRExpression";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRformat}
+     */
+    public static final String FRBR_FORMAT = "FRBRformat";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRItem}
+     */
+    public static final String FRBR_ITEM = "FRBRItem";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRlanguage}
+     */
+    public static final String FRBR_LANGUAGE = "FRBRlanguage";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRManifestation}
+     */
+    public static final String FRBR_MANIFESTATION = "FRBRManifestation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRManifestation}
+     */
+    public static final String FRBR_MASTER_EXPRESSION = "FRBRmasterExpression";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRname}
+     */
+    public static final String FRBR_NAME = "FRBRname";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRnumber}
+     */
+    public static final String FRBR_NUMBER = "FRBRnumber";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRportion}
+     */
+    public static final String FRBR_PORTION = "FRBRportion";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRportion}
+     */
+    public static final String FRBR_PRESCRIPTIVE = "FRBRprescriptive";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRsubtype}
+     */
+    public static final String FRBR_SUBTYPE = "FRBRsubtype";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.FRBRthis}
      */
-    public static final String FRBRTHIS = "FRBRthis";
+    public static final String FRBR_THIS = "FRBRthis";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRtranslation}
+     */
+    public static final String FRBR_TRANSLATION = "FRBRtranslation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRuri}
+     */
+    public static final String FRBR_URI = "FRBRuri";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRversionNumber}
+     */
+    public static final String FRBR_VERSION_NUMBER = "FRBRversionNumber";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.FRBRWork}
+     */
+    public static final String FRBR_WORK = "FRBRWork";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Identification}

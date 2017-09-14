@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_FORMAT;
+
 /**
  * The element FRBRformat is the metadata property containing the Internet Media Type specification for the data format
  * to be used in the manifestation-level IRI of this document.
@@ -20,20 +22,15 @@ import java.io.IOException;
 public final class FRBRformat extends ValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRformat";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_FORMAT = Buffers.address(FRBR_FORMAT);
 
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_FRBR_FORMAT, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_FRBR_FORMAT, 10);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class FRBRformat extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_FORMAT;
     }
 
     /**

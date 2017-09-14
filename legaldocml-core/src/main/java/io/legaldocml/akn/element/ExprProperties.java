@@ -7,6 +7,12 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_AUTHORITATIVE;
+import static io.legaldocml.akn.AknElements.FRBR_LANGUAGE;
+import static io.legaldocml.akn.AknElements.FRBR_MASTER_EXPRESSION;
+import static io.legaldocml.akn.AknElements.FRBR_TRANSLATION;
+import static io.legaldocml.akn.AknElements.FRBR_VERSION_NUMBER;
+
 /**
  * The group exprProperties lists the properties that are characteristics of the FRBR Expression level.
  *
@@ -84,35 +90,35 @@ public abstract class ExprProperties extends CoreProperties {
     public void read(XmlReader reader) {
         super.read(reader);
 
-        if (reader.getQName().equalsLocalName(FRBRversionNumber.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_VERSION_NUMBER)) {
             this.versionNumber = new FRBRversionNumber();
             this.versionNumber.read(reader);
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRauthoritative.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_AUTHORITATIVE)) {
             this.authoritative = new FRBRauthoritative();
             this.authoritative.read(reader);
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRmasterExpression.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_MASTER_EXPRESSION)) {
             this.masterExpression = new FRBRmasterExpression();
             this.masterExpression.read(reader);
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(FRBRlanguage.ELEMENT_FRBR_LANGUAGE)) {
+        if (reader.getQName().equalsLocalName(FRBR_LANGUAGE)) {
             FRBRlanguage language;
             do {
                 language = new FRBRlanguage();
                 language.read(reader);
                 this.languages.add(language);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRlanguage.ELEMENT_FRBR_LANGUAGE));
+            } while (reader.getQName().equalsLocalName(FRBR_LANGUAGE));
         }
 
-        if (reader.getQName().equalsLocalName(FRBRtranslation.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_TRANSLATION)) {
             FRBRtranslation translation;
             this.translations = new AknList<>(new FRBRtranslation[4]);
             do {
@@ -120,7 +126,7 @@ public abstract class ExprProperties extends CoreProperties {
                 translation.read(reader);
                 this.translations.add(translation);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(FRBRtranslation.ELEMENT));
+            } while (reader.getQName().equalsLocalName(FRBR_TRANSLATION));
         }
 
     }

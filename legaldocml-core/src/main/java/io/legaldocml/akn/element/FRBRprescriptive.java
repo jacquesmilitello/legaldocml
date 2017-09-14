@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_PRESCRIPTIVE;
+
 /**
  * The element FRBRprescriptive is the metadata property containing a boolean value to determine whether the document
  * contains prescriptive text (i.e., text that is or might become prescriptive, such as an act or a bill) or not (such
@@ -21,23 +23,18 @@ import java.io.IOException;
 public final class FRBRprescriptive extends BooleanValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRprescriptive";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_PRESCRIPTIVE = Buffers.address(FRBR_PRESCRIPTIVE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 16);
+        writer.writeStart(ADDRESS_FRBR_PRESCRIPTIVE, 16);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 16);
+        writer.writeEnd(ADDRESS_FRBR_PRESCRIPTIVE, 16);
     }
 
     /**
@@ -45,7 +42,7 @@ public final class FRBRprescriptive extends BooleanValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_PRESCRIPTIVE;
     }
 
     /**

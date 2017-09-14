@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -9,6 +8,8 @@ import io.legaldocml.util.Strings;
 
 import java.io.IOException;
 import java.util.Objects;
+
+import static io.legaldocml.akn.AknElements.FRBR_THIS;
 
 /**
  * The element FRBRthis is the metadata property containing the IRI of the specific component of the document.
@@ -24,16 +25,16 @@ public final class FRBRthis extends ValueType {
     /**
      * Memory address.
      */
-    private static final long ADDRESS_FRBRTHIS = Buffers.address(AknElements.FRBRTHIS);
+    private static final long ADDRESS_FRBR_THIS = Buffers.address(FRBR_THIS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS_FRBRTHIS, 8);
+        writer.writeStart(ADDRESS_FRBR_THIS, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS_FRBRTHIS, 8);
+        writer.writeEnd(ADDRESS_FRBR_THIS, 8);
     }
 
     /**
@@ -41,7 +42,7 @@ public final class FRBRthis extends ValueType {
      */
     @Override
     public String name() {
-        return AknElements.FRBRTHIS;
+        return FRBR_THIS;
     }
 
     /**

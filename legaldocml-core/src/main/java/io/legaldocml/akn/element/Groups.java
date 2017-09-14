@@ -84,6 +84,8 @@ import static io.legaldocml.akn.AknElements.EOL;
 import static io.legaldocml.akn.AknElements.EOP;
 import static io.legaldocml.akn.AknElements.EVENT;
 import static io.legaldocml.akn.AknElements.FILL_IN;
+import static io.legaldocml.akn.AknElements.FOREIGN;
+import static io.legaldocml.akn.AknElements.FORMULA;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -155,7 +157,7 @@ public final class Groups {
         // <xsd:group ref="HTMLblock"/>
         builder.putAll(convertSuper(HTMLblock()));
         // <xsd:element ref="foreign"/>
-        builder.put(Foreign.ELEMENT, Foreign::new);
+        builder.put(FOREIGN, Foreign::new);
         // <xsd:element ref="block"/>
         builder.put(BLOCK, Block::new);
         return builder.build();
@@ -180,7 +182,7 @@ public final class Groups {
         // <xsd:element ref="longTitle"/>
         builder.put(LongTitle.ELEMENT, LongTitle::new);
         // <xsd:element ref="formula"/>
-        builder.put(Formula.ELEMENT, Formula::new);
+        builder.put(FORMULA, Formula::new);
         // <xsd:element ref="container"/>
         builder.put(CONTAINER, Container::new);
         return builder.build();
@@ -191,7 +193,7 @@ public final class Groups {
         // <xsd:element ref="longTitle"/>
         builder.put(LongTitle.ELEMENT, LongTitle::new);
         // <xsd:element ref="formula"/>
-        builder.put(Formula.ELEMENT, Formula::new);
+        builder.put(FORMULA, Formula::new);
         // <xsd:element ref="container"/>
         builder.put(CONTAINER, Container::new);
         return builder.build();
@@ -516,7 +518,7 @@ public final class Groups {
         // <xsd:element ref="citations"/>
         builder.put(CITATIONS, Citations::new);
         // <xsd:element ref="formula"/>
-        builder.put(Formula.ELEMENT, Formula::new);
+        builder.put(FORMULA, Formula::new);
         // <xsd:element ref="container"/>
         builder.put(CONTAINER, Container::new);
         return builder.build();

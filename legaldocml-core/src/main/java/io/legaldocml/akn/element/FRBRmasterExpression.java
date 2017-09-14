@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_MASTER_EXPRESSION;
+
 /**
  * The element FRBRmasterExpression is the metadata property identifying the master expression, i.e., the expression
  * whose ids are used as permanent ids in the wId attributes. An expression without the FRBRmasterExpression element is
@@ -26,23 +28,18 @@ import java.io.IOException;
 public final class FRBRmasterExpression extends LinkType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRmasterExpression";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_MASTER_EXPRESSION = Buffers.address(FRBR_MASTER_EXPRESSION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 20);
+        writer.writeStart(ADDRESS_FRBR_MASTER_EXPRESSION, 20);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 20);
+        writer.writeEnd(ADDRESS_FRBR_MASTER_EXPRESSION, 20);
     }
 
     /**
@@ -50,7 +47,7 @@ public final class FRBRmasterExpression extends LinkType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_MASTER_EXPRESSION;
     }
 
     /**

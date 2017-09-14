@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FORCE;
+
 /**
  * The element force is a metadata element specifying the period of the force modification.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class Force extends PeriodType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "force";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FORCE = Buffers.address(FORCE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_FORCE, 5);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_FORCE, 5);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class Force extends PeriodType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FORCE;
     }
 
 }

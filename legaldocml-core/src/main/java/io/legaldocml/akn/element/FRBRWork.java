@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_WORK;
+
 /**
  * The element FRBRWork is the metadata container of identifying properties related to the Work level according to the
  * FRBR hierarchy.
@@ -30,23 +32,18 @@ import java.io.IOException;
 public final class FRBRWork extends WorkProperties {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRWork";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_WORK = Buffers.address(FRBR_WORK);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_FRBR_WORK, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_FRBR_WORK, 8);
     }
 
     /**
@@ -55,7 +52,7 @@ public final class FRBRWork extends WorkProperties {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.getQName().equalsLocalName(FRBRWork.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(FRBR_WORK)) {
             reader.nextStartOrEndElement();
         } else {
             throw new IllegalStateException(reader.getQName().toString());
@@ -67,7 +64,7 @@ public final class FRBRWork extends WorkProperties {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_WORK;
     }
 
     /**
@@ -80,4 +77,5 @@ public final class FRBRWork extends WorkProperties {
             visitor.visitLeave(this);
         }
     }
+
 }

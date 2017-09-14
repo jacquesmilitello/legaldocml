@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.EFFICACY_MOD;
+import static io.legaldocml.akn.AknElements.FORCE_MOD;
 
 /**
  * The complex type Amendments is a list of all the amendment elements that can be used on a document analysis.
@@ -39,7 +40,7 @@ public abstract class Amendments implements AknObject {
                 .put(TextualMod.ELEMENT, TextualMod::new)
                 .put(MeaningMod.ELEMENT, MeaningMod::new)
                 .put(ScopeMod.ELEMENT, ScopeMod::new)
-                .put(ForceMod.ELEMENT, ForceMod::new)
+                .put(FORCE_MOD, ForceMod::new)
                 .put(EFFICACY_MOD, EfficacyMod::new)
                 .put(LegalSystemMod.ELEMENT, LegalSystemMod::new)
                 .build();

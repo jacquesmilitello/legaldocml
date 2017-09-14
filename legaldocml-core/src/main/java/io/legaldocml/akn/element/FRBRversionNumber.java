@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_VERSION_NUMBER;
+
 /**
  * The element FRBRversionNumber is the metadata property containing the value of the version number if appropriate to
  * identify the specific expression here contained. It allows an arbitrary string.
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class FRBRversionNumber extends ValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRversionNumber";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_VERSION_NUMBER = Buffers.address(FRBR_VERSION_NUMBER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_FRBR_VERSION_NUMBER, 17);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_FRBR_VERSION_NUMBER, 17);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class FRBRversionNumber extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_VERSION_NUMBER;
     }
 
     /**

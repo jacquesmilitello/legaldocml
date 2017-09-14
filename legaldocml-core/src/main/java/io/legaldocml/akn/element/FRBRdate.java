@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_DATE;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
@@ -42,14 +43,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class FRBRdate extends MetaOpt implements Date, Name {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRdate";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_DATE = Buffers.address(FRBR_DATE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -105,11 +101,11 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_FRBR_DATE, 8);
         writeDate(writer, this);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_FRBR_DATE, 8);
     }
 
     /**
@@ -117,7 +113,7 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_DATE;
     }
 
     /**

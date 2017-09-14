@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FORMULA;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -40,14 +41,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Formula extends Blocksreq implements Name, PreambleContainers, BasicContainers, PrefaceContainers, SubFlowStructureElement, PortionBodyTypeElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "formula";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FORMULA = Buffers.address(FORMULA);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -81,12 +77,12 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_FORMULA, 7);
         if (writer.getVersion() >= 3) {
             writeName(writer, this);
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_FORMULA, 7);
     }
 
     /**
@@ -94,7 +90,7 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FORMULA;
     }
 
     /**

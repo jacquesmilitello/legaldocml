@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.FRBR_NAME;
+
 /**
  * The element FRBRname is the metadata property containing a string for the title to be used in the work-level IRI of
  * this document.
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class FRBRname extends ValueType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "FRBRname";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_FRBR_NAME = Buffers.address(FRBR_NAME);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_FRBR_NAME, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_FRBR_NAME, 8);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class FRBRname extends ValueType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return FRBR_NAME;
     }
 
     /**

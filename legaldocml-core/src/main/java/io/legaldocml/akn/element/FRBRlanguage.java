@@ -14,6 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.FRBR_LANGUAGE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.throwException;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -40,14 +41,9 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 public final class FRBRlanguage extends MetaOpt implements Language {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT_FRBR_LANGUAGE = "FRBRlanguage";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_FRBR_LANGUAGE = Buffers.address(ELEMENT_FRBR_LANGUAGE);
+    private static final long ADDRESS_FRBR_LANGUAGE = Buffers.address(FRBR_LANGUAGE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -94,7 +90,7 @@ public final class FRBRlanguage extends MetaOpt implements Language {
      */
     @Override
     public String name() {
-        return ELEMENT_FRBR_LANGUAGE;
+        return FRBR_LANGUAGE;
     }
 
     /**
