@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.impl.Buffers;
@@ -19,23 +20,18 @@ import java.io.IOException;
 public final class P extends InlineType implements LiElement, HTMLblock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "p";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_P = Buffers.address(AknElements.P);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 1);
+        writer.writeStart(ADDRESS_P, 1);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 1);
+        writer.writeEnd(ADDRESS_P, 1);
     }
 
     /**
@@ -43,7 +39,7 @@ public final class P extends InlineType implements LiElement, HTMLblock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return AknElements.P;
     }
 
     /**
@@ -56,4 +52,5 @@ public final class P extends InlineType implements LiElement, HTMLblock {
             visitor.visitLeave(this);
         }
     }
+
 }

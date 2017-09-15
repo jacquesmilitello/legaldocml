@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -16,6 +17,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.LI;
+import static io.legaldocml.akn.AknElements.OL;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
@@ -61,8 +63,8 @@ public final class Li extends CoreOptImpl implements ValueOpt {
         ELEMS = ImmutableMap.<String, Supplier<LiElement>>builder()
                 .putAll(convertSuper(inlineCM()))
                 .put(Ul.ELEMENT, Ul::new)
-                .put(LI, Ol::new)
-                .put(P.ELEMENT, P::new)
+                .put(OL, Ol::new)
+                .put(AknElements.P, P::new)
                 .build();
     }
 

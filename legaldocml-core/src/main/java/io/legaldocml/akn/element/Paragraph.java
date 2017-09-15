@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PARAGRAPH;
+
 /**
  * This element is a hierarchical container called "paragraph" either explicitly or due to the local tradition.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Paragraph extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "paragraph";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PARAGRAPH = Buffers.address(PARAGRAPH);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_PARAGRAPH, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_PARAGRAPH, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Paragraph extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PARAGRAPH;
     }
 
 }

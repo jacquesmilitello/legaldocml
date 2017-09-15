@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PETITIONS;
+
 /**
  * This element is a structural container for parts of a debates that are relevant to petitions.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Petitions extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "petitions";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PETITIONS = Buffers.address(PETITIONS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_PETITIONS, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_PETITIONS, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Petitions extends AltHierarchy implements SpeechSection {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PETITIONS;
     }
 
 }

@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.PLACE_HOLDER;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOriginalText;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Placeholder extends InlineType implements OriginalText, ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "placeholder";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PLACE_HOLDER = Buffers.address(PLACE_HOLDER);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -77,10 +73,10 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_PLACE_HOLDER, 11);
         writeOriginalText(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_PLACE_HOLDER, 11);
     }
 
     /**
@@ -88,7 +84,7 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PLACE_HOLDER;
     }
 
     /**

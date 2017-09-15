@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.PARTY;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Party extends InlineReqReqType implements io.legaldocml.akn.attribute.Role, ANheaderInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "party";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PARTY = Buffers.address(PARTY);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -77,10 +73,10 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_PARTY, 5);
         writeRole(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_PARTY, 5);
     }
 
     /**
@@ -88,7 +84,7 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PARTY;
     }
 
     /**
@@ -98,4 +94,5 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
 }

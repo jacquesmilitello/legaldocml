@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.POINT_OF_ORDER;
+
 /**
  * This element is a structural container for parts of a debates that are relevant to points of order.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class PointOfOrder extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "pointOfOrder";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_POINT_OF_ORDER = Buffers.address(POINT_OF_ORDER);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_POINT_OF_ORDER, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_POINT_OF_ORDER, 12);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class PointOfOrder extends AltHierarchy implements SpeechSection {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return POINT_OF_ORDER;
     }
 
 }

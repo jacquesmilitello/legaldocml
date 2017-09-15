@@ -18,7 +18,6 @@ import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
  */
 public final class Parliamentary extends ParliamentaryAnalysis {
 
-
     /**
      * Memory address.
      */

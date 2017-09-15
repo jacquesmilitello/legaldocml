@@ -23,6 +23,7 @@ import static io.legaldocml.akn.AknElements.MAPPINGS;
 import static io.legaldocml.akn.AknElements.OTHER_ANALYSIS;
 import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
 import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
+import static io.legaldocml.akn.AknElements.PASSIVE_MODIFICATIONS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -211,7 +212,7 @@ public final class Analysis implements Source {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(PassiveModifications.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PASSIVE_MODIFICATIONS)) {
             this.passiveModifications = new PassiveModifications();
             this.passiveModifications.read(reader);
             reader.nextStartOrEndElement();

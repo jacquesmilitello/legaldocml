@@ -226,7 +226,7 @@ public final class Groups {
         // <xsd:element ref="table"/>
         builder.put(Table.ELEMENT, Table::new);
         // <xsd:element ref="p"/>
-        builder.put(P.ELEMENT, P::new);
+        builder.put(AknElements.P, P::new);
         return builder.build();
     }
 
@@ -323,7 +323,7 @@ public final class Groups {
         // <xsd:element ref="opinion"/>
         builder.put(OPINION, Opinion::new);
         // <xsd:element ref="placeholder"/>
-        builder.put(Placeholder.ELEMENT, Placeholder::new);
+        builder.put(PLACE_HOLDER, Placeholder::new);
         // <xsd:element ref="fillIn"/>
         builder.put(FILL_IN, FillIn::new);
         // <xsd:element ref="decoration"/>
@@ -384,7 +384,7 @@ public final class Groups {
         // <xsd:element ref="time" />
         builder.put(Time.ELEMENT, Time::new);
         // <xsd:element ref="person" />
-        builder.put(Person.ELEMENT, Person::new);
+        builder.put(PERSON, Person::new);
         // <xsd:element ref="organization" />
         builder.put(ORGANIZATION, Organization::new);
         // <xsd:element ref="concept" />
@@ -417,7 +417,7 @@ public final class Groups {
         // <xsd:element ref="neutralCitation"/>
         builder.put(NEUTRAL_CITATION, NeutralCitation::new);
         // <xsd:element ref="party"/>
-        builder.put(Party.ELEMENT, Party::new);
+        builder.put(PARTY, Party::new);
         // <xsd:element ref="judge"/>
         builder.put(JUDGE, Judge::new);
         // <xsd:element ref="lawyer"/>
@@ -478,7 +478,7 @@ public final class Groups {
         // <xsd:element ref="original"/>
         builder.put(ORIGINAL, Original::new);
         // <xsd:element ref="passiveRef"/>
-        builder.put(PassiveRef.ELEMENT, PassiveRef::new);
+        builder.put(PASSIVE_REF, PassiveRef::new);
         // <xsd:element ref="activeRef"/>
         builder.put(ACTIVE_REF, ActiveRef::new);
         // <xsd:element ref="jurisprudence"/>
@@ -544,9 +544,9 @@ public final class Groups {
         // <xsd:element ref="section"/>
         builder.put(Section.ELEMENT, Section::new);
         // <xsd:element ref="part"/>
-        builder.put(Part.ELEMENT, Part::new);
+        builder.put(PART, Part::new);
         // <xsd:element ref="paragraph"/>
-        builder.put(Paragraph.ELEMENT, Paragraph::new);
+        builder.put(PARAGRAPH, Paragraph::new);
         // <xsd:element ref="chapter"/>
         builder.put(CHAPTER, Chapter::new);
         // <xsd:element ref="title"/>
@@ -562,7 +562,7 @@ public final class Groups {
         // <xsd:element ref="list"/>
         builder.put(LIST, List::new);
         // <xsd:element ref="point"/>
-        builder.put(Point.ELEMENT, Point::new);
+        builder.put(POINT, Point::new);
         // <xsd:element ref="indent"/>
         builder.put(INDENT, Indent::new);
         // <xsd:element ref="alinea"/>
@@ -648,7 +648,7 @@ public final class Groups {
         // <xsd:element ref="writtenStatements"/>
         builder.put(WrittenStatements.ELEMENT, WrittenStatements::new);
         // <xsd:element ref="personalStatements"/>
-        builder.put(PersonalStatements.ELEMENT, PersonalStatements::new);
+        builder.put(PERSONAL_STATEMENTS, PersonalStatements::new);
         // <xsd:element ref="ministerialStatements"/>
         builder.put(MINISTERIAL_STATEMENTS, MinisterialStatements::new);
         // <xsd:element ref="resolutions"/>
@@ -660,9 +660,9 @@ public final class Groups {
         // <xsd:element ref="communication"/>
         builder.put(COMMUNICATION, Communication::new);
         // <xsd:element ref="petitions"/>
-        builder.put(Petitions.ELEMENT, Petitions::new);
+        builder.put(PETITIONS, Petitions::new);
         // <xsd:element ref="papers"/>
-        builder.put(Papers.ELEMENT, Papers::new);
+        builder.put(PAPERS, Papers::new);
         // <xsd:element ref="noticesOfMotion"/>
         builder.put(NOTICES_OF_MOTION, NoticesOfMotion::new);
         // <xsd:element ref="questions"/>
@@ -672,7 +672,7 @@ public final class Groups {
         // <xsd:element ref="proceduralMotions"/>
         builder.put(ProceduralMotions.ELEMENT, ProceduralMotions::new);
         // <xsd:element ref="pointOfOrder"/>
-        builder.put(PointOfOrder.ELEMENT, PointOfOrder::new);
+        builder.put(POINT_OF_ORDER, PointOfOrder::new);
         // <xsd:element ref="adjournment"/>
         builder.put(ADJOURNMENT, Adjournment::new);
         // <xsd:element ref="debateSection"/>

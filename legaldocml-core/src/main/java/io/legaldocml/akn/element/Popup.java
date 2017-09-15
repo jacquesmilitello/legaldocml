@@ -6,6 +6,7 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.POPUP;
 
 /**
  * <pre>
@@ -14,31 +15,27 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@Deprecated
 public final class Popup extends PopupStructure implements SubFlowElements {
-
-	/**
-	 * XML tag element name.
-	 */
-    public static final String ELEMENT = "popup";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_POPUP = Buffers.address(POPUP);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_POPUP, 5);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_POPUP, 5);
     }
 
     /** {@inheritDoc} */
     @Override
     public String name() {
-        return ELEMENT;
+        return POPUP;
     }
 }

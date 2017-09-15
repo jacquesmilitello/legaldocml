@@ -1053,9 +1053,79 @@ public final class AknElements {
     public static final String OVER_RULES = "overrules";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.P}
+     */
+    public static final String P = "p";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Papers}
+     */
+    public static final String PAPERS = "papers";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Paragraph}
+     */
+    public static final String PARAGRAPH = "paragraph";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Part}
+     */
+    public static final String PART = "part";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Parliamentary}
      */
     public static final String PARLIAMENTARY = "parliamentary";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Party}
+     */
+    public static final String PARTY = "party";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.PassiveModifications}
+     */
+    public static final String PASSIVE_MODIFICATIONS = "passiveModifications";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.PassiveRef}
+     */
+    public static final String PASSIVE_REF = "passiveRef";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Person}
+     */
+    public static final String PERSON = "person";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.PersonalStatements}
+     */
+    public static final String PERSONAL_STATEMENTS = "personalStatements";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Petitions}
+     */
+    public static final String PETITIONS = "petitions";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Placeholder}
+     */
+    public static final String PLACE_HOLDER = "placeholder";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Point}
+     */
+    public static final String POINT = "point";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.PointOfOrder}
+     */
+    public static final String POINT_OF_ORDER = "pointOfOrder";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Popup}
+     */
+    public static final String POPUP = "popup";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Toc}

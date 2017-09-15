@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PASSIVE_REF;
+
 /**
  * The element passiveRef is a metadata reference to the Akoma Ntoso IRI of a document providing modifications on this
  * document (i.e., a passive references).
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class PassiveRef extends ReferenceType implements DocRef {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "passiveRef";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PASSIVE_REF = Buffers.address(PASSIVE_REF);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_PASSIVE_REF, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_PASSIVE_REF, 10);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class PassiveRef extends ReferenceType implements DocRef {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PASSIVE_REF;
     }
 
     /**

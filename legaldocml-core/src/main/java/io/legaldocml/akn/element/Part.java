@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PART;
+
 /**
  * This element is a hierarchical container called "part" either explicitly or due to the local tradition.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Part extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "part";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PART = Buffers.address(PART);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_PART, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_PART, 4);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Part extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PART;
     }
 
 }
