@@ -14,6 +14,8 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.MAPPING;
+import static io.legaldocml.akn.AknElements.MAPPINGS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -35,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Mappings implements Source {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "mappings";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_MAPPINGS = Buffers.address(MAPPINGS);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -79,10 +76,10 @@ public final class Mappings implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_MAPPINGS, 5);
         writeSource(writer, this);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_MAPPINGS, 5);
     }
 
     /**
@@ -93,14 +90,14 @@ public final class Mappings implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Mapping.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(MAPPING)) {
             Mapping mapping;
             do {
                 mapping = new Mapping();
                 mapping.read(reader);
                 this.elements.add(mapping);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Mapping.ELEMENT));
+            } while (reader.getQName().equalsLocalName(MAPPING));
         }
     }
 
@@ -109,7 +106,7 @@ public final class Mappings implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MAPPINGS;
     }
 
     /**

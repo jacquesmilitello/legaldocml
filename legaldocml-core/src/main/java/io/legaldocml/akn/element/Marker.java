@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.MARKER;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -38,14 +39,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Marker extends MarkerReq implements Name, MarkerElements {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "marker";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_MARKER = Buffers.address(MARKER);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -79,10 +75,10 @@ public final class Marker extends MarkerReq implements Name, MarkerElements {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_MARKER, 6);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_MARKER, 6);
     }
 
     /**
@@ -90,7 +86,7 @@ public final class Marker extends MarkerReq implements Name, MarkerElements {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MARKER;
     }
 
     /**

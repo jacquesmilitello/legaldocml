@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.NUM;
+
 /**
  * The element num is a heading element in a hierarchy that contains a number or any other ordered mechanism to identify
  * the structure.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Num extends InlineType implements PopupStructureElement, SubFlowStructureElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "num";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NUM = Buffers.address(NUM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_NUM, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_NUM, 3);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Num extends InlineType implements PopupStructureElement, SubF
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NUM;
     }
 
 }

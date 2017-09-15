@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.NOTICES_OF_MOTION;
+
 /**
  * This element is a structural container for parts of a debates that are relevant to the notices of motions.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class NoticesOfMotion extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "noticesOfMotion";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NOTICES_OF_MOTION = Buffers.address(NOTICES_OF_MOTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_NOTICES_OF_MOTION, 15);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_NOTICES_OF_MOTION, 15);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class NoticesOfMotion extends AltHierarchy implements SpeechSection
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NOTICES_OF_MOTION;
     }
 
 }

@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.NEW;
+
 /**
  * The element new is a metadata element containing (in some non-managed form) the new text of the modification.
  * Attribute href points to the eId of the element old it is substituting.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class New extends AnyOtherType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "new";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NEW = Buffers.address(NEW);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_NEW, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_NEW, 3);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class New extends AnyOtherType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NEW;
     }
 
 }

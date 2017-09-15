@@ -16,6 +16,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.MAPPING;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEventRefRef;
@@ -48,14 +49,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Mapping extends MetaReq implements MappingAtts {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "mapping";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_MAPPING = Buffers.address(MAPPING);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -180,10 +176,10 @@ public final class Mapping extends MetaReq implements MappingAtts {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_MAPPING, 8);
         writeMappingAtts(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_MAPPING, 8);
     }
 
     /**
@@ -191,7 +187,7 @@ public final class Mapping extends MetaReq implements MappingAtts {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MAPPING;
     }
 
     /**

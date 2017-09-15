@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.MAIN_BODY;
+
 /**
  * The element mainContent is the container of the main part of all other document types.
  *
@@ -18,24 +20,18 @@ import java.io.IOException;
 public final class MainBody extends MainContent {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "mainBody";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
-
+    private static final long ADDRESS_MAIN_BODY = Buffers.address(MAIN_BODY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_MAIN_BODY, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_MAIN_BODY, 8);
     }
 
     /**
@@ -43,7 +39,7 @@ public final class MainBody extends MainContent {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MAIN_BODY;
     }
 
     /**
@@ -56,4 +52,5 @@ public final class MainBody extends MainContent {
             visitor.visitLeave(this);
         }
     }
+
 }

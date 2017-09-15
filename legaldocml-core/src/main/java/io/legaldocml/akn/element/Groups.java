@@ -293,13 +293,13 @@ public final class Groups {
         // <xsd:element ref="ref"/>
         builder.put(Ref.ELEMENT, Ref::new);
         // <xsd:element ref="mref"/>
-        builder.put(Mref.ELEMENT, Mref::new);
+        builder.put(MREF, Mref::new);
         // <xsd:element ref="rref"/>
         builder.put(Rref.ELEMENT, Rref::new);
         // <xsd:element ref="mod"/>
-        builder.put(Mod.ELEMENT, Mod::new);
+        builder.put(MOD, Mod::new);
         // <xsd:element ref="mmod"/>
-        builder.put(Mmod.ELEMENT, Mmod::new);
+        builder.put(MMOD, Mmod::new);
         // <xsd:element ref="rmod"/>
         builder.put(Rmod.ELEMENT, Rmod::new);
         // <xsd:element ref="remark"/>
@@ -362,14 +362,14 @@ public final class Groups {
         // <xsd:group ref="HTMLmarker"/>
         builder.putAll(convertSuper(HTMLMarker()));
         // <xsd:element ref="marker"/>
-        builder.put(Marker.ELEMENT, Marker::new);
+        builder.put(MARKER, Marker::new);
         return builder.build();
     }
 
     public static Map<String, Supplier<ANmarker>> ANmarker() {
         ImmutableMap.Builder<String, Supplier<ANmarker>> builder = ImmutableMap.builder();
         // <xsd:element ref="noteRef" />
-        builder.put(NoteRef.ELEMENT, NoteRef::new);
+        builder.put(NOTE_REF, NoteRef::new);
         // <xsd:element ref="eol" />
         builder.put(EOL, Eol::new);
         // <xsd:element ref="eop" />
@@ -415,7 +415,7 @@ public final class Groups {
         // <xsd:element ref="courtType"/>
         builder.put(COURT_TYPE, CourtType::new);
         // <xsd:element ref="neutralCitation"/>
-        builder.put(NeutralCitation.ELEMENT, NeutralCitation::new);
+        builder.put(NEUTRAL_CITATION, NeutralCitation::new);
         // <xsd:element ref="party"/>
         builder.put(Party.ELEMENT, Party::new);
         // <xsd:element ref="judge"/>
@@ -629,7 +629,7 @@ public final class Groups {
         // <xsd:element ref="scene"/>
         builder.put(Scene.ELEMENT, Scene::new);
         // <xsd:element ref="narrative"/>
-        builder.put(Narrative.ELEMENT, Narrative::new);
+        builder.put(NARRATIVE, Narrative::new);
         // <xsd:element ref="summary"/>
         builder.put(Summary.ELEMENT, Summary::new);
         return builder.build();
@@ -650,11 +650,11 @@ public final class Groups {
         // <xsd:element ref="personalStatements"/>
         builder.put(PersonalStatements.ELEMENT, PersonalStatements::new);
         // <xsd:element ref="ministerialStatements"/>
-        builder.put(MinisterialStatements.ELEMENT, MinisterialStatements::new);
+        builder.put(MINISTERIAL_STATEMENTS, MinisterialStatements::new);
         // <xsd:element ref="resolutions"/>
         builder.put(Resolutions.ELEMENT, Resolutions::new);
         // <xsd:element ref="nationalInterest"/>
-        builder.put(NationalInterest.ELEMENT, NationalInterest::new);
+        builder.put(NATIONAL_INTEREST, NationalInterest::new);
         // <xsd:element ref="declarationOfVote"/>
         builder.put(DECLARATION_OF_VOTE, DeclarationOfVote::new);
         // <xsd:element ref="communication"/>
@@ -664,7 +664,7 @@ public final class Groups {
         // <xsd:element ref="papers"/>
         builder.put(Papers.ELEMENT, Papers::new);
         // <xsd:element ref="noticesOfMotion"/>
-        builder.put(NoticesOfMotion.ELEMENT, NoticesOfMotion::new);
+        builder.put(NOTICES_OF_MOTION, NoticesOfMotion::new);
         // <xsd:element ref="questions"/>
         builder.put(Questions.ELEMENT, Questions::new);
         // <xsd:element ref="address"/>

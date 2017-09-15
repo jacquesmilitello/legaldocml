@@ -17,7 +17,7 @@ import static io.legaldocml.akn.AknElements.FRBR_PORTION;
  * 	   <xsd:sequence>
  *       <xsd:element ref="FRBRportion" minOccurs="0" maxOccurs="1"/>
  *       <xsd:element ref="FRBRformat" minOccurs="0" maxOccurs="1"/>
- *     <xsd:sequence>
+ *     </xsd:sequence>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

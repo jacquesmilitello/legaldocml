@@ -11,7 +11,7 @@ import io.legaldocml.akn.AknObject;
  * 		<xsd:group ref="hierElements"/>
  * 		<xsd:group ref="blockElements"/>
  * 		<xsd:group ref="containerElements"/>
- * 	<xsd:choice>
+ * 	</xsd:choice>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

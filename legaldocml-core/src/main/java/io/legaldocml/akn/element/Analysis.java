@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 import static io.legaldocml.akn.AknElements.ACTIVE_MODIFICATIONS;
 import static io.legaldocml.akn.AknElements.ANALYSIS;
 import static io.legaldocml.akn.AknElements.JUDICIAL;
+import static io.legaldocml.akn.AknElements.MAPPINGS;
 import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
@@ -232,7 +233,7 @@ public final class Analysis implements Source {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Mappings.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(MAPPINGS)) {
             this.mappings = new Mappings();
             this.mappings.read(reader);
             reader.nextStartOrEndElement();

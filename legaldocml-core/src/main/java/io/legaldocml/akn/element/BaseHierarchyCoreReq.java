@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.HEADING;
+import static io.legaldocml.akn.AknElements.NUM;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -84,7 +85,7 @@ public abstract class BaseHierarchyCoreReq extends CoreReqImpl implements BaseHi
         super.read(reader);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Num.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(NUM)) {
             this.num = new Num();
             this.num.read(reader);
             if (LOGGER.isDebugEnabled()) {

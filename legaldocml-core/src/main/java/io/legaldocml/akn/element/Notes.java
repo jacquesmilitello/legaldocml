@@ -15,6 +15,8 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.NOTE;
+import static io.legaldocml.akn.AknElements.NOTES;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -36,15 +38,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class Notes implements Source {
 
-    /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "notes";
+
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(NOTES);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -95,14 +94,14 @@ public final class Notes implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Note.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(NOTE)) {
             Note note;
             do {
                 note = new Note();
                 note.read(reader);
                 this.elements.add(note);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Note.ELEMENT));
+            } while (reader.getQName().equalsLocalName(NOTE));
         }
     }
 
@@ -111,7 +110,7 @@ public final class Notes implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NOTES;
     }
 
     /**

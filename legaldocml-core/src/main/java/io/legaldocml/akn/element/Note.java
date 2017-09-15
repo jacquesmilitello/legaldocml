@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.NOTE;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -39,14 +40,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Note extends SubFlowStructure implements Notes {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "note";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NOTE = Buffers.address(NOTE);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -118,10 +114,10 @@ public final class Note extends SubFlowStructure implements Notes {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_NOTE, 4);
         writeNotes(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_NOTE, 4);
     }
 
     /**
@@ -129,7 +125,7 @@ public final class Note extends SubFlowStructure implements Notes {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NOTE;
     }
 
     /**

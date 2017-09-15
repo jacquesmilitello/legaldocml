@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.NEUTRAL_CITATION;
+
 /**
  * The element neutralCitation is an inline element within judgments to identify the string declared by the document as
  * being the neutral citation for the judgment.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class NeutralCitation extends InlineType implements ANheaderInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "neutralCitation";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NEUTRAL_CITATION = Buffers.address(NEUTRAL_CITATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_NEUTRAL_CITATION, 15);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_NEUTRAL_CITATION, 15);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class NeutralCitation extends InlineType implements ANheaderInline 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NEUTRAL_CITATION;
     }
 
 }

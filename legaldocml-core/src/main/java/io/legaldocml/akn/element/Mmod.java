@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.MMOD;
+
 /**
  * the element mmod is an inline element containing multiple specifications of modifications on another document.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Mmod extends ModType implements ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "mmod";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_MMOD = Buffers.address(MMOD);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_MMOD, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_MMOD, 4);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Mmod extends ModType implements ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MMOD;
     }
 
 }

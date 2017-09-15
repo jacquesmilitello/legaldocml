@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.MREF;
+
 /**
  * The element mref is an inline element containing multiple references (each in turn represented by a ref element)
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Mref extends InlineType implements ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "mref";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_MREF = Buffers.address(MREF);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_MREF, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_MREF, 4);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Mref extends InlineType implements ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MREF;
     }
 
 }

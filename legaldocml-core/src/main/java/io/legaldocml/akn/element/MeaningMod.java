@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.DOMAIN;
+import static io.legaldocml.akn.AknElements.MEANING_MOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeMeaningModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -42,14 +43,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class MeaningMod extends ModificationType implements MeaningModType, AmendmentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "meaningMod";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_MEANING_MOD = Buffers.address(MEANING_MOD);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -94,13 +90,13 @@ public final class MeaningMod extends ModificationType implements MeaningModType
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_MEANING_MOD, 10);
         writeMeaningModType(writer, this);
         super.write(writer);
         if (this.domain != null) {
             this.domain.write(writer);
         }
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_MEANING_MOD, 10);
     }
 
     /**
@@ -121,11 +117,12 @@ public final class MeaningMod extends ModificationType implements MeaningModType
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return MEANING_MOD;
     }
 
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
 }

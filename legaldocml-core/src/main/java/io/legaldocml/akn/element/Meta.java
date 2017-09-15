@@ -16,6 +16,7 @@ import static io.legaldocml.akn.AknElements.ANALYSIS;
 import static io.legaldocml.akn.AknElements.CLASSIFICATION;
 import static io.legaldocml.akn.AknElements.LIFECYCLE;
 import static io.legaldocml.akn.AknElements.META;
+import static io.legaldocml.akn.AknElements.NOTES;
 import static io.legaldocml.util.Streams.stream;
 
 /**
@@ -278,7 +279,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(References.ELEMENT));
         }
 
-        if (reader.getQName().equalsLocalName(Notes.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(NOTES)) {
             Notes notes;
             this.notes = new AknList<>(new Notes[4]);
             do {
@@ -286,7 +287,7 @@ public final class Meta implements AknObject {
                 notes.read(reader);
                 this.notes.add(notes);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Notes.ELEMENT));
+            } while (reader.getQName().equalsLocalName(NOTES));
         }
 
         if (reader.getQName().equalsLocalName(Proprietary.ELEMENT)) {

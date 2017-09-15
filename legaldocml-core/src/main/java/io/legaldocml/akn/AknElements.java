@@ -883,14 +883,105 @@ public final class AknElements {
     public static final String LONG_TITLE = "longTitle";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.MainBody}
+     */
+    public static final String MAIN_BODY = "mainBody";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Mapping}
+     */
+    public static final String MAPPING = "mapping";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Mappings}
+     */
+    public static final String MAPPINGS = "mappings";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Marker}
+     */
+    public static final String MARKER = "marker";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.MeaningMod}
+     */
+    public static final String MEANING_MOD = "meaningMod";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Meta}
      */
     public static final String META = "meta";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.MinisterialStatements}
+     */
+    public static final String MINISTERIAL_STATEMENTS = "ministerialStatements";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Mmod}
+     */
+    public static final String MMOD = "mmod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Mod}
+     */
+    public static final String MOD = "mod";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Motivation}
      */
     public static final String MOTIVATION = "motivation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Mref}
+     */
+    public static final String MREF = "mref";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Narrative}
+     */
+    public static final String NARRATIVE = "narrative";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.NationalInterest}
+     */
+    public static final String NATIONAL_INTEREST = "nationalInterest";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.NeutralCitation}
+     */
+    public static final String NEUTRAL_CITATION = "neutralCitation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.New}
+     */
+    public static final String NEW = "new";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Note}
+     */
+    public static final String NOTE = "note";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.NoteRef}
+     */
+    public static final String NOTE_REF = "noteRef";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Notes}
+     */
+    public static final String NOTES = "notes";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.NoticesOfMotion}
+     */
+    public static final String NOTICES_OF_MOTION = "noticesOfMotion";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Num}
+     */
+    public static final String NUM = "num";
+
 
     /**
      * Element for {@link io.legaldocml.akn.element.Parliamentary}

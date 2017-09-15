@@ -23,9 +23,9 @@ import static io.legaldocml.akn.AknElements.COMPONENT_REF;
  * 		 <xsd:group ref="hierElements"/>
  * 		 <xsd:group ref="blockElements"/>
  * 		 <xsd:group ref="containerElements"/>
- * 	   <xsd:choice>
+ * 	   </xsd:choice>
  * 	   <xsd:attributeGroup ref="coreopt"/>
- *   <xsd:complexType>
+ *   </xsd:complexType>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

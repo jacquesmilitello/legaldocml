@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.NARRATIVE;
+
 /**
  * The element narrative is a block element in a debate to mark description in the third person of events taking place
  * in the meeting, e.g. "Mr X. takes the Chair".
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Narrative extends InlineType implements ANcontainers {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "narrative";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NARRATIVE = Buffers.address(NARRATIVE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_NARRATIVE, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_NARRATIVE, 9);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Narrative extends InlineType implements ANcontainers {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NARRATIVE;
     }
 
 

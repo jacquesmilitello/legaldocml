@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.NATIONAL_INTEREST;
+
 /**
  * This element is a structural container for parts of a debates that contain resolutions.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class NationalInterest extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "nationalInterest";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_NATIONAL_INTEREST = Buffers.address(NATIONAL_INTEREST);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 16);
+        writer.writeStart(ADDRESS_NATIONAL_INTEREST, 16);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 16);
+        writer.writeEnd(ADDRESS_NATIONAL_INTEREST, 16);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class NationalInterest extends AltHierarchy implements SpeechSectio
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return NATIONAL_INTEREST;
     }
 
 }

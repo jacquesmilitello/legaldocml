@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.NEW;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTextualModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -121,7 +122,7 @@ public final class TextualMod extends ModificationType implements TextualModType
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(New.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(NEW)) {
             this._new = new New();
             this._new.read(reader);
             reader.nextStartOrEndElement();
