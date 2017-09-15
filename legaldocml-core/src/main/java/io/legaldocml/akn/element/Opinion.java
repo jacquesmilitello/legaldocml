@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.OPINION;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOpinionType;
@@ -38,14 +39,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Opinion extends InlineType implements io.legaldocml.akn.attribute.OpinionType, ANinline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "opinion";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OPINION = Buffers.address(OPINION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -97,10 +93,10 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_OPINION, 7);
         writeOpinionType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_OPINION, 7);
     }
 
 
@@ -109,7 +105,7 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OPINION;
     }
 
     /**

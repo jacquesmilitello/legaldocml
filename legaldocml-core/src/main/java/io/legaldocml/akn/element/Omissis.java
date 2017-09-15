@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.OMISSIS;
+
 /**
  * the element omissis is an inline element for the specification of a text that substitutes a textual omission (e.g.,
  * dots, spaces, the word "omissis", etc.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Omissis extends InlineType implements ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "omissis";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OMISSIS = Buffers.address(OMISSIS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_OMISSIS, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_OMISSIS, 7);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Omissis extends InlineType implements ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OMISSIS;
     }
 
 }

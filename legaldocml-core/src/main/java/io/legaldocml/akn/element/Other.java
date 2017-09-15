@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.OTHER;
+
 /**
  * The element other is a container of parts of a debate that are not speeches, nor scene comments (e.g., lists of
  * papers, etc.).
@@ -20,14 +22,9 @@ import java.io.IOException;
 public final class Other extends Blocksreq implements ANcontainers {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "other";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(OTHER);
 
     /**
      * {@inheritDoc}
@@ -44,7 +41,7 @@ public final class Other extends Blocksreq implements ANcontainers {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OTHER;
     }
 
     /**

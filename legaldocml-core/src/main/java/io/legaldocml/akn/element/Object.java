@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.OBJECT;
+
 /**
  * The element object is is an inline element to identify a text fragment introducing or referring to an object in the
  * ontology.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Object extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "object";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OBJECT = Buffers.address(OBJECT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_OBJECT, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_OBJECT, 6);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Object extends InlineReqReqType implements ANsemanticInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OBJECT;
     }
 
 }

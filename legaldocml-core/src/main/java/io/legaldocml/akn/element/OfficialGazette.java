@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.OFFICIAL_GAZETTE;
+
 /**
  * Element officialGazette is used for describing the structure and content of an issue of an official gazette.
  *
@@ -27,23 +29,18 @@ import java.io.IOException;
 public final class OfficialGazette extends CollectionStructure implements DocumentType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "officialGazette";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OFFICIAL_GAZETTE = Buffers.address(OFFICIAL_GAZETTE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_OFFICIAL_GAZETTE, 15);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_OFFICIAL_GAZETTE, 15);
     }
 
     /**
@@ -51,7 +48,7 @@ public final class OfficialGazette extends CollectionStructure implements Docume
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OFFICIAL_GAZETTE;
     }
 
 }

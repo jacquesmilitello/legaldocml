@@ -20,6 +20,8 @@ import static io.legaldocml.akn.AknElements.ACTIVE_MODIFICATIONS;
 import static io.legaldocml.akn.AknElements.ANALYSIS;
 import static io.legaldocml.akn.AknElements.JUDICIAL;
 import static io.legaldocml.akn.AknElements.MAPPINGS;
+import static io.legaldocml.akn.AknElements.OTHER_ANALYSIS;
+import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
 import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
@@ -239,7 +241,7 @@ public final class Analysis implements Source {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(OtherReferences.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(OTHER_REFERENCES)) {
             OtherReferences otherReferences;
             this.otherReferences = new AknList<>(new OtherReferences[4]);
             do {
@@ -247,10 +249,10 @@ public final class Analysis implements Source {
                 otherReferences.read(reader);
                 this.otherReferences.add(otherReferences);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(OtherReferences.ELEMENT));
+            } while (reader.getQName().equalsLocalName(OTHER_REFERENCES));
         }
 
-        if (reader.getQName().equalsLocalName(OtherAnalysis.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(OTHER_ANALYSIS)) {
             OtherAnalysis otherAnalysis;
             this.otherAnalysis = new AknList<>(new OtherAnalysis[4]);
             do {
@@ -258,7 +260,7 @@ public final class Analysis implements Source {
                 otherAnalysis.read(reader);
                 this.otherAnalysis.add(otherAnalysis);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(OtherAnalysis.ELEMENT));
+            } while (reader.getQName().equalsLocalName(OTHER_ANALYSIS));
         }
 
     }

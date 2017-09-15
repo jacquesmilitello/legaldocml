@@ -982,6 +982,75 @@ public final class AknElements {
      */
     public static final String NUM = "num";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Object}
+     */
+    public static final String OBJECT = "object";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.OfficialGazette}
+     */
+    public static final String OFFICIAL_GAZETTE = "officialGazette";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Ol}
+     */
+    public static final String OL = "ol";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Old}
+     */
+    public static final String OLD = "old";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Omissis}
+     */
+    public static final String OMISSIS = "omissis";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Opinion}
+     */
+    public static final String OPINION = "opinion";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.OralStatements}
+     */
+    public static final String ORAL_STATEMENTS = "oralStatements";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Organization}
+     */
+    public static final String ORGANIZATION = "organization";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Original}
+     */
+    public static final String ORIGINAL = "original";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Other}
+     */
+    public static final String OTHER = "other";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.OtherAnalysis}
+     */
+    public static final String OTHER_ANALYSIS = "otherAnalysis";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.OtherReferences}
+     */
+    public static final String OTHER_REFERENCES = "OtherReferences";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Outcome}
+     */
+    public static final String OUTCOME = "outcome";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Overrules}
+     */
+    public static final String OVER_RULES = "overrules";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Parliamentary}

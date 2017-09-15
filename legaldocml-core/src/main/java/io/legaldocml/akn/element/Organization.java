@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ORGANIZATION;
+
 /**
  * The element organization is an inline element to identify a text fragment introducing or referring to an organization
  * in the ontology.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Organization extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "organization";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ORGANIZATION = Buffers.address(ORGANIZATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_ORGANIZATION, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_ORGANIZATION, 12);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Organization extends InlineReqReqType implements ANsemanticIn
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ORGANIZATION;
     }
 
 }

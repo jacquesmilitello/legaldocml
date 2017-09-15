@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ORIGINAL;
+
 /**
  * The element original is a metadata reference to the Akoma Ntoso IRI of the original version of this document (i.e.,
  * the first expression).
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class Original extends ReferenceType implements DocRef {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "original";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ORIGINAL = Buffers.address(ORIGINAL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_ORIGINAL, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_ORIGINAL, 8);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class Original extends ReferenceType implements DocRef {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ORIGINAL;
     }
 
     /**

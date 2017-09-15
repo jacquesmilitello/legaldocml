@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.OUTCOME;
+
 /**
  * The element outcome is an inline that wraps the outcome of a vote.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Outcome extends InlineType implements ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "outcome";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OUTCOME = Buffers.address(OUTCOME);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_OUTCOME, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_OUTCOME, 7);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Outcome extends InlineType implements ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OUTCOME;
     }
 
 }

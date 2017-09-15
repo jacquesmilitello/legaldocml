@@ -31,6 +31,7 @@ import static io.legaldocml.akn.AknElements.DEBATE_REPORT;
 import static io.legaldocml.akn.AknElements.DOC;
 import static io.legaldocml.akn.AknElements.DOCUMENT_COLLECTION;
 import static io.legaldocml.akn.AknElements.JUDGMENT;
+import static io.legaldocml.akn.AknElements.OFFICIAL_GAZETTE;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -50,7 +51,7 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
                 .put(DOC, Doc.class)
                 .put(DEBATE, Debate.class)
                 .put(DOCUMENT_COLLECTION, DocumentCollection.class)
-                .put(OfficialGazette.ELEMENT, OfficialGazette.class)
+                .put(OFFICIAL_GAZETTE, OfficialGazette.class)
                 .put(Portion.ELEMENT, Portion.class)
                 .put(Statement.ELEMENT, Statement.class)
                 .build();

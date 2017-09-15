@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.ALTERNATIVE_REFERENCE;
 import static io.legaldocml.akn.AknElements.IMPLICIT_REFERENCE;
+import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -40,14 +41,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class OtherReferences implements Source {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "OtherReferences";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OTHER_REFERENCES = Buffers.address(OTHER_REFERENCES);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -91,10 +87,10 @@ public final class OtherReferences implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_OTHER_REFERENCES, 5);
         writeSource(writer, this);
         this.elems.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_OTHER_REFERENCES, 5);
     }
 
     /**
@@ -112,7 +108,7 @@ public final class OtherReferences implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OTHER_REFERENCES;
     }
 
     /**

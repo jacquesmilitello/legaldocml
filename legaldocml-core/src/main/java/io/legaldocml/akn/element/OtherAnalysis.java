@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.OTHER_ANALYSIS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -34,14 +35,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class OtherAnalysis extends AnyOtherType implements Source {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "otherAnalysis";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(OTHER_ANALYSIS);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -93,7 +89,7 @@ public final class OtherAnalysis extends AnyOtherType implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OTHER_ANALYSIS;
     }
 
 }

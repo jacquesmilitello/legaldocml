@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.OVER_RULES;
+
 /**
  * The element overrules is a metadata element specifying a reference to a source overruled by the argument being
  * described.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Overrules extends JudicialArgumentType implements JudicialArgumentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "overrules";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_OVER_RULES = Buffers.address(OVER_RULES);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_OVER_RULES, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_OVER_RULES, 9);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Overrules extends JudicialArgumentType implements JudicialArg
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return OVER_RULES;
     }
 
 }

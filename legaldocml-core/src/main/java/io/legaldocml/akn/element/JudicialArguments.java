@@ -17,6 +17,7 @@ import static io.legaldocml.akn.AknElements.DEROGATES;
 import static io.legaldocml.akn.AknElements.DISSENTS_FROM;
 import static io.legaldocml.akn.AknElements.EXTENDS;
 import static io.legaldocml.akn.AknElements.IS_ANALOG_TO;
+import static io.legaldocml.akn.AknElements.OVER_RULES;
 
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
@@ -58,7 +59,7 @@ public abstract class JudicialArguments implements AknObject {
                 .put(Restricts.ELEMENT, Restricts::new)
                 .put(DEROGATES, Derogates::new)
                 .put(CONTRASTS, Contrasts::new)
-                .put(Overrules.ELEMENT, Overrules::new)
+                .put(OVER_RULES, Overrules::new)
                 .put(DISSENTS_FROM, DissentsFrom::new)
                 .put(PutsInQuestion.ELEMENT, PutsInQuestion::new)
                 .put(Distinguishes.ELEMENT, Distinguishes::new)

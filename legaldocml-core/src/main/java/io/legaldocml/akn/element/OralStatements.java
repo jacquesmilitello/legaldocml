@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ORAL_STATEMENTS;
+
 /**
  * This element is a structural container for parts of a debates that contain oral statements by participants.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class OralStatements extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "oralStatements";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ORAL_STATEMENTS = Buffers.address(ORAL_STATEMENTS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 14);
+        writer.writeStart(ADDRESS_ORAL_STATEMENTS, 14);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 14);
+        writer.writeEnd(ADDRESS_ORAL_STATEMENTS, 14);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class OralStatements extends AltHierarchy implements SpeechSection 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ORAL_STATEMENTS;
     }
 
 

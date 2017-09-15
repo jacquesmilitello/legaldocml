@@ -61,7 +61,7 @@ public final class Li extends CoreOptImpl implements ValueOpt {
         ELEMS = ImmutableMap.<String, Supplier<LiElement>>builder()
                 .putAll(convertSuper(inlineCM()))
                 .put(Ul.ELEMENT, Ul::new)
-                .put(Ol.ELEMENT, Ol::new)
+                .put(LI, Ol::new)
                 .put(P.ELEMENT, P::new)
                 .build();
     }
