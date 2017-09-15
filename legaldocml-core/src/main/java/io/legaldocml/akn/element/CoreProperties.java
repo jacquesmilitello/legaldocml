@@ -15,6 +15,7 @@ import static io.legaldocml.akn.AknElements.FRBR_AUTHOR;
 import static io.legaldocml.akn.AknElements.FRBR_DATE;
 import static io.legaldocml.akn.AknElements.FRBR_THIS;
 import static io.legaldocml.akn.AknElements.FRBR_URI;
+import static io.legaldocml.akn.AknElements.PRESERVATION;
 
 /**
  * The complexType coreProperties lists the identifying properties available at any of the FRBR hierarchy levels.
@@ -191,7 +192,7 @@ public abstract class CoreProperties implements AknObject {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Preservation.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PRESERVATION)) {
             this.preservation = new Preservation();
             this.preservation.read(reader);
             reader.nextStartOrEndElement();

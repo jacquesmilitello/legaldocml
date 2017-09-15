@@ -396,7 +396,7 @@ public final class Groups {
         // <xsd:element ref="location" />
         builder.put(LOCATION, Location::new);
         // <xsd:element ref="process" />
-        builder.put(Process.ELEMENT, Process::new);
+        builder.put(PROCESS, Process::new);
         // <xsd:element ref="role" />
         builder.put(Role.ELEMENT, Role::new);
         // <xsd:element ref="term" />
@@ -670,7 +670,7 @@ public final class Groups {
         // <xsd:element ref="address"/>
         builder.put(ADDRESS, Address::new);
         // <xsd:element ref="proceduralMotions"/>
-        builder.put(ProceduralMotions.ELEMENT, ProceduralMotions::new);
+        builder.put(PROCEDURAL_MOTIONS, ProceduralMotions::new);
         // <xsd:element ref="pointOfOrder"/>
         builder.put(POINT_OF_ORDER, PointOfOrder::new);
         // <xsd:element ref="adjournment"/>

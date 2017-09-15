@@ -1153,6 +1153,32 @@ public final class AknElements {
     public static final String PREFACE = "preface";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Presentation}
+     */
+    public static final String PRESENTATION = "presentation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Preservation}
+     */
+    public static final String PRESERVATION = "preservation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Previous}
+     */
+    public static final String PREVIOUS = "previous";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ProceduralMotions}
+     */
+    public static final String PROCEDURAL_MOTIONS = "proceduralMotions";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ProceduralMotions}
+     */
+    public static final String PROCESS = "process";
+
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Toc}
      */
     public static final String TOC = "toc";

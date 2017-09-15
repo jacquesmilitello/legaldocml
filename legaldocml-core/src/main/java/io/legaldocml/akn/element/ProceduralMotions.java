@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PROCEDURAL_MOTIONS;
+
 /**
  * This element is a structural container for parts of a debates that are relevant to procedural motions.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class ProceduralMotions extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "proceduralMotions";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PROCEDURAL_MOTIONS = Buffers.address(PROCEDURAL_MOTIONS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_PROCEDURAL_MOTIONS, 17);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_PROCEDURAL_MOTIONS, 17);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class ProceduralMotions extends AltHierarchy implements SpeechSecti
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PROCEDURAL_MOTIONS;
     }
 
 }

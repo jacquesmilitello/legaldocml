@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PRESERVATION;
+
 /**
  * The element preservation is the metadata property containing an arbitrary list of elements detailing the preservation
  * actions taken for the document is the respective level of the FRBR hierarchy.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Preservation extends AnyOtherType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "preservation";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PRESERVATION = Buffers.address(PRESERVATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_PRESERVATION, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_PRESERVATION, 12);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Preservation extends AnyOtherType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PRESERVATION;
     }
 
     /**

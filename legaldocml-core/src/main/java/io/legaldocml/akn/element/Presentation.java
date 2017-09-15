@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.PRESENTATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Presentation extends AnyOtherType implements Source {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "presentation";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PRESENTATION = Buffers.address(PRESENTATION);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -77,9 +73,9 @@ public final class Presentation extends AnyOtherType implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_PRESENTATION, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_PRESENTATION, 12);
     }
 
     /**
@@ -87,7 +83,7 @@ public final class Presentation extends AnyOtherType implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PRESENTATION;
     }
 
     /**

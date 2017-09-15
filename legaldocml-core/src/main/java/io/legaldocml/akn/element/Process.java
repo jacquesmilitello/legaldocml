@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PROCESS;
+
 /**
  * The element process is an inline element to identify a text fragment introducing or referring to a process in the
  * ontology.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Process extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "process";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PROCESS = Buffers.address(PROCESS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_PROCESS, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_PROCESS, 7);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Process extends InlineReqReqType implements ANsemanticInline 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PROCESS;
     }
 
 }

@@ -15,6 +15,7 @@ import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.NEW;
 import static io.legaldocml.akn.AknElements.OLD;
+import static io.legaldocml.akn.AknElements.PREVIOUS;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTextualModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -111,7 +112,7 @@ public final class TextualMod extends ModificationType implements TextualModType
     public void read(XmlReader reader) {
         super.read(reader);
 
-        if (reader.getQName().equalsLocalName(Previous.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PREVIOUS)) {
             this.previous = new Previous();
             this.previous.read(reader);
             reader.nextStartOrEndElement();
