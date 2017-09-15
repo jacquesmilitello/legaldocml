@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PORTION_BODY;
+
 /**
  * The element portionBody is the container of a portion of another document.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class PortionBody extends PortionBodyType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "portionBody";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PORTION_BODY = Buffers.address(PORTION_BODY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_PORTION_BODY, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_PORTION_BODY, 11);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class PortionBody extends PortionBodyType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PORTION_BODY;
     }
 
     /**

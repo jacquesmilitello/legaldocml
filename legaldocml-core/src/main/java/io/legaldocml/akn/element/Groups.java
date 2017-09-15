@@ -125,7 +125,7 @@ public final class Groups {
                 .put(DEBATE, Debate::new)
                 .put(DOCUMENT_COLLECTION, DocumentCollection::new)
                 .put(OFFICIAL_GAZETTE, OfficialGazette::new)
-                .put(Portion.ELEMENT, Portion::new)
+                .put(PORTION, Portion::new)
                 .put(Statement.ELEMENT, Statement::new)
                 .build();
     }
@@ -642,7 +642,7 @@ public final class Groups {
         // <xsd:element ref="rollCall"/>
         builder.put(RollCall.ELEMENT, RollCall::new);
         // <xsd:element ref="prayers"/>
-        builder.put(Prayers.ELEMENT, Prayers::new);
+        builder.put(PRAYERS, Prayers::new);
         // <xsd:element ref="oralStatements"/>
         builder.put(ORAL_STATEMENTS, OralStatements::new);
         // <xsd:element ref="writtenStatements"/>

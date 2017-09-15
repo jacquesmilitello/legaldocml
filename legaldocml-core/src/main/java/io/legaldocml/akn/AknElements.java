@@ -1128,6 +1128,31 @@ public final class AknElements {
     public static final String POPUP = "popup";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Portion}
+     */
+    public static final String PORTION = "portion";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.PortionBody}
+     */
+    public static final String PORTION_BODY = "portionBody";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Prayers}
+     */
+    public static final String PRAYERS = "prayers";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Preamble}
+     */
+    public static final String PREAMBLE = "preamble";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Preface}
+     */
+    public static final String PREFACE = "preface";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Toc}
      */
     public static final String TOC = "toc";

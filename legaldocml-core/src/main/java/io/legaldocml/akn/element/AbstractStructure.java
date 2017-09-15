@@ -15,6 +15,7 @@ import static io.legaldocml.akn.AknElements.ATTACHMENTS;
 import static io.legaldocml.akn.AknElements.COMPONENTS;
 import static io.legaldocml.akn.AknElements.CONCLUSIONS;
 import static io.legaldocml.akn.AknElements.COVER_PAGE;
+import static io.legaldocml.akn.AknElements.PREFACE;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -151,7 +152,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Preface.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PREFACE)) {
             this.preface = new Preface();
             this.preface.read(reader);
             reader.nextStartOrEndElement();

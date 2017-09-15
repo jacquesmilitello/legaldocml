@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PREAMBLE;
+
 abstract class AbstractStructureWithPreamble extends AbstractStructure {
 
     /**
@@ -28,7 +30,7 @@ abstract class AbstractStructureWithPreamble extends AbstractStructure {
     }
 
     protected final void readPreamble(XmlReader reader) {
-        if (reader.getQName().equalsLocalName(Preamble.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PREAMBLE)) {
             this.preamble = new Preamble();
             this.preamble.read(reader);
             reader.nextStartOrEndElement();

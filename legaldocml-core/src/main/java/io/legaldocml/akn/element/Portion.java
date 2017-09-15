@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.PORTION;
+
 /**
  * Element portion is used for describing the structure and content of an independent portion of a document.
  *
@@ -28,23 +30,18 @@ import java.io.IOException;
 public final class Portion extends PortionStructure implements DocumentType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "portion";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PORTION = Buffers.address(PORTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_PORTION, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_PORTION, 7);
     }
 
     /**
@@ -52,7 +49,7 @@ public final class Portion extends PortionStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PORTION;
     }
 
     /**
