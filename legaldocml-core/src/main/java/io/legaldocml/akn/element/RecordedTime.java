@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.RECORDED_TIME;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
@@ -44,14 +45,9 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 public final class RecordedTime extends InlineType implements Time, RecordedTimeType, ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "recordedTime";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RECORDED_TIME = Buffers.address(RECORDED_TIME);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -104,13 +100,13 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_RECORDED_TIME, 12);
         if (this.type != null) {
             writer.writeAttribute(ADDRESS_TYPE, 4, getChars(this.type.name()));
         }
         writeTime(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_RECORDED_TIME, 12);
     }
 
     /**
@@ -118,7 +114,7 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RECORDED_TIME;
     }
 
     /**

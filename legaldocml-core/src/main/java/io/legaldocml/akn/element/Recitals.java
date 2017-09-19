@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.RECITALS;
+
 /**
  * The element recitals is the section of the preamble that contains recitals.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Recitals extends RecitalHierarchy implements PreambleContainers, PopupStructureElement, SubFlowStructureElement, PortionBodyTypeElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "recitals";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RECITALS = Buffers.address(RECITALS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_RECITALS, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_RECITALS, 8);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Recitals extends RecitalHierarchy implements PreambleContaine
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RECITALS;
     }
 
 }

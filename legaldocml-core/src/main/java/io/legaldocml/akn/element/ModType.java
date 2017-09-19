@@ -19,6 +19,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
+import static io.legaldocml.akn.AknElements.QUOTED_TEXT;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
@@ -59,13 +60,13 @@ public abstract class ModType extends CoreReqImpl implements For {
         ELEMS_V2 = ImmutableMap.<String, Supplier<ModTypeItem>>builder()
                 .putAll(convertSuper(inlineCM()))
                 .put(QUOTED_STRUCTURE, QuotedStructureV2::new)
-                .put(QuotedText.ELEMENT, QuotedText::new)
+                .put(QUOTED_TEXT, QuotedText::new)
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ModTypeItem>>builder()
                 .putAll(convertSuper(inlineCM()))
                 .put(QUOTED_STRUCTURE, QuotedStructureV3::new)
-                .put(QuotedText.ELEMENT, QuotedText::new)
+                .put(QUOTED_TEXT, QuotedText::new)
                 .build();
     }
 

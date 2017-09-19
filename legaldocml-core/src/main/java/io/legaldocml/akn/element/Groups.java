@@ -305,7 +305,7 @@ public final class Groups {
         // <xsd:element ref="remark"/>
         builder.put(Remark.ELEMENT, Remark::new);
         // <xsd:element ref="recordedTime"/>
-        builder.put(RecordedTime.ELEMENT, RecordedTime::new);
+        builder.put(RECORDED_TIME, RecordedTime::new);
         // <xsd:element ref="vote"/>
         builder.put(Vote.ELEMENT, Vote::new);
         // <xsd:element ref="outcome"/>
@@ -518,7 +518,7 @@ public final class Groups {
     public static Map<String, Supplier<PreambleContainers>> preambleContainers() {
         ImmutableMap.Builder<String, Supplier<PreambleContainers>> builder = ImmutableMap.builder();
         // <xsd:element ref="recitals"/>
-        builder.put(Recitals.ELEMENT, Recitals::new);
+        builder.put(RECITALS, Recitals::new);
         // <xsd:element ref="citations"/>
         builder.put(CITATIONS, Citations::new);
         // <xsd:element ref="formula"/>

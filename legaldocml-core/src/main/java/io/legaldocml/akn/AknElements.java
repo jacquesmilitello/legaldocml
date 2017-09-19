@@ -1228,6 +1228,31 @@ public final class AknElements {
     public static final String QUOTED_STRUCTURE = "quotedStructure";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.QuotedText}
+     */
+    public static final String QUOTED_TEXT = "quotedText";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Recital}
+     */
+    public static final String RECITAL = "recital";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Recitals}
+     */
+    public static final String RECITALS = "recitals";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.RecordedTime}
+     */
+    public static final String RECORDED_TIME = "recordedTime";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Recount}
+     */
+    public static final String RECOUNT = "recount";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Toc}
      */
     public static final String TOC = "toc";

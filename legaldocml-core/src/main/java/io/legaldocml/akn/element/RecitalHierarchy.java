@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.INTRO;
+import static io.legaldocml.akn.AknElements.RECITAL;
 
 /**
  *
@@ -44,7 +45,7 @@ public abstract class RecitalHierarchy extends BaseHierarchyCoreReq {
     static {
         ELEMS = ImmutableMap.<String, Supplier<ReciltalHierarchyElement>>builder()
                 .put(COMPONENT_REF, ComponentRef::new)
-                .put(Recital.ELEMENT, Recital::new)
+                .put(RECITAL, Recital::new)
                 .build();
     }
 

@@ -17,6 +17,8 @@ import static io.legaldocml.akn.AknElements.FORMULA;
 import static io.legaldocml.akn.AknElements.LONG_TITLE;
 import static io.legaldocml.akn.AknElements.PREAMBLE;
 import static io.legaldocml.akn.AknElements.PREFACE;
+import static io.legaldocml.akn.AknElements.RECITAL;
+import static io.legaldocml.akn.AknElements.RECITALS;
 
 /**
  * The type portionBodyType specifies a content model of a container of a portion of another document.
@@ -52,8 +54,8 @@ public abstract class PortionBodyType extends CoreOptImpl {
                 .putAll(Groups.convertSuper(Groups.containerElements()))
                 .putAll(Groups.convertSuper(Groups.hierElements()))
                 .putAll(Groups.convertSuper(Groups.ANcontainers()))
-                .put(Recitals.ELEMENT, Recitals::new)
-                .put(Recital.ELEMENT, Recital::new)
+                .put(RECITALS, Recitals::new)
+                .put(RECITAL, Recital::new)
                 .put(CITATIONS, Citations::new)
                 .put(CITATION, Citation::new)
                 .put(LONG_TITLE, LongTitle::new)

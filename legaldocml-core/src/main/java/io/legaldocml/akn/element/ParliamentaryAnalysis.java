@@ -12,6 +12,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.QUORUM_VERIFICATION;
+import static io.legaldocml.akn.AknElements.RECOUNT;
 import static io.legaldocml.akn.AknElements.VOTING;
 
 /**
@@ -38,7 +39,7 @@ public abstract class ParliamentaryAnalysis implements AknObject {
         ELEMS = ImmutableMap.<String, Supplier<ParliamentaryAnalysisElement>>builder()
                 .put(QUORUM_VERIFICATION, QuorumVerification::new)
                 .put(VOTING, Voting::new)
-                .put(Recount.ELEMENT, Recount::new)
+                .put(RECOUNT, Recount::new)
                 .build();
     }
 

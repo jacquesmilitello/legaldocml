@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.QUOTED_TEXT;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
@@ -44,14 +45,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class QuotedText extends InlineType implements For, Quote, ModTypeItem {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "quotedText";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_QUOTED_TEXT = Buffers.address(QUOTED_TEXT);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -140,11 +136,11 @@ public final class QuotedText extends InlineType implements For, Quote, ModTypeI
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_QUOTED_TEXT, 10);
         writeFor(writer, this);
         writeQuote(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_QUOTED_TEXT, 10);
     }
 
     /**
@@ -152,7 +148,7 @@ public final class QuotedText extends InlineType implements For, Quote, ModTypeI
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return QUOTED_TEXT;
     }
 
     /**
