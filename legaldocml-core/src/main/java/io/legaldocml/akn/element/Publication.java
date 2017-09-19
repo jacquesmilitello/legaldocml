@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.PUBLICATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -53,14 +54,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Publication extends MetaOpt implements Date, ShowReq, Name, Number, RefersOpt {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT_PUBLICATION = "publication";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS_PUBLICATION = Buffers.address(ELEMENT_PUBLICATION);
+    private static final long ADDRESS_PUBLICATION = Buffers.address(PUBLICATION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -194,7 +190,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      */
     @Override
     public String name() {
-        return ELEMENT_PUBLICATION;
+        return PUBLICATION;
     }
 
     /**

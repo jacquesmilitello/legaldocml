@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
@@ -45,7 +46,7 @@ public final class QuotedStructureV3 extends SubFlowStructure implements QuotedS
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_QUOTED_STRUCTURE = Buffers.address(QUOTED_STRUCTURE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -134,19 +135,11 @@ public final class QuotedStructureV3 extends SubFlowStructure implements QuotedS
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_QUOTED_STRUCTURE, 15);
         writeFor(writer, this);
         writeQuote(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String name() {
-        return ELEMENT;
+        writer.writeEnd(ADDRESS_QUOTED_STRUCTURE, 15);
     }
 
     /**

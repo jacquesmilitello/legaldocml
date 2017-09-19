@@ -1,5 +1,7 @@
 package io.legaldocml.akn.element;
 
+import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
+
 /**
  * The element quotedStructure is a popup element containing a full structure proposed as an insertion or a replacement.
  * Use attribute for when quotedStructure is used in a mmod or rmod to point to the id of the corresponding refelement.
@@ -21,16 +23,11 @@ package io.legaldocml.akn.element;
 public interface QuotedStructure extends ModTypeItem {
 
     /**
-     * XML Tag element name.
-     */
-    String ELEMENT = "quotedStructure";
-
-    /**
      * {@inheritDoc}
      */
     @Override
     default String name() {
-        return ELEMENT;
+        return QUOTED_STRUCTURE;
     }
 
 }

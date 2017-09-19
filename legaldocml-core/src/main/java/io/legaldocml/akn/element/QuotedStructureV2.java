@@ -10,6 +10,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
@@ -37,7 +38,7 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_QUOTED_STRUCTURE = Buffers.address(QUOTED_STRUCTURE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -65,12 +66,12 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_QUOTED_STRUCTURE, 15);
         if (this._for != null) {
             writer.writeAttribute(Attributes.ADDRESS_FOR, 3, getChars(this._for));
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_QUOTED_STRUCTURE, 15);
     }
 
     /**

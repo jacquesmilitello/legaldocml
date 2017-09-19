@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.QUANTITY;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNormalizedAtt;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -38,14 +39,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Quantity extends InlineReqReqType implements NormalizedAtt, ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "quantity";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_QUANTITY = Buffers.address(QUANTITY);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -79,10 +75,10 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_QUANTITY, 8);
         writeNormalizedAtt(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_QUANTITY, 8);
     }
 
     /**
@@ -90,7 +86,7 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return QUANTITY;
     }
 
     /**
@@ -100,4 +96,5 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
 }

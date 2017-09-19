@@ -18,6 +18,8 @@ import static io.legaldocml.akn.AknElements.LIFECYCLE;
 import static io.legaldocml.akn.AknElements.META;
 import static io.legaldocml.akn.AknElements.NOTES;
 import static io.legaldocml.akn.AknElements.PRESENTATION;
+import static io.legaldocml.akn.AknElements.PROPRIETARY;
+import static io.legaldocml.akn.AknElements.PUBLICATION;
 import static io.legaldocml.util.Streams.stream;
 
 /**
@@ -208,7 +210,7 @@ public final class Meta implements AknObject {
         reader.nextStartOrEndElement();
         this.identification.read(reader);
 
-        if (reader.getQName().equalsLocalName(Publication.ELEMENT_PUBLICATION)) {
+        if (reader.getQName().equalsLocalName(PUBLICATION)) {
             this.publication = new Publication();
             this.publication.read(reader);
             reader.nextStartOrEndElement();
@@ -291,7 +293,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(NOTES));
         }
 
-        if (reader.getQName().equalsLocalName(Proprietary.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(PROPRIETARY)) {
             Proprietary proprietary;
             this.proprietaries = new AknList<>(new Proprietary[4]);
             do {
@@ -299,7 +301,7 @@ public final class Meta implements AknObject {
                 proprietary.read(reader);
                 this.proprietaries.add(proprietary);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Proprietary.ELEMENT));
+            } while (reader.getQName().equalsLocalName(PROPRIETARY));
         }
 
         if (reader.getQName().equalsLocalName(PRESENTATION)) {

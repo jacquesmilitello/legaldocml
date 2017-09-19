@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.QUORUM;
+
 /**
  * The element quorum is a metadata container containing the value of a quorum in a vote or a quorum verification.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class Quorum extends CountType implements ParliamentaryAnalysisTypeElement {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "quorum";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_QUORUM = Buffers.address(QUORUM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_QUORUM, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_QUORUM, 6);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class Quorum extends CountType implements ParliamentaryAnalysisType
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return QUORUM;
     }
 
 }

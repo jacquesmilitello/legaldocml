@@ -402,7 +402,7 @@ public final class Groups {
         // <xsd:element ref="term" />
         builder.put(Term.ELEMENT, Term::new);
         // <xsd:element ref="quantity" />
-        builder.put(Quantity.ELEMENT, Quantity::new);
+        builder.put(QUANTITY, Quantity::new);
         // <xsd:element ref="def" />
         builder.put(DEF, Def::new);
         // <xsd:element ref="entity" />
@@ -572,7 +572,7 @@ public final class Groups {
         // <xsd:element ref="subrule"/>
         builder.put(SubRule.ELEMENT, SubRule::new);
         // <xsd:element ref="proviso"/>
-        builder.put(Proviso.ELEMENT, Proviso::new);
+        builder.put(PROVISO, Proviso::new);
         // <xsd:element ref="subsection"/>
         builder.put(SubSection.ELEMENT, SubSection::new);
         // <xsd:element ref="subpart"/>
@@ -621,7 +621,7 @@ public final class Groups {
         // <xsd:element ref="speech"/>
         builder.put(Speech.ELEMENT, Speech::new);
         // <xsd:element ref="question"/>
-        builder.put(Question.ELEMENT, Question::new);
+        builder.put(QUESTION, Question::new);
         // <xsd:element ref="answer"/>
         builder.put(ANSWER, Answer::new);
         // <xsd:element ref="other"/>
@@ -666,7 +666,7 @@ public final class Groups {
         // <xsd:element ref="noticesOfMotion"/>
         builder.put(NOTICES_OF_MOTION, NoticesOfMotion::new);
         // <xsd:element ref="questions"/>
-        builder.put(Questions.ELEMENT, Questions::new);
+        builder.put(QUESTIONS, Questions::new);
         // <xsd:element ref="address"/>
         builder.put(ADDRESS, Address::new);
         // <xsd:element ref="proceduralMotions"/>

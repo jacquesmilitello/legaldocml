@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.PROPRIETARY;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Proprietary extends AnyOtherType implements Source {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "proprietary";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_PROPRIETARY = Buffers.address(PROPRIETARY);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -77,10 +73,10 @@ public final class Proprietary extends AnyOtherType implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_PROPRIETARY, 11);
         writeSource(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_PROPRIETARY, 11);
     }
 
     /**
@@ -88,7 +84,7 @@ public final class Proprietary extends AnyOtherType implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return PROPRIETARY;
     }
 
     /**

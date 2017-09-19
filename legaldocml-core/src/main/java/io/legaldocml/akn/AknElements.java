@@ -1177,6 +1177,55 @@ public final class AknElements {
      */
     public static final String PROCESS = "process";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Proprietary}
+     */
+    public static final String PROPRIETARY = "proprietary";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Proviso}
+     */
+    public static final String PROVISO = "proviso";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Publication}
+     */
+    public static final String PUBLICATION = "publication";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.PutsInQuestion}
+     */
+    public static final String PUTS_IN_QUESTION = "putsInQuestion";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Quantity}
+     */
+    public static final String QUANTITY = "quantity";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Question}
+     */
+    public static final String QUESTION = "question";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Questions}
+     */
+    public static final String QUESTIONS = "questions";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Quorum}
+     */
+    public static final String QUORUM = "quorum";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.QuorumVerification}
+     */
+    public static final String QUORUM_VERIFICATION = "quorumVerification";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.QuotedStructureV3}
+     */
+    public static final String QUOTED_STRUCTURE = "quotedStructure";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Toc}
