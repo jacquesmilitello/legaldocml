@@ -112,7 +112,7 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertNull(list.toString());
+        Assert.assertNotNull(list.toString());
     }
 
 
