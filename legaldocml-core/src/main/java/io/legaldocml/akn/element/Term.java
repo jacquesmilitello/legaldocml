@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TERM;
+
 /**
  * The element term is an inline element to identify a text fragment introducing or referring to a term in the ontology
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Term extends InlineReqReqType implements ANsemanticInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "term";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TERM = Buffers.address(TERM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_TERM, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_TERM, 4);
     }
 
 
@@ -43,7 +40,7 @@ public final class Term extends InlineReqReqType implements ANsemanticInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TERM;
     }
 
 }

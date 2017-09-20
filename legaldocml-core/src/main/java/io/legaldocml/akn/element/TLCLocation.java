@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TLC_LOCATION;
+
 /**
  * The element TLCLocation is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Location.
  *
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class TLCLocation extends ReferenceType implements TLC {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "TLCLocation";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TLC_LOCATION = Buffers.address(TLC_LOCATION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_TLC_LOCATION, 11);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_TLC_LOCATION, 11);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class TLCLocation extends ReferenceType implements TLC {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TLC_LOCATION;
     }
 
     /**

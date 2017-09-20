@@ -15,15 +15,15 @@ import io.legaldocml.akn.element.Point;
 import io.legaldocml.akn.element.Proviso;
 import io.legaldocml.akn.element.Rule;
 import io.legaldocml.akn.element.Section;
-import io.legaldocml.akn.element.SubChapter;
-import io.legaldocml.akn.element.SubClause;
-import io.legaldocml.akn.element.SubDivision;
-import io.legaldocml.akn.element.SubList;
-import io.legaldocml.akn.element.SubParagraph;
-import io.legaldocml.akn.element.SubPart;
-import io.legaldocml.akn.element.SubRule;
-import io.legaldocml.akn.element.SubSection;
-import io.legaldocml.akn.element.SubTitle;
+import io.legaldocml.akn.element.Subchapter;
+import io.legaldocml.akn.element.Subclause;
+import io.legaldocml.akn.element.Subdivision;
+import io.legaldocml.akn.element.Sublist;
+import io.legaldocml.akn.element.Subparagraph;
+import io.legaldocml.akn.element.Subpart;
+import io.legaldocml.akn.element.Subrule;
+import io.legaldocml.akn.element.Subsection;
+import io.legaldocml.akn.element.Subtitle;
 import io.legaldocml.akn.element.Title;
 import io.legaldocml.akn.element.Tome;
 import io.legaldocml.akn.element.Transitional;
@@ -95,45 +95,45 @@ public interface ANhierVisitor  {
 
     default void visitLeave(Rule rule) { }
 
-    default boolean visitEnter(SubRule subRule) { return true;}
+    default boolean visitEnter(Subrule subrule) { return true;}
 
-    default void visitLeave(SubRule subRule) { }
+    default void visitLeave(Subrule subrule) { }
 
     default boolean visitEnter(Proviso proviso) { return true;}
 
     default void visitLeave(Proviso proviso) { }
 
-    default boolean visitEnter(SubSection subSection) { return true;}
+    default boolean visitEnter(Subsection subsection) { return true;}
 
-    default void visitLeave(SubSection subSection) { }
+    default void visitLeave(Subsection subsection) { }
 
-    default boolean visitEnter(SubPart subPart) { return true;}
+    default boolean visitEnter(Subpart subpart) { return true;}
 
-    default void visitLeave(SubPart subPart) { }
+    default void visitLeave(Subpart subpart) { }
 
-    default boolean visitEnter(SubParagraph subparagraph) { return true;}
+    default boolean visitEnter(Subparagraph subparagraph) { return true;}
 
-    default void visitLeave(SubParagraph subparagraph) { }
+    default void visitLeave(Subparagraph subparagraph) { }
 
-    default boolean visitEnter(SubChapter subChapter) { return true;}
+    default boolean visitEnter(Subchapter subchapter) { return true;}
 
-    default void visitLeave(SubChapter subChapter) { }
+    default void visitLeave(Subchapter subchapter) { }
 
-    default boolean visitEnter(SubTitle subtitle) { return true;}
+    default boolean visitEnter(Subtitle subtitle) { return true;}
 
-    default void visitLeave(SubTitle subtitle) { }
+    default void visitLeave(Subtitle subtitle) { }
 
-    default boolean visitEnter(SubDivision subDivision) { return true;}
+    default boolean visitEnter(Subdivision subdivision) { return true;}
 
-    default void visitLeave(SubDivision subDivision) { }
+    default void visitLeave(Subdivision subdivision) { }
 
-    default boolean visitEnter(SubClause subClause) { return true;}
+    default boolean visitEnter(Subclause subclause) { return true;}
 
-    default void visitLeave(SubClause subClause) { }
+    default void visitLeave(Subclause subclause) { }
 
-    default boolean visitEnter(SubList subList) { return true;}
+    default boolean visitEnter(Sublist sublist) { return true;}
 
-    default void visitLeave(SubList subList) { }
+    default void visitLeave(Sublist sublist) { }
 
     default boolean visitEnter(Level level) { return true;}
 

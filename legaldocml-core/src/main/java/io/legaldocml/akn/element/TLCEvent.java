@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TLC_EVENT;
+
 /**
  * The element TLCEvent is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Event.
  *
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class TLCEvent extends ReferenceType implements TLC {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "TLCEvent";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TLC_EVENT = Buffers.address(TLC_EVENT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_TLC_EVENT, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_TLC_EVENT, 8);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class TLCEvent extends ReferenceType implements TLC {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TLC_EVENT;
     }
 
     /**

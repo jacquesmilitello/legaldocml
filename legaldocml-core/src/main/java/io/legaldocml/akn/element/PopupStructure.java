@@ -14,6 +14,8 @@ import static io.legaldocml.akn.AknElements.CONTENT;
 import static io.legaldocml.akn.AknElements.HEADING;
 import static io.legaldocml.akn.AknElements.INTRO;
 import static io.legaldocml.akn.AknElements.NUM;
+import static io.legaldocml.akn.AknElements.SUB_HEADING;
+import static io.legaldocml.akn.AknElements.WRAP;
 import static io.legaldocml.akn.element.Groups.ANcontainers;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.containerElements;
@@ -63,9 +65,9 @@ public abstract class PopupStructure extends CoreReqImpl {
 
                 .put(COMPONENT_REF, ComponentRef::new)
                 .put(INTRO, Intro::new)
-                .put(Wrap.ELEMENT, Wrap::new)
+                .put(WRAP, Wrap::new)
                 .put(HEADING, Heading::new)
-                .put(SubHeading.ELEMENT, SubHeading::new)
+                .put(SUB_HEADING, Subheading::new)
                 .put(NUM, Num::new)
 
                 .build();

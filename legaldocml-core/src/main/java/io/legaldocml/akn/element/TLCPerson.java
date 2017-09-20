@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TLC_PERSON;
+
 /**
  * The element TLCPerson is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Person.
  *
@@ -18,24 +20,20 @@ import java.io.IOException;
  */
 public final class TLCPerson extends ReferenceType implements TLC {
 
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "TLCPerson";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TLC_PERSON = Buffers.address(TLC_PERSON);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_TLC_PERSON, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_TLC_PERSON, 9);
     }
 
     /**
@@ -43,7 +41,7 @@ public final class TLCPerson extends ReferenceType implements TLC {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TLC_PERSON;
     }
 
     /**

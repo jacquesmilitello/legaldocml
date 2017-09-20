@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
+import static io.legaldocml.akn.AknElements.STEP;
+import static io.legaldocml.akn.AknElements.WORKFLOW;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -37,14 +39,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Workflow implements Source {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "workflow";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_WORKFLOW = Buffers.address(WORKFLOW);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -56,7 +53,7 @@ public final class Workflow implements Source {
 
 
     // Mandatory (min 1).
-    private final AknList<Step> steps = new AknList<Step>(new Step[6]);
+    private final AknList<Step> steps = new AknList<>(new Step[6]);
 
     // Mandatory
     private AgentRef source;
@@ -86,10 +83,10 @@ public final class Workflow implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_WORKFLOW, 8);
         XmlWriterHelper.writeSource(writer, this);
         this.steps.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_WORKFLOW, 8);
     }
 
     /**
@@ -100,14 +97,14 @@ public final class Workflow implements Source {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Step.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(STEP)) {
             Step step;
             do {
                 step = new Step();
                 step.read(reader);
                 this.steps.add(step);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Step.ELEMENT));
+            } while (reader.getQName().equalsLocalName(STEP));
         }
     }
 
@@ -116,7 +113,7 @@ public final class Workflow implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return WORKFLOW;
     }
 
     @Override

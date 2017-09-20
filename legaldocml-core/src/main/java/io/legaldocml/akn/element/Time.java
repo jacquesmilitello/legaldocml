@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.TIME;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTime;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Time extends InlineType implements io.legaldocml.akn.attribute.Time, ANsemanticInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "time";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TIME = Buffers.address(TIME);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,10 +74,10 @@ public final class Time extends InlineType implements io.legaldocml.akn.attribut
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_TIME, 4);
         writeTime(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_TIME, 4);
     }
 
     /**
@@ -89,7 +85,7 @@ public final class Time extends InlineType implements io.legaldocml.akn.attribut
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TIME;
     }
 
     @Override

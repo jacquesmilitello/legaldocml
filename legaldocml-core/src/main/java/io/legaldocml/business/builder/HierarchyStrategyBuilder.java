@@ -14,8 +14,8 @@ import io.legaldocml.akn.element.Point;
 import io.legaldocml.akn.element.Proviso;
 import io.legaldocml.akn.element.Rule;
 import io.legaldocml.akn.element.Section;
-import io.legaldocml.akn.element.SubParagraph;
-import io.legaldocml.akn.element.SubSection;
+import io.legaldocml.akn.element.Subparagraph;
+import io.legaldocml.akn.element.Subsection;
 import io.legaldocml.akn.element.Title;
 import io.legaldocml.akn.element.Tome;
 
@@ -71,8 +71,8 @@ public final class HierarchyStrategyBuilder {
     }
 
     public HierarchyStrategyBuilder subSection() {
-        this.keys.add(SubSection.class);
-        this.values.add(SubSection::new);
+        this.keys.add(Subsection.class);
+        this.values.add(Subsection::new);
         return this;
     }
 
@@ -113,8 +113,8 @@ public final class HierarchyStrategyBuilder {
     }
 
     public HierarchyStrategyBuilder subParagraph() {
-        this.keys.add(SubParagraph.class);
-        this.values.add(SubParagraph::new);
+        this.keys.add(Subparagraph.class);
+        this.values.add(Subparagraph::new);
         return this;
     }
 

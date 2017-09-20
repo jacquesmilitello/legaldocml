@@ -29,6 +29,11 @@ import static io.legaldocml.akn.AknElements.LONG_TITLE;
 import static io.legaldocml.akn.AknElements.NUM;
 import static io.legaldocml.akn.AknElements.RECITAL;
 import static io.legaldocml.akn.AknElements.RECITALS;
+import static io.legaldocml.akn.AknElements.SUB_HEADING;
+import static io.legaldocml.akn.AknElements.TD;
+import static io.legaldocml.akn.AknElements.TH;
+import static io.legaldocml.akn.AknElements.TR;
+import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.ANcontainers;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.containerElements;
@@ -80,9 +85,9 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
         ELEMS = ImmutableMap.<String, Supplier<SubFlowStructureElement>>builder()
                 .putAll(convertSuper(blockElements()))
                 .putAll(convertSuper(containerElements()))
-                .put(Tr.ELEMENT, Tr::new)
-                .put(Th.ELEMENT, Th::new)
-                .put(Td.ELEMENT, Td::new)
+                .put(TR, Tr::new)
+                .put(TH, Th::new)
+                .put(TD, Td::new)
                 .putAll(convertSuper(hierElements()))
                 .put(CONTENT, Content::new)
                 .putAll(convertSuper(ANcontainers()))
@@ -95,9 +100,9 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
                 .put(COMPONENT_REF, ComponentRef::new)
                 .put(DOCUMENT_REF, DocumentRef::new)
                 .put(INTRO, Intro::new)
-                .put(Wrap.ELEMENT, Wrap::new)
+                .put(WRAP_UP, WrapUp::new)
                 .put(HEADING, Heading::new)
-                .put(SubHeading.ELEMENT, SubHeading::new)
+                .put(SUB_HEADING, Subheading::new)
                 .put(NUM, Num::new)
                 .build();
     }

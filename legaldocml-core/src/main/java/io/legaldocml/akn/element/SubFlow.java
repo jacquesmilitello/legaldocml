@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.SUB_FLOW;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class SubFlow extends SubFlowStructure implements SubFlowElements, Name {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "subFlow";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUB_FLOW = Buffers.address(SUB_FLOW);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -78,10 +74,10 @@ public final class SubFlow extends SubFlowStructure implements SubFlowElements, 
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_SUB_FLOW, 7);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_SUB_FLOW, 7);
     }
 
     /**
@@ -89,7 +85,7 @@ public final class SubFlow extends SubFlowStructure implements SubFlowElements, 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUB_FLOW;
     }
 
     /**

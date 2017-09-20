@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TLC_PROCESS;
+
 /**
  * The element TLCProcess is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Process.
  *
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class TLCProcess extends ReferenceType implements TLC {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "TLCProcess";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TLC_PROCESS = Buffers.address(TLC_PROCESS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_TLC_PROCESS, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_TLC_PROCESS, 10);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class TLCProcess extends ReferenceType implements TLC {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TLC_PROCESS;
     }
 
     /**

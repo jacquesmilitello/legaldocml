@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.LI;
 import static io.legaldocml.akn.AknElements.OL;
+import static io.legaldocml.akn.AknElements.UL;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
@@ -62,7 +63,7 @@ public final class Li extends CoreOptImpl implements ValueOpt {
 
         ELEMS = ImmutableMap.<String, Supplier<LiElement>>builder()
                 .putAll(convertSuper(inlineCM()))
-                .put(Ul.ELEMENT, Ul::new)
+                .put(UL, Ul::new)
                 .put(OL, Ol::new)
                 .put(AknElements.P, P::new)
                 .build();

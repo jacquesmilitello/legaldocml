@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SUB;
+
 /**
  * The element sub is an HTML element and is used in Akoma Ntoso as in HTML, for the subscript style (an inline).
  *
@@ -17,25 +19,19 @@ import java.io.IOException;
  */
 public final class Sub extends InlineType implements HTMLinline {
 
-
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "sub";
-
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUB = Buffers.address(SUB);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_SUB, 3);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_SUB, 3);
     }
 
     /**
@@ -43,7 +39,7 @@ public final class Sub extends InlineType implements HTMLinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUB;
     }
 
 }

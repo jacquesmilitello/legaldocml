@@ -1,6 +1,16 @@
 package io.legaldocml.akn;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.element.Subchapter;
+import io.legaldocml.akn.element.Subclause;
+import io.legaldocml.akn.element.Subdivision;
+import io.legaldocml.akn.element.Subheading;
+import io.legaldocml.akn.element.Sublist;
+import io.legaldocml.akn.element.Subparagraph;
+import io.legaldocml.akn.element.Subpart;
+import io.legaldocml.akn.element.Subrule;
+import io.legaldocml.akn.element.Subsection;
+import io.legaldocml.akn.element.Subtitle;
 
 import java.lang.reflect.Field;
 
@@ -1387,8 +1397,190 @@ public final class AknElements {
      */
     public static final String STATEMENT = "statement";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Step}
+     */
+    public static final String STEP = "step";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Sub}
+     */
+    public static final String SUB = "sub";
 
+    /**
+     * Element for {@link Subchapter}
+     */
+    public static final String SUB_CHAPTER = "subchapter";
+
+    /**
+     * Element for {@link Subclause}
+     */
+    public static final String SUB_CLAUSE = "subclause";
+
+    /**
+     * Element for {@link Subdivision}
+     */
+    public static final String SUB_DIVISION = "subdivision";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.SubFlow}
+     */
+    public static final String SUB_FLOW = "subFlow";
+
+    /**
+     * Element for {@link Subheading}
+     */
+    public static final String SUB_HEADING = "subheading";
+
+    /**
+     * Element for {@link Sublist}
+     */
+    public static final String SUB_LIST = "sublist";
+
+    /**
+     * Element for {@link Subparagraph}
+     */
+    public static final String SUB_PARAGRAPH = "subparagraph";
+
+    /**
+     * Element for {@link Subpart}
+     */
+    public static final String SUB_PART = "subpart";
+
+    /**
+     * Element for {@link Subsection}
+     */
+    public static final String SUB_SECTION = "subsection";
+
+    /**
+     * Element for {@link Subtitle}
+     */
+    public static final String SUB_TITLE = "subtitle";
+
+    /**
+     * Element for {@link Subrule}
+     */
+    public static final String SUB_RULE = "subrule";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Summary}
+     */
+    public static final String SUMMARY = "summary";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Sup}
+     */
+    public static final String SUP = "sup";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Supports}
+     */
+    public static final String SUPPORTS = "supports";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Table}
+     */
+    public static final String TABLE = "table";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Tblock}
+     */
+    public static final String TBLOCK = "tblock";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Td}
+     */
+    public static final String TD = "td";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TemporalData}
+     */
+    public static final String TEMPORAL_DATA = "temporalData";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TemporalGroup}
+     */
+    public static final String TEMPORAL_GROUP = "temporalGroup";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Term}
+     */
+    public static final String TERM = "term";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TextualMod}
+     */
+    public static final String TEXTUAL_MOD = "textualMod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Th}
+     */
+    public static final String TH = "th";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Time}
+     */
+    public static final String TIME = "time";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TimeInterval}
+     */
+    public static final String TIME_INTERVAL = "timeInterval";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Title}
+     */
+    public static final String TITLE = "title";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCConcept}
+     */
+    public static final String TLC_CONCEPT = "TLCConcept";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCEvent}
+     */
+    public static final String TLC_EVENT = "TLCEvent";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCLocation}
+     */
+    public static final String TLC_LOCATION = "TLCLocation";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCObject}
+     */
+    public static final String TLC_OBJECT = "TLCObject";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCOrganization}
+     */
+    public static final String TLC_ORGANIZATION = "TLCOrganization";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCPerson}
+     */
+    public static final String TLC_PERSON = "TLCPerson";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCProcess}
+     */
+    public static final String TLC_PROCESS = "TLCProcess";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCReference}
+     */
+    public static final String TLC_REFERENCE = "TLCReference";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCRole}
+     */
+    public static final String TLC_ROLE = "TLCRole";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.TLCTerm}
+     */
+    public static final String TLC_TERM = "TLCTerm";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Toc}
@@ -1396,10 +1588,64 @@ public final class AknElements {
     public static final String TOC = "toc";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.TocItem}
+     */
+    public static final String TOC_ITEM = "tocItem";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Tome}
+     */
+    public static final String TOME = "tome";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Tr}
+     */
+    public static final String TR = "tr";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Transitional}
+     */
+    public static final String TRANSITIONAL = "transitional";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.U}
+     */
+    public static final String U = "u";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Ul}
+     */
+    public static final String UL = "ul";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Vote}
+     */
+    public static final String VOTE = "vote";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Voting}
      */
     public static final String VOTING = "voting";
 
+    /**
+     * Element for {@link io.legaldocml.akn.element.Workflow}
+     */
+    public static final String WORKFLOW = "workflow";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Wrap}
+     */
+    public static final String WRAP = "wrap";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.WrapUp}
+     */
+    public static final String WRAP_UP = "wrapUp";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.WrittenStatements}
+     */
+    public static final String WRITTEN_STATEMENTS = "writtenStatements";
 
     public static boolean exists(String name) {
         return ELEMENTS.containsKey(name);

@@ -29,9 +29,9 @@ public interface BaseHierarchy extends AknObject {
 
     void setHeading(Heading heading);
 
-    SubHeading getSubheading();
+    Subheading getSubheading();
 
-    void setSubheading(SubHeading subheading);
+    void setSubheading(Subheading subheading);
 
 
 }

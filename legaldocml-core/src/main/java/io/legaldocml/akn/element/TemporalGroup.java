@@ -8,6 +8,9 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TEMPORAL_GROUP;
+import static io.legaldocml.akn.AknElements.TIME_INTERVAL;
+
 /**
  *
  * <pre>
@@ -27,17 +30,12 @@ import java.io.IOException;
 public final class TemporalGroup extends IdReqImpl implements Core {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "temporalGroup";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TEMPORAL_GROUP = Buffers.address(TEMPORAL_GROUP);
 
     // Mandatory (min 1).
-    private final AknList<TimeInterval> elements = new AknList<TimeInterval>(new TimeInterval[4]);
+    private final AknList<TimeInterval> elements = new AknList<>(new TimeInterval[4]);
 
 
     /**
@@ -45,10 +43,10 @@ public final class TemporalGroup extends IdReqImpl implements Core {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_TEMPORAL_GROUP, 13);
         super.write(writer);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_TEMPORAL_GROUP, 13);
     }
 
     /**
@@ -58,14 +56,14 @@ public final class TemporalGroup extends IdReqImpl implements Core {
     public void read(XmlReader reader) {
         super.read(reader);
         reader.nextStartOrEndElement();
-        if (reader.getQName().equalsLocalName(TimeInterval.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(TIME_INTERVAL)) {
             TimeInterval timeInterval;
             do {
                 timeInterval = new TimeInterval();
                 timeInterval.read(reader);
                 this.elements.add(timeInterval);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(TimeInterval.ELEMENT));
+            } while (reader.getQName().equalsLocalName(TIME_INTERVAL));
         }
     }
 
@@ -74,7 +72,7 @@ public final class TemporalGroup extends IdReqImpl implements Core {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TEMPORAL_GROUP;
     }
 
 }

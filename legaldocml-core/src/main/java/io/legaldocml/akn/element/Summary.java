@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SUMMARY;
+
 /**
  * The element summary is a block element in a debate to mark summaries of speeches that are individually not
  * interesting (e.g.: "Question put and agreed to").
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Summary extends InlineType implements ANcontainers {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "summary";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUMMARY = Buffers.address(SUMMARY);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_SUMMARY, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_SUMMARY, 7);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Summary extends InlineType implements ANcontainers {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUMMARY;
     }
 
 

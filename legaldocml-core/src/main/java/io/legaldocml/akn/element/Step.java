@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.STEP;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerConceptRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
@@ -58,14 +59,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Step extends AnyOtherType implements Role, Date, Outcome, Actor, Agent {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "step";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_STEP = Buffers.address(STEP);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -173,7 +169,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_STEP, 4);
         writeDate(writer, this);
         writeOutcome(writer, this);
         writeActor(writer, this);
@@ -182,7 +178,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
             writeAgent(writer, this);
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_STEP, 4);
     }
 
     /**
@@ -190,7 +186,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return STEP;
     }
 
     @Override

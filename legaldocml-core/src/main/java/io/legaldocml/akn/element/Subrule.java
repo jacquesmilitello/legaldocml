@@ -6,35 +6,32 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SUB_RULE;
+
 /**
- * This element is a hierarchical container called "subdivision" either explicitly or due to the local tradition.
+ * This element is a hierarchical container called "subrule" either explicitly or due to the local tradition.
  *
  * <pre>
- * 	 <xsd:element name="subdivision" type="hierarchy"/>
+ *   <xsd:element name="subrule" type="hierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class SubDivision extends Hierarchy implements ANhier {
-
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "subdivision";
+public final class Subrule extends Hierarchy implements ANhier {
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUB_RULE = Buffers.address(SUB_RULE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_SUB_RULE, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_SUB_RULE, 7);
     }
 
     /**
@@ -42,7 +39,6 @@ public final class SubDivision extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUB_RULE;
     }
-
 }

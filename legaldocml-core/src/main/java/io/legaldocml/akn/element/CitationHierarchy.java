@@ -15,6 +15,8 @@ import java.util.function.Supplier;
 import static io.legaldocml.akn.AknElements.CITATION;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.INTRO;
+import static io.legaldocml.akn.AknElements.WRAP;
+import static io.legaldocml.akn.AknElements.WRAP_UP;
 
 /**
  *
@@ -38,7 +40,7 @@ import static io.legaldocml.akn.AknElements.INTRO;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class CitationHierarchy extends BaseHierarchyCoreReq  {
+public abstract class CitationHierarchy extends BaseHierarchyCoreReq {
 
     private static final ImmutableMap<String, Supplier<CitationHierarchyElement>> ELEMS;
 
@@ -92,10 +94,10 @@ public abstract class CitationHierarchy extends BaseHierarchyCoreReq  {
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
+        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP_UP);
 
 
-        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
+        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP)) {
             this.wrapUp = new WrapUp();
             this.wrapUp.read(reader);
             reader.nextStartOrEndElement();

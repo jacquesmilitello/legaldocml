@@ -7,6 +7,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.TLC_TERM;
+
 /**
  * The element TLCTerm is a metadata reference to the Akoma Ntoso IRI of an ontology instance of the class Term.
  *
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class TLCTerm extends ReferenceType implements TLC {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "TLCTerm";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TLC_TERM = Buffers.address(TLC_TERM);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_TLC_TERM, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_TLC_TERM, 7);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class TLCTerm extends ReferenceType implements TLC {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TLC_TERM;
     }
 
     /**

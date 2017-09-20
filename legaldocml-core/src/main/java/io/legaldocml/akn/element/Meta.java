@@ -21,6 +21,8 @@ import static io.legaldocml.akn.AknElements.PRESENTATION;
 import static io.legaldocml.akn.AknElements.PROPRIETARY;
 import static io.legaldocml.akn.AknElements.PUBLICATION;
 import static io.legaldocml.akn.AknElements.REFERENCES;
+import static io.legaldocml.akn.AknElements.TEMPORAL_DATA;
+import static io.legaldocml.akn.AknElements.WORKFLOW;
 import static io.legaldocml.util.Streams.stream;
 
 /**
@@ -239,7 +241,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(LIFECYCLE));
         }
 
-        if (reader.getQName().equalsLocalName(Workflow.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(WORKFLOW)) {
             Workflow workflow;
             this.workflows = new AknList<>(new Workflow[4]);
             do {
@@ -247,7 +249,7 @@ public final class Meta implements AknObject {
                 workflow.read(reader);
                 this.workflows.add(workflow);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Workflow.ELEMENT));
+            } while (reader.getQName().equalsLocalName(WORKFLOW));
         }
 
         if (reader.getQName().equalsLocalName(ANALYSIS)) {
@@ -261,7 +263,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(ANALYSIS));
         }
 
-        if (reader.getQName().equalsLocalName(TemporalData.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(TEMPORAL_DATA)) {
             TemporalData temporalData;
             this.temporalData = new AknList<>(new TemporalData[4]);
             do {
@@ -269,7 +271,7 @@ public final class Meta implements AknObject {
                 temporalData.read(reader);
                 this.temporalData.add(temporalData);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(TemporalData.ELEMENT));
+            } while (reader.getQName().equalsLocalName(TEMPORAL_DATA));
         }
 
         if (reader.getQName().equalsLocalName(REFERENCES)) {

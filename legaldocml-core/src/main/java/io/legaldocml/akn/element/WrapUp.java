@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.WRAP_UP;
+
 /**
  * The element wrapUp is a concluding element in a hierarchy that contains paragraphs wrapping up the preceding lower
  * hierarchical elements.
@@ -15,26 +17,21 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class WrapUp extends Blocksreq {
-
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "wrapUp";
+public final class WrapUp extends Blocksreq implements SubFlowStructureElement{
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_WRAP_UP = Buffers.address(WRAP_UP);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_WRAP_UP, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_WRAP_UP, 6);
     }
 
     /**
@@ -42,6 +39,6 @@ public final class WrapUp extends Blocksreq {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return WRAP_UP;
     }
 }

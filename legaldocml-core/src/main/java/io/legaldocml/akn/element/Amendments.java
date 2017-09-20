@@ -15,6 +15,7 @@ import static io.legaldocml.akn.AknElements.FORCE_MOD;
 import static io.legaldocml.akn.AknElements.LEGAL_SYSTEM_MOD;
 import static io.legaldocml.akn.AknElements.MEANING_MOD;
 import static io.legaldocml.akn.AknElements.SCOPE_MOD;
+import static io.legaldocml.akn.AknElements.TEXTUAL_MOD;
 
 /**
  * The complex type Amendments is a list of all the amendment elements that can be used on a document analysis.
@@ -40,7 +41,7 @@ public abstract class Amendments implements AknObject {
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<AmendmentsElement>>builder()
-                .put(TextualMod.ELEMENT, TextualMod::new)
+                .put(TEXTUAL_MOD, TextualMod::new)
                 .put(MEANING_MOD, MeaningMod::new)
                 .put(SCOPE_MOD, ScopeMod::new)
                 .put(FORCE_MOD, ForceMod::new)

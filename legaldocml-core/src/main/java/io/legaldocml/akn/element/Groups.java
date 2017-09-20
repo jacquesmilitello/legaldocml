@@ -176,7 +176,7 @@ public final class Groups {
         // <xsd:element ref="toc"/>
         builder.put(TOC, Toc::new);
         // <xsd:element ref="tblock"/>
-        builder.put(Tblock.ELEMENT, Tblock::new);
+        builder.put(TBLOCK, Tblock::new);
         return builder.build();
     }
 
@@ -220,11 +220,11 @@ public final class Groups {
 
         ImmutableMap.Builder<String, Supplier<HTMLblock>> builder = ImmutableMap.builder();
         // <xsd:element ref="ul"/>
-        builder.put(Ul.ELEMENT, Ul::new);
+        builder.put(UL, Ul::new);
         // <xsd:element ref="ol"/>
         builder.put(OL, Ol::new);
         // <xsd:element ref="table"/>
-        builder.put(Table.ELEMENT, Table::new);
+        builder.put(TABLE, Table::new);
         // <xsd:element ref="p"/>
         builder.put(AknElements.P, P::new);
         return builder.build();
@@ -238,7 +238,7 @@ public final class Groups {
         // <xsd:element ref="popup"/>
         //builder.put(Popup.ELEMENT, Popup::new);
          //<xsd:element ref="subFlow"/>
-        builder.put(SubFlow.ELEMENT, SubFlow::new);
+        builder.put(SUB_FLOW, SubFlow::new);
         return builder.build();
     }
 
@@ -274,11 +274,11 @@ public final class Groups {
         // <xsd:element ref="a"/>
         builder.put(A, A::new);
         // <xsd:element ref="u"/>
-        builder.put(U.ELEMENT, U::new);
+        builder.put(AknElements.U, U::new);
         // <xsd:element ref="sub"/>
-        builder.put(Sub.ELEMENT, Sub::new);
+        builder.put(SUB, Sub::new);
         // <xsd:element ref="sup"/>
-        builder.put(Sup.ELEMENT, Sup::new);
+        builder.put(SUP, Sup::new);
         // <xsd:element ref="abbr"/>
         builder.put(ABBR, Abbr::new);
         // <xsd:element ref="span"/>
@@ -307,7 +307,7 @@ public final class Groups {
         // <xsd:element ref="recordedTime"/>
         builder.put(RECORDED_TIME, RecordedTime::new);
         // <xsd:element ref="vote"/>
-        builder.put(Vote.ELEMENT, Vote::new);
+        builder.put(VOTE, Vote::new);
         // <xsd:element ref="outcome"/>
         builder.put(OUTCOME, Outcome::new);
         // <xsd:element ref="ins"/>
@@ -382,7 +382,7 @@ public final class Groups {
         // <xsd:element ref="date" />
         builder.put(DATE, Date::new);
         // <xsd:element ref="time" />
-        builder.put(Time.ELEMENT, Time::new);
+        builder.put(TIME, Time::new);
         // <xsd:element ref="person" />
         builder.put(PERSON, Person::new);
         // <xsd:element ref="organization" />
@@ -400,7 +400,7 @@ public final class Groups {
         // <xsd:element ref="role" />
         builder.put(ROLE, Role::new);
         // <xsd:element ref="term" />
-        builder.put(Term.ELEMENT, Term::new);
+        builder.put(TERM, Term::new);
         // <xsd:element ref="quantity" />
         builder.put(QUANTITY, Quantity::new);
         // <xsd:element ref="def" />
@@ -493,25 +493,25 @@ public final class Groups {
     static Map<String, Supplier<TLC>> TLCs() {
         ImmutableMap.Builder<String, Supplier<TLC>> builder = ImmutableMap.builder();
         // <xsd:element ref="TLCPerson"/>
-        builder.put(TLCPerson.ELEMENT, TLCPerson::new);
+        builder.put(TLC_PERSON, TLCPerson::new);
         // <xsd:element ref="TLCOrganization"/>
-        builder.put(TLCOrganization.ELEMENT, TLCOrganization::new);
+        builder.put(TLC_ORGANIZATION, TLCOrganization::new);
         // <xsd:element ref="TLCConcept"/>
-        builder.put(TLCConcept.ELEMENT, TLCConcept::new);
+        builder.put(TLC_CONCEPT, TLCConcept::new);
         // <xsd:element ref="TLCObject"/>
-        builder.put(TLCObject.ELEMENT, TLCObject::new);
+        builder.put(TLC_OBJECT, TLCObject::new);
         // <xsd:element ref="TLCEvent"/>
-        builder.put(TLCEvent.ELEMENT, TLCEvent::new);
+        builder.put(TLC_EVENT, TLCEvent::new);
         // <xsd:element ref="TLCLocation"/>
-        builder.put(TLCLocation.ELEMENT, TLCLocation::new);
+        builder.put(TLC_LOCATION, TLCLocation::new);
         // <xsd:element ref="TLCProcess"/>
-        builder.put(TLCProcess.ELEMENT, TLCProcess::new);
+        builder.put(TLC_PROCESS, TLCProcess::new);
         // <xsd:element ref="TLCRole"/>
-        builder.put(TLCRole.ELEMENT, TLCRole::new);
+        builder.put(TLC_ROLE, TLCRole::new);
         // <xsd:element ref="TLCTerm"/>
-        builder.put(TLCTerm.ELEMENT, TLCTerm::new);
+        builder.put(TLC_TERM, TLCTerm::new);
         // <xsd:element ref="TLCReference"/>
-        builder.put(TLCReference.ELEMENT, TLCReference::new);
+        builder.put(TLC_REFERENCE, TLCReference::new);
         return builder.build();
     }
 
@@ -550,13 +550,13 @@ public final class Groups {
         // <xsd:element ref="chapter"/>
         builder.put(CHAPTER, Chapter::new);
         // <xsd:element ref="title"/>
-        builder.put(Title.ELEMENT, Title::new);
+        builder.put(TITLE, Title::new);
         // <xsd:element ref="article"/>
         builder.put(ARTICLE, Article::new);
         // <xsd:element ref="book"/>
         builder.put(BOOK, Book::new);
         // <xsd:element ref="tome"/>
-        builder.put(Tome.ELEMENT, Tome::new);
+        builder.put(TOME, Tome::new);
         // <xsd:element ref="division"/>
         builder.put(DIVISION, Division::new);
         // <xsd:element ref="list"/>
@@ -570,29 +570,29 @@ public final class Groups {
         // <xsd:element ref="rule"/>
         builder.put(RULE, Rule::new);
         // <xsd:element ref="subrule"/>
-        builder.put(SubRule.ELEMENT, SubRule::new);
+        builder.put(SUB_RULE, Subrule::new);
         // <xsd:element ref="proviso"/>
         builder.put(PROVISO, Proviso::new);
         // <xsd:element ref="subsection"/>
-        builder.put(SubSection.ELEMENT, SubSection::new);
+        builder.put(SUB_SECTION, Subsection::new);
         // <xsd:element ref="subpart"/>
-        builder.put(SubPart.ELEMENT, SubPart::new);
+        builder.put(SUB_PART, Subpart::new);
         // <xsd:element ref="subparagraph"/>
-        builder.put(SubParagraph.ELEMENT, SubParagraph::new);
+        builder.put(SUB_PARAGRAPH, Subparagraph::new);
         // <xsd:element ref="subchapter"/>
-        builder.put(SubChapter.ELEMENT, SubChapter::new);
+        builder.put(SUB_CHAPTER, Subchapter::new);
         // <xsd:element ref="subtitle"/>
-        builder.put(SubTitle.ELEMENT, SubTitle::new);
+        builder.put(SUB_TITLE, Subtitle::new);
         // <xsd:element ref="subdivision"/>
-        builder.put(SubDivision.ELEMENT, SubDivision::new);
+        builder.put(SUB_DIVISION, Subdivision::new);
         // <xsd:element ref="subclause"/>
-        builder.put(SubClause.ELEMENT, SubClause::new);
+        builder.put(SUB_CLAUSE, Subclause::new);
         // <xsd:element ref="sublist"/>
-        builder.put(SubList.ELEMENT, SubList::new);
+        builder.put(SUB_LIST, Sublist::new);
         // <xsd:element ref="level"/>
         builder.put(LEVEL, Level::new);
         // <xsd:element ref="transitional"/>
-        builder.put(Transitional.ELEMENT, Transitional::new);
+        builder.put(TRANSITIONAL, Transitional::new);
         return builder.build();
     }
 
@@ -631,7 +631,7 @@ public final class Groups {
         // <xsd:element ref="narrative"/>
         builder.put(NARRATIVE, Narrative::new);
         // <xsd:element ref="summary"/>
-        builder.put(Summary.ELEMENT, Summary::new);
+        builder.put(SUMMARY, Summary::new);
         return builder.build();
     }
 
@@ -646,7 +646,7 @@ public final class Groups {
         // <xsd:element ref="oralStatements"/>
         builder.put(ORAL_STATEMENTS, OralStatements::new);
         // <xsd:element ref="writtenStatements"/>
-        builder.put(WrittenStatements.ELEMENT, WrittenStatements::new);
+        builder.put(WRITTEN_STATEMENTS, WrittenStatements::new);
         // <xsd:element ref="personalStatements"/>
         builder.put(PERSONAL_STATEMENTS, PersonalStatements::new);
         // <xsd:element ref="ministerialStatements"/>

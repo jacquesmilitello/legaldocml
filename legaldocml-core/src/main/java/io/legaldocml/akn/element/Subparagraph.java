@@ -6,35 +6,32 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SUB_PARAGRAPH;
+
 /**
- * This element is a hierarchical container called "sublist" either explicitly or due to the local tradition.
+ * This element is a hierarchical container called "subparagraph" either explicitly or due to the local tradition.
  *
  * <pre>
- * 	 <xsd:element name="sublist" type="hierarchy"/>
+ *   <xsd:element name="subparagraph" type="hierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class SubList extends Hierarchy implements ANhier {
-
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "sublist";
+public final class Subparagraph extends Hierarchy implements ANhier {
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUB_PARAGRAPH = Buffers.address(SUB_PARAGRAPH);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_SUB_PARAGRAPH, 12);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_SUB_PARAGRAPH, 12);
     }
 
     /**
@@ -42,7 +39,6 @@ public final class SubList extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUB_PARAGRAPH;
     }
-
 }

@@ -13,6 +13,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.TOC_ITEM;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLevel;
@@ -41,14 +42,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class TocItem extends InlineType implements LinkReq, Level {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "tocItem";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TOC_ITEM = Buffers.address(TOC_ITEM);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -105,11 +101,11 @@ public final class TocItem extends InlineType implements LinkReq, Level {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_TOC_ITEM, 7);
         writeLinkReq(writer, this);
         writeLevel(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_TOC_ITEM, 7);
     }
 
     /**
@@ -117,7 +113,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TOC_ITEM;
     }
 
     @Override

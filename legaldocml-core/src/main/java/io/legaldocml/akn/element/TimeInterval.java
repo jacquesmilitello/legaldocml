@@ -17,6 +17,7 @@ import io.legaldocml.util.ToStringBuilder;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.TIME_INTERVAL;
 import static io.legaldocml.akn.element.Attributes.biConsumerEventRefRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -51,14 +52,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class TimeInterval extends MetaOpt implements RefersReq, Interval, Duration {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "timeInterval";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TIME_INTERVAL = Buffers.address(TIME_INTERVAL);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -146,12 +142,12 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_TIME_INTERVAL, 12);
         super.write(writer);
         writeRefersReq(writer, this);
         writeInterval(writer, this);
         writeDuration(writer, this);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_TIME_INTERVAL, 12);
     }
 
     /**
@@ -159,7 +155,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TIME_INTERVAL;
     }
 
     /**

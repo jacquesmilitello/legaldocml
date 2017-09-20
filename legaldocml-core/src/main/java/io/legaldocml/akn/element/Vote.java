@@ -15,6 +15,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.VOTE;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerVoteRef;
@@ -42,14 +43,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Vote extends InlineType implements VoteAtts, ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "vote";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_VOTE = Buffers.address(VOTE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -119,10 +115,10 @@ public final class Vote extends InlineType implements VoteAtts, ANinline {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_VOTE, 4);
         writeVoteAtts(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_VOTE, 4);
     }
 
     /**
@@ -130,7 +126,7 @@ public final class Vote extends InlineType implements VoteAtts, ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return VOTE;
     }
 
     /**

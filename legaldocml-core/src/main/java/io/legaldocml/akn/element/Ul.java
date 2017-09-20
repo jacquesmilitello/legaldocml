@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.UL;
+
 /**
  * The element ul is an HTML element and is used in Akoma Ntoso as in HTML, for an unordered list of list item (elements
  * li).
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Ul extends ListItems implements LiElement, HTMLblock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "ul";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_UL = Buffers.address(UL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 2);
+        writer.writeStart(ADDRESS_UL, 2);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 2);
+        writer.writeEnd(ADDRESS_UL, 2);
     }
 
     /**
@@ -43,6 +40,6 @@ public final class Ul extends ListItems implements LiElement, HTMLblock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return UL;
     }
 }

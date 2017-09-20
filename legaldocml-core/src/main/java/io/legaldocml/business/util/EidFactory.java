@@ -33,11 +33,11 @@ import io.legaldocml.akn.element.QuotedText;
 import io.legaldocml.akn.element.Recital;
 import io.legaldocml.akn.element.Recitals;
 import io.legaldocml.akn.element.Section;
-import io.legaldocml.akn.element.SubChapter;
-import io.legaldocml.akn.element.SubClause;
-import io.legaldocml.akn.element.SubDivision;
-import io.legaldocml.akn.element.SubParagraph;
-import io.legaldocml.akn.element.SubSection;
+import io.legaldocml.akn.element.Subchapter;
+import io.legaldocml.akn.element.Subclause;
+import io.legaldocml.akn.element.Subdivision;
+import io.legaldocml.akn.element.Subparagraph;
+import io.legaldocml.akn.element.Subsection;
 import io.legaldocml.akn.element.TemporalGroup;
 import io.legaldocml.akn.element.WrapUp;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -110,11 +110,11 @@ public final class EidFactory {
                 .put(Recital.class, "rec")
                 .put(Recitals.class, "recs")
                 .put(Section.class, "sec")
-                .put(SubChapter.class, "subchp")
-                .put(SubClause.class, "subcl")
-                .put(SubDivision.class, "subdvs")
-                .put(SubParagraph.class, "subpara")
-                .put(SubSection.class, "subsec")
+                .put(Subchapter.class, "subchp")
+                .put(Subclause.class, "subcl")
+                .put(Subdivision.class, "subdvs")
+                .put(Subparagraph.class, "subpara")
+                .put(Subsection.class, "subsec")
                 .put(TemporalGroup.class, "tmpg")
                 .put(WrapUp.class, "wrapup")
                 .build();

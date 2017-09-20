@@ -16,6 +16,7 @@ import java.util.function.BiConsumer;
 import static io.legaldocml.akn.AknElements.NEW;
 import static io.legaldocml.akn.AknElements.OLD;
 import static io.legaldocml.akn.AknElements.PREVIOUS;
+import static io.legaldocml.akn.AknElements.TEXTUAL_MOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTextualModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -53,15 +54,11 @@ public final class TextualMod extends ModificationType implements TextualModType
                 .build();
     }
 
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "textualMod";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TEXTUAL_MOD = Buffers.address(TEXTUAL_MOD);
 
     private TextualMods type;
 
@@ -90,7 +87,7 @@ public final class TextualMod extends ModificationType implements TextualModType
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_TEXTUAL_MOD, 10);
         writeTextualModType(writer, this);
         super.write(writer);
         if (this.previous != null) {
@@ -102,7 +99,7 @@ public final class TextualMod extends ModificationType implements TextualModType
         if (this._new != null) {
             this._new.write(writer);
         }
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_TEXTUAL_MOD, 10);
     }
 
     /**
@@ -137,7 +134,7 @@ public final class TextualMod extends ModificationType implements TextualModType
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TEXTUAL_MOD;
     }
 
     /**

@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.CAPTION;
+import static io.legaldocml.akn.AknElements.TABLE;
+import static io.legaldocml.akn.AknElements.TR;
 import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTableAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -39,14 +41,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "table";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TABLE = Buffers.address(TABLE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -148,14 +145,14 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_TABLE, 5);
         writeTableAtts(writer, this);
         super.write(writer);
         if (this.caption != null) {
             this.caption.write(writer);
         }
         this.trs.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_TABLE, 5);
     }
 
     /**
@@ -172,14 +169,14 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Tr.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(TR)) {
             Tr tr;
             do {
                 tr = new Tr();
                 tr.read(reader);
                 this.trs.add(tr);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Tr.ELEMENT));
+            } while (reader.getQName().equalsLocalName(TR));
         }
     }
 
@@ -188,7 +185,7 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TABLE;
     }
 
     /**

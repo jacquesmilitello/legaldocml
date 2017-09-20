@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.WRITTEN_STATEMENTS;
+
 /**
  * This element is a structural container for parts of a debates that contain written statements by participants.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class WrittenStatements extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "writtenStatements";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_WRITTEN_STATEMENTS = Buffers.address(WRITTEN_STATEMENTS);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 17);
+        writer.writeStart(ADDRESS_WRITTEN_STATEMENTS, 17);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 17);
+        writer.writeEnd(ADDRESS_WRITTEN_STATEMENTS, 17);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class WrittenStatements extends AltHierarchy implements SpeechSecti
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return WRITTEN_STATEMENTS;
     }
 
 }

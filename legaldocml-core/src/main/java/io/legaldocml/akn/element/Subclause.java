@@ -6,35 +6,32 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SUB_CLAUSE;
+
 /**
- * This element is a hierarchical container called "subpart" either explicitly or due to the local tradition.
+ * This element is a hierarchical container called "subclause" either explicitly or due to the local tradition.
  *
  * <pre>
- *   <xsd:element name="subpart" type="hierarchy"/>
+ * 	 <xsd:element name="subclause" type="hierarchy"/>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class SubPart extends Hierarchy implements ANhier {
-
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "subpart";
+public final class Subclause extends Hierarchy implements ANhier {
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUB_CLAUSE = Buffers.address(SUB_CLAUSE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_SUB_CLAUSE, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_SUB_CLAUSE, 9);
     }
 
     /**
@@ -42,6 +39,7 @@ public final class SubPart extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUB_CLAUSE;
     }
+
 }

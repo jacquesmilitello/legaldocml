@@ -11,6 +11,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.TOC;
+import static io.legaldocml.akn.AknElements.TOC_ITEM;
 
 /**
  * <pre>
@@ -52,14 +53,14 @@ public final class Toc extends CoreReqImpl implements ANblock, DocContainerTypeE
     public void read(XmlReader reader) {
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(TocItem.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(TOC_ITEM)) {
             TocItem item;
             do {
                 item = new TocItem();
                 item.read(reader);
                 this.tocItems.add(item);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(TocItem.ELEMENT));
+            } while (reader.getQName().equalsLocalName(TOC_ITEM));
         } else {
             throw new RuntimeException("MISSING .....");
         }

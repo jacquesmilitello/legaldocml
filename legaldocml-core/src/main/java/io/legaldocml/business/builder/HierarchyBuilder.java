@@ -6,7 +6,7 @@ import io.legaldocml.akn.element.Hierarchy;
 import io.legaldocml.akn.element.HierarchyElement;
 import io.legaldocml.akn.element.Intro;
 import io.legaldocml.akn.element.Num;
-import io.legaldocml.akn.element.SubHeading;
+import io.legaldocml.akn.element.Subheading;
 import io.legaldocml.business.util.EidFactory;
 
 /**
@@ -45,13 +45,13 @@ public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBui
         return new InlineReqTypeBuilder<>(getBusinessBuilder(), heading);
     }
 
-    public InlineReqTypeBuilder<SubHeading> subHeading() {
+    public InlineReqTypeBuilder<Subheading> subHeading() {
         if (hierarchy.getSubheading() != null) {
-            throw new BusinessBuilderException("<subHeading> is not null : [" + hierarchy.getSubheading() + "]");
+            throw new BusinessBuilderException("<subheading> is not null : [" + hierarchy.getSubheading() + "]");
         }
-        SubHeading subHeading = new SubHeading();
-        this.hierarchy.setSubheading(subHeading);
-        return new InlineReqTypeBuilder<>(getBusinessBuilder(), subHeading);
+        Subheading subheading = new Subheading();
+        this.hierarchy.setSubheading(subheading);
+        return new InlineReqTypeBuilder<>(getBusinessBuilder(), subheading);
     }
 
     public HierarchyBuilder<T> eId(String number) {

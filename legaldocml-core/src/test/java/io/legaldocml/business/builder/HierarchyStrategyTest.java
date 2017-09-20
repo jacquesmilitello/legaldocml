@@ -2,7 +2,7 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.element.Book;
 import io.legaldocml.akn.element.Chapter;
-import io.legaldocml.akn.element.SubSection;
+import io.legaldocml.akn.element.Subsection;
 import io.legaldocml.akn.element.Tome;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
@@ -28,7 +28,7 @@ public class HierarchyStrategyTest {
         HierarchyStrategy strategy = hsb.build();
         Assert.assertEquals(Book.class, strategy.next(strategy.next(new Tome())).getClass());
         Assert.assertEquals(Chapter.class, strategy.next(strategy.next(new Book())).getClass());
-        Assert.assertEquals(SubSection.class, strategy.next(strategy.next(new Chapter())).getClass());
+        Assert.assertEquals(Subsection.class, strategy.next(strategy.next(new Chapter())).getClass());
 
 
     }

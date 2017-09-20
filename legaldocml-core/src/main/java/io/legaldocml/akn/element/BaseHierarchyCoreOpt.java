@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.HEADING;
 import static io.legaldocml.akn.AknElements.NUM;
+import static io.legaldocml.akn.AknElements.SUB_HEADING;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -33,9 +34,9 @@ public abstract class BaseHierarchyCoreOpt extends CoreOptImpl implements BaseHi
     private Heading heading;
 
     /**
-     * SubHeading for this element.
+     * Subheading for this element.
      */
-    private SubHeading subheading;
+    private Subheading subheading;
 
 
     public final Num getNum() {
@@ -54,11 +55,11 @@ public abstract class BaseHierarchyCoreOpt extends CoreOptImpl implements BaseHi
         this.heading = heading;
     }
 
-    public final SubHeading getSubheading() {
+    public final Subheading getSubheading() {
         return this.subheading;
     }
 
-    public final void setSubheading(SubHeading subheading) {
+    public final void setSubheading(Subheading subheading) {
         this.subheading = subheading;
     }
 
@@ -103,8 +104,8 @@ public abstract class BaseHierarchyCoreOpt extends CoreOptImpl implements BaseHi
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(SubHeading.ELEMENT)) {
-            this.subheading = new SubHeading();
+        if (reader.getQName().equalsLocalName(SUB_HEADING)) {
+            this.subheading = new Subheading();
             this.subheading.read(reader);
             reader.nextStartOrEndElement();
         }

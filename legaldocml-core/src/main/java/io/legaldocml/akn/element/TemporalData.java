@@ -14,6 +14,8 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.TEMPORAL_DATA;
+import static io.legaldocml.akn.AknElements.TEMPORAL_GROUP;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -36,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class TemporalData implements Source {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "temporalData";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TEMPORAL_DATA = Buffers.address(TEMPORAL_DATA);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,10 +75,10 @@ public final class TemporalData implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_TEMPORAL_DATA, 12);
         writeSource(writer, this);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_TEMPORAL_DATA, 12);
     }
 
     /**
@@ -91,14 +88,14 @@ public final class TemporalData implements Source {
     public void read(XmlReader reader) {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
-        if (reader.getQName().equalsLocalName(TemporalGroup.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(TEMPORAL_GROUP)) {
             TemporalGroup temporalGroup;
             do {
                 temporalGroup = new TemporalGroup();
                 temporalGroup.read(reader);
                 this.elements.add(temporalGroup);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(TemporalGroup.ELEMENT));
+            } while (reader.getQName().equalsLocalName(TEMPORAL_GROUP));
         }
     }
 
@@ -115,7 +112,7 @@ public final class TemporalData implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TEMPORAL_DATA;
     }
 
 }

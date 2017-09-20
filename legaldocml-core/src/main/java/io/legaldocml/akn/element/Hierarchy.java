@@ -19,6 +19,8 @@ import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.CONTENT;
 import static io.legaldocml.akn.AknElements.CROSS_HEADING;
 import static io.legaldocml.akn.AknElements.INTRO;
+import static io.legaldocml.akn.AknElements.WRAP;
+import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
 
@@ -142,9 +144,9 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
 
         if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
 
-            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, Wrap.ELEMENT);
+            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP);
 
-            if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(Wrap.ELEMENT)) {
+            if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP)) {
                 this.wrap = new Wrap();
                 this.wrap.read(reader);
                 reader.nextStartOrEndElement();
@@ -152,9 +154,9 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
 
         } else {
 
-            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WrapUp.ELEMENT);
+            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP_UP);
 
-            if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
+            if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP_UP)) {
                 this.wrapUp = new WrapUp();
                 this.wrapUp.read(reader);
                 reader.nextStartOrEndElement();

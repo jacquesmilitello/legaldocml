@@ -22,6 +22,7 @@ import static io.legaldocml.akn.AknElements.OVER_RULES;
 import static io.legaldocml.akn.AknElements.PUTS_IN_QUESTION;
 import static io.legaldocml.akn.AknElements.RESTRICTS;
 import static io.legaldocml.akn.AknElements.RESULT;
+import static io.legaldocml.akn.AknElements.SUPPORTS;
 
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
@@ -56,7 +57,7 @@ public abstract class JudicialArguments implements AknObject {
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<JudicialArgumentsElement>>builder()
-                .put(Supports.ELEMENT, Supports::new)
+                .put(SUPPORTS, Supports::new)
                 .put(IS_ANALOG_TO, IsAnalogTo::new)
                 .put(APPLIES, Applies::new)
                 .put(EXTENDS, Extends::new)

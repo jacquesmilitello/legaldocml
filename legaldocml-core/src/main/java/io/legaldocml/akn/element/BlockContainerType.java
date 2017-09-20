@@ -14,6 +14,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.INTRO;
+import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 
@@ -91,10 +92,10 @@ public abstract class BlockContainerType extends BaseHierarchyCoreReq {
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WrapUp.ELEMENT);
+        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP_UP);
 
 
-        if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WrapUp.ELEMENT)) {
+        if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP_UP)) {
             this.wrapUp = new WrapUp();
             this.wrapUp.read(reader);
             reader.nextStartOrEndElement();

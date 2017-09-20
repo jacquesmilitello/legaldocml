@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SUB_HEADING;
+
 /**
  * the element subheading is a heading element in a hierarchy that contains a subtitle or any other textual content to
  * further describe the structure..
@@ -15,26 +17,21 @@ import java.io.IOException;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class SubHeading extends InlineReqType implements PopupStructureElement, SubFlowStructureElement {
-
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "subheading";
+public final class Subheading extends InlineReqType implements PopupStructureElement, SubFlowStructureElement {
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SUB_HEADING = Buffers.address(SUB_HEADING);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_SUB_HEADING, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_SUB_HEADING, 10);
     }
 
     /**
@@ -42,6 +39,6 @@ public final class SubHeading extends InlineReqType implements PopupStructureEle
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SUB_HEADING;
     }
 }

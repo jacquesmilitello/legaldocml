@@ -12,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.TLC_REFERENCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class TLCReference extends ReferenceType implements TLC, Name {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "TLCReference";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TLC_REFERENCE = Buffers.address(TLC_REFERENCE);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -76,10 +72,10 @@ public final class TLCReference extends ReferenceType implements TLC, Name {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_TLC_REFERENCE, 12);
         writeName(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_TLC_REFERENCE, 12);
     }
 
     /**
@@ -87,7 +83,7 @@ public final class TLCReference extends ReferenceType implements TLC, Name {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TLC_REFERENCE;
     }
 
     /**

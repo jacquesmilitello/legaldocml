@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
+
+import static io.legaldocml.akn.AknElements.TBLOCK;
 
 /**
  * The element tblock (titled block) is used to specify a container for blocks introduced by heading elements, similarly
@@ -18,24 +20,20 @@ import java.io.IOException;
  */
 public final class Tblock extends ItemType implements ANblock {
 
-    /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "tblock";
 
     /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TBLOCK = Buffers.address(TBLOCK);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_TBLOCK, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_TBLOCK, 6);
     }
 
     /**
@@ -43,7 +41,7 @@ public final class Tblock extends ItemType implements ANblock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TBLOCK;
     }
 
     /**

@@ -11,6 +11,10 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.TD;
+import static io.legaldocml.akn.AknElements.TH;
+import static io.legaldocml.akn.AknElements.TR;
+
 /**
  * <pre>
  *   <xsd:element name="tr">
@@ -29,26 +33,21 @@ import java.util.function.Supplier;
 public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "tr";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TR = Buffers.address(TR);
 
     private static final ImmutableMap<String, Supplier<TrElement>> ELEMS;
 
     static {
         ELEMS = ImmutableMap.<String, Supplier<TrElement>>builder()
-                .put(Th.ELEMENT, Th::new)
-                .put(Td.ELEMENT, Td::new)
+                .put(TH, Th::new)
+                .put(TD, Td::new)
                 .build();
     }
 
     // Mandatory (min 1)
-    private final AknList<TrElement> trs = new AknList<TrElement>(new TrElement[6]);
+    private final AknList<TrElement> trs = new AknList<>(new TrElement[6]);
 
     public void add(TrElement element) {
         this.trs.add(element);
@@ -59,10 +58,10 @@ public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 2);
+        writer.writeStart(ADDRESS_TR, 2);
         super.write(writer);
         this.trs.write(writer);
-        writer.writeEnd(ADDRESS, 2);
+        writer.writeEnd(ADDRESS_TR, 2);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TR;
     }
 
     /**

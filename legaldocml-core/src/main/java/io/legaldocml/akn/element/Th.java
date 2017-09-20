@@ -11,6 +11,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.TH;
 import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeCellAttrs;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -35,14 +36,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Th extends Blocksopt implements CellAttrs, TrElement, SubFlowStructureElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "th";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_TH = Buffers.address(TH);
 
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
@@ -91,10 +87,10 @@ public final class Th extends Blocksopt implements CellAttrs, TrElement, SubFlow
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 2);
+        writer.writeStart(ADDRESS_TH, 2);
         writeCellAttrs(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 2);
+        writer.writeEnd(ADDRESS_TH, 2);
     }
 
     /**
@@ -102,7 +98,7 @@ public final class Th extends Blocksopt implements CellAttrs, TrElement, SubFlow
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return TH;
     }
 
     /**
