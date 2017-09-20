@@ -11,6 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -31,7 +36,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     /**
      * Shared empty array instance used for empty instances.
      */
-    private static final Object[] EMPTY_ELEMENTDATA = {};
+    private static final Externalizable[] EMPTY_ELEMENTDATA = {};
 
     /**
      * The array buffer into which the elements of the ArrayList are stored. The capacity of the AknList is the length
@@ -72,11 +77,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         this.elems = (E[]) EMPTY_ELEMENTDATA;
     }
 
-    @SuppressWarnings("unchecked")
-    public ExternalizableList(int size) {
-        this.elems = (E[]) new Object[size];
-    }
-
     public ExternalizableList(E[] elem) {
         this.elems = elem;
         this.size = 0;
@@ -114,25 +114,25 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
 
 
     /**
-     * Returns the element at the specified position in this list.
-     *
-     * @param index index of the element to return
-     * @return the element at the specified position in this list
+     * {@inheritDoc}
      */
+    @Override
     public final E get(int index) {
         return this.elems[index];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public E set(int index, E element) {
         throw new UnsupportedOperationException("set(int index, E element)");
     }
 
     /**
-     * Returns <tt>true</tt> if this list contains no elements.
-     *
-     * @return <tt>true</tt> if this list contains no elements
+     * {@inheritDoc}
      */
+    @Override
     public final boolean isEmpty() {
         return this.size == 0;
     }
@@ -150,38 +150,30 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         }
     }
 
-//	public final Stream<E> stream() {
-//		return StreamSupport.stream(spliterator(), false);
-//	}
-
-//    /**
-//     * Sorts this list using the supplied Comparator to compare elements.
-//     */
-//    public final void order(Comparator<? super E> ordering) {
-//        Arrays.sort(this.elems, ordering);
-//    }
-//
-//    public final void forEach(Consumer<? super E> action) {
-//        final int expectedModCount = _modCount;
-//        final E[] elem = _elem;
-//        final int size = _size;
-//        for (int i = 0; _modCount == expectedModCount && i < size; i++) {
-//            action.accept(elem[i]);
-//        }
-//        if (_modCount != expectedModCount) {
-//            throw new ConcurrentModificationException();
-//        }
-//    }
-
-    public void copyTo(ExternalizableList<E> list) {
-        System.arraycopy(this.elems, 0, list.elems, 0, this.size);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final Stream<E> stream() {
+        return StreamSupport.stream(Spliterators.spliterator(this.elems, 0, this.size, Spliterator.ORDERED | Spliterator.SIZED), false);
     }
 
     /**
-     * Returns the number of elements in this list.
-     *
-     * @return the number of elements in this list
+     * {@inheritDoc}
      */
+    @Override
+    public final void forEach(Consumer<? super E> action) {
+        E[] el = this.elems;
+        int si = this.size;
+        for (int i = 0; i < size; i++) {
+            action.accept(el[i]);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final int size() {
         return this.size;
     }
@@ -207,8 +199,19 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     }
 
     /**
-     * Removes all of the elements from this list. The list will be empty after this call returns.
+     * {@inheritDoc}
      */
+    @Override
+    public E remove(int index) {
+        E e = this.elems[index];
+        fastRemove(index);
+        return e;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void clear() {
         this.modCount++;
 
@@ -297,10 +300,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     // ========================================================================
     // TODO .......
     // ========================================================================
-    @Override
-    public E remove(int index) {
-        throw new UnsupportedOperationException("remove(index)");
-    }
 
     @Override
     public int indexOf(Object o) {
@@ -336,7 +335,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
             return false;
         }
         final E[] iterable = this.elems;
-        for (int i = 0, n = this.size; i < n ; i++) {
+        for (int i = 0, n = this.size; i < n; i++) {
             if (iterable[i].equals(o)) {
                 return true;
             }
@@ -405,4 +404,5 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     public boolean retainAll(Collection<?> c) {
         return false;
     }
+
 }
