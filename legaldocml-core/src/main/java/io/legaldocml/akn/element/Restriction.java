@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.RESTRICTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
@@ -41,14 +42,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Restriction extends AnyOtherType implements RefersOpt, io.legaldocml.akn.attribute.RestrictionType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "restriction";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RESTRICTION = Buffers.address(RESTRICTION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -100,11 +96,11 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_RESTRICTION, 11);
         writeRefers(writer, this);
         writeRestrictionType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_RESTRICTION, 11);
     }
 
     /**
@@ -112,7 +108,7 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RESTRICTION;
     }
 
     /**

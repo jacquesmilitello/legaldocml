@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.ROLL_CALL;
+
 /**
  * This element is a structural container for parts of a debates that contain a roll call of individuals.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class RollCall extends AltHierarchy implements SpeechSection {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "rollCall";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_ROLL_CALL = Buffers.address(ROLL_CALL);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_ROLL_CALL, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_ROLL_CALL, 8);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class RollCall extends AltHierarchy implements SpeechSection {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return ROLL_CALL;
     }
 
 

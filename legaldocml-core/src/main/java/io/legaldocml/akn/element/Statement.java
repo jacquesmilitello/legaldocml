@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.STATEMENT;
+
 /**
  * Element statement is used for describing the structure and content of an official document of a body that may or may
  * not be normative in structure (e.g., statements, resolutions, etc.).
@@ -28,23 +30,18 @@ import java.io.IOException;
 public final class Statement extends OpenStructure implements DocumentType {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "statement";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_STATEMENT = Buffers.address(STATEMENT);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_STATEMENT, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_STATEMENT, 9);
     }
 
     /**
@@ -52,7 +49,7 @@ public final class Statement extends OpenStructure implements DocumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return STATEMENT;
     }
 
 

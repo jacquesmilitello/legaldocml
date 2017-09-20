@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.io.CharArray;
@@ -11,6 +12,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.SESSION;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,21 +39,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Session extends InlineType implements ValueOpt, ANtitleInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "session";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SESSION = Buffers.address(SESSION);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put("value", biConsumerString(getFieldOffset(Session.class, "value")))
+                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(Session.class, "value")))
                 .build();
     }
 
@@ -78,10 +75,10 @@ public final class Session extends InlineType implements ValueOpt, ANtitleInline
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_SESSION, 7);
         writeOptValue(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_SESSION, 7);
     }
 
     /**
@@ -89,7 +86,7 @@ public final class Session extends InlineType implements ValueOpt, ANtitleInline
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SESSION;
     }
 
     /**

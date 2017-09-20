@@ -24,6 +24,7 @@ import static io.legaldocml.akn.AknElements.OTHER_ANALYSIS;
 import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
 import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 import static io.legaldocml.akn.AknElements.PASSIVE_MODIFICATIONS;
+import static io.legaldocml.akn.AknElements.RESTRICTIONS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -51,7 +52,6 @@ import static io.legaldocml.util.Streams.stream;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class Analysis implements Source {
-
 
     /**
      * Memory address.
@@ -218,7 +218,7 @@ public final class Analysis implements Source {
             reader.nextStartOrEndElement();
         }
 
-        if (reader.getQName().equalsLocalName(Restrictions.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(RESTRICTIONS)) {
             this.restrictions = new Restrictions();
             this.restrictions.read(reader);
             reader.nextStartOrEndElement();

@@ -14,6 +14,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.RELATED_DOCUMENT;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -26,10 +27,10 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 	     <xsd:complexContent>
  * 		   <xsd:extension base="inline">
  * 		     <xsd:attributeGroup ref="link"/>
- * 		   <xsd:extension>
- * 		 <xsd:complexContent>
- * 	   <xsd:complexType>
- *   <xsd:element>
+ * 		   </xsd:extension>
+ * 		 </xsd:complexContent>
+ * 	   </xsd:complexType>
+ *   </xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class RelatedDocument extends InlineType implements LinkReq, AmendmentInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "relatedDocument";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RELATED_DOCUMENT = Buffers.address(RELATED_DOCUMENT);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -78,10 +74,10 @@ public final class RelatedDocument extends InlineType implements LinkReq, Amendm
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 15);
+        writer.writeStart(ADDRESS_RELATED_DOCUMENT, 15);
         writeLinkReq(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 15);
+        writer.writeEnd(ADDRESS_RELATED_DOCUMENT, 15);
     }
 
     /**
@@ -89,7 +85,7 @@ public final class RelatedDocument extends InlineType implements LinkReq, Amendm
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RELATED_DOCUMENT;
     }
 
     /**

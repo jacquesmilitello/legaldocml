@@ -33,6 +33,7 @@ import static io.legaldocml.akn.AknElements.DOCUMENT_COLLECTION;
 import static io.legaldocml.akn.AknElements.JUDGMENT;
 import static io.legaldocml.akn.AknElements.OFFICIAL_GAZETTE;
 import static io.legaldocml.akn.AknElements.PORTION;
+import static io.legaldocml.akn.AknElements.STATEMENT;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -54,7 +55,7 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
                 .put(DOCUMENT_COLLECTION, DocumentCollection.class)
                 .put(OFFICIAL_GAZETTE, OfficialGazette.class)
                 .put(PORTION, Portion.class)
-                .put(Statement.ELEMENT, Statement.class)
+                .put(STATEMENT, Statement.class)
                 .build();
     }
 

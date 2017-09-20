@@ -438,6 +438,11 @@ public final class AknElements {
     public static final String DIV = "div";
 
     /**
+     * Element for {@link io.legaldocml.akn.element.Distinguishes}
+     */
+    public static final String DISTINGUISHES = "distinguishes";
+
+    /**
      * Element for {@link io.legaldocml.akn.element.Division}
      */
     public static final String DIVISION = "division";
@@ -1251,6 +1256,139 @@ public final class AknElements {
      * Element for {@link io.legaldocml.akn.element.Recount}
      */
     public static final String RECOUNT = "recount";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Ref}
+     */
+    public static final String REF = "ref";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.References}
+     */
+    public static final String REFERENCES = "references";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.RelatedDocument}
+     */
+    public static final String RELATED_DOCUMENT = "relatedDocument";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Remark}
+     */
+    public static final String REMARK = "remark";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Remedies}
+     */
+    public static final String REMEDIES = "remedies";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Resolutions}
+     */
+    public static final String RESOLUTIONS = "resolutions";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Restriction}
+     */
+    public static final String RESTRICTION = "restriction";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Restrictions}
+     */
+    public static final String RESTRICTIONS = "restrictions";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Restricts}
+     */
+    public static final String RESTRICTS = "restricts";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Result}
+     */
+    public static final String RESULT = "result";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Rmod}
+     */
+    public static final String RMOD = "rmod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Role}
+     */
+    public static final String ROLE = "role";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.RollCall}
+     */
+    public static final String ROLL_CALL = "rollCall";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Rref}
+     */
+    public static final String RREF = "rref";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Rule}
+     */
+    public static final String RULE = "rule";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Scene}
+     */
+    public static final String SCENE = "scene";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ScopeMod}
+     */
+    public static final String SCOPE_MOD = "scopeMod";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Section}
+     */
+    public static final String SECTION = "section";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Session}
+     */
+    public static final String SESSION = "session";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.ShortTitle}
+     */
+    public static final String SHORT_TITLE = "shortTitle";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Signature}
+     */
+    public static final String SIGNATURE = "signature";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Source}
+     */
+    public static final String SOURCE = "source";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Span}
+     */
+    public static final String SPAN = "span";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Speech}
+     */
+    public static final String SPEECH = "speech";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.SpeechGroup}
+     */
+    public static final String SPEECH_GROUP = "speechGroup";
+
+    /**
+     * Element for {@link io.legaldocml.akn.element.Statement}
+     */
+    public static final String STATEMENT = "statement";
+
+
+
 
     /**
      * Element for {@link io.legaldocml.akn.element.Toc}

@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.DISTINGUISHES;
+
 /**
  * The element distinguishes is a metadata element specifying a reference to a source being distinguished by the
  * argument being described.
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Distinguishes extends JudicialArgumentType implements JudicialArgumentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "distinguishes";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_DISTINGUISHES = Buffers.address(DISTINGUISHES);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 13);
+        writer.writeStart(ADDRESS_DISTINGUISHES, 13);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 13);
+        writer.writeEnd(ADDRESS_DISTINGUISHES, 13);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Distinguishes extends JudicialArgumentType implements Judicia
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return DISTINGUISHES;
     }
 
 }

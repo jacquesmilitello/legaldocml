@@ -13,6 +13,7 @@ import io.legaldocml.util.Uri;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.REF;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -36,14 +37,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Ref extends InlineReqType implements ANinline, LinkReq {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "ref";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_REF = Buffers.address(REF);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -77,10 +73,10 @@ public final class Ref extends InlineReqType implements ANinline, LinkReq {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 3);
+        writer.writeStart(ADDRESS_REF, 3);
         writeLinkReq(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 3);
+        writer.writeEnd(ADDRESS_REF, 3);
     }
 
     /**
@@ -88,7 +84,7 @@ public final class Ref extends InlineReqType implements ANinline, LinkReq {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return REF;
     }
 
     /**

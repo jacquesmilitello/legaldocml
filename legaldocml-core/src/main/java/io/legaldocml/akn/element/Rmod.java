@@ -13,6 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.RMOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRange;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Rmod extends ModType implements RangeReq, ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "rmod";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RMOD = Buffers.address(RMOD);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -97,10 +93,10 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_RMOD, 4);
         writeRange(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_RMOD, 4);
     }
 
     /**
@@ -108,7 +104,7 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RMOD;
     }
 
     /**

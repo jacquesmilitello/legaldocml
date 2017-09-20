@@ -20,6 +20,7 @@ import static io.legaldocml.akn.AknElements.NOTES;
 import static io.legaldocml.akn.AknElements.PRESENTATION;
 import static io.legaldocml.akn.AknElements.PROPRIETARY;
 import static io.legaldocml.akn.AknElements.PUBLICATION;
+import static io.legaldocml.akn.AknElements.REFERENCES;
 import static io.legaldocml.util.Streams.stream;
 
 /**
@@ -271,7 +272,7 @@ public final class Meta implements AknObject {
             } while (reader.getQName().equalsLocalName(TemporalData.ELEMENT));
         }
 
-        if (reader.getQName().equalsLocalName(References.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(REFERENCES)) {
             References ref;
             this.references = new AknList<>(new References[2]);
             do {
@@ -279,7 +280,7 @@ public final class Meta implements AknObject {
                 ref.read(reader);
                 this.references.add(ref);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(References.ELEMENT));
+            } while (reader.getQName().equalsLocalName(REFERENCES));
         }
 
         if (reader.getQName().equalsLocalName(NOTES)) {

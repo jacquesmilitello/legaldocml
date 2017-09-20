@@ -11,6 +11,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.RESULT;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeResultType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -35,14 +36,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Result extends AnyOtherType implements io.legaldocml.akn.attribute.ResultType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "result";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RESULT = Buffers.address(RESULT);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -76,10 +72,10 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_RESULT, 6);
         writeResultType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_RESULT, 6);
     }
 
     /**
@@ -87,7 +83,7 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RESULT;
     }
 
     /**

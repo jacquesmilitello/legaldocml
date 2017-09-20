@@ -6,6 +6,8 @@ import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.REFERENCES;
+
 /**
  * The element references is a metadata container of all the references to entities external to the document mentioned
  * in the document. They include references to legal documents of any form,a s well as references to people,
@@ -20,23 +22,18 @@ import java.io.IOException;
 public final class References extends RefItems {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "references";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_REFERENCES = Buffers.address(REFERENCES);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_REFERENCES, 10);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_REFERENCES, 10);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class References extends RefItems {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return REFERENCES;
     }
 
     /**

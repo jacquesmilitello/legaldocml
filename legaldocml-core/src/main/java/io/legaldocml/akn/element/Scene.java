@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SCENE;
+
 /**
  * The element scene is a container of descriptions of the scene elements happening in a given moment during a debate
  * (e.g., applauses).
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Scene extends InlineType implements ANcontainers {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "scene";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SCENE = Buffers.address(SCENE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 5);
+        writer.writeStart(ADDRESS_SCENE, 5);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 5);
+        writer.writeEnd(ADDRESS_SCENE, 5);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Scene extends InlineType implements ANcontainers {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SCENE;
     }
 
 }

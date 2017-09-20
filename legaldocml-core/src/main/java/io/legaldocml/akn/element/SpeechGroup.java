@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.SPEECH_GROUP;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerLocalDateTime;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
@@ -44,14 +45,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcontainers {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "speechGroup";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SPEECH_GROUP = Buffers.address(SPEECH_GROUP);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -157,10 +153,10 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 11);
+        writer.writeStart(ADDRESS_SPEECH_GROUP, 11);
         writeSpeechAtts(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 11);
+        writer.writeEnd(ADDRESS_SPEECH_GROUP, 11);
     }
 
     /**
@@ -168,7 +164,7 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SPEECH_GROUP;
     }
 
     /**

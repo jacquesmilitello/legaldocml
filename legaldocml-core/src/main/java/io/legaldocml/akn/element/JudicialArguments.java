@@ -15,10 +15,13 @@ import static io.legaldocml.akn.AknElements.APPLIES;
 import static io.legaldocml.akn.AknElements.CONTRASTS;
 import static io.legaldocml.akn.AknElements.DEROGATES;
 import static io.legaldocml.akn.AknElements.DISSENTS_FROM;
+import static io.legaldocml.akn.AknElements.DISTINGUISHES;
 import static io.legaldocml.akn.AknElements.EXTENDS;
 import static io.legaldocml.akn.AknElements.IS_ANALOG_TO;
 import static io.legaldocml.akn.AknElements.OVER_RULES;
 import static io.legaldocml.akn.AknElements.PUTS_IN_QUESTION;
+import static io.legaldocml.akn.AknElements.RESTRICTS;
+import static io.legaldocml.akn.AknElements.RESULT;
 
 /**
  * The complex type judicialArguments is a list of all the judicial analysis elements that can be used on the analysis
@@ -57,13 +60,13 @@ public abstract class JudicialArguments implements AknObject {
                 .put(IS_ANALOG_TO, IsAnalogTo::new)
                 .put(APPLIES, Applies::new)
                 .put(EXTENDS, Extends::new)
-                .put(Restricts.ELEMENT, Restricts::new)
+                .put(RESTRICTS, Restricts::new)
                 .put(DEROGATES, Derogates::new)
                 .put(CONTRASTS, Contrasts::new)
                 .put(OVER_RULES, Overrules::new)
                 .put(DISSENTS_FROM, DissentsFrom::new)
                 .put(PUTS_IN_QUESTION, PutsInQuestion::new)
-                .put(Distinguishes.ELEMENT, Distinguishes::new)
+                .put(DISTINGUISHES, Distinguishes::new)
                 .build();
     }
 
@@ -89,7 +92,7 @@ public abstract class JudicialArguments implements AknObject {
         final QName parent = reader.getQName();
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Result.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(RESULT)) {
             this.result = new Result();
             this.result.read(reader);
             reader.nextStartOrEndElement();

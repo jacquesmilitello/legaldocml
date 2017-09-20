@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.RESTRICTION;
+import static io.legaldocml.akn.AknElements.RESTRICTIONS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -37,14 +39,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Restrictions implements Source {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "restrictions";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_RESTRICTIONS = Buffers.address(RESTRICTIONS);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -56,7 +53,7 @@ public final class Restrictions implements Source {
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<Restriction>>builder()
-                .put(Restriction.ELEMENT, Restriction::new)
+                .put(RESTRICTION, Restriction::new)
                 .build();
     }
 
@@ -85,10 +82,10 @@ public final class Restrictions implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 12);
+        writer.writeStart(ADDRESS_RESTRICTIONS, 12);
         writeSource(writer, this);
         this.elems.write(writer);
-        writer.writeEnd(ADDRESS, 12);
+        writer.writeEnd(ADDRESS_RESTRICTIONS, 12);
     }
 
     /**
@@ -105,7 +102,7 @@ public final class Restrictions implements Source {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return RESTRICTIONS;
     }
 
     /**

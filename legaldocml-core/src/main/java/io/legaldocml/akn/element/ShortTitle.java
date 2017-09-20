@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SHORT_TITLE;
+
 /**
  * The element shortTitle is an inline element within preface to identify the string used by the document for the short
  * title of the document.
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class ShortTitle extends InlineType implements ANtitleInline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "shortTitle";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS = Buffers.address(SHORT_TITLE);
 
     /**
      * {@inheritDoc}
@@ -43,7 +40,7 @@ public final class ShortTitle extends InlineType implements ANtitleInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SHORT_TITLE;
     }
 
 }

@@ -13,6 +13,7 @@ import io.legaldocml.unsafe.UnsafeString;
 import java.io.IOException;
 import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknElements.REMARK;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -37,14 +38,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class Remark extends InlineType implements io.legaldocml.akn.attribute.RemarkType, ANinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "remark";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_REMARK = Buffers.address(REMARK);
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -79,12 +75,12 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_REMARK, 6);
         if (this.type != null) {
             writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, UnsafeString.getChars(this.type.name()));
         }
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_REMARK, 6);
     }
 
     /**
@@ -92,7 +88,7 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return REMARK;
     }
 
     /**
@@ -102,4 +98,5 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
     }
+
 }

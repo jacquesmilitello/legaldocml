@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SPAN;
+
 /**
  * The element span is an HTML element and is used in Akoma Ntoso as in HTML, for the generic inline.
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Span extends InlineType implements HTMLinline {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "span";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SPAN = Buffers.address(SPAN);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 4);
+        writer.writeStart(ADDRESS_SPAN, 4);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 4);
+        writer.writeEnd(ADDRESS_SPAN, 4);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Span extends InlineType implements HTMLinline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SPAN;
     }
 
 }

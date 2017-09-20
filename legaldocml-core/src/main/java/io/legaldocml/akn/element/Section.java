@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SECTION;
+
 /**
  * This element is a hierarchical container called "section" either explicitly or due to the local tradition
  *
@@ -18,23 +20,18 @@ import java.io.IOException;
 public final class Section extends Hierarchy implements ANhier {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "section";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SECTION = Buffers.address(SECTION);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 7);
+        writer.writeStart(ADDRESS_SECTION, 7);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 7);
+        writer.writeEnd(ADDRESS_SECTION, 7);
     }
 
     /**
@@ -42,7 +39,7 @@ public final class Section extends Hierarchy implements ANhier {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SECTION;
     }
 
 

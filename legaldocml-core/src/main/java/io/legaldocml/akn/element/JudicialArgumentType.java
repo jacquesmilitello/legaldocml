@@ -22,6 +22,7 @@ import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.AknElements.DESTINATION;
+import static io.legaldocml.akn.AknElements.SOURCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -205,14 +206,14 @@ public abstract class JudicialArgumentType extends IdReqImpl implements Enactmen
 
         reader.nextStartOrEndElement();
 
-        if (reader.getQName().equalsLocalName(Source.ELEMENT)) {
+        if (reader.getQName().equalsLocalName(SOURCE)) {
             Source source;
             do {
                 source = new Source();
                 source.read(reader);
                 this.sources.add(source);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(Source.ELEMENT));
+            } while (reader.getQName().equalsLocalName(SOURCE));
         }
 
         if (reader.getQName().equalsLocalName(DESTINATION)) {

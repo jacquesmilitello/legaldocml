@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.DOMAIN;
+import static io.legaldocml.akn.AknElements.SCOPE_MOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeScopeModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -41,14 +42,9 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public final class ScopeMod extends ModificationType implements ScopeModType, AmendmentsElement {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "scopeMod";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SCOPE_MOD = Buffers.address(SCOPE_MOD);
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -93,10 +89,10 @@ public final class ScopeMod extends ModificationType implements ScopeModType, Am
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 10);
+        writer.writeStart(ADDRESS_SCOPE_MOD, 10);
         writeScopeModType(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 10);
+        writer.writeEnd(ADDRESS_SCOPE_MOD, 10);
     }
 
     /**
@@ -117,7 +113,7 @@ public final class ScopeMod extends ModificationType implements ScopeModType, Am
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SCOPE_MOD;
     }
 
     @Override

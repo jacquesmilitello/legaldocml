@@ -7,6 +7,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.REMEDIES;
+
 /**
  * This element is a structural container for the section of a judgment containing the remedies.
  *
@@ -19,14 +21,9 @@ import java.io.IOException;
 public final class Remedies extends MainContent implements JudgmentBlock {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "remedies";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_REMEDIES = Buffers.address(REMEDIES);
 
 
     /**
@@ -34,9 +31,9 @@ public final class Remedies extends MainContent implements JudgmentBlock {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 8);
+        writer.writeStart(ADDRESS_REMEDIES, 8);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 8);
+        writer.writeEnd(ADDRESS_REMEDIES, 8);
     }
 
     /**
@@ -44,7 +41,7 @@ public final class Remedies extends MainContent implements JudgmentBlock {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return REMEDIES;
     }
 
     /**

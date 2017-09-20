@@ -6,6 +6,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SIGNATURE;
+
 /**
  * The element signature is an inline element within conclusions to identify where the document defines one of the
  * signatures.
@@ -19,23 +21,18 @@ import java.io.IOException;
 public final class Signature extends InlineType implements ANheaderInline {
 
     /**
-     * XML Tag element name.
-     */
-    public static final String ELEMENT = "signature";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SIGNATURE = Buffers.address(SIGNATURE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 9);
+        writer.writeStart(ADDRESS_SIGNATURE, 9);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 9);
+        writer.writeEnd(ADDRESS_SIGNATURE, 9);
     }
 
     /**
@@ -43,7 +40,7 @@ public final class Signature extends InlineType implements ANheaderInline {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SIGNATURE;
     }
 
 }

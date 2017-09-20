@@ -5,6 +5,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
+import static io.legaldocml.akn.AknElements.SOURCE;
+
 /**
  * The element source is a metadata element specifying the IRI of the source of the modification.
  *
@@ -17,23 +19,18 @@ import java.io.IOException;
 public final class Source extends ArgumentType {
 
     /**
-     * XML tag element name.
-     */
-    public static final String ELEMENT = "source";
-
-    /**
      * Memory address.
      */
-    private static final long ADDRESS = Buffers.address(ELEMENT);
+    private static final long ADDRESS_SOURCE = Buffers.address(SOURCE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS, 6);
+        writer.writeStart(ADDRESS_SOURCE, 6);
         super.write(writer);
-        writer.writeEnd(ADDRESS, 6);
+        writer.writeEnd(ADDRESS_SOURCE, 6);
     }
 
     /**
@@ -41,7 +38,7 @@ public final class Source extends ArgumentType {
      */
     @Override
     public String name() {
-        return ELEMENT;
+        return SOURCE;
     }
 
 }
