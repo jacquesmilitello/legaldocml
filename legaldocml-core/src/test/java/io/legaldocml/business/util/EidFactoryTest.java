@@ -77,6 +77,15 @@ public class EidFactoryTest {
     }
 
     @Test
+    public void testEidBuilderWithParent2() {
+        Article article = new Article();
+        EidFactory.makeAndFill(article, "1");
+        Point point = new Point();
+        EidFactory.makeAndFill(article, point);
+        Assert.assertEquals("art_1__point", point.getId());
+    }
+
+    @Test
     public void testEidBuilderWithParentWithoutNumber() {
         Article article = new Article();
         EidFactory.makeAndFill(article);

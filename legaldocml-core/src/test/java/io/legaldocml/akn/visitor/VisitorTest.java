@@ -47,6 +47,26 @@ public class VisitorTest {
         akn = ReaderHelper.read(PathForTest.path("/xml/v3/eu_COM(2013)0619_EN-8.xml"));
         akn.accept(new AknVisitor() {
         });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Act_constitution_final-Kenya.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Act_Instrument_Scotland_Subsidiarity_2010.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Act_Panama_decreto_223_2010.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Act_Salvador_Ley_604_1993.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Act_USA_2011-11-29-short.xml"));
+        akn.accept(new AknVisitor() {
+        });
         
     }
 }

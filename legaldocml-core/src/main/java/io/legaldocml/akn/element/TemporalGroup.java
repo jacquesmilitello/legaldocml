@@ -2,9 +2,10 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -73,6 +74,17 @@ public final class TemporalGroup extends IdReqImpl implements Core {
     @Override
     public String name() {
         return TEMPORAL_GROUP;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            elements.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
 }

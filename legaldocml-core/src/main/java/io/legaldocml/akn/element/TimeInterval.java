@@ -8,6 +8,7 @@ import io.legaldocml.akn.attribute.RefersReq;
 import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.XmlDuration;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
@@ -175,6 +176,14 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
         builder.append(AknAttributes.START, this.start);
         builder.append(AknAttributes.END, this.end);
         builder.append(AknAttributes.DURATION, this.duration);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitor.visit(this);
     }
 
 }

@@ -5,6 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
@@ -113,6 +114,17 @@ public final class TemporalData implements Source {
     @Override
     public String name() {
         return TEMPORAL_DATA;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            elements.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
 }

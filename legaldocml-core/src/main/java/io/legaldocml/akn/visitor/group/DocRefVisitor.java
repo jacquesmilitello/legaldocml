@@ -1,5 +1,8 @@
 package io.legaldocml.akn.visitor.group;
 
+import io.legaldocml.akn.element.AttachmentOf;
+import io.legaldocml.akn.element.HasAttachment;
+import io.legaldocml.akn.element.Jurisprudence;
 import io.legaldocml.akn.element.PassiveRef;
 
 /**
@@ -9,6 +12,16 @@ import io.legaldocml.akn.element.PassiveRef;
  */
 public interface DocRefVisitor {
 
+
     default void visit(PassiveRef passiveRef) {
+    }
+
+    default void visit(HasAttachment attachment) {
+    }
+
+    default void visit(AttachmentOf attachmentOf) {
+    }
+
+    default void visit(Jurisprudence jurisprudence) {
     }
 }
