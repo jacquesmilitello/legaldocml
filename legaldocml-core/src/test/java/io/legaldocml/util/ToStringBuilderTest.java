@@ -22,6 +22,9 @@ public class ToStringBuilderTest {
         builder.append("test", "hello".toCharArray());
         Assert.assertEquals("{\"test\":\"hello\"}", builder.toString());
 
+        builder = new ToStringBuilder(false);
+        builder.append("test", (char[]) null);
+        Assert.assertEquals("{}", builder.toString());
     }
 
     @Test
@@ -33,6 +36,10 @@ public class ToStringBuilderTest {
         builder = new ToStringBuilder(true);
         builder.append("test", "hello");
         Assert.assertEquals("{\"test\":\"hello\"}", builder.toString());
+
+        builder = new ToStringBuilder(false);
+        builder.append("test", (String) null);
+        Assert.assertEquals("{}", builder.toString());
 
     }
 
@@ -46,6 +53,10 @@ public class ToStringBuilderTest {
         builder.append("object", new Toto());
         Assert.assertEquals("{\"object\":\"toto2\"}", builder.toString());
 
+        builder = new ToStringBuilder(false);
+        builder.append("object", (String) null);
+        Assert.assertEquals("{}", builder.toString());
+
     }
 
     @Test
@@ -55,9 +66,16 @@ public class ToStringBuilderTest {
         Assert.assertEquals("{\"date\":null}", builder.toString());
 
         builder = new ToStringBuilder(true);
-        builder.append("date", LocalDate.of(2011,3,9));
-        Assert.assertEquals("{\"date\":[2011,03,09]}", builder.toString());
+        builder.append("date", LocalDate.of(2011, 3, 9));
+        Assert.assertEquals("{\"date\":[2011,3,9]}", builder.toString());
 
+        builder = new ToStringBuilder(true);
+        builder.append("date", LocalDate.of(2011, 11, 12));
+        Assert.assertEquals("{\"date\":[2011,11,12]}", builder.toString());
+
+        builder = new ToStringBuilder(false);
+        builder.append("date", (LocalDate) null);
+        Assert.assertEquals("{}", builder.toString());
     }
 
     @Test
@@ -67,8 +85,16 @@ public class ToStringBuilderTest {
         Assert.assertEquals("{\"time\":null}", builder.toString());
 
         builder = new ToStringBuilder(true);
-        builder.append("time", LocalTime.of(18,36,7));
-        Assert.assertEquals("{\"time\":[18,36,07]}", builder.toString());
+        builder.append("time", LocalTime.of(18, 36, 7));
+        Assert.assertEquals("{\"time\":[18,36,7]}", builder.toString());
+
+        builder = new ToStringBuilder(true);
+        builder.append("time", LocalTime.of(4, 5, 12));
+        Assert.assertEquals("{\"time\":[4,5,12]}", builder.toString());
+
+        builder = new ToStringBuilder(false);
+        builder.append("time", (LocalTime) null);
+        Assert.assertEquals("{}", builder.toString());
 
     }
 
@@ -79,24 +105,43 @@ public class ToStringBuilderTest {
         Assert.assertEquals("{\"dateTime\":null}", builder.toString());
 
         builder = new ToStringBuilder(true);
-        builder.append("dateTime", LocalDateTime.of(2011,03,9, 18,36,7));
-        Assert.assertEquals("{\"dateTime\":[2011,03,09,18,36,07]}", builder.toString());
+        builder.append("dateTime", LocalDateTime.of(2011, 03, 9, 18, 36, 7));
+        Assert.assertEquals("{\"dateTime\":[2011,3,9,18,36,7]}", builder.toString());
 
+        builder = new ToStringBuilder(false);
+        builder.append("dateTime", (LocalDateTime) null);
+        Assert.assertEquals("{}", builder.toString());
     }
 
     @Test
     public void test2Append() {
         ToStringBuilder builder = new ToStringBuilder(true);
-        builder.append("key1","hello1");
-        builder.append("key2","hello2");
+        builder.append("key1", "hello1");
+        builder.append("key2", "hello2");
         Assert.assertEquals("{\"key1\":\"hello1\",\"key2\":\"hello2\"}", builder.toString());
 
         builder = new ToStringBuilder(true);
-        builder.append("key1",(String)null);
-        builder.append("key2","hello2");
+        builder.append("key1", (String) null);
+        builder.append("key2", "hello2");
         Assert.assertEquals("{\"key1\":null,\"key2\":\"hello2\"}", builder.toString());
     }
 
+    @Test
+    public void testAppendManyProperties() {
+        ToStringBuilder builder = new ToStringBuilder(true);
+        for (int i = 0; i < 256; i++) {
+            builder.append("key1", "hello1");
+            builder.append("test", "hello".toCharArray());
+            builder.append("date", LocalDate.of(2011, 3, 9));
+            builder.append("time", LocalTime.of(18, 36, 7));
+            builder.append("dateTime", LocalDateTime.of(2011, 03, 9, 18, 36, 7));
+            builder.append("object", new Toto());
+        }
+
+        System.out.println(builder);
+
+
+    }
 
     private static final class Toto {
 

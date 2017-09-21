@@ -261,6 +261,7 @@ public class ToStringBuilder {
         this.value[ptr++] = ',';
         ptr = appendValue(this.value, ptr, dateTime.toLocalTime());
         this.value[ptr++] = ']';
+        this.value[ptr++] = ',';
         this.idx = ptr;
     }
 
@@ -272,6 +273,7 @@ public class ToStringBuilder {
         this.value[ptr++] = '[';
         ptr = appendValue(this.value, ptr, date);
         this.value[ptr++] = ']';
+        this.value[ptr++] = ',';
         this.idx = ptr;
     }
 
@@ -283,6 +285,7 @@ public class ToStringBuilder {
         this.value[ptr++] = '[';
         ptr = appendValue(this.value, ptr, time);
         this.value[ptr++] =  ']';
+        this.value[ptr++] = ',';
         this.idx = ptr;
     }
 
@@ -306,22 +309,43 @@ public class ToStringBuilder {
         val[ptr] = (char) (48 + (Maths.unsignedDiv1000(date.getYear())));
         ptr += 4;
         val[ptr++] = ',';
-        val[ptr++] = (char) (48 + Maths.unsignedDiv10(date.getMonthValue()));
+
+        // reuse year as temp;
+        year = Maths.unsignedDiv10(date.getMonthValue());
+        if (year != 0) {
+            val[ptr++] = (char) (48 + year);
+        }
         val[ptr++] = (char) (48 + date.getMonthValue() % 10);
         val[ptr++] = ',';
-        val[ptr++] = (char) (48 + Maths.unsignedDiv10(date.getDayOfMonth()));
+
+        year = Maths.unsignedDiv10(date.getDayOfMonth());
+        if (year != 0) {
+            val[ptr++] = (char) (48 + year);
+        }
         val[ptr++] = (char) (48 + date.getDayOfMonth() % 10);
         return ptr;
     }
 
     private static int appendValue(char[] val, int ptr, LocalTime time) {
-        val[ptr++] = (char) (48 + Maths.unsignedDiv10(time.getHour()));
+        int temp;
+        temp = Maths.unsignedDiv10(time.getHour());
+        if (temp != 0) {
+            val[ptr++] = (char) (48 + temp);
+        }
         val[ptr++] = (char) (48 + time.getHour() % 10);
         val[ptr++] = ',';
-        val[ptr++] = (char) (48 + Maths.unsignedDiv10(time.getMinute()));
+
+        temp = Maths.unsignedDiv10(time.getMinute());
+        if (temp != 0) {
+            val[ptr++] = (char) (48 + temp);
+        }
         val[ptr++] = (char) (48 + time.getMinute() % 10);
         val[ptr++] = ',';
-        val[ptr++] = (char) (48 + Maths.unsignedDiv10(time.getSecond()));
+
+        temp = Maths.unsignedDiv10(time.getSecond());
+        if (temp != 0) {
+            val[ptr++] = (char) (48 + temp);
+        }
         val[ptr++] = (char) (48 + time.getSecond() % 10);
         return ptr;
     }
