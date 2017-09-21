@@ -17,29 +17,23 @@ public final class Modules {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Modules.class);
 
-    private static final ImmutableMap<CharArray, Module> MODULES;
-    private static final ImmutableMap<CharArray, Module> AKOS;
+    private static final ImmutableMap<CharArray, Module> ALL_MODULES;
 
     static {
         ImmutableMap.Builder<CharArray, Module> builder = ImmutableMap.builder();
-        ImmutableMap.Builder<CharArray, Module> builderAko = ImmutableMap.builder();
 
         ServiceLoader.load(Module.class).forEach(c -> {
             LOGGER.info("load Module [{}]", c);
             builder.put(c.namespace(), c);
-            if (c instanceof AknModule) {
-                builderAko.put(c.namespace(), c);
-            }
         });
-        MODULES = builder.build();
-        AKOS = builderAko.build();
+        ALL_MODULES = builder.build();
     }
 
     private Modules(){
     }
 
     public static Module get(CharArray key) {
-        return MODULES.get(key);
+        return ALL_MODULES.get(key);
     }
 
 }

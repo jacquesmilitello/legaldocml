@@ -53,9 +53,9 @@ public final class MathsTest {
 
     @Test
     public void testUnsignedDiv100() {
-        Assert.assertEquals(1000/100, Maths.div100(1000));
-        Assert.assertEquals(990/100, Maths.div100(909));
-        Assert.assertEquals(12/100, Maths.div100(12));
+        Assert.assertEquals(1000/100, Maths.unsignedDiv100(1000));
+        Assert.assertEquals(990/100, Maths.unsignedDiv100(909));
+        Assert.assertEquals(12/100, Maths.unsignedDiv100(12));
     }
 
 
