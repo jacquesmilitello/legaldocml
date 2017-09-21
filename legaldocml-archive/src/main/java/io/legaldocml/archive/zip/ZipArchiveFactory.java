@@ -3,6 +3,7 @@ package io.legaldocml.archive.zip;
 import io.legaldocml.archive.Archive;
 import io.legaldocml.archive.ArchiveFactory;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.util.ToStringBuilder;
 
 import java.nio.file.Path;
 
@@ -46,6 +47,17 @@ public final class ZipArchiveFactory extends ArchiveFactory {
     @Override
     protected Archive readWrite(BusinessProvider provider, Path source, Path target) {
         return new ZipArchiveReadWrite(provider, source, target);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return new ToStringBuilder(false)
+                .append("type",TYPE)
+                .append("class",ZipArchiveFactory.class)
+                .toString();
     }
 
 }

@@ -25,7 +25,7 @@ public final class ArchiveException extends RuntimeException {
         /**
          * for Meta operations
          */
-        META_WRITE, META_READ
+        META_WRITE
     }
 
     private final Type type;

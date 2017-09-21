@@ -12,6 +12,7 @@ import io.legaldocml.business.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -144,7 +145,7 @@ final class ZipArchiveReadWrite implements Archive {
      * {@inheritDoc}
      */
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         try {
             //1 -> copy all resources.
             this.read.getMeta().stream()

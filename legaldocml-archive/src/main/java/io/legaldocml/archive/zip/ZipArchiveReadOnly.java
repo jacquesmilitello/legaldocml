@@ -147,7 +147,7 @@ final class ZipArchiveReadOnly implements Archive {
      * {@inheritDoc}
      */
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         fs.close();
     }
 

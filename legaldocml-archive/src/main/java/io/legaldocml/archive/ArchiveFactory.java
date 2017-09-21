@@ -30,7 +30,7 @@ public abstract class ArchiveFactory {
         ImmutableMap.Builder<String, ArchiveFactory> builder = ImmutableMap.builder();
         while (iterator.hasNext()) {
             ArchiveFactory factory = iterator.next();
-            LOGGER.info("ArchiveFactory -> load factory for type [{}] -> [{}]", factory.type(), factory.getClass());
+            LOGGER.info("ArchiveFactory -> load factory [{}]", factory);
             builder.put(factory.type(), factory);
         }
         FACTORIES = builder.build();

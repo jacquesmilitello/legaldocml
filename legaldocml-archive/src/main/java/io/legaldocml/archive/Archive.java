@@ -5,6 +5,7 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.MediaType;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 /**
@@ -24,4 +25,5 @@ public interface Archive extends AutoCloseable {
 
     Meta getMeta();
 
+    void close() throws IOException;
 }

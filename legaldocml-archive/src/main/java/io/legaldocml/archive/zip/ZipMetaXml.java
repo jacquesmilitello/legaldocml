@@ -19,7 +19,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.StandardCharsets;
 
-import static io.legaldocml.archive.ArchiveException.Type.META_READ;
+import static io.legaldocml.archive.ArchiveException.Type.READ_META;
 import static io.legaldocml.archive.ArchiveException.Type.META_WRITE;
 
 /**
@@ -73,7 +73,7 @@ final class ZipMetaXml {
                 }
 
                 if (Strings.isEmpty(provider)) {
-                    throw new ArchiveException(ArchiveException.Type.META_READ, "Missing attribute provider");
+                    throw new ArchiveException(READ_META, "Missing attribute provider");
                 }
 
                 BusinessProvider businessProvider = BusinessProvider.businessProvider(provider);
@@ -83,7 +83,7 @@ final class ZipMetaXml {
 
                 while (reader.isStartElement()) {
                     if (!"resource".equals(reader.getLocalName())) {
-                        throw new ArchiveException(META_READ, "Invalid descriptor -> expected <resource>, found <" + reader.getLocalName() + ">");
+                        throw new ArchiveException(READ_META, "Invalid descriptor -> expected <resource>, found <" + reader.getLocalName() + ">");
                     }
                     work = readTag(reader, "work");
                     expression = readTag(reader, "expression");
@@ -110,7 +110,7 @@ final class ZipMetaXml {
 
             }
         } catch (XMLStreamException cause) {
-            throw new ArchiveException(ArchiveException.Type.META_READ,"Failed to read meta descriptor", cause);
+            throw new ArchiveException(READ_META,"Failed to read meta descriptor", cause);
         }
 
         return zipMeta;
@@ -142,7 +142,7 @@ final class ZipMetaXml {
         String value;
         reader.nextTag();
         if (!name.equals(reader.getLocalName())) {
-            throw new ArchiveException(ArchiveException.Type.META_READ, "Invalid descriptor -> expected <" + name + ">, found <" + reader.getLocalName() + ">");
+            throw new ArchiveException(ArchiveException.Type.READ_META, "Invalid descriptor -> expected <" + name + ">, found <" + reader.getLocalName() + ">");
         } else {
             reader.next();
             value = reader.getText();

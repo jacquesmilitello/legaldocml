@@ -123,4 +123,10 @@ public class ZipArchiveTest {
     }
 
 
+    @Test(expected = ArchiveException.class)
+    public void testReadBadProvidder() throws Exception {
+        ArchiveFactory.readOnly("fake", null);
+    }
+
+
 }

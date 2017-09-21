@@ -31,6 +31,7 @@ import static io.legaldocml.archive.ArchiveException.Type.WRITE_ONLY_MODE;
 import static io.legaldocml.archive.ArchiveException.Type.WRITE_PUT;
 import static io.legaldocml.archive.ArchiveException.Type.WRITE_PUT_AKN;
 import static io.legaldocml.business.MediaType.LEGALDOCML;
+import static java.nio.file.Files.notExists;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -166,7 +167,7 @@ final class ZipArchiveWriteOnly implements Archive {
      * {@inheritDoc}
      */
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         writeMeta();
         fs.close();
     }
@@ -181,7 +182,7 @@ final class ZipArchiveWriteOnly implements Archive {
     }
 
     private void checkAndCreateDir(Path directory) {
-        if (!Files.exists(directory)) {
+        if (notExists(directory)){
             try {
                 Files.createDirectories(directory);
             } catch (IOException cause) {
