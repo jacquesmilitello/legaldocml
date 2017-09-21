@@ -137,10 +137,7 @@ public class ToStringBuilderTest {
             builder.append("dateTime", LocalDateTime.of(2011, 03, 9, 18, 36, 7));
             builder.append("object", new Toto());
         }
-
-        System.out.println(builder);
-
-
+        builder.toString();
     }
 
     private static final class Toto {

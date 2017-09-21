@@ -12,7 +12,20 @@ public class CharArraysTest {
 
     @Test
     public void testEquals() {
-        Assert.assertTrue(immutable("hello").equals("hello"));
+
+        CharArray array = immutable("hello");
+
+        Assert.assertTrue(array.equals("hello"));
+        Assert.assertEquals(array,immutable("hello"));
+        Assert.assertEquals(array,array);
+
+        Assert.assertFalse(array.equals(null));
+        Assert.assertFalse(array.equals(Integer.valueOf(25)));
+
+        Assert.assertNotEquals(array,immutable("hellO"));
+        Assert.assertNotEquals(array,immutable("helloo"));
+        Assert.assertNotEquals(array,"hellO");
+        Assert.assertNotEquals(array,"helloo");
     }
 
     @Test

@@ -58,8 +58,10 @@ public final class CharBuffer implements CharArray {
      * {@inheritDoc}
      */
     @Override
-    public CharSequence subSequence(int start, int end) {
-        return new String(hb, start, end - start);
+    public CharArray subSequence(int start, int end) {
+        char[] value = new char[end- start];
+        System.arraycopy(this.hb, start, value, 0, value.length);
+        return CharArrays.immutable(value);
     }
 
     /**
@@ -70,16 +72,6 @@ public final class CharBuffer implements CharArray {
         char[] value = new char[pos];
         System.arraycopy(hb, 0, value, 0, pos);
         return value;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public CharArray prefix(int prefixNS) {
-        char[] value = new char[prefixNS];
-        System.arraycopy(this.hb, 0, value, 0, prefixNS);
-        return CharArrays.immutable(value);
     }
 
     /**

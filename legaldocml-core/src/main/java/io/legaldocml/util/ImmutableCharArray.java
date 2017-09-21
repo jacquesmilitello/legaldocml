@@ -53,13 +53,13 @@ final class ImmutableCharArray implements CharArray {
      * {@inheritDoc}
      */
     @Override
-    public CharSequence subSequence(int start, int end) {
+    public CharArray subSequence(int start, int end) {
         if (start == 0) {
             return new ImmutableCharArray(this.c, end);
         } else {
             char[] val = new char[end - start];
             System.arraycopy(this.c, start, val, 0, val.length);
-            return UnsafeString.valueOf(val);
+            return new ImmutableCharArray(val);
         }
     }
 
@@ -69,14 +69,6 @@ final class ImmutableCharArray implements CharArray {
     @Override
     public char[] value() {
         return Arrays.copyOf(this.c, length);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public CharArray prefix(int prefixNS) {
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -102,32 +94,35 @@ final class ImmutableCharArray implements CharArray {
         }
 
         if (obj instanceof ImmutableCharArray) {
-            ImmutableCharArray s = (ImmutableCharArray) obj;
-            if (this.length != s.length) {
-                return false;
-            }
-            for (int i = 0; i < this.length; i++) {
-                if (this.c[i] != s.c[i]) {
-                    return false;
-                }
-            }
-            return true;
+            return doEquals((ImmutableCharArray) obj);
         }
 
-        if (obj instanceof CharSequence) {
-            CharSequence s = (CharSequence) obj;
-            if (this.length != s.length()) {
+        return obj instanceof CharSequence && doEquals((CharSequence) obj);
+
+    }
+
+    private boolean doEquals(CharSequence s) {
+        if (this.length != s.length()) {
+            return false;
+        }
+        for (int i = 0; i < this.length; i++) {
+            if (this.c[i] != s.charAt(i)) {
                 return false;
             }
-            for (int i = 0; i < this.length; i++) {
-                if (this.c[i] != s.charAt(i)) {
-                    return false;
-                }
-            }
-            return true;
         }
+        return true;
+    }
 
-        return super.equals(obj);
+    private boolean doEquals(ImmutableCharArray s) {
+        if (this.length != s.length) {
+            return false;
+        }
+        for (int i = 0; i < this.length; i++) {
+            if (this.c[i] != s.c[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -135,7 +130,10 @@ final class ImmutableCharArray implements CharArray {
      */
     @Override
     public int hashCode() {
-        return (int) Hashing.xx(this.length, this.length, this.c);
+        if (hash == 0) {
+            hash = (int) Hashing.xx(this.length, this.length, this.c);
+        }
+        return hash;
     }
 
 }

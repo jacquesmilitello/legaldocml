@@ -10,6 +10,6 @@ public interface CharArray extends CharSequence {
 	 */
 	char[] value();
 
-    CharArray prefix(int prefixNS);
+    CharArray subSequence(int start, int end);
 
 }

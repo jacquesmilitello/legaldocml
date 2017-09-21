@@ -336,7 +336,7 @@ public final class Attributes {
         reader.forEach(object, (akn, name, value, prefixNS) -> {
             if (prefixNS > 0) {
 
-                CharArray ns = reader.getNamespaces().get(name.prefix(prefixNS));
+                CharArray ns = reader.getNamespaces().get(name.subSequence(0, prefixNS));
 
                 Module module = Modules.get(ns);
 

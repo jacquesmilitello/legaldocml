@@ -6,6 +6,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static io.legaldocml.util.CharArrays.*;
+import static io.legaldocml.util.QnameUtil.localName;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -19,7 +22,8 @@ public class QNameUtilTest {
 
     @Test
     public void testLocalName() {
-        Assert.assertEquals("meta",QnameUtil.localName(CharArrays.immutable("akn:meta")));
-        Assert.assertEquals("meta",QnameUtil.localName(CharArrays.immutable("meta")));
+        Assert.assertTrue(localName(immutable("akn:meta")).equals("meta"));
+        Assert.assertTrue(localName(immutable("meta")).equals("meta"));
     }
+
 }
