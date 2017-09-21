@@ -44,6 +44,8 @@ public final class PathForTest {
             path = Paths.get(uri);
         }
 
+        LOGGER.info("Read File path [{}]", path);
+
         return path;
 
     }
