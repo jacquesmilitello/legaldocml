@@ -6,7 +6,7 @@ import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.BasicContainers;
 import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;

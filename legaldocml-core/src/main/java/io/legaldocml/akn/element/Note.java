@@ -5,7 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PlacementType;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;

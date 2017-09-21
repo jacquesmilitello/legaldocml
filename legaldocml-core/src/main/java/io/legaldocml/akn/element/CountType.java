@@ -9,8 +9,8 @@ import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
@@ -149,7 +149,7 @@ public abstract class CountType extends IdReqImpl implements Core, ValueReq, Ref
         this.others = new AknList<>(new CountTypeElement[4]);
 
         while (!qName.equals(reader.getQName())) {
-            CharArray array = reader.getNamespaces().get(CharArrays.constant(reader.getQName().getPrefix()));
+            CharArray array = reader.getNamespaces().get(CharArrays.immutable(reader.getQName().getPrefix()));
             Module module = Modules.get(array);
             CountTypeElement element = module.element(reader.getQName().getLocalName(), CountTypeElement.class).get();
             element.read(reader);

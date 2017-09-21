@@ -6,7 +6,7 @@ import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;

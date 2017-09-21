@@ -1,6 +1,6 @@
 package io.legaldocml.akn;
 
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 
 import java.util.function.BiConsumer;

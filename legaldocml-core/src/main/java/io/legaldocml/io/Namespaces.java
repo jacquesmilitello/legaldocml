@@ -1,5 +1,8 @@
 package io.legaldocml.io;
 
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
+
 import java.util.function.BiConsumer;
 
 /**
@@ -7,7 +10,7 @@ import java.util.function.BiConsumer;
  */
 public interface Namespaces {
 
-    CharArray DEFAULT_NS_PREFIX = CharArrays.constant("");
+    CharArray DEFAULT_NS_PREFIX = CharArrays.immutable("");
 
     CharArray get(CharArray prefix);
 

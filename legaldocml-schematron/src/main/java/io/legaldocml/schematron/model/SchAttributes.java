@@ -1,6 +1,6 @@
 package io.legaldocml.schematron.model;
 
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import org.slf4j.Logger;

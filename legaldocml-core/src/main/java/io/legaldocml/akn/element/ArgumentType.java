@@ -7,7 +7,7 @@ import io.legaldocml.akn.attribute.Pos;
 import io.legaldocml.akn.attribute.UpToOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PosType;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 

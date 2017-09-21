@@ -18,6 +18,10 @@ public final class Hashing {
         return XX_HASH_INSTANCE.xxHash64(seed, UnsafeHelper.CHAR_ARRAY_BASE_OFFSET, op.length * 2l, op);
     }
 
+    public static long xx(long seed,int length, char[] value) {
+        return XX_HASH_INSTANCE.xxHash64(seed, UnsafeHelper.CHAR_ARRAY_BASE_OFFSET, length * 2l, value);
+    }
+
     public static long xx(long seed, HashReader reader) {
         return XX_HASH_INSTANCE.xxHash64(seed, reader);
     }

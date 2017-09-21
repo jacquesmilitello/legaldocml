@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Period;
 import io.legaldocml.akn.type.TemporalGroupRef;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 

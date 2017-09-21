@@ -1,6 +1,7 @@
 package io.legaldocml.io;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;

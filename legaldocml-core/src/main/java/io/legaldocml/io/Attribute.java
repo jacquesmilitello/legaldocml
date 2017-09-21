@@ -1,5 +1,7 @@
 package io.legaldocml.io;
 
+import io.legaldocml.util.CharArray;
+
 import java.io.IOException;
 
 /**

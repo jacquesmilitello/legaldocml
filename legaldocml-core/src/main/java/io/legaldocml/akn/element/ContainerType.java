@@ -6,7 +6,7 @@ import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;

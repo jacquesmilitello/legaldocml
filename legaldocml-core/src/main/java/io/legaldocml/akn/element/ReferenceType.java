@@ -5,7 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.ShowReq;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Uri;

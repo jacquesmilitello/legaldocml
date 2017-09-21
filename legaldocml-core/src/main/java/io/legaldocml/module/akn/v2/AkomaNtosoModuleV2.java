@@ -5,8 +5,8 @@ import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.AknModule;
@@ -25,7 +25,7 @@ public final class AkomaNtosoModuleV2 implements AknModule {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
+    static final CharArray NAMESPACE = CharArrays.immutable(NS_VALUE);
 
     /**
      * {@inheritDoc}

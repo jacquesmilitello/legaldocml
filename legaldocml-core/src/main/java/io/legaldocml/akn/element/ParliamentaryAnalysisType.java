@@ -10,7 +10,7 @@ import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;

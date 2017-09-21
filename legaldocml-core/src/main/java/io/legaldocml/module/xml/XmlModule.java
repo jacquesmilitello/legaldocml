@@ -4,8 +4,8 @@ package io.legaldocml.module.xml;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
@@ -23,7 +23,7 @@ public final class XmlModule implements Module {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    private static final CharArray NAMESPACE = CharArrays.constant(NS_VALUE);
+    private static final CharArray NAMESPACE = CharArrays.immutable(NS_VALUE);
 
     private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
 

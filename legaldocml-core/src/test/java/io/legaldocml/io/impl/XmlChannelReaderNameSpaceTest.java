@@ -1,6 +1,6 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.io.CharArrays;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.Namespaces;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
@@ -69,9 +69,9 @@ public class XmlChannelReaderNameSpaceTest {
 
             Assert.assertEquals(4, reader.getNamespaces().count());
             Assert.assertEquals("urn:test01", ns.getDefaultNamespaceUri().toString());
-            Assert.assertEquals("urn:test02", ns.get(CharArrays.constant("test02")).toString());
-            Assert.assertEquals("urn:test03", ns.get(CharArrays.constant("test03")).toString());
-            Assert.assertEquals("urn:test04", ns.get(CharArrays.constant("test04")).toString());
+            Assert.assertEquals("urn:test02", ns.get(CharArrays.immutable("test02")).toString());
+            Assert.assertEquals("urn:test03", ns.get(CharArrays.immutable("test03")).toString());
+            Assert.assertEquals("urn:test04", ns.get(CharArrays.immutable("test04")).toString());
         });
     }
 }

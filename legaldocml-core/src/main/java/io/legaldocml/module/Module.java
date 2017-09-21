@@ -2,7 +2,7 @@ package io.legaldocml.module;
 
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;

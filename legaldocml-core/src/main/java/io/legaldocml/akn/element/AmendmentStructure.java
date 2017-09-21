@@ -5,7 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;

@@ -9,7 +9,7 @@ import io.legaldocml.akn.HasMixedContent;
 import io.legaldocml.akn.MandatoryElementException;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.other.UnsupportedModule;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.impl.XmlChannelReader;

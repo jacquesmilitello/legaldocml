@@ -1,4 +1,4 @@
-package io.legaldocml.io;
+package io.legaldocml.util;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -72,12 +72,6 @@ public final class CharBuffer implements CharArray {
         return value;
     }
 
-    public char[] raw() {
-        char[] value = new char[pos];
-        System.arraycopy(hb, 0, value, 0, pos);
-        return value;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -85,7 +79,7 @@ public final class CharBuffer implements CharArray {
     public CharArray prefix(int prefixNS) {
         char[] value = new char[prefixNS];
         System.arraycopy(this.hb, 0, value, 0, prefixNS);
-        return CharArrays.constant(value);
+        return CharArrays.immutable(value);
     }
 
     /**
@@ -93,14 +87,7 @@ public final class CharBuffer implements CharArray {
      */
     @Override
     public int hashCode() {
-        int h = 0;
-        if (pos > 0) {
-            char val[] = hb;
-            for (int i = 0; i < pos; i++) {
-                h = 31 * h + val[i];
-            }
-        }
-        return h;
+        return (int) Hashing.xx(this.pos, this.pos, this.hb);
     }
 
     @Override
@@ -112,8 +99,8 @@ public final class CharBuffer implements CharArray {
             return false;
         }
 
-        if (obj instanceof CharArrays.ConstantCharArray) {
-            CharArrays.ConstantCharArray array = (CharArrays.ConstantCharArray) obj;
+        if (obj instanceof ImmutableCharArray) {
+            ImmutableCharArray array = (ImmutableCharArray) obj;
             if (array.length() != pos) {
                 return false;
             }

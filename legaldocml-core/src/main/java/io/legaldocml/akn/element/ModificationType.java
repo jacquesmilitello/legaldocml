@@ -10,7 +10,7 @@ import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.StatusType;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;

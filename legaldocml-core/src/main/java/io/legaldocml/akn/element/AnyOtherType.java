@@ -9,7 +9,7 @@ import io.legaldocml.akn.other.ExternalElementWithNS;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
@@ -25,7 +25,7 @@ import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
-import static io.legaldocml.io.CharArrays.constant;
+import static io.legaldocml.util.CharArrays.immutable;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -144,7 +144,7 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
                 LOGGER.debug("External Element prefix [{}]", reader.getQName().getPrefix());
             }
 
-            CharArray array = reader.getNamespaces().get(constant(reader.getQName().getPrefix()));
+            CharArray array = reader.getNamespaces().get(immutable(reader.getQName().getPrefix()));
             Module module = reader.<AkomaNtosoContext>getContext().getModule(array);
 
             AnyOtherTypeElement element;
@@ -152,7 +152,7 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug("inline declation of namespace -> [{}]", reader.getQName());
                 }
-                element = new ExternalElementWithNS(reader.getQName(), reader.getNamespaces().get(constant(reader.getQName().getPrefix())));
+                element = new ExternalElementWithNS(reader.getQName(), reader.getNamespaces().get(immutable(reader.getQName().getPrefix())));
             } else {
                 element = module.element(reader.getQName().getLocalName(), AnyOtherTypeElement.class).get();
 

@@ -1,7 +1,7 @@
 package io.legaldocml.akn.other;
 
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.unsafe.UnsafeString;

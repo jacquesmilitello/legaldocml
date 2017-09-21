@@ -1,7 +1,7 @@
 package io.legaldocml.module.xml;
 
 import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;

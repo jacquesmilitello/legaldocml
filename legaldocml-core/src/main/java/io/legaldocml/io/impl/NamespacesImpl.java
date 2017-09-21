@@ -1,7 +1,7 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.Namespaces;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +26,9 @@ final class NamespacesImpl implements Namespaces {
      */
     private static final int MAX = 16;
 
-    private static final CharArray PREFIX_XML = CharArrays.constant("xml");
+    private static final CharArray PREFIX_XML = CharArrays.immutable("xml");
 
-    private static final CharArray URI_XML = CharArrays.constant("http://www.w3.org/XML/1998/namespace");
+    private static final CharArray URI_XML = CharArrays.immutable("http://www.w3.org/XML/1998/namespace");
 
     private final CharArray[] uris = new CharArray[MAX];
     private final CharArray[] prefixes = new CharArray[MAX];

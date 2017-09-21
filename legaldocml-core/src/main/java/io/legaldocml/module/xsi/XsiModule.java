@@ -4,8 +4,8 @@ package io.legaldocml.module.xsi;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
@@ -27,7 +27,7 @@ public final class XsiModule implements Module {
     private static final long ADDRESS_NAMESPACE_SCHEMA_INSTANCE = Buffers.address(NAMESPACE_SCHEMA_INSTANCE);
     private static final long ADDRESS_NAMESPACE_PREFIX_XSI = Buffers.address(NAMESPACE_PREFIX_XSI);
 
-    private static final CharArray NAMESPACE_XSI = CharArrays.constant(NAMESPACE_SCHEMA_INSTANCE);
+    private static final CharArray NAMESPACE_XSI = CharArrays.immutable(NAMESPACE_SCHEMA_INSTANCE);
 
     private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
 

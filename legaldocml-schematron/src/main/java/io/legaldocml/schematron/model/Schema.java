@@ -2,7 +2,7 @@ package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.util.ExternalizableList;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;

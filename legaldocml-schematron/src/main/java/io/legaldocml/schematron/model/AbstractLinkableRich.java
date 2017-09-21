@@ -1,7 +1,7 @@
 package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.schematron.model.attribute.Linkable;
 import io.legaldocml.schematron.model.attribute.Rich;

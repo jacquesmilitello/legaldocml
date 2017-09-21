@@ -1,6 +1,6 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.io.CharBuffer;
+import io.legaldocml.util.CharBuffer;
 import io.legaldocml.io.ProcessingInstruction;
 
 /**

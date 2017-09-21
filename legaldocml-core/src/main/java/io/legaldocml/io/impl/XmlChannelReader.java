@@ -1,9 +1,9 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.io.AttributeConsumer;
-import io.legaldocml.io.CharArray;
-import io.legaldocml.io.CharArrays;
-import io.legaldocml.io.CharBuffer;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
+import io.legaldocml.util.CharBuffer;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.Namespaces;
 import io.legaldocml.io.ProcessingInstruction;
@@ -756,7 +756,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         CharBuffer cb = attrQName;
         // Prefix.
         if (cb.length() > 6 && (cb.charAt(0) == 'x') && (cb.charAt(1) == 'm') && (cb.charAt(2) == 'l') && (cb.charAt(3) == 'n') && (cb.charAt(4) == 's')) {
-            this.namespaces.setPrefix(this, CharArrays.constant(cb, 6, cb.length() - 6), CharArrays.constant(attrValue));
+            this.namespaces.setPrefix(this, CharArrays.immutable(cb, 6, cb.length() - 6), CharArrays.immutable(attrValue));
             if (this.nsStack[depth - 1] == null) {
                 this.nsStack[depth - 1] = NamespacesImpl.POP_ACTION;
             } else {

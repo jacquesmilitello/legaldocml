@@ -1,7 +1,7 @@
 package io.legaldocml.module;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

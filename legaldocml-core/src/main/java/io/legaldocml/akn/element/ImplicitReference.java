@@ -7,7 +7,7 @@ import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;

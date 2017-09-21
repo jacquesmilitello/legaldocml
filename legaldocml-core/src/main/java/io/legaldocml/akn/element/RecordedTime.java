@@ -6,7 +6,7 @@ import io.legaldocml.akn.attribute.RecordedTimeType;
 import io.legaldocml.akn.attribute.Time;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.TimeType;
-import io.legaldocml.io.CharArray;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
