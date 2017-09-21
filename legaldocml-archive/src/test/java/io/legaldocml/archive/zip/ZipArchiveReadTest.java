@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
@@ -38,7 +37,6 @@ public class ZipArchiveReadTest {
     @Test
     public void testZipEmpty() throws IOException {
         thrown.expect(ArchiveException.class);
-        thrown.expectCause(instanceOf(NoSuchFileException.class));
         thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_META)));
         ArchiveFactory.readOnly("zip", PathForTest.path("/zip/empty.zip"));
     }
