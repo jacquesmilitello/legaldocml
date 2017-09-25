@@ -5,10 +5,11 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
-import io.legaldocml.util.CharArray;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -124,4 +125,17 @@ public abstract class AmendmentStructure extends AbstractStructure implements Co
         return ATTRIBUTES;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        visitMeta(visitor);
+        visitCoverPage(visitor);
+        visitPreface(visitor);
+        this.amendmentBody.accept(visitor);
+        visitConclusions(visitor);
+        visitAttachments(visitor);
+        visitComponents(visitor);
+    }
 }

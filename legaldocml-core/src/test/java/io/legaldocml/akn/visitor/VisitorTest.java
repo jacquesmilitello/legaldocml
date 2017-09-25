@@ -69,4 +69,55 @@ public class VisitorTest {
         });
         
     }
+
+    @Test
+    public void testAmendment() throws IOException {
+        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v2/Amendemet_Bungeni_2011-07-20.xml"));
+        akn.accept(new AknVisitor() {
+        });
+    }
+
+    @Test
+    public void testAmendmentList() throws IOException {
+        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v2/AmendmentList_Bungeni_2010-10-28v2.xml"));
+        akn.accept(new AknVisitor() {
+        });
+    }
+
+    @Test
+    public void testBill() throws IOException {
+        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2009-01-27.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2009-01-27-documentCollection.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2010-07-10-memorandum.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2010-10-10-memorandum.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2010-11-19-coverpage.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2011-06-30v1.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2011-06-30v1-documentCollection.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+        akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2011-12-19-collect.xml"));
+        akn.accept(new AknVisitor() {
+        });
+
+    }
+
 }

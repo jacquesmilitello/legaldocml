@@ -1,8 +1,9 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.CollectionBodyElement;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 
@@ -42,6 +43,14 @@ public final class ComponentRef extends SrcType implements BodyTypeElement, Hier
     @Override
     public String name() {
         return COMPONENT_REF;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+       visitor.visit(this);
     }
 
 }

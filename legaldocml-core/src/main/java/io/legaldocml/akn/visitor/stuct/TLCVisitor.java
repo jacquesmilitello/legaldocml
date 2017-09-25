@@ -3,6 +3,7 @@ package io.legaldocml.akn.visitor.stuct;
 import io.legaldocml.akn.element.TLCConcept;
 import io.legaldocml.akn.element.TLCEvent;
 import io.legaldocml.akn.element.TLCLocation;
+import io.legaldocml.akn.element.TLCObject;
 import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCProcess;
@@ -45,6 +46,10 @@ public interface TLCVisitor {
     }
 
     default void visit(TLCTerm term) {
+        // default -> nothing to do.
+    }
+
+    default void visit(TLCObject object) {
         // default -> nothing to do.
     }
 }
