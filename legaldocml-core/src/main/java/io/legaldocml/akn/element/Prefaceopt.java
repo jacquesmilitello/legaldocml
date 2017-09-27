@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -32,7 +33,7 @@ import static io.legaldocml.akn.element.Groups.prefaceContainers;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Prefaceopt extends CoreOptImpl implements BlockElements {
+public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockElements {
 
     private static final ImmutableMap<String, Supplier<PrefaceoptElement>> ELEMS;
 
@@ -44,7 +45,7 @@ public abstract class Prefaceopt extends CoreOptImpl implements BlockElements {
     }
 
     // Mandatory (min 1).
-    private final AknList<PrefaceoptElement> prefaceoptElement = new AknList<PrefaceoptElement>(new PrefaceoptElement[4]);
+    private final AknList<PrefaceoptElement> prefaceoptElement = new AknList<>(new PrefaceoptElement[4]);
 
     /**
      * {@inheritDoc}
@@ -79,7 +80,7 @@ public abstract class Prefaceopt extends CoreOptImpl implements BlockElements {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreOpt.super.write(writer);
         this.prefaceoptElement.write(writer);
     }
 

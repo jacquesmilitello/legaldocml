@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -45,7 +46,7 @@ import static io.legaldocml.akn.AknElements.RECITALS;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class PortionBodyType extends CoreOptImpl {
+public abstract class PortionBodyType extends AbstractCore implements CoreOpt {
 
     private static final ImmutableMap<String, Supplier<PortionBodyTypeElement>> ELEMS;
 
@@ -74,7 +75,7 @@ public abstract class PortionBodyType extends CoreOptImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreOpt.super.write(writer);
         this.elements.write(writer);
     }
 

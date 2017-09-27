@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.group.SpeechSection;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -25,7 +26,7 @@ import java.util.function.Supplier;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class DebateBodyType extends CoreOptImpl {
+public abstract class DebateBodyType extends AbstractCore implements CoreOpt {
 
     private static final ImmutableMap<String, Supplier<SpeechSection>> ELEMS;
 
@@ -44,6 +45,7 @@ public abstract class DebateBodyType extends CoreOptImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        CoreOpt.super.write(writer);
         this.sections.write(writer);
     }
 

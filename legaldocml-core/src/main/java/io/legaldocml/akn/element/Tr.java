@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -30,7 +31,7 @@ import static io.legaldocml.akn.AknElements.TR;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
+public final class Tr extends AbstractCore implements CoreOpt, SubFlowStructureElement {
 
     /**
      * Memory address.
@@ -59,7 +60,7 @@ public final class Tr extends CoreOptImpl implements SubFlowStructureElement {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_TR, 2);
-        super.write(writer);
+        CoreOpt.super.write(writer);
         this.trs.write(writer);
         writer.writeEnd(ADDRESS_TR, 2);
     }

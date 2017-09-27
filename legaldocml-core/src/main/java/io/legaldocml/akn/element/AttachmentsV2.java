@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.impl.Buffers;
@@ -28,7 +29,7 @@ import static io.legaldocml.akn.AknElements.COMPONENT_REF;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class AttachmentsV2 extends CoreOptImpl implements Attachments{
+public final class AttachmentsV2 extends AbstractCore implements CoreOpt, Attachments{
 
     /**
      * Memory address.
@@ -41,9 +42,8 @@ public final class AttachmentsV2 extends CoreOptImpl implements Attachments{
         ELEMS = ImmutableMap.of(COMPONENT_REF, ComponentRef::new);
     }
 
-
     // Mandatory (min 1).
-    private final AknList<ComponentRef> elements = new AknList<ComponentRef>(new ComponentRef[4]);
+    private final AknList<ComponentRef> elements = new AknList<>(new ComponentRef[4]);
 
     /**
      * {@inheritDoc}
@@ -51,6 +51,7 @@ public final class AttachmentsV2 extends CoreOptImpl implements Attachments{
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_ATTACHMENTS, 11);
+        CoreOpt.super.write(writer);
         this.elements.write(writer);
         writer.writeEnd(ADDRESS_ATTACHMENTS, 11);
     }

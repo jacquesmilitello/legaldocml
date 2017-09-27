@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -44,7 +45,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Li extends CoreOptImpl implements ValueOpt {
+public final class Li extends AbstractCore implements CoreOpt, ValueOpt {
 
     /**
      * Memory address.
@@ -57,7 +58,7 @@ public final class Li extends CoreOptImpl implements ValueOpt {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(CoreOptImpl.ATTRIBUTES)
+                .putAll(AbstractCore.ATTRIBUTES)
                 .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(Li.class, "value")))
                 .build();
 
@@ -110,7 +111,7 @@ public final class Li extends CoreOptImpl implements ValueOpt {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_LI, 2);
-        super.write(writer);
+        CoreOpt.super.write(writer);
         this.elements.write(writer);
         writer.writeEnd(ADDRESS_LI, 2);
     }

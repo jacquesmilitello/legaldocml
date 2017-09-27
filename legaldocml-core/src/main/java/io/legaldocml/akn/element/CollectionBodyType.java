@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.CollectionBodyElement;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -33,7 +34,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class CollectionBodyType extends CoreOptImpl {
+public abstract class CollectionBodyType extends AbstractCore implements CoreOpt {
 
     @Deprecated
     private static final ImmutableMap<String, Supplier<CollectionBodyElement>> COLLECTION_BODY_TYPE_V2;
@@ -58,7 +59,7 @@ public abstract class CollectionBodyType extends CoreOptImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreOpt.super.write(writer);
         if (writer.getVersion() == 2) {
             this.elements.write(writer);
         } else {
