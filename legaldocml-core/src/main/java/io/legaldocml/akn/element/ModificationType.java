@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Enactment;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.type.ListReferenceRef;
@@ -59,14 +60,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ModificationType extends IdReqImpl implements Core, Enactment, Modifiers, RefersOpt {
+public abstract class ModificationType extends AbstractId implements Core, IdReq, Enactment, Modifiers, RefersOpt {
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
-
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(IdReqImpl.ATTRIBUTES)
+                .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(ModificationType.class, "period")))
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ModificationType.class, "refersTo")))
@@ -181,7 +181,8 @@ public abstract class ModificationType extends IdReqImpl implements Core, Enactm
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        IdReq.super.write(writer);
+        Core.super.write(writer);
         writeRefers(writer, this);
         writeEnactment(writer, this);
         writeModifiers(writer, this);

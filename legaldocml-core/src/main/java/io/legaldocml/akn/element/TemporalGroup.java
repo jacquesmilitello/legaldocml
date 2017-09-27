@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -28,7 +29,7 @@ import static io.legaldocml.akn.AknElements.TIME_INTERVAL;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class TemporalGroup extends IdReqImpl implements Core {
+public final class TemporalGroup extends AbstractId implements Core, IdReq {
 
     /**
      * Memory address.
@@ -38,14 +39,14 @@ public final class TemporalGroup extends IdReqImpl implements Core {
     // Mandatory (min 1).
     private final AknList<TimeInterval> elements = new AknList<>(new TimeInterval[4]);
 
-
     /**
      * {@inheritDoc}
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_TEMPORAL_GROUP, 13);
-        super.write(writer);
+        IdReq.super.write(writer);
+        Core.super.write(writer);
         this.elements.write(writer);
         writer.writeEnd(ADDRESS_TEMPORAL_GROUP, 13);
     }

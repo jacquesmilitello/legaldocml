@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ValueReq;
@@ -49,13 +50,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class CountType extends IdReqImpl implements Core, ValueReq, RefersOpt, LinkOpt {
+public abstract class CountType extends AbstractId implements Core, IdReq, ValueReq, RefersOpt, LinkOpt {
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(IdReqImpl.ATTRIBUTES)
+                .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(CountType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(CountType.class, "href")))
                 .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(CountType.class, "value")))
@@ -164,7 +165,8 @@ public abstract class CountType extends IdReqImpl implements Core, ValueReq, Ref
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        IdReq.super.write(writer);
+        Core.super.write(writer);
         writeRefers(writer, this);
         writeLinkOpt(writer, this);
         writeValue(writer, this);

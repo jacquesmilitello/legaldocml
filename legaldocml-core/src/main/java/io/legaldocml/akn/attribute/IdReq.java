@@ -1,5 +1,11 @@
 package io.legaldocml.akn.attribute;
 
+import io.legaldocml.io.XmlWriter;
+
+import java.io.IOException;
+
+import static io.legaldocml.akn.util.XmlWriterHelper.writeIdReq;
+
 /**
  * These attributes identify the element in an absolute manner. In elements using this attribute definition the eId
  * attribute is required whenever the Akoma Ntoso naming Convention is used. The wId is used to mark the identifier that
@@ -17,5 +23,12 @@ package io.legaldocml.akn.attribute;
  */
 public interface IdReq extends Id {
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    default void write(XmlWriter writer) throws IOException {
+        writeIdReq(writer, this);
+    }
 }
 

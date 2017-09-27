@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Enactment;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.type.ListReferenceRef;
@@ -53,13 +54,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class JudicialArgumentType extends IdReqImpl implements Enactment, RefersOpt, Modifiers, Core {
+public abstract class JudicialArgumentType extends AbstractId implements IdReq, Enactment, RefersOpt, Modifiers, Core {
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(IdReqImpl.ATTRIBUTES)
+                .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
                 .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(JudicialArgumentType.class, "period")))
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(JudicialArgumentType.class, "refersTo")))
@@ -181,7 +182,7 @@ public abstract class JudicialArgumentType extends IdReqImpl implements Enactmen
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        IdReq.super.write(writer);
         writeRefers(writer, this);
         writeEnactment(writer, this);
         writeModifiers(writer, this);

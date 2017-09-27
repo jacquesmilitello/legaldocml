@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.Outcome;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -51,7 +52,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Core, RefersOpt, LinkOpt, Outcome {
+public abstract class ParliamentaryAnalysisType extends AbstractId implements Core, IdReq, RefersOpt, LinkOpt, Outcome {
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -59,7 +60,7 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(IdReqImpl.ATTRIBUTES)
+                .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
                 .put(AknAttributes.OUTCOME, biConsumerConceptRef(getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
@@ -137,7 +138,8 @@ public abstract class ParliamentaryAnalysisType extends IdReqImpl implements Cor
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        IdReq.super.write(writer);
+        Core.super.write(writer);
         writeLinkOpt(writer, this);
         writeRefers(writer, this);
         writeOutcome(writer, this);

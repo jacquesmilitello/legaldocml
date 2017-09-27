@@ -4,17 +4,17 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.util.Uri;
 
 import java.io.IOException;
@@ -23,6 +23,9 @@ import java.util.function.BiConsumer;
 import static io.legaldocml.akn.AknElements.COMPONENT_DATA;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -43,7 +46,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class ComponentData extends IdReqImpl implements Name, LinkReq, ShowReq, Core {
+public final class ComponentData extends AbstractId implements IdReq, Name, LinkReq, ShowReq, Core {
 
     /**
      * Memory address.
@@ -54,7 +57,7 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(IdReqImpl.ATTRIBUTES)
+                .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ComponentData.class, "href")))
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ComponentData.class, "name")))
                 .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ComponentData.class, "showAs")))
@@ -131,10 +134,10 @@ public final class ComponentData extends IdReqImpl implements Name, LinkReq, Sho
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_COMPONENT_DATA, 13);
-        XmlWriterHelper.writeLinkReq(writer, this);
-        XmlWriterHelper.writeName(writer, this);
-        XmlWriterHelper.writeShow(writer, this);
-        super.write(writer);
+        IdReq.super.write(writer);
+        writeLinkReq(writer, this);
+        writeName(writer, this);
+        writeShow(writer, this);
         if (this.componentData != null) {
             this.componentData.write(writer);
         }

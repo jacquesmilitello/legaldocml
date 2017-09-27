@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -28,7 +29,7 @@ import static io.legaldocml.akn.AknElements.COMPONENTS;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Components extends IdReqImpl {
+public final class Components extends AbstractId implements IdReq {
 
     /**
      * Memory address.
@@ -50,7 +51,7 @@ public final class Components extends IdReqImpl {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_COMPONENTS, 10);
-        super.write(writer);
+        IdReq.super.write(writer);
         this.elements.write(writer);
         writer.writeEnd(ADDRESS_COMPONENTS, 10);
     }

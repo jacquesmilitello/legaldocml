@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.util.CharArray;
@@ -34,7 +35,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ReferenceType extends IdReqImpl implements LinkReq, ShowReq, Core {
+public abstract class ReferenceType extends AbstractId implements IdReq, LinkReq, ShowReq, Core {
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -109,9 +110,9 @@ public abstract class ReferenceType extends IdReqImpl implements LinkReq, ShowRe
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        IdReq.super.write(writer);
         writeLinkReq(writer, this);
         writeShow(writer, this);
-        super.write(writer);
     }
 
 }
