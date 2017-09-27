@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdOpt;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.other.ExternalElementWithNS;
 import io.legaldocml.akn.util.AknList;
@@ -44,7 +45,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
+public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, IdOpt {
 
     /**
      * SLF4J Logger.
@@ -55,7 +56,7 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(IdOptImpl.ATTRIBUTES)
+                .putAll(AbstractId.ATTRIBUTES)
                 .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(AnyOtherType.class, "href")))
                 .build();
     }
@@ -108,15 +109,11 @@ public abstract class AnyOtherType extends IdOptImpl implements LinkOpt, Core {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        if (this.attributes != null) {
-            for (int i = 0, n = this.attributes.size(); i < n; i++) {
-                this.attributes.get(i).write(writer);
-            }
-        }
+       Core.super.write(writer);
+       IdOpt.super.write(writer);
         if (this.href != null) {
             writer.writeAttribute(ADDRESS_HREF, 4, this.href.getChars());
         }
-        super.write(writer);
         if (this.others != null) {
             this.others.write(writer);
         }

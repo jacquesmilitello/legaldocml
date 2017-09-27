@@ -1,5 +1,11 @@
 package io.legaldocml.akn.attribute;
 
+import io.legaldocml.io.XmlWriter;
+
+import java.io.IOException;
+
+import static io.legaldocml.akn.util.XmlWriterHelper.writeIdOpt;
+
 /**
  * These attributes identify the element in an absolute manner. In elements using this attribute definition the eId
  * attribute is optional. The wId is used to mark the identifier that the structure used to have in the original
@@ -15,6 +21,10 @@ package io.legaldocml.akn.attribute;
  */
 public interface IdOpt extends Id {
 
+    @Override
+    default void write(XmlWriter writer) throws IOException {
+        writeIdOpt(writer, this);
+    }
 }
 
 

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdOpt;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class MetaOpt extends IdOptImpl implements Core {
+public abstract class MetaOpt extends AbstractId implements Core, IdOpt {
 
     private java.util.List<Attribute> attributes;
 
@@ -50,11 +51,8 @@ public abstract class MetaOpt extends IdOptImpl implements Core {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
-        if (this.attributes != null) {
-            for (int i = 0, n = this.attributes.size(); i < n; i++) {
-                this.attributes.get(i).write(writer);
-            }
-        }
+       IdOpt.super.write(writer);
+       Core.super.write(writer);
     }
+
 }

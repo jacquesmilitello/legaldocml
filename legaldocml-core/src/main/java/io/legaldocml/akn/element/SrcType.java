@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.IdOpt;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
@@ -35,7 +36,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SrcType extends IdOptImpl implements Core, ShowReq, Src {
+public abstract class SrcType extends AbstractId implements Core, IdOpt, ShowReq, Src {
 
     protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -123,7 +124,8 @@ public abstract class SrcType extends IdOptImpl implements Core, ShowReq, Src {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        IdOpt.super.write(writer);
+        Core.super.write(writer);
         writeSrc(writer, this);
         writeShow(writer, this);
     }
