@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.XmlReader;
@@ -51,7 +52,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 @Deprecated
-public abstract class PopupStructure extends CoreReqImpl {
+public abstract class PopupStructure extends AbstractCore implements CoreReq {
 
     private static final ImmutableMap<String, Supplier<PopupStructureElement>> ELEMS;
 
@@ -91,7 +92,7 @@ public abstract class PopupStructure extends CoreReqImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         this.elems.write(writer);
     }
 

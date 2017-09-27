@@ -1,5 +1,15 @@
 package io.legaldocml.akn.attribute;
 
+import io.legaldocml.io.XmlWriter;
+
+import java.io.IOException;
+
+import static io.legaldocml.akn.util.XmlWriterHelper.writeAlt;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeHTMLattrs;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeIdOpt;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
+
 /**
  * This is the list of the core attributes that all elements in the content part of the document must have. In elements
  * using this attribute definition both the refersTo attribute and the id attribute are optional.
@@ -20,4 +30,16 @@ package io.legaldocml.akn.attribute;
  */
 public interface CoreOpt extends Core, HTMLattrs, Enactment, IdOpt, RefersOpt, Alt {
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    default void write(XmlWriter writer) throws IOException {
+        Core.super.write(writer);
+        writeIdOpt(writer, this);
+        writeRefers(writer, this);
+        writeEnactment(writer, this);
+        writeHTMLattrs(writer, this);
+        writeAlt(writer, this);
+    }
 }

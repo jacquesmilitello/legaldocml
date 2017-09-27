@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
@@ -38,7 +39,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
+public final class Table extends AbstractCore implements CoreReq, TableAtts, HTMLblock {
 
     /**
      * Memory address.
@@ -147,7 +148,7 @@ public final class Table extends CoreReqImpl implements TableAtts, HTMLblock {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_TABLE, 5);
         writeTableAtts(writer, this);
-        super.write(writer);
+        CoreReq.super.write(writer);
         if (this.caption != null) {
             this.caption.write(writer);
         }

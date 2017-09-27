@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.akn.type.AgentRef;
@@ -56,7 +57,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SpeechType extends BaseHierarchyCoreOpt implements SpeechAtts {
+public abstract class SpeechType extends BaseHierarchy implements CoreOpt, SpeechAtts {
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -172,8 +173,9 @@ public abstract class SpeechType extends BaseHierarchyCoreOpt implements SpeechA
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
         XmlWriterHelper.writeSpeechAtts(writer, this);
+        CoreOpt.super.write(writer);
+        super.write(writer);
         if (this.from != null) {
             this.from.write(writer);
         }

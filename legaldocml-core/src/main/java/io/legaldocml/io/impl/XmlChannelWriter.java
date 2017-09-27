@@ -1,7 +1,6 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.LegalDocMlException;
-import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.unsafe.UnsafeString;
@@ -12,11 +11,13 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import static io.legaldocml.util.Maths.unsignedDiv10;
+import static io.legaldocml.util.Maths.unsignedDiv100;
+import static io.legaldocml.util.Maths.unsignedDiv1000;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -300,35 +301,22 @@ public abstract class XmlChannelWriter implements XmlWriter {
         int month = date.getMonthValue();
         int day = date.getDayOfMonth();
 
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 1000)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 100 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 10 % 10)));
+        UNSAFE.putByte(this.address + pos++, (byte) (48 + unsignedDiv1000(year)));
+        UNSAFE.putByte(this.address + pos++, (byte) (48 + (unsignedDiv100(year) % 10)));
+        UNSAFE.putByte(this.address + pos++, (byte) (48 + (unsignedDiv10(year) % 10)));
         UNSAFE.putByte(this.address + pos++, (byte) (48 + (year % 10)));
         UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month / 10)));
+        UNSAFE.putByte(this.address + pos++, (byte) (48 + unsignedDiv10(month)));
         UNSAFE.putByte(this.address + pos++, (byte) (48 + (month % 10)));
         UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day / 10)));
+        UNSAFE.putByte(this.address + pos++, (byte) (48 + unsignedDiv10(day)));
         UNSAFE.putByte(this.address + pos++, (byte) (48 + (day % 10)));
 
         return pos;
     }
 
     private int raw(OffsetDateTime dateTime, int pos) {
-        int year = dateTime.getYear();
-        int month = dateTime.getMonthValue();
-        int day = dateTime.getDayOfMonth();
-
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 1000)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 100 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 10 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day % 10)));
+        pos = raw(dateTime.toLocalDate(), pos);
         UNSAFE.putByte(this.address + pos++, CHAR_T);
         UNSAFE.putByte(this.address + pos++, (byte) (48 + (dateTime.getHour() / 10)));
         UNSAFE.putByte(this.address + pos++, (byte) (48 + (dateTime.getHour() % 10)));
@@ -409,107 +397,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
             this.channel.write(this.buffer);
             this.buffer.clear();
         }
-    }
-
-    public void write(long address, int len) throws IOException {
-        checkSize(len << 2);
-        int pos = this.buffer.position();
-        if (hasElements[elem]) {
-            hasElements[elem] = false;
-            UNSAFE.putByte(this.address + pos++, END_TAG);
-        }
-
-        UNSAFE.copyMemory(address, this.address + pos, len);
-        this.buffer.position(pos + len);
-    }
-
-    public void write(long address, int len, Externalizable value) throws IOException {
-        checkSize(len << 2);
-        int pos = this.buffer.position();
-        if (hasElements[elem]) {
-            hasElements[elem] = false;
-            UNSAFE.putByte(this.address + pos++, END_TAG);
-        }
-
-        UNSAFE.putByte(this.address + pos++, START_TAG);
-        UNSAFE.copyMemory(address, this.address + pos, len);
-        pos += len;
-        UNSAFE.putByte(this.address + pos++, END_TAG);
-        this.buffer.position(pos);
-
-        value.write(this);
-
-        checkSize(len << 2);
-
-        pos = this.buffer.position();
-        UNSAFE.copyMemory(ADDRESS_ARRAY_END, this.address + pos, 2);
-        pos += 2;
-
-        UNSAFE.copyMemory(address, this.address + pos, len);
-        pos += len;
-        UNSAFE.putByte(this.address + pos++, END_TAG);
-        this.buffer.position(pos);
-    }
-
-    public void write(LocalDateTime dateTime) throws IOException {
-        checkSize(32);
-
-        int pos = this.buffer.position();
-        if (hasElements[elem]) {
-            hasElements[elem] = false;
-            UNSAFE.putByte(this.address + pos++, END_TAG);
-        }
-
-        int year = dateTime.getYear();
-        int month = dateTime.getMonthValue();
-        int day = dateTime.getDayOfMonth();
-        int hour = dateTime.getHour();
-        int minute = dateTime.getMinute();
-        int second = dateTime.getSecond();
-
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 1000)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 100 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 10 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_T);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (hour / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (hour % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_COLON);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (minute / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (minute % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_COLON);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (second / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (second % 10)));
-        this.buffer.position(pos);
-    }
-
-    public void write(LocalTime dateTime) throws IOException {
-        int pos = this.buffer.position();
-        if (hasElements[elem]) {
-            hasElements[elem] = false;
-            UNSAFE.putByte(this.address + pos++, END_TAG);
-        }
-
-        int hour = dateTime.getHour();
-        int minute = dateTime.getMinute();
-        int second = dateTime.getSecond();
-
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (hour / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (hour % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_COLON);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (minute / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (minute % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_COLON);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (second / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (second % 10)));
-        this.buffer.position(pos);
-
     }
 
     /**

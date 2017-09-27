@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.attribute.CoreReqReq;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.InlineCM;
@@ -28,7 +29,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class InlineReqReqType extends CoreReqReqImpl implements InlineCMContainer {
+public abstract class InlineReqReqType extends AbstractCore implements CoreReqReq, InlineCMContainer {
 
     /**
      * Container for all data fors this inline.
@@ -64,7 +65,7 @@ public abstract class InlineReqReqType extends CoreReqReqImpl implements InlineC
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReqReq.super.write(writer);
         this.data.write(writer);
     }
 

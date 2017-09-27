@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.BlockElements;
@@ -36,7 +37,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Basicopt extends CoreOptImpl implements BlockElementsContainer {
+public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockElementsContainer {
 
     private static final ImmutableMap<String, Supplier<BasicoptElement>> ELEMS;
 
@@ -92,7 +93,7 @@ public abstract class Basicopt extends CoreOptImpl implements BlockElementsConta
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreOpt.super.write(writer);
         this.elements.write(writer);
     }
 

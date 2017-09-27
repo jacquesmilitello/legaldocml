@@ -8,12 +8,10 @@ import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.StatusType;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
-import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.util.ToStringBuilder;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -132,12 +130,8 @@ public abstract class AbstractCore extends AbstractId implements Core {
      * {@inheritDoc}
      */
     @Override
-    public void write(XmlWriter writer) throws IOException {
-        if (this.attributes != null) {
-            for (int i = 0, n = this.attributes.size(); i < n; i++) {
-                this.attributes.get(i).write(writer);
-            }
-        }
+    public final List<Attribute> getAttributes() {
+        return this.attributes;
     }
 
     /**

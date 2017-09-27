@@ -552,8 +552,6 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                                 state = STATE_CHARACTERS;
                                 if (!qName.doEquals(elemStack[depth - 1])) {
                                     throw new XmlChannelReaderException(UNEXPECTED_TAG, this);
-
-                                    //  throw new XmlChannelReaderException("Unexpected end tag for " + qName, newLocation());
                                 }
                                 eventType = END_ELEMENT;
 
@@ -781,14 +779,14 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
 
     private QNameImpl qname(CharBuffer buf) {
         int hashCode = cb.hashCode();
-        QNameImpl qName = elemStackCache.get(hashCode);
-        if (qName == null) {
-            qName = new QNameImpl(cb.value(), cb.pos(), prefixSep);
-            this.elemStackCache.put(hashCode, qName);
+        QNameImpl cacheQName = elemStackCache.get(hashCode);
+        if (cacheQName == null) {
+            cacheQName = new QNameImpl(cb.value(), cb.pos(), prefixSep);
+            this.elemStackCache.put(hashCode, cacheQName);
         }
-        this.qName = qName;
+        this.qName = cacheQName;
         buf.reset();
-        return qName;
+        return cacheQName;
     }
 
     private void seq() {

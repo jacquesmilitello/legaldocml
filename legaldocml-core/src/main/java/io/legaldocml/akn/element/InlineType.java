@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.InlineCM;
@@ -34,7 +35,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class InlineType extends CoreOptImpl implements InlineCMContainer {
+public abstract class InlineType extends AbstractCore implements CoreOpt, InlineCMContainer {
 
     /**
      * Container for all data fors this inline.
@@ -79,7 +80,6 @@ public abstract class InlineType extends CoreOptImpl implements InlineCMContaine
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        //read(reader, XmlSpace.ValueReq.DEFAULT, this.data);
         read(reader, this.data);
     }
 
@@ -88,7 +88,7 @@ public abstract class InlineType extends CoreOptImpl implements InlineCMContaine
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreOpt.super.write(writer);
         this.data.write(writer);
     }
 

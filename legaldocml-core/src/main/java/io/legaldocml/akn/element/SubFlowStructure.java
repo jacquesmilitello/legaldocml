@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.container.HierElementsContainer;
 import io.legaldocml.akn.group.ANblock;
@@ -77,7 +78,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SubFlowStructure extends CoreReqImpl implements BlockElementsContainer, HierElementsContainer {
+public abstract class SubFlowStructure extends AbstractCore implements CoreReq, BlockElementsContainer, HierElementsContainer {
 
     private static final ImmutableMap<String, Supplier<SubFlowStructureElement>> ELEMS;
 
@@ -168,7 +169,7 @@ public abstract class SubFlowStructure extends CoreReqImpl implements BlockEleme
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         this.elems.write(writer);
     }
 

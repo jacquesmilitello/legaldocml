@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.DocContainerTypeElement;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -38,7 +39,7 @@ import static io.legaldocml.akn.AknElements.TOC;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class DocContainerType extends BaseHierarchyCoreReq {
+public abstract class DocContainerType extends BaseHierarchy implements CoreReq {
 
     private static final ImmutableMap<String, Supplier<DocContainerTypeElement>> ELEMS;
 
@@ -59,6 +60,7 @@ public abstract class DocContainerType extends BaseHierarchyCoreReq {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        CoreReq.super.write(writer);
         super.write(writer);
         if (this.elements != null) {
             this.elements.write(writer);

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.BlockElements;
@@ -38,7 +39,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ItemType extends BaseHierarchyCoreReq implements BlockElementsContainer {
+public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockElementsContainer {
 
     // Mandatory (min 1)
     private final AknList<BlockElements> blockElements = new AknList<>(new BlockElements[4]);
@@ -90,6 +91,7 @@ public abstract class ItemType extends BaseHierarchyCoreReq implements BlockElem
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        CoreReq.super.write(writer);
         super.write(writer);
         this.blockElements.write(writer);
     }

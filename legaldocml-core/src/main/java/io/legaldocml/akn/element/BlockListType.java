@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -28,7 +29,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BlockListType extends CoreReqImpl {
+public abstract class BlockListType extends AbstractCore implements CoreReq {
 
     private ListIntroduction listIntroduction;
     private final AknList<Item> items = new AknList<>(new Item[4]);
@@ -44,7 +45,7 @@ public abstract class BlockListType extends CoreReqImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         if (this.listIntroduction != null) {
             this.listIntroduction.write(writer);
         }

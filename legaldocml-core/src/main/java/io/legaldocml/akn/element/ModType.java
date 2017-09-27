@@ -3,16 +3,17 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AkomaNtosoContext;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -44,7 +45,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ModType extends CoreReqImpl implements For {
+public abstract class ModType extends AbstractCore implements CoreReq, For {
 
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS_V2;
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS;
@@ -53,7 +54,7 @@ public abstract class ModType extends CoreReqImpl implements For {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(CoreReqImpl.ATTRIBUTES)
+                .putAll(AbstractCore.ATTRIBUTES)
                 .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(ModType.class, "for_")))
                 .build();
 
@@ -108,7 +109,7 @@ public abstract class ModType extends CoreReqImpl implements For {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         XmlWriterHelper.writeFor(writer, this);
         this.elements.write(writer);
     }

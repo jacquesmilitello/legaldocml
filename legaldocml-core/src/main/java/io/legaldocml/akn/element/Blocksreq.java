@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.BlockElements;
@@ -33,7 +34,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Blocksreq extends CoreReqImpl implements BlockElementsContainer {
+public abstract class Blocksreq extends AbstractCore implements CoreReq, BlockElementsContainer {
 
     private static final ImmutableMap<String, Supplier<BlockElements>> ELEMS;
 
@@ -84,7 +85,7 @@ public abstract class Blocksreq extends CoreReqImpl implements BlockElementsCont
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         this.elements.write(writer);
     }
 

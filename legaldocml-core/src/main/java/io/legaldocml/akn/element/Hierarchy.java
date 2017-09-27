@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AkomaNtosoContext;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -51,7 +52,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Hierarchy extends BaseHierarchyCoreReq {
+public abstract class Hierarchy extends BaseHierarchy implements CoreReq {
 
     /**
      * SLF4J Logger.
@@ -91,6 +92,7 @@ public abstract class Hierarchy extends BaseHierarchyCoreReq {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        CoreReq.super.write(writer);
         super.write(writer);
         if (this.content != null) {
             this.content.write(writer);

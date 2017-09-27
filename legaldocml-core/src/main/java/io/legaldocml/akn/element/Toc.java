@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.DocContainerTypeElement;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -27,7 +28,7 @@ import static io.legaldocml.akn.AknElements.TOC_ITEM;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Toc extends CoreReqImpl implements ANblock, DocContainerTypeElement {
+public final class Toc extends AbstractCore implements CoreReq, ANblock, DocContainerTypeElement {
 
     /**
      * Memory address.
@@ -42,6 +43,7 @@ public final class Toc extends CoreReqImpl implements ANblock, DocContainerTypeE
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_TOC, 3);
+        CoreReq.super.write(writer);
         this.tocItems.write(writer);
         writer.writeEnd(ADDRESS_TOC, 3);
     }

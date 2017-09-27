@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -39,7 +40,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ContainerType extends CoreReqImpl implements Name {
+public abstract class ContainerType extends AbstractCore implements CoreReq, Name {
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -47,7 +48,7 @@ public abstract class ContainerType extends CoreReqImpl implements Name {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .putAll(CoreReqImpl.ATTRIBUTES)
+                .putAll(AbstractCore.ATTRIBUTES)
                 .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ContainerType.class, "name")))
                 .build();
 
@@ -91,7 +92,7 @@ public abstract class ContainerType extends CoreReqImpl implements Name {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         writeName(writer, this);
         this.elements.write(writer);
     }

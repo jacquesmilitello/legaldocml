@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -23,7 +24,7 @@ import static io.legaldocml.akn.AknElements.LI;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ListItems extends CoreReqImpl {
+public abstract class ListItems extends AbstractCore implements CoreReq {
 
     private final AknList<Li> lis = new AknList<>(new Li[4]);
 
@@ -32,7 +33,7 @@ public abstract class ListItems extends CoreReqImpl {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        super.write(writer);
+        CoreReq.super.write(writer);
         this.lis.write(writer);
     }
 
