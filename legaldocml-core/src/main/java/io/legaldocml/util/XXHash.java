@@ -21,8 +21,7 @@ final class XXHash {
     private final static long PRIME64_5 = 2870177450012600261L;
 
     public long xxHash64(long seed, long adr, long len, Object o) {
-
-        long h64;
+        long h64 = 0;
 
         if (len >= 32) {
             long p = len;
@@ -40,13 +39,7 @@ final class XXHash {
                 adr += 32;
             } while (p >= 32);
 
-            h64 = rotateLeft(v1, 1) + rotateLeft(v2, 7) + rotateLeft(v3, 12) + rotateLeft(v4, 18);
-
-            h64 = (h64 ^ rotateLeft31(v1 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 = (h64 ^ rotateLeft31(v2 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 = (h64 ^ rotateLeft31(v3 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 = (h64 ^ rotateLeft31(v4 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 += len;
+            h64 = compute(h64, v1, v2, v3, v4) + len;
             len = p;
         } else {
             h64 = seed + PRIME64_5;
@@ -78,7 +71,7 @@ final class XXHash {
     }
 
     public long xxHash64(long seed, HashReader reader) {
-        long h64;
+        long h64 = 0;
         long len = reader.length();
 
         if (len >= 32) {
@@ -96,13 +89,7 @@ final class XXHash {
                 p -= 32;
             } while (p >= 32);
 
-            h64 = rotateLeft(v1, 1) + rotateLeft(v2, 7) + rotateLeft(v3, 12) + rotateLeft(v4, 18);
-
-            h64 = (h64 ^ rotateLeft31(v1 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 = (h64 ^ rotateLeft31(v2 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 = (h64 ^ rotateLeft31(v3 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 = (h64 ^ rotateLeft31(v4 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
-            h64 += len;
+            h64 = compute(h64, v1, v2, v3, v4) + len;
             len = p;
         } else {
             h64 = seed + PRIME64_5;
@@ -128,6 +115,15 @@ final class XXHash {
         h64 = (h64 ^ (h64 >>> 33)) * PRIME64_2;
         h64 = (h64 ^ (h64 >>> 29)) * PRIME64_3;
         return h64 ^ (h64 >>> 32);
+    }
+
+    private static long compute(long h64, long v1, long v2, long v3, long v4) {
+        h64 = rotateLeft(v1, 1) + rotateLeft(v2, 7) + rotateLeft(v3, 12) + rotateLeft(v4, 18);
+        h64 = (h64 ^ rotateLeft31(v1 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
+        h64 = (h64 ^ rotateLeft31(v2 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
+        h64 = (h64 ^ rotateLeft31(v3 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
+        h64 = (h64 ^ rotateLeft31(v4 * PRIME64_2) * PRIME64_1) * PRIME64_1 + PRIME64_4;
+        return h64;
     }
 
     private static long rotateLeft(long i, int distance) {

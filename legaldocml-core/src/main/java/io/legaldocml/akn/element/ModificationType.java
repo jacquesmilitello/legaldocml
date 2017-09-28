@@ -98,22 +98,6 @@ public abstract class ModificationType extends AbstractId implements Core, IdReq
      * {@inheritDoc}
      */
     @Override
-    public TemporalGroupRef getPeriod() {
-        return this.period;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setPeriod(TemporalGroupRef period) {
-        this.period = period;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public ListReferenceRef getRefersTo() {
         return this.refersTo;
     }
@@ -138,6 +122,22 @@ public abstract class ModificationType extends AbstractId implements Core, IdReq
      */
     public void setStatus(StatusType status) {
         this.statusType = status;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public TemporalGroupRef getPeriod() {
+        return this.period;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setPeriod(TemporalGroupRef period) {
+        this.period = period;
     }
 
     /**
@@ -256,6 +256,9 @@ public abstract class ModificationType extends AbstractId implements Core, IdReq
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
         return ATTRIBUTES;
