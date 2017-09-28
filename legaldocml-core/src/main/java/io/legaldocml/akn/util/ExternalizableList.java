@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.function.Consumer;
@@ -95,13 +96,9 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
 
 
     /**
-     * Inserts the specified element at the specified position in this list. Shifts the element currently at that
-     * position (if any) and any subsequent elements to the right (adds one to their indices).
-     *
-     * @param index index at which the specified element is to be inserted
-     * @param item  element to be inserted
-     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * {@inheritDoc}
      */
+    @Override
     public final void add(int index, E item) {
         if (index > this.size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
@@ -144,9 +141,10 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
      * @throws IOException Includes any I/O exceptions that may occur.
      */
     public void write(XmlWriter writer) throws IOException {
-        E[] elem = this.elems;
-        for (int i = 0, size = size(), n = size; i < n; i++) {
-            elem[i].write(writer);
+        E[] el = this.elems;
+        int si = this.size;
+        for (int i = 0; i < si; i++) {
+            el[i].write(writer);
         }
     }
 
@@ -165,7 +163,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     public final void forEach(Consumer<? super E> action) {
         E[] el = this.elems;
         int si = this.size;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < si; i++) {
             action.accept(el[i]);
         }
     }
@@ -179,19 +177,15 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     }
 
     /**
-     * Removes the first occurrence of the specified element from this list, if it is present. If the list does not
-     * contain the element, it is unchanged. More formally, removes the element with the lowest index <tt>i</tt> such
-     * that <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt> (if such an element exists).
-     * Returns <tt>true</tt> if this list contained the specified element (or equivalently, if this list changed as a
-     * result of the call).
-     *
-     * @param data element to be removed from this list, if present
-     * @return <tt>true</tt> if this list contained the specified element
+     * {@inheritDoc}
      */
-    public final boolean remove(E data) {
-        for (int index = 0; index < this.size; index++) {
-            if (data.equals(this.elems[index])) {
-                fastRemove(index);
+    @Override
+    public final boolean remove(Object o) {
+        E[] el = this.elems;
+        int si = this.size;
+        for (int i = 0; i < si; i++) {
+            if (o.equals(this.elems[i])) {
+                fastRemove(i);
                 return true;
             }
         }
@@ -220,6 +214,39 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         }
         this.size = 0;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final int indexOf(Object o) {
+        Objects.requireNonNull(o);
+        E[] el = this.elems;
+        int si = this.size;
+        for (int i = 0; i < si; i++) {
+            if (el[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int lastIndexOf(Object o) {
+        Objects.requireNonNull(o);
+        E[] el = this.elems;
+        int si = this.size;
+        for (int i = si - 1; i >= 0; i--) {
+            if (el[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
     private void ensureCapacityInternal(int min) {
         int minCapacity = min;
@@ -297,35 +324,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         return this.elems;
     }
 
-    // ========================================================================
-    // TODO .......
-    // ========================================================================
-
-    @Override
-    public int indexOf(Object o) {
-        throw new UnsupportedOperationException(" indexOf(Object o)");
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        throw new UnsupportedOperationException("lastIndexOf(Object o)");
-    }
-
-    @Override
-    public ListIterator<E> listIterator() {
-        throw new UnsupportedOperationException("listIterator()");
-    }
-
-    @Override
-    public ListIterator<E> listIterator(int index) {
-        throw new UnsupportedOperationException("listIterator(int index)");
-    }
-
-    @Override
-    public List<E> subList(int fromIndex, int toIndex) {
-        throw new UnsupportedOperationException("subList(int fromIndex, int toIndex)");
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -365,44 +363,57 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         };
     }
 
+    // ========================================================================
+    // TODO .......
+    // ========================================================================
+    @Override
+    public ListIterator<E> listIterator() {
+        throw new UnsupportedOperationException("listIterator()");
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        throw new UnsupportedOperationException("listIterator(int index)");
+    }
+
+    @Override
+    public List<E> subList(int fromIndex, int toIndex) {
+        throw new UnsupportedOperationException("subList(int fromIndex, int toIndex)");
+    }
+
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        throw new UnsupportedOperationException("toArray()");
     }
 
     @Override
     public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
+        throw new UnsupportedOperationException("toArray(" + a + ")");
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        throw new UnsupportedOperationException("containsAll()");
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        return false;
+        throw new UnsupportedOperationException("addAll()");
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+        throw new UnsupportedOperationException("addAll()");
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        throw new UnsupportedOperationException("removeAll()");
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        throw new UnsupportedOperationException("retainAll()");
     }
 
 }
