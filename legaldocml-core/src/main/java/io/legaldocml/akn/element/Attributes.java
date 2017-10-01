@@ -13,20 +13,20 @@ import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.akn.type.VoteRef;
 import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.util.DateHelper;
 import io.legaldocml.util.QnameUtil;
-import io.legaldocml.util.ReferenceRef;
 import io.legaldocml.util.Uri;
 
 import java.time.LocalDate;
@@ -272,7 +272,7 @@ public final class Attributes {
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerReferenceRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new ReferenceRef(s.value()));
+        return (i, s) -> getUnsafe().putObject(i, addr, ReferenceRef.raw(s.value()));
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerEidRef(long addr) {

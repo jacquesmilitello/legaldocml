@@ -9,6 +9,7 @@ import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.FRBRHelper;
 import io.legaldocml.business.AknIdentifier;
+import io.legaldocml.business.util.AknReference;
 import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.util.DateHelper;
@@ -71,7 +72,7 @@ public class MetaBuilder {
         this.identification.setSource(source);
     }
 
-    public void setAknIdentifier(AknIdentifier identifier) {
+    public final void setAknIdentifier(AknIdentifier identifier) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setAknIdentifier({}]", identifier);
         }
@@ -82,18 +83,18 @@ public class MetaBuilder {
         identifier.apply(this.businessBuilder.getAkomaNtoso());
     }
 
-    public void addLanguage(Language language) {
+    public final void addLanguage(Language language) {
         this.addLanguage(language, Language::getCode);
     }
 
-    public void addLanguage(Language language, Function<Language, String> mapper) {
+    public final void addLanguage(Language language, Function<Language, String> mapper) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addLanguage({}) -> {}", language, mapper.apply(language));
         }
-        this.identification.getFRBRExpression().add(newFRBRlanguage(mapper.apply(language)));
+        this.identification.getFRBRExpression().add(newFRBRlanguage(language,mapper));
     }
 
-    public void setDate(LocalDate date, String name) {
+    public final void setDate(LocalDate date, String name) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
@@ -112,24 +113,25 @@ public class MetaBuilder {
         frbr.setName(name);
     }
 
-    public void setCountry(Country country) {
+    public final void setCountry(Country country) {
         this.setCountry(country, Country::getAlpha2);
     }
 
-    public void setCountry(Country country, Function<Country, String> mapper) {
+    public final void setCountry(Country country, Function<Country, String> mapper) {
         if (LOGGER.isDebugEnabled()) {
+
             LOGGER.debug("setCountry({})", country);
         }
         this.identification.getFRBRWork().getFRBRcountry().setValue(mapper.apply(country));
     }
 
-    public void addAuthor(Uri href) {
+    public final void addAuthor(Uri href) {
         addAuthor(href, FRBR_WORK);
         addAuthor(href, FRBR_EXPRESSION);
         addAuthor(href, FRBR_MANIFESTATION);
     }
 
-    public void addAuthor(Uri href, Function<Identification, CoreProperties> type) {
+    public final void addAuthor(Uri href, Function<Identification, CoreProperties> type) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addAuthor({}) for ({})", href, type);
         }
@@ -144,6 +146,38 @@ public class MetaBuilder {
                 LOGGER.warn("author [{}] already exists in [{}]", frbRauthor, type);
             }
         }
+    }
+
+    public final void addAuthor(AknReference reference, Function<Identification, CoreProperties> type) {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("addAuthor({}) for ({})", reference, type);
+        }
+
+        FRBRauthor frbRauthor = new FRBRauthor();
+        reference.accept(frbRauthor, this.businessBuilder.getAkomaNtoso());
+
+      //  frbRauthor.setHref(Uri.valueOf("tete"));
+
+        AknList<FRBRauthor> authors = type.apply(this.identification).getAuthors();
+
+        if (!authors.contains(frbRauthor)) {
+            authors.add(frbRauthor);
+        } else {
+            if (LOGGER.isWarnEnabled()) {
+                LOGGER.warn("author [{}] already exists in [{}]", frbRauthor, type);
+            }
+        }
+
+    }
+
+    public void addUri(AknIdentifier identifier) {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("addUri({})", identifier);
+        }
+
+        this.identification.getFRBRWork().addFRBRuri(FRBRHelper.newFRBRuri(identifier.work()));
+        this.identification.getFRBRExpression().addFRBRuri(FRBRHelper.newFRBRuri(identifier.expression()));
+        this.identification.getFRBRManifestation().addFRBRuri(FRBRHelper.newFRBRuri(identifier.manifestation()));
     }
 
 

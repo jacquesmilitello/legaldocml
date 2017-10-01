@@ -39,6 +39,13 @@ public final class NoWhiteSpace {
         return value;
     }
 
+    public char[] makeRef() {
+        char[] ref = new char[this.value.length + 1];
+        ref[0] = '#';
+        System.arraycopy(this.value,0,ref,1,this.value.length);
+        return ref;
+    }
+
     /**
      * {@inheritDoc}
      */

@@ -3,16 +3,19 @@ package io.legaldocml.business.util;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
+import io.legaldocml.akn.attribute.Link;
 import io.legaldocml.akn.attribute.Refers;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.element.RefItem;
 import io.legaldocml.akn.element.References;
+import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.Uri;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,6 +106,41 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
         };
     }
 
+    public static AknReference href(AgentRef source, TLCOrganization organization) {
+        return new AknReference() {
+            @Override
+            public void accept(AknObject object, AkomaNtoso<? extends DocumentType> akn) {
+
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("reference with source [{}] from [{}] as [{}]",source, object, organization);
+                }
+
+                if (!(object instanceof Link)) {
+                    throw new AknReferenceException("Not a instance of Role [" + object + "]");
+                }
+
+                ((Link)object).setHref(Uri.valueOf(organization.getEid().makeRef()));
+
+                References ref = akn.getDocumentType().getMeta().getReferences(source);
+
+                if (ref == null) {
+                    ref = new References();
+                    ref.setSource(source);
+                    akn.getDocumentType().getMeta().add(ref);
+                }
+
+                Optional<RefItem> op = ref.getRefItems().stream()
+                        .filter( t -> t.equals(organization))
+                        .findFirst();
+
+
+                if (!op.isPresent()) {
+                    ref.add(organization);
+                }
+
+            }
+        };
+    }
 
 
 }

@@ -23,4 +23,7 @@ public final class Uri extends AbstractUri {
         return new Uri(UnsafeString.getChars(value));
     }
 
+    public static Uri valueOf(char[] value) {
+        return new Uri(value);
+    }
 }

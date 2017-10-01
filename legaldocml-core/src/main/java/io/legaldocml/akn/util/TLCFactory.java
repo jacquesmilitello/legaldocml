@@ -1,5 +1,6 @@
 package io.legaldocml.akn.util;
 
+import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -29,4 +30,11 @@ public final class TLCFactory {
         return role;
     }
 
+    public static TLCOrganization newTLCOrganization(NoWhiteSpace eid, Uri href, String showAs) {
+        TLCOrganization organization = new TLCOrganization();
+        organization.setEid(eid);
+        organization.setHref(href);
+        organization.setShowAs(showAs);
+        return organization;
+    }
 }

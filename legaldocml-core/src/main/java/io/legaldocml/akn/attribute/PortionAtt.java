@@ -1,7 +1,7 @@
 package io.legaldocml.akn.attribute;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.util.ReferenceRef;
+import io.legaldocml.akn.type.ReferenceRef;
 
 /**
  * the attribute includedIn specifies the eId of the element of the references section identifying the document that

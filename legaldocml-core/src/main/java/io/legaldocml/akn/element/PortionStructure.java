@@ -3,12 +3,12 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.PortionAtt;
+import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.util.ReferenceRef;
+import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;

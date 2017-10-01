@@ -2,14 +2,17 @@ package io.legaldocml.akn.util;
 
 import io.legaldocml.akn.element.AbstractId;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@RunWith(SonarJUnit4ClassRunner.class)
 public class ExternalizableListTest {
 
     @Rule
