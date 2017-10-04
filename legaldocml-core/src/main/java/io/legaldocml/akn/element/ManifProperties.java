@@ -30,6 +30,22 @@ public abstract class ManifProperties extends CoreProperties {
     // Optional.
     private FRBRportion portion;
 
+    public FRBRformat getFormat() {
+        return format;
+    }
+
+    public void setFormat(FRBRformat format) {
+        this.format = format;
+    }
+
+    public FRBRportion getPortion() {
+        return portion;
+    }
+
+    public void setPortion(FRBRportion portion) {
+        this.portion = portion;
+    }
+
     /**
      * {@inheritDoc}
      */

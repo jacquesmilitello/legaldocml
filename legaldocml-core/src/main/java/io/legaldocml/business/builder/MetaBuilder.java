@@ -3,15 +3,23 @@ package io.legaldocml.business.builder;
 import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.element.CoreProperties;
 import io.legaldocml.akn.element.FRBRauthor;
+import io.legaldocml.akn.element.FRBRauthoritative;
 import io.legaldocml.akn.element.FRBRdate;
+import io.legaldocml.akn.element.FRBRname;
+import io.legaldocml.akn.element.FRBRnumber;
+import io.legaldocml.akn.element.FRBRportion;
+import io.legaldocml.akn.element.FRBRprescriptive;
+import io.legaldocml.akn.element.FRBRsubtype;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.type.AgentRef;
+import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.FRBRHelper;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
+import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.DateHelper;
 import io.legaldocml.util.Uri;
 import org.slf4j.Logger;
@@ -91,7 +99,7 @@ public class MetaBuilder {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addLanguage({}) -> {}", language, mapper.apply(language));
         }
-        this.identification.getFRBRExpression().add(newFRBRlanguage(language,mapper));
+        this.identification.getFRBRExpression().add(newFRBRlanguage(language, mapper));
     }
 
     public final void setDate(LocalDate date, String name) {
@@ -148,15 +156,13 @@ public class MetaBuilder {
         }
     }
 
-    public final void addAuthor(AknReference reference, Function<Identification, CoreProperties> type) {
+    public final FRBRauthor addAuthor(AknReference reference, Function<Identification, CoreProperties> type) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addAuthor({}) for ({})", reference, type);
         }
 
         FRBRauthor frbRauthor = new FRBRauthor();
         reference.accept(frbRauthor, this.businessBuilder.getAkomaNtoso());
-
-      //  frbRauthor.setHref(Uri.valueOf("tete"));
 
         AknList<FRBRauthor> authors = type.apply(this.identification).getAuthors();
 
@@ -167,6 +173,8 @@ public class MetaBuilder {
                 LOGGER.warn("author [{}] already exists in [{}]", frbRauthor, type);
             }
         }
+
+        return frbRauthor;
 
     }
 
@@ -180,6 +188,49 @@ public class MetaBuilder {
         this.identification.getFRBRManifestation().addFRBRuri(FRBRHelper.newFRBRuri(identifier.manifestation()));
     }
 
+    public FRBRsubtype setSubType(String value) {
+
+        FRBRsubtype subtype = new FRBRsubtype();
+        subtype.setValue(value);
+
+        this.identification.getFRBRWork().setSubtype(subtype);
+        return subtype;
+    }
+
+    public FRBRnumber addNumber(String value) {
+        FRBRnumber number = new FRBRnumber();
+        number.setValue(value);
+        this.identification.getFRBRWork().add(number);
+        return number;
+    }
+
+    public FRBRname addName(String value) {
+        FRBRname name = new FRBRname();
+        name.setValue(value);
+        this.identification.getFRBRWork().add(name);
+        return name;
+    }
+
+    public FRBRprescriptive setPrescriptive(boolean value) {
+        FRBRprescriptive prescriptive = new FRBRprescriptive();
+        prescriptive.setValue(value);
+        this.identification.getFRBRWork().setPrescriptive(prescriptive);
+        return prescriptive;
+    }
+
+    public FRBRauthoritative setAuthoritative(boolean value) {
+        FRBRauthoritative authoritative = new FRBRauthoritative();
+        authoritative.setValue(value);
+        this.identification.getFRBRWork().setAuthoritative(authoritative);
+        return authoritative;
+    }
+
+    public FRBRportion setPortion(String from) {
+        FRBRportion portion = new FRBRportion();
+        portion.setFrom(EidRef.valueOf(UnsafeString.getChars(from)));
+        this.identification.getFRBRManifestation().setPortion(portion);
+        return portion;
+    }
 
     private abstract static class CorePropertiesGetter implements Function<Identification, CoreProperties> {
 

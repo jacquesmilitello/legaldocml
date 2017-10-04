@@ -52,11 +52,47 @@ public abstract class WorkProperties extends CoreProperties {
     // Optional
     private FRBRauthoritative authoritative;
 
-
     public final FRBRcountry getFRBRcountry() {
         return this.country;
     }
 
+    public FRBRsubtype getSubtype() {
+        return subtype;
+    }
+
+    public void setSubtype(FRBRsubtype subtype) {
+        this.subtype = subtype;
+    }
+
+    public FRBRprescriptive getPrescriptive() {
+        return prescriptive;
+    }
+
+    public void setPrescriptive(FRBRprescriptive prescriptive) {
+        this.prescriptive = prescriptive;
+    }
+
+    public FRBRauthoritative getAuthoritative() {
+        return authoritative;
+    }
+
+    public void setAuthoritative(FRBRauthoritative authoritative) {
+        this.authoritative = authoritative;
+    }
+
+    public void add(FRBRnumber number) {
+        if (this.numbers == null) {
+            this.numbers = new AknList<>(new FRBRnumber[2]);
+        }
+        this.numbers.add(number);
+    }
+
+    public void add(FRBRname name) {
+        if (this.names == null) {
+            this.names = new AknList<>(new FRBRname[2]);
+        }
+        this.names.add(name);
+    }
 
     /**
      * {@inheritDoc}

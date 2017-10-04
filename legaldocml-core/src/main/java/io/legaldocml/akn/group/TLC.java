@@ -1,6 +1,7 @@
 package io.legaldocml.akn.group;
 
 
+import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.element.RefItem;
 
 /**
@@ -25,6 +26,6 @@ import io.legaldocml.akn.element.RefItem;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface TLC extends RefItem {
+public interface TLC extends RefItem, Id {
 
 }

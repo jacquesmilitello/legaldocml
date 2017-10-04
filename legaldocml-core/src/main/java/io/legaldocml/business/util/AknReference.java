@@ -8,9 +8,9 @@ import io.legaldocml.akn.attribute.Refers;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.element.RefItem;
 import io.legaldocml.akn.element.References;
-import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
+import io.legaldocml.akn.group.TLC;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.RoleRef;
@@ -106,20 +106,20 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
         };
     }
 
-    public static AknReference href(AgentRef source, TLCOrganization organization) {
+    public static AknReference href(AgentRef source, TLC tlc) {
         return new AknReference() {
             @Override
             public void accept(AknObject object, AkomaNtoso<? extends DocumentType> akn) {
 
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("reference with source [{}] from [{}] as [{}]",source, object, organization);
+                    LOGGER.debug("reference with source [{}] from [{}] as [{}]",source, object, tlc);
                 }
 
                 if (!(object instanceof Link)) {
                     throw new AknReferenceException("Not a instance of Role [" + object + "]");
                 }
 
-                ((Link)object).setHref(Uri.valueOf(organization.getEid().makeRef()));
+                ((Link)object).setHref(Uri.valueOf(tlc.getEid().makeRef()));
 
                 References ref = akn.getDocumentType().getMeta().getReferences(source);
 
@@ -130,12 +130,12 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
                 }
 
                 Optional<RefItem> op = ref.getRefItems().stream()
-                        .filter( t -> t.equals(organization))
+                        .filter( t -> t.equals(tlc))
                         .findFirst();
 
 
                 if (!op.isPresent()) {
-                    ref.add(organization);
+                    ref.add(tlc);
                 }
 
             }
