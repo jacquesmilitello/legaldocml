@@ -85,7 +85,7 @@ public class MetaBuilderTest {
 
         OffsetDateTime odt2 = DateHelper.convert(LocalDate.of(2014, 9, 17));
 
-        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif", MetaBuilder.FRBR_EXPRESSION);
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif", MetaBuilder.LOOKUP_FRBR_EXPRESSION);
         Assert.assertEquals(odt, identification.getFRBRWork().getFRBRdate().getDate());
         Assert.assertEquals("test", identification.getFRBRWork().getFRBRdate().getName());
         Assert.assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
@@ -93,7 +93,7 @@ public class MetaBuilderTest {
         Assert.assertEquals(odt, identification.getFRBRManifestation().getFRBRdate().getDate());
         Assert.assertEquals("test", identification.getFRBRManifestation().getFRBRdate().getName());
 
-        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif-2", MetaBuilder.FRBR_MANIFESTATION);
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif-2", MetaBuilder.LOOKUP_FRBR_MANIFESTATION);
         Assert.assertEquals(odt, identification.getFRBRWork().getFRBRdate().getDate());
         Assert.assertEquals("test", identification.getFRBRWork().getFRBRdate().getName());
         Assert.assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
@@ -101,8 +101,8 @@ public class MetaBuilderTest {
         Assert.assertEquals(odt2, identification.getFRBRManifestation().getFRBRdate().getDate());
         Assert.assertEquals("modif-2", identification.getFRBRManifestation().getFRBRdate().getName());
 
-        builder.getMetaBuilder().setDate(odt.toLocalDate(), "test", MetaBuilder.FRBR_MANIFESTATION);
-        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif-3",  MetaBuilder.FRBR_WORK);
+        builder.getMetaBuilder().setDate(odt.toLocalDate(), "test", MetaBuilder.LOOKUP_FRBR_MANIFESTATION);
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif-3",  MetaBuilder.LOOKUP_FRBR_WORK);
         Assert.assertEquals(odt2, identification.getFRBRWork().getFRBRdate().getDate());
         Assert.assertEquals("modif-3", identification.getFRBRWork().getFRBRdate().getName());
         Assert.assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
@@ -129,14 +129,14 @@ public class MetaBuilderTest {
         Assert.assertEquals(1, identification.getFRBRExpression().getAuthors().size());
         Assert.assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
 
-        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques2"), MetaBuilder.FRBR_EXPRESSION);
+        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques2"), MetaBuilder.LOOKUP_FRBR_EXPRESSION);
         Assert.assertEquals(1, identification.getFRBRWork().getAuthors().size());
         Assert.assertEquals(2, identification.getFRBRExpression().getAuthors().size());
         Assert.assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
         Assert.assertEquals("#jacques", identification.getFRBRExpression().getAuthors().get(0).getHref().toString());
         Assert.assertEquals("#jacques2", identification.getFRBRExpression().getAuthors().get(1).getHref().toString());
 
-        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques3"), MetaBuilder.FRBR_MANIFESTATION);
+        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques3"), MetaBuilder.LOOKUP_FRBR_MANIFESTATION);
         Assert.assertEquals(1, identification.getFRBRWork().getAuthors().size());
         Assert.assertEquals(2, identification.getFRBRExpression().getAuthors().size());
         Assert.assertEquals(2, identification.getFRBRManifestation().getAuthors().size());

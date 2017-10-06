@@ -5,14 +5,18 @@ import io.legaldocml.XmlUnitHelper;
 import io.legaldocml.akn.element.Block;
 import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.akn.element.Content;
+import io.legaldocml.akn.element.Heading;
+import io.legaldocml.akn.element.Intro;
 import io.legaldocml.akn.element.Mref;
 import io.legaldocml.akn.element.P;
+import io.legaldocml.akn.element.Paragraph;
 import io.legaldocml.akn.element.Portion;
 import io.legaldocml.akn.element.Section;
 import io.legaldocml.akn.element.Span;
 import io.legaldocml.akn.element.Subsection;
 import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
+import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -24,7 +28,6 @@ import io.legaldocml.io.XmlProvider;
 import io.legaldocml.iso.Iso3166;
 import io.legaldocml.iso.Iso639;
 import io.legaldocml.model.Language;
-import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
 import io.legaldocml.util.Uri;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -38,6 +41,11 @@ import java.time.LocalDate;
 import static io.legaldocml.akn.type.RoleRef.valueOf;
 import static io.legaldocml.akn.util.TLCFactory.newTLCOrganization;
 import static io.legaldocml.akn.util.TLCFactory.newTLCPerson;
+import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
+import static io.legaldocml.business.builder.MetaBuilder.LOOKUP_FRBR_EXPRESSION;
+import static io.legaldocml.business.builder.MetaBuilder.LOOKUP_FRBR_MANIFESTATION;
+import static io.legaldocml.business.builder.MetaBuilder.LOOKUP_FRBR_WORK;
+import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.href;
 
 /**
@@ -53,6 +61,8 @@ public class PortionBuilderTest {
     private static final TLCOrganization ORGANIZATION_2 = newTLCOrganization(new NoWhiteSpace("interAmericanCommercialArbitationCommission"), Uri.valueOf("/akn/us/ontology/organization/interAmericanCommercialArbitationCommission"), "Inter-American Commercial Arbitration Commission");
 
     private static final TLCPerson PERSON_VERGOTTINI = newTLCPerson(new NoWhiteSpace("vergottini"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
+
+    private static final TLCRole ROLE_DRAFTER = newTLCRole(new NoWhiteSpace("drafter"), Uri.valueOf("/akn/us/ontology/role/drafter"), "Drafter");
 
     @Test
     public void testMeta() throws IOException {
@@ -70,13 +80,13 @@ public class PortionBuilderTest {
 
         metaBuilder.setAknIdentifier(new Identifier("/akn/us/usc/title_9/!main", "/akn/us/usc/title_9/eng@2013-07-26/!main", "/akn/us/usc/title_9/eng@2013-07-26~chp_3/!main.xml"));
         metaBuilder.addUri(new Identifier("/akn/us/usc/title_9", "/akn/us/usc/title_9/eng@2013-07-26", "/akn/us/usc/title_9/eng@2013-07-26~chp_3/!main.akn"));
-        metaBuilder.setDate(LocalDate.of(1947, 7, 30), "Title 9", MetaBuilder.FRBR_WORK);
-        metaBuilder.setDate(LocalDate.of(2013, 7, 26), "Chapter 3 of Title 9 (July 26, 2013)", MetaBuilder.FRBR_EXPRESSION);
-        metaBuilder.setDate(LocalDate.of(2014, 10, 7), "Chapter 3 of Title 9 (July 26, 2013) -- XML Markup", MetaBuilder.FRBR_MANIFESTATION);
+        metaBuilder.setDate(LocalDate.of(1947, 7, 30), "Title 9", LOOKUP_FRBR_WORK);
+        metaBuilder.setDate(LocalDate.of(2013, 7, 26), "Chapter 3 of Title 9 (July 26, 2013)", LOOKUP_FRBR_EXPRESSION);
+        metaBuilder.setDate(LocalDate.of(2014, 10, 7), "Chapter 3 of Title 9 (July 26, 2013) -- XML Markup", LOOKUP_FRBR_MANIFESTATION);
 
-        metaBuilder.addAuthor(href(SOURCE, ORGANIZATION), MetaBuilder.FRBR_WORK).setAs(valueOf("author"));
-        metaBuilder.addAuthor(href(SOURCE, ORGANIZATION), MetaBuilder.FRBR_EXPRESSION).setAs(valueOf("editor"));
-        metaBuilder.addAuthor(href(SOURCE, PERSON_VERGOTTINI), MetaBuilder.FRBR_MANIFESTATION).setAs(RoleRef.raw("generator".toCharArray()));
+        metaBuilder.addAuthor(LOOKUP_FRBR_WORK, href(SOURCE, ORGANIZATION), as(SOURCE, ROLE_DRAFTER));
+        metaBuilder.addAuthor(LOOKUP_FRBR_EXPRESSION,href(SOURCE, ORGANIZATION)).setAs(valueOf("editor"));
+        metaBuilder.addAuthor(LOOKUP_FRBR_MANIFESTATION,href(SOURCE, PERSON_VERGOTTINI)).setAs(RoleRef.raw("generator".toCharArray()));
 
         metaBuilder.setCountry(Iso3166.UNITED_STATES_OF_AMERICA);
         metaBuilder.addLanguage(Iso639.ENGLISH, Language::getTerminology);
@@ -133,8 +143,16 @@ public class PortionBuilderTest {
             t.setGUID(new NoWhiteSpace("idd1d2fc3c-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(new NoWhiteSpace("sec_303"));
         })));
-        new DefaultXmlWriterFactoryV3().writePermissive(Channels.newChannel(System.out), portionBuilder.getAkomaNtoso());
+        addSection_3(chapter.section((t ->  {
+            t.setGUID(new NoWhiteSpace("idd1d2fc40-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(new NoWhiteSpace("sec_304"));
+        })));
+        addSection_4(chapter.section((t ->  {
+            t.setGUID(new NoWhiteSpace("idd1d32352-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(new NoWhiteSpace("sec_305"));
+        })));
 
+        //new DefaultXmlWriterFactoryV3().writePermissive(Channels.newChannel(System.out), portionBuilder.getAkomaNtoso());
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         XmlProvider.writerFactory(3).writePermissive(Channels.newChannel(baos), portionBuilder.getAkomaNtoso());
@@ -148,7 +166,7 @@ public class PortionBuilderTest {
         );
 
 
-        for (int i = 0; i < 3 ; i++) {
+        for (int i = 0; i < 5 ; i++) {
             XmlUnitHelper.compare(
                     expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "section").item(i),
                     actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "section").item(i)
@@ -323,6 +341,63 @@ public class PortionBuilderTest {
         p.text(".");
 
     }
+
+    private static void addSection_3(HierarchyBuilder<Section> section) {
+
+        section.num().text("§ 304.");
+        section.heading().text("Recognition and enforcement of foreign arbitral decisions and awards; reciprocity");
+
+        BlocksBuilder<Content> content = section.content();
+        InlineTypeBuilder<P> p = content.p();
+
+        p.text("Arbitral decisions or awards made in the territory of a foreign State shall, on the basis of");
+        p.text(" reciprocity, be recognized and enforced under this chapter only if that State has ratified");
+        p.text(" or acceded to the");
+        p.ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
+        p.text(".");
+
+        InlineTypeBuilder<Block> block = content.block(t-> t.setName("sourceCredit"));
+        block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
+        block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/449")).text("104 Stat. 449");
+        block.text(" .)");
+
+    }
+
+    private static void addSection_4(HierarchyBuilder<Section> section) {
+
+        section.num().text("§ 305.");
+        InlineReqTypeBuilder<Heading> heading = section.heading();
+        heading.text("Relationship between the ").ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
+        heading.text(" and the").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and  Enforcement of Foreign Arbitral Awards of June 10, 1958");
+
+        BlocksBuilder<Intro> intro = section.intro();
+        InlineTypeBuilder<P> p = intro.p();
+        p.text("When the requirements for application of both the ").ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
+        p.text(" and the  ").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
+        p.text(", are met, determination as to which Convention applies shall, unless otherwise expressly agreed, be made as follows:");
+
+
+        HierarchyBuilder<Paragraph> paragraph = section.paragraph(t -> {
+            t.setGUID(new NoWhiteSpace("idd1d32353-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(new NoWhiteSpace("sec_305__para_1"));
+        });
+
+        paragraph.num().text("(1)");
+        paragraph.content().p().text("If a majority of the parties to the arbitration agreement are citizens of a State or")
+            .text(" States that have ratified or acceded to the Inter-American Convention and are member")
+            .text(" States of the Organization of American States, the Inter-American Convention shall apply.");
+
+        paragraph = section.paragraph(t -> {
+            t.setGUID(new NoWhiteSpace("idd1d32354-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(new NoWhiteSpace("sec_305__para_2"));
+        });
+
+        paragraph.num().text("(2)");
+        p = paragraph.content().p();
+        p.text("In all other cases the ").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention  on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
+        p.text(", shall apply.");
+    }
+
 
     private static class Identifier extends AknIdentifier {
 

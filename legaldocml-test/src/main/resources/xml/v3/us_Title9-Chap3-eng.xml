@@ -10,7 +10,7 @@
                     <FRBRthis value="/akn/us/usc/title_9/!main"/>
                     <FRBRuri value="/akn/us/usc/title_9"/>
                     <FRBRdate date="1947-07-30" name="Title 9"/>
-                    <FRBRauthor href="#olrc" as="#author"/>
+                    <FRBRauthor href="#olrc" as="#drafter"/>
                     <FRBRcountry value="us"/>
                     <FRBRsubtype value="title"/>
                     <FRBRnumber value="title_9"/>

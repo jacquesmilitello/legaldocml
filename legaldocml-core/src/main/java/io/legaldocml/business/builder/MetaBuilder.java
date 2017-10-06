@@ -1,6 +1,5 @@
 package io.legaldocml.business.builder;
 
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.element.CoreProperties;
 import io.legaldocml.akn.element.FRBRauthor;
 import io.legaldocml.akn.element.FRBRauthoritative;
@@ -35,35 +34,9 @@ import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
  */
 public class MetaBuilder {
 
-    public static final Function<Identification, CoreProperties> FRBR_WORK = new CorePropertiesGetter(AknElements.FRBR_WORK) {
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public CoreProperties apply(Identification identification) {
-            return identification.getFRBRWork();
-        }
-    };
-
-    public static final Function<Identification, CoreProperties> FRBR_EXPRESSION = new CorePropertiesGetter(AknElements.FRBR_EXPRESSION) {
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public CoreProperties apply(Identification identification) {
-            return identification.getFRBRExpression();
-        }
-    };
-
-    public static final Function<Identification, CoreProperties> FRBR_MANIFESTATION = new CorePropertiesGetter(AknElements.FRBR_MANIFESTATION) {
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public CoreProperties apply(Identification identification) {
-            return identification.getFRBRManifestation();
-        }
-    };
+    public static final Function<Identification, CoreProperties> LOOKUP_FRBR_WORK = Identification::getFRBRWork;
+    public static final Function<Identification, CoreProperties> LOOKUP_FRBR_EXPRESSION = Identification::getFRBRExpression;
+    public static final Function<Identification, CoreProperties> LOOKUP_FRBR_MANIFESTATION = Identification::getFRBRManifestation;
 
     /**
      * SLF4J Logger.
@@ -106,9 +79,9 @@ public class MetaBuilder {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
-        setDate(date, name, FRBR_WORK);
-        setDate(date, name, FRBR_EXPRESSION);
-        setDate(date, name, FRBR_MANIFESTATION);
+        setDate(date, name, LOOKUP_FRBR_WORK);
+        setDate(date, name, LOOKUP_FRBR_EXPRESSION);
+        setDate(date, name, LOOKUP_FRBR_MANIFESTATION);
     }
 
     public void setDate(LocalDate date, String name, Function<Identification, CoreProperties> map) {
@@ -134,9 +107,9 @@ public class MetaBuilder {
     }
 
     public final void addAuthor(Uri href) {
-        addAuthor(href, FRBR_WORK);
-        addAuthor(href, FRBR_EXPRESSION);
-        addAuthor(href, FRBR_MANIFESTATION);
+        addAuthor(href, LOOKUP_FRBR_WORK);
+        addAuthor(href, LOOKUP_FRBR_EXPRESSION);
+        addAuthor(href, LOOKUP_FRBR_MANIFESTATION);
     }
 
     public final void addAuthor(Uri href, Function<Identification, CoreProperties> type) {
@@ -156,13 +129,16 @@ public class MetaBuilder {
         }
     }
 
-    public final FRBRauthor addAuthor(AknReference reference, Function<Identification, CoreProperties> type) {
+    public final FRBRauthor addAuthor(Function<Identification, CoreProperties> type, AknReference ... references) {
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("addAuthor({}) for ({})", reference, type);
+            LOGGER.debug("addAuthor({}) for ({})", references, type);
         }
 
         FRBRauthor frbRauthor = new FRBRauthor();
-        reference.accept(frbRauthor, this.businessBuilder.getAkomaNtoso());
+
+        for (AknReference ref : references) {
+            ref.accept(frbRauthor, this.businessBuilder.getAkomaNtoso());
+        }
 
         AknList<FRBRauthor> authors = type.apply(this.identification).getAuthors();
 
@@ -230,20 +206,6 @@ public class MetaBuilder {
         portion.setFrom(EidRef.valueOf(UnsafeString.getChars(from)));
         this.identification.getFRBRManifestation().setPortion(portion);
         return portion;
-    }
-
-    private abstract static class CorePropertiesGetter implements Function<Identification, CoreProperties> {
-
-        private final String name;
-
-        private CorePropertiesGetter(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return this.name;
-        }
     }
 
 }
