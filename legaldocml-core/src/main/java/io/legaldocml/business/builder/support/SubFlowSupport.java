@@ -12,8 +12,8 @@ public interface SubFlowSupport<T extends SubFlowsElementsContainer> extends Sup
     default SubFlowBuilder subFlow(String name) {
         SubFlow subFlow = new SubFlow();
         subFlow.setName(name);
-        getParent().add(subFlow);
-        return new SubFlowBuilder(getBusinessBuilder(), subFlow);
+        parent().add(subFlow);
+        return new SubFlowBuilder(businessBuilder(), subFlow);
     }
 
 }

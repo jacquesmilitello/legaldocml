@@ -14,15 +14,14 @@ import java.util.function.Consumer;
  */
 public interface DocTypeSupport<T extends ANtitleInlineContainer> extends SupportBuilder<T>  {
 
-    @SuppressWarnings("unchecked")
     default InlineTypeBuilder<DocType> docType(Consumer<DocType> consumer, AknReference... refs) {
         DocType docType = new DocType();
-        getParent().add(docType);
-        AknReferenceHelper.apply(getBusinessBuilder().getAkomaNtoso(), docType, refs);
+        parent().add(docType);
+        AknReferenceHelper.apply(businessBuilder().getAkomaNtoso(), docType, refs);
         if (consumer != null) {
             consumer.accept(docType);
         }
-        return new InlineTypeBuilder<>(getBusinessBuilder(), docType);
+        return new InlineTypeBuilder<>(businessBuilder(), docType);
     }
 
     default InlineTypeBuilder<DocType> docType(AknReference... refs) {

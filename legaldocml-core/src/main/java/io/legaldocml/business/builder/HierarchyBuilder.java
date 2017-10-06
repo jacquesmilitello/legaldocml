@@ -7,12 +7,13 @@ import io.legaldocml.akn.element.HierarchyElement;
 import io.legaldocml.akn.element.Intro;
 import io.legaldocml.akn.element.Num;
 import io.legaldocml.akn.element.Subheading;
+import io.legaldocml.business.builder.group.HierElementsBuilder;
 import io.legaldocml.business.util.EidFactory;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBuilder {
+public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T> {
 
     private final Hierarchy parent;
     private final T hierarchy;
@@ -22,7 +23,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBui
     }
 
     public HierarchyBuilder(BusinessBuilder businessBuilder, Hierarchy parent, T hierarchy) {
-        super(businessBuilder);
+        super(businessBuilder, hierarchy);
         this.parent = parent;
         this.hierarchy = hierarchy;
     }
@@ -59,16 +60,16 @@ public final class HierarchyBuilder<T extends Hierarchy> extends BusinessPartBui
         return this;
     }
 
-    public <T extends Hierarchy & HierarchyElement> HierarchyBuilder<T> next() {
-        T el = this.getBusinessBuilder().getStrategy().next(this.hierarchy);
-        this.hierarchy.add(el);
+    public <E extends Hierarchy & HierarchyElement> HierarchyBuilder<E> next() {
+        E el = this.getBusinessBuilder().getStrategy().next(this.hierarchy);
+        this.hierarchy.addHierarchyElement(el);
         return new HierarchyBuilder<>(getBusinessBuilder(), this.hierarchy, el);
     }
 
-    public <T extends Hierarchy> HierarchyBuilder<T> newChild(String element) {
+    public <E extends Hierarchy> HierarchyBuilder<E> newChild(String element) {
         HierarchyElement el = Hierarchy.ELEMS.get(element).get();
-        this.hierarchy.add(el);
-        return new HierarchyBuilder<T>(getBusinessBuilder(), this.hierarchy, (T) el);
+        this.hierarchy.addHierarchyElement(el);
+        return new HierarchyBuilder<E>(getBusinessBuilder(), (E) el);
     }
 
     public BlocksBuilder<Intro> intro() {

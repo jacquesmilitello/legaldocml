@@ -2,6 +2,9 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
+import io.legaldocml.akn.container.HierElementsContainer;
+import io.legaldocml.akn.group.ANhier;
+import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -46,7 +49,7 @@ import static io.legaldocml.akn.AknElements.RECITALS;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class PortionBodyType extends AbstractCore implements CoreOpt {
+public abstract class PortionBodyType extends AbstractCore implements CoreOpt, HierElementsContainer {
 
     private static final ImmutableMap<String, Supplier<PortionBodyTypeElement>> ELEMS;
 
@@ -69,6 +72,22 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt {
 
     // Mandatory
     private final AknList<PortionBodyTypeElement> elements = new AknList<>(new PortionBodyTypeElement[4]);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HierElements hier) {
+        this.elements.add(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANhier hier) {
+        this.elements.add(hier);
+    }
 
     /**
      * {@inheritDoc}

@@ -1,18 +1,10 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.CoreReqReq;
-import io.legaldocml.akn.container.InlineCMContainer;
-import io.legaldocml.akn.group.ANtitleInline;
-import io.legaldocml.akn.group.InlineCM;
-import io.legaldocml.akn.group.SubFlowElements;
-import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type inlinereq defines the content model and attributes shared by all blocks and inlines. Here the eId
@@ -29,35 +21,14 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class InlineReqReqType extends AbstractCore implements CoreReqReq, InlineCMContainer {
-
-    /**
-     * Container for all data fors this inline.
-     */
-    private final AknList<InlineCM> data = new AknList<>(new InlineCM[8]);
+public abstract class InlineReqReqType extends InlineTypeAbstract implements CoreReqReq {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public final void add(InlineCM inlineCM) {
-        this.data.add(inlineCM);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void add(SubFlowElements el) {
-        this.data.add(el);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void add(ANtitleInline titleInline) {
-        this.data.add(requireNonNull(titleInline));
+    public void accept(AknVisitor visitor) {
+        getData().accept(visitor);
     }
 
     /**
@@ -66,24 +37,7 @@ public abstract class InlineReqReqType extends AbstractCore implements CoreReqRe
     @Override
     public void write(XmlWriter writer) throws IOException {
         CoreReqReq.super.write(writer);
-        this.data.write(writer);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void read(XmlReader reader) {
-        super.read(reader);
-        InlineType.read(reader, this.data);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void accept(AknVisitor visitor) {
-        this.data.accept(visitor);
+        super.write(writer);
     }
 
 }

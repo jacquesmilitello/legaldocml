@@ -7,8 +7,8 @@ import io.legaldocml.akn.attribute.Link;
 import io.legaldocml.akn.attribute.Refers;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.element.RefItem;
+import io.legaldocml.akn.element.ReferenceType;
 import io.legaldocml.akn.element.References;
-import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.group.TLC;
 import io.legaldocml.akn.type.AgentRef;
@@ -36,7 +36,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
     protected AknReference() {
     }
 
-    public static AknReference refersTo(AgentRef source, TLCPerson refersTo) {
+    public static <T extends ReferenceType & RefItem> AknReference refersTo(AgentRef source, T refersTo) {
         return new AknReference() {
             @Override
             public void accept(AknObject object, AkomaNtoso<? extends DocumentType> akn) {

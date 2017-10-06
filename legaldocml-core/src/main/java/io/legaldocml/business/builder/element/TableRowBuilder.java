@@ -1,18 +1,21 @@
-package io.legaldocml.business.builder;
+package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.element.Td;
 import io.legaldocml.akn.element.Th;
 import io.legaldocml.akn.element.Tr;
+import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
+import io.legaldocml.business.builder.BlocksBuilder;
+import io.legaldocml.business.builder.BusinessBuilder;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class TableRowBuilder extends BusinessPartBuilder{
+public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
 
     private final Tr tr;
 
     public TableRowBuilder(BusinessBuilder businessBuilder, Tr tr) {
-        super(businessBuilder);
+        super(businessBuilder, tr);
         this.tr = tr;
     }
 

@@ -1,17 +1,12 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.AknObject;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BusinessPartBuilder {
+public interface BusinessPartBuilder<T extends AknObject> {
 
-    private final BusinessBuilder businessBuilder;
+   BusinessBuilder businessBuilder();
 
-    protected BusinessPartBuilder(BusinessBuilder businessBuilder) {
-        this.businessBuilder = businessBuilder;
-    }
-
-    public final BusinessBuilder getBusinessBuilder() {
-        return businessBuilder;
-    }
 }

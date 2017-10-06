@@ -11,8 +11,8 @@ public interface ListSupport<T extends ANhierContainer> extends SupportBuilder<T
 
     default HierarchyBuilder<List> list() {
         List list = new List();
-        getParent().add(list);
-        return new HierarchyBuilder<>(getBusinessBuilder(), list);
+        parent().add(list);
+        return new HierarchyBuilder<>(businessBuilder(), list);
     }
 
 }

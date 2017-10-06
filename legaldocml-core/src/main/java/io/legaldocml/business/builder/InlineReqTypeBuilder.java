@@ -8,7 +8,7 @@ import io.legaldocml.akn.element.InlineReqType;
 public class InlineReqTypeBuilder<T extends InlineReqType> extends InlineCMContainerBuilder<T, InlineReqTypeBuilder<T>> {
 
     public InlineReqTypeBuilder(BusinessBuilder builder, T container) {
-        super(builder,container);
+        super(builder, container);
     }
 
 }

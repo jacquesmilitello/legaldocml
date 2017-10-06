@@ -3,6 +3,9 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.CoreReq;
+import io.legaldocml.akn.container.HierElementsContainer;
+import io.legaldocml.akn.group.ANhier;
+import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -52,7 +55,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Hierarchy extends BaseHierarchy implements CoreReq {
+public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierElementsContainer {
 
     /**
      * SLF4J Logger.
@@ -80,11 +83,27 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq {
     private WrapUp wrapUp;
 
 
-    public final void add(HierarchyElement element) {
+    public final void addHierarchyElement(HierarchyElement element) {
         if (this.elements == null) {
             this.elements = new AknList<>(new HierarchyElement[4]);
         }
         this.elements.add(element);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(HierElements hier) {
+        addHierarchyElement(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(ANhier hier) {
+        addHierarchyElement(hier);
     }
 
     /**

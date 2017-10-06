@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 @RunWith(SonarJUnit4ClassRunner.class)
-public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E extends AknObject> {
+public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E extends AknObject>  {
 
     protected T mock;
     protected E parent;
@@ -28,8 +28,8 @@ public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E exte
         mock = Mockito.mock(getSupportBuilderClass());
         parent = getParent();
         BusinessBuilder businessBuilder = BusinessProvider.businessProvider("default").newBuilder("doc");
-        Mockito.when(mock.getParent()).thenReturn(this.parent);
-        Mockito.when(mock.getBusinessBuilder()).thenReturn(businessBuilder);
+        Mockito.when(mock.parent()).thenReturn(this.parent);
+        Mockito.when(mock.businessBuilder()).thenReturn(businessBuilder);
     }
 
     protected String write() {
@@ -45,4 +45,5 @@ public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E exte
     protected abstract Class<T> getSupportBuilderClass();
 
     protected abstract E getParent();
+
 }

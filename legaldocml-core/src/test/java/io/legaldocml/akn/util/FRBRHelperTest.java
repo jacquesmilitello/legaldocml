@@ -40,7 +40,7 @@ public class FRBRHelperTest {
 
     @Test
     public void testNewFRBRauthor() {
-        FRBRauthor frbr = FRBRHelper.newFRBRauthor(Uri.valueOf("Manon"));
+        FRBRauthor frbr = FRBRHelper.newFRBRauthor(Uri.raw("Manon"));
         Assert.assertEquals("<FRBRauthor href=\"Manon\"/>", write(frbr));
     }
 

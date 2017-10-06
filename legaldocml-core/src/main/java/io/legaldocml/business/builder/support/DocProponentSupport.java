@@ -14,19 +14,19 @@ import java.util.function.Consumer;
  */
 public interface DocProponentSupport<T extends ANtitleInlineContainer> extends SupportBuilder<T>  {
 
-    @SuppressWarnings("unchecked")
-    default InlineTypeBuilder<DocProponent> docProponent(Consumer<DocProponent> consumer, AknReference... refs) {
-        DocProponent docProponent = new DocProponent();
-        getParent().add(docProponent);
-        AknReferenceHelper.apply(getBusinessBuilder().getAkomaNtoso(), docProponent, refs);
-        if (consumer != null) {
-            consumer.accept(docProponent);
-        }
-        return new InlineTypeBuilder<>(getBusinessBuilder(), docProponent);
-    }
-
     default InlineTypeBuilder<DocProponent> docProponent(AknReference... refs) {
         return docProponent( null, refs);
     }
+
+    default InlineTypeBuilder<DocProponent> docProponent(Consumer<DocProponent> consumer, AknReference... refs) {
+        DocProponent docProponent = new DocProponent();
+        parent().add(docProponent);
+        AknReferenceHelper.apply(businessBuilder().getAkomaNtoso(), docProponent, refs);
+        if (consumer != null) {
+            consumer.accept(docProponent);
+        }
+        return new InlineTypeBuilder<>(businessBuilder(), docProponent);
+    }
+
 
 }

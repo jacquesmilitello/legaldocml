@@ -258,7 +258,7 @@ public final class Attributes {
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerUri(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new Uri(s.value()));
+        return (i, s) -> getUnsafe().putObject(i, addr, Uri.raw(s.value()));
     }
 
 

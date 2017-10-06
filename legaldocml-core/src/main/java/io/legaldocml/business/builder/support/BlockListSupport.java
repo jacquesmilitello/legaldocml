@@ -11,8 +11,8 @@ public interface BlockListSupport<T extends ANblockContainer> extends SupportBui
 
     default BlockListBuilder blockList() {
         BlockList list = new BlockList();
-        getParent().add(list);
-        return new BlockListBuilder(getBusinessBuilder(), list);
+        parent().add(list);
+        return new BlockListBuilder(businessBuilder(), list);
     }
 
 }

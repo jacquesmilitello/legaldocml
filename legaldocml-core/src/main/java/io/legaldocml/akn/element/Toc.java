@@ -37,6 +37,10 @@ public final class Toc extends AbstractCore implements CoreReq, ANblock, DocCont
 
     private final AknList<TocItem> tocItems = new AknList<>(new TocItem[6]);
 
+    public void add(TocItem item) {
+        this.tocItems.add(item);
+    }
+
     /**
      * {@inheritDoc}
      */
