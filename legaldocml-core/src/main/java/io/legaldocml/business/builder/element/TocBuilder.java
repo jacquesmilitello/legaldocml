@@ -4,7 +4,6 @@ import io.legaldocml.akn.element.Toc;
 import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.business.builder.InlineTypeBuilder;
 import io.legaldocml.util.Uri;
 
 /**

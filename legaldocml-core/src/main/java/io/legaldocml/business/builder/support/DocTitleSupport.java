@@ -2,7 +2,7 @@ package io.legaldocml.business.builder.support;
 
 import io.legaldocml.akn.container.ANtitleInlineContainer;
 import io.legaldocml.akn.element.DocTitle;
-import io.legaldocml.business.builder.InlineTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.business.util.AknReferenceHelper;
 

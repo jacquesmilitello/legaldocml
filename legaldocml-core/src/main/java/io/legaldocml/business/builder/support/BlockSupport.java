@@ -2,7 +2,7 @@ package io.legaldocml.business.builder.support;
 
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.element.Block;
-import io.legaldocml.business.builder.InlineTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 
 import java.util.function.Consumer;
 

@@ -3,9 +3,11 @@ package io.legaldocml.business.builder;
 import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.element.Article;
 import io.legaldocml.akn.element.Bill;
+import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.List;
 import io.legaldocml.akn.element.Paragraph;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import org.junit.Test;
@@ -36,7 +38,7 @@ public class HierarchyBuilderTest {
         builder.heading()
                 .i()
                 .text("(Modifiche al sistema elettorale della")
-                .eol()
+                .<InlineReqTypeBuilder<Heading>>eol()
                 .text("Camera dei deputati)");
 
         HierarchyBuilder<Paragraph> paragraphBuilder = builder.next();

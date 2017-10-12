@@ -8,6 +8,7 @@ import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.Uri;

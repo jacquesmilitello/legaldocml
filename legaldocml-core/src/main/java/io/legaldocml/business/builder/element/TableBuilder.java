@@ -5,7 +5,6 @@ import io.legaldocml.akn.element.Table;
 import io.legaldocml.akn.element.Tr;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.business.builder.InlineTypeBuilder;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

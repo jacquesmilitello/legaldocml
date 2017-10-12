@@ -2,7 +2,7 @@ package io.legaldocml.business.builder.support;
 
 import io.legaldocml.akn.container.ANinlineContainer;
 import io.legaldocml.akn.element.Mref;
-import io.legaldocml.business.builder.InlineTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 
 import java.util.function.Consumer;
 

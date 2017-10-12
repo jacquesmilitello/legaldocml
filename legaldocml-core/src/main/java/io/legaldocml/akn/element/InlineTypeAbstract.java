@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.ANinline;
+import io.legaldocml.akn.group.ANmarker;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.HTMLinline;
 import io.legaldocml.akn.group.InlineCM;
@@ -88,6 +89,14 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void add(ANinline inline) {
         this.data.add(requireNonNull(inline));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANmarker marker) {
+        this.data.add(requireNonNull(marker));
     }
 
     /**

@@ -1,6 +1,7 @@
-package io.legaldocml.business.builder;
+package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.element.InlineReqReqType;
+import io.legaldocml.business.builder.BusinessBuilder;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

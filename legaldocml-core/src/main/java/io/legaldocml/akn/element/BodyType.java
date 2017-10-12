@@ -2,6 +2,9 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
+import io.legaldocml.akn.container.HierElementsContainer;
+import io.legaldocml.akn.group.ANhier;
+import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -14,6 +17,7 @@ import java.util.function.Supplier;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
+import static java.util.Objects.requireNonNull;
 
 /**
  * the type bodyType specifies a content model of the main hierarchy of a hierarchical document (e.g, an act or a bill).
@@ -30,7 +34,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BodyType extends AbstractCore implements CoreOpt {
+public abstract class BodyType extends AbstractCore implements CoreOpt, HierElementsContainer {
 
     private static final ImmutableMap<String, Supplier<BodyTypeElement>> ELEMS;
 
@@ -44,8 +48,24 @@ public abstract class BodyType extends AbstractCore implements CoreOpt {
     // Mandatory (min 1).
     private final AknList<BodyTypeElement> elements = new AknList<>(new BodyTypeElement[4]);
 
-    public void add(BodyTypeElement element) {
+    public final void addBodyTypeElement(BodyTypeElement element) {
         this.elements.add(element);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HierElements hier) {
+        addBodyTypeElement(requireNonNull(hier));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANhier hier) {
+        addBodyTypeElement(requireNonNull(hier));
     }
 
     /**

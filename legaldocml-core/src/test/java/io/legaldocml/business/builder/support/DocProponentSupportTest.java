@@ -3,7 +3,7 @@ package io.legaldocml.business.builder.support;
 import io.legaldocml.akn.element.DocProponent;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.business.builder.InlineTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;

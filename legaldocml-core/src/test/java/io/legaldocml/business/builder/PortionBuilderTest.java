@@ -23,6 +23,8 @@ import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.builder.element.TocBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.iso.Iso3166;

@@ -7,8 +7,12 @@ import io.legaldocml.akn.element.HierarchyElement;
 import io.legaldocml.akn.element.Intro;
 import io.legaldocml.akn.element.Num;
 import io.legaldocml.akn.element.Subheading;
+import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.builder.group.HierElementsBuilder;
 import io.legaldocml.business.util.EidFactory;
+
+import java.util.function.Consumer;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -38,11 +42,20 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public InlineReqTypeBuilder<Heading> heading() {
+       return heading(null);
+    }
+
+    public InlineReqTypeBuilder<Heading> heading(Consumer<Heading> consumer) {
         if (hierarchy.getHeading() != null) {
             throw new BusinessBuilderException("<heading> is not null : [" + hierarchy.getHeading() + "]");
         }
         Heading heading = new Heading();
         this.hierarchy.setHeading(heading);
+
+        if (consumer != null) {
+            consumer.accept(heading);
+        }
+
         return new InlineReqTypeBuilder<>(getBusinessBuilder(), heading);
     }
 

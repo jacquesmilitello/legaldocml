@@ -12,7 +12,7 @@ import io.legaldocml.akn.group.InlineCM;
  * {@code {@link InlineReqReqType }}
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface InlineCMContainer extends SubFlowsElementsContainer , InlineElementsContainer{
+public interface InlineCMContainer extends SubFlowsElementsContainer , InlineElementsContainer, MarkerElementsContainer {
 
     void add(InlineCM inlineCM);
 
