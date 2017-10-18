@@ -1,7 +1,6 @@
 package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.container.InlineCMContainer;
-import io.legaldocml.akn.element.I;
 import io.legaldocml.akn.element.Inline;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.element.Sup;
@@ -32,13 +31,6 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
     @SuppressWarnings("unchecked")
     public U text(String text) {
         this.container.add(new StringInlineCM(text));
-        return (U) this;
-    }
-
-    @SuppressWarnings("unchecked")
-    public U i() {
-        I i = new I();
-        this.container.add(i);
         return (U) this;
     }
 

@@ -2,11 +2,20 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.element.Article;
 import io.legaldocml.akn.element.Bill;
+import io.legaldocml.akn.element.Content;
 import io.legaldocml.akn.element.Heading;
+import io.legaldocml.akn.element.I;
+import io.legaldocml.akn.element.List;
+import io.legaldocml.akn.element.Mod;
+import io.legaldocml.akn.element.P;
+import io.legaldocml.akn.element.Paragraph;
+import io.legaldocml.akn.element.Point;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
+import io.legaldocml.business.builder.element.InlineTypeBuilder;
+import io.legaldocml.business.builder.element.ModTypeBuilder;
 import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
 import org.junit.Test;
 
@@ -36,84 +45,75 @@ public class BillBuilderTest {
 
         HierarchyBuilder<Article> article = portionBuilder.getBodyBuilder().article();
         article.num().text("Art. 1.");
-        article.heading( t-> t.setEid(new NoWhiteSpace("w1ab1ab3b1b1"))).i().text("(Modifiche al sistema elettorale della").<InlineReqTypeBuilder<Heading>>eol().text("Camera dei deputati)");
+        InlineReqTypeBuilder<Heading> heading = article.heading( t-> t.setEid(new NoWhiteSpace("w1ab1ab3b1b1")));
+        heading.i().text("(Modifiche al sistema elettorale della").<InlineTypeBuilder<I>>eol().text("Camera dei deputati)");
 
-        article.paragraph();
+        HierarchyBuilder<Paragraph> paragraph = article.paragraph(t-> t.setEid(new NoWhiteSpace("art_1__para_1")));
+        paragraph.num().text("1. ");
+        HierarchyBuilder<List> list = paragraph.list(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1")));
+        list.intro().p().text("Al testo unico delle leggi recanti norme per la elezione della Camera dei deputati, di cui al decreto del Presidente della Repubblica 30 marzo 1957, n. 361, sono apportate le seguenti modificazioni:");
 
+        // point A
+        HierarchyBuilder<Point> point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_a")));
+        point.num().i().text("a)");
+
+        InlineTypeBuilder<P> p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_a"))).p();
+        p.text("l'articolo 1 è sostituito dal seguente:");
+
+        ModTypeBuilder<Mod> mod = p.mod(t-> t.setEid(new NoWhiteSpace("mod_1")));
+        p = mod.quotedStructure().article(t-> t.setEid(new NoWhiteSpace("mod_1__art_1")))
+            .content().p();
+        p.text("«Art. 1. -- ").i().text("1.");
+        p.text("La Camera dei deputati è eletta a suffragio universale, con voto diretto ed uguale, libero e segreto, espresso in favore di candidati in collegi uninominali, collegati a liste concorrenti nelle circoscrizioni.");
+        p.i().text("2.");
+        p.text(" Il territorio nazionale è diviso nelle circoscrizioni elettorali indicate nella tabella A allegata al presente testo unico. In queste circoscrizioni i seggi sono attribuiti, con metodo maggioritario ed eventuale secondo turno di votazione, a candidati concorrenti nei collegi uninominali e, in ragione proporzionale, a candidati concorrenti in liste circoscrizionali e nel collegio unico nazionale»;");
+
+        // point B
+        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_b")));
+        point.num().i().text("b)");
+
+        p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_b__content"))).p();
+        p.text("l'articolo 3 è sostituito dal seguente:");
+
+        mod = p.mod(t-> t.setEid(new NoWhiteSpace("mod_2")));
+        p = mod.quotedStructure().article(t-> t.setEid(new NoWhiteSpace("mod_2__art_3")))
+                .content().p();
+        p.text("«Art. 3. -- ").i().text("1.");
+        p.text("L'assegnazione del numero dei seggi alle singole circoscrizioni, di cui alla tabella A allegata al presente testo unico, è effettuata, sulla base dei risultati dell'ultimo censimento generale della popolazione, riportati dalla più recente pubblicazione ufficiale dell'Istituto nazionale di statistica, con decreto del Presidente della Repubblica, su proposta del Ministro dell'interno, da emanare contemporaneamente al decreto di convocazione dei comizi.");
+        p.i().text("2.").text(" Con il medesimo decreto di cui al comma 1 è determinato per ciascuna circoscrizione il numero di seggi che sono attribuiti nei collegi uninominali ed il numero di seggi da assegnare a candidati concorrenti in liste circoscrizionali.");
+        p.i().text("3.").text(" Salvo quanto disposto dall'articolo 2, nell'ambito di ciascuna circoscrizione sono istituiti collegi uninominali in numero pari al 70 per cento, con arrotondamento all'unità superiore, del complesso dei seggi assegnati alla circoscrizione. I restanti seggi sono assegnati nella circoscrizione a candidati concorrenti nelle liste circoscrizionali, fatta salva una quota di 12 seggi che è assegnata in un collegio unico nazionale.");
+        p.i().text("4.").text(" Alla assegnazione dei seggi nelle circoscrizioni concorrono soltanto le liste che ottengono una cifra elettorale circoscrizionale almeno pari al 5 per cento del totale dei voti validi espressi a livello circoscrizionale, calcolata secondo le modalità stabilite dall'articolo 77, comma 1, numeri 2) e 4)»;");
+
+        // point C
+        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_c")));
+        point.num().i().text("c)");
+
+        BlocksBuilder<Content> content = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_c__content")));
+        p = content.p();
+        p.text("il comma 2 dell'articolo 4 è sostituito dal seguente:");
+        p = content.p();
+        p.text("").i().text("2.");
+        p.text(" Ogni elettore dispone di un voto per l'elezione del candidato nel collegio uninominale, che vale anche per la lista circoscrizionale cui è collegato il candidato uninominale prescelto»;");
+
+        // point D
+        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d")));
+        point.num().i().text("d)");
+
+        list = point.list(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1")));
+        list.intro(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1_intro"))).p().text("all'articolo 14:");
+
+        // point D.1
+        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_1")));
+        point.num().i().text("1)");
         /*
 
-         <an:body title="DISEGNO DI LEGGE">
-            <an:article eId="art_1">
-                <an:num>Art. 1.</an:num>
-                <an:heading eId="w1ab1ab3b1b1">
-                    <an:i></an:i>
-                </an:heading>
-                <an:paragraph eId="art_1__para_1">
-                    <an:num>1. </an:num>
-                    <an:list eId="art_1__para_1__list_1">
-                        <an:intro eId="art_1__para_1__list_1__intro">
-                            <an:p>Al testo unico delle leggi recanti norme per la elezione della Camera dei deputati, di cui al decreto del Presidente della Repubblica 30 marzo 1957, n. 361, sono apportate le seguenti modificazioni:</an:p>
-                        </an:intro>
-                        <an:point eId="art_1__para_1__list_1__point_a">
+                        <an:point eId="">
                             <an:num>
-                                <an:i>a)</an:i>
+                                <an:i></an:i>
                             </an:num>
-                            <an:content eId="art_1__para_1__list_1__point_a__content">
-                                <an:p>l'articolo 1 è sostituito dal seguente:
-                <an:mod eId="mod_1">
-                                        <an:quotedStructure>
-                                            <an:article eId="mod_1__art_1">
-                                                <an:content>
-                                                    <an:p>«Art. 1. -- <an:i>1.</an:i> La Camera dei deputati è eletta a suffragio universale, con voto diretto ed uguale, libero e segreto, espresso in favore di candidati in collegi uninominali, collegati a liste concorrenti nelle circoscrizioni.
-                <an:i>2.</an:i> Il territorio nazionale è diviso nelle circoscrizioni elettorali indicate nella tabella A allegata al presente testo unico. In queste circoscrizioni i seggi sono attribuiti, con metodo maggioritario ed eventuale secondo turno di votazione, a candidati concorrenti nei collegi uninominali e, in ragione proporzionale, a candidati concorrenti in liste circoscrizionali e nel collegio unico nazionale»;</an:p>
-                                                </an:content>
-                                            </an:article>
-                                        </an:quotedStructure>
-                                    </an:mod>
-                                </an:p>
-                            </an:content>
-                        </an:point>
-                        <an:point eId="art_1__para_1__list_1__point_b">
-                            <an:num>
-                                <an:i>b)</an:i>
-                            </an:num>
-                            <an:content eId="art_1__para_1__list_1__point_b__content">
-                                <an:p>l'articolo 3 è sostituito dal seguente:
-                <an:mod eId="mod_2">
-                                        <an:quotedStructure>
-                                            <an:article eId="mod_2__art_3">
-                                                <an:content>
-                                                    <an:p>«Art. 3. -- <an:i>1. </an:i>L'assegnazione del numero dei seggi alle singole circoscrizioni, di cui alla tabella A allegata al presente testo unico, è effettuata, sulla base dei risultati dell'ultimo censimento generale della popolazione, riportati dalla più recente pubblicazione ufficiale dell'Istituto nazionale di statistica, con decreto del Presidente della Repubblica, su proposta del Ministro dell'interno, da emanare contemporaneamente al decreto di convocazione dei comizi.
-                                                        <an:i>2.</an:i> Con il medesimo decreto di cui al comma 1 è determinato per ciascuna circoscrizione il numero di seggi che sono attribuiti nei collegi uninominali ed il numero di seggi da assegnare a candidati concorrenti in liste circoscrizionali.
-                                                        <an:i>3.</an:i> Salvo quanto disposto dall'articolo 2, nell'ambito di ciascuna circoscrizione sono istituiti collegi uninominali in numero pari al 70 per cento, con arrotondamento all'unità superiore, del complesso dei seggi assegnati alla circoscrizione. I restanti seggi sono assegnati nella circoscrizione a candidati concorrenti nelle liste circoscrizionali, fatta salva una quota di 12 seggi che è assegnata in un collegio unico nazionale.
-                <an:i>4.</an:i> Alla assegnazione dei seggi nelle circoscrizioni concorrono soltanto le liste che ottengono una cifra elettorale circoscrizionale almeno pari al 5 per cento del totale dei voti validi espressi a livello circoscrizionale, calcolata secondo le modalità stabilite dall'articolo 77, comma 1, numeri 2) e 4)»;</an:p>
-                </an:content>
-                                            </an:article>
-                                        </an:quotedStructure>
-                                    </an:mod>
-                                </an:p>
-                            </an:content>
-                        </an:point>
-                        <an:point eId="art_1__para_1__list_1__point_c">
-                            <an:num>
-                                <an:i>c)</an:i>
-                            </an:num>
-                            <an:content eId="art_1__para_1__list_1__point_c__content">
-                                <an:p>il comma 2 dell'articolo 4 è sostituito dal seguente:</an:p>
-                <an:p>
+                            <an:list eId="">
 
-                                    «<an:i>2.</an:i> Ogni elettore dispone di un voto per l'elezione del candidato nel collegio uninominale, che vale anche per la lista circoscrizionale cui è collegato il candidato uninominale prescelto»;</an:p>
-                </an:content>
-                        </an:point>
-                        <an:point eId="art_1__para_1__list_1__point_d">
-                            <an:num>
-                                <an:i>d)</an:i>
-                            </an:num>
-                            <an:list eId="art_1__para_1__list_1__point_d__list_1">
-                                <an:intro eId="art_1__para_1__list_1__point_d__list_1_intro">
-                                    <an:p>all'articolo 14:</an:p>
-                </an:intro>
-                                <an:point eId="art_1__para_1__list_1__point_d__list_1__point_1">
+                                <an:point eId="">
                                     <an:num>1)</an:num>
                                     <an:content eId="art_1__para_1__list_1__point_d__list_1__point_1__content">
                                         <an:p> al primo comma, primo periodo, sono aggiunte in fine le seguenti parole: «e le candidature nei collegi uninominali che ad esse si collegano, secondo quanto disposto dall'articolo 17-<an:i>bis</an:i>»;</an:p>

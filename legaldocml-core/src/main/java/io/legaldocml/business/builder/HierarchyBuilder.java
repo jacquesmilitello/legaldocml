@@ -86,20 +86,36 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public BlocksBuilder<Intro> intro() {
+       return intro(null);
+    }
+
+    public BlocksBuilder<Intro> intro(Consumer<Intro> consumer) {
         if (hierarchy.getIntro() != null) {
             throw new BusinessBuilderException("<intro> is not null : [" + hierarchy.getIntro() + "]");
         }
         Intro intro = new Intro();
         this.hierarchy.setIntro(intro);
+        if (consumer != null) {
+            consumer.accept(intro);
+        }
         return new BlocksBuilder<>(getBusinessBuilder(), this.hierarchy, intro);
     }
 
     public BlocksBuilder<Content> content() {
+       return content(null);
+    }
+
+    public BlocksBuilder<Content> content(Consumer<Content> consumer) {
         if (hierarchy.getContent() != null) {
             throw new BusinessBuilderException("<content> is not null : [" + hierarchy.getContent() + "]");
         }
         Content content = new Content();
         this.hierarchy.setContent(content);
+
+        if (consumer != null) {
+            consumer.accept(content);
+        }
+
         return new BlocksBuilder<>(getBusinessBuilder(), this.hierarchy, content);
     }
 }

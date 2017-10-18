@@ -25,6 +25,7 @@ import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+import static java.util.Objects.requireNonNull;
 
 /**
  * the complex type modType specifies the content that is allowed within mod, mmod and rmod elements, i.e. it adds
@@ -74,6 +75,10 @@ public abstract class ModType extends AbstractCore implements CoreReq, For {
     private final AknList<ModTypeItem> elements = new AknList<>(new ModTypeItem[4]);
 
     private EidRef for_;
+
+    public final void add(ModTypeItem item) {
+        this.elements.add(requireNonNull(item));
+    }
 
     /**
      * {@inheritDoc}
