@@ -6,6 +6,6 @@ import io.legaldocml.business.builder.support.BlockSupport;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface BlockElementsBuilder<T extends BlockElementsContainer> extends BlockSupport<T> {
+public interface BlockElementsBuilder<T extends BlockElementsContainer> extends BlockSupport<T> , HTMLblockBuilder<T> {
 
 }

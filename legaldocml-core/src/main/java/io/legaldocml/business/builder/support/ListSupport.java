@@ -2,7 +2,7 @@ package io.legaldocml.business.builder.support;
 
 import io.legaldocml.akn.container.ANhierContainer;
 import io.legaldocml.akn.element.List;
-import io.legaldocml.business.builder.HierarchyBuilder;
+import io.legaldocml.business.builder.element.HierarchyBuilder;
 
 import java.util.function.Consumer;
 

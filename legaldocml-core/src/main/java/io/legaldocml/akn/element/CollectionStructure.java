@@ -65,7 +65,7 @@ public abstract class CollectionStructure extends AbstractStructureWithPreamble 
      * {@inheritDoc}
      */
     @Override
-    public String getName() {
+    public final String getName() {
         return this.name;
     }
 
@@ -73,7 +73,7 @@ public abstract class CollectionStructure extends AbstractStructureWithPreamble 
      * {@inheritDoc}
      */
     @Override
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
     }
 
@@ -81,7 +81,7 @@ public abstract class CollectionStructure extends AbstractStructureWithPreamble 
      * {@inheritDoc}
      */
     @Override
-    public VersionType getContains() {
+    public final VersionType getContains() {
         return this.versionType;
     }
 
@@ -89,8 +89,13 @@ public abstract class CollectionStructure extends AbstractStructureWithPreamble 
      * {@inheritDoc}
      */
     @Override
-    public void setContains(VersionType versionType) {
+    public final void setContains(VersionType versionType) {
         this.versionType = versionType;
+    }
+
+
+    public final CollectionBody getBody() {
+        return collectionBody;
     }
 
     /**

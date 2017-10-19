@@ -12,11 +12,8 @@ import java.util.function.Consumer;
  */
 public final class ModTypeBuilder<T extends ModType> extends AbstractBusinessPartBuilder<T> {
 
-    private final T modType;
-
     public ModTypeBuilder(BusinessBuilder businessBuilder, T modType) {
         super(businessBuilder,modType);
-        this.modType = modType;
     }
 
     public SubFlowStructureBuilder<QuotedStructureV3> quotedStructure() {
@@ -25,7 +22,7 @@ public final class ModTypeBuilder<T extends ModType> extends AbstractBusinessPar
 
     public SubFlowStructureBuilder<QuotedStructureV3> quotedStructure(Consumer<QuotedStructureV3> consumer) {
         QuotedStructureV3 mod = new QuotedStructureV3();
-        modType.add(mod);
+        parent().add(mod);
         if (consumer != null) {
             consumer.accept(mod);
         }

@@ -7,6 +7,7 @@ import io.legaldocml.akn.element.I;
 import io.legaldocml.akn.element.List;
 import io.legaldocml.akn.element.Paragraph;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.element.HierarchyBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.test.SonarJUnit4ClassRunner;

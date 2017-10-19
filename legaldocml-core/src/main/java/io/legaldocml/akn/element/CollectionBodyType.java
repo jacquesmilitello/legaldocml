@@ -17,9 +17,10 @@ import static io.legaldocml.akn.AknElements.COMPONENT;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.INTERSTITIAL;
 import static io.legaldocml.akn.element.Groups.convertSuper;
+import static java.util.Objects.requireNonNull;
 
 /**
- * the type collectionBodyType specifies a content model of a container of a list of other documents (e.g, acts, bills,
+ * The type collectionBodyType specifies a content model of a container of a list of other documents (e.g, acts, bills,
  * amendments, etc.) possibly  interspersed with interstitial elements with content that does not form an individual
  * document.
  *
@@ -53,6 +54,10 @@ public abstract class CollectionBodyType extends AbstractCore implements CoreOpt
 
     // Mandatory (min 1)
     private final AknList<CollectionBodyElement> elements = new AknList<>(new CollectionBodyElement[4]);
+
+    public final void add(Component component) {
+        this.components.add(requireNonNull(component));
+    }
 
     /**
      * {@inheritDoc}

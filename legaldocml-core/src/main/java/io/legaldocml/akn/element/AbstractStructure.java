@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.HasCoverPage;
+import io.legaldocml.akn.HasPreface;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -20,7 +21,7 @@ import static io.legaldocml.akn.AknElements.PREFACE;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
+abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPreface {
 
     // Mandatory
     private final Meta meta = new Meta();
@@ -60,10 +61,18 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage {
         this.coverPage = coverPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final Preface getPreface() {
         return preface;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void setPreface(Preface preface) {
         this.preface = preface;
     }

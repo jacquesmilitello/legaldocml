@@ -9,7 +9,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknElements.COLLECTION_BODY;
 
 /**
- * the element collectionBody is the container of a list of other documents (e.g, acts, bills, amendments, etc.)
+ * The element collectionBody is the container of a list of other documents (e.g, acts, bills, amendments, etc.)
  * possibly interspersed with interstitial elements with content that does not form an individual document.
  *
  * <pre>

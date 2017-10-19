@@ -2,6 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
+import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.container.PreambleContainersContainer;
+import io.legaldocml.akn.group.ANblock;
+import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
+import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -14,6 +20,7 @@ import java.util.function.Supplier;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.preambleContainers;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type preambleopt defines the content model and attributes used by preambles. Here the eId attribute is
@@ -31,7 +38,7 @@ import static io.legaldocml.akn.element.Groups.preambleContainers;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Preambleopt extends AbstractCore implements CoreOpt {
+public abstract class Preambleopt extends AbstractCore implements CoreOpt, PreambleContainersContainer, BlockElementsContainer {
 
     private static final ImmutableMap<String, Supplier<PreambleoptElement>> ELEMS;
 
@@ -42,7 +49,47 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt {
                 .build();
     }
 
-    private final AknList<PreambleoptElement> elements = new AknList<>(new PreambleoptElement[4]);
+    private final AknList<PreambleoptElement> preambleoptElements = new AknList<>(new PreambleoptElement[4]);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(BlockElements elements) {
+        this.preambleoptElements.add(requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANblock block) {
+        this.preambleoptElements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HTMLblock block) {
+        this.preambleoptElements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(PreambleContainers preambleContainers) {
+        this.preambleoptElements.add(requireNonNull(preambleContainers));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(Container container) {
+        this.preambleoptElements.add(requireNonNull(container));
+    }
 
     /**
      * {@inheritDoc}
@@ -50,7 +97,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, elements, ELEMS);
+        XmlReaderHelper.read(reader, this.preambleoptElements, ELEMS);
     }
 
     /**
@@ -59,7 +106,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt {
     @Override
     public void write(XmlWriter writer) throws IOException {
         CoreOpt.super.write(writer);
-        this.elements.write(writer);
+        this.preambleoptElements.write(writer);
     }
 
     /**
@@ -67,7 +114,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt {
      */
     @Override
     public void accept(AknVisitor visitor) {
-       this.elements.accept(visitor);
+       this.preambleoptElements.accept(visitor);
     }
 
 }

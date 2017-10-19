@@ -53,7 +53,7 @@ public abstract class DocContainerType extends BaseHierarchy implements CoreReq 
     }
 
     // Optional.
-    private AknList<DocContainerTypeElement> elements;
+    private AknList<DocContainerTypeElement> docContainerTypeElements;
 
     /**
      * {@inheritDoc}
@@ -62,8 +62,8 @@ public abstract class DocContainerType extends BaseHierarchy implements CoreReq 
     public void write(XmlWriter writer) throws IOException {
         CoreReq.super.write(writer);
         super.write(writer);
-        if (this.elements != null) {
-            this.elements.write(writer);
+        if (this.docContainerTypeElements != null) {
+            this.docContainerTypeElements.write(writer);
         }
     }
 
@@ -74,8 +74,8 @@ public abstract class DocContainerType extends BaseHierarchy implements CoreReq 
     public void read(XmlReader reader) {
         QName parent = reader.getQName();
         super.read(reader);
-        this.elements = new AknList<>(new DocContainerTypeElement[4]);
-        XmlReaderHelper.read(reader, this.elements, ELEMS, parent);
+        this.docContainerTypeElements = new AknList<>(new DocContainerTypeElement[4]);
+        XmlReaderHelper.read(reader, this.docContainerTypeElements, ELEMS, parent);
     }
 
     /**
@@ -83,8 +83,8 @@ public abstract class DocContainerType extends BaseHierarchy implements CoreReq 
      */
     @Override
     public void accept(AknVisitor visitor) {
-        if (this.elements != null) {
-            this.elements.accept(visitor);
+        if (this.docContainerTypeElements != null) {
+            this.docContainerTypeElements.accept(visitor);
         }
     }
 

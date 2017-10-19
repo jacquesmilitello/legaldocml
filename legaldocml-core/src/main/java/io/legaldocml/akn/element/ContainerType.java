@@ -4,13 +4,17 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.Name;
+import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.group.ANblock;
+import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;
@@ -22,6 +26,7 @@ import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type containerType is the content model for the generic element for a container. It can be placed in a
@@ -40,7 +45,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ContainerType extends AbstractCore implements CoreReq, Name {
+public abstract class ContainerType extends AbstractCore implements CoreReq, Name, BlockElementsContainer {
 
     private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
 
@@ -58,7 +63,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
                 .build();
     }
 
-    private final AknList<ContainerElement> elements = new AknList<>(new ContainerElement[6]);
+    private final AknList<ContainerElement> containerElements = new AknList<>(new ContainerElement[6]);
 
     private String name;
 
@@ -66,7 +71,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      * {@inheritDoc}
      */
     @Override
-    public String getName() {
+    public final String getName() {
         return this.name;
     }
 
@@ -74,8 +79,32 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      * {@inheritDoc}
      */
     @Override
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(BlockElements elements) {
+        this.containerElements.add(requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(ANblock block) {
+        this.containerElements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(HTMLblock block) {
+        this.containerElements.add(requireNonNull(block));
     }
 
     /**
@@ -84,7 +113,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this.containerElements, ELEMS);
     }
 
     /**
@@ -94,7 +123,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     public void write(XmlWriter writer) throws IOException {
         CoreReq.super.write(writer);
         writeName(writer, this);
-        this.elements.write(writer);
+        this.containerElements.write(writer);
     }
 
     /**
@@ -110,7 +139,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      */
     @Override
     public void accept(AknVisitor visitor) {
-        this.elements.accept(visitor);
+        this.containerElements.accept(visitor);
     }
 
 }
