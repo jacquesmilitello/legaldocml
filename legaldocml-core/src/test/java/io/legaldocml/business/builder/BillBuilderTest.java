@@ -13,6 +13,8 @@ import io.legaldocml.akn.element.Point;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.element.BlocksBuilder;
+import io.legaldocml.business.builder.element.HierarchyBuilder;
 import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.builder.element.ModTypeBuilder;
@@ -27,9 +29,6 @@ public class BillBuilderTest {
     private BusinessProvider provider = BusinessProvider.businessProvider("default");
 
     private static final AgentRef SOURCE = AgentRef.valueOf("redattore");
-
-
-
 
     @Test
     public void testBody() throws IOException {
@@ -96,15 +95,11 @@ public class BillBuilderTest {
         p.text(" Ogni elettore dispone di un voto per l'elezione del candidato nel collegio uninominale, che vale anche per la lista circoscrizionale cui è collegato il candidato uninominale prescelto»;");
 
         // point D
-        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d")));
-        point.num().i().text("d)");
+        addArticle_1_Point_D(list);
 
-        list = point.list(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1")));
-        list.intro(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1_intro"))).p().text("all'articolo 14:");
+        // point E.
+        addArticle_1_Point_E(list);
 
-        // point D.1
-        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_1")));
-        point.num().i().text("1)");
         /*
 
                         <an:point eId="">
@@ -113,29 +108,9 @@ public class BillBuilderTest {
                             </an:num>
                             <an:list eId="">
 
-                                <an:point eId="">
-                                    <an:num>1)</an:num>
-                                    <an:content eId="art_1__para_1__list_1__point_d__list_1__point_1__content">
-                                        <an:p> al primo comma, primo periodo, sono aggiunte in fine le seguenti parole: «e le candidature nei collegi uninominali che ad esse si collegano, secondo quanto disposto dall'articolo 17-<an:i>bis</an:i>»;</an:p>
-                </an:content>
-                                </an:point>
-                                <an:point eId="art_1__para_1__list_1__point_d__list_1__point_2">
-                                    <an:num>2)</an:num>
-                                    <an:content eId="art_1__para_1__list_1__point_d__list_1__point_2__content">
-                                        <an:p> dopo il quarto comma è inserito il seguente:</an:p>
-                                        <an:p>«Non è ammessa la presentazione di contrassegni che riproducono in qualsiasi loro parte e composizione il nome, il cognome o il nome di notorietà di uno o più candidati presenti nelle liste o di uno o più candidati nei collegi uninominali collegati al partito o gruppo politico organizzato che presenta il contrassegno»;</an:p>
-                                    </an:content>
-                                </an:point>
-                            </an:list>
-                        </an:point>
-                        <an:point eId="art_1__para_1__list_1__point_e">
-                            <an:num>
-                                <an:i>e)</an:i>
-                            </an:num>
-                            <an:content eId="art_1__para_1__list_1__point_e__content">
-                                <an:p>l'articolo 14-<an:i>bis</an:i> è abrogato;</an:p>
-                </an:content>
-                        </an:point>
+
+
+
                         <an:point eId="art_1__para_1__list_1__point_f">
                             <an:num>
                                 <an:i>f)</an:i>
@@ -440,5 +415,54 @@ public class BillBuilderTest {
                 */
         new DefaultXmlWriterFactoryV3().writePermissive(Channels.newChannel(System.out), portionBuilder.getAkomaNtoso());
 
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        XmlProvider.writerFactory(3).writePermissive(Channels.newChannel(baos), portionBuilder.getAkomaNtoso());
+//
+//        Document expected = ReaderHelper.load("/xml/v3/it_senato_ddl_2013.xml");
+//        Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
+//
+//        XmlUnitHelper.compare(
+//                expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "intro").item(0),
+//                actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "intro").item(0)
+//        );
+
+    }
+
+
+    public void addArticle_1_Point_D(HierarchyBuilder<List> list) {
+        // point D
+        HierarchyBuilder<Point> point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d")));
+        point.num().i().text("d)");
+
+        list = point.list(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1")));
+        list.intro(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1_intro"))).p().text("all'articolo 14:");
+
+        // point D.1
+        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_1")));
+        point.num().i().text("1)");
+        InlineTypeBuilder<P> p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_1__content")))
+                .p();
+        p.text(" al primo comma, primo periodo, sono aggiunte in fine le seguenti parole: «e le candidature nei collegi uninominali che ad esse si collegano, secondo quanto disposto dall'articolo 17-");
+        p.i().text("bis");
+        p.text("»;");
+
+        // point D.2
+        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_2")));
+        point.num().i().text("2)");
+
+        BlocksBuilder<Content> content = point.content();
+        content.p().text(" dopo il quarto comma è inserito il seguente:");
+        content.p().text("«Non è ammessa la presentazione di contrassegni che riproducono in qualsiasi loro parte e composizione il nome, il cognome o il nome di notorietà di uno o più candidati presenti nelle liste o di uno o più candidati nei collegi uninominali collegati al partito o gruppo politico organizzato che presenta il contrassegno»;");
+
+    }
+
+    public void addArticle_1_Point_E(HierarchyBuilder<List> list) {
+        HierarchyBuilder<Point> point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_e")));
+        point.num().i().text("e)");
+        InlineTypeBuilder<P> p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_e__content")))
+                .p();
+        p.text("l'articolo 14-");
+        p.i().text("bis");
+        p.text(" è abrogato;");
     }
 }

@@ -1,5 +1,6 @@
 package io.legaldocml.util;
 
+import io.legaldocml.test.Tests;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,6 +10,11 @@ import static io.legaldocml.util.CharArrays.immutable;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public class CharArraysTest {
+
+    @Test
+    public void testUtilClass() throws Exception {
+        Tests.assertUtilClassIsWellDefined(CharArrays.class);
+    }
 
     @Test
     public void testEquals() {

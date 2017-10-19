@@ -184,7 +184,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         E[] el = this.elems;
         int si = this.size;
         for (int i = 0; i < si; i++) {
-            if (o.equals(this.elems[i])) {
+            if (o.equals(el[i])) {
                 fastRemove(i);
                 return true;
             }

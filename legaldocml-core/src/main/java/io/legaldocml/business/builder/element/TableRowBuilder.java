@@ -4,7 +4,6 @@ import io.legaldocml.akn.element.Td;
 import io.legaldocml.akn.element.Th;
 import io.legaldocml.akn.element.Tr;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
-import io.legaldocml.business.builder.BlocksBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
 
 /**

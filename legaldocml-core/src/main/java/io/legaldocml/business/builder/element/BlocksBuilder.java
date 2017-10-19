@@ -1,9 +1,10 @@
-package io.legaldocml.business.builder;
+package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.element.Table;
-import io.legaldocml.business.builder.element.TableBuilder;
+import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
+import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.group.BlockElementsBuilder;
 import io.legaldocml.business.builder.support.BlockListSupport;
 import io.legaldocml.business.builder.support.ForeignSupport;
