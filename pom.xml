@@ -25,15 +25,15 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
       <org.slf4j.version>1.7.25</org.slf4j.version>
-      <com.google.guava.version>23.0</com.google.guava.version>
+      <com.google.guava.version>23.4-jre</com.google.guava.version>
       <org.antlr.version>4.7</org.antlr.version>
 
-      <org.apache.logging.log4j.version>2.9.0</org.apache.logging.log4j.version>
+      <org.apache.logging.log4j.version>2.9.1</org.apache.logging.log4j.version>
 
       <junit.version>4.12</junit.version>
-      <org.xmlunit.version>2.4.0</org.xmlunit.version>
+      <org.xmlunit.version>2.5.1</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
-      <org.mockito.version>2.10.0</org.mockito.version>
+      <org.mockito.version>2.12.0</org.mockito.version>
       <com.jayway.jsonpath.version>2.4.0</com.jayway.jsonpath.version>
 
       <!-- for sonar -->
