@@ -4,7 +4,7 @@ import io.legaldocml.akn.element.FRBRauthor;
 import io.legaldocml.akn.element.FRBRlanguage;
 import io.legaldocml.akn.element.FRBRuri;
 import io.legaldocml.model.Language;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 import java.util.function.Function;
 

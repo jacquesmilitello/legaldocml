@@ -16,7 +16,7 @@ import static java.lang.System.arraycopy;
  */
 public abstract class AbstractRef extends AbstractUri {
 
-    private static final char REF = '#';
+    public static final char REF = '#';
 
     protected AbstractRef(char[] value) {
         super(value);
@@ -30,14 +30,7 @@ public abstract class AbstractRef extends AbstractUri {
         return UnsafeString.valueOf(getChars());
     }
 
-    protected static char[] makeRef(NoWhiteSpace noWhiteSpace) {
-        StringBuilder builder = new StringBuilder(64);
-        builder.append(REF);
-        builder.append(noWhiteSpace.getChars());
-        return UnsafeString.getChars(builder.toString());
-    }
-
-    protected static <T extends AbstractRef> T valueOf(char[] value, Function<char[], T> instantiator) {
+    static <T extends AbstractRef> T valueOf(char[] value, Function<char[], T> instantiator) {
         if (value == null || value.length == 0) {
             throw new AttributeValueException("Value is null or empty : " + Arrays.toString(value));
         }

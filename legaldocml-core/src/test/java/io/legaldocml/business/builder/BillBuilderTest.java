@@ -44,23 +44,23 @@ public class BillBuilderTest {
 
         HierarchyBuilder<Article> article = portionBuilder.getBodyBuilder().article();
         article.num().text("Art. 1.");
-        InlineReqTypeBuilder<Heading> heading = article.heading( t-> t.setEid(new NoWhiteSpace("w1ab1ab3b1b1")));
+        InlineReqTypeBuilder<Heading> heading = article.heading( t-> t.setEid(NoWhiteSpace.valueOf("w1ab1ab3b1b1")));
         heading.i().text("(Modifiche al sistema elettorale della").<InlineTypeBuilder<I>>eol().text("Camera dei deputati)");
 
-        HierarchyBuilder<Paragraph> paragraph = article.paragraph(t-> t.setEid(new NoWhiteSpace("art_1__para_1")));
+        HierarchyBuilder<Paragraph> paragraph = article.paragraph(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1")));
         paragraph.num().text("1. ");
-        HierarchyBuilder<List> list = paragraph.list(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1")));
+        HierarchyBuilder<List> list = paragraph.list(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1")));
         list.intro().p().text("Al testo unico delle leggi recanti norme per la elezione della Camera dei deputati, di cui al decreto del Presidente della Repubblica 30 marzo 1957, n. 361, sono apportate le seguenti modificazioni:");
 
         // point A
-        HierarchyBuilder<Point> point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_a")));
+        HierarchyBuilder<Point> point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_a")));
         point.num().i().text("a)");
 
-        InlineTypeBuilder<P> p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_a"))).p();
+        InlineTypeBuilder<P> p = point.content(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_a"))).p();
         p.text("l'articolo 1 è sostituito dal seguente:");
 
-        ModTypeBuilder<Mod> mod = p.mod(t-> t.setEid(new NoWhiteSpace("mod_1")));
-        p = mod.quotedStructure().article(t-> t.setEid(new NoWhiteSpace("mod_1__art_1")))
+        ModTypeBuilder<Mod> mod = p.mod(t-> t.setEid(NoWhiteSpace.valueOf("mod_1")));
+        p = mod.quotedStructure().article(t-> t.setEid(NoWhiteSpace.valueOf("mod_1__art_1")))
             .content().p();
         p.text("«Art. 1. -- ").i().text("1.");
         p.text("La Camera dei deputati è eletta a suffragio universale, con voto diretto ed uguale, libero e segreto, espresso in favore di candidati in collegi uninominali, collegati a liste concorrenti nelle circoscrizioni.");
@@ -68,14 +68,14 @@ public class BillBuilderTest {
         p.text(" Il territorio nazionale è diviso nelle circoscrizioni elettorali indicate nella tabella A allegata al presente testo unico. In queste circoscrizioni i seggi sono attribuiti, con metodo maggioritario ed eventuale secondo turno di votazione, a candidati concorrenti nei collegi uninominali e, in ragione proporzionale, a candidati concorrenti in liste circoscrizionali e nel collegio unico nazionale»;");
 
         // point B
-        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_b")));
+        point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_b")));
         point.num().i().text("b)");
 
-        p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_b__content"))).p();
+        p = point.content(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_b__content"))).p();
         p.text("l'articolo 3 è sostituito dal seguente:");
 
-        mod = p.mod(t-> t.setEid(new NoWhiteSpace("mod_2")));
-        p = mod.quotedStructure().article(t-> t.setEid(new NoWhiteSpace("mod_2__art_3")))
+        mod = p.mod(t-> t.setEid(NoWhiteSpace.valueOf("mod_2")));
+        p = mod.quotedStructure().article(t-> t.setEid(NoWhiteSpace.valueOf("mod_2__art_3")))
                 .content().p();
         p.text("«Art. 3. -- ").i().text("1.");
         p.text("L'assegnazione del numero dei seggi alle singole circoscrizioni, di cui alla tabella A allegata al presente testo unico, è effettuata, sulla base dei risultati dell'ultimo censimento generale della popolazione, riportati dalla più recente pubblicazione ufficiale dell'Istituto nazionale di statistica, con decreto del Presidente della Repubblica, su proposta del Ministro dell'interno, da emanare contemporaneamente al decreto di convocazione dei comizi.");
@@ -84,10 +84,10 @@ public class BillBuilderTest {
         p.i().text("4.").text(" Alla assegnazione dei seggi nelle circoscrizioni concorrono soltanto le liste che ottengono una cifra elettorale circoscrizionale almeno pari al 5 per cento del totale dei voti validi espressi a livello circoscrizionale, calcolata secondo le modalità stabilite dall'articolo 77, comma 1, numeri 2) e 4)»;");
 
         // point C
-        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_c")));
+        point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_c")));
         point.num().i().text("c)");
 
-        BlocksBuilder<Content> content = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_c__content")));
+        BlocksBuilder<Content> content = point.content(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_c__content")));
         p = content.p();
         p.text("il comma 2 dell'articolo 4 è sostituito dal seguente:");
         p = content.p();
@@ -431,23 +431,23 @@ public class BillBuilderTest {
 
     public void addArticle_1_Point_D(HierarchyBuilder<List> list) {
         // point D
-        HierarchyBuilder<Point> point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d")));
+        HierarchyBuilder<Point> point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_d")));
         point.num().i().text("d)");
 
-        list = point.list(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1")));
-        list.intro(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1_intro"))).p().text("all'articolo 14:");
+        list = point.list(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_d__list_1")));
+        list.intro(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_d__list_1_intro"))).p().text("all'articolo 14:");
 
         // point D.1
-        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_1")));
+        point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_d__list_1__point_1")));
         point.num().i().text("1)");
-        InlineTypeBuilder<P> p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_1__content")))
+        InlineTypeBuilder<P> p = point.content(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_d__list_1__point_1__content")))
                 .p();
         p.text(" al primo comma, primo periodo, sono aggiunte in fine le seguenti parole: «e le candidature nei collegi uninominali che ad esse si collegano, secondo quanto disposto dall'articolo 17-");
         p.i().text("bis");
         p.text("»;");
 
         // point D.2
-        point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_d__list_1__point_2")));
+        point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_d__list_1__point_2")));
         point.num().i().text("2)");
 
         BlocksBuilder<Content> content = point.content();
@@ -457,9 +457,9 @@ public class BillBuilderTest {
     }
 
     public void addArticle_1_Point_E(HierarchyBuilder<List> list) {
-        HierarchyBuilder<Point> point = list.point(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_e")));
+        HierarchyBuilder<Point> point = list.point(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_e")));
         point.num().i().text("e)");
-        InlineTypeBuilder<P> p = point.content(t-> t.setEid(new NoWhiteSpace("art_1__para_1__list_1__point_e__content")))
+        InlineTypeBuilder<P> p = point.content(t-> t.setEid(NoWhiteSpace.valueOf("art_1__para_1__list_1__point_e__content")))
                 .p();
         p.text("l'articolo 14-");
         p.i().text("bis");

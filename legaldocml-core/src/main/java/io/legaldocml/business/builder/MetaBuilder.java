@@ -20,7 +20,7 @@ import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.DateHelper;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

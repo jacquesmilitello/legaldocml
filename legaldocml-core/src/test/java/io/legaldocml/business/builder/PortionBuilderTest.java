@@ -32,7 +32,7 @@ import io.legaldocml.io.XmlProvider;
 import io.legaldocml.iso.Iso3166;
 import io.legaldocml.iso.Iso639;
 import io.legaldocml.model.Language;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -61,12 +61,12 @@ public class PortionBuilderTest {
 
     private static final AgentRef SOURCE = AgentRef.valueOf("vergottini");
 
-    private static final TLCOrganization ORGANIZATION = newTLCOrganization(new NoWhiteSpace("olrc"), Uri.valueOf("/akn/us/ontology/organization/olrc"), "Office of the Law Revision Counsel");
-    private static final TLCOrganization ORGANIZATION_2 = newTLCOrganization(new NoWhiteSpace("interAmericanCommercialArbitationCommission"), Uri.valueOf("/akn/us/ontology/organization/interAmericanCommercialArbitationCommission"), "Inter-American Commercial Arbitration Commission");
+    private static final TLCOrganization ORGANIZATION = newTLCOrganization(NoWhiteSpace.valueOf("olrc"), Uri.valueOf("/akn/us/ontology/organization/olrc"), "Office of the Law Revision Counsel");
+    private static final TLCOrganization ORGANIZATION_2 = newTLCOrganization(NoWhiteSpace.valueOf("interAmericanCommercialArbitationCommission"), Uri.valueOf("/akn/us/ontology/organization/interAmericanCommercialArbitationCommission"), "Inter-American Commercial Arbitration Commission");
 
-    private static final TLCPerson PERSON_VERGOTTINI = newTLCPerson(new NoWhiteSpace("vergottini"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
+    private static final TLCPerson PERSON_VERGOTTINI = newTLCPerson(NoWhiteSpace.valueOf("vergottini"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
 
-    private static final TLCRole ROLE_DRAFTER = newTLCRole(new NoWhiteSpace("drafter"), Uri.valueOf("/akn/us/ontology/role/drafter"), "Drafter");
+    private static final TLCRole ROLE_DRAFTER = newTLCRole(NoWhiteSpace.valueOf("drafter"), Uri.valueOf("/akn/us/ontology/role/drafter"), "Drafter");
 
     @Test
     public void testMeta() throws IOException {
@@ -135,25 +135,25 @@ public class PortionBuilderTest {
 
         addToc(chapter.intro().toc());
         addSection_0(chapter.section((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d2d527-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_301"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d2d527-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_301"));
         })));
 
         addSection_1(chapter.section((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d2d52a-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_302"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d2d52a-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_302"));
         })));
         addSection_2(chapter.section((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d2fc3c-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_303"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d2fc3c-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_303"));
         })));
         addSection_3(chapter.section((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d2fc40-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_304"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d2fc40-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_304"));
         })));
         addSection_4(chapter.section((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d32352-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_305"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d32352-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_305"));
         })));
 
         //new DefaultXmlWriterFactoryV3().writePermissive(Channels.newChannel(System.out), portionBuilder.getAkomaNtoso());
@@ -323,8 +323,8 @@ public class PortionBuilderTest {
         section.heading().text("Order to compel arbitration; appointment of arbitrators; locale");
 
         HierarchyBuilder<Subsection> subSection = section.subsection((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d2fc3d-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_303__subsec_a"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d2fc3d-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_303__subsec_a"));
         }));
         subSection.num().text("(a)");
         subSection.content().p().text("A court having jurisdiction under this chapter may direct that arbitration be held in")
@@ -333,8 +333,8 @@ public class PortionBuilderTest {
         .text(" arbitrators in accordance with the provisions of the agreement.");
 
         subSection = section.subsection((t ->  {
-            t.setGUID(new NoWhiteSpace("idd1d2fc3e-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_303__subsec_b"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d2fc3e-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_303__subsec_b"));
         }));
         subSection.num().text("(b)");
         InlineTypeBuilder<P> p = subSection.content().p();
@@ -382,8 +382,8 @@ public class PortionBuilderTest {
 
 
         HierarchyBuilder<Paragraph> paragraph = section.paragraph(t -> {
-            t.setGUID(new NoWhiteSpace("idd1d32353-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_305__para_1"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d32353-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_305__para_1"));
         });
 
         paragraph.num().text("(1)");
@@ -392,8 +392,8 @@ public class PortionBuilderTest {
             .text(" States of the Organization of American States, the Inter-American Convention shall apply.");
 
         paragraph = section.paragraph(t -> {
-            t.setGUID(new NoWhiteSpace("idd1d32354-f639-11e2-8470-abc29ba29c4d"));
-            t.setEid(new NoWhiteSpace("sec_305__para_2"));
+            t.setGUID(NoWhiteSpace.valueOf("idd1d32354-f639-11e2-8470-abc29ba29c4d"));
+            t.setEid(NoWhiteSpace.valueOf("sec_305__para_2"));
         });
 
         paragraph.num().text("(2)");

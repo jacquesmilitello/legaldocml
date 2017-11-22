@@ -27,7 +27,7 @@ import io.legaldocml.module.Modules;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.DateHelper;
 import io.legaldocml.util.QnameUtil;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -194,7 +194,7 @@ public final class Attributes {
     }
 
     public static BiConsumer<Externalizable, CharArray> biConsumerNoWhiteSpace(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new NoWhiteSpace(s.value()));
+        return (i, s) -> getUnsafe().putObject(i, addr, NoWhiteSpace.valueOf(s.value()));
     }
 
     /**
@@ -204,7 +204,7 @@ public final class Attributes {
         return new AttributeBiConsumer(name) {
             @Override
             public void accept(Externalizable object, CharArray charArray) {
-                getUnsafe().putObject(object, addr, new NoWhiteSpace(charArray.value()));
+                getUnsafe().putObject(object, addr, NoWhiteSpace.valueOf(charArray.value()));
             }
         };
     }

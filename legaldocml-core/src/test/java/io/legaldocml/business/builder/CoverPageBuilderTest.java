@@ -11,7 +11,7 @@ import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,9 +41,9 @@ public class CoverPageBuilderTest {
         BusinessBuilder debateBusinessBuilder = provider.newBuilder(DEBATE);
 
         AgentRef source = AgentRef.valueOf("redattore");
-        TLCPerson person1 = newTLCPerson(new NoWhiteSpace("person_1"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");
-        TLCPerson person2 = newTLCPerson(new NoWhiteSpace("person_2"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "ZANDA");
-        TLCRole role = newTLCRole(new NoWhiteSpace("role_1"), Uri.raw("http://dati.senato./akn/it/osr/Senatore"), "Senatore");
+        TLCPerson person1 = newTLCPerson(NoWhiteSpace.valueOf("person_1"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");
+        TLCPerson person2 = newTLCPerson(NoWhiteSpace.valueOf("person_2"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "ZANDA");
+        TLCRole role = newTLCRole(NoWhiteSpace.valueOf("role_1"), Uri.raw("http://dati.senato./akn/it/osr/Senatore"), "Senatore");
 
 
         CoverPageBuilder coverPageBuilder = new CoverPageBuilder(debateBusinessBuilder);

@@ -193,20 +193,21 @@ public class ToStringBuilder {
     }
 
     /**
-     * Gets the string.
-     *
-     * @return the string
+     * {@inheritDoc}
      */
+    @Override
     public String toString() {
         int i = this.idx;
+        char[] v;
         if (this.value[i - 1] == ',') {
-            this.value[i - 1] = '}';
+            v = new char[i];
+            System.arraycopy(this.value, 0, v, 0, i - 1);
+            v[i - 1] = '}';
         } else {
-            this.value[i++] = '}';
+            v = new char[i + 1];
+            System.arraycopy(this.value, 0, v, 0, i);
+            v[i] = '}';
         }
-
-        char[] v = new char[i];
-        System.arraycopy(this.value, 0, v, 0, i);
         return UnsafeString.buildUnsafe(v);
     }
 

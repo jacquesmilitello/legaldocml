@@ -1,14 +1,12 @@
-package io.legaldocml.util.hash;
+package io.legaldocml.util;
 
 import io.legaldocml.test.Tests;
 import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.unsafe.UnsafeString;
-import io.legaldocml.util.HashReader;
-import io.legaldocml.util.Hashing;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class XXHashTest {
+public class HashingTest {
 
     @Test
     public void testUtilConstructor() throws Exception {
@@ -32,6 +30,13 @@ public class XXHashTest {
     public void testReaderLong() {
         String value = "Hello World !Hello World !Hello World !Hello World !Hello World !Hello World !Hello World !";
         Assert.assertEquals(2875214966217480447L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
+    }
+
+    @Test
+    public void testHashCode() {
+        Assert.assertEquals(0,Hashing.hashCode(null));
+        Assert.assertEquals(0,Hashing.hashCode(new char[0]));
+        Assert.assertEquals("HelloWorld".hashCode(), Hashing.hashCode("HelloWorld".toCharArray()));
     }
 
     private static class HashReader4String extends HashReader {

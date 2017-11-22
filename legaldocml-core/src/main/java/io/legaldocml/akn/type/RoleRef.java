@@ -18,7 +18,7 @@ import java.util.function.Function;
  */
 public final class RoleRef extends AbstractRef {
 
-    private static final Function<char[], RoleRef> INSTANTIATOR_ROLE_REF = RoleRef::new;
+    static final Function<char[], RoleRef> INSTANTIATOR_ROLE_REF = RoleRef::new;
 
     private RoleRef(char[] value) {
         super(value);
@@ -30,10 +30,6 @@ public final class RoleRef extends AbstractRef {
 
     public static RoleRef valueOf(String value) {
         return valueOf(UnsafeString.getChars(value), INSTANTIATOR_ROLE_REF);
-    }
-
-    public static RoleRef valueOf(NoWhiteSpace eid) {
-        return new RoleRef(makeRef(eid));
     }
 
 }

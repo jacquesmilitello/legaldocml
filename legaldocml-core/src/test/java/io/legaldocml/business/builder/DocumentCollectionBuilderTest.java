@@ -16,7 +16,7 @@ import io.legaldocml.business.builder.element.DocContainerTypeBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -37,15 +37,15 @@ public class DocumentCollectionBuilderTest {
 
     private static final AgentRef SOURCE = AgentRef.valueOf("palmirani");
 
-    private static final TLCOrganization ORGANIZATION = newTLCOrganization(new NoWhiteSpace("cameraCommittee"),
+    private static final TLCOrganization ORGANIZATION = newTLCOrganization(NoWhiteSpace.valueOf("cameraCommittee"),
             Uri.valueOf("/ontology/organizations/akn/uy/committee"),
             "Comisión de Constitución, Códigos, Legislación General y Administración");
 
-    private static final TLCConcept CONCEPT_CARPETA = newTLCConcept(new NoWhiteSpace("carpeta"),
+    private static final TLCConcept CONCEPT_CARPETA = newTLCConcept(NoWhiteSpace.valueOf("carpeta"),
             Uri.valueOf("/ontology/concepts/akn/uy/carpeta"),
             "Carpeta");
 
-    private static final TLCConcept CONCEPT_REPARTIDO = newTLCConcept(new NoWhiteSpace("repartido"),
+    private static final TLCConcept CONCEPT_REPARTIDO = newTLCConcept(NoWhiteSpace.valueOf("repartido"),
             Uri.valueOf("/ontology/concepts/akn/uy/repartido"),
             "Repartido");
 
@@ -134,7 +134,7 @@ public class DocumentCollectionBuilderTest {
     private void addPreface(DocumentCollectionBusinessBuilder builder) {
 
         ContainerTypeBuilder<Container> container = builder.preface().container(t -> {
-            t.setEid(new NoWhiteSpace("preface__container_1"));
+            t.setEid(NoWhiteSpace.valueOf("preface__container_1"));
             t.setName("preface1");
             t.setClazz("left");
         });
@@ -143,7 +143,7 @@ public class DocumentCollectionBuilderTest {
         container.p().docketNumber(refersTo(SOURCE, CONCEPT_CARPETA)).text("Carpeta Nº 395 de 2010");
 
         container = builder.preface().container(t -> {
-            t.setEid(new NoWhiteSpace("preface__container_2"));
+            t.setEid(NoWhiteSpace.valueOf("preface__container_2"));
             t.setName("preface1");
             t.setClazz("right");
         });
@@ -153,7 +153,7 @@ public class DocumentCollectionBuilderTest {
         p.docDate(OffsetDateTime.of(2010,9,27,0,0,0,0, ZoneOffset.UTC)).text("Setiembre de 2010");
 
         container = builder.preface().container(t -> {
-            t.setEid(new NoWhiteSpace("preface__container_3"));
+            t.setEid(NoWhiteSpace.valueOf("preface__container_3"));
             t.setName("title");
             t.setClazz("center");
         });
@@ -174,11 +174,11 @@ public class DocumentCollectionBuilderTest {
 
     private void addBody(DocumentCollectionBusinessBuilder builder) {
 
-        DocContainerTypeBuilder<Component> component =  builder.body().component(t -> t.setEid(new NoWhiteSpace("cmp_1")));
+        DocContainerTypeBuilder<Component> component =  builder.body().component(t -> t.setEid(NoWhiteSpace.valueOf("cmp_1")));
 
      //   component.documentRef();
 
-        component = builder.body().component( t -> t.setEid(new NoWhiteSpace("cmp_2")));
+        component = builder.body().component( t -> t.setEid(NoWhiteSpace.valueOf("cmp_2")));
 
         /*
          <!-- The bill is numberd with Carpeta: 395-2010 -->

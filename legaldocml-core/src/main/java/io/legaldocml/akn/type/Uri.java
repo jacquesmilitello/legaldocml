@@ -1,6 +1,5 @@
-package io.legaldocml.util;
+package io.legaldocml.akn.type;
 
-import io.legaldocml.akn.type.AbstractRef;
 import io.legaldocml.unsafe.UnsafeString;
 
 import java.util.function.Function;
@@ -10,7 +9,7 @@ import java.util.function.Function;
  */
 public final class Uri extends AbstractRef {
 
-    private static final Function<char[], Uri> INSTANTIATOR_URI = Uri::new;
+    static final Function<char[], Uri> INSTANTIATOR_URI = Uri::new;
 
     public static final Uri EMPTY = new Uri(new char[0]);
 
@@ -41,4 +40,5 @@ public final class Uri extends AbstractRef {
     public static Uri raw(String value) {
         return new Uri(UnsafeString.getChars(value));
     }
+
 }

@@ -5,7 +5,7 @@ import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

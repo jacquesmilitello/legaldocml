@@ -4,7 +4,7 @@ import io.legaldocml.akn.element.Toc;
 import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

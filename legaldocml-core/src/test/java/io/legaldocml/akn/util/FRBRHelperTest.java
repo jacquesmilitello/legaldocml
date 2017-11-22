@@ -9,7 +9,7 @@ import io.legaldocml.model.Language;
 import io.legaldocml.module.akn.v3.XmlChannelWriterV3;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.test.Tests;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

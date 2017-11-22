@@ -199,7 +199,7 @@ public final class EidFactory {
     }
 
     private NoWhiteSpace build() {
-        return new NoWhiteSpace(UnsafeString.getChars(builder.toString()));
+        return  NoWhiteSpace.valueOf(UnsafeString.getChars(builder.toString()));
     }
 
 

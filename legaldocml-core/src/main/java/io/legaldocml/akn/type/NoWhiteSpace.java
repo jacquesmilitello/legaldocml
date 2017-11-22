@@ -20,23 +20,31 @@ import java.util.Arrays;
  */
 public final class NoWhiteSpace {
 
-    private char[] value;
+    private final char[] value;
 
     /**
      * Cache the hash code for the NoWhiteSpace.
      */
     private int hash;
 
-    public NoWhiteSpace(char[] value) {
+    private NoWhiteSpace(char[] value) {
         this.value = value;
     }
 
-    public NoWhiteSpace(String id) {
+    private NoWhiteSpace(String id) {
         this.value = UnsafeString.getChars(id);
     }
 
     public char[] getChars() {
         return value;
+    }
+
+    public Uri toUri() {
+        return AbstractRef.valueOf(this.value, Uri.INSTANTIATOR_URI);
+    }
+
+    public RoleRef toRoleRef() {
+        return AbstractRef.valueOf(this.value, RoleRef.INSTANTIATOR_ROLE_REF);
     }
 
     public char[] makeRef() {
@@ -70,7 +78,6 @@ public final class NoWhiteSpace {
         int h = hash;
         if (h == 0 && this.value.length > 0) {
             char val[] = this.value;
-
             for (int i = 0; i < this.value.length; i++) {
                 h = 31 * h + val[i];
             }
@@ -78,4 +85,13 @@ public final class NoWhiteSpace {
         }
         return h;
     }
+
+    public static NoWhiteSpace valueOf(char[] value) {
+        return new NoWhiteSpace(value);
+    }
+
+    public static NoWhiteSpace valueOf(String value) {
+        return new NoWhiteSpace(UnsafeString.getChars(value));
+    }
+
 }

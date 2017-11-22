@@ -39,7 +39,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
     public void testWithConsumer() throws IOException {
         doCallRealMethod().when(mock).docProponent(Mockito.any());
         doCallRealMethod().when(mock).docProponent(Mockito.any(),Mockito.any());
-        InlineTypeBuilder<DocProponent> builder = mock.docProponent( dc -> dc.setEid(new NoWhiteSpace("eid_1")));
+        InlineTypeBuilder<DocProponent> builder = mock.docProponent( dc -> dc.setEid(NoWhiteSpace.valueOf("eid_1")));
         builder.text("hello");
         Assert.assertEquals("<p><docProponent eId=\"eid_1\">hello</docProponent></p>", write());
     }

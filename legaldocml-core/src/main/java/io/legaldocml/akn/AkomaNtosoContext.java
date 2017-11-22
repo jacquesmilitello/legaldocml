@@ -5,6 +5,7 @@ import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReaderContext;
@@ -89,7 +90,7 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
     }
 
     public Id getId(String id) {
-        return this.eids.get(new NoWhiteSpace(id));
+        return this.eids.get(NoWhiteSpace.valueOf(UnsafeString.getChars(id)));
     }
 
     public Id getId(NoWhiteSpace id) {

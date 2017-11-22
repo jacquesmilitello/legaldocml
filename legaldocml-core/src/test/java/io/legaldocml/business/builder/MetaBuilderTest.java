@@ -8,7 +8,7 @@ import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.DateHelper;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

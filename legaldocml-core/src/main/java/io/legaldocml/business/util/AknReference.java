@@ -13,9 +13,8 @@ import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.group.TLC;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.akn.type.RoleRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.unsafe.UnsafeString;
-import io.legaldocml.util.Uri;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -85,7 +84,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
                 }
 
 
-                ((Role)object).setAs(RoleRef.valueOf(role.getEid()));
+                ((Role)object).setAs(role.getEid().toRoleRef());
 
                 References ref = akn.getDocumentType().getMeta().getReferences(source);
 

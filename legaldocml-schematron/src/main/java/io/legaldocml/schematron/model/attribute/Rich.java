@@ -1,6 +1,6 @@
 package io.legaldocml.schematron.model.attribute;
 
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 /**
  * ```

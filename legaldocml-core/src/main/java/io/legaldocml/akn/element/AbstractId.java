@@ -5,9 +5,9 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
+import io.legaldocml.util.CharArray;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.util.function.BiConsumer;
@@ -56,7 +56,7 @@ public abstract class AbstractId implements AknObject, Id {
      * {@inheritDoc}
      */
     public final void setId(String id) {
-        this.eId = new NoWhiteSpace(id);
+        this.eId = NoWhiteSpace.valueOf(id);
     }
 
     /**
@@ -73,7 +73,7 @@ public abstract class AbstractId implements AknObject, Id {
      * {@inheritDoc}
      */
     public final void setEvolvingId(String evolvingId) {
-        this.wId = new NoWhiteSpace(evolvingId);
+        this.wId = NoWhiteSpace.valueOf(evolvingId);
     }
 
     /**

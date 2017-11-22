@@ -1,7 +1,7 @@
 package io.legaldocml.akn.attribute;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 /**
  * Common interface for Link.

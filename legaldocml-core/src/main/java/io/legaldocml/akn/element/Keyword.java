@@ -14,7 +14,7 @@ import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
 import java.util.function.BiConsumer;

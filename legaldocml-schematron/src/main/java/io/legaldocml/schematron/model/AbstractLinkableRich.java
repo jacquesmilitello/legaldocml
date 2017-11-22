@@ -5,7 +5,7 @@ import io.legaldocml.util.CharArray;
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.schematron.model.attribute.Linkable;
 import io.legaldocml.schematron.model.attribute.Rich;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 import java.util.function.BiConsumer;
 

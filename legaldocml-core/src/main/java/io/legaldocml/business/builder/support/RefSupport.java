@@ -3,7 +3,7 @@ package io.legaldocml.business.builder.support;
 import io.legaldocml.akn.container.ANinlineContainer;
 import io.legaldocml.akn.element.Ref;
 import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 import java.util.function.Consumer;
 

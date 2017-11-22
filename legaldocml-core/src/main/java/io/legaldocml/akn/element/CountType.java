@@ -18,7 +18,7 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
-import io.legaldocml.util.Uri;
+import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
 import java.util.ArrayList;
