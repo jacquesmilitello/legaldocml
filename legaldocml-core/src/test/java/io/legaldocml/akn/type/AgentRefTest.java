@@ -1,58 +1,51 @@
 package io.legaldocml.akn.type;
 
 import io.legaldocml.akn.AttributeValueException;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class AgentRefTest {
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testWithRef() {
-        Assert.assertEquals("#toto", AgentRef.valueOf("#toto").toString());
-        Assert.assertEquals("#toto", AgentRef.valueOf("#toto".toCharArray()).toString());
-        Assert.assertEquals("#toto", AgentRef.raw("#toto".toCharArray()).toString());
+        assertEquals("#toto", AgentRef.valueOf("#toto").toString());
+        assertEquals("#toto", AgentRef.valueOf("#toto".toCharArray()).toString());
+        assertEquals("#toto", AgentRef.raw("#toto".toCharArray()).toString());
     }
 
     @Test
     public void testWithOutRef() {
-        Assert.assertEquals("#toto", AgentRef.valueOf("toto").toString());
-        Assert.assertEquals("#toto", AgentRef.valueOf("toto".toCharArray()).toString());
-        Assert.assertEquals("toto", AgentRef.raw("toto".toCharArray()).toString());
+        assertEquals("#toto", AgentRef.valueOf("toto").toString());
+        assertEquals("#toto", AgentRef.valueOf("toto".toCharArray()).toString());
+        assertEquals("toto", AgentRef.raw("toto".toCharArray()).toString());
     }
 
     @Test
     public void testBadValueOnValueOf01() {
-        thrown.expect(AttributeValueException.class);
-        thrown.expectMessage("null");
-        AgentRef.valueOf((String)null);
+        AttributeValueException exception = Assertions.assertThrows(AttributeValueException.class, () -> AgentRef.valueOf((String) null));
+        Assertions.assertTrue(exception.getMessage().contains("null"));
     }
 
     @Test
     public void testBadValueOnValueOf02() {
-        thrown.expect(AttributeValueException.class);
-        thrown.expectMessage("null");
-        AgentRef.valueOf((char[]) null);
+        AttributeValueException exception = Assertions.assertThrows(AttributeValueException.class, () -> AgentRef.valueOf((char[]) null));
+        Assertions.assertTrue(exception.getMessage().contains("null"));
     }
 
     @Test
     public void testBadValueOnValueOf03() {
-        thrown.expect(AttributeValueException.class);
-        thrown.expectMessage("[]");
-        AgentRef.valueOf("");
+        AttributeValueException exception = Assertions.assertThrows(AttributeValueException.class, () -> AgentRef.valueOf(""));
+        Assertions.assertTrue(exception.getMessage().contains("[]"));
     }
 
     @Test
     public void testBadValueOnValueOf04() {
-        thrown.expect(AttributeValueException.class);
-        thrown.expectMessage("[]");
-        AgentRef.valueOf("".toCharArray());
+        AttributeValueException exception = Assertions.assertThrows(AttributeValueException.class, () -> AgentRef.valueOf("".toCharArray()));
+        Assertions.assertTrue(exception.getMessage().contains("[]"));
     }
 }

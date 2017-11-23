@@ -1,6 +1,6 @@
 package io.legaldocml;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.w3c.dom.Node;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.diff.ComparisonControllers;
@@ -35,7 +35,7 @@ public class XmlUnitHelper {
             size++;
         }
 
-        Assert.assertEquals(0, size);
+        Assertions.assertEquals(0, size);
 
     }
 
@@ -60,7 +60,7 @@ public class XmlUnitHelper {
             size++;
         }
 
-        Assert.assertEquals(0, size);
+        Assertions.assertEquals(0, size);
 
     }
 

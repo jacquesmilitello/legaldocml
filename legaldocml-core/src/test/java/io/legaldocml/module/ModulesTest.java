@@ -7,8 +7,8 @@ import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 import io.legaldocml.test.Tests;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharArrays;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -22,14 +22,14 @@ public class ModulesTest {
 
     @Test
     public void testGet() {
-        Assert.assertNotNull(Modules.get(AkomaNtosoModuleV3.NAMESPACE));
-        Assert.assertNotNull(Modules.get(CharArrays.immutable("http://docs.oasis-open.org/legaldocml/ns/akn/3.0")));
-        Assert.assertNull(Modules.get(CharArrays.immutable("hello")));
+        Assertions.assertNotNull(Modules.get(AkomaNtosoModuleV3.NAMESPACE));
+        Assertions.assertNotNull(Modules.get(CharArrays.immutable("http://docs.oasis-open.org/legaldocml/ns/akn/3.0")));
+        Assertions.assertNull(Modules.get(CharArrays.immutable("hello")));
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testElementOnModule() {
-        new FakeModule().element(null,null);
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> new FakeModule().element(null,null));
     }
 
 

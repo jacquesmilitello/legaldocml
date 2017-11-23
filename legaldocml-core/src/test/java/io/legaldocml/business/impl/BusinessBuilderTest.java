@@ -4,9 +4,9 @@ import io.legaldocml.LegalDocMlException;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.iso.Iso639;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 import java.nio.channels.Channels;
@@ -15,7 +15,7 @@ import java.util.List;
 import static io.legaldocml.akn.AknElements.DEBATE;
 import static io.legaldocml.io.XmlProvider.writerFactory;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class BusinessBuilderTest {
 
     @Test

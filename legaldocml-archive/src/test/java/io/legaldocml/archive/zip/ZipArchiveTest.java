@@ -8,19 +8,22 @@ import io.legaldocml.archive.ArchiveFactory;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.MediaType;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class ZipArchiveTest {
 
     private static final String FILE = System.getProperty("java.io.tmpdir") + "/test.zip";
@@ -28,7 +31,7 @@ public class ZipArchiveTest {
 
     private BusinessProvider provider;
 
-    @Before
+    @BeforeEach
     public void setup() throws IOException {
         Path path = Paths.get(FILE);
         if (Files.exists(path)) {
@@ -50,7 +53,7 @@ public class ZipArchiveTest {
         }
         try (Archive archive = ArchiveFactory.readOnly("zip", Paths.get(FILE))) {
             akn = archive.get(AknIdentifier.extract(provider, akn));
-            Assert.assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(provider, akn).manifestation());
+            assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(provider, akn).manifestation());
         }
 
 
@@ -69,7 +72,7 @@ public class ZipArchiveTest {
 
         try (Archive archive = ArchiveFactory.readOnly("zip", Paths.get(FILE))) {
             AkomaNtoso<Debate> akn = archive.get(identifier);
-            Assert.assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(provider, akn).manifestation());
+            assertEquals("/akn/cl/debate/recurso/2006/1076048/es@20120505/!main.xml", AknIdentifier.extract(provider, akn).manifestation());
         }
 
     }
@@ -79,14 +82,14 @@ public class ZipArchiveTest {
         AkomaNtoso<Debate> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
         try (Archive archive = ArchiveFactory.writeOnly("zip", provider, Paths.get(FILE))) {
             archive.put(akn);
-            Assert.assertEquals(1, archive.getMeta().stream().count());
+            assertEquals(1, archive.getMeta().stream().count());
         }
 
         try (Archive archive = ArchiveFactory.readOnly("zip", Paths.get(FILE))) {
-            Assert.assertEquals(1, archive.getMeta().stream().count());
+            assertEquals(1, archive.getMeta().stream().count());
             archive.getMeta().stream().forEach(resource -> {
-                Assert.assertEquals(MediaType.LEGALDOCML, resource.getMediaType());
-                Assert.assertEquals(AknIdentifier.extract(provider, akn), resource.getAknIdentifier());
+                assertEquals(MediaType.LEGALDOCML, resource.getMediaType());
+                assertEquals(AknIdentifier.extract(provider, akn), resource.getAknIdentifier());
             });
         }
 
@@ -101,9 +104,9 @@ public class ZipArchiveTest {
             archive.put(akn);
             try {
                 archive.put(akn);
-                Assert.fail();
+                Assertions.fail("");
             } catch (ArchiveException cause) {
-                Assert.assertEquals(ArchiveException.Type.WRITE_ALREADY_EXISTS, cause.getType());
+                assertEquals(ArchiveException.Type.WRITE_ALREADY_EXISTS, cause.getType());
             }
 
         }
@@ -123,9 +126,9 @@ public class ZipArchiveTest {
     }
 
 
-    @Test(expected = ArchiveException.class)
+    @Test
     public void testReadBadProvidder() throws Exception {
-        ArchiveFactory.readOnly("fake", null);
+        assertThrows(ArchiveException.class, () -> ArchiveFactory.readOnly("fake", null));
     }
 
 

@@ -7,14 +7,13 @@ import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import io.legaldocml.akn.type.Uri;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayInputStream;
@@ -27,11 +26,12 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCPerson;
 import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
 import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.refersTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class CoverPageBuilderTest {
 
     @Test
@@ -70,8 +70,8 @@ public class CoverPageBuilderTest {
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "coverPage").item(0)
         );
 
-        Assert.assertEquals(1, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").getLength());
-        Assert.assertEquals(2, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").getLength());
+        assertEquals(1, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").getLength());
+        assertEquals(2, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").getLength());
 
         XmlUnitHelper.compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").item(0),

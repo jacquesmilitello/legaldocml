@@ -4,13 +4,13 @@ import io.legaldocml.akn.element.DocProponent;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.function.Consumer;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doCallRealMethod;
 
 /**
@@ -23,7 +23,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
         doCallRealMethod().when(mock).docProponent(Mockito.any());
         doCallRealMethod().when(mock).docProponent(Mockito.nullable(Consumer.class),Mockito.any());
         InlineTypeBuilder<DocProponent> builder = mock.docProponent();
-        Assert.assertEquals("<p><docProponent/></p>", write());
+        assertEquals("<p><docProponent/></p>", write());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
         doCallRealMethod().when(mock).docProponent(Mockito.nullable(Consumer.class),Mockito.any());
         InlineTypeBuilder<DocProponent> builder = mock.docProponent();
         builder.text("hello");
-        Assert.assertEquals("<p><docProponent>hello</docProponent></p>", write());
+        assertEquals("<p><docProponent>hello</docProponent></p>", write());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
         doCallRealMethod().when(mock).docProponent(Mockito.any(),Mockito.any());
         InlineTypeBuilder<DocProponent> builder = mock.docProponent( dc -> dc.setEid(NoWhiteSpace.valueOf("eid_1")));
         builder.text("hello");
-        Assert.assertEquals("<p><docProponent eId=\"eid_1\">hello</docProponent></p>", write());
+        assertEquals("<p><docProponent eId=\"eid_1\">hello</docProponent></p>", write());
     }
 
     @SuppressWarnings("unchecked")

@@ -3,7 +3,7 @@ package io.legaldocml.io.impl;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.io.XmlReaderFactory;
 import io.legaldocml.test.PathForTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.MappedByteBuffer;

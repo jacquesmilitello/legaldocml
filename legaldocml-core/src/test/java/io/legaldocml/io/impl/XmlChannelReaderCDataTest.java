@@ -1,27 +1,28 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.doTest;
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.path;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class XmlChannelReaderCDataTest {
 
     @Test
     public void test001Element() throws IOException {
         doTest(path("/xml/cdata-001.xml"), reader -> {
             reader.nextStartOrEndElement();
-            Assert.assertEquals("test", reader.getQName().getLocalName());
+            assertEquals("test", reader.getQName().getLocalName());
             reader.next();
-            Assert.assertEquals("hello", reader.getText().toString());
+            assertEquals("hello", reader.getText().toString());
             reader.next();
-            Assert.assertEquals("test", reader.getQName().getLocalName());
+            assertEquals("test", reader.getQName().getLocalName());
         });
     }
 
@@ -29,23 +30,23 @@ public class XmlChannelReaderCDataTest {
     public void test002Element() throws IOException {
         doTest(path("/xml/cdata-002.xml"), reader -> {
             reader.nextStartOrEndElement();
-            Assert.assertEquals("test", reader.getQName().getLocalName());
+            assertEquals("test", reader.getQName().getLocalName());
             reader.next(); //-> CHARACTERS
             reader.next(); //-> START_ELEMENT
-            Assert.assertEquals("el", reader.getQName().getLocalName());
+            assertEquals("el", reader.getQName().getLocalName());
             reader.next(); //-> CHARACTERS
-            Assert.assertEquals("hello-001", reader.getText().toString());
+            assertEquals("hello-001", reader.getText().toString());
             reader.next(); //-> END_ELEMENT
-            Assert.assertEquals("el", reader.getQName().getLocalName());
+            assertEquals("el", reader.getQName().getLocalName());
             reader.next(); //-> CHARACTERS
             reader.next(); //-> START_ELEMENT
-            Assert.assertEquals("el", reader.getQName().getLocalName());
+            assertEquals("el", reader.getQName().getLocalName());
             reader.next(); //-> CHARACTERS
-            Assert.assertEquals("hello-002", reader.getText().toString());
+            assertEquals("hello-002", reader.getText().toString());
             reader.next(); //-> END_ELEMENT
-            Assert.assertEquals("el", reader.getQName().getLocalName());
+            assertEquals("el", reader.getQName().getLocalName());
             reader.next(); //-> END_ELEMENT
-            Assert.assertEquals("test", reader.getQName().getLocalName());
+            assertEquals("test", reader.getQName().getLocalName());
         });
     }
 
@@ -53,12 +54,12 @@ public class XmlChannelReaderCDataTest {
     public void test003BadEndCdata() throws IOException {
         doTest(path("/xml/cdata-003.xml"), reader -> {
             reader.nextStartOrEndElement();
-            Assert.assertEquals("test", reader.getQName().getLocalName());
+            assertEquals("test", reader.getQName().getLocalName());
             try {
                 reader.next();
-                Assert.fail();
+                fail("");
             } catch (XmlChannelReaderException cause) {
-                Assert.assertEquals(XmlChannelReaderException.Type.PREMATURE_END_OF_FILE, cause.getType());
+                assertEquals(XmlChannelReaderException.Type.PREMATURE_END_OF_FILE, cause.getType());
 
                 cause.printStackTrace();
             }

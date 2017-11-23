@@ -1,11 +1,11 @@
 package io.legaldocml.akn.util;
 
-import io.legaldocml.test.SonarJUnit4ClassRunner;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.Tests;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class XmlReaderHelperTest {
 
     @Test

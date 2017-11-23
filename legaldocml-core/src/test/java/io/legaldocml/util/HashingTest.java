@@ -3,8 +3,8 @@ package io.legaldocml.util;
 import io.legaldocml.test.Tests;
 import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.unsafe.UnsafeString;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class HashingTest {
 
@@ -16,27 +16,27 @@ public class HashingTest {
     @Test
     public void test() {
         String value = "Hello World !";
-        Assert.assertEquals(-7739591154577084421L,Hashing.xx(123456, value));
+        Assertions.assertEquals(-7739591154577084421L,Hashing.xx(123456, value));
 
     }
 
     @Test
     public void testReader() {
         String value = "Hello World !";
-        Assert.assertEquals(-7739591154577084421L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
+        Assertions.assertEquals(-7739591154577084421L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
     }
 
     @Test
     public void testReaderLong() {
         String value = "Hello World !Hello World !Hello World !Hello World !Hello World !Hello World !Hello World !";
-        Assert.assertEquals(2875214966217480447L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
+        Assertions.assertEquals(2875214966217480447L,Hashing.xx(123456, new HashReader4String(UnsafeString.getChars(value))));
     }
 
     @Test
     public void testHashCode() {
-        Assert.assertEquals(0,Hashing.hashCode(null));
-        Assert.assertEquals(0,Hashing.hashCode(new char[0]));
-        Assert.assertEquals("HelloWorld".hashCode(), Hashing.hashCode("HelloWorld".toCharArray()));
+        Assertions.assertEquals(0,Hashing.hashCode(null));
+        Assertions.assertEquals(0,Hashing.hashCode(new char[0]));
+        Assertions.assertEquals("HelloWorld".hashCode(), Hashing.hashCode("HelloWorld".toCharArray()));
     }
 
     private static class HashReader4String extends HashReader {

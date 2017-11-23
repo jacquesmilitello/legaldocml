@@ -1,10 +1,13 @@
 package io.legaldocml.util;
 
 import io.legaldocml.test.Tests;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static io.legaldocml.util.CharArrays.immutable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -21,22 +24,22 @@ public class CharArraysTest {
 
         CharArray array = immutable("hello");
 
-        Assert.assertTrue(array.equals("hello"));
-        Assert.assertEquals(array,immutable("hello"));
-        Assert.assertEquals(array,array);
+        assertTrue(array.equals("hello"));
+        assertEquals(array,immutable("hello"));
+        assertEquals(array,array);
 
-        Assert.assertFalse(array.equals(null));
-        Assert.assertFalse(array.equals(Integer.valueOf(25)));
+        assertFalse(array.equals(null));
+        assertFalse(array.equals(Integer.valueOf(25)));
 
-        Assert.assertNotEquals(array,immutable("hellO"));
-        Assert.assertNotEquals(array,immutable("helloo"));
-        Assert.assertNotEquals(array,"hellO");
-        Assert.assertNotEquals(array,"helloo");
+        assertNotEquals(array,immutable("hellO"));
+        assertNotEquals(array,immutable("helloo"));
+        assertNotEquals(array,"hellO");
+        assertNotEquals(array,"helloo");
     }
 
     @Test
     public void testHashCode() {
-        Assert.assertEquals(948680436, immutable("hello").hashCode());
+        assertEquals(948680436, immutable("hello").hashCode());
 
         CharBuffer buffer = new CharBuffer();
         buffer.put('h');
@@ -44,7 +47,7 @@ public class CharArraysTest {
         buffer.put('l');
         buffer.put('l');
         buffer.put('o');
-        Assert.assertEquals(immutable("hello").hashCode(), buffer.hashCode());
+        assertEquals(immutable("hello").hashCode(), buffer.hashCode());
 
 
     }

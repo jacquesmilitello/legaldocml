@@ -4,79 +4,67 @@ import io.legaldocml.archive.Archive;
 import io.legaldocml.archive.ArchiveException;
 import io.legaldocml.archive.ArchiveFactory;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
-import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class ZipArchiveReadTest {
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testBadUri() {
         Path path = Mockito.mock(Path.class);
-        thrown.expect(ArchiveException.class);
-        thrown.expectCause(instanceOf(IllegalArgumentException.class));
-        thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_OPEN)));
-        ArchiveFactory.readOnly("zip", path);
+        ArchiveException exception = assertThrows(ArchiveException.class, () -> ArchiveFactory.readOnly("zip", path));
+        assertEquals(IllegalArgumentException.class, exception.getCause().getClass());
+        assertEquals(ArchiveException.Type.READ_OPEN, exception.getType());
     }
 
     @Test
     public void testZipEmpty() throws IOException {
-        thrown.expect(ArchiveException.class);
-       // thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_META)));
-        ArchiveFactory.readOnly("zip", PathForTest.path("/zip/empty.zip"));
+        ArchiveException exception = assertThrows(ArchiveException.class, () -> ArchiveFactory.readOnly("zip", PathForTest.path("/zip/empty.zip")));
+        assertEquals(ArchiveException.Type.READ_META, exception.getType());
     }
 
     @Test
     public void testPut() throws IOException {
-        thrown.expect(ArchiveException.class);
-        thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_ONLY_MODE)));
         try (Archive archive = ArchiveFactory.readOnly("zip", PathForTest.path("/zip/single.zip"))) {
-            archive.put(null);
+            ArchiveException exception = assertThrows(ArchiveException.class, () -> archive.put(null));
+            assertEquals(ArchiveException.Type.READ_ONLY_MODE, exception.getType());
         }
 
     }
 
     @Test
     public void testPut2() throws IOException {
-        thrown.expect(ArchiveException.class);
-        thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_ONLY_MODE)));
         try (Archive archive = ArchiveFactory.readOnly("zip", PathForTest.path("/zip/single.zip"))) {
-            archive.put(null, null,null);
+            ArchiveException exception = assertThrows(ArchiveException.class, () -> archive.put(null, null, null));
+            assertEquals(ArchiveException.Type.READ_ONLY_MODE, exception.getType());
         }
 
     }
 
     @Test
     public void testRemove() throws IOException {
-        thrown.expect(ArchiveException.class);
-        thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_ONLY_MODE)));
         try (Archive archive = ArchiveFactory.readOnly("zip", PathForTest.path("/zip/single.zip"))) {
-            archive.remove(null);
+            ArchiveException exception = assertThrows(ArchiveException.class, () -> archive.remove(null));
+            assertEquals(ArchiveException.Type.READ_ONLY_MODE, exception.getType());
         }
 
     }
 
     @Test
     public void testRaw() throws IOException {
-        thrown.expect(ArchiveException.class);
-        thrown.expect(hasProperty("type", equalTo(ArchiveException.Type.READ_NOT_FOUND)));
         try (Archive archive = ArchiveFactory.readOnly("zip", PathForTest.path("/zip/single.zip"))) {
-            archive.raw(BusinessProvider.businessProvider("default").newAknIdentifier("1","2", "3"));
+            ArchiveException exception = assertThrows(ArchiveException.class, () -> archive.raw(BusinessProvider.businessProvider("default").newAknIdentifier("1", "2", "3")));
+            assertEquals(ArchiveException.Type.READ_NOT_FOUND, exception.getType());
         }
 
     }

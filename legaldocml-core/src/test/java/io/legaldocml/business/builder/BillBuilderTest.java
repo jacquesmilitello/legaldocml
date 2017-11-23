@@ -19,7 +19,7 @@ import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.builder.element.ModTypeBuilder;
 import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.channels.Channels;

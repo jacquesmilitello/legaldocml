@@ -1,6 +1,6 @@
 package io.legaldocml.test;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -30,17 +30,17 @@ public final class Tests {
 		constructor.setAccessible(false);
 		for (final Method method : clazz.getMethods()) {
 			if (!Modifier.isStatic(method.getModifiers()) && method.getDeclaringClass().equals(clazz)) {
-				Assert.fail("there exists a non-static method:" + method);
+				Assertions.fail("there exists a non-static method:" + method);
 			}
 		}
 	}
 
 	public static void assertSingletonClassIsWellDefined(Class<?> clazz) throws Exception {
-		Assert.assertTrue("class must be final", Modifier.isFinal(clazz.getModifiers()));
-        Assert.assertEquals("There must be only one constructor", 1, clazz.getDeclaredConstructors().length);
+		Assertions.assertTrue(Modifier.isFinal(clazz.getModifiers()), "class must be final");
+		Assertions.assertEquals(1, clazz.getDeclaredConstructors().length, "There must be only one constructor");
         final Constructor<?> constructor = clazz.getDeclaredConstructor();
         if (constructor.isAccessible() || !Modifier.isPrivate(constructor.getModifiers())) {
-            Assert.fail("constructor is not private");
+			Assertions.fail("constructor is not private");
         }
 	}
 

@@ -3,10 +3,10 @@ package io.legaldocml.model;
 import io.legaldocml.iso.Iso3166;
 import io.legaldocml.iso.Iso639;
 import io.legaldocml.test.Tests;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static io.legaldocml.model.DefaultModelProvider.INSTANCE;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ModelProviderTest {
 

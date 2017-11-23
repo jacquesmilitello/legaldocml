@@ -10,14 +10,14 @@ import io.legaldocml.akn.element.TLCConcept;
 import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.element.ContainerTypeBuilder;
 import io.legaldocml.business.builder.element.DocContainerTypeBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
-import io.legaldocml.akn.type.Uri;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayInputStream;

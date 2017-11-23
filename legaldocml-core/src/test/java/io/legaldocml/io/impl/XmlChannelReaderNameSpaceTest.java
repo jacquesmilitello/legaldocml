@@ -1,24 +1,20 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.Namespaces;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import io.legaldocml.util.CharArrays;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.doTest;
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.path;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class XmlChannelReaderNameSpaceTest {
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test001() throws IOException {
@@ -26,39 +22,38 @@ public class XmlChannelReaderNameSpaceTest {
             reader.nextStartOrEndElement();
 
             // default namespace
-            Assert.assertEquals("urn:test01", reader.getNamespaces().getDefaultNamespaceUri().toString());
-            Assert.assertEquals(1, reader.getNamespaces().count());
+            assertEquals("urn:test01", reader.getNamespaces().getDefaultNamespaceUri().toString());
+            assertEquals(1, reader.getNamespaces().count());
 
             // go to first elem => new namespace
             reader.nextStartOrEndElement();
-            Assert.assertEquals(2, reader.getNamespaces().count());
+            assertEquals(2, reader.getNamespaces().count());
 
             // end element ==> ns exists ==> =2
             reader.nextStartOrEndElement();
-            Assert.assertEquals(2, reader.getNamespaces().count());
+            assertEquals(2, reader.getNamespaces().count());
 
             reader.next();
 
-            Assert.assertEquals(1, reader.getNamespaces().count());
+            assertEquals(1, reader.getNamespaces().count());
 
             // go to second elem => new namespace
             reader.nextStartOrEndElement();
-            Assert.assertEquals(2, reader.getNamespaces().count());
+            assertEquals(2, reader.getNamespaces().count());
 
             // go to end of second element
             reader.nextStartOrEndElement();
-            Assert.assertEquals(2, reader.getNamespaces().count());
+            assertEquals(2, reader.getNamespaces().count());
 
             reader.next();
-            Assert.assertEquals(1, reader.getNamespaces().count());
+            assertEquals(1, reader.getNamespaces().count());
         });
     }
 
     @Test
     public void test002() throws IOException {
-        thrown.expect(XmlChannelReaderException.class);
-        thrown.expectMessage("NAMESPACE_ERROR");
-        doTest(path("/xml/namespace-002.xml"), XmlChannelReader::nextStartOrEndElement);
+        Assertions.assertThrows(XmlChannelReaderException.class, () ->
+        doTest(path("/xml/namespace-002.xml"), XmlChannelReader::nextStartOrEndElement));
     }
 
     @Test
@@ -67,11 +62,11 @@ public class XmlChannelReaderNameSpaceTest {
             reader.nextStartOrEndElement();
             Namespaces ns = reader.getNamespaces();
 
-            Assert.assertEquals(4, reader.getNamespaces().count());
-            Assert.assertEquals("urn:test01", ns.getDefaultNamespaceUri().toString());
-            Assert.assertEquals("urn:test02", ns.get(CharArrays.immutable("test02")).toString());
-            Assert.assertEquals("urn:test03", ns.get(CharArrays.immutable("test03")).toString());
-            Assert.assertEquals("urn:test04", ns.get(CharArrays.immutable("test04")).toString());
+            assertEquals(4, reader.getNamespaces().count());
+            assertEquals("urn:test01", ns.getDefaultNamespaceUri().toString());
+            assertEquals("urn:test02", ns.get(CharArrays.immutable("test02")).toString());
+            assertEquals("urn:test03", ns.get(CharArrays.immutable("test03")).toString());
+            assertEquals("urn:test04", ns.get(CharArrays.immutable("test04")).toString());
         });
     }
 }

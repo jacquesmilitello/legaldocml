@@ -4,7 +4,7 @@ import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
 import io.legaldocml.schematron.model.Schema;
 import io.legaldocml.test.PathForTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.MappedByteBuffer;

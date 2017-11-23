@@ -3,7 +3,7 @@ package io.legaldocml.akn.visitor;
 import io.legaldocml.ReaderHelper;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.test.PathForTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 

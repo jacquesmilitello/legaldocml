@@ -5,13 +5,13 @@ import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.CoverPage;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Preface;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
 import io.legaldocml.util.ToStringVisitor;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class VisitorTest {
 
 

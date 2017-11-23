@@ -1,15 +1,17 @@
 package io.legaldocml.util;
 
-import io.legaldocml.test.SonarJUnit4ClassRunner;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.Tests;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class StringsTest {
 
     @Test
@@ -19,20 +21,20 @@ public class StringsTest {
 
     @Test
     public void testIsBlank() {
-        Assert.assertTrue(Strings.isBlank(null));
-        Assert.assertTrue(Strings.isBlank(""));
-        Assert.assertTrue(Strings.isBlank(" "));
-        Assert.assertFalse(Strings.isBlank("jacques"));
-        Assert.assertFalse(Strings.isBlank("  jacques  "));
+        assertTrue(Strings.isBlank(null));
+        assertTrue(Strings.isBlank(""));
+        assertTrue(Strings.isBlank(" "));
+        assertFalse(Strings.isBlank("jacques"));
+        assertFalse(Strings.isBlank("  jacques  "));
     }
 
     @Test
     public void testIsEmpty() {
-        Assert.assertTrue(Strings.isEmpty(null));
-        Assert.assertTrue(Strings.isEmpty(""));
-        Assert.assertFalse(Strings.isEmpty(" "));
-        Assert.assertFalse(Strings.isEmpty("jacques"));
-        Assert.assertFalse(Strings.isEmpty("  jacques  "));
+        assertTrue(Strings.isEmpty(null));
+        assertTrue(Strings.isEmpty(""));
+        assertFalse(Strings.isEmpty(" "));
+        assertFalse(Strings.isEmpty("jacques"));
+        assertFalse(Strings.isEmpty("  jacques  "));
     }
 
 }

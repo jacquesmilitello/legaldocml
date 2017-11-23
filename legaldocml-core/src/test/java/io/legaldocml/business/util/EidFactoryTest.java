@@ -14,12 +14,15 @@ import io.legaldocml.akn.element.MainBody;
 import io.legaldocml.akn.element.Point;
 import io.legaldocml.akn.element.WrapUp;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class EidFactoryTest {
 
     /**
@@ -28,18 +31,18 @@ public class EidFactoryTest {
      */
     @Test
     public void testPart01() {
-        Assert.assertEquals("list", EidFactory.getElementRef(List.class));
-        Assert.assertEquals("list", EidFactory.getElementRef(BlockList.class));
-        Assert.assertEquals("intro", EidFactory.getElementRef(Intro.class));
-        Assert.assertEquals("intro", EidFactory.getElementRef(ListIntroduction.class));
-        Assert.assertEquals("wrapup", EidFactory.getElementRef(WrapUp.class));
+        assertEquals("list", EidFactory.getElementRef(List.class));
+        assertEquals("list", EidFactory.getElementRef(BlockList.class));
+        assertEquals("intro", EidFactory.getElementRef(Intro.class));
+        assertEquals("intro", EidFactory.getElementRef(ListIntroduction.class));
+        assertEquals("wrapup", EidFactory.getElementRef(WrapUp.class));
         // for the part 02 -> wrap
         // Assert.assertEquals("wrapup", EidFactory.getElementRef(ListWrapUp.class));
-        Assert.assertEquals("body", EidFactory.getElementRef(Body.class));
-        Assert.assertEquals("body", EidFactory.getElementRef(MainBody.class));
-        Assert.assertEquals("body", EidFactory.getElementRef(AmendmentBody.class));
-        Assert.assertEquals("body", EidFactory.getElementRef(DebateBody.class));
-        Assert.assertEquals("body", EidFactory.getElementRef(JudgmentBody.class));
+        assertEquals("body", EidFactory.getElementRef(Body.class));
+        assertEquals("body", EidFactory.getElementRef(MainBody.class));
+        assertEquals("body", EidFactory.getElementRef(AmendmentBody.class));
+        assertEquals("body", EidFactory.getElementRef(DebateBody.class));
+        assertEquals("body", EidFactory.getElementRef(JudgmentBody.class));
     }
 
     /**
@@ -48,22 +51,22 @@ public class EidFactoryTest {
      */
     @Test
     public void testPart02() {
-        Assert.assertEquals("al", EidFactory.getElementRef(Alinea.class));
-        Assert.assertEquals("body", EidFactory.getElementRef(Body.class));
+        assertEquals("al", EidFactory.getElementRef(Alinea.class));
+        assertEquals("body", EidFactory.getElementRef(Body.class));
     }
 
     @Test
     public void testEidBuilderWithoutParent() {
         Article article = new Article();
         NoWhiteSpace space = EidFactory.make(article, "1");
-        Assert.assertEquals("art_1", space.toString());
-        Assert.assertNull(article.getEid());
+        assertEquals("art_1", space.toString());
+        assertNull(article.getEid());
 
         EidFactory.makeAndFill(article, "1");
-        Assert.assertEquals("art_1", article.getEid().toString());
-        Assert.assertEquals(space, article.getEid());
+        assertEquals("art_1", article.getEid().toString());
+        assertEquals(space, article.getEid());
 
-        Assert.assertSame(article.getEid(),EidFactory.make(article, "1"));
+        assertSame(article.getEid(),EidFactory.make(article, "1"));
     }
 
 
@@ -73,7 +76,7 @@ public class EidFactoryTest {
         EidFactory.makeAndFill(article, "1");
         Point point = new Point();
         EidFactory.makeAndFill(article, point, "a");
-        Assert.assertEquals("art_1__point_a", point.getId());
+        assertEquals("art_1__point_a", point.getId());
     }
 
     @Test
@@ -82,7 +85,7 @@ public class EidFactoryTest {
         EidFactory.makeAndFill(article, "1");
         Point point = new Point();
         EidFactory.makeAndFill(article, point);
-        Assert.assertEquals("art_1__point", point.getId());
+        assertEquals("art_1__point", point.getId());
     }
 
     @Test
@@ -91,7 +94,7 @@ public class EidFactoryTest {
         EidFactory.makeAndFill(article);
         Point point = new Point();
         EidFactory.makeAndFill(article, point);
-        Assert.assertEquals("art__point", point.getId());
+        assertEquals("art__point", point.getId());
     }
 
 }

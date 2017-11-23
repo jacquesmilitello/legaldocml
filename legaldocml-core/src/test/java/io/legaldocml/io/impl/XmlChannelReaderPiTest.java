@@ -1,18 +1,20 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.io.ProcessingInstruction;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
 
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.doTest;
 import static io.legaldocml.io.impl.XmlChannelReaderHelper.path;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class XmlChannelReaderPiTest {
 
 
@@ -21,9 +23,9 @@ public class XmlChannelReaderPiTest {
         doTest(path("/xml/pi-001.xml"), reader -> {
             reader.nextStartOrEndElement();
             ProcessingInstruction instruction = reader.getProlog();
-            Assert.assertNotNull(reader.getProlog());
-            Assert.assertEquals("xml", instruction.getTarget());
-            Assert.assertEquals("version=\"1.0\" encoding=\"UTF-8\"", instruction.getInstruction());
+            Assertions.assertNotNull(reader.getProlog());
+            assertEquals("xml", instruction.getTarget());
+            assertEquals("version=\"1.0\" encoding=\"UTF-8\"", instruction.getInstruction());
         });
     }
 
@@ -32,21 +34,21 @@ public class XmlChannelReaderPiTest {
 
         doTest(path("/xml/pi-002.xml"), reader -> {
             while (reader.next() != XMLStreamConstants.PROCESSING_INSTRUCTION) ;
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertNull(reader.getPIData().getInstruction());
-            Assert.assertNull(reader.getProlog());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertNull(reader.getPIData().getInstruction());
+            assertNull(reader.getProlog());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> PI
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertEquals("instruction", reader.getPIData().getInstruction());
-            Assert.assertNull(reader.getProlog());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertEquals("instruction", reader.getPIData().getInstruction());
+            assertNull(reader.getProlog());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> PI
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertEquals("instruction instruction2", reader.getPIData().getInstruction());
-            Assert.assertNull(reader.getProlog());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertEquals("instruction instruction2", reader.getPIData().getInstruction());
+            assertNull(reader.getProlog());
         });
 
     }
@@ -56,22 +58,22 @@ public class XmlChannelReaderPiTest {
 
         doTest(path("/xml/pi-003.xml"), reader -> {
             while (reader.next() != XMLStreamConstants.PROCESSING_INSTRUCTION) ;
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertNull(reader.getPIData().getInstruction());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertNull(reader.getPIData().getInstruction());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> PI
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertEquals("instruction", reader.getPIData().getInstruction());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertEquals("instruction", reader.getPIData().getInstruction());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> PI
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertEquals("instruction instruction2", reader.getPIData().getInstruction());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertEquals("instruction instruction2", reader.getPIData().getInstruction());
 
             ProcessingInstruction instruction = reader.getProlog();
-            Assert.assertEquals("xml", instruction.getTarget());
-            Assert.assertEquals("version=\"1.0\" encoding=\"UTF-8\"", instruction.getInstruction());
+            assertEquals("xml", instruction.getTarget());
+            assertEquals("version=\"1.0\" encoding=\"UTF-8\"", instruction.getInstruction());
         });
 
     }
@@ -81,22 +83,22 @@ public class XmlChannelReaderPiTest {
 
         doTest(path("/xml/pi-004.xml"), reader -> {
             while (reader.next() != XMLStreamConstants.PROCESSING_INSTRUCTION) ;
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertNull(reader.getPIData().getInstruction());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertNull(reader.getPIData().getInstruction());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> PI
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertEquals("instruction", reader.getPIData().getInstruction());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertEquals("instruction", reader.getPIData().getInstruction());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> PI
-            Assert.assertEquals("target", reader.getPIData().getTarget());
-            Assert.assertEquals("instruction instruction2", reader.getPIData().getInstruction());
+            assertEquals("target", reader.getPIData().getTarget());
+            assertEquals("instruction instruction2", reader.getPIData().getInstruction());
 
             reader.next(); //-> CHARACTERS
             reader.next(); //-> START_ELEMENT
-            Assert.assertEquals("elem01", reader.getQName().getLocalName());
+            assertEquals("elem01", reader.getQName().getLocalName());
 
         });
 

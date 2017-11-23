@@ -1,13 +1,13 @@
 package io.legaldocml.unsafe;
 
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static io.legaldocml.test.Tests.assertUtilClassIsWellDefined;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class UnsafeHelperTest {
 
     @Test
@@ -22,7 +22,7 @@ public class UnsafeHelperTest {
             UnsafeHelper.getUnsafe().allocateInstance(Object.class);
         } catch (InstantiationException e) {
             e.printStackTrace();
-            Assert.fail();
+            Assertions.fail("");
         }
     }
 
@@ -31,9 +31,9 @@ public class UnsafeHelperTest {
         UnsafeHelper.getFieldOffset(Toto.class, "hello");
         try {
             UnsafeHelper.getFieldOffset(Toto.class, "hello2");
-            Assert.fail();
+            Assertions.fail("");
         } catch (RuntimeException e) {
-            Assert.assertTrue(true);
+            Assertions.assertTrue(true);
         }
     }
 

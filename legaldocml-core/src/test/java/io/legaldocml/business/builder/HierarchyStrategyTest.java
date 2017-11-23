@@ -4,15 +4,16 @@ import io.legaldocml.akn.element.Book;
 import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.akn.element.Subsection;
 import io.legaldocml.akn.element.Tome;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class HierarchyStrategyTest {
 
     @Test
@@ -26,9 +27,9 @@ public class HierarchyStrategyTest {
         hsb.section();
         hsb.subSection();
         HierarchyStrategy strategy = hsb.build();
-        Assert.assertEquals(Book.class, strategy.next(strategy.next(new Tome())).getClass());
-        Assert.assertEquals(Chapter.class, strategy.next(strategy.next(new Book())).getClass());
-        Assert.assertEquals(Subsection.class, strategy.next(strategy.next(new Chapter())).getClass());
+        assertEquals(Book.class, strategy.next(strategy.next(new Tome())).getClass());
+        assertEquals(Chapter.class, strategy.next(strategy.next(new Book())).getClass());
+        assertEquals(Subsection.class, strategy.next(strategy.next(new Chapter())).getClass());
 
 
     }

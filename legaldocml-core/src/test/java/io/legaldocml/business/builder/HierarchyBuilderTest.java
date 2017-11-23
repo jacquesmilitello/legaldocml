@@ -10,16 +10,16 @@ import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.element.HierarchyBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 import java.nio.channels.Channels;
 
 import static io.legaldocml.akn.AknElements.LIST;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class HierarchyBuilderTest {
 
     @Test

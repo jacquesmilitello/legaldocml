@@ -1,11 +1,11 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.module.akn.v3.XmlChannelWriterV3;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class XmlChannelWriterTest {
 
     private static final String TOTO = "toto";
@@ -23,7 +23,7 @@ public class XmlChannelWriterTest {
     private ByteArrayOutputStream baos;
     private XmlChannelWriter writer;
 
-    @Before
+    @BeforeEach
     public void before() {
         baos = new ByteArrayOutputStream();
         writer = new XmlChannelWriterV3();
@@ -37,7 +37,7 @@ public class XmlChannelWriterTest {
         writer.writeEnd(ADR, 4);
         writer.flush();
 
-        Assert.assertEquals("<toto toto=\"hello\"/>", baos.toString());
+        Assertions.assertEquals("<toto toto=\"hello\"/>", baos.toString());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class XmlChannelWriterTest {
         writer.writeEnd(ADR, 4);
         writer.flush();
 
-        Assert.assertEquals("<toto toto=\"hello\"/>", baos.toString());
+        Assertions.assertEquals("<toto toto=\"hello\"/>", baos.toString());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class XmlChannelWriterTest {
         writer.writeEnd(ADR, 4);
         writer.flush();
 
-        Assert.assertEquals("<toto toto=\"2011-03-09\"/>", baos.toString());
+        Assertions.assertEquals("<toto toto=\"2011-03-09\"/>", baos.toString());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class XmlChannelWriterTest {
         writer.writeEnd(ADR, 4);
         writer.flush();
 
-        Assert.assertEquals("<toto toto=\"2011-03-09T18:36:05\"/>", baos.toString());
+        Assertions.assertEquals("<toto toto=\"2011-03-09T18:36:05\"/>", baos.toString());
     }
 
 

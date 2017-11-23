@@ -21,6 +21,7 @@ import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.akn.type.RoleRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.element.BlocksBuilder;
@@ -32,8 +33,7 @@ import io.legaldocml.io.XmlProvider;
 import io.legaldocml.iso.Iso3166;
 import io.legaldocml.iso.Iso639;
 import io.legaldocml.model.Language;
-import io.legaldocml.akn.type.Uri;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayInputStream;

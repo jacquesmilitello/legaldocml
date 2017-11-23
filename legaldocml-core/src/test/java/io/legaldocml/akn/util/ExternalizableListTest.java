@@ -2,21 +2,18 @@ package io.legaldocml.akn.util;
 
 import io.legaldocml.akn.element.AbstractId;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class ExternalizableListTest {
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
+
 
     @Test
     public void testRemove() {
@@ -29,12 +26,12 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertEquals(3, list.size());
+        Assertions.assertEquals(3, list.size());
         list.remove(id1);
-        Assert.assertEquals(2, list.size());
+        Assertions.assertEquals(2, list.size());
 
-        Assert.assertSame(id2, list.get(0));
-        Assert.assertSame(id3, list.get(1));
+        Assertions.assertSame(id2, list.get(0));
+        Assertions.assertSame(id3, list.get(1));
     }
 
     @Test
@@ -48,12 +45,12 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertEquals(3, list.size());
+        Assertions.assertEquals(3, list.size());
         list.remove(0);
-        Assert.assertEquals(2, list.size());
+        Assertions.assertEquals(2, list.size());
 
-        Assert.assertSame(id2, list.get(0));
-        Assert.assertSame(id3, list.get(1));
+        Assertions.assertSame(id2, list.get(0));
+        Assertions.assertSame(id3, list.get(1));
     }
 
     @Test
@@ -68,16 +65,16 @@ public class ExternalizableListTest {
         list.add(0, id2);
         list.add(1, id3);
 
-        Assert.assertSame(id2, list.get(0));
-        Assert.assertSame(id3, list.get(1));
-        Assert.assertSame(id1, list.get(2));
+        Assertions.assertSame(id2, list.get(0));
+        Assertions.assertSame(id3, list.get(1));
+        Assertions.assertSame(id1, list.get(2));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test
     public void testAddWithIndexException() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
-        list.add(1, id1);
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () ->   list.add(1, id1));
     }
 
     @Test
@@ -94,7 +91,7 @@ public class ExternalizableListTest {
         AtomicInteger integer = new AtomicInteger();
         list.forEach( t -> integer.incrementAndGet());
 
-        Assert.assertEquals(3, integer.get());
+        Assertions.assertEquals(3, integer.get());
     }
 
     @Test
@@ -107,7 +104,7 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertEquals(3, list.stream().count());
+        Assertions.assertEquals(3, list.stream().count());
     }
 
     @Test
@@ -120,7 +117,7 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertNotNull(list.toString());
+        Assertions.assertNotNull(list.toString());
     }
 
 
@@ -136,10 +133,10 @@ public class ExternalizableListTest {
         list.add(id3);
 
         list.clear();
-        Assert.assertEquals(0, list.size());
+        Assertions.assertEquals(0, list.size());
         SimpleId[] elems =  list.getElems();
         for (int i = 0 ; i < elems.length ; i++) {
-            Assert.assertNull(elems[i]);
+            Assertions.assertNull(elems[i]);
         }
     }
 
@@ -154,13 +151,12 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertEquals(0, list.indexOf(id1));
-        Assert.assertEquals(1, list.indexOf(id2));
-        Assert.assertEquals(2, list.indexOf(id3));
-        Assert.assertEquals(-1, list.indexOf("hello"));
+        Assertions.assertEquals(0, list.indexOf(id1));
+        Assertions.assertEquals(1, list.indexOf(id2));
+        Assertions.assertEquals(2, list.indexOf(id3));
+        Assertions.assertEquals(-1, list.indexOf("hello"));
 
-        thrown.expect(NullPointerException.class);
-        list.indexOf(null);
+        Assertions.assertThrows(NullPointerException.class, () -> list.indexOf(null));
     }
 
     @Test
@@ -177,13 +173,12 @@ public class ExternalizableListTest {
         list.add(id2);
         list.add(id3);
 
-        Assert.assertEquals(3, list.lastIndexOf(id1));
-        Assert.assertEquals(4, list.lastIndexOf(id2));
-        Assert.assertEquals(5, list.lastIndexOf(id3));
-        Assert.assertEquals(-1, list.lastIndexOf("hello"));
+        Assertions.assertEquals(3, list.lastIndexOf(id1));
+        Assertions.assertEquals(4, list.lastIndexOf(id2));
+        Assertions.assertEquals(5, list.lastIndexOf(id3));
+        Assertions.assertEquals(-1, list.lastIndexOf("hello"));
 
-        thrown.expect(NullPointerException.class);
-        list.lastIndexOf(null);
+        Assertions.assertThrows(NullPointerException.class, () -> list.lastIndexOf(null));
     }
 
     public static class SimpleId extends AbstractId {

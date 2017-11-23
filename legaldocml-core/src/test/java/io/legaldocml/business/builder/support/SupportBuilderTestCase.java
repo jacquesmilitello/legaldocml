@@ -4,9 +4,9 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.io.XmlProvider;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Before;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
@@ -17,13 +17,13 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-@RunWith(SonarJUnit4ClassRunner.class)
+@ExtendWith(LoggerInstancePostProcessor.class)
 public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E extends AknObject>  {
 
     protected T mock;
     protected E parent;
 
-    @Before
+    @BeforeEach
     public void before() {
         mock = Mockito.mock(getSupportBuilderClass());
         parent = getParent();

@@ -2,24 +2,27 @@ package io.legaldocml.akn;
 
 import io.legaldocml.akn.element.Alinea;
 import io.legaldocml.akn.element.Amendment;
-import io.legaldocml.test.SonarJUnit4ClassRunner;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.legaldocml.test.LoggerInstancePostProcessor;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@RunWith(SonarJUnit4ClassRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@ExtendWith(LoggerInstancePostProcessor.class)
 public class AknElementsTest {
 
     @Test
     public void testExists() {
-        Assert.assertTrue(AknElements.exists("alinea"));
-        Assert.assertTrue(AknElements.exists(new Amendment().name()));
-        Assert.assertFalse(AknElements.exists("toto"));
+        assertTrue(AknElements.exists("alinea"));
+        assertTrue(AknElements.exists(new Amendment().name()));
+        assertFalse(AknElements.exists("toto"));
     }
 
     @Test
     public void testClass() {
-        Assert.assertEquals(Alinea.class, AknElements.getAknClass("alinea"));
-        Assert.assertEquals(Amendment.class, AknElements.getAknClass(new Amendment().name()));
+        assertEquals(Alinea.class, AknElements.getAknClass("alinea"));
+        assertEquals(Amendment.class, AknElements.getAknClass(new Amendment().name()));
     }
 }
