@@ -4,7 +4,7 @@ import io.legaldocml.akn.container.ANtitleInlineContainer;
 import io.legaldocml.akn.element.DocDate;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.util.AknReference;
-import io.legaldocml.business.util.AknReferenceHelper;
+import io.legaldocml.business.util.AknReferences;
 
 import java.time.OffsetDateTime;
 import java.util.function.Consumer;
@@ -23,7 +23,7 @@ public interface DocDateSupport<T extends ANtitleInlineContainer> extends Suppor
         DocDate docDate = new DocDate();
         docDate.setDate(date);
         parent().add(docDate);
-        AknReferenceHelper.apply(businessBuilder().getAkomaNtoso(), docDate, refs);
+        AknReferences.apply(businessBuilder().getAkomaNtoso(), docDate, refs);
         if (consumer != null) {
             consumer.accept(docDate);
         }

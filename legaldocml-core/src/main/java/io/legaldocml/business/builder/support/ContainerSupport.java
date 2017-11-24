@@ -11,12 +11,13 @@ import java.util.function.Consumer;
  */
 public interface ContainerSupport<T extends ContainerContainer> extends SupportBuilder<T> {
 
-    default ContainerTypeBuilder<Container> container() {
-        return container(null);
+    default ContainerTypeBuilder<Container> container(String name) {
+        return container(name, null);
     }
 
-    default ContainerTypeBuilder<Container> container(Consumer<Container> consumer) {
+    default ContainerTypeBuilder<Container> container(String name, Consumer<Container> consumer) {
         Container container = new Container();
+        container.setName(name);
         parent().add(container);
         if (consumer != null) {
             consumer.accept(container);

@@ -22,7 +22,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
     public void testEmpty() throws IOException {
         doCallRealMethod().when(mock).docProponent(Mockito.any());
         doCallRealMethod().when(mock).docProponent(Mockito.nullable(Consumer.class),Mockito.any());
-        InlineTypeBuilder<DocProponent> builder = mock.docProponent();
+        mock.docProponent();
         assertEquals("<p><docProponent/></p>", write());
     }
 
@@ -44,14 +44,4 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
         assertEquals("<p><docProponent eId=\"eid_1\">hello</docProponent></p>", write());
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Class getSupportBuilderClass() {
-        return DocProponentSupport.class;
-    }
-
-    @Override
-    protected P getParent() {
-        return new P();
-    }
 }

@@ -4,7 +4,7 @@ import io.legaldocml.akn.container.ANtitleInlineContainer;
 import io.legaldocml.akn.element.DocCommittee;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.util.AknReference;
-import io.legaldocml.business.util.AknReferenceHelper;
+import io.legaldocml.business.util.AknReferences;
 
 import java.util.function.Consumer;
 
@@ -21,7 +21,7 @@ public interface DocCommitteeSupport<T extends ANtitleInlineContainer> extends S
     default InlineTypeBuilder<DocCommittee> docCommittee(Consumer<DocCommittee> consumer, AknReference... refs) {
         DocCommittee docCommittee = new DocCommittee();
         parent().add(docCommittee);
-        AknReferenceHelper.apply(businessBuilder().getAkomaNtoso(), docCommittee, refs);
+        AknReferences.apply(businessBuilder().getAkomaNtoso(), docCommittee, refs);
         if (consumer != null) {
             consumer.accept(docCommittee);
         }

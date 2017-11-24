@@ -3,15 +3,15 @@ package io.legaldocml.business.util;
 import io.legaldocml.test.Tests;
 import org.junit.jupiter.api.Test;
 
-public class AknReferenceHelperTest {
+public class AknReferencesTest {
 
     @Test
     public void testHelperClass() throws Exception {
-        Tests.assertUtilClassIsWellDefined(AknReferenceHelper.class);
+        Tests.assertUtilClassIsWellDefined(AknReferences.class);
     }
 
     @Test
     public void testNullRef() {
-        AknReferenceHelper.apply(null,null);
+        AknReferences.apply(null,null);
     }
 }

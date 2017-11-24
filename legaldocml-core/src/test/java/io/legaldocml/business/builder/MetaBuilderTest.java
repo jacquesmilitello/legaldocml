@@ -9,6 +9,7 @@ import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.util.DateHelper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -25,9 +26,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(LoggerInstancePostProcessor.class)
 public class MetaBuilderTest {
 
+    private BusinessProvider provider = BusinessProvider.businessProvider("default");
+
+
     @Test
     public void testSetAknIdentifier() throws IOException {
-        BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setAknIdentifier(provider.newAknIdentifier("work", "expression", "manifestation"));
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
@@ -38,8 +41,15 @@ public class MetaBuilderTest {
     }
 
     @Test
+    public void testSetAknIdentifierNull() throws IOException {
+        BusinessBuilder builder = provider.newBuilder(DEBATE);
+        BusinessBuilderException ex = Assertions.assertThrows(BusinessBuilderException.class,() -> builder.getMetaBuilder().setAknIdentifier(null));
+        Assertions.assertTrue(ex.getMessage().contains("null"));
+
+    }
+
+    @Test
     public void testAddLanguage() throws IOException {
-        BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().addLanguage(Iso639.ENGLISH);
 
@@ -55,7 +65,6 @@ public class MetaBuilderTest {
 
     @Test
     public void testSetCountry() throws IOException {
-        BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setCountry(Iso3166.BELGIUM);
 
@@ -71,7 +80,6 @@ public class MetaBuilderTest {
     public void testSetDate() throws IOException {
         OffsetDateTime odt = DateHelper.convert(LocalDate.of(2011, 3, 9));
 
-        BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setDate(odt.toLocalDate(), "test");
 

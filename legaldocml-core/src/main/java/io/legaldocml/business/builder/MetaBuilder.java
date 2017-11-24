@@ -61,6 +61,7 @@ public class MetaBuilder {
         if (identifier == null) {
             throw new BusinessBuilderException("argument identifier is null");
         }
+
         identifier.apply(this.businessBuilder.getAkomaNtoso());
     }
 

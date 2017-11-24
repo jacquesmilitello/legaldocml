@@ -4,7 +4,7 @@ import io.legaldocml.akn.container.ANtitleInlineContainer;
 import io.legaldocml.akn.element.DocType;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.util.AknReference;
-import io.legaldocml.business.util.AknReferenceHelper;
+import io.legaldocml.business.util.AknReferences;
 
 import java.util.function.Consumer;
 
@@ -17,7 +17,7 @@ public interface DocTypeSupport<T extends ANtitleInlineContainer> extends Suppor
     default InlineTypeBuilder<DocType> docType(Consumer<DocType> consumer, AknReference... refs) {
         DocType docType = new DocType();
         parent().add(docType);
-        AknReferenceHelper.apply(businessBuilder().getAkomaNtoso(), docType, refs);
+        AknReferences.apply(businessBuilder().getAkomaNtoso(), docType, refs);
         if (consumer != null) {
             consumer.accept(docType);
         }

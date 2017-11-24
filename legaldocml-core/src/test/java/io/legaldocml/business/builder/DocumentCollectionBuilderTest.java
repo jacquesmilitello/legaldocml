@@ -133,18 +133,16 @@ public class DocumentCollectionBuilderTest {
 
     private void addPreface(DocumentCollectionBusinessBuilder builder) {
 
-        ContainerTypeBuilder<Container> container = builder.preface().container(t -> {
+        ContainerTypeBuilder<Container> container = builder.preface().container("preface1", t -> {
             t.setEid(NoWhiteSpace.valueOf("preface__container_1"));
-            t.setName("preface1");
             t.setClazz("left");
         });
 
         container.p().docCommittee(refersTo(SOURCE, ORGANIZATION)).text("Comisión de Constitución, Códigos, Legislación General y Administración");
         container.p().docketNumber(refersTo(SOURCE, CONCEPT_CARPETA)).text("Carpeta Nº 395 de 2010");
 
-        container = builder.preface().container(t -> {
+        container = builder.preface().container("preface1", t -> {
             t.setEid(NoWhiteSpace.valueOf("preface__container_2"));
-            t.setName("preface1");
             t.setClazz("right");
         });
 
@@ -152,9 +150,8 @@ public class DocumentCollectionBuilderTest {
         p.docNumber(refersTo(SOURCE,CONCEPT_REPARTIDO)).text("Nº 379");
         p.docDate(OffsetDateTime.of(2010,9,27,0,0,0,0, ZoneOffset.UTC)).text("Setiembre de 2010");
 
-        container = builder.preface().container(t -> {
+        container = builder.preface().container("title", t -> {
             t.setEid(NoWhiteSpace.valueOf("preface__container_3"));
-            t.setName("title");
             t.setClazz("center");
         });
         container.p().docTitle().text("ARTÍCULOS 1º, 3º Y 4º DE LA LEY Nº 15.848, DE CADUCIDAD DE LA PRETENSIÓN PUNITIVA DEL ESTADO");

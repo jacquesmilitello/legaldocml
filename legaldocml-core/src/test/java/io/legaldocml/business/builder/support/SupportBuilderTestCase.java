@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
 import java.nio.channels.Channels;
 import java.nio.charset.StandardCharsets;
 
@@ -23,10 +24,25 @@ public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E exte
     protected T mock;
     protected E parent;
 
+    private final Class<T> mockClass;
+    private final Class<E> parenteClass;
+
+    @SuppressWarnings("all")
+    protected SupportBuilderTestCase() {
+        ParameterizedType p = (ParameterizedType) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        this.mockClass = (Class<T>) p.getRawType();
+        this.parenteClass = (Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+    }
+
+
     @BeforeEach
     public void before() {
-        mock = Mockito.mock(getSupportBuilderClass());
-        parent = getParent();
+        mock = Mockito.mock(mockClass);
+        try {
+            parent = parenteClass.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+           throw new RuntimeException(e);
+        }
         BusinessBuilder businessBuilder = BusinessProvider.businessProvider("default").newBuilder("doc");
         Mockito.when(mock.parent()).thenReturn(this.parent);
         Mockito.when(mock.businessBuilder()).thenReturn(businessBuilder);
@@ -41,9 +57,5 @@ public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E exte
         }
         return new String(baos.toByteArray(), StandardCharsets.UTF_8);
     }
-
-    protected abstract Class<T> getSupportBuilderClass();
-
-    protected abstract E getParent();
 
 }

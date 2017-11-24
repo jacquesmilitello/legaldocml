@@ -13,7 +13,7 @@ import io.legaldocml.business.builder.group.HTMLInlineBuilder;
 import io.legaldocml.business.builder.group.MarkerElementsBuilder;
 import io.legaldocml.business.builder.support.OrganizationSupport;
 import io.legaldocml.business.util.AknReference;
-import io.legaldocml.business.util.AknReferenceHelper;
+import io.legaldocml.business.util.AknReferences;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -47,7 +47,7 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
         Inline inline = new Inline();
         this.container.add(inline);
         inline.setName(name);
-        AknReferenceHelper.apply(getBusinessBuilder().getAkomaNtoso(), inline, refs);
+        AknReferences.apply(getBusinessBuilder().getAkomaNtoso(), inline, refs);
         return (U) this;
     }
 

@@ -4,7 +4,7 @@ import io.legaldocml.akn.container.ANtitleInlineContainer;
 import io.legaldocml.akn.element.DocTitle;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.util.AknReference;
-import io.legaldocml.business.util.AknReferenceHelper;
+import io.legaldocml.business.util.AknReferences;
 
 import java.util.function.Consumer;
 
@@ -21,7 +21,7 @@ public interface DocTitleSupport<T extends ANtitleInlineContainer> extends Suppo
     default InlineTypeBuilder<DocTitle> docTitle(Consumer<DocTitle> consumer, AknReference... refs) {
         DocTitle docTitle = new DocTitle();
         parent().add(docTitle);
-        AknReferenceHelper.apply(businessBuilder().getAkomaNtoso(), docTitle, refs);
+        AknReferences.apply(businessBuilder().getAkomaNtoso(), docTitle, refs);
         if (consumer != null) {
             consumer.accept(docTitle);
         }
