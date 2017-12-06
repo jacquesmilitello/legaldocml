@@ -688,7 +688,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                 break;
             }
             this.elemStack[i] = null;
-            this.seqs[i].reset();
+            this.seqs[i].clean();
         }
         this.namespaces.reset();
     }

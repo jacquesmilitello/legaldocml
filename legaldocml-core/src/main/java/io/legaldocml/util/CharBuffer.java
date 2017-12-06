@@ -5,7 +5,9 @@ package io.legaldocml.util;
  */
 public final class CharBuffer implements CharArray {
 
-    final char[] hb = new char[4096];
+    public static final int DEFAULT_BUFFER_SIZE = 2048;
+
+    protected char[] hb = new char[DEFAULT_BUFFER_SIZE];
 
     private int pos = 0;
 
@@ -15,8 +17,13 @@ public final class CharBuffer implements CharArray {
      * @param c The char to be written
      */
     public void put(char c) {
+        if (pos == hb.length) {
+            grow();
+        }
         hb[pos++] = c;
     }
+
+
 
     /**
      * {@inheritDoc}
@@ -112,5 +119,16 @@ public final class CharBuffer implements CharArray {
         return hb[pos - i];
     }
 
+    private void grow() {
+        char[] newHb = new char[hb.length << 1];
+        System.arraycopy(this.hb,0,newHb, 0, this.pos);
+        this.hb = newHb;
+    }
 
+    public void clean() {
+        reset();
+        if (this.hb.length > DEFAULT_BUFFER_SIZE) {
+            this.hb = new char[DEFAULT_BUFFER_SIZE];
+        }
+    }
 }
