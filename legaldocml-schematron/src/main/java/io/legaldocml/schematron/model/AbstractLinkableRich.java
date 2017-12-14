@@ -6,8 +6,8 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.schematron.model.attribute.Linkable;
 import io.legaldocml.schematron.model.attribute.Rich;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.schematron.model.SchAttributes.FPI;
 import static io.legaldocml.schematron.model.SchAttributes.ICON;
 import static io.legaldocml.schematron.model.SchAttributes.ROLE;
@@ -21,11 +21,11 @@ abstract class AbstractLinkableRich implements SchObject, Rich, Linkable {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
-                .put(ROLE, biConsumerString(ROLE, getFieldOffset(AbstractLinkableRich.class, "role")))
-                .put(SUBJECT, biConsumerString(SUBJECT, getFieldOffset(AbstractLinkableRich.class, "subject")))
-                .put(ICON, biConsumerUri(ICON, getFieldOffset(AbstractLinkableRich.class, "icon")))
-                .put(SEE, biConsumerUri(SEE, getFieldOffset(AbstractLinkableRich.class, "see")))
-                .put(FPI, biConsumerUri(FPI, getFieldOffset(AbstractLinkableRich.class, "fpi")))
+                .put(ROLE, attributeGetterSetter4String(ROLE, getFieldOffset(AbstractLinkableRich.class, "role")))
+                .put(SUBJECT, attributeGetterSetter4String(SUBJECT, getFieldOffset(AbstractLinkableRich.class, "subject")))
+                .put(ICON, attributeGetterSetter4Uri(ICON, getFieldOffset(AbstractLinkableRich.class, "icon")))
+                .put(SEE, attributeGetterSetter4Uri(SEE, getFieldOffset(AbstractLinkableRich.class, "see")))
+                .put(FPI, attributeGetterSetter4Uri(FPI, getFieldOffset(AbstractLinkableRich.class, "fpi")))
                 .build();
     }
 

@@ -23,8 +23,8 @@ import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknElements.COMPONENT_DATA;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
@@ -60,10 +60,10 @@ public final class ComponentData extends AbstractId implements IdReq, Name, Link
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(ComponentData.class, "href")))
-                .put(NAME, biConsumerString(NAME, getFieldOffset(ComponentData.class, "name")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(ComponentData.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(ComponentData.class, "shortForm")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(ComponentData.class, "href")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(ComponentData.class, "name")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(ComponentData.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(ComponentData.class, "shortForm")))
                 .build();
     }
 

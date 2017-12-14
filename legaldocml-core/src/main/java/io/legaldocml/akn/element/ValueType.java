@@ -16,8 +16,8 @@ import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknAttributes.VALUE;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeValue;
@@ -47,10 +47,10 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(VALUE, biConsumerString(VALUE, getFieldOffset(ValueType.class, "value")))
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(ValueType.class, "refersTo")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(ValueType.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(ValueType.class, "shortForm")))
+                .put(VALUE, attributeGetterSetter4String(VALUE, getFieldOffset(ValueType.class, "value")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(ValueType.class, "refersTo")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(ValueType.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(ValueType.class, "shortForm")))
                 .putAll(MetaOpt.ATTRIBUTES)
                 .build();
     }

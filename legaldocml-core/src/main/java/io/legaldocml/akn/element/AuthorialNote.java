@@ -15,9 +15,9 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.AUTHORIAL_NOTE;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNotes;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -50,9 +50,9 @@ public final class AuthorialNote extends SubFlowStructure implements Notes, ANsu
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(AknAttributes.MARKER, biConsumerString(AknAttributes.MARKER, getFieldOffset(AuthorialNote.class, "marker")))
-                .put(AknAttributes.PLACEMENT_BASE, biConsumerEidRef(AknAttributes.PLACEMENT_BASE, getFieldOffset(AuthorialNote.class, "placementBase")))
-                .put(AknAttributes.PLACEMENT, biConsumerEnum(AknAttributes.PLACEMENT, getFieldOffset(AuthorialNote.class, "placement"), PlacementType.class))
+                .put(AknAttributes.MARKER, attributeGetterSetter4String(AknAttributes.MARKER, getFieldOffset(AuthorialNote.class, "marker")))
+                .put(AknAttributes.PLACEMENT_BASE, attributeGetterSetter4EidRef(AknAttributes.PLACEMENT_BASE, getFieldOffset(AuthorialNote.class, "placementBase")))
+                .put(AknAttributes.PLACEMENT, attributeGetterSetter4Enum(AknAttributes.PLACEMENT, getFieldOffset(AuthorialNote.class, "placement"), PlacementType.class))
                 .build();
     }
 

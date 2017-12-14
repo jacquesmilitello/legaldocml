@@ -45,7 +45,7 @@ public final class Time extends InlineType implements io.legaldocml.akn.attribut
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.TIME, Attributes.biConsumerDateTime(AknAttributes.TIME, getFieldOffset(Time.class, "time")))
+                .put(AknAttributes.TIME, Attributes.attributeGetterSetter4DateTime(AknAttributes.TIME, getFieldOffset(Time.class, "time")))
                 .build();
     }
 

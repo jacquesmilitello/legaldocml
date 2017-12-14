@@ -17,7 +17,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.EVENT_REF;
 import static io.legaldocml.akn.AknElements.LIFECYCLE;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -45,7 +45,7 @@ public final class Lifecycle implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Lifecycle.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(Lifecycle.class, "source")))
                 .build();
     }
 

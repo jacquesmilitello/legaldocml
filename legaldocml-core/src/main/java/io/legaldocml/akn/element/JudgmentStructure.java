@@ -13,8 +13,8 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -47,8 +47,8 @@ public abstract class JudgmentStructure extends AbstractStructure implements Nam
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(AknAttributes.CONTAINS, biConsumerEnum(AknAttributes.CONTAINS, getFieldOffset(JudgmentStructure.class, "versionType"), VersionType.class))
-                .put(AknAttributes.NAME, biConsumerString(AknAttributes.NAME, getFieldOffset(JudgmentStructure.class, "name")))
+                .put(AknAttributes.CONTAINS, attributeGetterSetter4Enum(AknAttributes.CONTAINS, getFieldOffset(JudgmentStructure.class, "versionType"), VersionType.class))
+                .put(AknAttributes.NAME, attributeGetterSetter4String(AknAttributes.NAME, getFieldOffset(JudgmentStructure.class, "name")))
                 .build();
     }
 

@@ -7,7 +7,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.schematron.model.SchAttributes.PATH;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -20,7 +20,7 @@ public final class Name implements SchMixedContent {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
-                .put(PATH, biConsumerUri(PATH, getFieldOffset(Name.class, "path")))
+                .put(PATH, attributeGetterSetter4Uri(PATH, getFieldOffset(Name.class, "path")))
                 .build();
     }
 

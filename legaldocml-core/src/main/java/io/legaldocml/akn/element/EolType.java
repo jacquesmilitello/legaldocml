@@ -38,9 +38,9 @@ public abstract class EolType extends MarkerOpt implements Number {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MarkerOpt.ATTRIBUTES)
-                .put("breakat", Attributes.biConsumerInteger("breakat", getFieldOffset(EolType.class, "breakat")))
-                .put("breakWith", Attributes.biConsumerInteger("breakWith", getFieldOffset(EolType.class, "breakWith")))
-                .put(NUMBER, Attributes.biConsumerInteger(NUMBER, getFieldOffset(EolType.class, "number")))
+                .put("breakat", Attributes.attributeGetterSetter4Integer("breakat", getFieldOffset(EolType.class, "breakat")))
+                .put("breakWith", Attributes.attributeGetterSetter4Integer("breakWith", getFieldOffset(EolType.class, "breakWith")))
+                .put(NUMBER, Attributes.attributeGetterSetter4Integer(NUMBER, getFieldOffset(EolType.class, "number")))
                 .build();
     }
 

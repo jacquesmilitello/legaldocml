@@ -14,7 +14,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.DOMAIN;
 import static io.legaldocml.akn.AknElements.SCOPE_MOD;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeScopeModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -51,7 +51,7 @@ public final class ScopeMod extends ModificationType implements ScopeModType, Am
 
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(ScopeMod.class, "type"), ScopeMods.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(ScopeMod.class, "type"), ScopeMods.class))
                 .build();
     }
 

@@ -7,7 +7,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.schematron.model.SchAttributes.SELECT;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -20,7 +20,7 @@ public final class ValueOf implements SchMixedContent {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
-                .put(SELECT, biConsumerUri(SELECT, getFieldOffset(ValueOf.class, "select")))
+                .put(SELECT, attributeGetterSetter4Uri(SELECT, getFieldOffset(ValueOf.class, "select")))
                 .build();
     }
 

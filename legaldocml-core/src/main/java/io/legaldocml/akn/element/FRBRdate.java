@@ -15,8 +15,8 @@ import java.time.OffsetDateTime;
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.FRBR_DATE;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -52,8 +52,8 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(FRBRdate.class, "date")))
-                .put(NAME, biConsumerString(NAME, getFieldOffset(FRBRdate.class, "name")))
+                .put(DATE, attributeGetterSetter4DateTime(DATE, getFieldOffset(FRBRdate.class, "date")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(FRBRdate.class, "name")))
                 .build();
     }
 

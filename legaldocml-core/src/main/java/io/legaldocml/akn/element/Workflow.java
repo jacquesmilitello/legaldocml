@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.STEP;
 import static io.legaldocml.akn.AknElements.WORKFLOW;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -46,7 +46,7 @@ public final class Workflow implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Workflow.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(Workflow.class, "source")))
                 .build();
     }
 

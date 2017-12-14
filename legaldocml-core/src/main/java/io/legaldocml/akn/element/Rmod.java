@@ -14,7 +14,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.FROM;
 import static io.legaldocml.akn.AknAttributes.UP_TO;
 import static io.legaldocml.akn.AknElements.RMOD;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRange;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,8 +47,8 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModType.ATTRIBUTES)
-                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(Rmod.class, "upTo")))
-                .put(FROM, biConsumerEidRef(FROM, getFieldOffset(Rmod.class, "from")))
+                .put(UP_TO, attributeGetterSetter4EidRef(UP_TO, getFieldOffset(Rmod.class, "upTo")))
+                .put(FROM, attributeGetterSetter4EidRef(FROM, getFieldOffset(Rmod.class, "from")))
                 .build();
 
     }

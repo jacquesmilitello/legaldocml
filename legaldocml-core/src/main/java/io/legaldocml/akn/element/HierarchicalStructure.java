@@ -14,8 +14,8 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.CONTAINS;
 import static io.legaldocml.akn.AknAttributes.NAME;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -50,8 +50,8 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(CONTAINS, biConsumerEnum(CONTAINS, getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
-                .put(NAME, biConsumerString(NAME, getFieldOffset(HierarchicalStructure.class, "name")))
+                .put(CONTAINS, attributeGetterSetter4Enum(CONTAINS, getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(HierarchicalStructure.class, "name")))
                 .build();
     }
 

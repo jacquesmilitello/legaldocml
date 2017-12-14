@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.type.EidRef;
@@ -15,10 +14,17 @@ import io.legaldocml.util.ToStringBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerTemporalGroupRef;
+import static io.legaldocml.akn.AknAttributes.ALTERNATIVE_TO;
+import static io.legaldocml.akn.AknAttributes.CLASS;
+import static io.legaldocml.akn.AknAttributes.PERIOD;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.STATUS;
+import static io.legaldocml.akn.AknAttributes.STYLE;
+import static io.legaldocml.akn.AknAttributes.TITLE;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4TemporalGroupRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -31,13 +37,13 @@ public abstract class AbstractCore extends AbstractId implements Core {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(AknAttributes.CLASS, biConsumerString(AknAttributes.CLASS, getFieldOffset(AbstractCore.class, "clazz")))
-                .put(AknAttributes.STYLE, biConsumerString(AknAttributes.STYLE, getFieldOffset(AbstractCore.class, "style")))
-                .put(AknAttributes.TITLE, biConsumerString(AknAttributes.TITLE, getFieldOffset(AbstractCore.class, "title")))
-                .put(AknAttributes.STATUS, biConsumerEnum(AknAttributes.STATUS, getFieldOffset(AbstractCore.class, "status"), StatusType.class))
-                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(AknAttributes.PERIOD, getFieldOffset(AbstractCore.class, "period")))
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(AknAttributes.REFERS_TO, getFieldOffset(AbstractCore.class, "refersTo")))
-                .put(AknAttributes.ALTERNATIVE_TO, Attributes.biConsumerEidRef(AknAttributes.ALTERNATIVE_TO, getFieldOffset(AbstractCore.class, "alternativeTo")))
+                .put(CLASS, attributeGetterSetter4String(CLASS, getFieldOffset(AbstractCore.class, "clazz")))
+                .put(STYLE, attributeGetterSetter4String(STYLE, getFieldOffset(AbstractCore.class, "style")))
+                .put(TITLE, attributeGetterSetter4String(TITLE, getFieldOffset(AbstractCore.class, "title")))
+                .put(STATUS, attributeGetterSetter4Enum(STATUS, getFieldOffset(AbstractCore.class, "status"), StatusType.class))
+                .put(PERIOD, attributeGetterSetter4TemporalGroupRef(PERIOD, getFieldOffset(AbstractCore.class, "period")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(AbstractCore.class, "refersTo")))
+                .put(ALTERNATIVE_TO, Attributes.attributeGetterSetter4EidRef(ALTERNATIVE_TO, getFieldOffset(AbstractCore.class, "alternativeTo")))
                 .build();
     }
 
@@ -138,13 +144,13 @@ public abstract class AbstractCore extends AbstractId implements Core {
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(AknAttributes.CLASS, this.clazz);
-        builder.append(AknAttributes.STYLE, this.style);
-        builder.append(AknAttributes.TITLE, this.title);
-        builder.append(AknAttributes.STATUS, this.status);
-        builder.append(AknAttributes.PERIOD, this.period);
-        builder.append(AknAttributes.REFERS_TO, this.refersTo);
-        builder.append(AknAttributes.ALTERNATIVE_TO, this.alternativeTo);
+        builder.append(CLASS, this.clazz);
+        builder.append(STYLE, this.style);
+        builder.append(TITLE, this.title);
+        builder.append(STATUS, this.status);
+        builder.append(PERIOD, this.period);
+        builder.append(REFERS_TO, this.refersTo);
+        builder.append(ALTERNATIVE_TO, this.alternativeTo);
     }
 
 }

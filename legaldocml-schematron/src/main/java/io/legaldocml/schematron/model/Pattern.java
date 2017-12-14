@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.function.Supplier;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.schematron.model.SchAttributes.ID;
 import static io.legaldocml.schematron.model.SchReadException.Type.INVALID_STATE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -33,7 +33,7 @@ public final class Pattern implements SchemaElement{
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
-                .put(ID, biConsumerString(ID, getFieldOffset(Pattern.class, "id")))
+                .put(ID, attributeGetterSetter4String(ID, getFieldOffset(Pattern.class, "id")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<PatternElement>>builder()

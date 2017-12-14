@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.CONTAINER;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
@@ -53,7 +53,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractCore.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(AknAttributes.NAME, getFieldOffset(ContainerType.class, "name")))
+                .put(AknAttributes.NAME, attributeGetterSetter4String(AknAttributes.NAME, getFieldOffset(ContainerType.class, "name")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ContainerElement>>builder()

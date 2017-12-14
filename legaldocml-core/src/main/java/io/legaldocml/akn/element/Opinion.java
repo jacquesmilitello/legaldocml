@@ -14,8 +14,8 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.BY;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.OPINION;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOpinionType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -48,8 +48,8 @@ public final class Opinion extends InlineType implements io.legaldocml.akn.attri
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(Opinion.class, "type"), OpinionType.class))
-                .put(BY, biConsumerAgentRef(BY, getFieldOffset(Opinion.class, "by")))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(Opinion.class, "type"), OpinionType.class))
+                .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Opinion.class, "by")))
                 .build();
     }
 

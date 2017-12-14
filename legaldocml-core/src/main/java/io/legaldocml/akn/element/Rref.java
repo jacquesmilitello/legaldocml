@@ -14,7 +14,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.FROM;
 import static io.legaldocml.akn.AknAttributes.UP_TO;
 import static io.legaldocml.akn.AknElements.RREF;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRange;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -48,8 +48,8 @@ public final class Rref extends InlineReqType implements RangeReq, ANinline {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqType.ATTRIBUTES)
-                .put(FROM, biConsumerEidRef(FROM, getFieldOffset(Rref.class, "from")))
-                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(Rref.class, "upTo")))
+                .put(FROM, attributeGetterSetter4EidRef(FROM, getFieldOffset(Rref.class, "from")))
+                .put(UP_TO, attributeGetterSetter4EidRef(UP_TO, getFieldOffset(Rref.class, "upTo")))
                 .build();
     }
 

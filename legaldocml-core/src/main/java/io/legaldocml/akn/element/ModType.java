@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
 import static io.legaldocml.akn.AknElements.QUOTED_TEXT;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -55,7 +55,7 @@ public abstract class ModType extends AbstractCore implements CoreReq, For {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractCore.ATTRIBUTES)
-                .put(AknAttributes.FOR, biConsumerEidRef(AknAttributes.FOR, getFieldOffset(ModType.class, "for_")))
+                .put(AknAttributes.FOR, attributeGetterSetter4EidRef(AknAttributes.FOR, getFieldOffset(ModType.class, "for_")))
                 .build();
 
         ELEMS_V2 = ImmutableMap.<String, Supplier<ModTypeItem>>builder()

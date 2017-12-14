@@ -24,8 +24,8 @@ import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.KEYWORD;
-import static io.legaldocml.akn.element.Attributes.biConsumerReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDictionary;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
@@ -69,12 +69,12 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(Keyword.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(Keyword.class, "shortForm")))
-                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Keyword.class, "value")))
-                .put(DICTIONARY, biConsumerReferenceRef(DICTIONARY, getFieldOffset(Keyword.class, "dictionary")))
-                .put(HREF, biConsumerString(HREF, getFieldOffset(Keyword.class, "href")))
-                .put(REFERS_TO, biConsumerString(REFERS_TO, getFieldOffset(Keyword.class, "refersTo")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(Keyword.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(Keyword.class, "shortForm")))
+                .put(VALUE, attributeGetterSetter4String(VALUE, getFieldOffset(Keyword.class, "value")))
+                .put(DICTIONARY, attributeGetterSetter4ReferenceRef(DICTIONARY, getFieldOffset(Keyword.class, "dictionary")))
+                .put(HREF, attributeGetterSetter4String(HREF, getFieldOffset(Keyword.class, "href")))
+                .put(REFERS_TO, attributeGetterSetter4String(REFERS_TO, getFieldOffset(Keyword.class, "refersTo")))
                 .build();
     }
 

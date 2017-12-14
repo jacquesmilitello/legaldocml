@@ -18,7 +18,7 @@ import static io.legaldocml.akn.AknElements.FRBR_ITEM;
 import static io.legaldocml.akn.AknElements.FRBR_MANIFESTATION;
 import static io.legaldocml.akn.AknElements.FRBR_WORK;
 import static io.legaldocml.akn.AknElements.IDENTIFICATION;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -48,7 +48,7 @@ public final class Identification implements AknObject, Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Identification.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(Identification.class, "source")))
                 .build();
     }
 

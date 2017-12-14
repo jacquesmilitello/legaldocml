@@ -45,7 +45,7 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(ORIGINAL_TEXT, Attributes.biConsumerUri(ORIGINAL_TEXT, getFieldOffset(Placeholder.class, "originalText")))
+                .put(ORIGINAL_TEXT, Attributes.attributeGetterSetter4Uri(ORIGINAL_TEXT, getFieldOffset(Placeholder.class, "originalText")))
                 .build();
     }
 

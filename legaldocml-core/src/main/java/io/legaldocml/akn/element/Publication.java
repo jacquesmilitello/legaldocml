@@ -23,9 +23,9 @@ import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknElements.PUBLICATION;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNumber;
@@ -67,12 +67,12 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(Publication.class, "date")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(Publication.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(Publication.class, "shortForm")))
-                .put(NAME, biConsumerString(NAME, getFieldOffset(Publication.class, "name")))
-                .put(NUMBER, biConsumerString(NUMBER, getFieldOffset(Publication.class, "number")))
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(Publication.class, "refersTo")))
+                .put(DATE, attributeGetterSetter4DateTime(DATE, getFieldOffset(Publication.class, "date")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(Publication.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(Publication.class, "shortForm")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(Publication.class, "name")))
+                .put(NUMBER, attributeGetterSetter4String(NUMBER, getFieldOffset(Publication.class, "number")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(Publication.class, "refersTo")))
                 .build();
     }
 

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.SESSION;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,7 +47,7 @@ public final class Session extends InlineType implements ValueOpt, ANtitleInline
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Session.class, "value")))
+                .put(VALUE, attributeGetterSetter4String(VALUE, getFieldOffset(Session.class, "value")))
                 .build();
     }
 

@@ -19,8 +19,8 @@ import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknElements.ALTERNATIVE_REFERENCE;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
@@ -58,10 +58,10 @@ public final class AlternativeReference extends AnyOtherType implements RefersOp
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(AlternativeReference.class, "refersTo")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(AlternativeReference.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(AlternativeReference.class, "shortForm")))
-                .put(FOR, biConsumerString(FOR, getFieldOffset(AlternativeReference.class, "for_")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(AlternativeReference.class, "refersTo")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(AlternativeReference.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(AlternativeReference.class, "shortForm")))
+                .put(FOR, attributeGetterSetter4String(FOR, getFieldOffset(AlternativeReference.class, "for_")))
                 .build();
     }
 

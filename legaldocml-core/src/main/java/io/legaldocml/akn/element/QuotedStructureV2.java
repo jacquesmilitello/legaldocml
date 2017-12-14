@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.FOR;
 import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -44,7 +44,7 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(PopupStructure.ATTRIBUTES)
-                .put(FOR, biConsumerString(FOR, getFieldOffset(QuotedStructureV2.class, "_for")))
+                .put(FOR, attributeGetterSetter4String(FOR, getFieldOffset(QuotedStructureV2.class, "_for")))
                 .build();
 
     }

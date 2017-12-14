@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.H_CONTAINER;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -46,7 +46,7 @@ public final class Hcontainer extends Hierarchy implements Name, HierElements {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Hierarchy.ATTRIBUTES)
-                .put(NAME, biConsumerString(NAME, getFieldOffset(Hcontainer.class, "name")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(Hcontainer.class, "name")))
                 .build();
     }
 

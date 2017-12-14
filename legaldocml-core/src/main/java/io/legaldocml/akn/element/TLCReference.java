@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.TLC_REFERENCE;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,7 +47,7 @@ public final class TLCReference extends ReferenceType implements TLC, Name {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ReferenceType.ATTRIBUTES)
-                .put(NAME, biConsumerString(NAME, getFieldOffset(TLCReference.class, "name")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(TLCReference.class, "name")))
                 .build();
     }
 

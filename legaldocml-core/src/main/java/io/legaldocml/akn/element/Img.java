@@ -18,9 +18,9 @@ import static io.legaldocml.akn.AknAttributes.HEIGHT;
 import static io.legaldocml.akn.AknAttributes.SRC;
 import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.akn.AknElements.IMG;
-import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
-import static io.legaldocml.akn.element.Attributes.biConsumerManifestationURI;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Integer;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ManifestationURI;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSrc;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
@@ -55,10 +55,10 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(ALT, biConsumerString(ALT, getFieldOffset(Img.class, "alt")))
-                .put(SRC, biConsumerManifestationURI(SRC, getFieldOffset(Img.class, "src")))
-                .put(WIDTH, biConsumerInteger(WIDTH, getFieldOffset(Img.class, "width")))
-                .put(HEIGHT, biConsumerInteger(HEIGHT, getFieldOffset(Img.class, "height")))
+                .put(ALT, attributeGetterSetter4String(ALT, getFieldOffset(Img.class, "alt")))
+                .put(SRC, attributeGetterSetter4ManifestationURI(SRC, getFieldOffset(Img.class, "src")))
+                .put(WIDTH, attributeGetterSetter4Integer(WIDTH, getFieldOffset(Img.class, "width")))
+                .put(HEIGHT, attributeGetterSetter4Integer(HEIGHT, getFieldOffset(Img.class, "height")))
                 .build();
     }
 

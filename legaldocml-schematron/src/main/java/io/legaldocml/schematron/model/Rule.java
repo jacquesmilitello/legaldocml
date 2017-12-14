@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.function.Supplier;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.schematron.model.SchAttributes.CONTEXT;
 import static io.legaldocml.schematron.model.SchReadException.Type.INVALID_STATE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -34,7 +34,7 @@ public final class Rule extends AbstractLinkableRich implements PatternElement {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
                 .putAll(AbstractLinkableRich.ATTRIBUTES)
-                .put(CONTEXT, biConsumerUri(CONTEXT, getFieldOffset(Rule.class, "context")))
+                .put(CONTEXT, attributeGetterSetter4Uri(CONTEXT, getFieldOffset(Rule.class, "context")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<RuleElement>>builder()

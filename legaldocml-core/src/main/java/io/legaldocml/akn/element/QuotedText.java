@@ -16,8 +16,8 @@ import static io.legaldocml.akn.AknAttributes.FOR;
 import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
 import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.QUOTED_TEXT;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeQuote;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -56,10 +56,10 @@ public final class QuotedText extends InlineType implements For, Quote, ModTypeI
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(FOR, biConsumerEidRef(FOR, getFieldOffset(QuotedText.class, "_for")))
-                .put(START_QUOTE, biConsumerString(START_QUOTE, getFieldOffset(QuotedText.class, "startQuote")))
-                .put(END_QUOTE, biConsumerString(END_QUOTE, getFieldOffset(QuotedText.class, "endQuote")))
-                .put(INLINE_QUOTE, biConsumerString(INLINE_QUOTE, getFieldOffset(QuotedText.class, "inlineQuote")))
+                .put(FOR, attributeGetterSetter4EidRef(FOR, getFieldOffset(QuotedText.class, "_for")))
+                .put(START_QUOTE, attributeGetterSetter4String(START_QUOTE, getFieldOffset(QuotedText.class, "startQuote")))
+                .put(END_QUOTE, attributeGetterSetter4String(END_QUOTE, getFieldOffset(QuotedText.class, "endQuote")))
+                .put(INLINE_QUOTE, attributeGetterSetter4String(INLINE_QUOTE, getFieldOffset(QuotedText.class, "inlineQuote")))
                 .build();
 
     }

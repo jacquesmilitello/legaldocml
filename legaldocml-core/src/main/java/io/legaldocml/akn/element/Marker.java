@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.MARKER;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,7 +47,7 @@ public final class Marker extends MarkerReq implements Name, MarkerElements {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MarkerReq.ATTRIBUTES)
-                .put(NAME, biConsumerString(NAME, getFieldOffset(Marker.class, "name")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(Marker.class, "name")))
                 .build();
     }
 

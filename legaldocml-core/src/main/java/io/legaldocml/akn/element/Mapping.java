@@ -21,11 +21,11 @@ import static io.legaldocml.akn.AknAttributes.END;
 import static io.legaldocml.akn.AknAttributes.ORIGINAL;
 import static io.legaldocml.akn.AknAttributes.START;
 import static io.legaldocml.akn.AknElements.MAPPING;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEventRefRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerWidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EventRefRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4WidRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeMappingAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -62,12 +62,12 @@ public final class Mapping extends MetaReq implements MappingAtts {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaReq.ATTRIBUTES)
-                .put(ORIGINAL, biConsumerWidRef(ORIGINAL, getFieldOffset(Mapping.class, "original")))
-                .put(CURRENT, biConsumerEidRef(CURRENT, getFieldOffset(Mapping.class, "current")))
-                .put(START, biConsumerEventRefRef(START, getFieldOffset(Mapping.class, "start")))
-                .put(END, biConsumerEventRefRef(END, getFieldOffset(Mapping.class, "end")))
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Mapping.class, "as")))
-                .put(BY, biConsumerAgentRef(BY, getFieldOffset(Mapping.class, "by")))
+                .put(ORIGINAL, attributeGetterSetter4WidRef(ORIGINAL, getFieldOffset(Mapping.class, "original")))
+                .put(CURRENT, attributeGetterSetter4EidRef(CURRENT, getFieldOffset(Mapping.class, "current")))
+                .put(START, attributeGetterSetter4EventRefRef(START, getFieldOffset(Mapping.class, "start")))
+                .put(END, attributeGetterSetter4EventRefRef(END, getFieldOffset(Mapping.class, "end")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(Mapping.class, "as")))
+                .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Mapping.class, "by")))
                 .build();
     }
 

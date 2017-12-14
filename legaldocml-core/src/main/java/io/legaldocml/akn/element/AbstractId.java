@@ -1,7 +1,6 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -9,7 +8,12 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.util.ToStringBuilder;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerNoWhiteSpace;
+import static io.legaldocml.akn.AknAttributes.EID;
+import static io.legaldocml.akn.AknAttributes.EVOLVING_ID;
+import static io.legaldocml.akn.AknAttributes.GUID;
+import static io.legaldocml.akn.AknAttributes.ID;
+import static io.legaldocml.akn.AknAttributes.WID;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4NoWhiteSpace;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 public abstract class AbstractId implements AknObject, Id {
@@ -18,11 +22,11 @@ public abstract class AbstractId implements AknObject, Id {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(AknAttributes.ID, biConsumerNoWhiteSpace(AknAttributes.ID, getFieldOffset(AbstractId.class, "eId")))
-                .put(AknAttributes.EVOLVING_ID, biConsumerNoWhiteSpace(AknAttributes.EVOLVING_ID, getFieldOffset(AbstractId.class, "wId")))
-                .put(AknAttributes.EID, biConsumerNoWhiteSpace(AknAttributes.EID, getFieldOffset(AbstractId.class, "eId")))
-                .put(AknAttributes.WID, biConsumerNoWhiteSpace(AknAttributes.WID, getFieldOffset(AbstractId.class, "wId")))
-                .put(AknAttributes.GUID, biConsumerNoWhiteSpace(AknAttributes.GUID, getFieldOffset(AbstractId.class, "guid")))
+                .put(ID, attributeGetterSetter4NoWhiteSpace(ID, getFieldOffset(AbstractId.class, "eId")))
+                .put(EVOLVING_ID, attributeGetterSetter4NoWhiteSpace(EVOLVING_ID, getFieldOffset(AbstractId.class, "wId")))
+                .put(EID, attributeGetterSetter4NoWhiteSpace(EID, getFieldOffset(AbstractId.class, "eId")))
+                .put(WID, attributeGetterSetter4NoWhiteSpace(WID, getFieldOffset(AbstractId.class, "wId")))
+                .put(GUID, attributeGetterSetter4NoWhiteSpace(GUID, getFieldOffset(AbstractId.class, "guid")))
                 .build();
     }
 
@@ -143,8 +147,8 @@ public abstract class AbstractId implements AknObject, Id {
     @Override
     public final String toString() {
         ToStringBuilder builder = new ToStringBuilder(this, false);
-        builder.append(AknAttributes.EID, this.eId);
-        builder.append(AknAttributes.WID, this.wId);
+        builder.append(EID, this.eId);
+        builder.append(WID, this.wId);
         toString(builder);
         return builder.toString();
     }

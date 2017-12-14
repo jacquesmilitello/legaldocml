@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.REMARK;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -46,7 +46,7 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(Remark.class, "type"), RemarkType.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(Remark.class, "type"), RemarkType.class))
                 .build();
     }
 

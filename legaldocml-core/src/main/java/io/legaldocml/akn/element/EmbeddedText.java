@@ -17,8 +17,8 @@ import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
 import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.EMBEDDED_TEXT;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -53,10 +53,10 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(EmbeddedText.class, "href")))
-                .put(START_QUOTE, biConsumerString(START_QUOTE, getFieldOffset(EmbeddedText.class, "startQuote")))
-                .put(END_QUOTE, biConsumerString(END_QUOTE, getFieldOffset(EmbeddedText.class, "endQuote")))
-                .put(INLINE_QUOTE, biConsumerString(INLINE_QUOTE, getFieldOffset(EmbeddedText.class, "inlineQuote")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(EmbeddedText.class, "href")))
+                .put(START_QUOTE, attributeGetterSetter4String(START_QUOTE, getFieldOffset(EmbeddedText.class, "startQuote")))
+                .put(END_QUOTE, attributeGetterSetter4String(END_QUOTE, getFieldOffset(EmbeddedText.class, "endQuote")))
+                .put(INLINE_QUOTE, attributeGetterSetter4String(INLINE_QUOTE, getFieldOffset(EmbeddedText.class, "inlineQuote")))
                 .build();
     }
 

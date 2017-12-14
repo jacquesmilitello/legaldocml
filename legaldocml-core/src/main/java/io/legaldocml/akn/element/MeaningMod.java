@@ -14,7 +14,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.DOMAIN;
 import static io.legaldocml.akn.AknElements.MEANING_MOD;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeMeaningModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -52,7 +52,7 @@ public final class MeaningMod extends ModificationType implements MeaningModType
 
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(MeaningMod.class, "type"), MeaningMods.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(MeaningMod.class, "type"), MeaningMods.class))
                 .build();
     }
 

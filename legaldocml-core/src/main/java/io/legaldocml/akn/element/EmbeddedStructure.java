@@ -17,8 +17,8 @@ import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
 import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.EMBEDDED_STRUCTURE;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeQuote;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -56,10 +56,10 @@ public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(EmbeddedStructure.class, "href")))
-                .put(START_QUOTE, biConsumerString(START_QUOTE, getFieldOffset(EmbeddedStructure.class, "startQuote")))
-                .put(END_QUOTE, biConsumerString(END_QUOTE, getFieldOffset(EmbeddedStructure.class, "endQuote")))
-                .put(INLINE_QUOTE, biConsumerString(INLINE_QUOTE, getFieldOffset(EmbeddedStructure.class, "inlineQuote")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(EmbeddedStructure.class, "href")))
+                .put(START_QUOTE, attributeGetterSetter4String(START_QUOTE, getFieldOffset(EmbeddedStructure.class, "startQuote")))
+                .put(END_QUOTE, attributeGetterSetter4String(END_QUOTE, getFieldOffset(EmbeddedStructure.class, "endQuote")))
+                .put(INLINE_QUOTE, attributeGetterSetter4String(INLINE_QUOTE, getFieldOffset(EmbeddedStructure.class, "inlineQuote")))
                 .build();
     }
 

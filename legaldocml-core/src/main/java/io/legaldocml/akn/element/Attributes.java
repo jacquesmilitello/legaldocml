@@ -185,7 +185,7 @@ public final class Attributes {
 
     private static final sun.misc.Unsafe UNSAFE = getUnsafe();
 
-    public static <T> AttributeGetterSetter<T> biConsumerInteger(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4Integer(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -194,7 +194,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerString(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4String(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -203,7 +203,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerNoWhiteSpace(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4NoWhiteSpace(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -212,21 +212,7 @@ public final class Attributes {
         };
     }
 
-    /**
-     * This biConsumer will fill after the {@link io.legaldocml.akn.AkomaNtosoContext}}
-     * <p>
-     * public static AknAttributeGetterSetter biConsumerNoWhiteSpace(String name, long addr) {
-     * return new AttributeBiConsumer(name) {
-     *
-     * @Override public void accept(Externalizable object, CharArray charArray) {
-     * getUnsafe().putObject(object, addr, NoWhiteSpace.valueOf(charArray.value()));
-     * }
-     * };
-     * }
-     */
-
-
-    public static <T extends Enum<T>, E> AttributeGetterSetter<E> biConsumerEnum(String name, long addr, Class<T> enumClass) {
+    public static <T extends Enum<T>, E> AttributeGetterSetter<E> attributeGetterSetter4Enum(String name, long addr, Class<T> enumClass) {
         return new DefaultAknAttributeGetterSetter<E>(name, addr) {
             @Override
             public void accept(E object, CharArray charArray) {
@@ -235,7 +221,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerLocalDateTime(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4LocalDateTime(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T i, CharArray s) {
@@ -252,7 +238,7 @@ public final class Attributes {
     }
 
 
-    public static <T> AttributeGetterSetter<T> biConsumerDateTime(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4DateTime(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T i, CharArray s) {
@@ -273,7 +259,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerBoolean(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4Boolean(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -282,7 +268,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerUri(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4Uri(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -292,7 +278,7 @@ public final class Attributes {
     }
 
 
-    public static <T> AttributeGetterSetter<T> biConsumerManifestationURI(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4ManifestationURI(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -301,7 +287,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerReferenceRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4ReferenceRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -310,7 +296,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerEidRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4EidRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -319,7 +305,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerWidRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4WidRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -328,7 +314,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerAgentRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4AgentRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -337,7 +323,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerRoleRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4RoleRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -346,7 +332,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerVoteRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4VoteRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -355,7 +341,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerConceptRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4ConceptRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -365,7 +351,7 @@ public final class Attributes {
     }
 
 
-    public static <T> AttributeGetterSetter<T> biConsumerListReferenceRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4ListReferenceRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -374,7 +360,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerEventRefRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4EventRefRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -383,7 +369,7 @@ public final class Attributes {
         };
     }
 
-    public static <T> AttributeGetterSetter<T> biConsumerTemporalGroupRef(String name, long addr) {
+    public static <T> AttributeGetterSetter<T> attributeGetterSetter4TemporalGroupRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {

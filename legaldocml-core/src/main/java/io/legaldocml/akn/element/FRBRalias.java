@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.FRBR_ALIAS;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -39,7 +39,7 @@ public final class FRBRalias extends ValueType implements Name {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ValueType.ATTRIBUTES)
-                .put(NAME, biConsumerString(NAME, getFieldOffset(FRBRalias.class, "name")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(FRBRalias.class, "name")))
                 .build();
     }
 

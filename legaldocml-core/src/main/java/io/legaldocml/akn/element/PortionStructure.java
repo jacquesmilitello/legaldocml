@@ -14,7 +14,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.INCLUDED_IN;
-import static io.legaldocml.akn.element.Attributes.biConsumerReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ReferenceRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePortionAtt;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -41,7 +41,7 @@ public abstract class PortionStructure implements PortionAtt {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(INCLUDED_IN, biConsumerReferenceRef(INCLUDED_IN, getFieldOffset(PortionStructure.class, "referenceRef")))
+                .put(INCLUDED_IN, attributeGetterSetter4ReferenceRef(INCLUDED_IN, getFieldOffset(PortionStructure.class, "referenceRef")))
                 .build();
     }
 

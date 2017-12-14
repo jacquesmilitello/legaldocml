@@ -21,9 +21,9 @@ import static io.legaldocml.akn.AknAttributes.END;
 import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.START;
 import static io.legaldocml.akn.AknElements.TIME_INTERVAL;
-import static io.legaldocml.akn.element.Attributes.biConsumerEventRefRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EventRefRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDuration;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeInterval;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefersReq;
@@ -64,10 +64,10 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(TimeInterval.class, "refersTo")))
-                .put(START, biConsumerEventRefRef(START, getFieldOffset(TimeInterval.class, "start")))
-                .put(END, biConsumerEventRefRef(END, getFieldOffset(TimeInterval.class, "end")))
-                .put(DURATION, biConsumerString(DURATION, getFieldOffset(TimeInterval.class, "duration")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(TimeInterval.class, "refersTo")))
+                .put(START, attributeGetterSetter4EventRefRef(START, getFieldOffset(TimeInterval.class, "start")))
+                .put(END, attributeGetterSetter4EventRefRef(END, getFieldOffset(TimeInterval.class, "end")))
+                .put(DURATION, attributeGetterSetter4String(DURATION, getFieldOffset(TimeInterval.class, "duration")))
                 .build();
     }
 

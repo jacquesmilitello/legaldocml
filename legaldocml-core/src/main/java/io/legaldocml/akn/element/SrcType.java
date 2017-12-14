@@ -17,8 +17,8 @@ import static io.legaldocml.akn.AknAttributes.ALT;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknAttributes.SRC;
-import static io.legaldocml.akn.element.Attributes.biConsumerManifestationURI;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ManifestationURI;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSrc;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -45,10 +45,10 @@ public abstract class SrcType extends AbstractId implements Core, IdOpt, ShowReq
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(SRC, biConsumerManifestationURI(SRC, getFieldOffset(SrcType.class, "src")))
-                .put(ALT, biConsumerString(ALT, getFieldOffset(SrcType.class, "alt")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(SrcType.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(SrcType.class, "shortForm")))
+                .put(SRC, attributeGetterSetter4ManifestationURI(SRC, getFieldOffset(SrcType.class, "src")))
+                .put(ALT, attributeGetterSetter4String(ALT, getFieldOffset(SrcType.class, "alt")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(SrcType.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(SrcType.class, "shortForm")))
                 .build();
     }
 

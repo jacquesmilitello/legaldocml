@@ -46,7 +46,7 @@ public final class FillIn extends InlineType implements ANinline, FillInWidth {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(WIDTH, Attributes.biConsumerString(WIDTH, getFieldOffset(FillIn.class, "width")))
+                .put(WIDTH, Attributes.attributeGetterSetter4String(WIDTH, getFieldOffset(FillIn.class, "width")))
                 .build();
     }
 

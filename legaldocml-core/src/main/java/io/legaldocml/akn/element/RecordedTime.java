@@ -17,8 +17,8 @@ import static io.legaldocml.akn.AknAttributes.TIME;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.RECORDED_TIME;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTime;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
@@ -55,8 +55,8 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
 
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(RecordedTime.class, "type"), TimeType.class))
-                .put(TIME, biConsumerDateTime(TIME, getFieldOffset(RecordedTime.class, "time")))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(RecordedTime.class, "type"), TimeType.class))
+                .put(TIME, attributeGetterSetter4DateTime(TIME, getFieldOffset(RecordedTime.class, "time")))
                 .build();
     }
 

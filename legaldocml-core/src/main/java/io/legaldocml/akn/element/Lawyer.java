@@ -14,7 +14,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.LAWYER;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLawyerAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -49,9 +49,9 @@ public final class Lawyer extends InlineReqReqType implements LawyerAtts, ANhead
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AknAttributes.AS, biConsumerRoleRef(AknAttributes.AS, getFieldOffset(Lawyer.class, "as")))
-                .put(AknAttributes.FOR, biConsumerRoleRef(AknAttributes.FOR, getFieldOffset(Lawyer.class, "_for")))
-                .put(AknAttributes.EMPOWERED_BY, biConsumerRoleRef(AknAttributes.EMPOWERED_BY, getFieldOffset(Lawyer.class, "empoweredBy")))
+                .put(AknAttributes.AS, attributeGetterSetter4RoleRef(AknAttributes.AS, getFieldOffset(Lawyer.class, "as")))
+                .put(AknAttributes.FOR, attributeGetterSetter4RoleRef(AknAttributes.FOR, getFieldOffset(Lawyer.class, "_for")))
+                .put(AknAttributes.EMPOWERED_BY, attributeGetterSetter4RoleRef(AknAttributes.EMPOWERED_BY, getFieldOffset(Lawyer.class, "empoweredBy")))
                 .build();
     }
 

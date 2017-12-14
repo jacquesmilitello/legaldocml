@@ -23,11 +23,11 @@ import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.EVENT_REF;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Boolean;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeEventType;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOriginating;
@@ -69,11 +69,11 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(EventRef.class, "date")))
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(EventRef.class, "source")))
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(EventRef.class, "refersTo")))
-                .put(ORIGINATING_EXPRESSION, biConsumerBoolean(ORIGINATING_EXPRESSION, getFieldOffset(EventRef.class, "originatingExpression")))
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(EventRef.class, "type"), EventType.class))
+                .put(DATE, attributeGetterSetter4DateTime(DATE, getFieldOffset(EventRef.class, "date")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(EventRef.class, "source")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(EventRef.class, "refersTo")))
+                .put(ORIGINATING_EXPRESSION, attributeGetterSetter4Boolean(ORIGINATING_EXPRESSION, getFieldOffset(EventRef.class, "originatingExpression")))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(EventRef.class, "type"), EventType.class))
 
                 .build();
     }

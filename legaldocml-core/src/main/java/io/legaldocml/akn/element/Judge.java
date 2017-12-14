@@ -13,7 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.JUDGE;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,7 +47,7 @@ public final class Judge extends InlineReqReqType implements Role, ANheaderInlin
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AknAttributes.AS, biConsumerRoleRef(AknAttributes.AS, getFieldOffset(Judge.class, "as")))
+                .put(AknAttributes.AS, attributeGetterSetter4RoleRef(AknAttributes.AS, getFieldOffset(Judge.class, "as")))
                 .build();
     }
 

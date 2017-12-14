@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.EFFICACY_MOD;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeEfficacyMods;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -46,7 +46,7 @@ public final class EfficacyMod extends ModificationType implements EfficacyModTy
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(EfficacyMod.class, "type"), EfficacyMods.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(EfficacyMod.class, "type"), EfficacyMods.class))
                 .build();
     }
 

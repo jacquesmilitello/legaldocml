@@ -26,9 +26,9 @@ import static io.legaldocml.akn.AknAttributes.END_TIME;
 import static io.legaldocml.akn.AknAttributes.START_TIME;
 import static io.legaldocml.akn.AknAttributes.TO;
 import static io.legaldocml.akn.AknElements.FROM;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -65,11 +65,11 @@ public abstract class SpeechType extends BaseHierarchy implements CoreOpt, Speec
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put(BY, biConsumerAgentRef(BY, getFieldOffset(SpeechType.class, "by")))
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(SpeechType.class, "as")))
-                .put(TO, biConsumerAgentRef(TO, getFieldOffset(SpeechType.class, "to")))
-                .put(START_TIME, biConsumerDateTime(START_TIME, getFieldOffset(SpeechType.class, "startTime")))
-                .put(END_TIME, biConsumerDateTime(END_TIME, getFieldOffset(SpeechType.class, "endTime")))
+                .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(SpeechType.class, "by")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(SpeechType.class, "as")))
+                .put(TO, attributeGetterSetter4AgentRef(TO, getFieldOffset(SpeechType.class, "to")))
+                .put(START_TIME, attributeGetterSetter4DateTime(START_TIME, getFieldOffset(SpeechType.class, "startTime")))
+                .put(END_TIME, attributeGetterSetter4DateTime(END_TIME, getFieldOffset(SpeechType.class, "endTime")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<BlockElements>>builder()

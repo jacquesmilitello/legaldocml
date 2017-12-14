@@ -16,8 +16,8 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -44,9 +44,9 @@ public abstract class LinkType extends AbstractId implements Core, IdReq, ShowRe
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(LinkType.class, "href")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(LinkType.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(LinkType.class, "shortForm")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(LinkType.class, "href")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(LinkType.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(LinkType.class, "shortForm")))
                 .build();
     }
 

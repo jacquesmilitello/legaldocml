@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.schematron.model.SchAttributes.TEST;
 import static io.legaldocml.schematron.model.SchReadException.Type.INVALID_STATE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -31,7 +31,7 @@ public final class Assert extends AbstractLinkableRich implements RuleElement {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
                 .putAll(AbstractLinkableRich.ATTRIBUTES)
-                .put(TEST, biConsumerUri(TEST, getFieldOffset(Assert.class, "test")))
+                .put(TEST, attributeGetterSetter4Uri(TEST, getFieldOffset(Assert.class, "test")))
                 .build();
     }
 

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.PRESENTATION;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -45,7 +45,7 @@ public final class Presentation extends AnyOtherType implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Presentation.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(Presentation.class, "source")))
                 .build();
     }
 

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.FROZEN;
 import static io.legaldocml.akn.AknElements.CONDITION;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -44,7 +44,7 @@ public final class Condition extends AnyOtherType implements Froozen {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(FROZEN, biConsumerDateTime(FROZEN, getFieldOffset(Condition.class, "frozen")))
+                .put(FROZEN, attributeGetterSetter4DateTime(FROZEN, getFieldOffset(Condition.class, "frozen")))
                 .build();
     }
 

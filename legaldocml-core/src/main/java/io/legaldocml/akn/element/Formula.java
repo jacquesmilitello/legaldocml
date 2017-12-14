@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.FORMULA;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -49,7 +49,7 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksreq.ATTRIBUTES)
-                .put(NAME, biConsumerString(NAME, getFieldOffset(Formula.class, "name")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(Formula.class, "name")))
                 .build();
     }
 

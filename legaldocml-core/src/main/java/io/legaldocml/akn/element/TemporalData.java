@@ -16,7 +16,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.TEMPORAL_DATA;
 import static io.legaldocml.akn.AknElements.TEMPORAL_GROUP;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -46,7 +46,7 @@ public final class TemporalData implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(TemporalData.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(TemporalData.class, "source")))
                 .build();
     }
 

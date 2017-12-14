@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.LANGUAGE;
 import static io.legaldocml.akn.AknElements.FRBR_LANGUAGE;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.throwException;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
@@ -49,7 +49,7 @@ public final class FRBRlanguage extends MetaOpt implements Language {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(LANGUAGE, biConsumerString(LANGUAGE, getFieldOffset(FRBRlanguage.class, "language")))
+                .put(LANGUAGE, attributeGetterSetter4String(LANGUAGE, getFieldOffset(FRBRlanguage.class, "language")))
                 .build();
     }
 

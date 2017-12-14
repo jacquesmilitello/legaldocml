@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.LEGISLATURE;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -46,7 +46,7 @@ public final class Legislature extends InlineType implements ValueOpt, ANtitleIn
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Legislature.class, "value")))
+                .put(VALUE, attributeGetterSetter4String(VALUE, getFieldOffset(Legislature.class, "value")))
                 .build();
     }
 

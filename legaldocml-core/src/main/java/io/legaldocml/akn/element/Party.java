@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknElements.PARTY;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -45,7 +45,7 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Party.class, "as")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(Party.class, "as")))
                 .build();
     }
 

@@ -17,9 +17,9 @@ import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknAttributes.BY;
 import static io.legaldocml.akn.AknAttributes.CHOICE;
 import static io.legaldocml.akn.AknElements.VOTE;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerVoteRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4VoteRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeVoteAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -53,9 +53,9 @@ public final class Vote extends InlineType implements VoteAtts, ANinline {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Vote.class, "as")))
-                .put(BY, biConsumerAgentRef(BY, getFieldOffset(Vote.class, "by")))
-                .put(CHOICE, biConsumerVoteRef(CHOICE, getFieldOffset(Vote.class, "choice")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(Vote.class, "as")))
+                .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Vote.class, "by")))
+                .put(CHOICE, attributeGetterSetter4VoteRef(CHOICE, getFieldOffset(Vote.class, "choice")))
                 .build();
     }
 

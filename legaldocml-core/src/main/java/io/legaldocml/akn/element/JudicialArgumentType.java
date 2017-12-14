@@ -27,10 +27,10 @@ import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknAttributes.STATUS;
 import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.AknElements.DESTINATION;
-import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerTemporalGroupRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Boolean;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4TemporalGroupRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
@@ -64,11 +64,11 @@ public abstract class JudicialArgumentType extends AbstractId implements IdReq, 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(STATUS, biConsumerEnum(STATUS, getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
-                .put(PERIOD, biConsumerTemporalGroupRef(PERIOD, getFieldOffset(JudicialArgumentType.class, "period")))
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(JudicialArgumentType.class, "refersTo")))
-                .put(EXCLUSION, biConsumerBoolean(EXCLUSION, getFieldOffset(JudicialArgumentType.class, "exclusion")))
-                .put(INCOMPLETE, biConsumerBoolean(INCOMPLETE, getFieldOffset(JudicialArgumentType.class, "incomplete")))
+                .put(STATUS, attributeGetterSetter4Enum(STATUS, getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
+                .put(PERIOD, attributeGetterSetter4TemporalGroupRef(PERIOD, getFieldOffset(JudicialArgumentType.class, "period")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(JudicialArgumentType.class, "refersTo")))
+                .put(EXCLUSION, attributeGetterSetter4Boolean(EXCLUSION, getFieldOffset(JudicialArgumentType.class, "exclusion")))
+                .put(INCOMPLETE, attributeGetterSetter4Boolean(INCOMPLETE, getFieldOffset(JudicialArgumentType.class, "incomplete")))
                 .build();
     }
 

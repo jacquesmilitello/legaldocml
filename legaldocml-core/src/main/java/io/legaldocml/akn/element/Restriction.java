@@ -14,8 +14,8 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.RESTRICTION;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRestrictionType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -51,8 +51,8 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(Restriction.class, "refersTo")))
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(Restriction.class, "refersTo")))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
                 .build();
     }
 

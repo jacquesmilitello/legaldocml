@@ -20,9 +20,9 @@ import static io.legaldocml.akn.AknAttributes.END_TIME;
 import static io.legaldocml.akn.AknAttributes.START_TIME;
 import static io.legaldocml.akn.AknAttributes.TO;
 import static io.legaldocml.akn.AknElements.SPEECH_GROUP;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerLocalDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4LocalDateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSpeechAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -57,11 +57,11 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(SpeechGroup.class, "as")))
-                .put(BY, biConsumerAgentRef(BY, getFieldOffset(SpeechGroup.class, "by")))
-                .put(TO, biConsumerAgentRef(TO, getFieldOffset(SpeechGroup.class, "to")))
-                .put(START_TIME, biConsumerLocalDateTime(START_TIME, getFieldOffset(SpeechGroup.class, "startTime")))
-                .put(END_TIME, biConsumerLocalDateTime(END_TIME, getFieldOffset(SpeechGroup.class, "endTime")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(SpeechGroup.class, "as")))
+                .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(SpeechGroup.class, "by")))
+                .put(TO, attributeGetterSetter4AgentRef(TO, getFieldOffset(SpeechGroup.class, "to")))
+                .put(START_TIME, attributeGetterSetter4LocalDateTime(START_TIME, getFieldOffset(SpeechGroup.class, "startTime")))
+                .put(END_TIME, attributeGetterSetter4LocalDateTime(END_TIME, getFieldOffset(SpeechGroup.class, "endTime")))
                 .build();
     }
 

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.INLINE;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -46,7 +46,7 @@ public final class Inline extends InlineType implements Name, InlineElements {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(NAME, biConsumerString(NAME, getFieldOffset(Inline.class, "name")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(Inline.class, "name")))
                 .build();
     }
 

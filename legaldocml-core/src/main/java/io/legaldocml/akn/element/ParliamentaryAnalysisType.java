@@ -24,9 +24,9 @@ import static io.legaldocml.akn.AknAttributes.OUTCOME;
 import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknElements.COUNT;
 import static io.legaldocml.akn.AknElements.QUORUM;
-import static io.legaldocml.akn.element.Attributes.biConsumerConceptRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ConceptRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOutcome;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
@@ -62,9 +62,9 @@ public abstract class ParliamentaryAnalysisType extends AbstractId implements Co
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(ParliamentaryAnalysisType.class, "href")))
-                .put(OUTCOME, biConsumerConceptRef(OUTCOME, getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(ParliamentaryAnalysisType.class, "href")))
+                .put(OUTCOME, attributeGetterSetter4ConceptRef(OUTCOME, getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ParliamentaryAnalysisTypeElement>>builder()

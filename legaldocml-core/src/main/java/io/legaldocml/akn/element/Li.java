@@ -19,7 +19,7 @@ import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.LI;
 import static io.legaldocml.akn.AknElements.OL;
 import static io.legaldocml.akn.AknElements.UL;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.inlineCM;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -58,7 +58,7 @@ public final class Li extends AbstractCore implements CoreOpt, ValueOpt {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractCore.ATTRIBUTES)
-                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Li.class, "value")))
+                .put(VALUE, attributeGetterSetter4String(VALUE, getFieldOffset(Li.class, "value")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<LiElement>>builder()

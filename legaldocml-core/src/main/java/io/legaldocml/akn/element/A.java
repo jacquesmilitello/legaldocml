@@ -15,8 +15,8 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.TARGET;
 import static io.legaldocml.akn.AknElements.A;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTarget;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -51,8 +51,8 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(TARGET, biConsumerString(TARGET, getFieldOffset(A.class, "target")))
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(A.class, "href")))
+                .put(TARGET, attributeGetterSetter4String(TARGET, getFieldOffset(A.class, "target")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(A.class, "href")))
                 .build();
     }
 

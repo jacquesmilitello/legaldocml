@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.RESULT;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeResultType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -44,7 +44,7 @@ public final class Result extends AnyOtherType implements io.legaldocml.akn.attr
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(Result.class, "type"), ResultType.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(Result.class, "type"), ResultType.class))
                 .build();
     }
 

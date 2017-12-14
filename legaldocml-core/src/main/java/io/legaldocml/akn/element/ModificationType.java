@@ -29,10 +29,10 @@ import static io.legaldocml.akn.AknElements.DURATION;
 import static io.legaldocml.akn.AknElements.EFFICACY;
 import static io.legaldocml.akn.AknElements.FORCE;
 import static io.legaldocml.akn.AknElements.SOURCE;
-import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerTemporalGroupRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Boolean;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4TemporalGroupRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
@@ -70,11 +70,11 @@ public abstract class ModificationType extends AbstractId implements Core, IdReq
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(STATUS, biConsumerEnum(STATUS, getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
-                .put(PERIOD, biConsumerTemporalGroupRef(PERIOD, getFieldOffset(ModificationType.class, "period")))
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(ModificationType.class, "refersTo")))
-                .put(EXCLUSION, biConsumerBoolean(EXCLUSION, getFieldOffset(ModificationType.class, "exclusion")))
-                .put(INCOMPLETE, biConsumerBoolean(INCOMPLETE, getFieldOffset(ModificationType.class, "incomplete")))
+                .put(STATUS, attributeGetterSetter4Enum(STATUS, getFieldOffset(ModificationType.class, "statusType"), StatusType.class))
+                .put(PERIOD, attributeGetterSetter4TemporalGroupRef(PERIOD, getFieldOffset(ModificationType.class, "period")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(ModificationType.class, "refersTo")))
+                .put(EXCLUSION, attributeGetterSetter4Boolean(EXCLUSION, getFieldOffset(ModificationType.class, "exclusion")))
+                .put(INCOMPLETE, attributeGetterSetter4Boolean(INCOMPLETE, getFieldOffset(ModificationType.class, "incomplete")))
                 .build();
     }
 

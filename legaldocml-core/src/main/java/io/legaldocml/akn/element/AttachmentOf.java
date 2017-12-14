@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.ATTACHMENT_OF;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,7 +47,7 @@ public final class AttachmentOf extends ReferenceType implements DocRef, Type {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ReferenceType.ATTRIBUTES)
-                .put(TYPE, biConsumerString(TYPE, getFieldOffset(AttachmentOf.class, "type")))
+                .put(TYPE, attributeGetterSetter4String(TYPE, getFieldOffset(AttachmentOf.class, "type")))
                 .build();
     }
 

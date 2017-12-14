@@ -14,7 +14,7 @@ import java.time.OffsetDateTime;
 
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknElements.DOC_DATE;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -48,7 +48,7 @@ public final class DocDate extends InlineType implements Date, ANtitleInline {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(DocDate.class, "date")))
+                .put(DATE, attributeGetterSetter4DateTime(DATE, getFieldOffset(DocDate.class, "date")))
                 .build();
     }
 

@@ -24,7 +24,7 @@ import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
 import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 import static io.legaldocml.akn.AknElements.PASSIVE_MODIFICATIONS;
 import static io.legaldocml.akn.AknElements.RESTRICTIONS;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.util.Streams.stream;
@@ -61,7 +61,7 @@ public final class Analysis implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Analysis.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(Analysis.class, "source")))
                 .build();
     }
 

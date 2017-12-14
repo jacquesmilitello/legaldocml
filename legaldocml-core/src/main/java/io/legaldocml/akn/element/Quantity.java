@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.NORMALIZED;
 import static io.legaldocml.akn.AknElements.QUANTITY;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNormalizedAtt;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -47,7 +47,7 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(NORMALIZED, biConsumerString(NORMALIZED, getFieldOffset(Quantity.class, "normalized")))
+                .put(NORMALIZED, attributeGetterSetter4String(NORMALIZED, getFieldOffset(Quantity.class, "normalized")))
                 .build();
     }
 

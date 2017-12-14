@@ -10,7 +10,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.VALUE;
-import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Boolean;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -35,7 +35,7 @@ public abstract class BooleanValueType extends MetaOpt implements BooleanValue {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(VALUE, biConsumerBoolean(VALUE, getFieldOffset(BooleanValueType.class, "value")))
+                .put(VALUE, attributeGetterSetter4Boolean(VALUE, getFieldOffset(BooleanValueType.class, "value")))
                 .build();
     }
 

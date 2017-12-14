@@ -7,7 +7,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.schematron.model.SchAttributes.NAME;
 import static io.legaldocml.schematron.model.SchAttributes.VALUE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -21,8 +21,8 @@ public final class Let implements SchemaElement {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
-                .put(NAME, biConsumerString(NAME, getFieldOffset(Let.class, "name")))
-                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Let.class, "value")))
+                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(Let.class, "name")))
+                .put(VALUE, attributeGetterSetter4String(VALUE, getFieldOffset(Let.class, "value")))
                 .build();
     }
 

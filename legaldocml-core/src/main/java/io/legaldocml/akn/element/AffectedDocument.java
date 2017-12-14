@@ -47,7 +47,7 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(HREF, Attributes.biConsumerUri(HREF, getFieldOffset(AffectedDocument.class, "href")))
+                .put(HREF, Attributes.attributeGetterSetter4Uri(HREF, getFieldOffset(AffectedDocument.class, "href")))
                 .build();
     }
 

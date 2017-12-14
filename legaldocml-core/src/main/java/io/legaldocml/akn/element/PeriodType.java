@@ -10,7 +10,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.PERIOD;
-import static io.legaldocml.akn.element.Attributes.biConsumerTemporalGroupRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4TemporalGroupRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePeriod;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -37,7 +37,7 @@ public abstract class PeriodType extends AnyOtherType implements Period {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(PERIOD, biConsumerTemporalGroupRef(PERIOD, getFieldOffset(PeriodType.class, "period")))
+                .put(PERIOD, attributeGetterSetter4TemporalGroupRef(PERIOD, getFieldOffset(PeriodType.class, "period")))
                 .build();
     }
 

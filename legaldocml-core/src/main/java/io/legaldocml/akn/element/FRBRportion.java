@@ -21,9 +21,9 @@ import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknAttributes.UP_TO;
 import static io.legaldocml.akn.AknElements.FRBR_PORTION;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRange;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
@@ -61,11 +61,11 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(FRBRportion.class, "refersTo")))
-                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(FRBRportion.class, "showAs")))
-                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(FRBRportion.class, "shortForm")))
-                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(FRBRportion.class, "upTo")))
-                .put(FROM, biConsumerEidRef(FROM, getFieldOffset(FRBRportion.class, "from")))
+                .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(FRBRportion.class, "refersTo")))
+                .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(FRBRportion.class, "showAs")))
+                .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(FRBRportion.class, "shortForm")))
+                .put(UP_TO, attributeGetterSetter4EidRef(UP_TO, getFieldOffset(FRBRportion.class, "upTo")))
+                .put(FROM, attributeGetterSetter4EidRef(FROM, getFieldOffset(FRBRportion.class, "from")))
                 .build();
     }
 

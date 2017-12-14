@@ -12,7 +12,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.COL_SPAN;
 import static io.legaldocml.akn.AknAttributes.ROW_SPAN;
 import static io.legaldocml.akn.AknElements.TH;
-import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Integer;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeCellAttrs;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -46,8 +46,8 @@ public final class Th extends Blocksopt implements CellAttrs, TrElement, SubFlow
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(COL_SPAN, biConsumerInteger(COL_SPAN, getFieldOffset(Th.class, "colSpan")))
-                .put(ROW_SPAN, biConsumerInteger(ROW_SPAN, getFieldOffset(Th.class, "rowSpan")))
+                .put(COL_SPAN, attributeGetterSetter4Integer(COL_SPAN, getFieldOffset(Th.class, "colSpan")))
+                .put(ROW_SPAN, attributeGetterSetter4Integer(ROW_SPAN, getFieldOffset(Th.class, "rowSpan")))
                 .build();
     }
 

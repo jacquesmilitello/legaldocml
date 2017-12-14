@@ -16,8 +16,8 @@ import static io.legaldocml.akn.AknAttributes.EXCLUSION;
 import static io.legaldocml.akn.AknAttributes.INCOMPLETE;
 import static io.legaldocml.akn.AknAttributes.POS;
 import static io.legaldocml.akn.AknAttributes.UP_TO;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePos;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeUpTo;
@@ -49,10 +49,10 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
 
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(POS, biConsumerEnum(POS, getFieldOffset(ArgumentType.class, "pos"), PosType.class))
-                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(ArgumentType.class, "upTo")))
-                .put(EXCLUSION, biConsumerEidRef(EXCLUSION, getFieldOffset(ArgumentType.class, "exclusion")))
-                .put(INCOMPLETE, biConsumerEidRef(INCOMPLETE, getFieldOffset(ArgumentType.class, "incomplete")))
+                .put(POS, attributeGetterSetter4Enum(POS, getFieldOffset(ArgumentType.class, "pos"), PosType.class))
+                .put(UP_TO, attributeGetterSetter4EidRef(UP_TO, getFieldOffset(ArgumentType.class, "upTo")))
+                .put(EXCLUSION, attributeGetterSetter4EidRef(EXCLUSION, getFieldOffset(ArgumentType.class, "exclusion")))
+                .put(INCOMPLETE, attributeGetterSetter4EidRef(INCOMPLETE, getFieldOffset(ArgumentType.class, "incomplete")))
                 .build();
     }
 

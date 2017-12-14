@@ -24,11 +24,11 @@ import static io.legaldocml.akn.AknAttributes.BY;
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknAttributes.OUTCOME;
 import static io.legaldocml.akn.AknElements.STEP;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerConceptRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ConceptRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeActor;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAgent;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
@@ -71,11 +71,11 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(Step.class, "date")))
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Step.class, "as")))
-                .put(OUTCOME, biConsumerConceptRef(OUTCOME, getFieldOffset(Step.class, "outcome")))
-                .put(ACTOR, biConsumerString(ACTOR, getFieldOffset(Step.class, "actor")))
-                .put(BY, biConsumerAgentRef(BY, getFieldOffset(Step.class, "by")))
+                .put(DATE, attributeGetterSetter4DateTime(DATE, getFieldOffset(Step.class, "date")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(Step.class, "as")))
+                .put(OUTCOME, attributeGetterSetter4ConceptRef(OUTCOME, getFieldOffset(Step.class, "outcome")))
+                .put(ACTOR, attributeGetterSetter4String(ACTOR, getFieldOffset(Step.class, "actor")))
+                .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Step.class, "by")))
                 .build();
     }
 

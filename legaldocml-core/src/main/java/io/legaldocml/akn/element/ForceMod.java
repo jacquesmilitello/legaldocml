@@ -13,7 +13,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.FORCE_MOD;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -46,7 +46,7 @@ public final class ForceMod extends ModificationType implements ForceModType, Am
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(ForceMod.class, "type"), ForceMods.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(ForceMod.class, "type"), ForceMods.class))
                 .build();
     }
 

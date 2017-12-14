@@ -21,7 +21,7 @@ import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.akn.AknElements.CAPTION;
 import static io.legaldocml.akn.AknElements.TABLE;
 import static io.legaldocml.akn.AknElements.TR;
-import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Integer;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTableAtts;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -53,10 +53,10 @@ public final class Table extends AbstractCore implements CoreReq, TableAtts, HTM
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(WIDTH, biConsumerInteger(WIDTH, getFieldOffset(Table.class, "width")))
-                .put(BORDER, biConsumerInteger(WIDTH, getFieldOffset(Table.class, "border")))
-                .put(CELLSPACING, biConsumerInteger(CELLSPACING, getFieldOffset(Table.class, "cellspacing")))
-                .put(CELLPADDING, biConsumerInteger(CELLPADDING, getFieldOffset(Table.class, "cellpadding")))
+                .put(WIDTH, attributeGetterSetter4Integer(WIDTH, getFieldOffset(Table.class, "width")))
+                .put(BORDER, attributeGetterSetter4Integer(WIDTH, getFieldOffset(Table.class, "border")))
+                .put(CELLSPACING, attributeGetterSetter4Integer(CELLSPACING, getFieldOffset(Table.class, "cellspacing")))
+                .put(CELLPADDING, attributeGetterSetter4Integer(CELLPADDING, getFieldOffset(Table.class, "cellpadding")))
                 .build();
     }
 

@@ -13,7 +13,7 @@ import io.legaldocml.io.impl.Buffers;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.BLOCK;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -48,7 +48,7 @@ public final class Block extends InlineType implements Name, BlockElements {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(AknAttributes.NAME, getFieldOffset(Block.class, "name")))
+                .put(AknAttributes.NAME, attributeGetterSetter4String(AknAttributes.NAME, getFieldOffset(Block.class, "name")))
                 .build();
     }
 

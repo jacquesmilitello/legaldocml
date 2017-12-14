@@ -45,7 +45,7 @@ public final class Ref extends InlineReqType implements ANinline, LinkReq {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqType.ATTRIBUTES)
-                .put(HREF, Attributes.biConsumerUri(HREF, getFieldOffset(Ref.class, "href")))
+                .put(HREF, Attributes.attributeGetterSetter4Uri(HREF, getFieldOffset(Ref.class, "href")))
                 .build();
     }
 

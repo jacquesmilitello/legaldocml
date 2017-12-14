@@ -15,9 +15,9 @@ import static io.legaldocml.akn.AknAttributes.MARKER;
 import static io.legaldocml.akn.AknAttributes.PLACEMENT;
 import static io.legaldocml.akn.AknAttributes.PLACEMENT_BASE;
 import static io.legaldocml.akn.AknElements.NOTE;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNotes;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -51,9 +51,9 @@ public final class Note extends SubFlowStructure implements Notes {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(MARKER, biConsumerString(MARKER, getFieldOffset(Note.class, "marker")))
-                .put(PLACEMENT_BASE, biConsumerEidRef(PLACEMENT_BASE, getFieldOffset(Note.class, "placementBase")))
-                .put(PLACEMENT, biConsumerEnum(PLACEMENT, getFieldOffset(Note.class, "placement"), PlacementType.class))
+                .put(MARKER, attributeGetterSetter4String(MARKER, getFieldOffset(Note.class, "marker")))
+                .put(PLACEMENT_BASE, attributeGetterSetter4EidRef(PLACEMENT_BASE, getFieldOffset(Note.class, "placementBase")))
+                .put(PLACEMENT, attributeGetterSetter4Enum(PLACEMENT, getFieldOffset(Note.class, "placement"), PlacementType.class))
                 .build();
     }
 

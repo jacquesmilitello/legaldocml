@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
-import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.util.CharArrays.immutable;
 
@@ -57,7 +57,7 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(HREF, biConsumerUri(HREF, getFieldOffset(AnyOtherType.class, "href")))
+                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(AnyOtherType.class, "href")))
                 .build();
     }
 

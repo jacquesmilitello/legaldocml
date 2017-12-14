@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknAttributes.SOURCE;
-import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.element.Groups.TLCs;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.docRefs;
@@ -45,7 +45,7 @@ public abstract class RefItems implements Source {
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(RefItems.class, "source")))
+                .put(SOURCE, attributeGetterSetter4AgentRef(SOURCE, getFieldOffset(RefItems.class, "source")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<RefItem>>builder()

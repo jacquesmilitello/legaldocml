@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknElements.PERSON;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -47,7 +47,7 @@ public final class Person extends InlineReqReqType implements Role, ANsemanticIn
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Person.class, "as")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(Person.class, "as")))
                 .build();
     }
 

@@ -20,9 +20,9 @@ import static io.legaldocml.akn.AknAttributes.MARKER;
 import static io.legaldocml.akn.AknAttributes.PLACEMENT;
 import static io.legaldocml.akn.AknAttributes.PLACEMENT_BASE;
 import static io.legaldocml.akn.AknElements.NOTE_REF;
-import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
-import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNotes;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -57,10 +57,10 @@ public final class NoteRef extends MarkerOpt implements LinkReq, Notes, ANmarker
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MarkerOpt.ATTRIBUTES)
-                .put(HREF, Attributes.biConsumerUri(HREF, getFieldOffset(NoteRef.class, "href")))
-                .put(MARKER, biConsumerString(MARKER, getFieldOffset(NoteRef.class, "marker")))
-                .put(PLACEMENT_BASE, biConsumerEidRef(PLACEMENT_BASE, getFieldOffset(NoteRef.class, "placementBase")))
-                .put(PLACEMENT, biConsumerEnum(PLACEMENT, getFieldOffset(NoteRef.class, "placementType"), PlacementType.class))
+                .put(HREF, Attributes.attributeGetterSetter4Uri(HREF, getFieldOffset(NoteRef.class, "href")))
+                .put(MARKER, attributeGetterSetter4String(MARKER, getFieldOffset(NoteRef.class, "marker")))
+                .put(PLACEMENT_BASE, attributeGetterSetter4EidRef(PLACEMENT_BASE, getFieldOffset(NoteRef.class, "placementBase")))
+                .put(PLACEMENT, attributeGetterSetter4Enum(PLACEMENT, getFieldOffset(NoteRef.class, "placementType"), PlacementType.class))
                 .build();
     }
 

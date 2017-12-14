@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknElements.DOC_PROPONENT;
-import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -45,7 +45,7 @@ public final class DocProponent extends InlineType implements ANtitleInline, io.
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AS, biConsumerRoleRef(AS, getFieldOffset(DocProponent.class, "as")))
+                .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(DocProponent.class, "as")))
                 .build();
     }
 

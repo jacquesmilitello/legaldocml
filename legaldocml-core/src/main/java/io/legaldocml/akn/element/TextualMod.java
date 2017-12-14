@@ -16,7 +16,7 @@ import static io.legaldocml.akn.AknElements.NEW;
 import static io.legaldocml.akn.AknElements.OLD;
 import static io.legaldocml.akn.AknElements.PREVIOUS;
 import static io.legaldocml.akn.AknElements.TEXTUAL_MOD;
-import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTextualModType;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -49,7 +49,7 @@ public final class TextualMod extends ModificationType implements TextualModType
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(TextualMod.class, "type"), TextualMods.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(TextualMod.class, "type"), TextualMods.class))
                 .build();
     }
 
