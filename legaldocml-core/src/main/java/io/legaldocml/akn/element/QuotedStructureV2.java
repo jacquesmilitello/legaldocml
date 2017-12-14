@@ -1,15 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.akn.AknObject;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.FOR;
 import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -18,7 +17,7 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 /**
  * The element quotedStructure is a popup element containing a full structure proposed as an insertion or a replacement.
  * Use attribute for when quotedStructure is used in a mmod or rmod to point to the id of the corresponding refelement.
- *
+ * <p>
  * <pre>
  * 	<xsd:element name="quotedStructure">
  * 		<xsd:complexType>
@@ -40,12 +39,12 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
      */
     private static final long ADDRESS_QUOTED_STRUCTURE = Buffers.address(QUOTED_STRUCTURE);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(PopupStructure.ATTRIBUTES)
-                .put(AknAttributes.FOR, biConsumerString(getFieldOffset(QuotedStructureV2.class, "_for")))
+                .put(FOR, biConsumerString(FOR, getFieldOffset(QuotedStructureV2.class, "_for")))
                 .build();
 
     }
@@ -78,7 +77,7 @@ public final class QuotedStructureV2 extends PopupStructure implements QuotedStr
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

@@ -2,21 +2,24 @@ package io.legaldocml.akn.element;
 
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RangeOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.FROM;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
+import static io.legaldocml.akn.AknAttributes.UP_TO;
 import static io.legaldocml.akn.AknElements.FRBR_PORTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -53,16 +56,16 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
      */
     private static final long ADDRESS_FRBR_PORTION = Buffers.address(FRBR_PORTION);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(FRBRportion.class, "refersTo")))
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(FRBRportion.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(FRBRportion.class, "shortForm")))
-                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(FRBRportion.class, "upTo")))
-                .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(FRBRportion.class, "from")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(FRBRportion.class, "refersTo")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(FRBRportion.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(FRBRportion.class, "shortForm")))
+                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(FRBRportion.class, "upTo")))
+                .put(FROM, biConsumerEidRef(FROM, getFieldOffset(FRBRportion.class, "from")))
                 .build();
     }
 
@@ -178,7 +181,7 @@ public final class FRBRportion extends MetaOpt implements RefersOpt, ShowOpt, Ra
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

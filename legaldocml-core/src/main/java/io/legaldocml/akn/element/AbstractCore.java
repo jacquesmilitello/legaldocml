@@ -2,19 +2,18 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.StatusType;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.Externalizable;
-import io.legaldocml.util.CharArray;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -27,18 +26,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class AbstractCore extends AbstractId implements Core {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(AknAttributes.CLASS, biConsumerString(getFieldOffset(AbstractCore.class, "clazz")))
-                .put(AknAttributes.STYLE, biConsumerString(getFieldOffset(AbstractCore.class, "style")))
-                .put(AknAttributes.TITLE, biConsumerString(getFieldOffset(AbstractCore.class, "title")))
-                .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(AbstractCore.class, "status"), StatusType.class))
-                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(AbstractCore.class, "period")))
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(AbstractCore.class, "refersTo")))
-                .put(AknAttributes.ALTERNATIVE_TO, Attributes.biConsumerEidRef(getFieldOffset(AbstractCore.class, "alternativeTo")))
+                .put(AknAttributes.CLASS, biConsumerString(AknAttributes.CLASS, getFieldOffset(AbstractCore.class, "clazz")))
+                .put(AknAttributes.STYLE, biConsumerString(AknAttributes.STYLE, getFieldOffset(AbstractCore.class, "style")))
+                .put(AknAttributes.TITLE, biConsumerString(AknAttributes.TITLE, getFieldOffset(AbstractCore.class, "title")))
+                .put(AknAttributes.STATUS, biConsumerEnum(AknAttributes.STATUS, getFieldOffset(AbstractCore.class, "status"), StatusType.class))
+                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(AknAttributes.PERIOD, getFieldOffset(AbstractCore.class, "period")))
+                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(AknAttributes.REFERS_TO, getFieldOffset(AbstractCore.class, "refersTo")))
+                .put(AknAttributes.ALTERNATIVE_TO, Attributes.biConsumerEidRef(AknAttributes.ALTERNATIVE_TO, getFieldOffset(AbstractCore.class, "alternativeTo")))
                 .build();
     }
 
@@ -111,7 +110,7 @@ public abstract class AbstractCore extends AbstractId implements Core {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

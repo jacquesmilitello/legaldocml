@@ -1,17 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.TLC;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.TLC_REFERENCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
@@ -20,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element TLCreference is a generic metadata reference to the Akoma Ntoso IRI of an ontology instance of a class
  * specified through the name attribute.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="TLCReference">
  * 	   <xsd:complexType>
@@ -42,12 +42,12 @@ public final class TLCReference extends ReferenceType implements TLC, Name {
      */
     private static final long ADDRESS_TLC_REFERENCE = Buffers.address(TLC_REFERENCE);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ReferenceType.ATTRIBUTES)
-                .put("name", biConsumerString(getFieldOffset(TLCReference.class, "name")))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(TLCReference.class, "name")))
                 .build();
     }
 
@@ -90,7 +90,7 @@ public final class TLCReference extends ReferenceType implements TLC, Name {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -101,5 +101,5 @@ public final class TLCReference extends ReferenceType implements TLC, Name {
     public void accept(AknVisitor visitor) {
         visitor.visit(this);
     }
-    
+
 }

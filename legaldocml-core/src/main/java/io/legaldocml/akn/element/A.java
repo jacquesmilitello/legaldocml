@@ -1,19 +1,19 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Target;
 import io.legaldocml.akn.group.HTMLinline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.akn.type.Uri;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.TARGET;
 import static io.legaldocml.akn.AknElements.A;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
@@ -46,13 +46,13 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
      */
     private static final long ADDRESS_A = Buffers.address(A);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.TARGET, biConsumerString(getFieldOffset(A.class, "target")))
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(A.class, "href")))
+                .put(TARGET, biConsumerString(TARGET, getFieldOffset(A.class, "target")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(A.class, "href")))
                 .build();
     }
 
@@ -105,11 +105,12 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
         super.write(writer);
         writer.writeEnd(ADDRESS_A, 1);
     }
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

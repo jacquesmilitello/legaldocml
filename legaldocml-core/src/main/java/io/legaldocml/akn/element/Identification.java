@@ -1,20 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.FRBR_EXPRESSION;
 import static io.legaldocml.akn.AknElements.FRBR_ITEM;
 import static io.legaldocml.akn.AknElements.FRBR_MANIFESTATION;
@@ -46,11 +44,11 @@ public final class Identification implements AknObject, Source {
 
     private static final long ADDRESS_IDENTIFICATION = Buffers.address(IDENTIFICATION);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(Identification.class, "source")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Identification.class, "source")))
                 .build();
     }
 
@@ -167,7 +165,7 @@ public final class Identification implements AknObject, Source {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

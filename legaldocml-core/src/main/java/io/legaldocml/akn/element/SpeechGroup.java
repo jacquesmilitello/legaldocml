@@ -1,21 +1,24 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.group.ANcontainers;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.AS;
+import static io.legaldocml.akn.AknAttributes.BY;
+import static io.legaldocml.akn.AknAttributes.END_TIME;
+import static io.legaldocml.akn.AknAttributes.START_TIME;
+import static io.legaldocml.akn.AknAttributes.TO;
 import static io.legaldocml.akn.AknElements.SPEECH_GROUP;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerLocalDateTime;
@@ -27,7 +30,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element speechGroup is a container of speech elements. This element is meant to pooint out, in a complex sequence
  * of individual speech elements, the main contributor, i.e., the individual speech who was introducedand expected and
  * that is causing the complex sequence that follows. Attributes by, as and to are those of the main speech.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="speechGroup">
  * 	   <xsd:complexType>
@@ -49,16 +52,16 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
      */
     private static final long ADDRESS_SPEECH_GROUP = Buffers.address(SPEECH_GROUP);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(SpeechGroup.class, "as")))
-                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(SpeechGroup.class, "by")))
-                .put(AknAttributes.TO, biConsumerAgentRef(getFieldOffset(SpeechGroup.class, "to")))
-                .put(AknAttributes.START_TIME, biConsumerLocalDateTime(getFieldOffset(SpeechGroup.class, "startTime")))
-                .put(AknAttributes.END_TIME, biConsumerLocalDateTime(getFieldOffset(SpeechGroup.class, "endTime")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(SpeechGroup.class, "as")))
+                .put(BY, biConsumerAgentRef(BY, getFieldOffset(SpeechGroup.class, "by")))
+                .put(TO, biConsumerAgentRef(TO, getFieldOffset(SpeechGroup.class, "to")))
+                .put(START_TIME, biConsumerLocalDateTime(START_TIME, getFieldOffset(SpeechGroup.class, "startTime")))
+                .put(END_TIME, biConsumerLocalDateTime(END_TIME, getFieldOffset(SpeechGroup.class, "endTime")))
                 .build();
     }
 
@@ -171,7 +174,7 @@ public final class SpeechGroup extends AltHierarchy implements SpeechAtts, ANcon
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

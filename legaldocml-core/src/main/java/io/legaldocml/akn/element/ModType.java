@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.For;
@@ -10,13 +11,11 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.QUOTED_STRUCTURE;
@@ -31,7 +30,7 @@ import static java.util.Objects.requireNonNull;
  * the complex type modType specifies the content that is allowed within mod, mmod and rmod elements, i.e. it adds
  * quotedText and quotedStructure to the normal list of inline elements. Attribute for is used to point to the eId of
  * the corresponding ref element.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="modType" mixed="true">
  *     <xsd:choice minOccurs="0" maxOccurs="unbounded">
@@ -51,12 +50,12 @@ public abstract class ModType extends AbstractCore implements CoreReq, For {
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS_V2;
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS;
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractCore.ATTRIBUTES)
-                .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(ModType.class, "for_")))
+                .put(AknAttributes.FOR, biConsumerEidRef(AknAttributes.FOR, getFieldOffset(ModType.class, "for_")))
                 .build();
 
         ELEMS_V2 = ImmutableMap.<String, Supplier<ModTypeItem>>builder()
@@ -123,7 +122,7 @@ public abstract class ModType extends AbstractCore implements CoreReq, For {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -1,16 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Period;
 import io.legaldocml.akn.type.TemporalGroupRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.PERIOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerTemporalGroupRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePeriod;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -33,12 +32,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class PeriodType extends AnyOtherType implements Period {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(PeriodType.class, "period")))
+                .put(PERIOD, biConsumerTemporalGroupRef(PERIOD, getFieldOffset(PeriodType.class, "period")))
                 .build();
     }
 
@@ -73,7 +72,7 @@ public abstract class PeriodType extends AnyOtherType implements Period {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

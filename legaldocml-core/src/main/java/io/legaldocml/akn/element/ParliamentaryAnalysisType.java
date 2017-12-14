@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.LinkOpt;
@@ -9,18 +9,19 @@ import io.legaldocml.akn.attribute.Outcome;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.ListReferenceRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.OUTCOME;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknElements.COUNT;
 import static io.legaldocml.akn.AknElements.QUORUM;
 import static io.legaldocml.akn.element.Attributes.biConsumerConceptRef;
@@ -35,7 +36,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type parliamentaryAnalysisType lists all the properties associated to elements in the parliamentary
  * analysis.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="parliamentaryAnalysisType">
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -54,16 +55,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ParliamentaryAnalysisType extends AbstractId implements Core, IdReq, RefersOpt, LinkOpt, Outcome {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<ParliamentaryAnalysisTypeElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ParliamentaryAnalysisType.class, "href")))
-                .put(AknAttributes.OUTCOME, biConsumerConceptRef(getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(ParliamentaryAnalysisType.class, "refersTo")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(ParliamentaryAnalysisType.class, "href")))
+                .put(OUTCOME, biConsumerConceptRef(OUTCOME, getFieldOffset(ParliamentaryAnalysisType.class, "outcome")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ParliamentaryAnalysisTypeElement>>builder()
@@ -159,7 +160,7 @@ public abstract class ParliamentaryAnalysisType extends AbstractId implements Co
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

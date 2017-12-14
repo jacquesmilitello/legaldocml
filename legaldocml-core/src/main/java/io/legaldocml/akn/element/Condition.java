@@ -1,16 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Froozen;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.FROZEN;
 import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -18,7 +17,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element condition is a metadata element specifying an open set of conditions on the modification (non managed by
  * Akoma Ntoso).
- *
+ * <p>
  * <pre>
  *   <xsd:element name="condition" type="anyOtherType">
  * 	   <xsd:complexType>
@@ -40,12 +39,12 @@ public final class Condition extends AnyOtherType implements Froozen {
      */
     private static final long ADDRESS_CONDITION = Buffers.address(CONDITION);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.FROZEN, biConsumerDateTime(getFieldOffset(Condition.class, "frozen")))
+                .put(FROZEN, biConsumerDateTime(FROZEN, getFieldOffset(Condition.class, "frozen")))
                 .build();
     }
 
@@ -89,7 +88,7 @@ public final class Condition extends AnyOtherType implements Froozen {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

@@ -23,4 +23,5 @@ public final class Text implements SchMixedContent {
     public void read(XmlReader reader) {
 
     }
+
 }

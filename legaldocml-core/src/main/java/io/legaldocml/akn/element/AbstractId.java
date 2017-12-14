@@ -5,27 +5,24 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.util.ToStringBuilder;
-
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerNoWhiteSpace;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 public abstract class AbstractId implements AknObject, Id {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "eId")))
-                .put(AknAttributes.EVOLVING_ID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wId")))
-                .put(AknAttributes.EID, biConsumerNoWhiteSpace(AknAttributes.EID,getFieldOffset(AbstractId.class, "eId")))
-                .put(AknAttributes.WID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "wId")))
-                .put(AknAttributes.GUID, biConsumerNoWhiteSpace(getFieldOffset(AbstractId.class, "guid")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(AknAttributes.ID, biConsumerNoWhiteSpace(AknAttributes.ID, getFieldOffset(AbstractId.class, "eId")))
+                .put(AknAttributes.EVOLVING_ID, biConsumerNoWhiteSpace(AknAttributes.EVOLVING_ID, getFieldOffset(AbstractId.class, "wId")))
+                .put(AknAttributes.EID, biConsumerNoWhiteSpace(AknAttributes.EID, getFieldOffset(AbstractId.class, "eId")))
+                .put(AknAttributes.WID, biConsumerNoWhiteSpace(AknAttributes.WID, getFieldOffset(AbstractId.class, "wId")))
+                .put(AknAttributes.GUID, biConsumerNoWhiteSpace(AknAttributes.GUID, getFieldOffset(AbstractId.class, "guid")))
                 .build();
     }
 
@@ -136,7 +133,7 @@ public abstract class AbstractId implements AknObject, Id {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

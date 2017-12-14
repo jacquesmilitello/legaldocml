@@ -3,15 +3,14 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.BlockElements;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknElements.BLOCK;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -22,7 +21,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element block is a generic element for a block. It can be placed in a container instead of any of the other
  * blocks. The attribute name is required and gives a name to the element.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="block">
  * 	   <xsd:complexType mixed="true">
@@ -44,12 +43,12 @@ public final class Block extends InlineType implements Name, BlockElements {
      */
     private static final long ADDRESS_BLOCK = Buffers.address(BLOCK);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Block.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(AknAttributes.NAME, getFieldOffset(Block.class, "name")))
                 .build();
     }
 
@@ -95,7 +94,7 @@ public final class Block extends InlineType implements Name, BlockElements {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

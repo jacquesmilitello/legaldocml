@@ -1,18 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RangeReq;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.EidRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.FROM;
+import static io.legaldocml.akn.AknAttributes.UP_TO;
 import static io.legaldocml.akn.AknElements.RMOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRange;
@@ -42,13 +42,13 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
      */
     private static final long ADDRESS_RMOD = Buffers.address(RMOD);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModType.ATTRIBUTES)
-                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(Rmod.class, "upTo")))
-                .put(AknAttributes.FROM, biConsumerEidRef(getFieldOffset(Rmod.class, "from")))
+                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(Rmod.class, "upTo")))
+                .put(FROM, biConsumerEidRef(FROM, getFieldOffset(Rmod.class, "from")))
                 .build();
 
     }
@@ -111,7 +111,7 @@ public final class Rmod extends ModType implements RangeReq, ANinline {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

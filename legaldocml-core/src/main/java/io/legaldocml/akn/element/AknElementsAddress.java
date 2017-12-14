@@ -21,7 +21,7 @@ import io.legaldocml.io.impl.Buffers;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-final class AknElementsAddress {
+class AknElementsAddress {
 
     private AknElementsAddress() {
     }

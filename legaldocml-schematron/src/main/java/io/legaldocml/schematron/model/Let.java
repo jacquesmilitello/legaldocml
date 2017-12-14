@@ -1,15 +1,15 @@
 package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
+import static io.legaldocml.schematron.model.SchAttributes.NAME;
+import static io.legaldocml.schematron.model.SchAttributes.VALUE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -17,12 +17,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class Let implements SchemaElement {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<SchObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(SchAttributes.NAME, biConsumerString(getFieldOffset(Let.class, "name")))
-                .put(SchAttributes.VALUE, biConsumerString(getFieldOffset(Let.class, "value")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
+                .put(NAME, biConsumerString(NAME, getFieldOffset(Let.class, "name")))
+                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Let.class, "value")))
                 .build();
     }
 
@@ -66,7 +66,7 @@ public final class Let implements SchemaElement {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<SchObject>> attributes() {
         return ATTRIBUTES;
     }
 }

@@ -3,7 +3,6 @@ package io.legaldocml.akn.element;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.akn.AttributeBiConsumer;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.other.ExternalAttribute;
 import io.legaldocml.akn.type.AgentRef;
@@ -16,10 +15,11 @@ import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.TemporalGroupRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.type.VoteRef;
 import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
@@ -27,7 +27,6 @@ import io.legaldocml.module.Modules;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.DateHelper;
 import io.legaldocml.util.QnameUtil;
-import io.legaldocml.akn.type.Uri;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -35,7 +34,6 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.unsafe.UnsafeHelper.getUnsafe;
 
@@ -185,131 +183,213 @@ public final class Attributes {
 
     public static final long ADDRESS_POS = Buffers.address(AknAttributes.POS);
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerInteger(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, Integer.valueOf(s.toString()));
+    private static final sun.misc.Unsafe UNSAFE = getUnsafe();
+
+    public static <T> AttributeGetterSetter<T> biConsumerInteger(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, Integer.valueOf(charArray.toString()));
+            }
+        };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerString(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, s.toString());
+    public static <T> AttributeGetterSetter<T> biConsumerString(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, charArray.toString());
+            }
+        };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerNoWhiteSpace(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, NoWhiteSpace.valueOf(s.value()));
+    public static <T> AttributeGetterSetter<T> biConsumerNoWhiteSpace(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, NoWhiteSpace.valueOf(charArray.value()));
+            }
+        };
     }
 
     /**
      * This biConsumer will fill after the {@link io.legaldocml.akn.AkomaNtosoContext}}
+     * <p>
+     * public static AknAttributeGetterSetter biConsumerNoWhiteSpace(String name, long addr) {
+     * return new AttributeBiConsumer(name) {
+     *
+     * @Override public void accept(Externalizable object, CharArray charArray) {
+     * getUnsafe().putObject(object, addr, NoWhiteSpace.valueOf(charArray.value()));
+     * }
+     * };
+     * }
      */
-    public static BiConsumer<Externalizable, CharArray> biConsumerNoWhiteSpace(String name, long addr) {
-        return new AttributeBiConsumer(name) {
+
+
+    public static <T extends Enum<T>, E> AttributeGetterSetter<E> biConsumerEnum(String name, long addr, Class<T> enumClass) {
+        return new DefaultAknAttributeGetterSetter<E>(name, addr) {
             @Override
-            public void accept(Externalizable object, CharArray charArray) {
-                getUnsafe().putObject(object, addr, NoWhiteSpace.valueOf(charArray.value()));
+            public void accept(E object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, Enum.valueOf(enumClass, charArray.toString()));
             }
         };
     }
 
+    public static <T> AttributeGetterSetter<T> biConsumerLocalDateTime(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T i, CharArray s) {
 
-    public static <T extends Enum<T>> BiConsumer<Externalizable, CharArray> biConsumerEnum(long addr, Class<T> enumClass) {
-        return (i, s) -> getUnsafe().putObject(i, addr, Enum.valueOf(enumClass, s.toString()));
-    }
-
-//    public static BiConsumer<AknObject, CharArray> biConsumerDate(long addr) {
-//        return (i, s) -> {
-//            UnsafeHelper.getUnsafe().putObject(i, addr, LocalDate.parse(s.toString()));
-//        };
-//    }
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerLocalDateTime(long addr) {
-        return (i, s) -> {
-
-            LocalDateTime dateTime;
-            try {
-                dateTime = LocalDateTime.parse(s.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-            } catch (DateTimeParseException cause) {
-                throw new RuntimeException();
-            }
-            getUnsafe().putObject(i, addr, dateTime);
-        };
-    }
-
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerDateTime(long addr) {
-        return (i, s) -> {
-
-            String val = s.toString();
-            OffsetDateTime dateTime;
-            if (val.length() == 10) {
-                dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
-                        DateHelper.TIME_00_00_00, DateHelper.ZONE_OFFSET_0);
-            } else {
+                LocalDateTime dateTime;
                 try {
-                    dateTime = OffsetDateTime.of(LocalDateTime.parse(s.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME), ZoneOffset.ofHours(0));
+                    dateTime = LocalDateTime.parse(s.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 } catch (DateTimeParseException cause) {
-                    dateTime = OffsetDateTime.parse(s.toString(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+                    throw new RuntimeException();
                 }
+                getUnsafe().putObject(i, addr, dateTime);
             }
-            getUnsafe().putObject(i, addr, dateTime);
         };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerBoolean(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, Boolean.valueOf(s.toString()));
-    }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerUri(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, Uri.raw(s.value()));
-    }
-
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerManifestationURI(String name, long addr) {
-        return new AttributeBiConsumer(name) {
+    public static <T> AttributeGetterSetter<T> biConsumerDateTime(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
-            public void accept(Externalizable object, CharArray s) {
-                getUnsafe().putObject(object, addr, new ManifestationURI(s.value()));
+            public void accept(T i, CharArray s) {
+                String val = s.toString();
+                OffsetDateTime dateTime;
+                if (val.length() == 10) {
+                    dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
+                            DateHelper.TIME_00_00_00, DateHelper.ZONE_OFFSET_0);
+                } else {
+                    try {
+                        dateTime = OffsetDateTime.of(LocalDateTime.parse(s.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME), ZoneOffset.ofHours(0));
+                    } catch (DateTimeParseException cause) {
+                        dateTime = OffsetDateTime.parse(s.toString(), DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+                    }
+                }
+                UNSAFE.putObject(i, addr, dateTime);
             }
         };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerReferenceRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, ReferenceRef.raw(s.value()));
+    public static <T> AttributeGetterSetter<T> biConsumerBoolean(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, Boolean.valueOf(charArray.toString()));
+            }
+        };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerEidRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new EidRef(s.value()));
-    }
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerWidRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new WidRef(s.value()));
-    }
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerAgentRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, AgentRef.raw(s.value()));
-    }
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerRoleRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, RoleRef.raw(s.value()));
-    }
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerVoteRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new VoteRef(s.value()));
-    }
-
-    public static BiConsumer<Externalizable, CharArray> biConsumerConceptRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new ConceptRef(s.value()));
+    public static <T> AttributeGetterSetter<T> biConsumerUri(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, Uri.raw(charArray.value()));
+            }
+        };
     }
 
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerListReferenceRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new ListReferenceRef(s.value()));
+    public static <T> AttributeGetterSetter<T> biConsumerManifestationURI(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new ManifestationURI(charArray.value()));
+            }
+        };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerEventRefRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new EventRefRef(s.value()));
+    public static <T> AttributeGetterSetter<T> biConsumerReferenceRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, ReferenceRef.raw(charArray.value()));
+            }
+        };
     }
 
-    public static BiConsumer<Externalizable, CharArray> biConsumerTemporalGroupRef(long addr) {
-        return (i, s) -> getUnsafe().putObject(i, addr, new TemporalGroupRef(s.value()));
+    public static <T> AttributeGetterSetter<T> biConsumerEidRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new EidRef(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerWidRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new WidRef(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerAgentRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, AgentRef.raw(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerRoleRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, RoleRef.raw(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerVoteRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new VoteRef(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerConceptRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new ConceptRef(charArray.value()));
+            }
+        };
+    }
+
+
+    public static <T> AttributeGetterSetter<T> biConsumerListReferenceRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new ListReferenceRef(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerEventRefRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new EventRefRef(charArray.value()));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> biConsumerTemporalGroupRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new TemporalGroupRef(charArray.value()));
+            }
+        };
     }
 
 
@@ -318,7 +398,7 @@ public final class Attributes {
 
             if (prefixNS > 0) {
                 if (name.toString().startsWith(reader.getQName().getPrefix())) {
-                    BiConsumer<Externalizable, CharArray> cons = akoObject.attributes().get(QnameUtil.localName(name));
+                    AttributeGetterSetter<AknObject> cons = akoObject.attributes().get(QnameUtil.localName(name));
                     if (cons == null) {
                         throw new RuntimeException("Missing [" + QnameUtil.localName(name) + "] for [" + akoObject.getClass().getSimpleName() + "]");
                     }
@@ -360,18 +440,36 @@ public final class Attributes {
 
 
             }
-            BiConsumer<Externalizable, CharArray> cons = akn.attributes().get(name.toString());
+            AttributeGetterSetter<AknObject> cons = akn.attributes().get(name.toString());
             if (cons == null) {
                 throw new RuntimeException("Missing [" + name + "] for [" + akn.getClass().getSimpleName() + "]");
             }
 
             cons.accept(akn, value);
 
-            if (cons instanceof AttributeBiConsumer) {
-                reader.<AkomaNtosoContext>getContext().update(((AttributeBiConsumer) cons).getName(), akn);
-            }
+            reader.<AkomaNtosoContext>getContext().update(cons.name(), akn);
 
         });
     }
 
+
+    private static abstract class DefaultAknAttributeGetterSetter<T> implements AttributeGetterSetter<T> {
+        final long addr;
+        private final String name;
+
+        protected DefaultAknAttributeGetterSetter(String name, long addr) {
+            this.addr = addr;
+            this.name = name;
+        }
+
+        @Override
+        public java.lang.Object apply(T object) {
+            return UNSAFE.getObject(object, addr);
+        }
+
+        @Override
+        public String name() {
+            return this.name;
+        }
+    }
 }

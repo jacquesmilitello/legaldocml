@@ -1,19 +1,21 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Modifiers;
 import io.legaldocml.akn.attribute.Pos;
 import io.legaldocml.akn.attribute.UpToOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PosType;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.EXCLUSION;
+import static io.legaldocml.akn.AknAttributes.INCOMPLETE;
+import static io.legaldocml.akn.AknAttributes.POS;
+import static io.legaldocml.akn.AknAttributes.UP_TO;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
@@ -41,16 +43,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ArgumentType extends AnyOtherType implements Pos, Modifiers, UpToOpt {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
 
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.POS, biConsumerEnum(getFieldOffset(ArgumentType.class, "pos"), PosType.class))
-                .put(AknAttributes.UP_TO, biConsumerEidRef(getFieldOffset(ArgumentType.class, "upTo")))
-                .put(AknAttributes.EXCLUSION, biConsumerEidRef(getFieldOffset(ArgumentType.class, "exclusion")))
-                .put(AknAttributes.INCOMPLETE, biConsumerEidRef(getFieldOffset(ArgumentType.class, "incomplete")))
+                .put(POS, biConsumerEnum(POS, getFieldOffset(ArgumentType.class, "pos"), PosType.class))
+                .put(UP_TO, biConsumerEidRef(UP_TO, getFieldOffset(ArgumentType.class, "upTo")))
+                .put(EXCLUSION, biConsumerEidRef(EXCLUSION, getFieldOffset(ArgumentType.class, "exclusion")))
+                .put(INCOMPLETE, biConsumerEidRef(INCOMPLETE, getFieldOffset(ArgumentType.class, "incomplete")))
                 .build();
     }
 
@@ -132,7 +134,7 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

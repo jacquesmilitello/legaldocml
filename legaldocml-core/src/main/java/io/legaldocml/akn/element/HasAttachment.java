@@ -1,18 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Type;
 import io.legaldocml.akn.group.DocRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.HAS_ATTACHMENT;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeType;
@@ -20,7 +19,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element hasAttachment is a metadata reference to the Akoma Ntoso IRI of an attachment of this document.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="hasAttachment" type="referenceType">
  * 	   <xsd:complexType>
@@ -42,12 +41,12 @@ public final class HasAttachment extends ReferenceType implements DocRef, Type {
      */
     private static final long ADDRESS_HAS_ATTACHMENT = Buffers.address(HAS_ATTACHMENT);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ReferenceType.ATTRIBUTES)
-                .put(AknAttributes.TYPE, biConsumerString(getFieldOffset(HasAttachment.class, "type")))
+                .put(TYPE, biConsumerString(TYPE, getFieldOffset(HasAttachment.class, "type")))
                 .build();
     }
 
@@ -95,7 +94,7 @@ public final class HasAttachment extends ReferenceType implements DocRef, Type {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

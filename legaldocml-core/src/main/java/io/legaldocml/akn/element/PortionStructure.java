@@ -1,18 +1,19 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.diff.DiffContext;
+import io.legaldocml.diff.Diffs;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.INCLUDED_IN;
 import static io.legaldocml.akn.element.Attributes.biConsumerReferenceRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePortionAtt;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -20,7 +21,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The type portionStructure specifies the overall content model of the document type that is a portion of another
  * document.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="portionStructure">
  *     <xsd:sequence>
@@ -36,11 +37,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public abstract class PortionStructure implements PortionAtt {
 
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.INCLUDED_IN, biConsumerReferenceRef(getFieldOffset(PortionStructure.class, "referenceRef")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(INCLUDED_IN, biConsumerReferenceRef(INCLUDED_IN, getFieldOffset(PortionStructure.class, "referenceRef")))
                 .build();
     }
 
@@ -101,7 +102,7 @@ public abstract class PortionStructure implements PortionAtt {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -112,6 +113,18 @@ public abstract class PortionStructure implements PortionAtt {
     public void accept(AknVisitor visitor) {
         this.meta.accept(visitor);
         this.portionBody.accept(visitor);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void nestedCompare(AknObject object, DiffContext context) {
+        Diffs.compare(meta, ((PortionStructure) object).meta, context);
+        Diffs.compare(portionBody, ((PortionStructure) object).portionBody, context);
+
+        //Diffs.compareAttribute(referenceRef,)
+
     }
 
 }

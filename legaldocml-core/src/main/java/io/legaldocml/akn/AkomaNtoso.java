@@ -3,6 +3,7 @@ package io.legaldocml.akn;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.util.AknToStringBuilder;
 import io.legaldocml.akn.visitor.AknVisitor;
+import io.legaldocml.diff.DiffContext;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -100,5 +101,14 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
         AknToStringBuilder builder = new AknToStringBuilder(this);
         builder.append(this.attributes);
         return builder.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void nestedCompare(AknObject object, DiffContext context) {
+        Core.super.nestedCompare(object, context);
+        super.nestedCompare(object, context);
     }
 }

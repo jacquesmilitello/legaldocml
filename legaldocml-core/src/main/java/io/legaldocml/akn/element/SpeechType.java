@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.attribute.SpeechAtts;
 import io.legaldocml.akn.group.BlockElements;
@@ -10,15 +11,13 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.util.XmlWriterHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknAttributes.AS;
@@ -37,7 +36,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type speechType defines the content model and attributes shared by all speech elements. Here the eId
  * attribute is optional.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="speechType">
  * 	   <xsd:complexContent>
@@ -59,18 +58,18 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class SpeechType extends BaseHierarchy implements CoreOpt, SpeechAtts {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<BlockElements>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put(BY, biConsumerAgentRef(getFieldOffset(SpeechType.class, "by")))
-                .put(AS, biConsumerRoleRef(getFieldOffset(SpeechType.class, "as")))
-                .put(TO, biConsumerAgentRef(getFieldOffset(SpeechType.class, "to")))
-                .put(START_TIME, biConsumerDateTime(getFieldOffset(SpeechType.class, "startTime")))
-                .put(END_TIME, biConsumerDateTime(getFieldOffset(SpeechType.class, "endTime")))
+                .put(BY, biConsumerAgentRef(BY, getFieldOffset(SpeechType.class, "by")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(SpeechType.class, "as")))
+                .put(TO, biConsumerAgentRef(TO, getFieldOffset(SpeechType.class, "to")))
+                .put(START_TIME, biConsumerDateTime(START_TIME, getFieldOffset(SpeechType.class, "startTime")))
+                .put(END_TIME, biConsumerDateTime(END_TIME, getFieldOffset(SpeechType.class, "endTime")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<BlockElements>>builder()
@@ -201,7 +200,7 @@ public abstract class SpeechType extends BaseHierarchy implements CoreOpt, Speec
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

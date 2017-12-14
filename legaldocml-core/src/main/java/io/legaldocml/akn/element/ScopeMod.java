@@ -1,18 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ScopeModType;
 import io.legaldocml.akn.type.ScopeMods;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.DOMAIN;
 import static io.legaldocml.akn.AknElements.SCOPE_MOD;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
@@ -21,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element scopeMod is a metadata element specifying an (active or passive) modification in scope for the document.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="scopeMod">
  * 	   <xsd:complexType>
@@ -46,13 +45,13 @@ public final class ScopeMod extends ModificationType implements ScopeModType, Am
      */
     private static final long ADDRESS_SCOPE_MOD = Buffers.address(SCOPE_MOD);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
 
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(ScopeMod.class, "type"), ScopeMods.class))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(ScopeMod.class, "type"), ScopeMods.class))
                 .build();
     }
 
@@ -117,7 +116,7 @@ public final class ScopeMod extends ModificationType implements ScopeModType, Am
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

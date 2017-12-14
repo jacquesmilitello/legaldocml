@@ -2,8 +2,7 @@ package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.util.ExternalizableList;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -11,10 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.schematron.model.SchAttributes.CONTEXT;
 import static io.legaldocml.schematron.model.SchReadException.Type.INVALID_STATE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -28,14 +27,14 @@ public final class Rule extends AbstractLinkableRich implements PatternElement {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Rule.class);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<SchObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<RuleElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
                 .putAll(AbstractLinkableRich.ATTRIBUTES)
-                .put(SchAttributes.CONTEXT, biConsumerUri(getFieldOffset(Rule.class, "context")))
+                .put(CONTEXT, biConsumerUri(CONTEXT, getFieldOffset(Rule.class, "context")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<RuleElement>>builder()
@@ -87,7 +86,7 @@ public final class Rule extends AbstractLinkableRich implements PatternElement {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<SchObject>> attributes() {
         return ATTRIBUTES;
     }
 }

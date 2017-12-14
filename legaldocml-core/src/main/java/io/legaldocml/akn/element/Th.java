@@ -1,16 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CellAttrs;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.COL_SPAN;
+import static io.legaldocml.akn.AknAttributes.ROW_SPAN;
 import static io.legaldocml.akn.AknElements.TH;
 import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeCellAttrs;
@@ -18,7 +18,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element th is an HTML element and is used in Akoma Ntoso as in HTML, for a header cell of a table.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="th">
  * 	   <xsd:complexType>
@@ -41,13 +41,13 @@ public final class Th extends Blocksopt implements CellAttrs, TrElement, SubFlow
     private static final long ADDRESS_TH = Buffers.address(TH);
 
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(AknAttributes.COL_SPAN, biConsumerInteger(getFieldOffset(Th.class, "colSpan")))
-                .put(AknAttributes.ROW_SPAN, biConsumerInteger(getFieldOffset(Th.class, "rowSpan")))
+                .put(COL_SPAN, biConsumerInteger(COL_SPAN, getFieldOffset(Th.class, "colSpan")))
+                .put(ROW_SPAN, biConsumerInteger(ROW_SPAN, getFieldOffset(Th.class, "rowSpan")))
                 .build();
     }
 
@@ -105,7 +105,7 @@ public final class Th extends Blocksopt implements CellAttrs, TrElement, SubFlow
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

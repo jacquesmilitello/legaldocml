@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANheaderInline;
 import io.legaldocml.akn.type.RoleRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknElements.PARTY;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
@@ -19,7 +18,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element party is an inline element within judgments to identify where the document defines one of the parties.
- *
+ * <p>
  * <pre>
  * 	 <xsd:element name="party">
  * 	   <xsd:complexType mixed="true">
@@ -41,12 +40,12 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
      */
     private static final long ADDRESS_PARTY = Buffers.address(PARTY);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Party.class, "as")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Party.class, "as")))
                 .build();
     }
 
@@ -91,7 +90,7 @@ public final class Party extends InlineReqReqType implements io.legaldocml.akn.a
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

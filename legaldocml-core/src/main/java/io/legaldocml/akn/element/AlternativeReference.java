@@ -1,21 +1,23 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.FOR;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknElements.ALTERNATIVE_REFERENCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -51,15 +53,15 @@ public final class AlternativeReference extends AnyOtherType implements RefersOp
      */
     private static final long ADDRESS = Buffers.address(ALTERNATIVE_REFERENCE);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(AlternativeReference.class, "refersTo")))
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(AlternativeReference.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(AlternativeReference.class, "shortForm")))
-                .put(AknAttributes.FOR, biConsumerString(getFieldOffset(AlternativeReference.class, "for_")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(AlternativeReference.class, "refersTo")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(AlternativeReference.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(AlternativeReference.class, "shortForm")))
+                .put(FOR, biConsumerString(FOR, getFieldOffset(AlternativeReference.class, "for_")))
                 .build();
     }
 
@@ -149,7 +151,7 @@ public final class AlternativeReference extends AnyOtherType implements RefersOp
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

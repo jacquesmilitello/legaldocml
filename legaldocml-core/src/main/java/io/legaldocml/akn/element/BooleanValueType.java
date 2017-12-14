@@ -1,22 +1,21 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.BooleanValue;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The type booleanValueType specifies a boolean value attribute to FRBR elements.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="booleanValueType">
  *     <xsd:complexContent>
@@ -31,12 +30,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class BooleanValueType extends MetaOpt implements BooleanValue {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.VALUE, biConsumerBoolean(getFieldOffset(BooleanValueType.class, "value")))
+                .put(VALUE, biConsumerBoolean(VALUE, getFieldOffset(BooleanValueType.class, "value")))
                 .build();
     }
 
@@ -71,7 +70,7 @@ public abstract class BooleanValueType extends MetaOpt implements BooleanValue {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

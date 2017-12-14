@@ -1,22 +1,22 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.RoleRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.ToStringBuilder;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.AS;
+import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.FRBR_AUTHOR;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
@@ -25,7 +25,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element FRBRauthor is the metadata property containing a relevant author of the document in the respective level
  * of the FRBR hierarchy. Attribute as specifies the role of the author.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="FRBRauthor">
  *     <xsd:complexType>
@@ -48,13 +48,13 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     private static final long ADDRESS_FRBR_AUTHOR = Buffers.address(FRBR_AUTHOR);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(FRBRauthor.class, "href")))
-                .put(AknAttributes.AS, Attributes.biConsumerRoleRef(getFieldOffset(FRBRauthor.class, "as")))
+                .put(HREF, Attributes.biConsumerUri(HREF, getFieldOffset(FRBRauthor.class, "href")))
+                .put(AS, Attributes.biConsumerRoleRef(AS, getFieldOffset(FRBRauthor.class, "as")))
                 .build();
     }
 
@@ -97,7 +97,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -146,8 +146,8 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(AknAttributes.HREF, this.href);
-        builder.append(AknAttributes.AS, this.as);
+        builder.append(HREF, this.href);
+        builder.append(AS, this.as);
     }
 
     /**

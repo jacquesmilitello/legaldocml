@@ -1,18 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.RemarkType;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.unsafe.UnsafeString;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.REMARK;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -20,7 +19,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element remark is an inline element for the specification of editorial remarks (e.g., applauses, laughters, etc.)
  * especially within debate records/
- *
+ * <p>
  * <pre>
  *   <xsd:element name="remark">
  * 	   <xsd:complexType mixed="true">
@@ -42,12 +41,12 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
      */
     private static final long ADDRESS_REMARK = Buffers.address(REMARK);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Remark.class, "type"), RemarkType.class))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(Remark.class, "type"), RemarkType.class))
                 .build();
     }
 
@@ -95,7 +94,7 @@ public final class Remark extends InlineType implements io.legaldocml.akn.attrib
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.PROPRIETARY;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
@@ -20,7 +19,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element proprietary is a metadata container of any additional metadata property that does not belong to the Akoma
  * Ntoso properties. Anything can be placed in this element.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="proprietary">
  * 	   <xsd:complexType>
@@ -42,12 +41,12 @@ public final class Proprietary extends AnyOtherType implements Source {
      */
     private static final long ADDRESS_PROPRIETARY = Buffers.address(PROPRIETARY);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(Proprietary.class, "source")))
+                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(Proprietary.class, "source")))
                 .build();
     }
 
@@ -91,7 +90,7 @@ public final class Proprietary extends AnyOtherType implements Source {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

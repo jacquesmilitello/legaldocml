@@ -1,16 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.HierElements;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.H_CONTAINER;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
@@ -19,7 +19,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element hcontainer is a generic element for a hierarchical container. It can be placed in a hierarchy instead of
  * any of the other hierarchical containers. The attribute name is required and gives a name to the element.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="hcontainer">
  * 	   <xsd:complexType>
@@ -41,12 +41,12 @@ public final class Hcontainer extends Hierarchy implements Name, HierElements {
      */
     private static final long ADDRESS_H_CONTAINER = Buffers.address(H_CONTAINER);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Hierarchy.ATTRIBUTES)
-                .put("name", biConsumerString(getFieldOffset(Hcontainer.class, "name")))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(Hcontainer.class, "name")))
                 .build();
     }
 
@@ -95,7 +95,7 @@ public final class Hcontainer extends Hierarchy implements Name, HierElements {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

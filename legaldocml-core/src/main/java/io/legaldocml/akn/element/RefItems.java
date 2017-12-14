@@ -1,21 +1,20 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Groups.TLCs;
 import static io.legaldocml.akn.element.Groups.convertSuper;
@@ -25,7 +24,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The complex type refItems is a list of types of references used in the references section.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="refItems">
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -40,13 +39,13 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class RefItems implements Source {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<RefItem>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(RefItems.class, "source")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(RefItems.class, "source")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<RefItem>>builder()
@@ -105,7 +104,7 @@ public abstract class RefItems implements Source {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -114,7 +113,7 @@ public abstract class RefItems implements Source {
      */
     @Override
     public void accept(AknVisitor visitor) {
-       this.refItems.accept(visitor);
+        this.refItems.accept(visitor);
     }
 
 }

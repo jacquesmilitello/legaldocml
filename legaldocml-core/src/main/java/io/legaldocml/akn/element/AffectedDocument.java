@@ -1,19 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.group.AmendmentInline;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.AFFECTED_DOCUMENT;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -43,12 +42,12 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
      */
     private static final long ADDRESS_AFFECTED_DOCUMENT = Buffers.address(AFFECTED_DOCUMENT);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.HREF, Attributes.biConsumerUri(getFieldOffset(AffectedDocument.class, "href")))
+                .put(HREF, Attributes.biConsumerUri(HREF, getFieldOffset(AffectedDocument.class, "href")))
                 .build();
     }
 
@@ -93,7 +92,7 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

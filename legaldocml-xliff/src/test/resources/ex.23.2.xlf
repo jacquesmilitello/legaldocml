@@ -1,0 +1,188 @@
+<file xmlns="urn:oasis:names:tc:xliff:document:2.0" id="my1">
+    <unit id="1">
+      <xmrk:result/>
+      <segment id="1">
+        <source>Choose an option in the online store:</source>
+        <target>Escolha uma opção na loja online:</target>
+      </segment>
+    </unit>
+    <unit id="2">
+      <xmrk:result>
+        <disabled>yes</disabled>
+        <good-isPresent>store</good-isPresent>
+      </xmrk:result>
+      <val:validation>
+        <val:rule disabled="yes" isPresent="store"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the application store:</source>
+        <target>Escolha uma opção na application store:</target>
+      </segment>
+    </unit>
+    <unit id="v1">
+      <xmrk:result>
+        <good-isPresent>online</good-isPresent>
+      </xmrk:result>
+      <val:validation>
+        <val:rule isPresent="online"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store.</source>
+        <target>Escolha uma opção na loja online.</target>
+      </segment>
+    </unit>
+    <unit id="v2">
+      <xmrk:result>
+        <bad-isPresent>loja</bad-isPresent>
+      </xmrk:result>
+      <val:validation>
+        <val:rule isPresent="loja"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store.</source>
+        <target>Escolha uma opção na online store.</target>
+      </segment>
+    </unit>
+    <unit id="v3">
+      <xmrk:result>
+        <good-isPresent>loja</good-isPresent>
+        <occurs>2</occurs>
+        <occurs-test-match>good</occurs-test-match>
+      </xmrk:result>
+      <val:validation>
+        <val:rule isPresent="loja" occurs="2"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose a store option in the online store.</source>
+        <target>Escolha uma opção de loja na loja online.</target>
+      </segment>
+    </unit>
+    <unit id="v4">
+      <xmrk:result>
+        <good-isPresent>loja</good-isPresent>
+        <occurs>2</occurs>
+        <occurs-test-match>bad</occurs-test-match>
+      </xmrk:result>
+      <val:validation>
+        <val:rule isPresent="loja" occurs="2"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose a store option in the online store.</source>
+        <target>Escolha uma opção de loja na online store.</target>
+      </segment>
+    </unit>
+    <unit id="v5">
+      <xmrk:result>
+        <good-isNotPresent>store</good-isNotPresent>
+      </xmrk:result>
+      <val:validation>
+        <val:rule isNotPresent="store"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store.</source>
+        <target>Escolha uma opção na loja online.</target>
+      </segment>
+    </unit>
+    <unit id="v6">
+      <xmrk:result>
+        <bad-isNotPresent>store</bad-isNotPresent>
+      </xmrk:result>
+      <val:validation>
+        <val:rule isNotPresent="store"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store.</source>
+        <target>Escolha uma opção na online store.</target>
+      </segment>
+    </unit>
+    <unit id="v7">
+      <xmrk:result>
+        <startsWith>*good</startsWith>
+      </xmrk:result>
+      <val:validation>
+        <val:rule startsWith="*"/>
+      </val:validation>
+      <segment id="1">
+        <source>*Choose an option in the online store.</source>
+        <target>*Escolha uma opção na loja online.</target>
+      </segment>
+    </unit>
+    <unit id="v8">
+      <xmrk:result>
+        <startsWith>*bad</startsWith>
+      </xmrk:result>
+      <val:validation>
+        <val:rule startsWith="*"/>
+      </val:validation>
+      <segment id="1">
+        <source>*Choose an option in the online store.</source>
+        <target>Escolha uma opção na loja online.</target>
+      </segment>
+    </unit>
+    <unit id="v9">
+      <xmrk:result>
+        <endsWith>:good</endsWith>
+      </xmrk:result>
+      <val:validation>
+        <val:rule endsWith=":"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store:</source>
+        <target>Escolha uma opção na loja online:</target>
+      </segment>
+    </unit>
+    <unit id="v10">
+      <xmrk:result>
+        <endsWith>:bad</endsWith>
+      </xmrk:result>
+      <val:validation>
+        <val:rule endsWith=":"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store:</source>
+        <target>Escolha uma opção na online: store.</target>
+      </segment>
+    </unit>
+    <unit id="v11">
+      <xmrk:result>
+        <endsWith>:good</endsWith>
+        <existsInSource>
+          <endsWith>:good</endsWith>
+        </existsInSource>
+      </xmrk:result>
+      <val:validation>
+        <val:rule endsWith=":" existsInSource="yes"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store:</source>
+        <target>Escolha uma opção na loja online:</target>
+      </segment>
+    </unit>
+    <unit id="v12">
+      <xmrk:result>
+        <endsWith>:good</endsWith>
+      </xmrk:result>
+      <val:validation>
+        <val:rule endsWith=":" existsInSource="no"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store.</source>
+        <target>Escolha uma opção na loja online:</target>
+      </segment>
+    </unit>
+    <unit id="v13">
+      <xmrk:result>
+        <endsWith>:good</endsWith>
+        <existsInSource>
+          <endsWith>:bad</endsWith>
+        </existsInSource>
+      </xmrk:result>
+      <val:validation>
+        <val:rule endsWith=":" existsInSource="yes"/>
+      </val:validation>
+      <segment id="1">
+        <source>Choose an option in the online store.</source>
+        <target>Escolha uma opção na loja online:</target>
+      </segment>
+    </unit>
+</file>

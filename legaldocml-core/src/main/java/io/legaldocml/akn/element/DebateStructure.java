@@ -1,20 +1,20 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.CONTAINS;
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
@@ -23,7 +23,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The type debateStructure specifies the overall content model of the document types that describe debates.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="debateStructure">
  * 	   <xsd:sequence>
@@ -44,12 +44,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class DebateStructure extends AbstractStructure implements Contains, Name {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.CONTAINS, biConsumerEnum(getFieldOffset(DebateStructure.class, "versionType"), VersionType.class))
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(DebateStructure.class, "name")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(CONTAINS, biConsumerEnum(CONTAINS, getFieldOffset(DebateStructure.class, "versionType"), VersionType.class))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(DebateStructure.class, "name")))
                 .build();
     }
 
@@ -128,7 +128,7 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -138,8 +138,8 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
     @Override
     public final String toString() {
         ToStringBuilder builder = new ToStringBuilder(this, false);
-        builder.append(AknAttributes.NAME, this.name);
-        builder.append(AknAttributes.CONTAINS, this.versionType);
+        builder.append(NAME, this.name);
+        builder.append(CONTAINS, this.versionType);
         return builder.toString();
     }
 

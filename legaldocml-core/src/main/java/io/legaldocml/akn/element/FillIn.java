@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.FillInWidth;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.akn.AknElements.FILL_IN;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFillInWidth;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -42,12 +41,12 @@ public final class FillIn extends InlineType implements ANinline, FillInWidth {
      */
     private static final long ADDRESS_FILL_IN = Buffers.address(FILL_IN);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.WIDTH, Attributes.biConsumerString(getFieldOffset(FillIn.class, "width")))
+                .put(WIDTH, Attributes.biConsumerString(WIDTH, getFieldOffset(FillIn.class, "width")))
                 .build();
     }
 
@@ -92,7 +91,7 @@ public final class FillIn extends InlineType implements ANinline, FillInWidth {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

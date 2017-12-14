@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Enactment;
 import io.legaldocml.akn.attribute.IdReq;
@@ -12,18 +12,21 @@ import io.legaldocml.akn.type.StatusType;
 import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.EXCLUSION;
+import static io.legaldocml.akn.AknAttributes.INCOMPLETE;
+import static io.legaldocml.akn.AknAttributes.PERIOD;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SOURCE;
+import static io.legaldocml.akn.AknAttributes.STATUS;
 import static io.legaldocml.akn.AknElements.CONDITION;
 import static io.legaldocml.akn.AknElements.DESTINATION;
-import static io.legaldocml.akn.AknElements.SOURCE;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -35,8 +38,8 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The complex type judicialArgumentType lists all the properties associated to judicial elements.
- *
- *
+ * <p>
+ * <p>
  * <pre>
  *   <xsd:complexType name="judicialArgumentType">
  * 	   <xsd:sequence>
@@ -56,16 +59,16 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class JudicialArgumentType extends AbstractId implements IdReq, Enactment, RefersOpt, Modifiers, Core {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(AknAttributes.STATUS, biConsumerEnum(getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
-                .put(AknAttributes.PERIOD, biConsumerTemporalGroupRef(getFieldOffset(JudicialArgumentType.class, "period")))
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(JudicialArgumentType.class, "refersTo")))
-                .put(AknAttributes.EXCLUSION, biConsumerBoolean(getFieldOffset(JudicialArgumentType.class, "exclusion")))
-                .put(AknAttributes.INCOMPLETE, biConsumerBoolean(getFieldOffset(JudicialArgumentType.class, "incomplete")))
+                .put(STATUS, biConsumerEnum(STATUS, getFieldOffset(JudicialArgumentType.class, "statusType"), StatusType.class))
+                .put(PERIOD, biConsumerTemporalGroupRef(PERIOD, getFieldOffset(JudicialArgumentType.class, "period")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(JudicialArgumentType.class, "refersTo")))
+                .put(EXCLUSION, biConsumerBoolean(EXCLUSION, getFieldOffset(JudicialArgumentType.class, "exclusion")))
+                .put(INCOMPLETE, biConsumerBoolean(INCOMPLETE, getFieldOffset(JudicialArgumentType.class, "incomplete")))
                 .build();
     }
 
@@ -237,7 +240,7 @@ public abstract class JudicialArgumentType extends AbstractId implements IdReq, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

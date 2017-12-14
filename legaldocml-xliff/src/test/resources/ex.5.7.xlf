@@ -1,0 +1,133 @@
+<xliff>
+  <file id="f1">
+    <unit name="xmrk:h1d1e2" id="d01">
+      <segment>
+        <source>Bird Love</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:ad1e7" id="d14">
+      <segment>
+        <source>Birds in Oregon</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:ad1e10" id="d34">
+      <segment>
+        <source>Hummingbird</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:ad1e13" id="d54">
+      <segment>
+        <source>Ostrich</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:ad1e16" id="d74">
+      <segment>
+        <source>Swift</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:ad1e19" id="d94">
+      <segment>
+        <source>About Bird Love</source>
+      </segment>
+    </unit>
+  </file>
+  <file id="f2">
+    <unit name="xmrk:h2d2e3" id="d02">
+      <segment>
+        <source>Birds in Oregon</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd2e5" id="d12">
+      <segment>
+        <source>Oregon is a mostly temperate state. There are many
+        different kinds of birds that thrive there.</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:h2d2e8" id="d23">
+      <segment>
+        <source>High Altitude Birds</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd2e10" id="d33">
+      <segment>
+        <source>Birds that thrive in the high altitude include the
+        White-tailed Ptarmigan, Sharp-tailed Grouse, Yellow-billed
+        Loon, Cattle Egret, Gyrfalcon, Snowy Owl, Yellow-billed
+        Cuckoo, and Boreal Owl.</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:h2d2e13" id="d53">
+      <segment>
+        <source>Ocean Birds</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd2e15" id="d63">
+      <segment>
+        <source>Common ocean birds are Brandt's Cormorant,
+        Double-crested Cormorant, Pelagic Cormorant, Pigeon
+        Guillemot, and Tufted Puffin.</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:h2d2e18" id="d83">
+      <segment>
+        <source>Desert Birds</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd2e20" id="d93">
+      <segment>
+        <source>Birds you find in the desert include the Sage
+        Grouse, California Quail, and Prairie Falcon.</source>
+      </segment>
+    </unit>
+  </file>
+  <file id="f3">
+    <unit name="xmrk:h2d3e2" id="d01">
+      <segment>
+        <source>Hummingbird</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd3e4" id="d11">
+      <segment>
+        <source>Smallest bird: Bee hummingbird (2-1/4 in)</source>
+      </segment>
+    </unit>
+  </file>
+  <file id="f4">
+    <unit name="xmrk:h2d4e2" id="d01">
+      <segment>
+        <source>Ostrich</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd4e4" id="d11">
+      <segment>
+        <source>Heaviest bird: Ostrich (330 lb)</source>
+      </segment>
+    </unit>
+  </file>
+  <file id="f5">
+    <unit name="xmrk:h2d5e2" id="d01">
+      <segment>
+        <source>Swift</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd5e4" id="d11">
+      <segment>
+        <source>Fastest bird flying: Common Swift (125
+        mi/hr)</source>
+      </segment>
+    </unit>
+  </file>
+  <file id="f6">
+    <unit name="xmrk:h2d6e2" id="d01">
+      <segment>
+        <source>About Bird Love</source>
+      </segment>
+    </unit>
+    <unit name="xmrk:pd6e4" id="d11">
+      <segment>
+        <source>Bird Love is an organization that exists for the
+        love of birds.</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>

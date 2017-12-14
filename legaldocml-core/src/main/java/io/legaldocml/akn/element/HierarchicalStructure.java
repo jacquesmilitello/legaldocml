@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknAttributes.CONTAINS;
 import static io.legaldocml.akn.AknAttributes.NAME;
@@ -47,12 +46,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public abstract class HierarchicalStructure extends AbstractStructureWithPreamble
         implements Contains, Name {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(CONTAINS, biConsumerEnum(getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
-                .put(NAME, biConsumerString(getFieldOffset(HierarchicalStructure.class, "name")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(CONTAINS, biConsumerEnum(CONTAINS, getFieldOffset(HierarchicalStructure.class, "versionType"), VersionType.class))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(HierarchicalStructure.class, "name")))
                 .build();
     }
 
@@ -134,7 +133,7 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

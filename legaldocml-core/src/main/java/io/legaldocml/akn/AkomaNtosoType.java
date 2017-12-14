@@ -3,6 +3,8 @@ package io.legaldocml.akn;
 import io.legaldocml.akn.element.Components;
 import io.legaldocml.akn.element.Groups;
 import io.legaldocml.akn.visitor.AknVisitor;
+import io.legaldocml.diff.DiffContext;
+import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import org.slf4j.Logger;
@@ -112,4 +114,14 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
             this.components.accept(visitor);
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void nestedCompare(AknObject object, DiffContext context) {
+        Diffs.compare(documentType,((AkomaNtosoType)object).documentType, context);
+        Diffs.compare(components,((AkomaNtosoType)object).components, context);
+    }
+
 }

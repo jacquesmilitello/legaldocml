@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Dictionary;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -9,16 +9,20 @@ import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ReferenceRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.DICTIONARY;
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
+import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.KEYWORD;
 import static io.legaldocml.akn.element.Attributes.biConsumerReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -60,17 +64,17 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
      */
     private static final long ADDRESS_KEYWORD = Buffers.address(KEYWORD);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(Keyword.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(Keyword.class, "shortForm")))
-                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(Keyword.class, "value")))
-                .put(AknAttributes.DICTIONARY, biConsumerReferenceRef(getFieldOffset(Keyword.class, "dictionary")))
-                .put(AknAttributes.HREF, biConsumerString(getFieldOffset(Keyword.class, "href")))
-                .put(AknAttributes.REFERS_TO, biConsumerString(getFieldOffset(Keyword.class, "refersTo")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(Keyword.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(Keyword.class, "shortForm")))
+                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Keyword.class, "value")))
+                .put(DICTIONARY, biConsumerReferenceRef(DICTIONARY, getFieldOffset(Keyword.class, "dictionary")))
+                .put(HREF, biConsumerString(HREF, getFieldOffset(Keyword.class, "href")))
+                .put(REFERS_TO, biConsumerString(REFERS_TO, getFieldOffset(Keyword.class, "refersTo")))
                 .build();
     }
 
@@ -204,7 +208,7 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

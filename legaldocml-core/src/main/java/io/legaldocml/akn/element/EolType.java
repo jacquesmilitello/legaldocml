@@ -1,16 +1,15 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Number;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NUMBER;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -34,14 +33,14 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
  */
 public abstract class EolType extends MarkerOpt implements Number {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MarkerOpt.ATTRIBUTES)
-                .put("breakat", Attributes.biConsumerInteger(getFieldOffset(EolType.class, "breakat")))
-                .put("breakWith", Attributes.biConsumerInteger(getFieldOffset(EolType.class, "breakWith")))
-                .put(AknAttributes.NUMBER, Attributes.biConsumerInteger(getFieldOffset(EolType.class, "number")))
+                .put("breakat", Attributes.biConsumerInteger("breakat", getFieldOffset(EolType.class, "breakat")))
+                .put("breakWith", Attributes.biConsumerInteger("breakWith", getFieldOffset(EolType.class, "breakWith")))
+                .put(NUMBER, Attributes.biConsumerInteger(NUMBER, getFieldOffset(EolType.class, "number")))
                 .build();
     }
 
@@ -96,7 +95,7 @@ public abstract class EolType extends MarkerOpt implements Number {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

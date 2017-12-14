@@ -1,18 +1,19 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Notes;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.PlacementType;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.MARKER;
+import static io.legaldocml.akn.AknAttributes.PLACEMENT;
+import static io.legaldocml.akn.AknAttributes.PLACEMENT_BASE;
 import static io.legaldocml.akn.AknElements.NOTE;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
@@ -22,7 +23,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element note is a metadata element containing the text of the footnote and endnote specified.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="note">
  * 	   <xsd:complexType>
@@ -45,14 +46,14 @@ public final class Note extends SubFlowStructure implements Notes {
     private static final long ADDRESS_NOTE = Buffers.address(NOTE);
 
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(AknAttributes.MARKER, biConsumerString(getFieldOffset(Note.class, "marker")))
-                .put(AknAttributes.PLACEMENT_BASE, biConsumerEidRef(getFieldOffset(Note.class, "placementBase")))
-                .put(AknAttributes.PLACEMENT, biConsumerEnum(getFieldOffset(Note.class, "placement"), PlacementType.class))
+                .put(MARKER, biConsumerString(MARKER, getFieldOffset(Note.class, "marker")))
+                .put(PLACEMENT_BASE, biConsumerEidRef(PLACEMENT_BASE, getFieldOffset(Note.class, "placementBase")))
+                .put(PLACEMENT, biConsumerEnum(PLACEMENT, getFieldOffset(Note.class, "placement"), PlacementType.class))
                 .build();
     }
 
@@ -132,7 +133,7 @@ public final class Note extends SubFlowStructure implements Notes {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

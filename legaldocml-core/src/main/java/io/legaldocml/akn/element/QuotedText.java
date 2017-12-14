@@ -1,18 +1,20 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.attribute.Quote;
 import io.legaldocml.akn.type.EidRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.END_QUOTE;
+import static io.legaldocml.akn.AknAttributes.FOR;
+import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
+import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.QUOTED_TEXT;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
@@ -26,7 +28,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * specify the quote character used in the original; no quote attribute implies that the quote is left in the text;
  * quote="" implies that there is no quote character. Attribute for is used to point to the eId of the corresponding ref
  * element.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="quotedText">
  * 	   <xsd:complexType mixed="true">
@@ -49,15 +51,15 @@ public final class QuotedText extends InlineType implements For, Quote, ModTypeI
      */
     private static final long ADDRESS_QUOTED_TEXT = Buffers.address(QUOTED_TEXT);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.FOR, biConsumerEidRef(getFieldOffset(QuotedText.class, "_for")))
-                .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(QuotedText.class, "startQuote")))
-                .put(AknAttributes.END_QUOTE, biConsumerString(getFieldOffset(QuotedText.class, "endQuote")))
-                .put(AknAttributes.INLINE_QUOTE, biConsumerString(getFieldOffset(QuotedText.class, "inlineQuote")))
+                .put(FOR, biConsumerEidRef(FOR, getFieldOffset(QuotedText.class, "_for")))
+                .put(START_QUOTE, biConsumerString(START_QUOTE, getFieldOffset(QuotedText.class, "startQuote")))
+                .put(END_QUOTE, biConsumerString(END_QUOTE, getFieldOffset(QuotedText.class, "endQuote")))
+                .put(INLINE_QUOTE, biConsumerString(INLINE_QUOTE, getFieldOffset(QuotedText.class, "inlineQuote")))
                 .build();
 
     }
@@ -155,7 +157,7 @@ public final class QuotedText extends InlineType implements For, Quote, ModTypeI
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

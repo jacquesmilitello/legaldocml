@@ -1,15 +1,14 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
@@ -19,7 +18,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element date is an inline element to identify a date expressed in the text and to propose a normalized
  * representation in the date attribute.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="date">
  * 	   <xsd:complexType mixed="true">
@@ -41,12 +40,12 @@ public final class Date extends InlineType implements io.legaldocml.akn.attribut
      */
     private static final long ADDRESS_DATE = Buffers.address(DATE);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(DATE, biConsumerDateTime(getFieldOffset(Date.class, "date")))
+                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(Date.class, "date")))
                 .build();
     }
 
@@ -92,7 +91,7 @@ public final class Date extends InlineType implements io.legaldocml.akn.attribut
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

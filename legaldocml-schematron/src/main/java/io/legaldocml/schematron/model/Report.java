@@ -2,8 +2,7 @@ package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.util.ExternalizableList;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -11,9 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.schematron.model.SchAttributes.TEST;
 import static io.legaldocml.schematron.model.SchReadException.Type.INVALID_STATE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -27,12 +26,12 @@ public final class Report implements RuleElement{
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Report.class);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<SchObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
                 .putAll(AbstractLinkableRich.ATTRIBUTES)
-                .put(SchAttributes.TEST, biConsumerUri(getFieldOffset(Report.class, "test")))
+                .put(TEST, biConsumerUri(TEST, getFieldOffset(Report.class, "test")))
                 .build();
 
     }
@@ -113,7 +112,7 @@ public final class Report implements RuleElement{
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<SchObject>> attributes() {
         return ATTRIBUTES;
     }
 }

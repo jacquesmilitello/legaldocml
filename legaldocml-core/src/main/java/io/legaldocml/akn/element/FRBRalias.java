@@ -2,17 +2,16 @@ package io.legaldocml.akn.element;
 
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.FRBR_ALIAS;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
@@ -21,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element FRBRalias is the metadata property containing additional well-known names of the document in the
  * respective level of the FRBR hierarchy
- *
+ * <p>
  * <pre>
  *   <xsd:element name="FRBRalias" type="valueType"/>
  * </pre>
@@ -35,12 +34,12 @@ public final class FRBRalias extends ValueType implements Name {
      */
     private static final long ADDRESS_FRBR_ALIAS = Buffers.address(FRBR_ALIAS);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ValueType.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(FRBRalias.class, "name")))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(FRBRalias.class, "name")))
                 .build();
     }
 
@@ -87,7 +86,7 @@ public final class FRBRalias extends ValueType implements Name {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -1,22 +1,21 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.LI;
 import static io.legaldocml.akn.AknElements.OL;
 import static io.legaldocml.akn.AknElements.UL;
@@ -27,7 +26,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element li is an HTML element and is used in Akoma Ntoso as in HTML, for the generic list item (not a pattern).
- *
+ * <p>
  * <pre>
  *   <xsd:element name="li">
  * 	   <xsd:complexType mixed="true">
@@ -52,14 +51,14 @@ public final class Li extends AbstractCore implements CoreOpt, ValueOpt {
      */
     private static final long ADDRESS_LI = Buffers.address(LI);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<LiElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractCore.ATTRIBUTES)
-                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(Li.class, "value")))
+                .put(VALUE, biConsumerString(VALUE, getFieldOffset(Li.class, "value")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<LiElement>>builder()
@@ -120,7 +119,7 @@ public final class Li extends AbstractCore implements CoreOpt, ValueOpt {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -2,24 +2,23 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.function.BiConsumer;
 
-import static io.legaldocml.akn.AknElements.TIME;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTime;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element time is an inline element to identify a time expressed in the text and to propose a normalized
  * representation in the time attribute.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="time">
  * 	   <xsd:complexType mixed="true">
@@ -39,14 +38,14 @@ public final class Time extends InlineType implements io.legaldocml.akn.attribut
     /**
      * Memory address.
      */
-    private static final long ADDRESS_TIME = Buffers.address(TIME);
+    private static final long ADDRESS_TIME = Buffers.address(AknElements.TIME);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.TIME, Attributes.biConsumerDateTime(getFieldOffset(Time.class, "time")))
+                .put(AknAttributes.TIME, Attributes.biConsumerDateTime(AknAttributes.TIME, getFieldOffset(Time.class, "time")))
                 .build();
     }
 
@@ -85,11 +84,11 @@ public final class Time extends InlineType implements io.legaldocml.akn.attribut
      */
     @Override
     public String name() {
-        return TIME;
+        return AknElements.TIME;
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

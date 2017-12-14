@@ -1,18 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknElements.DOC_PROPONENT;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
@@ -41,12 +40,12 @@ public final class DocProponent extends InlineType implements ANtitleInline, io.
      */
     private static final long ADDRESS_DOC_PROPONENT = Buffers.address(DOC_PROPONENT);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(DocProponent.class, "as")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(DocProponent.class, "as")))
                 .build();
     }
 
@@ -91,7 +90,7 @@ public final class DocProponent extends InlineType implements ANtitleInline, io.
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

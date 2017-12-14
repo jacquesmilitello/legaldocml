@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ForceModType;
 import io.legaldocml.akn.type.ForceMods;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.FORCE_MOD;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
@@ -20,7 +19,7 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
  * The element forceMod is a metadata element specifying an (active or passive) modification in force for the document.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="forceMod">
  * 	   <xsd:complexType>
@@ -42,12 +41,12 @@ public final class ForceMod extends ModificationType implements ForceModType, Am
      */
     private static final long ADDRESS_FORCE_MOD = Buffers.address(FORCE_MOD);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(ForceMod.class, "type"), ForceMods.class))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(ForceMod.class, "type"), ForceMods.class))
                 .build();
     }
 
@@ -94,7 +93,7 @@ public final class ForceMod extends ModificationType implements ForceModType, Am
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

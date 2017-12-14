@@ -1,20 +1,22 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.IdOpt;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.ALT;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
+import static io.legaldocml.akn.AknAttributes.SRC;
 import static io.legaldocml.akn.element.Attributes.biConsumerManifestationURI;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
@@ -24,7 +26,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type srcType defines the empty content model and the list of attributes for manifestation-level
  * references to external resources.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="srcType">
  * 	   <xsd:attributeGroup ref="core"/>
@@ -38,15 +40,15 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class SrcType extends AbstractId implements Core, IdOpt, ShowReq, Src {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.SRC, biConsumerManifestationURI(AknAttributes.SRC, getFieldOffset(SrcType.class, "src")))
-                .put(AknAttributes.ALT, biConsumerString(getFieldOffset(SrcType.class, "alt")))
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(SrcType.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(SrcType.class, "shortForm")))
+                .put(SRC, biConsumerManifestationURI(SRC, getFieldOffset(SrcType.class, "src")))
+                .put(ALT, biConsumerString(ALT, getFieldOffset(SrcType.class, "alt")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(SrcType.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(SrcType.class, "shortForm")))
                 .build();
     }
 
@@ -140,7 +142,7 @@ public abstract class SrcType extends AbstractId implements Core, IdOpt, ShowReq
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

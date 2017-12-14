@@ -1,18 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Level;
 import io.legaldocml.akn.attribute.LinkReq;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.akn.type.Uri;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.LEVEL;
 import static io.legaldocml.akn.AknElements.TOC_ITEM;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
@@ -23,7 +23,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element tocItem is a component of the table of content and contains header information about sections or parts of
  * the rest of the document.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="tocItem">
  * 	   <xsd:complexType mixed="true">
@@ -47,14 +47,14 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     private static final long ADDRESS_TOC_ITEM = Buffers.address(TOC_ITEM);
 
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(TocItem.class, "href")))
-                .put(AknAttributes.LEVEL, biConsumerString(getFieldOffset(TocItem.class, "level")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(TocItem.class, "href")))
+                .put(LEVEL, biConsumerString(LEVEL, getFieldOffset(TocItem.class, "level")))
                 .build();
     }
 
@@ -117,7 +117,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

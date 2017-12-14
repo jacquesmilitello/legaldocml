@@ -4,6 +4,8 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
+import io.legaldocml.diff.DiffContext;
+import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
@@ -371,5 +373,23 @@ public final class Meta implements AknObject {
             this.presentations.accept(visitor);
         }
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void nestedCompare(AknObject object, DiffContext context) {
+        Diffs.compare(identification, ((Meta)object).identification, context);
+        Diffs.compare(publication, ((Meta)object).publication, context);
+        Diffs.compare(classifications, ((Meta)object).classifications, context);
+        Diffs.compare(lifecycles, ((Meta)object).lifecycles, context);
+        Diffs.compare(workflows, ((Meta)object).workflows, context);
+        Diffs.compare(analysis, ((Meta)object).analysis, context);
+        Diffs.compare(temporalData, ((Meta)object).temporalData, context);
+        Diffs.compare(references, ((Meta)object).references, context);
+        Diffs.compare(notes, ((Meta)object).notes, context);
+        Diffs.compare(proprietaries, ((Meta)object).proprietaries, context);
+        Diffs.compare(presentations, ((Meta)object).presentations, context);
     }
 }

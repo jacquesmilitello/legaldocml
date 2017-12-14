@@ -1,21 +1,23 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.TableAtts;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.BORDER;
+import static io.legaldocml.akn.AknAttributes.CELLPADDING;
+import static io.legaldocml.akn.AknAttributes.CELLSPACING;
+import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.akn.AknElements.CAPTION;
 import static io.legaldocml.akn.AknElements.TABLE;
 import static io.legaldocml.akn.AknElements.TR;
@@ -46,15 +48,15 @@ public final class Table extends AbstractCore implements CoreReq, TableAtts, HTM
      */
     private static final long ADDRESS_TABLE = Buffers.address(TABLE);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(AknAttributes.WIDTH, biConsumerInteger(getFieldOffset(Table.class, "width")))
-                .put(AknAttributes.BORDER, biConsumerInteger(getFieldOffset(Table.class, "border")))
-                .put(AknAttributes.CELLSPACING, biConsumerInteger(getFieldOffset(Table.class, "cellspacing")))
-                .put(AknAttributes.CELLPADDING, biConsumerInteger(getFieldOffset(Table.class, "cellpadding")))
+                .put(WIDTH, biConsumerInteger(WIDTH, getFieldOffset(Table.class, "width")))
+                .put(BORDER, biConsumerInteger(WIDTH, getFieldOffset(Table.class, "border")))
+                .put(CELLSPACING, biConsumerInteger(CELLSPACING, getFieldOffset(Table.class, "cellspacing")))
+                .put(CELLPADDING, biConsumerInteger(CELLPADDING, getFieldOffset(Table.class, "cellpadding")))
                 .build();
     }
 
@@ -193,7 +195,7 @@ public final class Table extends AbstractCore implements CoreReq, TableAtts, HTM
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

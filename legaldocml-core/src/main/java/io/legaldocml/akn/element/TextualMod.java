@@ -1,18 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.TextualModType;
 import io.legaldocml.akn.type.TextualMods;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.NEW;
 import static io.legaldocml.akn.AknElements.OLD;
 import static io.legaldocml.akn.AknElements.PREVIOUS;
@@ -23,7 +22,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element textualMod is a metadata element specifying an (active or passive) textual modification for the document.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="textualMod">
  * 	   <xsd:complexType>
@@ -45,12 +44,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class TextualMod extends ModificationType implements TextualModType, AmendmentsElement {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(TextualMod.class, "type"), TextualMods.class))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(TextualMod.class, "type"), TextualMods.class))
                 .build();
     }
 
@@ -141,7 +140,7 @@ public final class TextualMod extends ModificationType implements TextualModType
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

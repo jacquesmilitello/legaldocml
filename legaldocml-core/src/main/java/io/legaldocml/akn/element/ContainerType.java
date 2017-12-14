@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.container.BlockElementsContainer;
@@ -11,13 +12,11 @@ import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.CONTAINER;
@@ -31,7 +30,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * The complex type containerType is the content model for the generic element for a container. It can be placed in a
  * container instead of any of the other containers. The attribute name is required and gives a name to the element.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="containerType">
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -47,14 +46,14 @@ import static java.util.Objects.requireNonNull;
  */
 public abstract class ContainerType extends AbstractCore implements CoreReq, Name, BlockElementsContainer {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<ContainerElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractCore.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(ContainerType.class, "name")))
+                .put(AknAttributes.NAME, biConsumerString(AknAttributes.NAME, getFieldOffset(ContainerType.class, "name")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<ContainerElement>>builder()
@@ -130,7 +129,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

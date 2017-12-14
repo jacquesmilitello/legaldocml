@@ -1,19 +1,21 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.Quote;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.akn.type.Uri;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.END_QUOTE;
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
+import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.EMBEDDED_STRUCTURE;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
@@ -25,7 +27,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the element embeddedStructure is a subFlow element containing a full structure used as an extract from another
  * document or position. Attribute quote is used to specify the quote character used in the original; no quote attribute
  * implies that the quote is left in the text; quote="" implies that there is no quote character.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="embeddedStructure">
  * 	   <xsd:complexType>
@@ -41,7 +43,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt, Quote, ANinline{
+public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt, Quote, ANinline {
 
     /**
      * Memory address.
@@ -49,15 +51,15 @@ public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt
     private static final long ADDRESS_EMBEDDED_STRUCTURE = Buffers.address(EMBEDDED_STRUCTURE);
 
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(EmbeddedStructure.class, "href")))
-                .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "startQuote")))
-                .put(AknAttributes.END_QUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "endQuote")))
-                .put(AknAttributes.INLINE_QUOTE, biConsumerString(getFieldOffset(EmbeddedStructure.class, "inlineQuote")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(EmbeddedStructure.class, "href")))
+                .put(START_QUOTE, biConsumerString(START_QUOTE, getFieldOffset(EmbeddedStructure.class, "startQuote")))
+                .put(END_QUOTE, biConsumerString(END_QUOTE, getFieldOffset(EmbeddedStructure.class, "endQuote")))
+                .put(INLINE_QUOTE, biConsumerString(INLINE_QUOTE, getFieldOffset(EmbeddedStructure.class, "inlineQuote")))
                 .build();
     }
 
@@ -154,7 +156,7 @@ public final class EmbeddedStructure extends SubFlowStructure implements LinkOpt
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

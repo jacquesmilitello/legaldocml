@@ -1,18 +1,19 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Contains;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.type.VersionType;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.CONTAINS;
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
@@ -22,7 +23,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The type openStructure specifies the overall content model of all the document types that do not have a specific and
  * peculiar structure.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="openStructure">
  * 	   <xsd:sequence>
@@ -45,12 +46,12 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public abstract class OpenStructure extends AbstractStructureWithPreamble implements Name, Contains {
 
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put("contains", biConsumerEnum(getFieldOffset(OpenStructure.class, "versionType"), VersionType.class))
-                .put("name", biConsumerString(getFieldOffset(OpenStructure.class, "name")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(CONTAINS, biConsumerEnum(CONTAINS, getFieldOffset(OpenStructure.class, "versionType"), VersionType.class))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(OpenStructure.class, "name")))
                 .build();
     }
 
@@ -125,7 +126,7 @@ public abstract class OpenStructure extends AbstractStructureWithPreamble implem
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

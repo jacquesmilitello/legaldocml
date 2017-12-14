@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Duration;
 import io.legaldocml.akn.attribute.Interval;
 import io.legaldocml.akn.attribute.RefersReq;
@@ -9,15 +9,17 @@ import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.XmlDuration;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.DURATION;
+import static io.legaldocml.akn.AknAttributes.END;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.START;
 import static io.legaldocml.akn.AknElements.TIME_INTERVAL;
 import static io.legaldocml.akn.element.Attributes.biConsumerEventRefRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -33,7 +35,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * specified). Values of the 'start' and 'end' attributes are NOT dates, but references to event elements in the
  * corresponding metadata section. The refers attribute is a reference to a temporal concept belonging to the Akoma
  * Ntoso ontology and specified in the references section.
- *
+ * <p>
  * <pre>
  * 	 <xsd:element name="timeInterval">
  * 	   <xsd:complexType>
@@ -57,15 +59,15 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      */
     private static final long ADDRESS_TIME_INTERVAL = Buffers.address(TIME_INTERVAL);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(TimeInterval.class, "refersTo")))
-                .put(AknAttributes.START, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "start")))
-                .put(AknAttributes.END, biConsumerEventRefRef(getFieldOffset(TimeInterval.class, "end")))
-                .put(AknAttributes.DURATION, biConsumerString(getFieldOffset(TimeInterval.class, "duration")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(TimeInterval.class, "refersTo")))
+                .put(START, biConsumerEventRefRef(START, getFieldOffset(TimeInterval.class, "start")))
+                .put(END, biConsumerEventRefRef(END, getFieldOffset(TimeInterval.class, "end")))
+                .put(DURATION, biConsumerString(DURATION, getFieldOffset(TimeInterval.class, "duration")))
                 .build();
     }
 
@@ -163,7 +165,7 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -172,10 +174,10 @@ public final class TimeInterval extends MetaOpt implements RefersReq, Interval, 
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(AknAttributes.REFERS_TO, this.refersTo);
-        builder.append(AknAttributes.START, this.start);
-        builder.append(AknAttributes.END, this.end);
-        builder.append(AknAttributes.DURATION, this.duration);
+        builder.append(REFERS_TO, this.refersTo);
+        builder.append(START, this.start);
+        builder.append(END, this.end);
+        builder.append(DURATION, this.duration);
     }
 
     /**

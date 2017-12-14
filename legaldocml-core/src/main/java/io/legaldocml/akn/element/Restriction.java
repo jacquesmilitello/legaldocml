@@ -1,18 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.RestrictionType;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.RESTRICTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerEnum;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -23,7 +23,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element restriction specifies information about a restriction (such as a jurisdiction specification) by pointing
  * to a specific legislative, geographic or temporal events through the refersTo attribute.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="restriction" type="anyOtherType">
  * 	   <xsd:complexType>
@@ -46,13 +46,13 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
      */
     private static final long ADDRESS_RESTRICTION = Buffers.address(RESTRICTION);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(Restriction.class, "refersTo")))
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(Restriction.class, "refersTo")))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
                 .build();
     }
 
@@ -115,7 +115,7 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

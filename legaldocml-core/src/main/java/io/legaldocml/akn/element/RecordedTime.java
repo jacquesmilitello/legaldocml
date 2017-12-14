@@ -1,20 +1,20 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RecordedTimeType;
 import io.legaldocml.akn.attribute.Time;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.type.TimeType;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.TIME;
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.RECORDED_TIME;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
@@ -26,7 +26,7 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 /**
  * the element recordedTime is an inline element for the specification of an explicit mention of a time (e.g., in a
  * debate).
- *
+ * <p>
  * <pre>
  *   <xsd:element name="recordedTime">
  *     <xsd:complexType mixed="true">
@@ -49,14 +49,14 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
      */
     private static final long ADDRESS_RECORDED_TIME = Buffers.address(RECORDED_TIME);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
 
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(RecordedTime.class, "type"), TimeType.class))
-                .put(AknAttributes.TIME, biConsumerDateTime(getFieldOffset(RecordedTime.class, "time")))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(RecordedTime.class, "type"), TimeType.class))
+                .put(TIME, biConsumerDateTime(TIME, getFieldOffset(RecordedTime.class, "time")))
                 .build();
     }
 
@@ -121,7 +121,7 @@ public final class RecordedTime extends InlineType implements Time, RecordedTime
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

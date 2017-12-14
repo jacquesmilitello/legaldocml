@@ -1,19 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.group.ANsemanticInline;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknElements.PERSON;
 import static io.legaldocml.akn.element.Attributes.biConsumerRoleRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -21,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element person is an inline element to identify a text fragment introducing or referring to a person in the
  * ontology. Attribute as allows to specify a TLCrole the person is holding in the context of the document's mention.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="person">
  * 	   <xsd:complexType mixed="true">
@@ -43,12 +42,12 @@ public final class Person extends InlineReqReqType implements Role, ANsemanticIn
      */
     private static final long ADDRESS_PERSON = Buffers.address(PERSON);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Person.class, "as")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Person.class, "as")))
                 .build();
     }
 
@@ -93,7 +92,7 @@ public final class Person extends InlineReqReqType implements Role, ANsemanticIn
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

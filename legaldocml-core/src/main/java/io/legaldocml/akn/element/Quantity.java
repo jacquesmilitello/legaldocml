@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.NormalizedAtt;
 import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NORMALIZED;
 import static io.legaldocml.akn.AknElements.QUANTITY;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNormalizedAtt;
@@ -21,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element quantity is an inline element to identify a text fragment introducing or referring to a quantity. This
  * could be a dimensionless number, or a number referring to a length, weight, duration, etc. or even a sum of money.
  * The attribute normalized contains the value normalized in a number, if appropriate.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="quantity">
  * 	   <xsd:complexType mixed="true">
@@ -43,12 +42,12 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
      */
     private static final long ADDRESS_QUANTITY = Buffers.address(QUANTITY);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqReqType.ATTRIBUTES)
-                .put(AknAttributes.NORMALIZED, biConsumerString(getFieldOffset(Quantity.class, "normalized")))
+                .put(NORMALIZED, biConsumerString(NORMALIZED, getFieldOffset(Quantity.class, "normalized")))
                 .build();
     }
 
@@ -93,7 +92,7 @@ public final class Quantity extends InlineReqReqType implements NormalizedAtt, A
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

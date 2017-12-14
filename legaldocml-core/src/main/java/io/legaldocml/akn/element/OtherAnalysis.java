@@ -1,17 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.XmlWriterHelper;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.OTHER_ANALYSIS;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -19,7 +19,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element otherAnalysis is a metadata container of any additional metadata analysis element that does not belong to
  * the specific categories provided before. Anything can be placed in this element.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType>
  *     <xsd:complexContent>
@@ -39,13 +39,13 @@ public final class OtherAnalysis extends AnyOtherType implements Source {
      */
     private static final long ADDRESS = Buffers.address(OTHER_ANALYSIS);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put("source", biConsumerAgentRef(getFieldOffset(OtherAnalysis.class, "source")))
+                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(OtherAnalysis.class, "source")))
                 .build();
     }
 
@@ -80,7 +80,7 @@ public final class OtherAnalysis extends AnyOtherType implements Source {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -1,19 +1,20 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.IdReq;
 import io.legaldocml.akn.attribute.LinkReq;
 import io.legaldocml.akn.attribute.ShowReq;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
-import io.legaldocml.io.XmlWriter;
 import io.legaldocml.akn.type.Uri;
+import io.legaldocml.io.AttributeGetterSetter;
+import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
@@ -23,7 +24,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The complex type referenceType defines the empty content model and the list of attributes for metadata elements in
  * the references section.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="referenceType">
  * 	   <xsd:attributeGroup ref="core"/>
@@ -37,14 +38,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ReferenceType extends AbstractId implements IdReq, LinkReq, ShowReq, Core {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ReferenceType.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(ReferenceType.class, "shortForm")))
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(ReferenceType.class, "href")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(ReferenceType.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(ReferenceType.class, "shortForm")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(ReferenceType.class, "href")))
                 .build();
     }
 
@@ -101,7 +102,7 @@ public abstract class ReferenceType extends AbstractId implements IdReq, LinkReq
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

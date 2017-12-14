@@ -1,29 +1,31 @@
 package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.akn.type.Uri;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.schematron.model.attribute.Linkable;
 import io.legaldocml.schematron.model.attribute.Rich;
-import io.legaldocml.akn.type.Uri;
-
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.schematron.model.SchAttributes.FPI;
+import static io.legaldocml.schematron.model.SchAttributes.ICON;
+import static io.legaldocml.schematron.model.SchAttributes.ROLE;
+import static io.legaldocml.schematron.model.SchAttributes.SEE;
+import static io.legaldocml.schematron.model.SchAttributes.SUBJECT;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 abstract class AbstractLinkableRich implements SchObject, Rich, Linkable {
 
-    static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    static final ImmutableMap<String, AttributeGetterSetter<SchObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(SchAttributes.ROLE, biConsumerString(getFieldOffset(AbstractLinkableRich.class, "role")))
-                .put(SchAttributes.SUBJECT, biConsumerString(getFieldOffset(AbstractLinkableRich.class, "subject")))
-                .put(SchAttributes.ICON, biConsumerUri(getFieldOffset(AbstractLinkableRich.class, "icon")))
-                .put(SchAttributes.SEE, biConsumerUri(getFieldOffset(AbstractLinkableRich.class, "see")))
-                .put(SchAttributes.FPI, biConsumerUri(getFieldOffset(AbstractLinkableRich.class, "fpi")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
+                .put(ROLE, biConsumerString(ROLE, getFieldOffset(AbstractLinkableRich.class, "role")))
+                .put(SUBJECT, biConsumerString(SUBJECT, getFieldOffset(AbstractLinkableRich.class, "subject")))
+                .put(ICON, biConsumerUri(ICON, getFieldOffset(AbstractLinkableRich.class, "icon")))
+                .put(SEE, biConsumerUri(SEE, getFieldOffset(AbstractLinkableRich.class, "see")))
+                .put(FPI, biConsumerUri(FPI, getFieldOffset(AbstractLinkableRich.class, "fpi")))
                 .build();
     }
 
@@ -116,8 +118,7 @@ abstract class AbstractLinkableRich implements SchObject, Rich, Linkable {
     /**
      * {@inheritDoc}
      */
-    @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<SchObject>> attributes() {
         return ATTRIBUTES;
     }
 

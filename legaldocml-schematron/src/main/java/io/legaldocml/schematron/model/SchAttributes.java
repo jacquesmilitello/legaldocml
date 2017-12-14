@@ -1,12 +1,8 @@
 package io.legaldocml.schematron.model;
 
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.function.BiConsumer;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -89,13 +85,13 @@ final class SchAttributes {
                 LOGGER.debug("set ({},{},{},{})", object, name, value, prefixNS);
             }
 
-            BiConsumer<Externalizable, CharArray> bic = object.attributes().get(name.toString());
+           // AknAttributeGetterSetter bic = object.attributes().get(name.toString());
 
-            if (bic != null) {
-                bic.accept(object, value);
-            } else {
-                throw new RuntimeException(schObject.getClass().getSimpleName() + " -> Attribute [" + name + "] not supported ! [" + value + "]");
-            }
+           // if (bic != null) {
+           //     bic.accept(object, value);
+           // } else {
+           //     throw new RuntimeException(schObject.getClass().getSimpleName() + " -> Attribute [" + name + "] not supported ! [" + value + "]");
+           // }
 
 
         });

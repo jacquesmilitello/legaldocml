@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Date;
@@ -10,16 +10,19 @@ import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.RoleRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.ACTOR;
+import static io.legaldocml.akn.AknAttributes.AS;
+import static io.legaldocml.akn.AknAttributes.BY;
+import static io.legaldocml.akn.AknAttributes.DATE;
+import static io.legaldocml.akn.AknAttributes.OUTCOME;
 import static io.legaldocml.akn.AknElements.STEP;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerConceptRef;
@@ -37,7 +40,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * The element step is a metadata element specifying facts about a workflow step occurred to the document. For each
  * event, a date, a type, an agent (and the corresponding role) that generated the action must be referenced. The
  * outcome, too, can be specified.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="step">
  * 	   <xsd:complexType>
@@ -63,16 +66,16 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
      */
     private static final long ADDRESS_STEP = Buffers.address(STEP);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Step.class, "date")))
-                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Step.class, "as")))
-                .put(AknAttributes.OUTCOME, biConsumerConceptRef(getFieldOffset(Step.class, "outcome")))
-                .put(AknAttributes.ACTOR, biConsumerString(getFieldOffset(Step.class, "actor")))
-                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Step.class, "by")))
+                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(Step.class, "date")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Step.class, "as")))
+                .put(OUTCOME, biConsumerConceptRef(OUTCOME, getFieldOffset(Step.class, "outcome")))
+                .put(ACTOR, biConsumerString(ACTOR, getFieldOffset(Step.class, "actor")))
+                .put(BY, biConsumerAgentRef(BY, getFieldOffset(Step.class, "by")))
                 .build();
     }
 
@@ -190,7 +193,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
     }
 
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

@@ -1,18 +1,17 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.SpeechSection;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.DEBATE_SECTION;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
@@ -21,7 +20,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * This element is a generic structural container for all other parts of a debates that are not explicitly supported
  * with a named element.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="debateSection">
  * 	   <xsd:complexType>
@@ -43,12 +42,12 @@ public final class DebateSection extends AltHierarchy implements Name, SpeechSec
      */
     private static final long ADDRESS_DEBATE_SECTION = Buffers.address(DEBATE_SECTION);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AltHierarchy.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(DebateSection.class, "name")))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(DebateSection.class, "name")))
                 .build();
     }
 
@@ -91,7 +90,7 @@ public final class DebateSection extends AltHierarchy implements Name, SpeechSec
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

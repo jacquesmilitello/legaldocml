@@ -1,15 +1,14 @@
 package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
+import static io.legaldocml.schematron.model.SchAttributes.PATH;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -17,11 +16,11 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public final class Name implements SchMixedContent {
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<SchObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(SchAttributes.PATH, biConsumerUri(getFieldOffset(Name.class, "path")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
+                .put(PATH, biConsumerUri(PATH, getFieldOffset(Name.class, "path")))
                 .build();
     }
 
@@ -56,7 +55,7 @@ public final class Name implements SchMixedContent {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<SchObject>> attributes() {
         return ATTRIBUTES;
     }
     

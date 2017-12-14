@@ -2,8 +2,7 @@ package io.legaldocml.schematron.model;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.util.ExternalizableList;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -11,11 +10,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
-import static io.legaldocml.schematron.model.SchReadException.Type.*;
+import static io.legaldocml.schematron.model.SchAttributes.ID;
+import static io.legaldocml.schematron.model.SchReadException.Type.INVALID_STATE;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -28,13 +27,13 @@ public final class Pattern implements SchemaElement{
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Pattern.class);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<SchObject>> ATTRIBUTES;
 
     private static final ImmutableMap<String, Supplier<PatternElement>> ELEMS;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(SchAttributes.ID, biConsumerString(getFieldOffset(Pattern.class, "id")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<SchObject>>builder()
+                .put(ID, biConsumerString(ID, getFieldOffset(Pattern.class, "id")))
                 .build();
 
         ELEMS = ImmutableMap.<String, Supplier<PatternElement>>builder()
@@ -77,7 +76,7 @@ public final class Pattern implements SchemaElement{
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<SchObject>> attributes() {
         return ATTRIBUTES;
     }
 }

@@ -1,19 +1,21 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.attribute.Quote;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.akn.type.Uri;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
-import io.legaldocml.akn.type.Uri;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.END_QUOTE;
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
+import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.EMBEDDED_TEXT;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
@@ -46,15 +48,15 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      */
     private static final long ADDRESS_EMBEDDED_TEXT = Buffers.address(EMBEDDED_TEXT);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(SubFlowStructure.ATTRIBUTES)
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(EmbeddedText.class, "href")))
-                .put(AknAttributes.START_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "startQuote")))
-                .put(AknAttributes.END_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "endQuote")))
-                .put(AknAttributes.INLINE_QUOTE, biConsumerString(getFieldOffset(EmbeddedText.class, "inlineQuote")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(EmbeddedText.class, "href")))
+                .put(START_QUOTE, biConsumerString(START_QUOTE, getFieldOffset(EmbeddedText.class, "startQuote")))
+                .put(END_QUOTE, biConsumerString(END_QUOTE, getFieldOffset(EmbeddedText.class, "endQuote")))
+                .put(INLINE_QUOTE, biConsumerString(INLINE_QUOTE, getFieldOffset(EmbeddedText.class, "inlineQuote")))
                 .build();
     }
 
@@ -149,7 +151,7 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

@@ -1,20 +1,22 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.ImgAtts;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.group.HTMLMarker;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.ALT;
+import static io.legaldocml.akn.AknAttributes.HEIGHT;
+import static io.legaldocml.akn.AknAttributes.SRC;
+import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.akn.AknElements.IMG;
 import static io.legaldocml.akn.element.Attributes.biConsumerInteger;
 import static io.legaldocml.akn.element.Attributes.biConsumerManifestationURI;
@@ -25,7 +27,7 @@ import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
  * The element img is an HTML element and is used in Akoma Ntoso as in HTML, for including an image. It is a marker.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="img">
  * 	   <xsd:complexType>
@@ -48,15 +50,15 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
      */
     private static final long ADDRESS_IMG = Buffers.address(IMG);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksopt.ATTRIBUTES)
-                .put(AknAttributes.ALT, biConsumerString(getFieldOffset(Img.class, "alt")))
-                .put(AknAttributes.SRC, biConsumerManifestationURI(AknAttributes.SRC, getFieldOffset(Img.class, "src")))
-                .put(AknAttributes.WIDTH, biConsumerInteger(getFieldOffset(Img.class, "width")))
-                .put(AknAttributes.HEIGHT, biConsumerInteger(getFieldOffset(Img.class, "height")))
+                .put(ALT, biConsumerString(ALT, getFieldOffset(Img.class, "alt")))
+                .put(SRC, biConsumerManifestationURI(SRC, getFieldOffset(Img.class, "src")))
+                .put(WIDTH, biConsumerInteger(WIDTH, getFieldOffset(Img.class, "width")))
+                .put(HEIGHT, biConsumerInteger(HEIGHT, getFieldOffset(Img.class, "height")))
                 .build();
     }
 
@@ -158,7 +160,7 @@ public final class Img extends MarkerOpt implements Src, ImgAtts, HTMLMarker {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

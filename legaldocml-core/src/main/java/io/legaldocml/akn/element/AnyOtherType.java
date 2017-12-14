@@ -1,33 +1,33 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.IdOpt;
 import io.legaldocml.akn.attribute.LinkOpt;
 import io.legaldocml.akn.other.ExternalElementWithNS;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.Attribute;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
-import io.legaldocml.akn.type.Uri;
+import io.legaldocml.util.CharArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
 import static io.legaldocml.akn.element.Attributes.biConsumerUri;
-import static io.legaldocml.util.CharArrays.immutable;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+import static io.legaldocml.util.CharArrays.immutable;
 
 /**
  * The complex type anyOtherType defines an open content model for elements that may use elements from other namespaces.
@@ -52,12 +52,12 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(AnyOtherType.class);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AbstractId.ATTRIBUTES)
-                .put(AknAttributes.HREF, biConsumerUri(getFieldOffset(AnyOtherType.class, "href")))
+                .put(HREF, biConsumerUri(HREF, getFieldOffset(AnyOtherType.class, "href")))
                 .build();
     }
 
@@ -109,8 +109,8 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-       Core.super.write(writer);
-       IdOpt.super.write(writer);
+        Core.super.write(writer);
+        IdOpt.super.write(writer);
         if (this.href != null) {
             writer.writeAttribute(ADDRESS_HREF, 4, this.href.getChars());
         }
@@ -167,7 +167,7 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

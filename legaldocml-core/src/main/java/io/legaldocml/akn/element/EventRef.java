@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Originating;
 import io.legaldocml.akn.attribute.RefersOpt;
@@ -10,15 +10,18 @@ import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EventType;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.DATE;
+import static io.legaldocml.akn.AknAttributes.ORIGINATING_EXPRESSION;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SOURCE;
+import static io.legaldocml.akn.AknAttributes.TYPE;
 import static io.legaldocml.akn.AknElements.EVENT_REF;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerBoolean;
@@ -61,16 +64,16 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
      */
     private static final long ADDRESS_EVENT_REF = Buffers.address(EVENT_REF);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
-                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(EventRef.class, "date")))
-                .put(AknAttributes.SOURCE, biConsumerAgentRef(getFieldOffset(EventRef.class, "source")))
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(EventRef.class, "refersTo")))
-                .put(AknAttributes.ORIGINATING_EXPRESSION, biConsumerBoolean(getFieldOffset(EventRef.class, "originatingExpression")))
-                .put(AknAttributes.TYPE, biConsumerEnum(getFieldOffset(EventRef.class, "type"), EventType.class))
+                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(EventRef.class, "date")))
+                .put(SOURCE, biConsumerAgentRef(SOURCE, getFieldOffset(EventRef.class, "source")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(EventRef.class, "refersTo")))
+                .put(ORIGINATING_EXPRESSION, biConsumerBoolean(ORIGINATING_EXPRESSION, getFieldOffset(EventRef.class, "originatingExpression")))
+                .put(TYPE, biConsumerEnum(TYPE, getFieldOffset(EventRef.class, "type"), EventType.class))
 
                 .build();
     }
@@ -180,7 +183,7 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

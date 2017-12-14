@@ -1,21 +1,25 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.MappingAtts;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.WidRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.AS;
+import static io.legaldocml.akn.AknAttributes.BY;
+import static io.legaldocml.akn.AknAttributes.CURRENT;
+import static io.legaldocml.akn.AknAttributes.END;
+import static io.legaldocml.akn.AknAttributes.ORIGINAL;
+import static io.legaldocml.akn.AknAttributes.START;
 import static io.legaldocml.akn.AknElements.MAPPING;
 import static io.legaldocml.akn.element.Attributes.biConsumerAgentRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerEidRef;
@@ -30,8 +34,8 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * (attribute current) such structure had during the time interval included between an initial temporalGroup and a final
  * temporalGroup. This is useful for tracking the evolving ids of documents frequently renumbered (e,g., bills). Every
  * single element whose wId does not match its eId needs to be represented here.
- *
- *
+ * <p>
+ * <p>
  * <pre>
  *   <xsd:element name="mapping">
  *     <xsd:complexType name="valueType">
@@ -53,17 +57,17 @@ public final class Mapping extends MetaReq implements MappingAtts {
      */
     private static final long ADDRESS_MAPPING = Buffers.address(MAPPING);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaReq.ATTRIBUTES)
-                .put(AknAttributes.ORIGINAL, biConsumerWidRef(getFieldOffset(Mapping.class, "original")))
-                .put(AknAttributes.CURRENT, biConsumerEidRef(getFieldOffset(Mapping.class, "current")))
-                .put(AknAttributes.START, biConsumerEventRefRef(getFieldOffset(Mapping.class, "start")))
-                .put(AknAttributes.END, biConsumerEventRefRef(getFieldOffset(Mapping.class, "end")))
-                .put(AknAttributes.AS, biConsumerRoleRef(getFieldOffset(Mapping.class, "as")))
-                .put(AknAttributes.BY, biConsumerAgentRef(getFieldOffset(Mapping.class, "by")))
+                .put(ORIGINAL, biConsumerWidRef(ORIGINAL, getFieldOffset(Mapping.class, "original")))
+                .put(CURRENT, biConsumerEidRef(CURRENT, getFieldOffset(Mapping.class, "current")))
+                .put(START, biConsumerEventRefRef(START, getFieldOffset(Mapping.class, "start")))
+                .put(END, biConsumerEventRefRef(END, getFieldOffset(Mapping.class, "end")))
+                .put(AS, biConsumerRoleRef(AS, getFieldOffset(Mapping.class, "as")))
+                .put(BY, biConsumerAgentRef(BY, getFieldOffset(Mapping.class, "by")))
                 .build();
     }
 
@@ -194,7 +198,7 @@ public final class Mapping extends MetaReq implements MappingAtts {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

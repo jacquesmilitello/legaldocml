@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.attribute.Number;
@@ -9,15 +9,19 @@ import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowReq;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.DATE;
+import static io.legaldocml.akn.AknAttributes.NAME;
+import static io.legaldocml.akn.AknAttributes.NUMBER;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknElements.PUBLICATION;
 import static io.legaldocml.akn.element.Attributes.biConsumerDateTime;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
@@ -32,7 +36,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * The element publication is the metadata container specifying an official publication event for the FRBR expression of
  * the document.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="publication">
  * 	   <xsd:complexType>
@@ -58,17 +62,17 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      */
     private static final long ADDRESS_PUBLICATION = Buffers.address(PUBLICATION);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(AknAttributes.DATE, biConsumerDateTime(getFieldOffset(Publication.class, "date")))
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(Publication.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(Publication.class, "shortForm")))
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Publication.class, "name")))
-                .put(AknAttributes.NUMBER, biConsumerString(getFieldOffset(Publication.class, "number")))
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(Publication.class, "refersTo")))
+                .put(DATE, biConsumerDateTime(DATE, getFieldOffset(Publication.class, "date")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(Publication.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(Publication.class, "shortForm")))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(Publication.class, "name")))
+                .put(NUMBER, biConsumerString(NUMBER, getFieldOffset(Publication.class, "number")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(Publication.class, "refersTo")))
                 .build();
     }
 
@@ -197,7 +201,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 

@@ -1,19 +1,18 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Name;
 import io.legaldocml.akn.group.BasicContainers;
 import io.legaldocml.akn.group.PreambleContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.FORMULA;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
@@ -23,7 +22,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * the element formula is a section of the preface or preamble that contains a formulaic expression that is
  * systematically or frequently present in a preface or a preamble and has e precise legal meaning (e.g. an enacting
  * formula). Use the refersTo attribute for the specification of the actual type of formula.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="formula">
  * 	   <xsd:complexType>
@@ -45,12 +44,12 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
      */
     private static final long ADDRESS_FORMULA = Buffers.address(FORMULA);
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(Blocksreq.ATTRIBUTES)
-                .put(AknAttributes.NAME, biConsumerString(getFieldOffset(Formula.class, "name")))
+                .put(NAME, biConsumerString(NAME, getFieldOffset(Formula.class, "name")))
                 .build();
     }
 
@@ -97,7 +96,7 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 }

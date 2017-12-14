@@ -5,14 +5,13 @@ import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.unsafe.UnsafeString;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.AknModule;
 import io.legaldocml.module.Module;
+import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.CharArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,12 +78,9 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
     }
 
     @SuppressWarnings("unchecked")
-    public void update(String name, Externalizable akn) {
+    public void update(String name, AknObject akn) {
         BiConsumer consumer = REFS.get(name);
-
-        if (consumer == null) {
-            LOGGER.warn("no consumer for attribute [{}] -> skip" , name);
-        } else {
+        if (consumer != null) {
             consumer.accept(this, akn);
         }
     }

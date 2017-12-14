@@ -1,19 +1,21 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.ShowOpt;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
+import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.element.Attributes.biConsumerListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.biConsumerString;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
@@ -41,14 +43,14 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  */
 public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, ShowOpt {
 
-    protected static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
-                .put(AknAttributes.VALUE, biConsumerString(getFieldOffset(ValueType.class, "value")))
-                .put(AknAttributes.REFERS_TO, biConsumerListReferenceRef(getFieldOffset(ValueType.class, "refersTo")))
-                .put(AknAttributes.SHOW_AS, biConsumerString(getFieldOffset(ValueType.class, "showAs")))
-                .put(AknAttributes.SHORT_FORM, biConsumerString(getFieldOffset(ValueType.class, "shortForm")))
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .put(VALUE, biConsumerString(VALUE, getFieldOffset(ValueType.class, "value")))
+                .put(REFERS_TO, biConsumerListReferenceRef(REFERS_TO, getFieldOffset(ValueType.class, "refersTo")))
+                .put(SHOW_AS, biConsumerString(SHOW_AS, getFieldOffset(ValueType.class, "showAs")))
+                .put(SHORT_FORM, biConsumerString(SHORT_FORM, getFieldOffset(ValueType.class, "shortForm")))
                 .putAll(MetaOpt.ATTRIBUTES)
                 .build();
     }
@@ -138,7 +140,7 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
@@ -147,9 +149,9 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
      */
     @Override
     protected void toString(ToStringBuilder builder) {
-        builder.append(AknAttributes.VALUE, this.value);
-        builder.append(AknAttributes.REFERS_TO, this.refersTo);
-        builder.append(AknAttributes.SHOW_AS, this.showAs);
-        builder.append(AknAttributes.SHORT_FORM, this.shortForm);
+        builder.append(VALUE, this.value);
+        builder.append(REFERS_TO, this.refersTo);
+        builder.append(SHOW_AS, this.showAs);
+        builder.append(SHORT_FORM, this.shortForm);
     }
 }

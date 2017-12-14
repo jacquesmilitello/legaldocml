@@ -25,12 +25,11 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
       <org.slf4j.version>1.7.25</org.slf4j.version>
-      <com.google.guava.version>23.4-jre</com.google.guava.version>
+      <com.google.guava.version>23.5-jre</com.google.guava.version>
       <org.antlr.version>4.7</org.antlr.version>
 
       <org.apache.logging.log4j.version>2.10.0</org.apache.logging.log4j.version>
 
-      <junit.version>4.12</junit.version>
       <org.junit.jupiter.version>5.0.2</org.junit.jupiter.version>
       <org.xmlunit.version>2.5.1</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
@@ -55,6 +54,7 @@
       <module>legaldocml-archive</module>
       <module>legaldocml-xpath</module>
       <module>legaldocml-schematron</module>
+      <module>legaldocml-xliff</module>
       <module>legaldocml-bom</module>
    </modules>
 
@@ -113,13 +113,6 @@
             <version>${org.junit.jupiter.version}</version>
             <scope>test</scope>
          </dependency>
-
-         <!--<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-         </dependency>-->
 
          <dependency>
             <groupId>org.apache.logging.log4j</groupId>

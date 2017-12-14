@@ -1,17 +1,16 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknAttributes;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.OriginalText;
 import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.io.Externalizable;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
+import static io.legaldocml.akn.AknAttributes.ORIGINAL_TEXT;
 import static io.legaldocml.akn.AknElements.PLACE_HOLDER;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOriginalText;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -19,7 +18,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 /**
  * the element placeholder is an inline element containing the text of a computable expression (e.g., '30 days after the
  * publication of this act') that can be replaced editorially with an actual value.
- *
+ * <p>
  * <pre>
  *   <xsd:element name="placeholder">
  * 	   <xsd:complexType mixed="true">
@@ -41,12 +40,12 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
      */
     private static final long ADDRESS_PLACE_HOLDER = Buffers.address(PLACE_HOLDER);
 
-    private static final ImmutableMap<String, BiConsumer<Externalizable, CharArray>> ATTRIBUTES;
+    private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, BiConsumer<Externalizable, CharArray>>builder()
+        ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(AknAttributes.ORIGINAL_TEXT, Attributes.biConsumerUri(getFieldOffset(Placeholder.class, "originalText")))
+                .put(ORIGINAL_TEXT, Attributes.biConsumerUri(ORIGINAL_TEXT, getFieldOffset(Placeholder.class, "originalText")))
                 .build();
     }
 
@@ -91,7 +90,7 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, BiConsumer<Externalizable, CharArray>> attributes() {
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
 
