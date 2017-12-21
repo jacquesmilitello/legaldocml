@@ -1,9 +1,10 @@
 package io.legaldocml.diff;
 
+import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
+import io.legaldocml.io.AttributeGetterSetter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,17 +20,6 @@ public final class Diffs {
      * SLF4J
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Diffs.class);
-
-    public static final Diff EMPTY = new Diff() {
-    };
-
-    public static <T extends DocumentType> Diff missingElement(AknObject left) {
-        return new DiffImpl(DiffType.MISSING_ELEMENT, left, null);
-    }
-
-    public static <T extends DocumentType> Diff mismatchElement(AknObject left, AknObject right) {
-        return new DiffImpl(DiffType.MISMATCH_ELEMENT, left, null);
-    }
 
     public static void compare(List<Attribute> left, List<Attribute> right, DiffContext context) {
 
@@ -50,14 +40,60 @@ public final class Diffs {
 
         Objects.requireNonNull(left);
 
+        if (right == null) {
+            context.missingElement(left);
+            return;
+        }
+
         if (!left.getClass().isAssignableFrom(right.getClass())) {
             context.mismatchElement(left, right);
             return;
         }
 
-        left.compare(right, context);
+        compareAttributes(left, right, context);
+
+        left.nestedCompare(right, context);
+
     }
 
     public static <T extends AknObject> void compare(AknList<T> left, AknList<T> right, DiffContext context) {
+    }
+
+    public static void compareAttributes(AknObject left, AknObject right, DiffContext context) {
+
+        for (AttributeGetterSetter<AknObject> attribute : left.attributes().values()) {
+
+            if (AknAttributes.ID.equals(attribute.name()) || AknAttributes.EVOLVING_ID.equals(attribute.name())) {
+                // should be removed when remove AKN2 backward compatibility.
+                continue;
+            }
+
+            Object valueLeft = attribute.apply(left);
+            Object valueRight = attribute.apply(right);
+
+            if (valueLeft == null && valueRight == null) {
+                continue;
+            }
+
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Attribute [{}] -> Left [{}] - Right [{}]", attribute.name(), valueLeft, valueRight);
+            }
+
+            if (valueLeft == null) {
+                context.attributeNew(attribute.name(), valueRight, left, right);
+                continue;
+            }
+
+            if (valueRight == null) {
+                context.attributeRemove(attribute.name(), valueLeft, left, right);
+                continue;
+            }
+
+            if (!valueLeft.equals(valueRight)) {
+                context.attributeValueDifferent(attribute.name(), valueLeft, valueRight, left, right);
+            }
+
+        }
+
     }
 }

@@ -111,40 +111,56 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     // Mandatory (min 1).
     private final AknList<SubFlowStructureElement> elems = new AknList<>(new SubFlowStructureElement[8]);
 
-    public final void add(SubFlowStructureElement element) {
-        this.elems.add(element);
+    public final void addSubFlowStructureElement(SubFlowStructureElement element) {
+        this.elems.add(requireNonNull(element));
+    }
+
+    public final boolean removeSubFlowStructureElement(SubFlowStructureElement element) {
+        if (element != null) {
+            return this.elems.remove(element);
+        } else {
+            return false;
+        }
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void add(BlockElements elements) {
-        this.elems.add(requireNonNull(elements));
+    public final void add(BlockElements elements) {
+        addSubFlowStructureElement(elements);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void add(HTMLblock block) {
-        this.elems.add(requireNonNull(block));
+    public final void add(HTMLblock block) {
+        addSubFlowStructureElement(block);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void add(HierElements hier) {
-        this.elems.add(requireNonNull(hier));
+    public final void add(HierElements hier) {
+        addSubFlowStructureElement(hier);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void add(ANhier hier) {
-        this.elems.add(requireNonNull(hier));
+    public boolean remove(HierElements hier) {
+        return removeSubFlowStructureElement(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(ANhier hier) {
+        addSubFlowStructureElement(hier);
     }
 
     /**
@@ -152,7 +168,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      */
     @Override
     public void add(ANblock block) {
-        this.elems.add(requireNonNull(block));
+        addSubFlowStructureElement(block);
     }
 
     /**

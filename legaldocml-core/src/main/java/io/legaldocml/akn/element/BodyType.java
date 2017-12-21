@@ -52,6 +52,14 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
         this.elements.add(element);
     }
 
+    public final boolean removeBodyTypeElement(BodyTypeElement element) {
+        if (element != null) {
+            return this.elements.remove(element);
+        } else {
+            return false;
+        }
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -60,6 +68,13 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
         addBodyTypeElement(requireNonNull(hier));
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(HierElements hier) {
+        return removeBodyTypeElement(hier);
+    }
     /**
      * {@inheritDoc}
      */

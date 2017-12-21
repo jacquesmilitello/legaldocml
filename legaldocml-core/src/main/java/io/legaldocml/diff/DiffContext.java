@@ -1,49 +1,24 @@
 package io.legaldocml.diff;
 
 import io.legaldocml.akn.AknObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.LinkedList;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DiffContext {
+public interface DiffContext {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DiffContext.class);
+    <T extends AknObject> void missingElement(T left);
 
-    private final LinkedList<AknObject> akns = new LinkedList<>();
+    <T extends AknObject> void mismatchElement(T left, T right);
 
-    public <T extends AknObject> void push(T aknObject) {
-        if (LOGGER.isTraceEnabled()) {
-            LOGGER.trace("push({}) -> [{}]" , aknObject.name(), path());
-        }
-        akns.add(aknObject);
-    }
+    <T extends AknObject> void attributeValueDifferent(String name, Object valueLeft, Object valueRight, T left, T right);
 
-    public <T extends AknObject> void missingElement(T aknObject) {
-    }
+    <T extends AknObject> void attributeNew(String name, Object valueRight, T left, T right);
 
-    public <T extends AknObject> void mismatchElement(T aknObject) {
-    }
+    <T extends AknObject> void attributeRemove(String name, Object valueLeft, T left, T right);
 
-    public <T extends AknObject> void pop(T aknObject) {
-        if (LOGGER.isTraceEnabled()) {
-            LOGGER.trace("pop({}) -> [{}]" , aknObject.name(), path());
-        }
-        akns.removeLast();
-    }
+    <T extends AknObject> void push(T object);
 
-    private String path() {
-        StringBuilder builder = new StringBuilder(128);
-        for (AknObject akn : akns) {
-            builder.append('/').append(akn.name());
-        }
-        return builder.toString();
-    }
+    <T extends AknObject> void pop(T object);
 
-    public <T extends AknObject> void mismatchElement(T left, T right) {
-
-    }
 }

@@ -380,16 +380,18 @@ public final class Meta implements AknObject {
      */
     @Override
     public void nestedCompare(AknObject object, DiffContext context) {
-        Diffs.compare(identification, ((Meta)object).identification, context);
-        Diffs.compare(publication, ((Meta)object).publication, context);
-        Diffs.compare(classifications, ((Meta)object).classifications, context);
-        Diffs.compare(lifecycles, ((Meta)object).lifecycles, context);
-        Diffs.compare(workflows, ((Meta)object).workflows, context);
-        Diffs.compare(analysis, ((Meta)object).analysis, context);
-        Diffs.compare(temporalData, ((Meta)object).temporalData, context);
-        Diffs.compare(references, ((Meta)object).references, context);
-        Diffs.compare(notes, ((Meta)object).notes, context);
-        Diffs.compare(proprietaries, ((Meta)object).proprietaries, context);
-        Diffs.compare(presentations, ((Meta)object).presentations, context);
+        Meta meta = ((Meta)object);
+        Diffs.compare(identification, meta.identification, context);
+        Diffs.compare(publication, meta.publication, context);
+        Diffs.compare(classifications, meta.classifications, context);
+        Diffs.compare(lifecycles, meta.lifecycles, context);
+        Diffs.compare(workflows, meta.workflows, context);
+        Diffs.compare(analysis, meta.analysis, context);
+        Diffs.compare(temporalData, meta.temporalData, context);
+        Diffs.compare(references, meta.references, context);
+        Diffs.compare(notes, meta.notes, context);
+        Diffs.compare(proprietaries, meta.proprietaries, context);
+        Diffs.compare(presentations, meta.presentations, context);
     }
+
 }

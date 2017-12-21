@@ -82,12 +82,23 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
 
     private WrapUp wrapUp;
 
-
     public final void addHierarchyElement(HierarchyElement element) {
         if (this.elements == null) {
             this.elements = new AknList<>(new HierarchyElement[4]);
         }
         this.elements.add(element);
+    }
+
+    public final boolean removeHierarchyElement(HierarchyElement element) {
+        if (element != null) {
+            if (this.elements == null) {
+                return false;
+            } else {
+                return this.elements.remove(element);
+            }
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -96,6 +107,14 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     @Override
     public final void add(HierElements hier) {
         addHierarchyElement(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(HierElements hier) {
+        return removeHierarchyElement(hier);
     }
 
     /**

@@ -13,6 +13,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.CITATION;
 import static io.legaldocml.akn.AknElements.CITATIONS;
@@ -23,10 +24,11 @@ import static io.legaldocml.akn.AknElements.PREAMBLE;
 import static io.legaldocml.akn.AknElements.PREFACE;
 import static io.legaldocml.akn.AknElements.RECITAL;
 import static io.legaldocml.akn.AknElements.RECITALS;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The type portionBodyType specifies a content model of a container of a portion of another document.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="maincontent">
  *     <xsd:choice>
@@ -49,7 +51,7 @@ import static io.legaldocml.akn.AknElements.RECITALS;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class PortionBodyType extends AbstractCore implements CoreOpt, HierElementsContainer {
+public abstract class PortionBodyType extends AbstractCore implements CoreOpt, HierElementsContainer<PortionBodyTypeElement> {
 
     private static final ImmutableMap<String, Supplier<PortionBodyTypeElement>> ELEMS;
 
@@ -73,12 +75,28 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
     // Mandatory
     private final AknList<PortionBodyTypeElement> elements = new AknList<>(new PortionBodyTypeElement[4]);
 
+    public final void addPortionBodyTypeElement(PortionBodyTypeElement element) {
+        this.elements.add(requireNonNull(element));
+    }
+
+    public final boolean removePortionBodyTypeElement(PortionBodyTypeElement element) {
+        return this.elements.remove(requireNonNull(element));
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
     public void add(HierElements hier) {
-        this.elements.add(hier);
+        addPortionBodyTypeElement(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(HierElements hier) {
+        return removePortionBodyTypeElement(hier);
     }
 
     /**
@@ -86,7 +104,15 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
      */
     @Override
     public void add(ANhier hier) {
-        this.elements.add(hier);
+        addPortionBodyTypeElement(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Stream<PortionBodyTypeElement> stream() {
+        return elements.stream();
     }
 
     /**
