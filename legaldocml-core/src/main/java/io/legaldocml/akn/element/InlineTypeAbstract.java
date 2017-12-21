@@ -55,6 +55,14 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
      * {@inheritDoc}
      */
     @Override
+    public final InlineCM remove(int index) {
+        return this.data.remove(index);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(InlineCM inlineCM) {
         this.data.add(requireNonNull(inlineCM));
     }

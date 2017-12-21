@@ -39,7 +39,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockElementsContainer {
+public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockElementsContainer<BlockElements> {
 
     // Mandatory (min 1)
     private final AknList<BlockElements> blockElements = new AknList<>(new BlockElements[4]);
@@ -62,6 +62,14 @@ public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockEl
 
     public final boolean remove(BlockElements elements) {
         return this.blockElements.remove(requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final BlockElements remove(int index) {
+        return this.blockElements.remove(index);
     }
 
     /**

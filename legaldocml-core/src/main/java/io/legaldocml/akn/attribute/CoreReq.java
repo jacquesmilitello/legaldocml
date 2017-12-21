@@ -4,6 +4,7 @@ package io.legaldocml.akn.attribute;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAlt;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
@@ -14,16 +15,16 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 /**
  * This is the list of the core attributes that all elements in the content part of the document must have. In elements
  * using this attribute definition the refersTo attribute is optional but the eId attribute is required.
- *
+ * <p>
  * ```xml
  * <xsd:attributeGroup name="corereq">
- *   <xsd:attributeGroup ref="core"/>
- * 	 <xsd:attributeGroup ref="HTMLattrs"/>
- * 	 <xsd:attributeGroup ref="enactment"/>
- * 	 <xsd:attributeGroup ref="idreq"/>
- * 	 <xsd:attributeGroup ref="refers"/>
- * 	 <xsd:attributeGroup ref="xmllang"/>
- * 	 <xsd:attributeGroup ref="alt"/>
+ * <xsd:attributeGroup ref="core"/>
+ * <xsd:attributeGroup ref="HTMLattrs"/>
+ * <xsd:attributeGroup ref="enactment"/>
+ * <xsd:attributeGroup ref="idreq"/>
+ * <xsd:attributeGroup ref="refers"/>
+ * <xsd:attributeGroup ref="xmllang"/>
+ * <xsd:attributeGroup ref="alt"/>
  * <xsd:attributeGroup>
  * ```
  *
@@ -42,6 +43,11 @@ public interface CoreReq extends Core, HTMLattrs, Enactment, IdReq, RefersOpt, A
         writeHTMLattrs(writer, this);
         writeEnactment(writer, this);
         writeAlt(writer, this);
+    }
+
+    default boolean doEquals(Object obj) {
+        return this == obj || (obj != null) && this.getClass().isAssignableFrom(obj.getClass())
+                && this.getEid() != null && Objects.equals(getEid(), ((CoreReq) obj).getEid());
     }
 
 }

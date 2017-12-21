@@ -21,7 +21,7 @@ import static java.util.Objects.requireNonNull;
 
 /**
  * the type bodyType specifies a content model of the main hierarchy of a hierarchical document (e.g, an act or a bill).
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="bodyType">
  *     <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -34,7 +34,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BodyType extends AbstractCore implements CoreOpt, HierElementsContainer {
+public abstract class BodyType extends AbstractCore implements CoreOpt, HierElementsContainer<BodyTypeElement> {
 
     private static final ImmutableMap<String, Supplier<BodyTypeElement>> ELEMS;
 
@@ -53,11 +53,15 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
     }
 
     public final boolean removeBodyTypeElement(BodyTypeElement element) {
-        if (element != null) {
-            return this.elements.remove(element);
-        } else {
-            return false;
-        }
+        return this.elements.remove(requireNonNull(element));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final BodyTypeElement remove(int index) {
+        return this.elements.remove(index);
     }
 
     /**
@@ -75,6 +79,7 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
     public boolean remove(HierElements hier) {
         return removeBodyTypeElement(hier);
     }
+
     /**
      * {@inheritDoc}
      */

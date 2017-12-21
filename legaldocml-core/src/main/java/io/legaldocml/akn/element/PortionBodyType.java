@@ -87,6 +87,14 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
      * {@inheritDoc}
      */
     @Override
+    public final PortionBodyTypeElement remove(int index) {
+        return this.elements.remove(index);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void add(HierElements hier) {
         addPortionBodyTypeElement(hier);
     }

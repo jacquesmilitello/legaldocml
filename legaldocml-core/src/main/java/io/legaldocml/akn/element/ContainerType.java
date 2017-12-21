@@ -72,6 +72,14 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
         return this.containerElements.remove(requireNonNull(element));
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final ContainerElement remove(int index) {
+        return this.containerElements.remove(index);
+    }
+
     private String name;
 
     /**
@@ -110,7 +118,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      * {@inheritDoc}
      */
     @Override
-    public boolean remove(ANblock block) {
+    public final boolean remove(ANblock block) {
         return removeContainerElement(block);
     }
 

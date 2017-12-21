@@ -17,7 +17,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
+import java.lang.Object;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.CONTENT;
@@ -27,6 +29,7 @@ import static io.legaldocml.akn.AknElements.WRAP;
 import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type hierarchy is used by most or all the hierarchical elements of act-like documents.
@@ -55,7 +58,7 @@ import static io.legaldocml.akn.element.Groups.hierElements;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierElementsContainer {
+public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierElementsContainer<HierarchyElement> {
 
     /**
      * SLF4J Logger.
@@ -90,15 +93,15 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     }
 
     public final boolean removeHierarchyElement(HierarchyElement element) {
-        if (element != null) {
-            if (this.elements == null) {
-                return false;
-            } else {
-                return this.elements.remove(element);
-            }
-        } else {
-            return false;
-        }
+        return this.elements != null && this.elements.remove(requireNonNull(element));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final HierarchyElement remove(int index) {
+        return this.elements.remove(index);
     }
 
     /**
@@ -123,6 +126,14 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     @Override
     public final void add(ANhier hier) {
         addHierarchyElement(hier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Stream<HierarchyElement> stream() {
+        return (this.elements == null) ? Stream.empty() : this.elements.stream();
     }
 
     /**
@@ -241,4 +252,10 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
             }
         }
     }
+
+    public boolean equals(Object obj) {
+        return doEquals(obj);
+    }
+
+
 }

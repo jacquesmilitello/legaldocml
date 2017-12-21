@@ -23,7 +23,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * The complex type blocksopt defines the content model and attributes shared by all containers. Here the eId attribute
  * is optional.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="blocksopt">
  * 	   <xsd:sequence minOccurs="0" maxOccurs="unbounded">
@@ -48,11 +48,16 @@ public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockEl
     // Mandatory (min 1).
     private final AknList<BlockElements> elements = new AknList<>(new BlockElements[4]);
 
+    public boolean removeBlockElements(BlockElements element) {
+        return this.elements.remove(requireNonNull(element));
+    }
+
     /**
      * {@inheritDoc}
      */
-    public boolean removeBlockElements(BlockElements element) {
-        return this.elements.remove(requireNonNull(element));
+    @Override
+    public final BlockElements remove(int index) {
+        return this.elements.remove(index);
     }
 
     /**

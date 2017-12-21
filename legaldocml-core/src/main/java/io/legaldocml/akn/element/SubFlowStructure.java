@@ -123,6 +123,14 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      * {@inheritDoc}
      */
     @Override
+    public final SubFlowStructureElement remove(int index) {
+        return this.elems.remove(index);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(BlockElements elements) {
         addSubFlowStructureElement(elements);
     }

@@ -62,6 +62,14 @@ public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockEle
      * {@inheritDoc}
      */
     @Override
+    public final BasicoptElement remove(int index) {
+        return this.elements.remove(index);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void add(BlockElements elements) {
         addBasicoptElement(elements);
     }

@@ -14,4 +14,6 @@ public interface Container<T extends AknObject> extends Id {
         return Stream.empty();
     }
 
+    T remove(int index);
+
 }
