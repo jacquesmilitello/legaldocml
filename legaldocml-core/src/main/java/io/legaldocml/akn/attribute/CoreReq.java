@@ -4,7 +4,6 @@ package io.legaldocml.akn.attribute;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAlt;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
@@ -43,11 +42,6 @@ public interface CoreReq extends Core, HTMLattrs, Enactment, IdReq, RefersOpt, A
         writeHTMLattrs(writer, this);
         writeEnactment(writer, this);
         writeAlt(writer, this);
-    }
-
-    default boolean doEquals(Object obj) {
-        return this == obj || (obj != null) && this.getClass().isAssignableFrom(obj.getClass())
-                && this.getEid() != null && Objects.equals(getEid(), ((CoreReq) obj).getEid());
     }
 
 }

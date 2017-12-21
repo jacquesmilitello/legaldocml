@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.container.HierElementsContainer;
@@ -9,6 +10,7 @@ import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
+import io.legaldocml.diff.DiffContext;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -29,6 +31,7 @@ import static io.legaldocml.akn.AknElements.WRAP;
 import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
+import static io.legaldocml.util.Equals.doEquals;
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -253,9 +256,20 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
+    @Override
     public boolean equals(Object obj) {
-        return doEquals(obj);
+        return doEquals(this, obj);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void nestedCompare(AknObject object, DiffContext context) {
 
+    }
 }
