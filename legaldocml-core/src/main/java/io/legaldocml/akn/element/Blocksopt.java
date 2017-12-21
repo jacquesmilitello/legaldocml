@@ -14,6 +14,7 @@ import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
@@ -34,7 +35,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockElementsContainer {
+public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockElementsContainer<BlockElements> {
 
     private static final ImmutableMap<String, Supplier<BlockElements>> ELEMS;
 
@@ -46,6 +47,21 @@ public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockEl
 
     // Mandatory (min 1).
     private final AknList<BlockElements> elements = new AknList<>(new BlockElements[4]);
+
+    /**
+     * {@inheritDoc}
+     */
+    public boolean removeBlockElements(BlockElements element) {
+        return this.elements.remove(requireNonNull(element));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Stream<BlockElements> stream() {
+        return elements.stream();
+    }
 
     /**
      * {@inheritDoc}
@@ -69,6 +85,14 @@ public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockEl
     @Override
     public void add(ANblock block) {
         this.elements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ANblock block) {
+        return removeBlockElements(block);
     }
 
     /**

@@ -39,7 +39,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockElementsContainer, PrefaceContainersContainer {
+public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockElementsContainer<PrefaceoptElement>, PrefaceContainersContainer<PrefaceoptElement> {
 
     private static final ImmutableMap<String, Supplier<PrefaceoptElement>> ELEMS;
 
@@ -51,14 +51,22 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
     }
 
     // Mandatory (min 1).
-    private final AknList<PrefaceoptElement> prefaceoptElement = new AknList<>(new PrefaceoptElement[4]);
+    private final AknList<PrefaceoptElement> pes = new AknList<>(new PrefaceoptElement[4]);
+
+    private void addPrefaceoptElement(PrefaceoptElement element) {
+        this.pes.add(requireNonNull(element));
+    }
+
+    private boolean removePrefaceoptElement(PrefaceoptElement element) {
+        return this.pes.remove(requireNonNull(element));
+    }
 
     /**
      * {@inheritDoc}
      */
     @Override
     public final void add(BlockElements elements) {
-        this.prefaceoptElement.add(requireNonNull(elements));
+        addPrefaceoptElement(elements);
     }
 
     /**
@@ -66,7 +74,15 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      */
     @Override
     public final void add(ANblock block) {
-        this.prefaceoptElement.add(requireNonNull(block));
+        addPrefaceoptElement(block);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ANblock block) {
+        return removePrefaceoptElement(block);
     }
 
     /**
@@ -74,7 +90,7 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      */
     @Override
     public final void add(HTMLblock block) {
-        this.prefaceoptElement.add(requireNonNull(block));
+        addPrefaceoptElement(block);
     }
 
     /**
@@ -82,15 +98,15 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      */
     @Override
     public final void add(PrefaceContainers prefaceContainers) {
-        this.prefaceoptElement.add(requireNonNull(prefaceContainers));
+        addPrefaceoptElement(prefaceContainers);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void add(Container container) {
-        this.prefaceoptElement.add(requireNonNull(container));
+    public final void add(Container container) {
+        addPrefaceoptElement(container);
     }
 
     /**
@@ -112,7 +128,7 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
                 }
                 elem = supplier.get();
                 elem.read(reader);
-                this.prefaceoptElement.add(elem);
+                this.pes.add(elem);
                 continue;
             }
             if (eventType == XMLStreamConstants.END_ELEMENT && qName.equals(reader.getQName())) {
@@ -127,7 +143,7 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
     @Override
     public void write(XmlWriter writer) throws IOException {
         CoreOpt.super.write(writer);
-        this.prefaceoptElement.write(writer);
+        this.pes.write(writer);
     }
 
     /**
@@ -135,6 +151,6 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      */
     @Override
     public void accept(AknVisitor visitor) {
-        this.prefaceoptElement.accept(visitor);
+        this.pes.accept(visitor);
     }
 }

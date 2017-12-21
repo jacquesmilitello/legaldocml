@@ -38,7 +38,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Preambleopt extends AbstractCore implements CoreOpt, PreambleContainersContainer, BlockElementsContainer {
+public abstract class Preambleopt extends AbstractCore implements CoreOpt, PreambleContainersContainer<PreambleoptElement>, BlockElementsContainer<PreambleoptElement> {
 
     private static final ImmutableMap<String, Supplier<PreambleoptElement>> ELEMS;
 
@@ -51,20 +51,36 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt, Pream
 
     private final AknList<PreambleoptElement> preambleoptElements = new AknList<>(new PreambleoptElement[4]);
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void add(BlockElements elements) {
-        this.preambleoptElements.add(requireNonNull(elements));
+    private void addPreambleoptElement(PreambleoptElement element) {
+        this.preambleoptElements.add(requireNonNull(element));
+    }
+
+    private boolean removePreambleoptElement(PreambleoptElement element) {
+        return this.preambleoptElements.remove(requireNonNull(element));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void add(ANblock block) {
-        this.preambleoptElements.add(requireNonNull(block));
+    public void add(BlockElements elements) {
+        addPreambleoptElement(elements);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(ANblock block) {
+        addPreambleoptElement(block);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final boolean remove(ANblock block) {
+        return removePreambleoptElement(block);
     }
 
     /**
@@ -72,7 +88,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt, Pream
      */
     @Override
     public void add(HTMLblock block) {
-        this.preambleoptElements.add(requireNonNull(block));
+        addPreambleoptElement(block);
     }
 
     /**
@@ -80,7 +96,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt, Pream
      */
     @Override
     public void add(PreambleContainers preambleContainers) {
-        this.preambleoptElements.add(requireNonNull(preambleContainers));
+        addPreambleoptElement(preambleContainers);
     }
 
     /**
@@ -88,7 +104,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt, Pream
      */
     @Override
     public void add(Container container) {
-        this.preambleoptElements.add(requireNonNull(container));
+        addPreambleoptElement(container);
     }
 
     /**

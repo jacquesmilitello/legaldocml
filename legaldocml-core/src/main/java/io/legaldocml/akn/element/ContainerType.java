@@ -44,7 +44,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ContainerType extends AbstractCore implements CoreReq, Name, BlockElementsContainer {
+public abstract class ContainerType extends AbstractCore implements CoreReq, Name, BlockElementsContainer<ContainerElement> {
 
     private static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
@@ -63,6 +63,14 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     }
 
     private final AknList<ContainerElement> containerElements = new AknList<>(new ContainerElement[6]);
+
+    private void addContainerElement(ContainerElement element) {
+        this.containerElements.add(requireNonNull(element));
+    }
+
+    private boolean removeContainerElement(ContainerElement element) {
+        return this.containerElements.remove(requireNonNull(element));
+    }
 
     private String name;
 
@@ -87,7 +95,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      */
     @Override
     public final void add(BlockElements elements) {
-        this.containerElements.add(requireNonNull(elements));
+        addContainerElement(elements);
     }
 
     /**
@@ -95,7 +103,15 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      */
     @Override
     public final void add(ANblock block) {
-        this.containerElements.add(requireNonNull(block));
+        addContainerElement(block);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ANblock block) {
+        return removeContainerElement(block);
     }
 
     /**
@@ -103,7 +119,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      */
     @Override
     public final void add(HTMLblock block) {
-        this.containerElements.add(requireNonNull(block));
+        addContainerElement(block);
     }
 
     /**

@@ -13,7 +13,6 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.element.Groups.basicContainers;
@@ -24,7 +23,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * the complex type basicopt defines the content model and attributes used by basic containers such as coverPage and
  * conclusions. Here the eId attribute is optional
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="basicopt">
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -51,8 +50,12 @@ public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockEle
     // Mandatory (min 1).
     private final AknList<BasicoptElement> elements = new AknList<>(new BasicoptElement[8]);
 
-    public final void add(BasicoptElement element) {
-        this.elements.add(element);
+    public final void addBasicoptElement(BasicoptElement element) {
+        this.elements.add(requireNonNull(element));
+    }
+
+    public final boolean removeBasicoptElement(BasicoptElement element) {
+        return this.elements.remove(requireNonNull(element));
     }
 
     /**
@@ -60,7 +63,7 @@ public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockEle
      */
     @Override
     public void add(BlockElements elements) {
-        this.elements.add(Objects.requireNonNull(elements));
+        addBasicoptElement(elements);
     }
 
     /**
@@ -68,7 +71,7 @@ public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockEle
      */
     @Override
     public void add(HTMLblock block) {
-        this.elements.add(Objects.requireNonNull(block));
+        addBasicoptElement(block);
     }
 
     /**
@@ -76,7 +79,15 @@ public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockEle
      */
     @Override
     public void add(ANblock block) {
-        this.elements.add(requireNonNull(block));
+        addBasicoptElement(block);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ANblock block) {
+        return removeBasicoptElement(block);
     }
 
     /**

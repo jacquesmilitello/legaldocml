@@ -116,11 +116,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     }
 
     public final boolean removeSubFlowStructureElement(SubFlowStructureElement element) {
-        if (element != null) {
-            return this.elems.remove(element);
-        } else {
-            return false;
-        }
+        return this.elems.remove(requireNonNull(element));
     }
 
     /**
@@ -169,6 +165,11 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     @Override
     public void add(ANblock block) {
         addSubFlowStructureElement(block);
+    }
+
+    @Override
+    public boolean remove(ANblock block) {
+        return removeSubFlowStructureElement(block);
     }
 
     /**

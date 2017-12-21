@@ -1,14 +1,16 @@
 package io.legaldocml.akn.container;
 
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.ANblock;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface ANblockContainer extends Container {
+public interface ANblockContainer<T extends AknObject> extends Container<T> {
 
     void add(ANblock block);
 
+    boolean remove(ANblock block);
 
 }

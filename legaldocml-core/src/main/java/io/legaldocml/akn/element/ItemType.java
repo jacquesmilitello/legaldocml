@@ -60,6 +60,10 @@ public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockEl
         this.blockElements.add(requireNonNull(elements));
     }
 
+    public final boolean remove(BlockElements elements) {
+        return this.blockElements.remove(requireNonNull(elements));
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -72,9 +76,19 @@ public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockEl
      * {@inheritDoc}
      */
     @Override
+    public boolean remove(ANblock block) {
+        return remove((BlockElements)block);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void add(HTMLblock block) {
         this.blockElements.add(requireNonNull(block));
     }
+
+
 
     /**
      * {@inheritDoc}

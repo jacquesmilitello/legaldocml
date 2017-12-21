@@ -47,7 +47,11 @@ public abstract class Blocksreq extends AbstractCore implements CoreReq, BlockEl
     // Mandatory
     private final AknList<BlockElements> elements = new AknList<>(new BlockElements[8]);
 
-    /**
+    public boolean removeBlockElements(BlockElements element) {
+        return this.elements.remove(requireNonNull(element));
+    }
+
+     /**
      * {@inheritDoc}
      */
     @Override
@@ -70,6 +74,15 @@ public abstract class Blocksreq extends AbstractCore implements CoreReq, BlockEl
     public void add(ANblock block) {
         this.elements.add(requireNonNull(block));
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ANblock block) {
+        return removeBlockElements(block);
+    }
+
     /**
      * {@inheritDoc}
      */
