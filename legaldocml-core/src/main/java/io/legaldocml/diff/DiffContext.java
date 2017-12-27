@@ -21,4 +21,5 @@ public interface DiffContext {
 
     <T extends AknObject> void pop(T object);
 
+    <T extends AknObject> void insertElement(T t);
 }

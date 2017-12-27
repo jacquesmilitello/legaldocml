@@ -12,6 +12,7 @@ import io.legaldocml.akn.element.FRBRsubtype;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EidRef;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.FRBRHelper;
 import io.legaldocml.business.AknIdentifier;
@@ -19,8 +20,7 @@ import io.legaldocml.business.util.AknReference;
 import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.unsafe.UnsafeString;
-import io.legaldocml.util.DateHelper;
-import io.legaldocml.akn.type.Uri;
+import io.legaldocml.util.Dates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,7 +91,7 @@ public class MetaBuilder {
         }
 
         FRBRdate frbr = map.apply(this.identification).getFRBRdate();
-        frbr.setDate(DateHelper.convert(date));
+        frbr.setDate(Dates.convert(date));
         frbr.setName(name);
     }
 

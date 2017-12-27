@@ -12,11 +12,11 @@ import java.time.OffsetDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class DateHelperTest {
+public class DatesTest {
 
     @Test
     public void testHelper() throws Exception {
-        Tests.assertUtilClassIsWellDefined(DateHelper.class);
+        Tests.assertUtilClassIsWellDefined(Dates.class);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class DateHelperTest {
 
         LocalDate date = LocalDate.of(2011, 3, 9);
 
-        OffsetDateTime odt = DateHelper.convert(date);
+        OffsetDateTime odt = Dates.convert(date);
         assertEquals(date, odt.toLocalDate());
         assertEquals(2011, odt.getYear());
         assertEquals(Month.MARCH, odt.getMonth());

@@ -8,9 +8,9 @@ import java.time.ZoneOffset;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DateHelper {
+public final class Dates {
 
-    private DateHelper() {
+    private Dates() {
     }
 
     /**

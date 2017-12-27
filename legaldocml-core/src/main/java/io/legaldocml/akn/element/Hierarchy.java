@@ -11,6 +11,7 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.diff.DiffContext;
+import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -270,6 +271,15 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
      */
     @Override
     public void nestedCompare(AknObject object, DiffContext context) {
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("nested Compare left=[{}], right=[{}] ", this, object);
+        }
+
+        Hierarchy hierarchy = (Hierarchy) object;
+
+        // compare nested HierarchyElement
+        Diffs.compareNullable(this.elements, hierarchy.elements, context);
 
     }
 }

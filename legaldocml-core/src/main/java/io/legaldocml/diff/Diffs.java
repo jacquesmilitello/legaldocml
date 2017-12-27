@@ -56,7 +56,17 @@ public final class Diffs {
 
     }
 
-    public static <T extends AknObject> void compare(AknList<T> left, AknList<T> right, DiffContext context) {
+    public static <T extends AknObject> void compareNullable(AknList<T> left, AknList<T> right, DiffContext context) {
+
+        if (left == null && right == null) {
+            return;
+        }
+
+        if (left == null) {
+            right.forEach(context::insertElement);
+            return;
+        }
+
     }
 
     public static void compareAttributes(AknObject left, AknObject right, DiffContext context) {

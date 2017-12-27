@@ -383,15 +383,15 @@ public final class Meta implements AknObject {
         Meta meta = ((Meta)object);
         Diffs.compare(identification, meta.identification, context);
         Diffs.compare(publication, meta.publication, context);
-        Diffs.compare(classifications, meta.classifications, context);
-        Diffs.compare(lifecycles, meta.lifecycles, context);
-        Diffs.compare(workflows, meta.workflows, context);
-        Diffs.compare(analysis, meta.analysis, context);
-        Diffs.compare(temporalData, meta.temporalData, context);
-        Diffs.compare(references, meta.references, context);
-        Diffs.compare(notes, meta.notes, context);
-        Diffs.compare(proprietaries, meta.proprietaries, context);
-        Diffs.compare(presentations, meta.presentations, context);
+        Diffs.compareNullable(classifications, meta.classifications, context);
+        Diffs.compareNullable(lifecycles, meta.lifecycles, context);
+        Diffs.compareNullable(workflows, meta.workflows, context);
+        Diffs.compareNullable(analysis, meta.analysis, context);
+        Diffs.compareNullable(temporalData, meta.temporalData, context);
+        Diffs.compareNullable(references, meta.references, context);
+        Diffs.compareNullable(notes, meta.notes, context);
+        Diffs.compareNullable(proprietaries, meta.proprietaries, context);
+        Diffs.compareNullable(presentations, meta.presentations, context);
     }
 
 }

@@ -25,7 +25,7 @@ import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
 import io.legaldocml.util.CharArray;
-import io.legaldocml.util.DateHelper;
+import io.legaldocml.util.Dates;
 import io.legaldocml.util.QnameUtil;
 
 import java.time.LocalDate;
@@ -246,7 +246,7 @@ public final class Attributes {
                 OffsetDateTime dateTime;
                 if (val.length() == 10) {
                     dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
-                            DateHelper.TIME_00_00_00, DateHelper.ZONE_OFFSET_0);
+                            Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
                 } else {
                     try {
                         dateTime = OffsetDateTime.of(LocalDateTime.parse(s.toString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME), ZoneOffset.ofHours(0));

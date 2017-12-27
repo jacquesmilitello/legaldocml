@@ -58,6 +58,19 @@ final class DiffContextImpl implements DiffContext {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <T extends AknObject> void insertElement(T right) {
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("element [{}] : inserted [{}]", right.name(), right);
+        }
+
+        this.diffs.add(new InsertElementDiff(getPath(), null, right));
+    }
+
     @Override
     public <T extends AknObject> void attributeNew(String name, Object valueRight, T left, T right) {
 

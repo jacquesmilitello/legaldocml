@@ -8,7 +8,7 @@ import io.legaldocml.iso.Iso639;
 import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
 import io.legaldocml.test.LoggerInstancePostProcessor;
-import io.legaldocml.util.DateHelper;
+import io.legaldocml.util.Dates;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -78,7 +78,7 @@ public class MetaBuilderTest {
 
     @Test
     public void testSetDate() throws IOException {
-        OffsetDateTime odt = DateHelper.convert(LocalDate.of(2011, 3, 9));
+        OffsetDateTime odt = Dates.convert(LocalDate.of(2011, 3, 9));
 
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setDate(odt.toLocalDate(), "test");
@@ -91,7 +91,7 @@ public class MetaBuilderTest {
         assertEquals(odt, identification.getFRBRManifestation().getFRBRdate().getDate());
         assertEquals("test", identification.getFRBRManifestation().getFRBRdate().getName());
 
-        OffsetDateTime odt2 = DateHelper.convert(LocalDate.of(2014, 9, 17));
+        OffsetDateTime odt2 = Dates.convert(LocalDate.of(2014, 9, 17));
 
         builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif", MetaBuilder.LOOKUP_FRBR_EXPRESSION);
         assertEquals(odt, identification.getFRBRWork().getFRBRdate().getDate());
