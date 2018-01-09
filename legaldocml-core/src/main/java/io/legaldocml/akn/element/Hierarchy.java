@@ -15,6 +15,8 @@ import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
+import io.legaldocml.util.ListIterable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -138,6 +140,14 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     @Override
     public Stream<HierarchyElement> stream() {
         return (this.elements == null) ? Stream.empty() : this.elements.stream();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<HierarchyElement> iterable() {
+        return Iterables.iterable(elements);
     }
 
     /**

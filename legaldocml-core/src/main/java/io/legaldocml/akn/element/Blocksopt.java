@@ -11,6 +11,7 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -58,6 +59,14 @@ public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockEl
     @Override
     public final BlockElements remove(int index) {
         return this.elements.remove(index);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<BlockElements> iterable() {
+        return elements.iterable();
     }
 
     /**

@@ -10,6 +10,7 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -113,6 +114,15 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
     @Override
     public void add(ANhier hier) {
         addPortionBodyTypeElement(hier);
+    }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<PortionBodyTypeElement> iterable() {
+        return elements.iterable();
     }
 
     /**
