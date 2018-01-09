@@ -3,6 +3,7 @@ package io.legaldocml.akn.util;
 
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -50,28 +51,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
      * The size of the AknList (the number of elements it contains).
      */
     private int size;
-
-    /**
-     * The number of times this list has been <i>structurally modified</i>. Structural modifications are those that
-     * change the size of the list, or otherwise perturb it in such a fashion that iterations in progress may yield
-     * incorrect results.
-     *
-     *
-     * This field is used by the iterator and list iterator implementation returned by the {@code iterator} and {@code
-     * listIterator} methods. If the value of this field changes unexpectedly, the iterator (or list iterator) will
-     * throw a {@code ConcurrentModificationException} in response to the {@code next}, {@code remove}, {@code
-     * previous}, {@code set} or {@code add} operations. This provides <i>fail-fast</i> behavior, rather than
-     * non-deterministic behavior in the face of concurrent modification during iteration.
-     *
-     *
-     * <b>Use of this field by subclasses is optional.</b> If a subclass wishes to provide fail-fast iterators (and list
-     * iterators), then it merely has to increment this field in its {@code add(int, E)} and {@code remove(int)} methods
-     * (and any other methods that it overrides that result in structural modifications to the list). A single call to
-     * {@code add(int, E)} or {@code remove(int)} must add no more than one to this field, or the iterators (and list
-     * iterators) will throw bogus {@code ConcurrentModificationExceptions}. If an implementation does not wish to
-     * provide fail-fast iterators, this field may be ignored.
-     */
-    private transient int modCount = 0;
 
     @SuppressWarnings("unchecked")
     public ExternalizableList() {
@@ -207,8 +186,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
      */
     @Override
     public final void clear() {
-        this.modCount++;
-
         for (int index = 0; index < this.size; index++) {
             this.elems[index] = null;
         }
@@ -254,7 +231,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
             minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
         }
 
-        this.modCount++;
         // overflow-conscious code
         if (minCapacity - this.elems.length > 0) {
             grow(minCapacity);
@@ -290,8 +266,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
      * Private remove method that skips bounds checking and does not return the value removed.
      */
     private void fastRemove(int index) {
-        this.modCount++;
-
         int numMoved = this.size - index - 1;
         if (numMoved > 0) {
             System.arraycopy(this.elems, index + 1, this.elems, index, numMoved);
@@ -328,7 +302,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
      * {@inheritDoc}
      */
     @Override
-    public boolean contains(Object o) {
+    public final boolean contains(Object o) {
         if (o == null) {
             return false;
         }
@@ -341,8 +315,11 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Iterator<E> iterator() {
+    public final Iterator<E> iterator() {
         final E[] iterable = this.elems;
         final int max = this.size;
         return new Iterator<E>() {
@@ -361,6 +338,10 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
                 return iterable[i++];
             }
         };
+    }
+
+    public final ListIterable<E> iterable() {
+        return new IterableImpl();
     }
 
     // ========================================================================
@@ -414,6 +395,38 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
         throw new UnsupportedOperationException("retainAll()");
+    }
+
+    private final class IterableImpl implements ListIterable<E> {
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Iterator<E> iterator() {
+            return ExternalizableList.this.iterator();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void forEach(Consumer<? super E> action) {
+            ExternalizableList.this.forEach(action);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Spliterator<E> spliterator() {
+            return Spliterators.spliterator(ExternalizableList.this, Spliterator.ORDERED);
+        }
+
+        @Override
+        public int count() {
+            return ExternalizableList.this.size;
+        }
     }
 
 }

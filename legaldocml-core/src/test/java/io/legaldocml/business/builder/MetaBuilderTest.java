@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.element.FRBRlanguage;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.BusinessProvider;
@@ -13,9 +14,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Iterator;
 
 import static io.legaldocml.akn.AknElements.DEBATE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,7 +31,7 @@ public class MetaBuilderTest {
 
 
     @Test
-    public void testSetAknIdentifier() throws IOException {
+    void testSetAknIdentifier() {
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setAknIdentifier(provider.newAknIdentifier("work", "expression", "manifestation"));
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
@@ -41,7 +42,7 @@ public class MetaBuilderTest {
     }
 
     @Test
-    public void testSetAknIdentifierNull() throws IOException {
+    void testSetAknIdentifierNull() {
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         BusinessBuilderException ex = Assertions.assertThrows(BusinessBuilderException.class,() -> builder.getMetaBuilder().setAknIdentifier(null));
         Assertions.assertTrue(ex.getMessage().contains("null"));
@@ -49,22 +50,25 @@ public class MetaBuilderTest {
     }
 
     @Test
-    public void testAddLanguage() throws IOException {
+    void testAddLanguage() {
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().addLanguage(Iso639.ENGLISH);
 
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
-        assertEquals(1, identification.getFRBRExpression().getLanguages().size());
-        assertEquals("en", identification.getFRBRExpression().getLanguages().get(0).getLanguage());
+        assertEquals(1, identification.getFRBRExpression().getLanguages().count());
+        assertEquals("en", identification.getFRBRExpression().getLanguages().iterator().next().getLanguage());
 
         builder.getMetaBuilder().addLanguage(Iso639.FRENCH, Language::getTerminology);
-        assertEquals(2, identification.getFRBRExpression().getLanguages().size());
-        assertEquals("en", identification.getFRBRExpression().getLanguages().get(0).getLanguage());
-        assertEquals(Iso639.FRENCH.getTerminology(), identification.getFRBRExpression().getLanguages().get(1).getLanguage());
+        assertEquals(2, identification.getFRBRExpression().getLanguages().count());
+
+        Iterator<FRBRlanguage> iterator = identification.getFRBRExpression().getLanguages().iterator();
+
+        assertEquals("en", iterator.next().getLanguage());
+        assertEquals(Iso639.FRENCH.getTerminology(), iterator.next().getLanguage());
     }
 
     @Test
-    public void testSetCountry() throws IOException {
+    void testSetCountry() {
         BusinessBuilder builder = provider.newBuilder(DEBATE);
         builder.getMetaBuilder().setCountry(Iso3166.BELGIUM);
 
@@ -77,7 +81,7 @@ public class MetaBuilderTest {
 
 
     @Test
-    public void testSetDate() throws IOException {
+    void testSetDate() {
         OffsetDateTime odt = Dates.convert(LocalDate.of(2011, 3, 9));
 
         BusinessBuilder builder = provider.newBuilder(DEBATE);
@@ -121,7 +125,7 @@ public class MetaBuilderTest {
     }
 
     @Test
-    public void testAddAuthor() throws IOException {
+    void testAddAuthor() {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder builder = provider.newBuilder(DEBATE);
 

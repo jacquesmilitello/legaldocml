@@ -44,6 +44,8 @@ import io.legaldocml.akn.element.TemporalData;
 import io.legaldocml.akn.element.Voting;
 import io.legaldocml.akn.element.Workflow;
 
+import java.util.stream.StreamSupport;
+
 @SuppressWarnings("unchecked")
 public class Cerebro {
 
@@ -74,8 +76,8 @@ public class Cerebro {
                 new CerebroDirectLink<>(Components.class, Debate::getComponents)
         ));
 
-        builder.put(Meta.class, new CerebroDefinition(
-                new CerebroDirectLink<>(Identification.class, Meta::getIdentification),
+        /*builder.put(Meta.class, new CerebroDefinition(
+                new CerebroDirectLink<>(Identification.class, StreamSupport.stream(Meta::getIdentification)),
                 new CerebroDirectLink<>(Publication.class, Meta::getPublication),
                 new CerebroListLink<>(Classification.class, Meta::getClassifications),
                 new CerebroListLink<>(Lifecycle.class, Meta::getLifecycles),
@@ -87,7 +89,7 @@ public class Cerebro {
                 new CerebroListLink<>(Proprietary.class, Meta::getProprietaries),
                 new CerebroListLink<>(Presentation.class, Meta::getPresentations)
         ));
-
+*/
         builder.put(Workflow.class, new CerebroDefinition(
                 new CerebroListLink<>(Step.class, Workflow::getSteps)
         ));

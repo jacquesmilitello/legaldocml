@@ -9,10 +9,10 @@ import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.ListIterable;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
-import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.ANALYSIS;
 import static io.legaldocml.akn.AknElements.CLASSIFICATION;
@@ -25,7 +25,7 @@ import static io.legaldocml.akn.AknElements.PUBLICATION;
 import static io.legaldocml.akn.AknElements.REFERENCES;
 import static io.legaldocml.akn.AknElements.TEMPORAL_DATA;
 import static io.legaldocml.akn.AknElements.WORKFLOW;
-import static io.legaldocml.util.Streams.stream;
+import static io.legaldocml.util.Iterables.iterable;
 
 /**
  * <pre>
@@ -95,40 +95,40 @@ public final class Meta implements AknObject {
         return publication;
     }
 
-    public Stream<Classification> getClassifications() {
-        return stream(this.classifications);
+    public ListIterable<Classification> getClassifications() {
+        return iterable(this.classifications);
     }
 
-    public Stream<Lifecycle> getLifecycles() {
-        return stream(this.lifecycles);
+    public ListIterable<Lifecycle> getLifecycles() {
+        return iterable(this.lifecycles);
     }
 
-    public Stream<Workflow> getWorkflows() {
-        return stream(this.workflows);
+    public ListIterable<Workflow> getWorkflows() {
+        return iterable(this.workflows);
     }
 
-    public Stream<Analysis> getAnalysis() {
-        return stream(this.analysis);
+    public ListIterable<Analysis> getAnalysis() {
+        return iterable(this.analysis);
     }
 
-    public Stream<TemporalData> getTemporalData() {
-        return stream(this.temporalData);
+    public ListIterable<TemporalData> getTemporalData() {
+        return iterable(this.temporalData);
     }
 
-    public Stream<Notes> getNotes() {
-        return stream(this.notes);
+    public ListIterable<Notes> getNotes() {
+        return iterable(this.notes);
     }
 
-    public Stream<Proprietary> getProprietaries() {
-        return stream(this.proprietaries);
+    public ListIterable<Proprietary> getProprietaries() {
+        return iterable(this.proprietaries);
     }
 
-    public Stream<Presentation> getPresentations() {
-        return stream(this.presentations);
+    public ListIterable<Presentation> getPresentations() {
+        return iterable(this.presentations);
     }
 
-    public Stream<References> getReferences() {
-        return stream(this.references);
+    public ListIterable<References> getReferences() {
+        return iterable(this.references);
     }
 
     public References getReferences(AgentRef source) {
@@ -380,7 +380,7 @@ public final class Meta implements AknObject {
      */
     @Override
     public void nestedCompare(AknObject object, DiffContext context) {
-        Meta meta = ((Meta)object);
+        Meta meta = ((Meta) object);
         Diffs.compare(identification, meta.identification, context);
         Diffs.compare(publication, meta.publication, context);
         Diffs.compareNullable(classifications, meta.classifications, context);

@@ -4,6 +4,8 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 
@@ -51,8 +53,12 @@ public abstract class ExprProperties extends CoreProperties {
         this.languages.add(language);
     }
 
-    public final AknList<FRBRlanguage> getLanguages() {
-        return this.languages;
+    public final boolean remove(FRBRlanguage language) {
+        return this.languages.remove(language);
+    }
+
+    public final ListIterable<FRBRlanguage> getLanguages() {
+        return this.languages.iterable();
     }
 
     public final void add(FRBRtranslation translation) {
@@ -60,6 +66,34 @@ public abstract class ExprProperties extends CoreProperties {
             this.translations = new AknList<>(new FRBRtranslation[4]);
         }
         this.translations.add(translation);
+    }
+
+    public final ListIterable<FRBRtranslation> getTranslations(FRBRtranslation translation) {
+        return Iterables.iterable(this.translations);
+    }
+
+    public final FRBRversionNumber getVersionNumber() {
+        return versionNumber;
+    }
+
+    public final void setVersionNumber(FRBRversionNumber versionNumber) {
+        this.versionNumber = versionNumber;
+    }
+
+    public final FRBRauthoritative getAuthoritative() {
+        return authoritative;
+    }
+
+    public final void setAuthoritative(FRBRauthoritative authoritative) {
+        this.authoritative = authoritative;
+    }
+
+    public final FRBRmasterExpression getMasterExpression() {
+        return masterExpression;
+    }
+
+    public final void setMasterExpression(FRBRmasterExpression masterExpression) {
+        this.masterExpression = masterExpression;
     }
 
     /**

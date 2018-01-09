@@ -4,6 +4,7 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
 
 import java.io.IOException;
 
@@ -80,18 +81,26 @@ public abstract class WorkProperties extends CoreProperties {
         this.authoritative = authoritative;
     }
 
-    public void add(FRBRnumber number) {
+    public final void add(FRBRnumber number) {
         if (this.numbers == null) {
             this.numbers = new AknList<>(new FRBRnumber[2]);
         }
         this.numbers.add(number);
     }
 
-    public void add(FRBRname name) {
+    public final Iterable<FRBRnumber> getFRBRnumbers() {
+        return Iterables.iterable(this.numbers);
+    }
+
+    public final void add(FRBRname name) {
         if (this.names == null) {
             this.names = new AknList<>(new FRBRname[2]);
         }
         this.names.add(name);
+    }
+
+    public final Iterable<FRBRname> getFRBRnames() {
+        return Iterables.iterable(this.names);
     }
 
     /**
