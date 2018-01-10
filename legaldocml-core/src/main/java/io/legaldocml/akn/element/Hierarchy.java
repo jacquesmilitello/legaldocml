@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
-import java.lang.Object;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -34,7 +33,6 @@ import static io.legaldocml.akn.AknElements.WRAP;
 import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.convertSuper;
 import static io.legaldocml.akn.element.Groups.hierElements;
-import static io.legaldocml.util.Equals.doEquals;
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -265,15 +263,6 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
                 this.wrapUp.accept(visitor);
             }
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
-    @Override
-    public boolean equals(Object obj) {
-        return doEquals(this, obj);
     }
 
     /**

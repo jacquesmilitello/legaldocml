@@ -7,16 +7,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class ExternalizableListTest {
-
+class ExternalizableListTest {
 
 
     @Test
-    public void testRemove() {
+    void testRemove() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -35,7 +33,7 @@ public class ExternalizableListTest {
     }
 
     @Test
-    public void testRemoveIndex() {
+    void testRemoveIndex() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -54,7 +52,7 @@ public class ExternalizableListTest {
     }
 
     @Test
-    public void testAddWithIndex() {
+    void testAddWithIndex() {
 
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
@@ -71,14 +69,14 @@ public class ExternalizableListTest {
     }
 
     @Test
-    public void testAddWithIndexException() {
+    void testAddWithIndexException() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () ->   list.add(1, id1));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.add(1, id1));
     }
 
     @Test
-    public void testForEach() {
+    void testForEach() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -89,13 +87,13 @@ public class ExternalizableListTest {
         list.add(id3);
 
         AtomicInteger integer = new AtomicInteger();
-        list.forEach( t -> integer.incrementAndGet());
+        list.forEach(t -> integer.incrementAndGet());
 
         Assertions.assertEquals(3, integer.get());
     }
 
     @Test
-    public void testForStream() {
+    void testForStream() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -108,7 +106,7 @@ public class ExternalizableListTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -122,7 +120,7 @@ public class ExternalizableListTest {
 
 
     @Test
-    public void testClear() {
+    void testClear() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>(new SimpleId[4]);
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -134,14 +132,14 @@ public class ExternalizableListTest {
 
         list.clear();
         Assertions.assertEquals(0, list.size());
-        SimpleId[] elems =  list.getElems();
-        for (int i = 0 ; i < elems.length ; i++) {
+        SimpleId[] elems = list.getElems();
+        for (int i = 0; i < elems.length; i++) {
             Assertions.assertNull(elems[i]);
         }
     }
 
     @Test
-    public void testIndexOf() {
+    void testIndexOf() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -160,7 +158,7 @@ public class ExternalizableListTest {
     }
 
     @Test
-    public void testLastIndexOf() {
+    void testLastIndexOf() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
         SimpleId id2 = new SimpleId();
@@ -186,9 +184,14 @@ public class ExternalizableListTest {
         public String name() {
             return null;
         }
-        @Override
-        public void write(XmlWriter writer) throws IOException {
 
+        @Override
+        public void write(XmlWriter writer) {
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj;
         }
     }
 

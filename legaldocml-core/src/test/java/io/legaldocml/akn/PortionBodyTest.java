@@ -45,12 +45,16 @@ class PortionBodyTest {
 
         Section section = new Section();
         section.setEid(NoWhiteSpace.valueOf("sec_305"));
+        section.setGUID(NoWhiteSpace.valueOf("idd1d32352-f639-11e2-8470-abc29ba29c4d"));
         Assertions.assertTrue(chapter.removeHierarchyElement(section));
 
+
         section.setEid(NoWhiteSpace.valueOf("sec_306"));
+        section.setGUID(NoWhiteSpace.valueOf("idd1d32356-f639-11e2-8470-abc29ba29c4d"));
         Assertions.assertTrue(chapter.removeHierarchyElement(section));
 
         section.setEid(NoWhiteSpace.valueOf("sec_307"));
+        section.setGUID(NoWhiteSpace.valueOf("idd1d34a6a-f639-11e2-8470-abc29ba29c4d"));
         Assertions.assertTrue(chapter.removeHierarchyElement(section));
 
         section.setEid(NoWhiteSpace.valueOf("sec_308"));

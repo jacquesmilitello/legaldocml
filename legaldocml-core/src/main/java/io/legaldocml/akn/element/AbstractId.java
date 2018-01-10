@@ -8,6 +8,9 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.util.ToStringBuilder;
 
+import java.lang.Object;
+import java.util.Objects;
+
 import static io.legaldocml.akn.AknAttributes.EID;
 import static io.legaldocml.akn.AknAttributes.EVOLVING_ID;
 import static io.legaldocml.akn.AknAttributes.GUID;
@@ -149,8 +152,38 @@ public abstract class AbstractId implements AknObject, Id {
         ToStringBuilder builder = new ToStringBuilder(this, false);
         builder.append(EID, this.eId);
         builder.append(WID, this.wId);
+        builder.append(GUID, this.guid);
         toString(builder);
         return builder.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!this.getClass().isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        AbstractId other = (AbstractId)obj;
+        return Objects.equals(this.guid, other.guid) && Objects.equals(eId, other.eId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        if (this.guid != null) {
+            return guid.hashCode();
+        }
+        if (this.eId != null) {
+            return this.eId.hashCode();
+        }
+        return super.hashCode();
     }
 
     protected void toString(ToStringBuilder builder) {
