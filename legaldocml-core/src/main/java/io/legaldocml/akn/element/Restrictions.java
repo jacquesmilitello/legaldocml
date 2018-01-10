@@ -9,7 +9,7 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 import java.util.function.Supplier;

@@ -3,7 +3,7 @@ package io.legaldocml;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
 import org.w3c.dom.Document;
 

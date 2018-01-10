@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 

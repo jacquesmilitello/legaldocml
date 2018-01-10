@@ -11,7 +11,7 @@ import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;

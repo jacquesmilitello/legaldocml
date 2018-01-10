@@ -1,6 +1,6 @@
 package io.legaldocml.module.xml;
 
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;

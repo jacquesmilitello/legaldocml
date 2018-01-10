@@ -1,6 +1,6 @@
 package io.legaldocml.xliff;
 
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
 import io.legaldocml.test.PathForTest;
 import io.legaldocml.xliff.element.Xliff;

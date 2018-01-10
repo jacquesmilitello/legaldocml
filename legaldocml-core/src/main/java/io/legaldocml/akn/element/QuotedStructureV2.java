@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 

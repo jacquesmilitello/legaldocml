@@ -4,7 +4,7 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.module.Module;
 
 import java.io.IOException;

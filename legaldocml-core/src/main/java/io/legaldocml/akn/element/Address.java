@@ -2,7 +2,7 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.SpeechSection;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;

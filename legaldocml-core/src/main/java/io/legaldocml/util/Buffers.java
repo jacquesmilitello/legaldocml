@@ -1,4 +1,4 @@
-package io.legaldocml.io.impl;
+package io.legaldocml.util;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

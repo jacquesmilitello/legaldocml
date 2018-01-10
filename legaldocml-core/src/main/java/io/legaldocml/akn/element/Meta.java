@@ -8,7 +8,7 @@ import io.legaldocml.diff.DiffContext;
 import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.util.ListIterable;
 
 import javax.xml.stream.XMLStreamConstants;

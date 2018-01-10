@@ -21,7 +21,7 @@ import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
 import io.legaldocml.util.CharArray;

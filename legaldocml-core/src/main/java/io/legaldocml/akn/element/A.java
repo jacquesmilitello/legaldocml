@@ -8,7 +8,7 @@ import io.legaldocml.akn.group.HTMLinline;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 

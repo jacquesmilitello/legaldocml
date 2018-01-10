@@ -3,7 +3,7 @@ package io.legaldocml.module.akn.v3;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.io.XmlReaderFactory;
 import io.legaldocml.io.XmlReaderFactoryProvider;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.impl.XmlChannelWriter;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;

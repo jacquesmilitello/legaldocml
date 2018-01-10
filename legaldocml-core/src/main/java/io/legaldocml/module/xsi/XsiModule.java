@@ -7,7 +7,7 @@ import io.legaldocml.io.Attribute;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
 import io.legaldocml.util.ToStringBuilder;

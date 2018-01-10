@@ -1,7 +1,6 @@
 package io.legaldocml.util;
 
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

@@ -9,7 +9,7 @@ import io.legaldocml.archive.MetaResource;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.MediaType;
 import io.legaldocml.io.XmlProvider;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

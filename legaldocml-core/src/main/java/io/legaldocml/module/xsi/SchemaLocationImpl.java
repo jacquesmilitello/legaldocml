@@ -3,7 +3,7 @@ package io.legaldocml.module.xsi;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
 import io.legaldocml.unsafe.UnsafeString;
 

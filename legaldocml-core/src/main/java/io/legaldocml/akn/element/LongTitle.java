@@ -2,7 +2,7 @@ package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.BasicContainers;
 import io.legaldocml.akn.group.PrefaceContainers;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;

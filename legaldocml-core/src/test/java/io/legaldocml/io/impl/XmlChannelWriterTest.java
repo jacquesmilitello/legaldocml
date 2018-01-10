@@ -2,6 +2,7 @@ package io.legaldocml.io.impl;
 
 import io.legaldocml.module.akn.v3.XmlChannelWriterV3;
 import io.legaldocml.test.LoggerInstancePostProcessor;
+import io.legaldocml.util.Buffers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

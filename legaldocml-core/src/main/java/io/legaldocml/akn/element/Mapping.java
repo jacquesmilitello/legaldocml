@@ -10,7 +10,7 @@ import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 

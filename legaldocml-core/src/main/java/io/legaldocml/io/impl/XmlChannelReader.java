@@ -1,6 +1,7 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.io.AttributeConsumer;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharArrays;
 import io.legaldocml.util.CharBuffer;

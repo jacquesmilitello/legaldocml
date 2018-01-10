@@ -1,6 +1,6 @@
 package io.legaldocml.schematron;
 
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
 import io.legaldocml.schematron.model.Schema;
 import io.legaldocml.test.PathForTest;

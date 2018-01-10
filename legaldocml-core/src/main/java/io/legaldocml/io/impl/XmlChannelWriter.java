@@ -4,6 +4,7 @@ import io.legaldocml.LegalDocMlException;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.Buffers;
 import sun.misc.Unsafe;
 
 import java.io.IOException;

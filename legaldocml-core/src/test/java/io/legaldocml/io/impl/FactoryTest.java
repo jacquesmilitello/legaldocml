@@ -3,6 +3,7 @@ package io.legaldocml.io.impl;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.io.XmlReaderFactory;
 import io.legaldocml.test.PathForTest;
+import io.legaldocml.util.Buffers;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

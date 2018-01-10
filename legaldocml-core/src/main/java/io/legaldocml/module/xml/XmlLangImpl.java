@@ -4,7 +4,7 @@ import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.model.Language;
 import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.xml.attribute.XmlLang;

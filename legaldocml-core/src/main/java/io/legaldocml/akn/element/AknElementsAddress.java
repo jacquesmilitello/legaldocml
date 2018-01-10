@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknElements;
-import io.legaldocml.io.impl.Buffers;
+import io.legaldocml.util.Buffers;
 
 /**
  * All default attributes name.
