@@ -4,6 +4,7 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
+import io.legaldocml.akn.element.AnyOtherType;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
 
@@ -57,10 +58,6 @@ public abstract class BusinessBuilder {
     @SuppressWarnings("unchecked")
     public final <T extends DocumentType> AkomaNtoso<T> getAkomaNtoso() {
         return (AkomaNtoso<T>) akomaNtoso;
-    }
-
-    public final <T extends BusinessPartBuilder> T newPartBuilder(AknObject parent, String businessPartBuilderName) {
-        return this.provider.newPartBuilder(this, parent, businessPartBuilderName);
     }
 
 }

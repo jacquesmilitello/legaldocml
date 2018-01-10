@@ -8,7 +8,6 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.util.ToStringBuilder;
 
-import java.lang.Object;
 import java.util.Objects;
 
 import static io.legaldocml.akn.AknAttributes.EID;
@@ -161,11 +160,11 @@ public abstract class AbstractId implements AknObject, Id {
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(java.lang.Object obj) {
         if (this == obj) {
             return true;
         }
-        if (!this.getClass().isAssignableFrom(obj.getClass())) {
+        if (obj == null || !this.getClass().isAssignableFrom(obj.getClass())) {
             return false;
         }
         AbstractId other = (AbstractId)obj;
