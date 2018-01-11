@@ -1,10 +1,8 @@
 package io.legaldocml.business.builder;
 
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
-import io.legaldocml.akn.element.AnyOtherType;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
 
@@ -23,7 +21,7 @@ public abstract class BusinessBuilder {
 
     private AgentRef source;
 
-    public BusinessBuilder(BusinessProvider provider, DocumentType documentType,HierarchyStrategy strategy) {
+    public BusinessBuilder(BusinessProvider provider, DocumentType documentType, HierarchyStrategy strategy) {
         this.provider = provider;
         this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
         this.akomaNtoso.setDocumentType(documentType);

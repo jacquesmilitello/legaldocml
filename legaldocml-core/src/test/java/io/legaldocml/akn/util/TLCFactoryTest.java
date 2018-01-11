@@ -1,23 +1,30 @@
 package io.legaldocml.akn.util;
 
+import io.legaldocml.akn.element.TLCLocation;
+import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.akn.type.Uri;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.Tests;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static io.legaldocml.WriterHelper.write;
+
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class TLCFactoryTest {
+class TLCFactoryTest {
 
     @Test
-    public void testFactoryClass() throws Exception {
+    void testFactoryClass() throws Exception {
         Tests.assertUtilClassIsWellDefined(TLCFactory.class);
     }
 
-    public void test() {
+    @Test
+    void testTLCLocation() {
+        TLCLocation location = TLCFactory.newTLCLocation(NoWhiteSpace.valueOf("Sotaqui"),
+                Uri.raw("/cl/division-politico-administrativa/2010/comuna/ovalle"), "Sotaqui");
 
-       //NoWhiteSpace
-       // NoWhiteSpace eid, Uri href, String showAs
-//      /  TLCFactory.newTLCOrganization()
+        Assertions.assertEquals("<TLCLocation eId=\"Sotaqui\" href=\"/cl/division-politico-administrativa/2010/comuna/ovalle\" showAs=\"Sotaqui\"/>", write(location));
     }
 
 

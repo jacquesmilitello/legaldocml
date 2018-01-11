@@ -14,6 +14,7 @@ import io.legaldocml.akn.group.TLC;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.Uri;
+import io.legaldocml.akn.util.MetaHelper;
 import io.legaldocml.unsafe.UnsafeString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,13 +51,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
 
                 ((Refers)object).setRefersTo(new ListReferenceRef(UnsafeString.getChars("#" + refersTo.getEid().toString())));
 
-                References ref = akn.getDocumentType().getMeta().getReferences(source);
-
-                if (ref == null) {
-                    ref = new References();
-                    ref.setSource(source);
-                    akn.getDocumentType().getMeta().add(ref);
-                }
+                References ref = MetaHelper.references(akn.getDocumentType().getMeta(),source);
 
                 Optional<RefItem> op = ref.getRefItems().stream()
                         .filter( t -> t.equals(refersTo))
@@ -86,13 +81,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
 
                 ((Role)object).setAs(role.getEid().toRoleRef());
 
-                References ref = akn.getDocumentType().getMeta().getReferences(source);
-
-                if (ref == null) {
-                    ref = new References();
-                    ref.setSource(source);
-                    akn.getDocumentType().getMeta().add(ref);
-                }
+                References ref = MetaHelper.references(akn.getDocumentType().getMeta(),source);
 
                 Optional<RefItem> op = ref.getRefItems().stream()
                         .filter( t -> t.equals(role))
@@ -120,13 +109,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
 
                 ((Link)object).setHref(Uri.valueOf(tlc.getEid().makeRef()));
 
-                References ref = akn.getDocumentType().getMeta().getReferences(source);
-
-                if (ref == null) {
-                    ref = new References();
-                    ref.setSource(source);
-                    akn.getDocumentType().getMeta().add(ref);
-                }
+                References ref = MetaHelper.references(akn.getDocumentType().getMeta(),source);
 
                 Optional<RefItem> op = ref.getRefItems().stream()
                         .filter( t -> t.equals(tlc))

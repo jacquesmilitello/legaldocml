@@ -55,7 +55,7 @@ import static io.legaldocml.business.util.AknReference.href;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class PortionBuilderTest {
+class PortionBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");
 
@@ -69,11 +69,16 @@ public class PortionBuilderTest {
     private static final TLCRole ROLE_DRAFTER = newTLCRole(NoWhiteSpace.valueOf("drafter"), Uri.valueOf("/akn/us/ontology/role/drafter"), "Drafter");
 
     @Test
-    public void testMeta() throws IOException {
+    void testMeta() throws IOException {
         PortionBusinessBuilder portionBuilder = new PortionBusinessBuilder(provider, new Portion(), DefaultHierachyStrategy.COMPLETE) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
+            }
+
+            @Override
+            protected PortionBodyBuilder newPortionBodyBuilder() {
+                return new PortionBodyBuilder(this, this.<Portion>getAkomaNtoso().getDocumentType().getPortionBody());
             }
         };
 
@@ -89,8 +94,8 @@ public class PortionBuilderTest {
         metaBuilder.setDate(LocalDate.of(2014, 10, 7), "Chapter 3 of Title 9 (July 26, 2013) -- XML Markup", LOOKUP_FRBR_MANIFESTATION);
 
         metaBuilder.addAuthor(LOOKUP_FRBR_WORK, href(SOURCE, ORGANIZATION), as(SOURCE, ROLE_DRAFTER));
-        metaBuilder.addAuthor(LOOKUP_FRBR_EXPRESSION,href(SOURCE, ORGANIZATION)).setAs(valueOf("editor"));
-        metaBuilder.addAuthor(LOOKUP_FRBR_MANIFESTATION,href(SOURCE, PERSON_VERGOTTINI)).setAs(RoleRef.raw("generator".toCharArray()));
+        metaBuilder.addAuthor(LOOKUP_FRBR_EXPRESSION, href(SOURCE, ORGANIZATION)).setAs(valueOf("editor"));
+        metaBuilder.addAuthor(LOOKUP_FRBR_MANIFESTATION, href(SOURCE, PERSON_VERGOTTINI)).setAs(RoleRef.raw("generator".toCharArray()));
 
         metaBuilder.setCountry(Iso3166.UNITED_STATES_OF_AMERICA);
         metaBuilder.addLanguage(Iso639.ENGLISH, Language::getTerminology);
@@ -116,11 +121,16 @@ public class PortionBuilderTest {
     }
 
     @Test
-    public void testBody() throws IOException {
+    void testBody() throws IOException {
         PortionBusinessBuilder portionBuilder = new PortionBusinessBuilder(provider, new Portion(), DefaultHierachyStrategy.COMPLETE) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
+            }
+
+            @Override
+            protected PortionBodyBuilder newPortionBodyBuilder() {
+                return new PortionBodyBuilder(this, this.<Portion>getAkomaNtoso().getDocumentType().getPortionBody());
             }
         };
         portionBuilder.setSource(SOURCE);
@@ -134,24 +144,24 @@ public class PortionBuilderTest {
         chapter.heading().text("INTER-AMERICAN CONVENTION ON INTERNATIONAL COMMERCIAL ARBITRATION");
 
         addToc(chapter.intro().toc());
-        addSection_0(chapter.section((t ->  {
+        addSection_0(chapter.section((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d2d527-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_301"));
         })));
 
-        addSection_1(chapter.section((t ->  {
+        addSection_1(chapter.section((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d2d52a-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_302"));
         })));
-        addSection_2(chapter.section((t ->  {
+        addSection_2(chapter.section((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d2fc3c-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_303"));
         })));
-        addSection_3(chapter.section((t ->  {
+        addSection_3(chapter.section((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d2fc40-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_304"));
         })));
-        addSection_4(chapter.section((t ->  {
+        addSection_4(chapter.section((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d32352-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_305"));
         })));
@@ -170,7 +180,7 @@ public class PortionBuilderTest {
         );
 
 
-        for (int i = 0; i < 5 ; i++) {
+        for (int i = 0; i < 5; i++) {
             XmlUnitHelper.compare(
                     expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "section").item(i),
                     actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "section").item(i)
@@ -185,14 +195,14 @@ public class PortionBuilderTest {
 
         InlineTypeBuilder<TocItem> item;
 
-        /**
+        /*
          * <tocItem href="" level="1">
          *   <span>Sec.</span>
          * </tocItem>
          */
         toc.item(Uri.EMPTY, "1").span().text("Sec.");
 
-        /**
+        /*
          * <tocItem href="#sec_301" level="1">
          *   <span>301.</span>
          *   <span>Enforcement of Convention.</span>
@@ -203,7 +213,7 @@ public class PortionBuilderTest {
         item.span().text("Enforcement of Convention.");
 
 
-        /**
+        /*
          * <tocItem href="#sec_302" level="1">
          *   <span>302.</span>
          *   <span>Incorporation by reference.</span>
@@ -213,7 +223,7 @@ public class PortionBuilderTest {
         item.span().text("302.");
         item.span().text("Incorporation by reference.");
 
-        /**
+        /*
          * <tocItem href="#sec_303" level="1">
          *   <span>303.</span>
          *   <span>Order to compel arbitration; appointment of arbitrators; locale.</span>
@@ -223,7 +233,7 @@ public class PortionBuilderTest {
         item.span().text("303.");
         item.span().text("Order to compel arbitration; appointment of arbitrators; locale.");
 
-        /**
+        /*
          * <tocItem href="#sec_304" level="1">
          *   <span>304.</span>
          *   <span>Recognition and enforcement of foreign arbitral decisions and awards; reciprocity.</span>
@@ -233,7 +243,7 @@ public class PortionBuilderTest {
         item.span().text("304.");
         item.span().text("Recognition and enforcement of foreign arbitral decisions and awards; reciprocity.");
 
-        /**
+        /*
          * <tocItem href="#sec_305" level="1">
          *   <span>305.</span>
          *   <span>Relationship between the <ref href="/akn/oas/act/1975__b_35/eng@1975-01-30"> Inter-American Convention</ref> and the  <ref href="/akn/un/act/1958NYConvention/eng@1958-06-10">Convention on the
@@ -249,7 +259,7 @@ public class PortionBuilderTest {
         span.text(" and the  ").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10".toCharArray())).text("Convention on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
         span.text(".");
 
-        /**
+        /*
          * <tocItem href="#sec_306" level="1">
          *   <span>306.</span>
          *   <span>Applicable rules of <organization refersTo="#interAmericanCommercialArbitationCommission">Inter-American Commercial Arbitration Commission</organization>.</span>
@@ -284,7 +294,7 @@ public class PortionBuilderTest {
         p.text(", shall be enforced in United States courts in accordance with this").ref(Uri.valueOf("chp_3")).text("chapter");
         p.text(".");
 
-        InlineTypeBuilder<Block> block = content.block(t-> t.setName("sourceCredit"));
+        InlineTypeBuilder<Block> block = content.block(t -> t.setName("sourceCredit"));
         block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
         block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/448")).text("104 Stat. 448");
         block.text(" .)");
@@ -310,7 +320,7 @@ public class PortionBuilderTest {
         p.text(" purposes of this chapter “the Convention” shall mean the Inter-American");
         p.text("  Convention.");
 
-        InlineTypeBuilder<Block> block = content.block(t-> t.setName("sourceCredit"));
+        InlineTypeBuilder<Block> block = content.block(t -> t.setName("sourceCredit"));
         block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
         block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/448")).text("104 Stat. 448");
         block.text(" .)");
@@ -322,25 +332,25 @@ public class PortionBuilderTest {
         section.num().text("§ 303.");
         section.heading().text("Order to compel arbitration; appointment of arbitrators; locale");
 
-        HierarchyBuilder<Subsection> subSection = section.subsection((t ->  {
+        HierarchyBuilder<Subsection> subSection = section.subsection((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d2fc3d-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_303__subsec_a"));
         }));
         subSection.num().text("(a)");
         subSection.content().p().text("A court having jurisdiction under this chapter may direct that arbitration be held in")
-        .text(" accordance with the agreement at any place therein provided for, whether that place is")
-        .text(" within or without the United States. The court may also appoint")
-        .text(" arbitrators in accordance with the provisions of the agreement.");
+                .text(" accordance with the agreement at any place therein provided for, whether that place is")
+                .text(" within or without the United States. The court may also appoint")
+                .text(" arbitrators in accordance with the provisions of the agreement.");
 
-        subSection = section.subsection((t ->  {
+        subSection = section.subsection((t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d2fc3e-f639-11e2-8470-abc29ba29c4d"));
             t.setEid(NoWhiteSpace.valueOf("sec_303__subsec_b"));
         }));
         subSection.num().text("(b)");
         InlineTypeBuilder<P> p = subSection.content().p();
         p.text("In the event the agreement does not make provision for the place of arbitration or the")
-         .text(" appointment of arbitrators, the court shall direct that the arbitration shall be held")
-         .text(" and the arbitrators be appointed in accordance with");
+                .text(" appointment of arbitrators, the court shall direct that the arbitration shall be held")
+                .text(" and the arbitrators be appointed in accordance with");
         p.ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30#art_3")).text("Article 3 of the Inter-American Convention");
         p.text(".");
 
@@ -360,7 +370,7 @@ public class PortionBuilderTest {
         p.ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
         p.text(".");
 
-        InlineTypeBuilder<Block> block = content.block(t-> t.setName("sourceCredit"));
+        InlineTypeBuilder<Block> block = content.block(t -> t.setName("sourceCredit"));
         block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
         block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/449")).text("104 Stat. 449");
         block.text(" .)");
@@ -388,8 +398,8 @@ public class PortionBuilderTest {
 
         paragraph.num().text("(1)");
         paragraph.content().p().text("If a majority of the parties to the arbitration agreement are citizens of a State or")
-            .text(" States that have ratified or acceded to the Inter-American Convention and are member")
-            .text(" States of the Organization of American States, the Inter-American Convention shall apply.");
+                .text(" States that have ratified or acceded to the Inter-American Convention and are member")
+                .text(" States of the Organization of American States, the Inter-American Convention shall apply.");
 
         paragraph = section.paragraph(t -> {
             t.setGUID(NoWhiteSpace.valueOf("idd1d32354-f639-11e2-8470-abc29ba29c4d"));
@@ -409,7 +419,7 @@ public class PortionBuilderTest {
         private String expression;
         private String manifestation;
 
-        public Identifier(String work, String expression, String manifestation) {
+        Identifier(String work, String expression, String manifestation) {
             this.work = work;
             this.expression = expression;
             this.manifestation = manifestation;

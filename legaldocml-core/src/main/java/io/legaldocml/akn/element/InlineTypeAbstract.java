@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.group.ANmarker;
+import io.legaldocml.akn.group.ANsemanticInline;
 import io.legaldocml.akn.group.ANtitleInline;
 import io.legaldocml.akn.group.HTMLinline;
 import io.legaldocml.akn.group.InlineCM;
@@ -24,7 +25,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * The complex type inline defines the content model and attributes shared by all blocks and inlines. Here the eId
  * attribute is optional.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="inline" mixed="true">
  *     <xsd:choice minOccurs="0" maxOccurs="unbounded">
@@ -105,6 +106,14 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void add(ANmarker marker) {
         this.data.add(requireNonNull(marker));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANsemanticInline inline) {
+        this.data.add(requireNonNull(inline));
     }
 
     /**

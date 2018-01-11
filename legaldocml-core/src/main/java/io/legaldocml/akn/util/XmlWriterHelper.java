@@ -345,9 +345,11 @@ public final class XmlWriterHelper {
 
     public static void writeRefersReq(XmlWriter writer, RefersReq refersReq) throws IOException {
         if (refersReq.getRefersTo() == null) {
-            throw new RuntimeException();
+            throwException(writer,  new MandatoryAttributeException(refersReq, AknAttributes.FROM, writer));
+        } else {
+            writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
         }
-        writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
+
     }
 
     public static void writeTime(XmlWriter writer, Time time) throws IOException {

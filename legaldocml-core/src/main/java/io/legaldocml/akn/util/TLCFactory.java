@@ -1,6 +1,7 @@
 package io.legaldocml.akn.util;
 
 import io.legaldocml.akn.element.TLCConcept;
+import io.legaldocml.akn.element.TLCLocation;
 import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
@@ -37,6 +38,14 @@ public final class TLCFactory {
         organization.setHref(href);
         organization.setShowAs(showAs);
         return organization;
+    }
+
+    public static TLCLocation newTLCLocation(NoWhiteSpace eid, Uri href, String showAs) {
+        TLCLocation location = new TLCLocation();
+        location.setEid(eid);
+        location.setHref(href);
+        location.setShowAs(showAs);
+        return location;
     }
 
     public static TLCConcept newTLCConcept(NoWhiteSpace eid, Uri href, String showAs) {

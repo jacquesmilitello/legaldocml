@@ -22,7 +22,7 @@ public interface HcontainerSupport<T extends HcontainerContainer> extends Suppor
         if (consumer != null) {
             consumer.accept(hcontainer);
         }
-        return null;
+        return new HierarchyBuilder<>(businessBuilder(), hcontainer);
     }
 
 }

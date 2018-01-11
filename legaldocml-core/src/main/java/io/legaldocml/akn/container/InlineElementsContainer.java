@@ -1,9 +1,12 @@
 package io.legaldocml.akn.container;
 
 
+import io.legaldocml.akn.AknObject;
+
+/**
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface InlineElementsContainer extends ANtitleInlineContainer, HTMLinlineContainer, ANinlineContainer {
+public interface InlineElementsContainer<T extends AknObject> extends ANtitleInlineContainer<T>, ANsemanticInlineContainer<T>, HTMLinlineContainer<T>, ANinlineContainer<T> {
 
 }

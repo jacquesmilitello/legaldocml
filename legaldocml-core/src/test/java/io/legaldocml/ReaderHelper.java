@@ -3,8 +3,8 @@ package io.legaldocml;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.util.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
+import io.legaldocml.util.Buffers;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,6 +16,9 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 public final class ReaderHelper {
 
     private ReaderHelper() {
