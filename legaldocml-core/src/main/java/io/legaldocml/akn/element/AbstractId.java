@@ -164,7 +164,7 @@ public abstract class AbstractId implements AknObject, Id {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !this.getClass().isAssignableFrom(obj.getClass())) {
+        if (obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
         AbstractId other = (AbstractId)obj;

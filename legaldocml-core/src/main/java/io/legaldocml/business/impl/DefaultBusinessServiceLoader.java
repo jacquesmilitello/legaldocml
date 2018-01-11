@@ -34,7 +34,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      */
     @Override
     public AknIdentifier extractAknIdentifier(String work, String expression, String manifestation) {
-        return new DefaultAknIdentifier(work, expression.substring(work.length() +1), manifestation.substring(expression.length() + 1), "/");
+        return new DefaultAknIdentifier(work, expression.substring(work.length() + 1), manifestation.substring(expression.length() + 1), "/");
     }
 
     /**
@@ -58,7 +58,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      * {@inheritDoc}
      */
     @Override
-    public <E extends BusinessPartBuilder> E newPartBuilder(BusinessBuilder businessBuilder, AknObject parent, String name) {
+    public <E extends BusinessPartBuilder<Z>, Z extends AknObject> E newPartBuilder(BusinessBuilder businessBuilder, AknObject parent, String name) {
         return null;
     }
 

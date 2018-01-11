@@ -116,6 +116,21 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
         addPortionBodyTypeElement(hier);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(Hcontainer hcontainer) {
+        removePortionBodyTypeElement(requireNonNull(hcontainer));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(Hcontainer hcontainer) {
+        return removePortionBodyTypeElement(requireNonNull(hcontainer));
+    }
 
     /**
      * {@inheritDoc}

@@ -63,6 +63,6 @@ public abstract class BusinessProvider {
 
     public abstract <E extends BusinessBuilder> E newBuilder(String name);
 
-    public abstract <E extends BusinessPartBuilder> E newPartBuilder(BusinessBuilder businessBuilder, AknObject parent, String name);
+    public abstract <E extends BusinessPartBuilder<Z>, Z extends AknObject> E newPartBuilder(BusinessBuilder businessBuilder, AknObject parent, String name);
 
 }

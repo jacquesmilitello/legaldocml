@@ -11,10 +11,11 @@ import io.legaldocml.business.builder.BusinessPartBuilder;
  */
 public interface ForeignSupport<T extends BlockElementsContainer> extends SupportBuilder<T> {
 
-    default <Z extends BusinessPartBuilder<E>, E extends AnyOtherTypeElement> Z foreign(String provider, String businessPartBuilder) {
+    default <E extends BusinessPartBuilder<Z>, Z extends AnyOtherTypeElement> E foreign(String provider, String businessPartBuilder) {
         Foreign foreign = new Foreign();
         parent().add(foreign);
-        return BusinessProvider.businessProvider(provider).newPartBuilder(businessBuilder(), foreign, businessPartBuilder);
+        return BusinessProvider.businessProvider(provider)
+                .newPartBuilder(businessBuilder(), foreign, businessPartBuilder);
     }
 
 }

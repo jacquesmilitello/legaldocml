@@ -77,7 +77,7 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
      */
     @Override
     public boolean remove(HierElements hier) {
-        return removeBodyTypeElement(hier);
+        return removeBodyTypeElement(requireNonNull(hier));
     }
 
     /**
@@ -86,6 +86,22 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
     @Override
     public void add(ANhier hier) {
         addBodyTypeElement(requireNonNull(hier));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(Hcontainer hcontainer) {
+        addBodyTypeElement(requireNonNull(hcontainer));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(Hcontainer hcontainer) {
+       return removeBodyTypeElement(requireNonNull(hcontainer));
     }
 
     /**

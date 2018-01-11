@@ -136,6 +136,22 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
      * {@inheritDoc}
      */
     @Override
+    public void add(Hcontainer hcontainer) {
+        addHierarchyElement(hcontainer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(Hcontainer hcontainer) {
+        return removeHierarchyElement(hcontainer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Stream<HierarchyElement> stream() {
         return (this.elements == null) ? Stream.empty() : this.elements.stream();
     }

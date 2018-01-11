@@ -156,7 +156,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      */
     @Override
     public boolean remove(HierElements hier) {
-        return removeSubFlowStructureElement(hier);
+        return removeSubFlowStructureElement(requireNonNull(hier));
     }
 
     /**
@@ -164,7 +164,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      */
     @Override
     public final void add(ANhier hier) {
-        addSubFlowStructureElement(hier);
+        addSubFlowStructureElement(requireNonNull(hier));
     }
 
     /**
@@ -172,12 +172,31 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      */
     @Override
     public void add(ANblock block) {
-        addSubFlowStructureElement(block);
+        addSubFlowStructureElement(requireNonNull(block));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean remove(ANblock block) {
-        return removeSubFlowStructureElement(block);
+        return removeSubFlowStructureElement(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(Hcontainer hcontainer) {
+        removeSubFlowStructureElement(requireNonNull(hcontainer));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(Hcontainer hcontainer) {
+        return removeSubFlowStructureElement(requireNonNull(hcontainer));
     }
 
     /**
