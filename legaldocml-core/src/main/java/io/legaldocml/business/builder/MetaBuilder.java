@@ -71,7 +71,7 @@ public class MetaBuilder {
 
     public final void addLanguage(Language language, Function<Language, String> mapper) {
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("addLanguage({}) -> {}", language, mapper.apply(language));
+            LOGGER.debug("addLanguage({}) -> [{}]", language, mapper.apply(language));
         }
         this.identification.getFRBRExpression().add(newFRBRlanguage(language, mapper));
     }

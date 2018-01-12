@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class MetaBuilderTest {
+class MetaBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");
 

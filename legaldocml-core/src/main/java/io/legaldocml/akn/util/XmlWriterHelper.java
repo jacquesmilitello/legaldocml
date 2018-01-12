@@ -349,7 +349,6 @@ public final class XmlWriterHelper {
         } else {
             writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
         }
-
     }
 
     public static void writeTime(XmlWriter writer, Time time) throws IOException {

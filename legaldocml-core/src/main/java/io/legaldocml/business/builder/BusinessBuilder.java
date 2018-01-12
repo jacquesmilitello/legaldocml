@@ -5,6 +5,7 @@ import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.model.Language;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -20,6 +21,8 @@ public abstract class BusinessBuilder {
     private final HierarchyStrategy strategy;
 
     private AgentRef source;
+
+    private Language mainLanguage;
 
     public BusinessBuilder(BusinessProvider provider, DocumentType documentType, HierarchyStrategy strategy) {
         this.provider = provider;
@@ -41,12 +44,24 @@ public abstract class BusinessBuilder {
         return this.strategy;
     }
 
-    public AgentRef getSource() {
+    public final AgentRef getSource() {
         return source;
     }
 
-    public void setSource(AgentRef source) {
+    public final void setSource(AgentRef source) {
         this.source = source;
+    }
+
+    public final Language getMainLanguage() {
+        return mainLanguage;
+    }
+
+    public final void setMainLanguage(Language mainLanguage) {
+        if (this.mainLanguage != null) {
+            throw new BusinessBuilderException("Main Language [" + this.mainLanguage + "] already set.");
+        }
+        this.mainLanguage = mainLanguage;
+        getMetaBuilder().addLanguage(this.mainLanguage, Language::getTerminology);
     }
 
     protected abstract AkomaNtosoContext newAkomaNtosoContext();
