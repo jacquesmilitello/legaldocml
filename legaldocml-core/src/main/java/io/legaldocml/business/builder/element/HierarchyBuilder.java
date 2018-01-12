@@ -39,7 +39,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         }
         Num num = new Num();
         this.hierarchy.setNum(num);
-        return new InlineTypeBuilder<>(getBusinessBuilder(), num);
+        return new InlineTypeBuilder<>(businessBuilder(), num);
     }
 
     public InlineReqTypeBuilder<Heading> heading() {
@@ -57,7 +57,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
             consumer.accept(heading);
         }
 
-        return new InlineReqTypeBuilder<>(getBusinessBuilder(), heading);
+        return new InlineReqTypeBuilder<>(businessBuilder(), heading);
     }
 
     public InlineReqTypeBuilder<Subheading> subHeading() {
@@ -66,7 +66,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         }
         Subheading subheading = new Subheading();
         this.hierarchy.setSubheading(subheading);
-        return new InlineReqTypeBuilder<>(getBusinessBuilder(), subheading);
+        return new InlineReqTypeBuilder<>(businessBuilder(), subheading);
     }
 
     public HierarchyBuilder<T> eId(String number) {
@@ -75,15 +75,15 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public <E extends Hierarchy & HierarchyElement> HierarchyBuilder<E> next() {
-        E el = this.getBusinessBuilder().getStrategy().next(this.hierarchy);
+        E el = this.businessBuilder().getStrategy().next(this.hierarchy);
         this.hierarchy.addHierarchyElement(el);
-        return new HierarchyBuilder<>(getBusinessBuilder(), this.hierarchy, el);
+        return new HierarchyBuilder<>(businessBuilder(), this.hierarchy, el);
     }
 
     public <E extends Hierarchy> HierarchyBuilder<E> newChild(String element) {
         HierarchyElement el = Hierarchy.ELEMS.get(element).get();
         this.hierarchy.addHierarchyElement(el);
-        return new HierarchyBuilder<E>(getBusinessBuilder(), (E) el);
+        return new HierarchyBuilder<E>(businessBuilder(), (E) el);
     }
 
     public BlocksBuilder<Intro> intro() {
@@ -99,7 +99,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         if (consumer != null) {
             consumer.accept(intro);
         }
-        return new BlocksBuilder<>(getBusinessBuilder(), this.hierarchy, intro);
+        return new BlocksBuilder<>(businessBuilder(), this.hierarchy, intro);
     }
 
     public BlocksBuilder<Content> content() {
@@ -117,6 +117,6 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
             consumer.accept(content);
         }
 
-        return new BlocksBuilder<>(getBusinessBuilder(), this.hierarchy, content);
+        return new BlocksBuilder<>(businessBuilder(), this.hierarchy, content);
     }
 }

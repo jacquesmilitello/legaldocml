@@ -35,7 +35,7 @@ public class BlocksBuilder<T extends BlockElementsContainer> extends AbstractBus
     public TableBuilder table() {
         Table table = new Table();
         this.container.add(table);
-        return new TableBuilder(getBusinessBuilder(), table);
+        return new TableBuilder(businessBuilder(), table);
     }
 
 }

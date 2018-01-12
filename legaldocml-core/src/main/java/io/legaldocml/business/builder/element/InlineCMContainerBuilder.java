@@ -33,7 +33,7 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
     public final T getContainer() {
         return this.container;
     }
-    
+
     @SuppressWarnings("unchecked")
     public U text(String text) {
         this.container.add(new StringInlineCM(text));
@@ -53,7 +53,7 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
         Inline inline = new Inline();
         this.container.add(inline);
         inline.setName(name);
-        AknReferences.apply(getBusinessBuilder().getAkomaNtoso(), inline, refs);
+        AknReferences.apply(businessBuilder().getAkomaNtoso(), inline, refs);
         return (U) this;
     }
 

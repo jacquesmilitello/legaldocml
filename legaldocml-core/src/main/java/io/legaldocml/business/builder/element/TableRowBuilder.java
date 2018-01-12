@@ -22,13 +22,13 @@ public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
     public BlocksBuilder<Td> column() {
         Td td = new Td();
         this.tr.add(td);
-        return new BlocksBuilder(getBusinessBuilder(), this.tr, td);
+        return new BlocksBuilder(businessBuilder(), this.tr, td);
     }
 
     @SuppressWarnings("unchecked")
     public BlocksBuilder<Td> header() {
         Th th = new Th();
         this.tr.add(th);
-        return new BlocksBuilder(getBusinessBuilder(), this.tr, th);
+        return new BlocksBuilder(businessBuilder(), this.tr, th);
     }
 }

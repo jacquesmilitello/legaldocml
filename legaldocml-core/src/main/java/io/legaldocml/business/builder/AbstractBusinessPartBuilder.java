@@ -16,15 +16,17 @@ public abstract class AbstractBusinessPartBuilder<T extends AknObject> implement
         this.container = container;
     }
 
-    public final BusinessBuilder getBusinessBuilder() {
-        return businessBuilder;
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final BusinessBuilder businessBuilder() {
         return businessBuilder;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public T parent() {
         return this.container;

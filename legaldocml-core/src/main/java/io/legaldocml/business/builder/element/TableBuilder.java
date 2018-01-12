@@ -28,7 +28,7 @@ public final class TableBuilder extends AbstractBusinessPartBuilder<Table> {
     public TableRowBuilder row() {
         Tr tr = new Tr();
         this.table.add(tr);
-        return new TableRowBuilder(getBusinessBuilder(), tr);
+        return new TableRowBuilder(businessBuilder(), tr);
     }
 
 }
