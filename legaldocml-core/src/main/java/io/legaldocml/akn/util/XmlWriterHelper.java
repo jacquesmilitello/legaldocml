@@ -345,7 +345,7 @@ public final class XmlWriterHelper {
 
     public static void writeRefersReq(XmlWriter writer, RefersReq refersReq) throws IOException {
         if (refersReq.getRefersTo() == null) {
-            throwException(writer,  new MandatoryAttributeException(refersReq, AknAttributes.FROM, writer));
+            throwException(writer,  new MandatoryAttributeException(refersReq, AknAttributes.REFERS_TO, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
         }
@@ -392,9 +392,10 @@ public final class XmlWriterHelper {
 
     public static void writePortionAtt(XmlWriter writer, PortionAtt portionAtt) throws IOException {
         if (portionAtt.getIncludedIn() == null) {
-            throw new RuntimeException();
+            throwException(writer, new MandatoryAttributeException(portionAtt, AknAttributes.INCLUDED_IN, writer));
+        } else {
+            writer.writeAttribute(Attributes.ADDRESS_INCLUDED_IN, 10, portionAtt.getIncludedIn().getChars());
         }
-        writer.writeAttribute(Attributes.ADDRESS_INCLUDED_IN, 10, portionAtt.getIncludedIn().getChars());
     }
 
     public static void writeBooleanValue(XmlWriter writer, BooleanValue booleanValue) throws IOException {

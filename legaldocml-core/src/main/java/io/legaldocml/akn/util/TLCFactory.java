@@ -5,6 +5,7 @@ import io.legaldocml.akn.element.TLCLocation;
 import io.legaldocml.akn.element.TLCOrganization;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
+import io.legaldocml.akn.element.TLCTerm;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.akn.type.Uri;
 
@@ -54,5 +55,13 @@ public final class TLCFactory {
         concept.setHref(href);
         concept.setShowAs(showAs);
         return concept;
+    }
+
+    public static TLCTerm newTLCTerm(NoWhiteSpace eid, Uri href, String showAs) {
+        TLCTerm term = new TLCTerm();
+        term.setEid(eid);
+        term.setHref(href);
+        term.setShowAs(showAs);
+        return term;
     }
 }

@@ -2,8 +2,10 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
+import io.legaldocml.akn.container.ContainerElementsContainer;
 import io.legaldocml.akn.container.HierElementsContainer;
 import io.legaldocml.akn.group.ANhier;
+import io.legaldocml.akn.group.ContainerElements;
 import io.legaldocml.akn.group.HierElements;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -52,7 +54,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class PortionBodyType extends AbstractCore implements CoreOpt, HierElementsContainer<PortionBodyTypeElement> {
+public abstract class PortionBodyType extends AbstractCore implements CoreOpt, ContainerElementsContainer<PortionBodyTypeElement>, HierElementsContainer<PortionBodyTypeElement> {
 
     private static final ImmutableMap<String, Supplier<PortionBodyTypeElement>> ELEMS;
 
@@ -121,7 +123,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
      */
     @Override
     public void add(Hcontainer hcontainer) {
-        removePortionBodyTypeElement(requireNonNull(hcontainer));
+        addPortionBodyTypeElement(requireNonNull(hcontainer));
     }
 
     /**
@@ -138,6 +140,30 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, H
     @Override
     public ListIterable<PortionBodyTypeElement> iterable() {
         return elements.iterable();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ContainerElements ce) {
+        addPortionBodyTypeElement(requireNonNull(ce));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ContainerElements ce) {
+        return removePortionBodyTypeElement(requireNonNull(ce));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(Container container) {
+        addPortionBodyTypeElement(requireNonNull(container));
     }
 
     /**
