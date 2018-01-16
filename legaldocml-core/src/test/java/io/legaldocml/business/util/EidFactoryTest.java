@@ -23,14 +23,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class EidFactoryTest {
+class EidFactoryTest {
 
     /**
      * Test : http://docs.oasis-open.org/legaldocml/akn-nc/v1.0/akn-nc-v1.0.html
      * part 5.4.2 part1
      */
     @Test
-    public void testPart01() {
+    void testPart01() {
         assertEquals("list", EidFactory.getElementRef(List.class));
         assertEquals("list", EidFactory.getElementRef(BlockList.class));
         assertEquals("intro", EidFactory.getElementRef(Intro.class));
@@ -50,13 +50,13 @@ public class EidFactoryTest {
      * part 5.4.2 part 2
      */
     @Test
-    public void testPart02() {
+    void testPart02() {
         assertEquals("al", EidFactory.getElementRef(Alinea.class));
         assertEquals("body", EidFactory.getElementRef(Body.class));
     }
 
     @Test
-    public void testEidBuilderWithoutParent() {
+    void testEidBuilderWithoutParent() {
         Article article = new Article();
         NoWhiteSpace space = EidFactory.make(article, "1");
         assertEquals("art_1", space.toString());
@@ -71,7 +71,7 @@ public class EidFactoryTest {
 
 
     @Test
-    public void testEidBuilderWithParent() {
+    void testEidBuilderWithParent() {
         Article article = new Article();
         EidFactory.makeAndFill(article, "1");
         Point point = new Point();
@@ -80,7 +80,7 @@ public class EidFactoryTest {
     }
 
     @Test
-    public void testEidBuilderWithParent2() {
+    void testEidBuilderWithParent2() {
         Article article = new Article();
         EidFactory.makeAndFill(article, "1");
         Point point = new Point();
@@ -89,7 +89,7 @@ public class EidFactoryTest {
     }
 
     @Test
-    public void testEidBuilderWithParentWithoutNumber() {
+    void testEidBuilderWithParentWithoutNumber() {
         Article article = new Article();
         EidFactory.makeAndFill(article);
         Point point = new Point();
