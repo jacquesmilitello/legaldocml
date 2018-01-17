@@ -1,6 +1,6 @@
 package io.legaldocml.io.impl;
 
-import io.legaldocml.akn.MandatoryElementException;
+import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Assertions;
@@ -23,7 +23,7 @@ public class XmlChannelReaderBadElementTest {
             try {
                 XmlReaderHelper.createAkomaNtoso(reader);
                 Assertions.fail("");
-            } catch (MandatoryElementException cause) {
+            } catch (WriterMandatoryElementException cause) {
                 Assertions.assertEquals(AKOMANTOSO, cause.getExpected());
                 Assertions.assertEquals(new QNameImpl("test".toCharArray(),4,0), cause.getActual());
             }

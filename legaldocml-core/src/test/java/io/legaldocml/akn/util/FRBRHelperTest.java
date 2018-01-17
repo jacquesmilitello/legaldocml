@@ -15,33 +15,33 @@ import static io.legaldocml.WriterHelper.write;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class FRBRHelperTest {
+class FRBRHelperTest {
 
     @Test
-    public void testConstructor() throws Exception {
+    void testConstructor() throws Exception {
         Tests.assertUtilClassIsWellDefined(FRBRHelper.class);
     }
 
     @Test
-    public void testNewFRBRlanguage() {
+    void testNewFRBRlanguage() {
         FRBRlanguage frbr = FRBRHelper.newFRBRlanguage(Iso639.ENGLISH);
         assertEquals("<FRBRlanguage language=\"eng\"/>", write(frbr));
     }
 
     @Test
-    public void testNewFRBRlanguageWithMapper() {
+    void testNewFRBRlanguageWithMapper() {
         FRBRlanguage frbr = FRBRHelper.newFRBRlanguage(Iso639.ENGLISH, Language::getCode);
         assertEquals("<FRBRlanguage language=\"en\"/>", write(frbr));
     }
 
     @Test
-    public void testNewFRBRauthor() {
+    void testNewFRBRauthor() {
         FRBRauthor frbr = FRBRHelper.newFRBRauthor(Uri.raw("Manon"));
         assertEquals("<FRBRauthor href=\"Manon\"/>", write(frbr));
     }
 
     @Test
-    public void testNewFRBRuri() {
+    void testNewFRBRuri() {
         FRBRuri frbr = FRBRHelper.newFRBRuri("Manon");
         assertEquals("<FRBRuri value=\"Manon\"/>", write(frbr));
     }

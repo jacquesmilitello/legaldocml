@@ -17,6 +17,7 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
 import io.legaldocml.util.CharArray;
+import io.legaldocml.util.ListIterable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,7 @@ import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static io.legaldocml.util.CharArrays.immutable;
+import static io.legaldocml.util.Iterables.iterable;
 
 /**
  * The complex type anyOtherType defines an open content model for elements that may use elements from other namespaces.
@@ -67,7 +69,6 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
 
     private java.util.List<Attribute> attributes;
 
-
     /**
      * {@inheritDoc}
      */
@@ -84,6 +85,10 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
         this.href = href;
     }
 
+
+    public final ListIterable<AnyOtherTypeElement> getChilds() {
+        return iterable(this.others);
+    }
 
     /**
      * {@inheritDoc}

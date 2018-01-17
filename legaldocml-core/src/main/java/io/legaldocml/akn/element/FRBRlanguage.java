@@ -3,7 +3,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.MandatoryAttributeException;
+import io.legaldocml.akn.exception.WriterMandatoryAttributeException;
 import io.legaldocml.akn.attribute.Language;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.AttributeGetterSetter;
@@ -78,7 +78,7 @@ public final class FRBRlanguage extends MetaOpt implements Language {
         if (this.language != null) {
             writer.writeAttribute(Attributes.ADDRESS_LANGUAGE, 8, getChars(this.language));
         } else {
-            throwException(writer, new MandatoryAttributeException(this, LANGUAGE, writer));
+            throwException(writer, new WriterMandatoryAttributeException(this, LANGUAGE, writer));
         }
         super.write(writer);
         writer.writeEnd(ADDRESS_FRBR_LANGUAGE, 12);

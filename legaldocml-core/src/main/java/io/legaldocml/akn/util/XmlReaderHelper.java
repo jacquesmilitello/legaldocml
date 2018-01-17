@@ -6,7 +6,7 @@ import io.legaldocml.akn.AknReadException;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.HasMixedContent;
-import io.legaldocml.akn.MandatoryElementException;
+import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.other.UnsupportedModule;
 import io.legaldocml.util.CharArray;
@@ -45,7 +45,7 @@ public final class XmlReaderHelper {
 
     public static <T extends DocumentType> AkomaNtoso<T> createAkomaNtoso(XmlReader reader) {
         if (!AKOMANTOSO.equals(reader.getQName().getLocalName())) {
-            throw new MandatoryElementException(null, AKOMANTOSO, reader);
+            throw new WriterMandatoryElementException(null, AKOMANTOSO, reader);
         }
 
         NamespaceConsumer namespaceConsumer = new NamespaceConsumer();

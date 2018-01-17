@@ -1,18 +1,19 @@
-package io.legaldocml.akn;
+package io.legaldocml.akn.exception;
 
 import io.legaldocml.LegalDocMlException;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class MandatoryElementException extends LegalDocMlException {
+public final class WriterMandatoryElementException extends LegalDocMlException {
 
     private final String expected;
     private final QName actual;
 
-    public MandatoryElementException(AknObject aknObject, String expected, XmlReader reader) {
+    public WriterMandatoryElementException(AknObject aknObject, String expected, XmlReader reader) {
         super(buildMsg(aknObject, expected, reader));
         this.actual = reader.getQName();
         this.expected = expected;

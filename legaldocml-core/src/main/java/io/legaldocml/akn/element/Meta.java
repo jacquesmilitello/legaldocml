@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.util.AknList;
+import io.legaldocml.akn.util.Sources;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.diff.DiffContext;
 import io.legaldocml.diff.Diffs;
@@ -99,32 +100,120 @@ public final class Meta implements AknObject {
         return iterable(this.classifications);
     }
 
+    public Classification getClassification(AgentRef source) {
+        return Sources.get(this.classifications, source);
+    }
+
+    public void add(Classification classification) {
+        if (this.classifications == null) {
+            this.classifications = new AknList<>(new Classification[2]);
+        }
+        Sources.add(this.classifications, classification);
+    }
+
     public ListIterable<Lifecycle> getLifecycles() {
         return iterable(this.lifecycles);
+    }
+
+    public Lifecycle getLifecycle(AgentRef source) {
+        return Sources.get(this.lifecycles, source);
+    }
+
+    public void add(Lifecycle lifecycle) {
+        if (this.lifecycles == null) {
+            this.lifecycles = new AknList<>(new Lifecycle[2]);
+        }
+        Sources.add(this.lifecycles, lifecycle);
     }
 
     public ListIterable<Workflow> getWorkflows() {
         return iterable(this.workflows);
     }
 
+    public Workflow getWorkflow(AgentRef source) {
+        return Sources.get(this.workflows, source);
+    }
+
+    public void add(Workflow workflow) {
+        if (this.workflows == null) {
+            this.workflows = new AknList<>(new Workflow[2]);
+        }
+        Sources.add(this.workflows, workflow);
+    }
+
     public ListIterable<Analysis> getAnalysis() {
         return iterable(this.analysis);
+    }
+
+    public Analysis getAnalysis(AgentRef source) {
+        return Sources.get(this.analysis, source);
+    }
+
+    public void add(Analysis analysis) {
+        if (this.analysis == null) {
+            this.analysis = new AknList<>(new Analysis[2]);
+        }
+        Sources.add(this.analysis, analysis);
     }
 
     public ListIterable<TemporalData> getTemporalData() {
         return iterable(this.temporalData);
     }
 
+    public TemporalData getTemporalData(AgentRef source) {
+        return Sources.get(this.temporalData, source);
+    }
+
+    public void add(TemporalData temporalData) {
+        if (this.temporalData == null) {
+            this.temporalData = new AknList<>(new TemporalData[2]);
+        }
+        Sources.add(this.temporalData, temporalData);
+    }
+
     public ListIterable<Notes> getNotes() {
         return iterable(this.notes);
+    }
+
+    public Notes getNotes(AgentRef source) {
+        return Sources.get(this.notes, source);
+    }
+
+    public void add(Notes notes) {
+        if (this.notes == null) {
+            this.notes = new AknList<>(new Notes[2]);
+        }
+        Sources.add(this.notes, notes);
     }
 
     public ListIterable<Proprietary> getProprietaries() {
         return iterable(this.proprietaries);
     }
 
+    public Proprietary getProprietary(AgentRef source) {
+        return Sources.get(this.proprietaries, source);
+    }
+
+    public void add(Proprietary proprietary) {
+        if (this.proprietaries != null) {
+            this.proprietaries = new AknList<>(new Proprietary[2]);
+        }
+        Sources.add(this.proprietaries, proprietary);
+    }
+
     public ListIterable<Presentation> getPresentations() {
         return iterable(this.presentations);
+    }
+
+    public Presentation getPresentation(AgentRef source) {
+        return Sources.get(this.presentations, source);
+    }
+
+    public void add(Presentation presentation) {
+        if (this.presentations == null) {
+            this.presentations = new AknList<>(new Presentation[2]);
+        }
+        Sources.add(this.presentations, presentation);
     }
 
     public ListIterable<References> getReferences() {
@@ -132,15 +221,7 @@ public final class Meta implements AknObject {
     }
 
     public References getReferences(AgentRef source) {
-        if (this.references == null) {
-            return null;
-        }
-        for (References ref : this.references) {
-            if (source.equals(ref.getSource())) {
-                return ref;
-            }
-        }
-        return null;
+        return Sources.get(this.references, source);
     }
 
     public void add(References references) {

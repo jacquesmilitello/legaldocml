@@ -9,14 +9,14 @@ import org.slf4j.LoggerFactory;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class MetaHelper {
+public final class Metas {
 
     /**
      * SLF4J Logger.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(MetaHelper.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Metas.class);
 
-    private MetaHelper() {
+    private Metas() {
     }
 
     public static References references(Meta meta, AgentRef source) {

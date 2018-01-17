@@ -1,7 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.MandatoryElementException;
+import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -140,7 +140,7 @@ public abstract class CoreProperties implements AknObject {
             this.frbrThis.read(reader);
             reader.nextStartOrEndElement();
         } else {
-            throw new MandatoryElementException(this, FRBR_THIS, reader);
+            throw new WriterMandatoryElementException(this, FRBR_THIS, reader);
         }
 
         if (reader.getQName().equalsLocalName(FRBR_URI)) {
@@ -152,7 +152,7 @@ public abstract class CoreProperties implements AknObject {
                 reader.nextStartOrEndElement();
             } while (reader.getQName().equalsLocalName(FRBR_URI));
         } else {
-            throw new MandatoryElementException(this, FRBR_URI, reader);
+            throw new WriterMandatoryElementException(this, FRBR_URI, reader);
         }
 
         if (reader.getQName().equalsLocalName(FRBR_ALIAS)) {
@@ -171,7 +171,7 @@ public abstract class CoreProperties implements AknObject {
             this.date.read(reader);
             reader.nextStartOrEndElement();
         } else {
-            throw new MandatoryElementException(this, FRBR_DATE, reader);
+            throw new WriterMandatoryElementException(this, FRBR_DATE, reader);
         }
 
         if (reader.getQName().equalsLocalName(FRBR_AUTHOR)) {
@@ -183,7 +183,7 @@ public abstract class CoreProperties implements AknObject {
                 reader.nextStartOrEndElement();
             } while (reader.getQName().equalsLocalName(FRBR_AUTHOR));
         } else {
-            throw new MandatoryElementException(this, FRBR_AUTHOR, reader);
+            throw new WriterMandatoryElementException(this, FRBR_AUTHOR, reader);
         }
 
         if (reader.getQName().equalsLocalName(COMPONENT_INFO)) {

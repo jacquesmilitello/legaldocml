@@ -53,6 +53,10 @@ public abstract class AbstractUri {
         this.specificPart = i;
     }
 
+    public final boolean isEmpty() {
+        return this.value == null || this.value.length == 0;
+    }
+
     public final char[] getChars() {
         return this.value;
     }

@@ -2,7 +2,7 @@ package io.legaldocml.akn.util;
 
 import io.legaldocml.LegalDocMlException;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.MandatoryAttributeException;
+import io.legaldocml.akn.exception.WriterMandatoryAttributeException;
 import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Alt;
@@ -118,7 +118,7 @@ public final class XmlWriterHelper {
 
     public static void writeSource(XmlWriter writer, Source source) throws IOException {
         if (source.getSource() == null) {
-            throwException(writer, new MandatoryAttributeException(source, AknAttributes.SOURCE, writer));
+            throwException(writer, new WriterMandatoryAttributeException(source, AknAttributes.SOURCE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_SOURCE, 6, source.getSource().getChars());
         }
@@ -154,7 +154,7 @@ public final class XmlWriterHelper {
 
     public static void writeName(XmlWriter writer, Name name) throws IOException {
         if (name.getName() == null) {
-            throwException(writer, new MandatoryAttributeException(name, AknAttributes.NAME, writer));
+            throwException(writer, new WriterMandatoryAttributeException(name, AknAttributes.NAME, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_NAME, 4, getChars(name.getName()));
         }
@@ -163,7 +163,7 @@ public final class XmlWriterHelper {
 
     public static void writeValue(XmlWriter writer, ValueReq value) throws IOException {
         if (value.getValue() == null) {
-            throwException(writer, new MandatoryAttributeException(value, AknAttributes.VALUE, writer));
+            throwException(writer, new WriterMandatoryAttributeException(value, AknAttributes.VALUE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_VALUE, 5, getChars(value.getValue()));
         }
@@ -209,7 +209,7 @@ public final class XmlWriterHelper {
 
     public static void writeDate(XmlWriter writer, Date date) throws IOException {
         if (date.getDate() == null) {
-            throwException(writer, new MandatoryAttributeException(date, AknAttributes.DATE, writer));
+            throwException(writer, new WriterMandatoryAttributeException(date, AknAttributes.DATE, writer));
         } else {
             OffsetDateTime dt = date.getDate();
             if ((dt.getHour() == 0) && (dt.getMinute() == 0) && (dt.getSecond() == 0) && (dt.getNano() == 0)) {
@@ -345,7 +345,7 @@ public final class XmlWriterHelper {
 
     public static void writeRefersReq(XmlWriter writer, RefersReq refersReq) throws IOException {
         if (refersReq.getRefersTo() == null) {
-            throwException(writer,  new MandatoryAttributeException(refersReq, AknAttributes.REFERS_TO, writer));
+            throwException(writer,  new WriterMandatoryAttributeException(refersReq, AknAttributes.REFERS_TO, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
         }
@@ -392,7 +392,7 @@ public final class XmlWriterHelper {
 
     public static void writePortionAtt(XmlWriter writer, PortionAtt portionAtt) throws IOException {
         if (portionAtt.getIncludedIn() == null) {
-            throwException(writer, new MandatoryAttributeException(portionAtt, AknAttributes.INCLUDED_IN, writer));
+            throwException(writer, new WriterMandatoryAttributeException(portionAtt, AknAttributes.INCLUDED_IN, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_INCLUDED_IN, 10, portionAtt.getIncludedIn().getChars());
         }
@@ -432,7 +432,7 @@ public final class XmlWriterHelper {
 
     public static void writeResultType(XmlWriter writer, ResultType resultType) throws IOException {
         if (resultType.getType() == null) {
-            throwException(writer, new MandatoryAttributeException(resultType, AknAttributes.TYPE, writer));
+            throwException(writer, new WriterMandatoryAttributeException(resultType, AknAttributes.TYPE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(resultType.getType().name()));
         }
@@ -593,12 +593,12 @@ public final class XmlWriterHelper {
 
     public static void writeRange(XmlWriter writer, RangeReq rangeReq) throws IOException {
         if (rangeReq.getFrom() == null) {
-            throwException(writer, new MandatoryAttributeException(rangeReq, AknAttributes.FROM, writer));
+            throwException(writer, new WriterMandatoryAttributeException(rangeReq, AknAttributes.FROM, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, rangeReq.getFrom().getChars());
         }
         if (rangeReq.getUpTo() == null) {
-            throwException(writer, new MandatoryAttributeException(rangeReq, AknAttributes.UP_TO, writer));
+            throwException(writer, new WriterMandatoryAttributeException(rangeReq, AknAttributes.UP_TO, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_UPTO, 4, rangeReq.getUpTo().getChars());
         }
@@ -606,7 +606,7 @@ public final class XmlWriterHelper {
 
     public static void writeRange(XmlWriter writer, RangeOpt range) throws IOException {
         if (range.getFrom() == null) {
-            throwException(writer, new MandatoryAttributeException(range, AknAttributes.FROM_LANGUAGE, writer));
+            throwException(writer, new WriterMandatoryAttributeException(range, AknAttributes.FROM_LANGUAGE, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_FROM, 4, range.getFrom().getChars());
         }
