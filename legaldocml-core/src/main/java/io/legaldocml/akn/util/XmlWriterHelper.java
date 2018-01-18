@@ -2,7 +2,6 @@ package io.legaldocml.akn.util;
 
 import io.legaldocml.LegalDocMlException;
 import io.legaldocml.akn.AknAttributes;
-import io.legaldocml.akn.exception.WriterMandatoryAttributeException;
 import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Alt;
@@ -67,6 +66,7 @@ import io.legaldocml.akn.attribute.ValueOpt;
 import io.legaldocml.akn.attribute.ValueReq;
 import io.legaldocml.akn.attribute.VoteAtts;
 import io.legaldocml.akn.element.Attributes;
+import io.legaldocml.akn.exception.WriterMandatoryAttributeException;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -438,8 +438,10 @@ public final class XmlWriterHelper {
         }
     }
 
-    public static void writeRestrictionType(XmlWriter writer, RestrictionType restrictionType) {
-
+    public static void writeRestrictionType(XmlWriter writer, RestrictionType restrictionType) throws IOException {
+        if (restrictionType.getType() != null) {
+            writer.writeAttribute(Attributes.ADDRESS_TYPE, 4, getChars(restrictionType.getType().name()));
+        }
     }
 
 

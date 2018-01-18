@@ -39,6 +39,11 @@ public final class AknElements {
 
     private static final ImmutableMap<String, Class<? extends AknObject>> ELEMENTS;
 
+    /**
+     * Element for {@link io.legaldocml.akn.AkomaNtoso}
+     */
+    public static final String AKOMANTOSO = "akomaNtoso";
+
     static {
         ImmutableMap.Builder<String, Class<? extends AknObject>> builder = ImmutableMap.builder();
         for (Field field : AknElements.class.getDeclaredFields()) {
@@ -47,10 +52,9 @@ public final class AknElements {
             }
             try {
                 String value = field.get(null).toString();
-                if ("akomaNtoso".equals(value)) {
+                if (AKOMANTOSO.equals(value)) {
                     builder.put(value, AkomaNtoso.class);
                 } else {
-                    //noinspection unchecked
                     //noinspection unchecked
                     builder.put(value, (Class<? extends AknObject>) Class.forName("io.legaldocml.akn.element." + firstLetterUpperCase(value)));
                 }
@@ -61,9 +65,6 @@ public final class AknElements {
 
         ELEMENTS = builder.build();
     }
-
-
-    public static final String AKOMANTOSO = "akomaNtoso";
 
     /**
      * Element for {@link io.legaldocml.akn.element.A}

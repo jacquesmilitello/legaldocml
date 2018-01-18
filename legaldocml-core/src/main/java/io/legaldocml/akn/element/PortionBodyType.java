@@ -106,7 +106,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public boolean remove(HierElements hier) {
+    public final boolean remove(HierElements hier) {
         return removePortionBodyTypeElement(hier);
     }
 
@@ -114,7 +114,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public void add(ANhier hier) {
+    public final void add(ANhier hier) {
         addPortionBodyTypeElement(hier);
     }
 
@@ -122,7 +122,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public void add(Hcontainer hcontainer) {
+    public final void add(Hcontainer hcontainer) {
         addPortionBodyTypeElement(requireNonNull(hcontainer));
     }
 
@@ -130,7 +130,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public boolean remove(Hcontainer hcontainer) {
+    public final boolean remove(Hcontainer hcontainer) {
         return removePortionBodyTypeElement(requireNonNull(hcontainer));
     }
 
@@ -138,7 +138,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public ListIterable<PortionBodyTypeElement> iterable() {
+    public final ListIterable<PortionBodyTypeElement> iterable() {
         return elements.iterable();
     }
 
@@ -146,7 +146,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public void add(ContainerElements ce) {
+    public final void add(ContainerElements ce) {
         addPortionBodyTypeElement(requireNonNull(ce));
     }
 
@@ -154,7 +154,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public boolean remove(ContainerElements ce) {
+    public final boolean remove(ContainerElements ce) {
         return removePortionBodyTypeElement(requireNonNull(ce));
     }
 
@@ -162,7 +162,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public void add(Container container) {
+    public final void add(Container container) {
         addPortionBodyTypeElement(requireNonNull(container));
     }
 
@@ -170,7 +170,7 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public Stream<PortionBodyTypeElement> stream() {
+    public final Stream<PortionBodyTypeElement> stream() {
         return elements.stream();
     }
 

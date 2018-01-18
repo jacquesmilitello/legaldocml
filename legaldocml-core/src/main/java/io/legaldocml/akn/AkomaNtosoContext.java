@@ -12,8 +12,6 @@ import io.legaldocml.module.AknModule;
 import io.legaldocml.module.Module;
 import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.CharArray;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,17 +24,12 @@ import java.util.function.BiConsumer;
  */
 public abstract class AkomaNtosoContext implements XmlReaderContext {
 
-    /**
-     * SLF4J Logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(AkomaNtosoContext.class);
-
-    private static final ImmutableMap<String, BiConsumer<AkomaNtosoContext,AknObject>> REFS;
+    private static final ImmutableMap<String, BiConsumer<AkomaNtosoContext, AknObject>> REFS;
 
     static {
         REFS = ImmutableMap.<String, BiConsumer<AkomaNtosoContext, AknObject>>builder()
-                .put(AknAttributes.EID, (context, aknObject) -> context.eids.put(((Id)aknObject).getEid(), (Id)aknObject))
-                .put(AknAttributes.SRC, (context, aknObject) -> context.srcs.put(((Src)aknObject).getSrc(), (Src)aknObject))
+                .put(AknAttributes.EID, (context, aknObject) -> context.eids.put(((Id) aknObject).getEid(), (Id) aknObject))
+                .put(AknAttributes.SRC, (context, aknObject) -> context.srcs.put(((Src) aknObject).getSrc(), (Src) aknObject))
                 .build();
     }
 

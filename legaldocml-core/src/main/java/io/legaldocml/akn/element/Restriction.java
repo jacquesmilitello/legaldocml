@@ -52,7 +52,7 @@ public final class Restriction extends AnyOtherType implements RefersOpt, io.leg
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(AnyOtherType.ATTRIBUTES)
                 .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(Restriction.class, "refersTo")))
-                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(Restriction.class, "refersTo"), RestrictionType.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(Restriction.class, "type"), RestrictionType.class))
                 .build();
     }
 

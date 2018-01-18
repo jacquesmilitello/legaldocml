@@ -21,9 +21,9 @@ import io.legaldocml.akn.type.WidRef;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
-import io.legaldocml.util.Buffers;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.Dates;
 import io.legaldocml.util.QnameUtil;
@@ -242,10 +242,12 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T i, CharArray s) {
-                String val = s.toString();
                 OffsetDateTime dateTime;
-                if (val.length() == 10) {
+                if (s.length() == 10 ) {
                     dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
+                            Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
+                } else if (s.length() == 11 && s.charAt(10) == 'Z') {
+                    dateTime = OffsetDateTime.of(LocalDate.parse(s.subSequence(0,10).toString(), DateTimeFormatter.ISO_DATE),
                             Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
                 } else {
                     try {
