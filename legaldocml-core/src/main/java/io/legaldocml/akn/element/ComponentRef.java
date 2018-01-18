@@ -1,13 +1,13 @@
 package io.legaldocml.akn.element;
 
+import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+
+import java.io.IOException;
+
 import io.legaldocml.akn.CollectionBodyElement;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
-
-import java.io.IOException;
-
-import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 
 /**
  * The element componentRef is a reference to a separate manifestation-level resource that holds the content of the

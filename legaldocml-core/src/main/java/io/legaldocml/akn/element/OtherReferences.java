@@ -60,7 +60,7 @@ public final class OtherReferences implements Source {
     }
 
     // Mandatory (min 1)
-    private final AknList<OtherReferencesElement> elems = new AknList<>(new OtherReferencesElement[2]);
+    private final AknList<OtherReferencesElement> elements = new AknList<>(new OtherReferencesElement[2]);
 
     // Mandatory
     private AgentRef source;
@@ -88,7 +88,7 @@ public final class OtherReferences implements Source {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_OTHER_REFERENCES, 5);
         writeSource(writer, this);
-        this.elems.write(writer);
+        this.elements.write(writer);
         writer.writeEnd(ADDRESS_OTHER_REFERENCES, 5);
     }
 
@@ -99,7 +99,7 @@ public final class OtherReferences implements Source {
     public void read(XmlReader reader) {
         Attributes.read(reader, this);
         reader.nextStartOrEndElement();
-        XmlReaderHelper.read(reader, this.elems, ELEMS);
+        XmlReaderHelper.read(reader, this.elements, ELEMS);
     }
 
     /**

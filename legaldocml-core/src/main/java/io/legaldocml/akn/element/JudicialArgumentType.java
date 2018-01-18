@@ -1,24 +1,5 @@
 package io.legaldocml.akn.element;
 
-import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Core;
-import io.legaldocml.akn.attribute.Enactment;
-import io.legaldocml.akn.attribute.IdReq;
-import io.legaldocml.akn.attribute.Modifiers;
-import io.legaldocml.akn.attribute.RefersOpt;
-import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.akn.type.StatusType;
-import io.legaldocml.akn.type.TemporalGroupRef;
-import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.Attribute;
-import io.legaldocml.io.AttributeGetterSetter;
-import io.legaldocml.io.XmlReader;
-import io.legaldocml.io.XmlWriter;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
 import static io.legaldocml.akn.AknAttributes.EXCLUSION;
 import static io.legaldocml.akn.AknAttributes.INCOMPLETE;
 import static io.legaldocml.akn.AknAttributes.PERIOD;
@@ -35,6 +16,24 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+
+import java.io.IOException;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.Core;
+import io.legaldocml.akn.attribute.Enactment;
+import io.legaldocml.akn.attribute.IdReq;
+import io.legaldocml.akn.attribute.Modifiers;
+import io.legaldocml.akn.attribute.RefersOpt;
+import io.legaldocml.akn.type.ListReferenceRef;
+import io.legaldocml.akn.type.StatusType;
+import io.legaldocml.akn.type.TemporalGroupRef;
+import io.legaldocml.akn.util.AknList;
+import io.legaldocml.io.AttributeGetterSetter;
+import io.legaldocml.io.XmlReader;
+import io.legaldocml.io.XmlWriter;
 
 /**
  * The complex type judicialArgumentType lists all the properties associated to judicial elements.
@@ -57,7 +56,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class JudicialArgumentType extends AbstractId implements IdReq, Enactment, RefersOpt, Modifiers, Core {
+public abstract class JudicialArgumentType extends AbstractIdCore implements IdReq, Enactment, RefersOpt, Modifiers, Core {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
@@ -80,8 +79,6 @@ public abstract class JudicialArgumentType extends AbstractId implements IdReq, 
     // Modifiers
     private Boolean exclusion;
     private Boolean incomplete;
-    // Core
-    private java.util.List<Attribute> attributes;
 
     private final AknList<Source> sources = new AknList<>(new Source[2]);
     private final AknList<Destination> destinations = new AknList<>(new Destination[2]);
@@ -173,27 +170,12 @@ public abstract class JudicialArgumentType extends AbstractId implements IdReq, 
      * {@inheritDoc}
      */
     @Override
-    public void add(Attribute attribute) {
-        if (this.attributes == null) {
-            this.attributes = new ArrayList<>();
-        }
-        this.attributes.add(attribute);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
         writeRefers(writer, this);
         writeEnactment(writer, this);
         writeModifiers(writer, this);
-        if (this.attributes != null) {
-            for (int i = 0, n = this.attributes.size(); i < n; i++) {
-                this.attributes.get(i).write(writer);
-            }
-        }
+        Core.super.write(writer);
         this.sources.write(writer);
         this.destinations.write(writer);
         if (this.condition != null) {

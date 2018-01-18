@@ -72,7 +72,7 @@ public abstract class JudicialArguments implements AknObject {
     }
 
     private Result result;
-    private final AknList<JudicialArgumentsElement> elems = new AknList<>(new JudicialArgumentsElement[2]);
+    private final AknList<JudicialArgumentsElement> list = new AknList<>(new JudicialArgumentsElement[2]);
 
     /**
      * {@inheritDoc}
@@ -82,7 +82,7 @@ public abstract class JudicialArguments implements AknObject {
         if (this.result != null) {
             this.result.write(writer);
         }
-        this.elems.write(writer);
+        this.list.write(writer);
     }
 
     /**
@@ -99,7 +99,7 @@ public abstract class JudicialArguments implements AknObject {
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elems, ELEMS, parent);
+        XmlReaderHelper.read(reader, this.list, ELEMS, parent);
     }
 
 }

@@ -29,7 +29,7 @@ import static io.legaldocml.akn.AknElements.TIME_INTERVAL;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class TemporalGroup extends AbstractId implements Core, IdReq {
+public final class TemporalGroup extends AbstractIdCore implements Core, IdReq {
 
     /**
      * Memory address.

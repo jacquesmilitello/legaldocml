@@ -1,13 +1,11 @@
 package io.legaldocml.akn.element;
 
+import java.io.IOException;
+
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.IdOpt;
-import io.legaldocml.io.Attribute;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * The complex type metaopt defines the content model and attributes shared by all metadata elements. Here the eId
@@ -22,20 +20,7 @@ import java.util.ArrayList;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class MetaOpt extends AbstractId implements Core, IdOpt {
-
-    private java.util.List<Attribute> attributes;
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void add(Attribute attribute) {
-        if (this.attributes == null) {
-            this.attributes = new ArrayList<>();
-        }
-        this.attributes.add(attribute);
-    }
+public abstract class MetaOpt extends AbstractIdCore implements Core, IdOpt {
 
     /**
      * {@inheritDoc}

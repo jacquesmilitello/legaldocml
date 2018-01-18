@@ -12,7 +12,7 @@ import io.legaldocml.module.Modules;
 public class AkomaNtosoContextV3 extends AkomaNtosoContext {
 
     public AkomaNtosoContextV3() {
-        super((AknModule) Modules.get(AkomaNtosoModuleV3.NAMESPACE));
+        super((AknModule) Modules.get(AkomaNtosoModuleV3.NAMESPACE_LEGALDOCML));
     }
 
     /**

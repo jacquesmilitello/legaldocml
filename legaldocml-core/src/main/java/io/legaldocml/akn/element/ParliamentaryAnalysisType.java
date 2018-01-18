@@ -53,7 +53,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ParliamentaryAnalysisType extends AbstractId implements Core, IdReq, RefersOpt, LinkOpt, Outcome {
+public abstract class ParliamentaryAnalysisType extends AbstractIdCore implements Core, IdReq, RefersOpt, LinkOpt, Outcome {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 

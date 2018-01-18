@@ -57,7 +57,7 @@ public final class Restrictions implements Source {
     }
 
     // Mandatory (min 1)
-    private final AknList<Restriction> elems = new AknList<>(new Restriction[2]);
+    private final AknList<Restriction> elements = new AknList<>(new Restriction[2]);
 
     // Mandatory
     private AgentRef source;
@@ -83,7 +83,7 @@ public final class Restrictions implements Source {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_RESTRICTIONS, 12);
         writeSource(writer, this);
-        this.elems.write(writer);
+        this.elements.write(writer);
         writer.writeEnd(ADDRESS_RESTRICTIONS, 12);
     }
 
@@ -93,7 +93,7 @@ public final class Restrictions implements Source {
     @Override
     public void read(XmlReader reader) {
         Attributes.read(reader, this);
-        XmlReaderHelper.read(reader, this.elems, ELEMS);
+        XmlReaderHelper.read(reader, this.elements, ELEMS);
     }
 
     /**

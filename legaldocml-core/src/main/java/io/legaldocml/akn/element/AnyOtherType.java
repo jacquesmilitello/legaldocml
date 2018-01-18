@@ -1,6 +1,19 @@
 package io.legaldocml.akn.element;
 
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+import static io.legaldocml.util.CharArrays.immutable;
+import static io.legaldocml.util.Iterables.iterable;
+
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.collect.ImmutableMap;
+
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.Core;
@@ -10,7 +23,6 @@ import io.legaldocml.akn.other.ExternalElementWithNS;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.io.Attribute;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
@@ -18,18 +30,6 @@ import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.ListIterable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import static io.legaldocml.akn.AknAttributes.HREF;
-import static io.legaldocml.akn.element.Attributes.ADDRESS_HREF;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
-import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
-import static io.legaldocml.util.CharArrays.immutable;
-import static io.legaldocml.util.Iterables.iterable;
 
 /**
  * The complex type anyOtherType defines an open content model for elements that may use elements from other namespaces.
@@ -47,7 +47,7 @@ import static io.legaldocml.util.Iterables.iterable;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, IdOpt {
+public abstract class AnyOtherType extends AbstractIdCore implements LinkOpt, Core, IdOpt {
 
     /**
      * SLF4J Logger.
@@ -66,8 +66,6 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
     private Uri href;
 
     private AknList<AnyOtherTypeElement> others;
-
-    private java.util.List<Attribute> attributes;
 
     /**
      * {@inheritDoc}
@@ -88,17 +86,6 @@ public abstract class AnyOtherType extends AbstractId implements LinkOpt, Core, 
 
     public final ListIterable<AnyOtherTypeElement> getChilds() {
         return iterable(this.others);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public final void add(Attribute attribute) {
-        if (this.attributes == null) {
-            this.attributes = new ArrayList<>();
-        }
-        this.attributes.add(attribute);
     }
 
     public final void add(AnyOtherTypeElement el) {

@@ -38,7 +38,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SrcType extends AbstractId implements Core, IdOpt, ShowReq, Src {
+public abstract class SrcType extends AbstractIdCore implements Core, IdOpt, ShowReq, Src {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 

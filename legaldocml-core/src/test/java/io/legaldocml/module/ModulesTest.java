@@ -13,22 +13,22 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.function.Supplier;
 
-public class ModulesTest {
+class ModulesTest {
 
     @Test
-    public void testConstructor() throws Exception {
+    void testConstructor() throws Exception {
         Tests.assertUtilClassIsWellDefined(Modules.class);
     }
 
     @Test
-    public void testGet() {
-        Assertions.assertNotNull(Modules.get(AkomaNtosoModuleV3.NAMESPACE));
+    void testGet() {
+        Assertions.assertNotNull(Modules.get(AkomaNtosoModuleV3.NAMESPACE_LEGALDOCML));
         Assertions.assertNotNull(Modules.get(CharArrays.immutable("http://docs.oasis-open.org/legaldocml/ns/akn/3.0")));
         Assertions.assertNull(Modules.get(CharArrays.immutable("hello")));
     }
 
     @Test
-    public void testElementOnModule() {
+    void testElementOnModule() {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> new FakeModule().element(null,null));
     }
 

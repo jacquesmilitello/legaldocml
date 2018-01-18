@@ -24,14 +24,14 @@ public final class AkomaNtosoModuleV3 implements AknModule {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    public static final CharArray NAMESPACE = CharArrays.immutable(NS_VALUE);
+    public static final CharArray NAMESPACE_LEGALDOCML = CharArrays.immutable(NS_VALUE);
 
     /**
      * {@inheritDoc}
      */
     @Override
     public CharArray namespace() {
-        return NAMESPACE;
+        return NAMESPACE_LEGALDOCML;
     }
 
     /**
@@ -63,7 +63,7 @@ public final class AkomaNtosoModuleV3 implements AknModule {
      */
     @Override
     public String toString() {
-        return getClass().getName() + " for [" + NAMESPACE + "]";
+        return getClass().getName() + " for [" + NAMESPACE_LEGALDOCML + "]";
     }
 
     /**

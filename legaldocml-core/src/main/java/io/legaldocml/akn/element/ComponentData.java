@@ -48,7 +48,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class ComponentData extends AbstractId implements IdReq, Name, LinkReq, ShowReq, Core {
+public final class ComponentData extends AbstractIdCore implements IdReq, Name, LinkReq, ShowReq, Core {
 
     /**
      * Memory address.

@@ -109,14 +109,14 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     }
 
     // Mandatory (min 1).
-    private final AknList<SubFlowStructureElement> elems = new AknList<>(new SubFlowStructureElement[8]);
+    private final AknList<SubFlowStructureElement> elements = new AknList<>(new SubFlowStructureElement[8]);
 
     public final void addSubFlowStructureElement(SubFlowStructureElement element) {
-        this.elems.add(requireNonNull(element));
+        this.elements.add(requireNonNull(element));
     }
 
     public final boolean removeSubFlowStructureElement(SubFlowStructureElement element) {
-        return this.elems.remove(requireNonNull(element));
+        return this.elements.remove(requireNonNull(element));
     }
 
     /**
@@ -124,7 +124,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      */
     @Override
     public final SubFlowStructureElement remove(int index) {
-        return this.elems.remove(index);
+        return this.elements.remove(index);
     }
 
     /**
@@ -205,7 +205,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, elems, ELEMS);
+        XmlReaderHelper.read(reader, elements, ELEMS);
     }
 
     /**
@@ -214,7 +214,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     @Override
     public void write(XmlWriter writer) throws IOException {
         CoreReq.super.write(writer);
-        this.elems.write(writer);
+        this.elements.write(writer);
     }
 
     /**
@@ -222,7 +222,7 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      */
     @Override
     public void accept(AknVisitor visitor) {
-        this.elems.accept(visitor);
+        this.elements.accept(visitor);
     }
 
 }
