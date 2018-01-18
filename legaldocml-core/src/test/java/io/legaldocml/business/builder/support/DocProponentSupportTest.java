@@ -16,10 +16,12 @@ import static org.mockito.Mockito.doCallRealMethod;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponentSupport<P>,P> {
+@SuppressWarnings("unchecked")
+class DocProponentSupportTest extends SupportBuilderTestCase<DocProponentSupport<P, ?>,P> {
 
-    @Test
-    public void testEmpty() throws IOException {
+    
+	@Test
+    void testEmpty() throws IOException {
         doCallRealMethod().when(mock).docProponent(Mockito.any());
         doCallRealMethod().when(mock).docProponent(Mockito.nullable(Consumer.class),Mockito.any());
         mock.docProponent();
@@ -27,7 +29,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
     }
 
     @Test
-    public void testWithText() throws IOException {
+    void testWithText() throws IOException {
         doCallRealMethod().when(mock).docProponent(Mockito.any());
         doCallRealMethod().when(mock).docProponent(Mockito.nullable(Consumer.class),Mockito.any());
         InlineTypeBuilder<DocProponent> builder = mock.docProponent();
@@ -36,7 +38,7 @@ public class DocProponentSupportTest extends SupportBuilderTestCase<DocProponent
     }
 
     @Test
-    public void testWithConsumer() throws IOException {
+    void testWithConsumer() throws IOException {
         doCallRealMethod().when(mock).docProponent(Mockito.any());
         doCallRealMethod().when(mock).docProponent(Mockito.any(),Mockito.any());
         InlineTypeBuilder<DocProponent> builder = mock.docProponent( dc -> dc.setEid(NoWhiteSpace.valueOf("eid_1")));

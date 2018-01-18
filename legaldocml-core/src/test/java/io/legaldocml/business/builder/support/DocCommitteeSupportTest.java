@@ -17,10 +17,11 @@ import static org.mockito.Mockito.nullable;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class DocCommitteeSupportTest extends SupportBuilderTestCase<DocCommitteeSupport<P>,P> {
+@SuppressWarnings("unchecked")
+class DocCommitteeSupportTest extends SupportBuilderTestCase<DocCommitteeSupport<P,?>,P> {
 
     @Test
-    public void testEmpty() throws IOException {
+    void testEmpty() throws IOException {
         doCallRealMethod().when(mock).docCommittee(any());
         doCallRealMethod().when(mock).docCommittee(nullable(Consumer.class), any());
         mock.docCommittee();
@@ -28,7 +29,7 @@ public class DocCommitteeSupportTest extends SupportBuilderTestCase<DocCommittee
     }
 
     @Test
-    public void testWithText() throws IOException {
+    void testWithText() throws IOException {
         doCallRealMethod().when(mock).docCommittee(any());
         doCallRealMethod().when(mock).docCommittee(nullable(Consumer.class), any());
         InlineTypeBuilder<DocCommittee> builder = mock.docCommittee();
@@ -37,7 +38,7 @@ public class DocCommitteeSupportTest extends SupportBuilderTestCase<DocCommittee
     }
 
     @Test
-    public void testWithConsumer() throws IOException {
+    void testWithConsumer() throws IOException {
         doCallRealMethod().when(mock).docCommittee(any());
         doCallRealMethod().when(mock).docCommittee(any(), any());
         InlineTypeBuilder<DocCommittee> builder = mock.docCommittee( dc -> dc.setEid(NoWhiteSpace.valueOf("eid_1")));

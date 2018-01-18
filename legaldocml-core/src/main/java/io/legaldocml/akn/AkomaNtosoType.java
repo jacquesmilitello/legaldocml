@@ -120,8 +120,8 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
      */
     @Override
     public void nestedCompare(AknObject object, DiffContext context) {
-        Diffs.compare(documentType,((AkomaNtosoType)object).documentType, context);
-        Diffs.compare(components,((AkomaNtosoType)object).components, context);
+        Diffs.compare(documentType,((AkomaNtosoType<?>)object).documentType, context);
+        Diffs.compare(components,((AkomaNtosoType<?>)object).components, context);
     }
 
 }

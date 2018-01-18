@@ -59,7 +59,6 @@ public final class DefaultBusinessBuilder extends BusinessBuilder {
                 .build();
     }
 
-    @SuppressWarnings("unchecked")
     DefaultBusinessBuilder(BusinessProvider provider, String name, HierarchyStrategy strategy) {
         super(provider,newDocumenyType(name),strategy);
 

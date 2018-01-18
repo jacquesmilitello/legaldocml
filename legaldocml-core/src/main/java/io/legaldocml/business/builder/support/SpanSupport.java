@@ -1,10 +1,10 @@
 package io.legaldocml.business.builder.support;
 
+import java.util.function.Consumer;
+
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.element.Span;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
-
-import java.util.function.Consumer;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

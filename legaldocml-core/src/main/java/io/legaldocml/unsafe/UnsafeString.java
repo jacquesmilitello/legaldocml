@@ -6,6 +6,7 @@ import sun.misc.Unsafe;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@SuppressWarnings("restriction")
 public final class UnsafeString {
 
     /**
@@ -38,7 +39,7 @@ public final class UnsafeString {
         return mutable;
     }
 
-    public static char[] getChars(String s) {
+	public static char[] getChars(String s) {
         if (s == null) {
             return EMPTY;
         }

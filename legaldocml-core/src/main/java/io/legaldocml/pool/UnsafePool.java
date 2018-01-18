@@ -12,9 +12,10 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>>, Closeable{
 
     private final long adr;
 
-    private static final sun.misc.Unsafe UNSAFE = UnsafeHelper.getUnsafe();
+    @SuppressWarnings("restriction")
+	private static final sun.misc.Unsafe UNSAFE = UnsafeHelper.getUnsafe();
 
-    private final UnsafeHolder[] holders;
+    private final UnsafeHolder<T>[] holders;
 
     private final int size;
 
@@ -24,13 +25,13 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>>, Closeable{
 
     private boolean isClosed;
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "restriction", "unchecked" })
     UnsafePool(int size, PoolableObject<T> poolableObject) {
         this.poolableObject = poolableObject;
         this.adr = UNSAFE.allocateMemory((long)size * 8);
         this.holders = new UnsafeHolder[size];
         for (int i = 0; i < size; i++) {
-            holders[i] = new UnsafeHolder(poolableObject.newInstance());
+            holders[i] = new UnsafeHolder<T>(poolableObject.newInstance());
         }
         this.size = size;
         this.isClosed = false;
@@ -40,12 +41,12 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>>, Closeable{
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("restriction")
     public UnsafeHolder<T> checkOut() {
 
         int size = this.size;
         int index = this.index;
-        UnsafeHolder[] holders = this.holders;
+        UnsafeHolder<T>[] holders = this.holders;
         for (int i = index; i < size; i++) {
             if (UNSAFE.compareAndSwapInt(holders[i], UnsafeHolder.FIELD_OFFSET, UnsafeHolder.FREE, UnsafeHolder.USED)) {
                 // it's free => return;
@@ -64,8 +65,8 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>>, Closeable{
         return checkOut(0, size, holders);
     }
 
-    @SuppressWarnings("unchecked")
-    private UnsafeHolder<T> checkOut(int count, int size, UnsafeHolder[] holders) {
+    @SuppressWarnings("restriction")
+    private UnsafeHolder<T> checkOut(int count, int size, UnsafeHolder<T>[] holders) {
 
         if (count == 100) {
             return new UnsafeHolder<>(poolableObject.newInstance(), UnsafeHolder.SINGLE);
@@ -106,6 +107,7 @@ final class UnsafePool<T> implements Pool<PoolHolder<T>>, Closeable{
      * {@inheritDoc}
      */
     @Override
+    @SuppressWarnings("restriction")
     public void close() {
         if (!this.isClosed) {
             UNSAFE.freeMemory(this.adr);

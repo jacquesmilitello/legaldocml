@@ -2,13 +2,14 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.HasPreface;
 import io.legaldocml.akn.element.Preface;
+import io.legaldocml.akn.element.PrefaceoptElement;
 import io.legaldocml.business.builder.group.BlockElementsBuilder;
 import io.legaldocml.business.builder.group.PrefaceContainersBuilder;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class PrefaceBuilder extends AbstractBusinessPartBuilder<Preface> implements BlockElementsBuilder<Preface>, PrefaceContainersBuilder<Preface> {
+public class PrefaceBuilder extends AbstractBusinessPartBuilder<Preface> implements BlockElementsBuilder<Preface,PrefaceoptElement>, PrefaceContainersBuilder<Preface,PrefaceoptElement> {
 
     public PrefaceBuilder(BusinessBuilder builder) {
         super(builder, new Preface());

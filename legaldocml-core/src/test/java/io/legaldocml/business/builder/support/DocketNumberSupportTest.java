@@ -17,10 +17,11 @@ import static org.mockito.Mockito.nullable;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class DocketNumberSupportTest extends SupportBuilderTestCase<DocketNumberSupport<P>,P> {
+@SuppressWarnings("unchecked")
+class DocketNumberSupportTest extends SupportBuilderTestCase<DocketNumberSupport<P,?>,P> {
 
     @Test
-    public void testEmpty() throws IOException {
+    void testEmpty() throws IOException {
         doCallRealMethod().when(mock).docketNumber(any());
         doCallRealMethod().when(mock).docketNumber(nullable(Consumer.class), any());
         mock.docketNumber();
@@ -28,7 +29,7 @@ public class DocketNumberSupportTest extends SupportBuilderTestCase<DocketNumber
     }
 
     @Test
-    public void testWithText() throws IOException {
+    void testWithText() throws IOException {
         doCallRealMethod().when(mock).docketNumber(any());
         doCallRealMethod().when(mock).docketNumber(nullable(Consumer.class), any());
         InlineTypeBuilder<DocketNumber> builder = mock.docketNumber();
@@ -37,7 +38,7 @@ public class DocketNumberSupportTest extends SupportBuilderTestCase<DocketNumber
     }
 
     @Test
-    public void testWithConsumer() throws IOException {
+    void testWithConsumer() throws IOException {
         doCallRealMethod().when(mock).docketNumber(any());
         doCallRealMethod().when(mock).docketNumber(any(), any());
         InlineTypeBuilder<DocketNumber> builder = mock.docketNumber(dc -> dc.setEid(NoWhiteSpace.valueOf("eid_1")));

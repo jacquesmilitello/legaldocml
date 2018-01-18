@@ -273,7 +273,8 @@ public final class XmlWriterHelper {
         }
     }
 
-    public static void writeIdReq(XmlWriter writer, IdReq idReq) throws IOException {
+    @SuppressWarnings("deprecation")
+	public static void writeIdReq(XmlWriter writer, IdReq idReq) throws IOException {
 
         if (writer.getVersion() == 2) {
 
@@ -304,7 +305,8 @@ public final class XmlWriterHelper {
 
     }
 
-    public static void writeIdOpt(XmlWriter writer, IdOpt idOpt) throws IOException {
+    @SuppressWarnings("deprecation")
+	public static void writeIdOpt(XmlWriter writer, IdOpt idOpt) throws IOException {
 
         if (writer.getVersion() == 2) {
             if (idOpt.getId() != null) {

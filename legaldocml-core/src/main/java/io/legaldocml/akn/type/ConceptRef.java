@@ -16,8 +16,6 @@ import io.legaldocml.util.AbstractUri;
  */
 public class ConceptRef extends AbstractUri {
 
-    private static final char REF = '#';
-
     public ConceptRef(char[] value) {
         super(value);
     }

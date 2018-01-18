@@ -34,7 +34,6 @@ final class XmlReaderFactoryImpl implements XmlReaderFactory {
         pool = Pools.createPool(size, POOLABLE_OBJECT);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer) {
         PoolHolder<XmlChannelReader> holder = null;

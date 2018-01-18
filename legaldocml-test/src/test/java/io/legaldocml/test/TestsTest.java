@@ -45,7 +45,6 @@ public class TestsTest {
     private static class Test02 {
     }
 
-    @SuppressWarnings("ALL")
     public final static class Test03 {
     }
 
@@ -53,7 +52,8 @@ public class TestsTest {
         private Test04() {
         }
 
-        public void hello() {
+        @SuppressWarnings("unused")
+		public void hello() {
         }
     }
 }

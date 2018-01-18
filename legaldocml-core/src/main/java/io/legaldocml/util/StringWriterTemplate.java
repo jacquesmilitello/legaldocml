@@ -20,7 +20,8 @@ public abstract class StringWriterTemplate {
             buffer = (MappedByteBuffer) ByteBuffer.allocateDirect(bytes.length);
             buffer.put(bytes);
             buffer.flip();
-            long addr = ((sun.nio.ch.DirectBuffer) buffer).address();
+            @SuppressWarnings("restriction")
+			long addr = ((sun.nio.ch.DirectBuffer) buffer).address();
 
             onReserveBuffer(addr, bytes.length);
 

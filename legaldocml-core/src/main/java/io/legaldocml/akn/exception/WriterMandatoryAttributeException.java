@@ -7,6 +7,7 @@ import io.legaldocml.io.XmlWriter;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@SuppressWarnings("serial")
 public final class WriterMandatoryAttributeException extends LegalDocMlException {
 
     public WriterMandatoryAttributeException(AknObject aknObject, String attributeName, XmlWriter writer) {

@@ -39,6 +39,7 @@ public class HashingTest {
         Assertions.assertEquals("HelloWorld".hashCode(), Hashing.hashCode("HelloWorld".toCharArray()));
     }
 
+    @SuppressWarnings("restriction")
     private static class HashReader4String extends HashReader {
 
         private final char[] val;
@@ -56,7 +57,7 @@ public class HashingTest {
 
         @Override
         public long getLong() {
-            long value = UnsafeHelper.getUnsafe().getLong(val, adr);
+			long value = UnsafeHelper.getUnsafe().getLong(val, adr);
             adr += 8;
             return value;
         }

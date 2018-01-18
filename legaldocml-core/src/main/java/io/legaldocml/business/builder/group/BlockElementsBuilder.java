@@ -1,11 +1,12 @@
 package io.legaldocml.business.builder.group;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.business.builder.support.BlockSupport;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface BlockElementsBuilder<T extends BlockElementsContainer> extends BlockSupport<T> , HTMLblockBuilder<T> {
+public interface BlockElementsBuilder<T extends BlockElementsContainer<E>, E extends AknObject> extends BlockSupport<T,E> , HTMLblockBuilder<T,E> {
 
 }

@@ -6,7 +6,6 @@ import io.legaldocml.akn.exception.MandatoryAttributeException;
 import io.legaldocml.akn.exception.MetaException;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.test.LoggerInstancePostProcessor;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 

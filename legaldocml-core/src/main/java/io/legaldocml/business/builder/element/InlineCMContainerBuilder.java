@@ -4,6 +4,7 @@ import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.element.Inline;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.element.Sup;
+import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessPartBuilder;
@@ -20,8 +21,8 @@ import io.legaldocml.business.util.AknReferences;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U extends BusinessPartBuilder<T>> extends AbstractBusinessPartBuilder<T>
-        implements ANtitleInlineBuilder<T>, ANinlineBuilder<T>, HTMLInlineBuilder<T>, OrganizationSupport<T>, MarkerElementsBuilder<T>,
-        ANsemanticInlineBuilder<T> {
+        implements ANtitleInlineBuilder<T, InlineCM>, ANinlineBuilder<T, InlineCM>, HTMLInlineBuilder<T, InlineCM>, OrganizationSupport<T>, MarkerElementsBuilder<T, InlineCM>,
+        ANsemanticInlineBuilder<T, InlineCM> {
 
     private final T container;
 

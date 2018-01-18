@@ -409,7 +409,8 @@ public final class Groups {
         return builder.build();
     }
 
-    private static Map<String, Supplier<ANinline>> ANinline() {
+    @SuppressWarnings("deprecation")
+	private static Map<String, Supplier<ANinline>> ANinline() {
 
         ImmutableMap.Builder<String, Supplier<ANinline>> builder = ImmutableMap.builder();
         // <xsd:element ref="ref"/>

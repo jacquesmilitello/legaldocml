@@ -8,15 +8,15 @@ import io.legaldocml.business.builder.BusinessBuilderException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class HierarchyBuilderTest {
+class HierarchyBuilderTest {
 
     @Test
-    public void testNumTwive() {
+    void testNumTwive() {
         BusinessBuilder businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.AMENDMENT);
         HierarchyBuilder<Chapter> hierarchyBuilder = new HierarchyBuilder<Chapter>(businessBuilder, new Chapter());
         hierarchyBuilder.num();
 
-        BusinessBuilderException ex = Assertions.assertThrows(BusinessBuilderException.class, () -> hierarchyBuilder.num());
+        Assertions.assertThrows(BusinessBuilderException.class, () -> hierarchyBuilder.num());
     }
 
 

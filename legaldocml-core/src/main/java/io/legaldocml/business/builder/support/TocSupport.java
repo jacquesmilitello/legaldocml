@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.support;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.container.ANblockContainer;
 import io.legaldocml.akn.element.Toc;
 import io.legaldocml.business.builder.element.TocBuilder;
@@ -9,7 +10,7 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface TocSupport<T extends ANblockContainer> extends SupportBuilder<T> {
+public interface TocSupport<T extends ANblockContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
     default TocBuilder toc() {
         return toc(null);

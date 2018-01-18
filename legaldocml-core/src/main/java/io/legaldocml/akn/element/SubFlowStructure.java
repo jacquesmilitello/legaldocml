@@ -78,7 +78,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SubFlowStructure extends AbstractCore implements CoreReq, BlockElementsContainer, HierElementsContainer {
+public abstract class SubFlowStructure extends AbstractCore implements CoreReq, BlockElementsContainer<SubFlowStructureElement>, HierElementsContainer<SubFlowStructureElement> {
 
     private static final ImmutableMap<String, Supplier<SubFlowStructureElement>> ELEMS;
 

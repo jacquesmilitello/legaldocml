@@ -32,7 +32,6 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(AknReference.class);
 
-    @SuppressWarnings("WeakerAccess")
     protected AknReference() {
     }
 

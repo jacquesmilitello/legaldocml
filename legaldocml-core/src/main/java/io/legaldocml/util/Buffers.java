@@ -47,7 +47,8 @@ public final class Buffers {
         return ((sun.nio.ch.DirectBuffer) buffer).address();
     }
 
-    public static void releaseDirectByteBuffer(MappedByteBuffer buffer) {
+    @SuppressWarnings("restriction")
+	public static void releaseDirectByteBuffer(MappedByteBuffer buffer) {
         ((sun.nio.ch.DirectBuffer) buffer).cleaner().clean();
     }
 

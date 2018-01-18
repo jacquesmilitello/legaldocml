@@ -2,13 +2,14 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.HasPreamble;
 import io.legaldocml.akn.element.Preamble;
+import io.legaldocml.akn.element.PreambleoptElement;
 import io.legaldocml.business.builder.group.BlockElementsBuilder;
 import io.legaldocml.business.builder.group.PreambleContainersBuilder;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class PreambleBuilder extends AbstractBusinessPartBuilder<Preamble> implements BlockElementsBuilder<Preamble>, PreambleContainersBuilder<Preamble> {
+public class PreambleBuilder extends AbstractBusinessPartBuilder<Preamble> implements BlockElementsBuilder<Preamble,PreambleoptElement>, PreambleContainersBuilder<Preamble,PreambleoptElement> {
 
     public PreambleBuilder(BusinessBuilder builder) {
         super(builder, new Preamble());

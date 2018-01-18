@@ -12,7 +12,7 @@ public class VisitorTest {
     @Test
     public void test() throws IOException {
 
-        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
+        AkomaNtoso<?> akn = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
         akn.accept(new AknVisitor() {
         });
 
@@ -72,21 +72,21 @@ public class VisitorTest {
 
     @Test
     public void testAmendment() throws IOException {
-        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v2/Amendemet_Bungeni_2011-07-20.xml"));
+        AkomaNtoso<?> akn = ReaderHelper.read(PathForTest.path("/xml/v2/Amendemet_Bungeni_2011-07-20.xml"));
         akn.accept(new AknVisitor() {
         });
     }
 
     @Test
     public void testAmendmentList() throws IOException {
-        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v2/AmendmentList_Bungeni_2010-10-28v2.xml"));
+        AkomaNtoso<?> akn = ReaderHelper.read(PathForTest.path("/xml/v2/AmendmentList_Bungeni_2010-10-28v2.xml"));
         akn.accept(new AknVisitor() {
         });
     }
 
     @Test
     public void testBill() throws IOException {
-        AkomaNtoso akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2009-01-27.xml"));
+        AkomaNtoso<?> akn = ReaderHelper.read(PathForTest.path("/xml/v2/Bill_Bungeni_2009-01-27.xml"));
         akn.accept(new AknVisitor() {
         });
 

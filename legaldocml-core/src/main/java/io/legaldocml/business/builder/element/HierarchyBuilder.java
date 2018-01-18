@@ -18,7 +18,7 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T> {
+public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T,HierarchyElement> {
 
     private final Hierarchy parent;
     private final T hierarchy;
@@ -80,7 +80,8 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         return new HierarchyBuilder<>(businessBuilder(), this.hierarchy, el);
     }
 
-    public <E extends Hierarchy> HierarchyBuilder<E> newChild(String element) {
+    @SuppressWarnings("unchecked")
+	public <E extends Hierarchy> HierarchyBuilder<E> newChild(String element) {
         HierarchyElement el = Hierarchy.ELEMS.get(element).get();
         this.hierarchy.addHierarchyElement(el);
         return new HierarchyBuilder<E>(businessBuilder(), (E) el);

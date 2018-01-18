@@ -46,7 +46,7 @@ final class XmlAttributes {
         pos = 0;
     }
 
-    public void forEach(Externalizable object, AttributeConsumer consumer) {
+    public <T extends Externalizable> void forEach(T object, AttributeConsumer<T> consumer) {
         for (int i = 0; i < pos; i++) {
             consumer.set(object, this.names[i], this.values[i], this.prefixes[i]);
         }

@@ -9,6 +9,7 @@ import io.legaldocml.akn.element.FRBRWork;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@SuppressWarnings("serial")
 public final class AknIdentifierException extends LegalDocMlException {
 
     private final Type type;

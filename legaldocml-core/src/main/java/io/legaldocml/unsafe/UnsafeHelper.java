@@ -10,6 +10,7 @@ import java.security.PrivilegedExceptionAction;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@SuppressWarnings("restriction")
 public final class UnsafeHelper {
 
     public static final long BYTE_ARRAY_BASE_OFFSET;
@@ -40,9 +41,9 @@ public final class UnsafeHelper {
             throw new RuntimeException("Unable to load unsafe", cause);
         }
 
-        BYTE_ARRAY_BASE_OFFSET = UNSAFE.ARRAY_BYTE_BASE_OFFSET;
-        CHAR_ARRAY_BASE_OFFSET = UNSAFE.ARRAY_CHAR_BASE_OFFSET;
-        OBJECT_ARRAY_BASE_OFFSET = UNSAFE.ARRAY_OBJECT_BASE_OFFSET;
+        BYTE_ARRAY_BASE_OFFSET = Unsafe.ARRAY_BYTE_BASE_OFFSET;
+        CHAR_ARRAY_BASE_OFFSET = Unsafe.ARRAY_CHAR_BASE_OFFSET;
+        OBJECT_ARRAY_BASE_OFFSET = Unsafe.ARRAY_OBJECT_BASE_OFFSET;
     }
 
     private UnsafeHelper() {
