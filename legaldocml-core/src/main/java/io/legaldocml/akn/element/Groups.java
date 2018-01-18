@@ -1,50 +1,28 @@
 package io.legaldocml.akn.element;
 
-import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknElements;
-import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.akn.DocumentType;
-import io.legaldocml.akn.group.ANblock;
-import io.legaldocml.akn.group.ANcontainers;
-import io.legaldocml.akn.group.ANheaderInline;
-import io.legaldocml.akn.group.ANhier;
-import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.akn.group.ANmarker;
-import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.akn.group.ANsubFlow;
-import io.legaldocml.akn.group.ANtitleInline;
-import io.legaldocml.akn.group.AmendmentInline;
-import io.legaldocml.akn.group.BasicContainers;
-import io.legaldocml.akn.group.BlockElements;
-import io.legaldocml.akn.group.ContainerElements;
-import io.legaldocml.akn.group.DocRef;
-import io.legaldocml.akn.group.HTMLMarker;
-import io.legaldocml.akn.group.HTMLblock;
-import io.legaldocml.akn.group.HTMLcontainers;
-import io.legaldocml.akn.group.HTMLinline;
-import io.legaldocml.akn.group.HierElements;
-import io.legaldocml.akn.group.InlineCM;
-import io.legaldocml.akn.group.InlineElements;
-import io.legaldocml.akn.group.MarkerElements;
-import io.legaldocml.akn.group.PreambleContainers;
-import io.legaldocml.akn.group.PrefaceContainers;
-import io.legaldocml.akn.group.SpeechSection;
-import io.legaldocml.akn.group.SubFlowElements;
-import io.legaldocml.akn.group.TLC;
-import io.legaldocml.io.XmlReader;
-
-import java.util.Map;
-import java.util.function.Supplier;
-
-import static io.legaldocml.akn.AknElements.*;
+import static io.legaldocml.akn.AknElements.A;
+import static io.legaldocml.akn.AknElements.ABBR;
 import static io.legaldocml.akn.AknElements.ACT;
+import static io.legaldocml.akn.AknElements.ACTIVE_REF;
+import static io.legaldocml.akn.AknElements.ADDRESS;
+import static io.legaldocml.akn.AknElements.ADJOURNMENT;
+import static io.legaldocml.akn.AknElements.ADMINISTATION_OF_OATH;
+import static io.legaldocml.akn.AknElements.AFFECTED_DOCUMENT;
+import static io.legaldocml.akn.AknElements.ALINEA;
 import static io.legaldocml.akn.AknElements.AMENDMENT;
 import static io.legaldocml.akn.AknElements.AMENDMENT_LIST;
+import static io.legaldocml.akn.AknElements.ANSWER;
+import static io.legaldocml.akn.AknElements.ARGUMENT;
+import static io.legaldocml.akn.AknElements.ARTICLE;
+import static io.legaldocml.akn.AknElements.ATTACHMENT_OF;
+import static io.legaldocml.akn.AknElements.AUTHORIAL_NOTE;
+import static io.legaldocml.akn.AknElements.B;
 import static io.legaldocml.akn.AknElements.BILL;
 import static io.legaldocml.akn.AknElements.BLOCK;
 import static io.legaldocml.akn.AknElements.BLOCK_CONTAINER;
 import static io.legaldocml.akn.AknElements.BLOCK_LIST;
 import static io.legaldocml.akn.AknElements.BOOK;
+import static io.legaldocml.akn.AknElements.BR;
 import static io.legaldocml.akn.AknElements.CHANGE;
 import static io.legaldocml.akn.AknElements.CHAPTER;
 import static io.legaldocml.akn.AknElements.CITATIONS;
@@ -89,7 +67,149 @@ import static io.legaldocml.akn.AknElements.FOREIGN;
 import static io.legaldocml.akn.AknElements.FORMULA;
 import static io.legaldocml.akn.AknElements.HAS_ATTACHMENT;
 import static io.legaldocml.akn.AknElements.H_CONTAINER;
+import static io.legaldocml.akn.AknElements.IMG;
 import static io.legaldocml.akn.AknElements.INDENT;
+import static io.legaldocml.akn.AknElements.INLINE;
+import static io.legaldocml.akn.AknElements.INS;
+import static io.legaldocml.akn.AknElements.JUDGE;
+import static io.legaldocml.akn.AknElements.JUDGMENT;
+import static io.legaldocml.akn.AknElements.JURISPRUDENCE;
+import static io.legaldocml.akn.AknElements.LAWYER;
+import static io.legaldocml.akn.AknElements.LEGISLATURE;
+import static io.legaldocml.akn.AknElements.LEVEL;
+import static io.legaldocml.akn.AknElements.LIST;
+import static io.legaldocml.akn.AknElements.LOCATION;
+import static io.legaldocml.akn.AknElements.LONG_TITLE;
+import static io.legaldocml.akn.AknElements.MARKER;
+import static io.legaldocml.akn.AknElements.MINISTERIAL_STATEMENTS;
+import static io.legaldocml.akn.AknElements.MMOD;
+import static io.legaldocml.akn.AknElements.MOD;
+import static io.legaldocml.akn.AknElements.MREF;
+import static io.legaldocml.akn.AknElements.NARRATIVE;
+import static io.legaldocml.akn.AknElements.NATIONAL_INTEREST;
+import static io.legaldocml.akn.AknElements.NEUTRAL_CITATION;
+import static io.legaldocml.akn.AknElements.NOTE_REF;
+import static io.legaldocml.akn.AknElements.NOTICES_OF_MOTION;
+import static io.legaldocml.akn.AknElements.OBJECT;
+import static io.legaldocml.akn.AknElements.OFFICIAL_GAZETTE;
+import static io.legaldocml.akn.AknElements.OL;
+import static io.legaldocml.akn.AknElements.OMISSIS;
+import static io.legaldocml.akn.AknElements.OPINION;
+import static io.legaldocml.akn.AknElements.ORAL_STATEMENTS;
+import static io.legaldocml.akn.AknElements.ORGANIZATION;
+import static io.legaldocml.akn.AknElements.ORIGINAL;
+import static io.legaldocml.akn.AknElements.OTHER;
+import static io.legaldocml.akn.AknElements.OUTCOME;
+import static io.legaldocml.akn.AknElements.PAPERS;
+import static io.legaldocml.akn.AknElements.PARAGRAPH;
+import static io.legaldocml.akn.AknElements.PART;
+import static io.legaldocml.akn.AknElements.PARTY;
+import static io.legaldocml.akn.AknElements.PASSIVE_REF;
+import static io.legaldocml.akn.AknElements.PERSON;
+import static io.legaldocml.akn.AknElements.PERSONAL_STATEMENTS;
+import static io.legaldocml.akn.AknElements.PETITIONS;
+import static io.legaldocml.akn.AknElements.PLACE_HOLDER;
+import static io.legaldocml.akn.AknElements.POINT;
+import static io.legaldocml.akn.AknElements.POINT_OF_ORDER;
+import static io.legaldocml.akn.AknElements.PORTION;
+import static io.legaldocml.akn.AknElements.PRAYERS;
+import static io.legaldocml.akn.AknElements.PROCEDURAL_MOTIONS;
+import static io.legaldocml.akn.AknElements.PROCESS;
+import static io.legaldocml.akn.AknElements.PROVISO;
+import static io.legaldocml.akn.AknElements.QUANTITY;
+import static io.legaldocml.akn.AknElements.QUESTION;
+import static io.legaldocml.akn.AknElements.QUESTIONS;
+import static io.legaldocml.akn.AknElements.RECITALS;
+import static io.legaldocml.akn.AknElements.RECORDED_TIME;
+import static io.legaldocml.akn.AknElements.REF;
+import static io.legaldocml.akn.AknElements.RELATED_DOCUMENT;
+import static io.legaldocml.akn.AknElements.REMARK;
+import static io.legaldocml.akn.AknElements.RESOLUTIONS;
+import static io.legaldocml.akn.AknElements.RMOD;
+import static io.legaldocml.akn.AknElements.ROLE;
+import static io.legaldocml.akn.AknElements.ROLL_CALL;
+import static io.legaldocml.akn.AknElements.RREF;
+import static io.legaldocml.akn.AknElements.RULE;
+import static io.legaldocml.akn.AknElements.SCENE;
+import static io.legaldocml.akn.AknElements.SECTION;
+import static io.legaldocml.akn.AknElements.SESSION;
+import static io.legaldocml.akn.AknElements.SHORT_TITLE;
+import static io.legaldocml.akn.AknElements.SIGNATURE;
+import static io.legaldocml.akn.AknElements.SPAN;
+import static io.legaldocml.akn.AknElements.SPEECH;
+import static io.legaldocml.akn.AknElements.SPEECH_GROUP;
+import static io.legaldocml.akn.AknElements.STATEMENT;
+import static io.legaldocml.akn.AknElements.SUB;
+import static io.legaldocml.akn.AknElements.SUB_CHAPTER;
+import static io.legaldocml.akn.AknElements.SUB_CLAUSE;
+import static io.legaldocml.akn.AknElements.SUB_DIVISION;
+import static io.legaldocml.akn.AknElements.SUB_FLOW;
+import static io.legaldocml.akn.AknElements.SUB_LIST;
+import static io.legaldocml.akn.AknElements.SUB_PARAGRAPH;
+import static io.legaldocml.akn.AknElements.SUB_PART;
+import static io.legaldocml.akn.AknElements.SUB_RULE;
+import static io.legaldocml.akn.AknElements.SUB_SECTION;
+import static io.legaldocml.akn.AknElements.SUB_TITLE;
+import static io.legaldocml.akn.AknElements.SUMMARY;
+import static io.legaldocml.akn.AknElements.SUP;
+import static io.legaldocml.akn.AknElements.TABLE;
+import static io.legaldocml.akn.AknElements.TBLOCK;
+import static io.legaldocml.akn.AknElements.TERM;
+import static io.legaldocml.akn.AknElements.TIME;
+import static io.legaldocml.akn.AknElements.TITLE;
+import static io.legaldocml.akn.AknElements.TLC_CONCEPT;
+import static io.legaldocml.akn.AknElements.TLC_EVENT;
+import static io.legaldocml.akn.AknElements.TLC_LOCATION;
+import static io.legaldocml.akn.AknElements.TLC_OBJECT;
+import static io.legaldocml.akn.AknElements.TLC_ORGANIZATION;
+import static io.legaldocml.akn.AknElements.TLC_PERSON;
+import static io.legaldocml.akn.AknElements.TLC_PROCESS;
+import static io.legaldocml.akn.AknElements.TLC_REFERENCE;
+import static io.legaldocml.akn.AknElements.TLC_ROLE;
+import static io.legaldocml.akn.AknElements.TLC_TERM;
+import static io.legaldocml.akn.AknElements.TOC;
+import static io.legaldocml.akn.AknElements.TOME;
+import static io.legaldocml.akn.AknElements.TRANSITIONAL;
+import static io.legaldocml.akn.AknElements.UL;
+import static io.legaldocml.akn.AknElements.VOTE;
+import static io.legaldocml.akn.AknElements.WRITTEN_STATEMENTS;
+
+import java.util.Map;
+import java.util.function.Supplier;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.AkomaNtosoContext;
+import io.legaldocml.akn.DocumentType;
+import io.legaldocml.akn.group.ANblock;
+import io.legaldocml.akn.group.ANcontainers;
+import io.legaldocml.akn.group.ANheaderInline;
+import io.legaldocml.akn.group.ANhier;
+import io.legaldocml.akn.group.ANinline;
+import io.legaldocml.akn.group.ANmarker;
+import io.legaldocml.akn.group.ANsemanticInline;
+import io.legaldocml.akn.group.ANsubFlow;
+import io.legaldocml.akn.group.ANtitleInline;
+import io.legaldocml.akn.group.AmendmentInline;
+import io.legaldocml.akn.group.BasicContainers;
+import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.ContainerElements;
+import io.legaldocml.akn.group.DocRef;
+import io.legaldocml.akn.group.HTMLMarker;
+import io.legaldocml.akn.group.HTMLblock;
+import io.legaldocml.akn.group.HTMLcontainers;
+import io.legaldocml.akn.group.HTMLinline;
+import io.legaldocml.akn.group.HierElements;
+import io.legaldocml.akn.group.InlineCM;
+import io.legaldocml.akn.group.InlineElements;
+import io.legaldocml.akn.group.MarkerElements;
+import io.legaldocml.akn.group.PreambleContainers;
+import io.legaldocml.akn.group.PrefaceContainers;
+import io.legaldocml.akn.group.SpeechSection;
+import io.legaldocml.akn.group.SubFlowElements;
+import io.legaldocml.akn.group.TLC;
+import io.legaldocml.io.XmlReader;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -137,7 +257,8 @@ public final class Groups {
     }
 
 
-    public static <T, E extends T> Map<String, Supplier<E>> convert(Map<String, Supplier<T>> toConvert) {
+    @SuppressWarnings("unchecked")
+	public static <T, E extends T> Map<String, Supplier<E>> convert(Map<String, Supplier<T>> toConvert) {
         ImmutableMap.Builder<String, Supplier<E>> builder = ImmutableMap.builder();
         for (Map.Entry<String, Supplier<T>> entry : toConvert.entrySet()) {
             builder.put(entry.getKey(), (Supplier<E>) entry.getValue());
@@ -145,7 +266,8 @@ public final class Groups {
         return builder.build();
     }
 
-    public static <T, E extends T> Map<String, Supplier<T>> convertSuper(Map<String, Supplier<E>> toConvert) {
+    @SuppressWarnings("unchecked")
+	public static <T, E extends T> Map<String, Supplier<T>> convertSuper(Map<String, Supplier<E>> toConvert) {
         ImmutableMap.Builder<String, Supplier<T>> builder = ImmutableMap.builder();
         for (Map.Entry<String, Supplier<E>> entry : toConvert.entrySet()) {
             builder.put(entry.getKey(), (Supplier<T>) entry.getValue());
@@ -268,11 +390,11 @@ public final class Groups {
 
         ImmutableMap.Builder<String, Supplier<HTMLinline>> builder = ImmutableMap.builder();
         // <xsd:element ref="b"/>
-        builder.put(B, B::new);
+        builder.put(B, io.legaldocml.akn.element.B::new);
         // <xsd:element ref="i"/>
         builder.put(AknElements.I, I::new);
         // <xsd:element ref="a"/>
-        builder.put(A, A::new);
+        builder.put(A, io.legaldocml.akn.element.A::new);
         // <xsd:element ref="u"/>
         builder.put(AknElements.U, U::new);
         // <xsd:element ref="sub"/>

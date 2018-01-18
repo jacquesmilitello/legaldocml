@@ -70,9 +70,8 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
         this.modules.put(module.namespace(), module);
     }
 
-    @SuppressWarnings("unchecked")
     public void update(String name, AknObject akn) {
-        BiConsumer consumer = REFS.get(name);
+        BiConsumer<AkomaNtosoContext, AknObject> consumer = REFS.get(name);
         if (consumer != null) {
             consumer.accept(this, akn);
         }

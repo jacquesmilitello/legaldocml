@@ -32,6 +32,7 @@ import java.lang.reflect.Field;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@SuppressWarnings("unchecked")
 public final class AknElements {
 
     private AknElements() {

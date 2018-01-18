@@ -18,6 +18,7 @@ import static io.legaldocml.akn.AknAttributes.WID;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4NoWhiteSpace;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
+@SuppressWarnings("deprecation")
 public abstract class AbstractId implements AknObject, Id {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;

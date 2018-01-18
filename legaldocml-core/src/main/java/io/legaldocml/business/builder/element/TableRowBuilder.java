@@ -18,11 +18,10 @@ public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
         this.tr = tr;
     }
 
-    @SuppressWarnings("unchecked")
     public BlocksBuilder<Td> column() {
         Td td = new Td();
         this.tr.add(td);
-        return new BlocksBuilder(businessBuilder(), this.tr, td);
+        return new BlocksBuilder<>(businessBuilder(), this.tr, td);
     }
 
     @SuppressWarnings("unchecked")

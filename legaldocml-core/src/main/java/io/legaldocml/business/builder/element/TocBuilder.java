@@ -15,13 +15,12 @@ public final class TocBuilder extends AbstractBusinessPartBuilder<Toc> {
         super(businessBuilder, parent);
     }
 
-    @SuppressWarnings("unchecked")
     public InlineTypeBuilder<TocItem> item(Uri href, String level) {
         TocItem tocItem = new TocItem();
         tocItem.setHref(href);
         tocItem.setLevel(level);
         parent().add(tocItem);
-        return new InlineTypeBuilder(businessBuilder(), tocItem);
+        return new InlineTypeBuilder<>(businessBuilder(), tocItem);
     }
 
 }

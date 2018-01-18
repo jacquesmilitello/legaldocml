@@ -40,6 +40,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getUnsafe;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@SuppressWarnings("restriction")
 public final class Attributes {
 
     private Attributes() {
@@ -53,7 +54,8 @@ public final class Attributes {
     /**
      * Memory address.
      */
-    public static final long ADDRESS_ID = Buffers.address(AknAttributes.ID);
+    @SuppressWarnings("deprecation")
+	public static final long ADDRESS_ID = Buffers.address(AknAttributes.ID);
 
     public static final long ADDRESS_EID = Buffers.address(AknAttributes.EID);
 
@@ -61,7 +63,8 @@ public final class Attributes {
 
     public static final long ADDRESS_GUID = Buffers.address(AknAttributes.GUID);
 
-    public static final long ADDRESS_EVOLVING_ID = Buffers.address(AknAttributes.EVOLVING_ID);
+    @SuppressWarnings("deprecation")
+	public static final long ADDRESS_EVOLVING_ID = Buffers.address(AknAttributes.EVOLVING_ID);
 
     public static final long ADDRESS_AS = Buffers.address(AknAttributes.AS);
 
@@ -196,7 +199,7 @@ public final class Attributes {
 
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4String(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
-            @Override
+			@Override
             public void accept(T object, CharArray charArray) {
                 UNSAFE.putObject(object, addr, charArray.toString());
             }
