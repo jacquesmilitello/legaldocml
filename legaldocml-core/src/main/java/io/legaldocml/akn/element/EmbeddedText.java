@@ -19,6 +19,8 @@ import static io.legaldocml.akn.AknAttributes.START_QUOTE;
 import static io.legaldocml.akn.AknElements.EMBEDDED_TEXT;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeQuote;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -134,9 +136,11 @@ public final class EmbeddedText extends InlineType implements ANinline, Quote, L
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS_EMBEDDED_TEXT, 11);
+        writer.writeStart(ADDRESS_EMBEDDED_TEXT, 12);
+        writeQuote(writer, this);
+        writeLinkOpt(writer, this);
         super.write(writer);
-        writer.writeEnd(ADDRESS_EMBEDDED_TEXT, 11);
+        writer.writeEnd(ADDRESS_EMBEDDED_TEXT, 12);
     }
 
     /**

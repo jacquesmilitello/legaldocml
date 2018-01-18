@@ -29,7 +29,7 @@ public class AknTest {
 
     @Test
     public void testOther() throws Exception {
-        test("/xml/v3/cl_Sesion56_2.xml");
+        /*test("/xml/v3/cl_Sesion56_2.xml");
         test("/xml/v3/it_senato_ddl_2013.xml");
         test("/xml/v3/uy_bill_2010-09-27.xml");
         test("/xml/v3/us_Act_2011-11-29.xml");
@@ -38,7 +38,9 @@ public class AknTest {
         test("/xml/v3/uk_pga-2014-27-enacted-data.xml");
         test("/xml/v3/ke_Debate_Bungeni_2011-06-10.xml");
         test("/xml/v3/eu_COM(2013)0619_EN-8.xml");
-        test("/xml/v3/uk_pga_1998_29.xml");
+        test("/xml/v3/uk_pga_1998_29.xml");*/
+        test("/xml/v3/112hr4310enr.akn.xml");
+
     }
 
     public static void test(String resource) throws IOException {
