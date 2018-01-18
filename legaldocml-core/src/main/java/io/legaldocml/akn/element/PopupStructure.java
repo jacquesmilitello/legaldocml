@@ -76,7 +76,7 @@ public abstract class PopupStructure extends AbstractCore implements CoreReq {
 
 
     // Mandatory (min 1).
-    private final AknList<PopupStructureElement> elems = new AknList<>(new PopupStructureElement[8]);
+    private final AknList<PopupStructureElement> elements = new AknList<>(new PopupStructureElement[8]);
 
     /**
      * {@inheritDoc}
@@ -84,7 +84,7 @@ public abstract class PopupStructure extends AbstractCore implements CoreReq {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, elems, ELEMS);
+        XmlReaderHelper.read(reader, elements, ELEMS);
     }
 
     /**
@@ -93,7 +93,7 @@ public abstract class PopupStructure extends AbstractCore implements CoreReq {
     @Override
     public void write(XmlWriter writer) throws IOException {
         CoreReq.super.write(writer);
-        this.elems.write(writer);
+        this.elements.write(writer);
     }
 
 }

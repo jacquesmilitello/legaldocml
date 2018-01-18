@@ -44,7 +44,7 @@ public final class Schema implements SchObject {
 
     private String id;
 
-    private final ExternalizableList<SchemaElement> elems = new ExternalizableList<>(new SchemaElement[8]);
+    private final ExternalizableList<SchemaElement> elements = new ExternalizableList<>(new SchemaElement[8]);
 
     /**
      * {@inheritDoc}
@@ -67,7 +67,7 @@ public final class Schema implements SchObject {
             LOGGER.debug("[{}] with id [{}]",qName, this.id);
         }
 
-        SchElements.read(reader, elems, ELEMS, qName);
+        SchElements.read(reader, elements, ELEMS, qName);
 
     }
 
