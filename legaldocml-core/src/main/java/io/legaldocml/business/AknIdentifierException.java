@@ -45,7 +45,11 @@ public final class AknIdentifierException extends LegalDocMlException {
         return new AknIdentifierException(Type.EXTRACT);
     }
 
-    public enum Type {
+    public Type getType() {
+		return type;
+	}
+
+	public enum Type {
         CONSISTENT, EXTRACT, NEW
     }
 

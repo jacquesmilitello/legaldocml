@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Td;
 import io.legaldocml.akn.element.Th;
 import io.legaldocml.akn.element.Tr;
@@ -13,7 +14,7 @@ public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
 
     private final Tr tr;
 
-    public TableRowBuilder(BusinessBuilder businessBuilder, Tr tr) {
+    public TableRowBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Tr tr) {
         super(businessBuilder, tr);
         this.tr = tr;
     }
@@ -24,10 +25,9 @@ public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
         return new BlocksBuilder<>(businessBuilder(), this.tr, td);
     }
 
-    @SuppressWarnings("unchecked")
-    public BlocksBuilder<Td> header() {
+    public BlocksBuilder<Th> header() {
         Th th = new Th();
         this.tr.add(th);
-        return new BlocksBuilder(businessBuilder(), this.tr, th);
+        return new BlocksBuilder<>(businessBuilder(), this.tr, th);
     }
 }

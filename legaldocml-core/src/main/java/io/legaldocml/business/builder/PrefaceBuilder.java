@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.HasPreface;
 import io.legaldocml.akn.element.Preface;
 import io.legaldocml.akn.element.PrefaceoptElement;
@@ -11,7 +12,7 @@ import io.legaldocml.business.builder.group.PrefaceContainersBuilder;
  */
 public class PrefaceBuilder extends AbstractBusinessPartBuilder<Preface> implements BlockElementsBuilder<Preface,PrefaceoptElement>, PrefaceContainersBuilder<Preface,PrefaceoptElement> {
 
-    public PrefaceBuilder(BusinessBuilder builder) {
+    public PrefaceBuilder(BusinessBuilder<? extends DocumentType> builder) {
         super(builder, new Preface());
         if (!(builder.getAkomaNtoso().getDocumentType() instanceof HasPreface)) {
             throw new BusinessBuilderException("DocumentType [" + builder.getAkomaNtoso().getDocumentType().getClass().getSimpleName() + "] has no Preface");

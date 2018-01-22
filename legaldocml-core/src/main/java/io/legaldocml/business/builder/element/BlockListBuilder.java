@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.BlockList;
 import io.legaldocml.akn.element.Item;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
@@ -10,7 +11,7 @@ import io.legaldocml.business.builder.BusinessBuilder;
  */
 public final class BlockListBuilder extends AbstractBusinessPartBuilder<BlockList>  {
 
-    public BlockListBuilder(BusinessBuilder businessBuilder, BlockList container) {
+    public BlockListBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, BlockList container) {
         super(businessBuilder, container);
     }
 

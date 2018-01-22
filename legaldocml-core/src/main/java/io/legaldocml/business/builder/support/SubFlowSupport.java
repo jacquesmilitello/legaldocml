@@ -7,7 +7,7 @@ import io.legaldocml.business.builder.element.SubFlowBuilder;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface SubFlowSupport<T extends SubFlowsElementsContainer> extends SupportBuilder<T> {
+public interface SubFlowSupport<T extends SubFlowsElementsContainer<T>> extends SupportBuilder<T> {
 
     default SubFlowBuilder subFlow(String name) {
         SubFlow subFlow = new SubFlow();

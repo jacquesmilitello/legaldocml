@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.element.Inline;
 import io.legaldocml.akn.element.StringInlineCM;
@@ -26,7 +27,7 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
 
     private final T container;
 
-    public InlineCMContainerBuilder(BusinessBuilder businessBuilder, T container) {
+    public InlineCMContainerBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T container) {
         super(businessBuilder, container);
         this.container = container;
     }

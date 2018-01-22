@@ -10,11 +10,11 @@ import io.legaldocml.model.Language;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BusinessBuilder {
+public abstract class BusinessBuilder<T extends DocumentType> {
 
     private final BusinessProvider provider;
 
-    private final AkomaNtoso<DocumentType> akomaNtoso;
+    private final AkomaNtoso<T> akomaNtoso;
 
     private final MetaBuilder metaBuilder;
 
@@ -24,7 +24,7 @@ public abstract class BusinessBuilder {
 
     private Language mainLanguage;
 
-    public BusinessBuilder(BusinessProvider provider, DocumentType documentType, HierarchyStrategy strategy) {
+    public BusinessBuilder(BusinessProvider provider, T documentType, HierarchyStrategy strategy) {
         this.provider = provider;
         this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
         this.akomaNtoso.setDocumentType(documentType);
@@ -68,9 +68,8 @@ public abstract class BusinessBuilder {
 
     protected abstract MetaBuilder newMetaBuilder();
 
-    @SuppressWarnings("unchecked")
-    public final <T extends DocumentType> AkomaNtoso<T> getAkomaNtoso() {
-        return (AkomaNtoso<T>) akomaNtoso;
+    public final AkomaNtoso<T> getAkomaNtoso() {
+        return akomaNtoso;
     }
 
 }

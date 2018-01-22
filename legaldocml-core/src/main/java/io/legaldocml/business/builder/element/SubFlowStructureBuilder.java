@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.SubFlowStructure;
 import io.legaldocml.akn.element.SubFlowStructureElement;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
@@ -13,7 +14,7 @@ public final class SubFlowStructureBuilder<T extends SubFlowStructure> extends A
 
     private final T structure;
 
-    public SubFlowStructureBuilder(BusinessBuilder businessBuilder, T structure) {
+    public SubFlowStructureBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T structure) {
         super(businessBuilder,structure);
         this.structure = structure;
     }

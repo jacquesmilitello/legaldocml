@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.DocContainerType;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
@@ -9,7 +10,7 @@ import io.legaldocml.business.builder.BusinessBuilder;
  */
 public final class DocContainerTypeBuilder<T extends DocContainerType> extends AbstractBusinessPartBuilder<T> {
 
-    public DocContainerTypeBuilder(BusinessBuilder businessBuilder, T modType) {
+    public DocContainerTypeBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T modType) {
         super(businessBuilder,modType);
     }
 

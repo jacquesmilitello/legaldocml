@@ -1,19 +1,23 @@
 package io.legaldocml.business.builder.support;
 
-import io.legaldocml.akn.AknObject;
-import io.legaldocml.business.BusinessProvider;
-import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.io.XmlProvider;
-import io.legaldocml.test.LoggerInstancePostProcessor;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.nio.channels.Channels;
 import java.nio.charset.StandardCharsets;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.DocumentType;
+import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.io.XmlProvider;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -37,15 +41,15 @@ public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E exte
 
     @BeforeEach
     public void before() {
-        mock = Mockito.mock(mockClass);
+        mock = mock(mockClass);
         try {
             parent = parenteClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
            throw new RuntimeException(e);
         }
-        BusinessBuilder businessBuilder = BusinessProvider.businessProvider("default").newBuilder("doc");
-        Mockito.when(mock.parent()).thenReturn(this.parent);
-        Mockito.when(mock.businessBuilder()).thenReturn(businessBuilder);
+        BusinessBuilder<? extends DocumentType> businessBuilder = BusinessProvider.businessProvider("default").newBuilder("doc");
+        doReturn(this.parent).when(mock).parent();
+        doReturn(businessBuilder).when(mock).businessBuilder();
     }
 
     protected String write() {

@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.InlineReqType;
 import io.legaldocml.business.builder.BusinessBuilder;
 
@@ -8,7 +9,7 @@ import io.legaldocml.business.builder.BusinessBuilder;
  */
 public class InlineReqTypeBuilder<T extends InlineReqType> extends InlineCMContainerBuilder<T, InlineReqTypeBuilder<T>> {
 
-    public InlineReqTypeBuilder(BusinessBuilder builder, T container) {
+    public InlineReqTypeBuilder(BusinessBuilder<? extends DocumentType> builder, T container) {
         super(builder, container);
     }
 

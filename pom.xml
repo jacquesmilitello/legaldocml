@@ -30,6 +30,7 @@
 
       <org.apache.logging.log4j.version>2.10.0</org.apache.logging.log4j.version>
 
+	  <org.junit.platform.version>1.0.2</org.junit.platform.version>
       <org.junit.jupiter.version>5.0.2</org.junit.jupiter.version>
       <org.xmlunit.version>2.5.1</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
@@ -106,6 +107,18 @@
                </exclusion>
             </exclusions>
          </dependency>
+         
+         <dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>${org.junit.platform.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${org.junit.jupiter.version}</version>
+		</dependency>
 
          <dependency>
             <groupId>org.junit.jupiter</groupId>

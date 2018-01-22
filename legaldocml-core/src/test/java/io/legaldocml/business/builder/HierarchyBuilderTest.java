@@ -26,12 +26,12 @@ public class HierarchyBuilderTest {
     public void testNum() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder businessBuilder = provider.newBuilder(AknElements.BILL);
+        BusinessBuilder<Bill> businessBuilder = provider.newBuilder(AknElements.BILL);
 
-        HierarchyStrategy strategy = new HierarchyStrategyBuilder().article().paragraph().build();
+        //HierarchyStrategy strategy = new HierarchyStrategyBuilder().article().paragraph().build();
 
         Article article = new Article();
-        businessBuilder.<Bill>getAkomaNtoso().getDocumentType().getBody().add(article);
+        businessBuilder.getAkomaNtoso().getDocumentType().getBody().add(article);
 
         HierarchyBuilder<Article> builder = new HierarchyBuilder<>(businessBuilder, article);
         builder.eId("1");

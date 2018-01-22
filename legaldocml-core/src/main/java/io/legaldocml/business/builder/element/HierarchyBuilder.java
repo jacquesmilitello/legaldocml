@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Content;
 import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.Hierarchy;
@@ -23,11 +24,11 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     private final Hierarchy parent;
     private final T hierarchy;
 
-    public HierarchyBuilder(BusinessBuilder businessBuilder, T hierarchy) {
+    public HierarchyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T hierarchy) {
         this(businessBuilder, null, hierarchy);
     }
 
-    public HierarchyBuilder(BusinessBuilder businessBuilder, Hierarchy parent, T hierarchy) {
+    public HierarchyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Hierarchy parent, T hierarchy) {
         super(businessBuilder, hierarchy);
         this.parent = parent;
         this.hierarchy = hierarchy;

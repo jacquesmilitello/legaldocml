@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.PortionBody;
 import io.legaldocml.akn.element.PortionBodyTypeElement;
 import io.legaldocml.business.builder.group.HierElementsBuilder;
@@ -9,7 +10,7 @@ import io.legaldocml.business.builder.group.HierElementsBuilder;
  */
 public class PortionBodyBuilder extends AbstractBusinessPartBuilder<PortionBody> implements HierElementsBuilder<PortionBody,PortionBodyTypeElement> {
 
-    protected PortionBodyBuilder(BusinessBuilder businessBuilder, PortionBody portionBody) {
+    protected PortionBodyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, PortionBody portionBody) {
         super(businessBuilder, portionBody);
     }
 

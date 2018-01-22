@@ -8,7 +8,7 @@ import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder implements BusinessPartBuilder<DocumentCollection> {
+public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder<DocumentCollection> {
 
     private final CollectionBodyBuilder bodyBuilder;
 
@@ -18,7 +18,7 @@ public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder 
 
     public DocumentCollectionBusinessBuilder(BusinessProvider provider, DocumentCollection documentCollection, HierarchyStrategy strategy) {
         super(provider, documentCollection, strategy);
-        this.bodyBuilder = new CollectionBodyBuilder(this, this.<DocumentCollection>getAkomaNtoso().getDocumentType().getBody());
+        this.bodyBuilder = new CollectionBodyBuilder(this, this.getAkomaNtoso().getDocumentType().getBody());
     }
 
     /**
@@ -27,14 +27,6 @@ public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder 
     @Override
     protected AkomaNtosoContext newAkomaNtosoContext() {
         return new AkomaNtosoContextV3();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public BusinessBuilder businessBuilder() {
-        return this;
     }
 
     public final PrefaceBuilder preface() {

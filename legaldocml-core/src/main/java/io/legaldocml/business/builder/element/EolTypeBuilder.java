@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.EolType;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
@@ -11,7 +12,7 @@ public final class EolTypeBuilder<T extends EolType> extends AbstractBusinessPar
 
     private final T eolType;
 
-    public EolTypeBuilder(BusinessBuilder businessBuilder, T eolType) {
+    public EolTypeBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T eolType) {
         super(businessBuilder,eolType);
         this.eolType = eolType;
     }

@@ -1,6 +1,7 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.builder.support.SupportBuilder;
 
 /**
@@ -8,10 +9,10 @@ import io.legaldocml.business.builder.support.SupportBuilder;
  */
 public abstract class AbstractBusinessPartBuilder<T extends AknObject> implements SupportBuilder<T> {
 
-    private final BusinessBuilder businessBuilder;
+    private final BusinessBuilder<? extends DocumentType> businessBuilder;
     private final T container;
 
-    protected AbstractBusinessPartBuilder(BusinessBuilder businessBuilder, T container) {
+    protected AbstractBusinessPartBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T container) {
         this.businessBuilder = businessBuilder;
         this.container = container;
     }
@@ -20,7 +21,7 @@ public abstract class AbstractBusinessPartBuilder<T extends AknObject> implement
      * {@inheritDoc}
      */
     @Override
-    public final BusinessBuilder businessBuilder() {
+    public final BusinessBuilder<? extends DocumentType> businessBuilder() {
         return businessBuilder;
     }
 

@@ -2,6 +2,7 @@ package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
 import io.legaldocml.XmlUnitHelper;
+import io.legaldocml.akn.element.Debate;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.element.TLCPerson;
 import io.legaldocml.akn.element.TLCRole;
@@ -38,7 +39,7 @@ public class CoverPageBuilderTest {
     public void testItSenatoDdl2013() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder debateBusinessBuilder = provider.newBuilder(DEBATE);
+        BusinessBuilder<Debate> debateBusinessBuilder = provider.newBuilder(DEBATE);
 
         AgentRef source = AgentRef.valueOf("redattore");
         TLCPerson person1 = newTLCPerson(NoWhiteSpace.valueOf("person_1"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");

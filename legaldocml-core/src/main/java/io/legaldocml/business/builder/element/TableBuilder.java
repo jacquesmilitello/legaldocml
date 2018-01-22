@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Caption;
 import io.legaldocml.akn.element.Table;
 import io.legaldocml.akn.element.Tr;
@@ -13,7 +14,7 @@ public final class TableBuilder extends AbstractBusinessPartBuilder<Table> {
 
     private final Table table;
 
-    public TableBuilder(BusinessBuilder businessBuilder, Table table) {
+    public TableBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Table table) {
         super(businessBuilder,table);
         this.table = table;
     }

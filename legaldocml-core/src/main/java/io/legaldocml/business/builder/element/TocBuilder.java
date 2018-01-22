@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Toc;
 import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.akn.type.Uri;
@@ -11,7 +12,7 @@ import io.legaldocml.business.builder.BusinessBuilder;
  */
 public final class TocBuilder extends AbstractBusinessPartBuilder<Toc> {
 
-    public TocBuilder(BusinessBuilder businessBuilder, Toc parent) {
+    public TocBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Toc parent) {
         super(businessBuilder, parent);
     }
 

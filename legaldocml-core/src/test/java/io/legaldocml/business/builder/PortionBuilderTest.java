@@ -78,7 +78,7 @@ class PortionBuilderTest {
 
             @Override
             protected PortionBodyBuilder newPortionBodyBuilder() {
-                return new PortionBodyBuilder(this, this.<Portion>getAkomaNtoso().getDocumentType().getPortionBody());
+                return new PortionBodyBuilder(this, this.getAkomaNtoso().getDocumentType().getPortionBody());
             }
         };
 
@@ -130,7 +130,7 @@ class PortionBuilderTest {
 
             @Override
             protected PortionBodyBuilder newPortionBodyBuilder() {
-                return new PortionBodyBuilder(this, this.<Portion>getAkomaNtoso().getDocumentType().getPortionBody());
+                return new PortionBodyBuilder(this, this.getAkomaNtoso().getDocumentType().getPortionBody());
             }
         };
         portionBuilder.setSource(SOURCE);

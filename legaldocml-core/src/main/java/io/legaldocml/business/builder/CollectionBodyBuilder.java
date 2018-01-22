@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.CollectionBody;
 import io.legaldocml.akn.element.Component;
 import io.legaldocml.business.builder.element.DocContainerTypeBuilder;
@@ -11,7 +12,7 @@ import java.util.function.Consumer;
  */
 public final class CollectionBodyBuilder extends AbstractBusinessPartBuilder<CollectionBody> {
 
-    CollectionBodyBuilder(BusinessBuilder businessBuilder, CollectionBody body) {
+    CollectionBodyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, CollectionBody body) {
         super(businessBuilder, body);
     }
 

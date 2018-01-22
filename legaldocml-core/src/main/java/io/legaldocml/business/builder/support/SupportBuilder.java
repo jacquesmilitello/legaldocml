@@ -8,6 +8,4 @@ import io.legaldocml.business.builder.BusinessPartBuilder;
  */
 public interface SupportBuilder<T extends AknObject> extends BusinessPartBuilder<T> {
 
-    T parent();
-
 }

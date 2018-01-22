@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.element.Table;
@@ -22,7 +23,7 @@ public class BlocksBuilder<T extends BlockElementsContainer<BlockElements>> exte
     private final Id parent;
     private final T container;
 
-    public BlocksBuilder(BusinessBuilder businessBuilder, Id parent, T container) {
+    public BlocksBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Id parent, T container) {
         super(businessBuilder, container);
         this.parent = parent;
         this.container = container;

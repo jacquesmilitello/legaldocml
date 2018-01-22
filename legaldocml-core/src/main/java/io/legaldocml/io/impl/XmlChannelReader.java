@@ -377,19 +377,24 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                                     return CHARACTERS;
                                 }
                             }
+                            long adr = this.adr;
                             // maybe CDATA => check
                             if (c1 == '[' && c2 == 'C' && nextChar() == 'D' && nextChar() == 'A' && nextChar() == 'T' && nextChar() == 'A' && nextChar() == '[') {
                                 this.state = STATE_CDATA;
+                            }  else {
+                            	this.adr = adr;
+                            	if (c1 == 'D' && c2=='O' && nextChar() == 'C' && nextChar() == 'T' && nextChar() == 'Y' && nextChar() == 'P' && nextChar() == 'E') {
+                            		this.state = STATE_DTD;
+                            	}
                             }
+                            	
                         }
                     }
                     // no else because ignores, e.g. <!ELEMENT <!ENTITY...
                     break;
 
-                case STATE_COMMENT:
-
-                    while (true) {
-
+                case STATE_COMMENT: {
+                	while (true) {
                         if (c == '>' && cb.length() > 2 && cb.getBefore(1) == '-' && cb.getBefore(2) == '-') {
                             text = cb;
                             seq();
@@ -397,11 +402,10 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                             state = STATE_CHARACTERS;
                             return COMMENT;
                         }
-
                         cb.put(c);
                         c = nextChar();
-
                     }
+                }
 
                 case STATE_PI: {
                     cb.put(c);

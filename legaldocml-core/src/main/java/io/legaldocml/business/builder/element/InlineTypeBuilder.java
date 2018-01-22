@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder.element;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.InlineType;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.support.SpanSupport;
@@ -10,7 +11,7 @@ import io.legaldocml.business.builder.support.SpanSupport;
 public class InlineTypeBuilder<T extends InlineType> extends InlineCMContainerBuilder<T, InlineTypeBuilder<T>>
         implements SpanSupport<T> {
 
-    public InlineTypeBuilder(BusinessBuilder builder, T container) {
+    public InlineTypeBuilder(BusinessBuilder<? extends DocumentType> builder, T container) {
         super(builder, container);
     }
 

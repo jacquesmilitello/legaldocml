@@ -1,19 +1,19 @@
 package io.legaldocml.module.xsi;
 
 
-import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.Attribute;
-import io.legaldocml.util.CharArray;
-import io.legaldocml.util.CharArrays;
-import io.legaldocml.io.XmlWriter;
-import io.legaldocml.util.Buffers;
-import io.legaldocml.module.Module;
-import io.legaldocml.module.xsi.attribute.SchemaLocation;
-import io.legaldocml.util.ToStringBuilder;
-
 import java.io.IOException;
 import java.util.function.Supplier;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.legaldocml.akn.AknObject;
+import io.legaldocml.io.Attribute;
+import io.legaldocml.io.XmlWriter;
+import io.legaldocml.module.Module;
+import io.legaldocml.module.xsi.attribute.SchemaLocation;
+import io.legaldocml.util.Buffers;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.CharArrays;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -75,10 +75,8 @@ public final class XsiModule implements Module {
      */
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .append("prefix", NAMESPACE_PREFIX_XSI)
-                .append("namespace", NAMESPACE_SCHEMA_INSTANCE)
-                .toString();
+        return getClass().getName() + " for [" + NAMESPACE_SCHEMA_INSTANCE + "]";
     }
+ 
 
 }

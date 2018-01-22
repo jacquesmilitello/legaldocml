@@ -1,5 +1,6 @@
 package io.legaldocml.business.builder;
 
+import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.CoreProperties;
 import io.legaldocml.akn.element.FRBRauthor;
 import io.legaldocml.akn.element.FRBRauthoritative;
@@ -10,6 +11,7 @@ import io.legaldocml.akn.element.FRBRportion;
 import io.legaldocml.akn.element.FRBRprescriptive;
 import io.legaldocml.akn.element.FRBRsubtype;
 import io.legaldocml.akn.element.Identification;
+import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.Uri;
@@ -43,14 +45,14 @@ public class MetaBuilder {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(MetaBuilder.class);
 
-    private final BusinessBuilder businessBuilder;
+    private final BusinessBuilder<? extends DocumentType> businessBuilder;
 
-    private final Identification identification;
+    private final Meta meta;
 
-    protected MetaBuilder(BusinessBuilder businessBuilder, AgentRef source) {
+    protected MetaBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, AgentRef source) {
         this.businessBuilder = businessBuilder;
-        this.identification = businessBuilder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
-        this.identification.setSource(source);
+        this.meta = businessBuilder.getAkomaNtoso().getDocumentType().getMeta();
+        this.meta.getIdentification().setSource(source);
     }
 
     public final void setAknIdentifier(AknIdentifier identifier) {
@@ -73,7 +75,7 @@ public class MetaBuilder {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addLanguage({}) -> [{}]", language, mapper.apply(language));
         }
-        this.identification.getFRBRExpression().add(newFRBRlanguage(language, mapper));
+        this.meta.getIdentification().getFRBRExpression().add(newFRBRlanguage(language, mapper));
     }
 
     public final void setDate(LocalDate date, String name) {
@@ -90,7 +92,7 @@ public class MetaBuilder {
             LOGGER.debug("setDate({})", date);
         }
 
-        FRBRdate frbr = map.apply(this.identification).getFRBRdate();
+        FRBRdate frbr = map.apply(this.meta.getIdentification()).getFRBRdate();
         frbr.setDate(Dates.convert(date));
         frbr.setName(name);
     }
@@ -104,7 +106,7 @@ public class MetaBuilder {
 
             LOGGER.debug("setCountry({})", country);
         }
-        this.identification.getFRBRWork().getFRBRcountry().setValue(mapper.apply(country));
+        this.meta.getIdentification().getFRBRWork().getFRBRcountry().setValue(mapper.apply(country));
     }
 
     public final void addAuthor(Uri href) {
@@ -119,7 +121,7 @@ public class MetaBuilder {
         }
         FRBRauthor frbRauthor = FRBRHelper.newFRBRauthor(href);
 
-        AknList<FRBRauthor> authors = type.apply(this.identification).getAuthors();
+        AknList<FRBRauthor> authors = type.apply(this.meta.getIdentification()).getAuthors();
 
         if (!authors.contains(frbRauthor)) {
             authors.add(frbRauthor);
@@ -141,7 +143,7 @@ public class MetaBuilder {
             ref.accept(frbRauthor, this.businessBuilder.getAkomaNtoso());
         }
 
-        AknList<FRBRauthor> authors = type.apply(this.identification).getAuthors();
+        AknList<FRBRauthor> authors = type.apply(this.meta.getIdentification()).getAuthors();
 
         if (!authors.contains(frbRauthor)) {
             authors.add(frbRauthor);
@@ -160,9 +162,9 @@ public class MetaBuilder {
             LOGGER.debug("addUri({})", identifier);
         }
 
-        this.identification.getFRBRWork().addFRBRuri(FRBRHelper.newFRBRuri(identifier.work()));
-        this.identification.getFRBRExpression().addFRBRuri(FRBRHelper.newFRBRuri(identifier.expression()));
-        this.identification.getFRBRManifestation().addFRBRuri(FRBRHelper.newFRBRuri(identifier.manifestation()));
+        this.meta.getIdentification().getFRBRWork().addFRBRuri(FRBRHelper.newFRBRuri(identifier.work()));
+        this.meta.getIdentification().getFRBRExpression().addFRBRuri(FRBRHelper.newFRBRuri(identifier.expression()));
+        this.meta.getIdentification().getFRBRManifestation().addFRBRuri(FRBRHelper.newFRBRuri(identifier.manifestation()));
     }
 
     public FRBRsubtype setSubType(String value) {
@@ -170,42 +172,42 @@ public class MetaBuilder {
         FRBRsubtype subtype = new FRBRsubtype();
         subtype.setValue(value);
 
-        this.identification.getFRBRWork().setSubtype(subtype);
+        this.meta.getIdentification().getFRBRWork().setSubtype(subtype);
         return subtype;
     }
 
     public FRBRnumber addNumber(String value) {
         FRBRnumber number = new FRBRnumber();
         number.setValue(value);
-        this.identification.getFRBRWork().add(number);
+        this.meta.getIdentification().getFRBRWork().add(number);
         return number;
     }
 
     public FRBRname addName(String value) {
         FRBRname name = new FRBRname();
         name.setValue(value);
-        this.identification.getFRBRWork().add(name);
+        this.meta.getIdentification().getFRBRWork().add(name);
         return name;
     }
 
     public FRBRprescriptive setPrescriptive(boolean value) {
         FRBRprescriptive prescriptive = new FRBRprescriptive();
         prescriptive.setValue(value);
-        this.identification.getFRBRWork().setPrescriptive(prescriptive);
+        this.meta.getIdentification().getFRBRWork().setPrescriptive(prescriptive);
         return prescriptive;
     }
 
     public FRBRauthoritative setAuthoritative(boolean value) {
         FRBRauthoritative authoritative = new FRBRauthoritative();
         authoritative.setValue(value);
-        this.identification.getFRBRWork().setAuthoritative(authoritative);
+        this.meta.getIdentification().getFRBRWork().setAuthoritative(authoritative);
         return authoritative;
     }
 
     public FRBRportion setPortion(String from) {
         FRBRportion portion = new FRBRportion();
         portion.setFrom(EidRef.valueOf(UnsafeString.getChars(from)));
-        this.identification.getFRBRManifestation().setPortion(portion);
+        this.meta.getIdentification().getFRBRManifestation().setPortion(portion);
         return portion;
     }
 
