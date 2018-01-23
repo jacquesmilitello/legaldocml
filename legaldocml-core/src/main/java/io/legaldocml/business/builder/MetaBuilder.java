@@ -12,12 +12,14 @@ import io.legaldocml.akn.element.FRBRprescriptive;
 import io.legaldocml.akn.element.FRBRsubtype;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.element.Meta;
+import io.legaldocml.akn.element.Proprietary;
 import io.legaldocml.akn.element.References;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.FRBRHelper;
+import io.legaldocml.akn.util.Metas;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.model.Country;
@@ -217,23 +219,15 @@ public final class MetaBuilder {
     }
     
     public References getReferences(AgentRef source) {
-    	References references = this.getMeta().getReferences(source);
-    	
-    	if (LOGGER.isDebugEnabled()) {
-    		LOGGER.debug("References for source [{}] -> [{}]", source, references);
-    	}
-    	
-    	if (references == null) {
-    		references = new References();
-    		references.setSource(source);
-    		this.meta.add(references);
-    	}
-
-    	return references;
+    	return Metas.references(meta, source);
     }
     
     public References getReferences() {
     	return getReferences(this.getMeta().getIdentification().getSource());
+    }
+    
+    public Proprietary getProprietary(AgentRef source) {
+    	return Metas.proprietary(meta, source);
     }
 
 }

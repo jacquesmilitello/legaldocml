@@ -1,6 +1,7 @@
 package io.legaldocml.akn.util;
 
 import io.legaldocml.akn.element.Meta;
+import io.legaldocml.akn.element.Proprietary;
 import io.legaldocml.akn.element.References;
 import io.legaldocml.akn.type.AgentRef;
 import org.slf4j.Logger;
@@ -35,4 +36,23 @@ public final class Metas {
 
         return ref;
     }
+    
+    public static Proprietary proprietary(Meta meta, AgentRef source) {
+    	
+    	Proprietary proprietary = meta.getProprietary(source);
+    	
+    	if (proprietary == null) {
+    		
+    		if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("meta.proprietary not found for agentRef [{]] -> create", source);
+            }
+    		
+    		proprietary = new Proprietary();
+    		proprietary.setSource(source);
+    		meta.add(proprietary);
+    	}
+    	
+    	return proprietary;
+    }
+    
 }

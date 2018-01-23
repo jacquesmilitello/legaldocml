@@ -195,7 +195,7 @@ public final class Meta implements AknObject {
     }
 
     public void add(Proprietary proprietary) {
-        if (this.proprietaries != null) {
+        if (this.proprietaries == null) {
             this.proprietaries = new AknList<>(new Proprietary[2]);
         }
         Sources.add(this.proprietaries, proprietary);
