@@ -20,7 +20,7 @@ public abstract class BusinessBuilder<T extends DocumentType> {
 
     private final HierarchyStrategy strategy;
 
-    private AgentRef source;
+    private final AgentRef source;
 
     private Language mainLanguage;
 
@@ -30,6 +30,7 @@ public abstract class BusinessBuilder<T extends DocumentType> {
         this.akomaNtoso.setDocumentType(documentType);
         this.metaBuilder = newMetaBuilder();
         this.strategy = strategy;
+        this.source = this.metaBuilder.getMeta().getIdentification().getSource();
     }
 
     public final MetaBuilder getMetaBuilder() {
@@ -47,10 +48,10 @@ public abstract class BusinessBuilder<T extends DocumentType> {
     public final AgentRef getSource() {
         return source;
     }
-
-    public final void setSource(AgentRef source) {
-        this.source = source;
-    }
+//
+//    public final void setSource(AgentRef source) {
+//        this.source = source;
+//    }
 
     public final Language getMainLanguage() {
         return mainLanguage;

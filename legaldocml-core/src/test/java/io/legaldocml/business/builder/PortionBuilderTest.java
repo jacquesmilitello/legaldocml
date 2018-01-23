@@ -82,7 +82,6 @@ class PortionBuilderTest {
             }
         };
 
-        portionBuilder.setSource(SOURCE);
         portionBuilder.setIncludedIn("/akn/us/act/title_9");
 
         MetaBuilder metaBuilder = portionBuilder.getMetaBuilder();
@@ -133,8 +132,6 @@ class PortionBuilderTest {
                 return new PortionBodyBuilder(this, this.getAkomaNtoso().getDocumentType().getPortionBody());
             }
         };
-        portionBuilder.setSource(SOURCE);
-
         portionBuilder.setIncludedIn("/akn/us/act/title_9");
 
         PortionBodyBuilder bodyBuilder = portionBuilder.getBodyBuilder();

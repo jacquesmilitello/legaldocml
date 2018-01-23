@@ -38,7 +38,6 @@ public class BillBuilderTest {
                 return new MetaBuilder(this, SOURCE);
             }
         };
-        portionBuilder.setSource(SOURCE);
 
         portionBuilder.getBodyBuilder().parent().setTitle("DISEGNO DI LEGGE");
 

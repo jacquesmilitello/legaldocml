@@ -12,6 +12,7 @@ import io.legaldocml.akn.element.FRBRprescriptive;
 import io.legaldocml.akn.element.FRBRsubtype;
 import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.element.Meta;
+import io.legaldocml.akn.element.References;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.Uri;
@@ -34,7 +35,7 @@ import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class MetaBuilder {
+public final class MetaBuilder {
 
     public static final Function<Identification, CoreProperties> LOOKUP_FRBR_WORK = Identification::getFRBRWork;
     public static final Function<Identification, CoreProperties> LOOKUP_FRBR_EXPRESSION = Identification::getFRBRExpression;
@@ -49,13 +50,17 @@ public class MetaBuilder {
 
     private final Meta meta;
 
-    protected MetaBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, AgentRef source) {
+    public MetaBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, AgentRef source) {
         this.businessBuilder = businessBuilder;
         this.meta = businessBuilder.getAkomaNtoso().getDocumentType().getMeta();
         this.meta.getIdentification().setSource(source);
     }
 
-    public final void setAknIdentifier(AknIdentifier identifier) {
+    public Meta getMeta() {
+    	return this.meta;
+    }
+    
+    public void setAknIdentifier(AknIdentifier identifier) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setAknIdentifier({}]", identifier);
         }
@@ -67,18 +72,18 @@ public class MetaBuilder {
         identifier.apply(this.businessBuilder.getAkomaNtoso());
     }
 
-    public final void addLanguage(Language language) {
+    public void addLanguage(Language language) {
         this.addLanguage(language, Language::getCode);
     }
 
-    public final void addLanguage(Language language, Function<Language, String> mapper) {
+    public void addLanguage(Language language, Function<Language, String> mapper) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addLanguage({}) -> [{}]", language, mapper.apply(language));
         }
         this.meta.getIdentification().getFRBRExpression().add(newFRBRlanguage(language, mapper));
     }
 
-    public final void setDate(LocalDate date, String name) {
+    public void setDate(LocalDate date, String name) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
@@ -97,11 +102,11 @@ public class MetaBuilder {
         frbr.setName(name);
     }
 
-    public final void setCountry(Country country) {
+    public void setCountry(Country country) {
         this.setCountry(country, Country::getAlpha2);
     }
 
-    public final void setCountry(Country country, Function<Country, String> mapper) {
+    public void setCountry(Country country, Function<Country, String> mapper) {
         if (LOGGER.isDebugEnabled()) {
 
             LOGGER.debug("setCountry({})", country);
@@ -109,13 +114,13 @@ public class MetaBuilder {
         this.meta.getIdentification().getFRBRWork().getFRBRcountry().setValue(mapper.apply(country));
     }
 
-    public final void addAuthor(Uri href) {
+    public void addAuthor(Uri href) {
         addAuthor(href, LOOKUP_FRBR_WORK);
         addAuthor(href, LOOKUP_FRBR_EXPRESSION);
         addAuthor(href, LOOKUP_FRBR_MANIFESTATION);
     }
 
-    public final void addAuthor(Uri href, Function<Identification, CoreProperties> type) {
+    public void addAuthor(Uri href, Function<Identification, CoreProperties> type) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addAuthor({}) for ({})", href, type);
         }
@@ -132,7 +137,7 @@ public class MetaBuilder {
         }
     }
 
-    public final FRBRauthor addAuthor(Function<Identification, CoreProperties> type, AknReference ... references) {
+    public FRBRauthor addAuthor(Function<Identification, CoreProperties> type, AknReference ... references) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addAuthor({}) for ({})", references, type);
         }
@@ -209,6 +214,26 @@ public class MetaBuilder {
         portion.setFrom(EidRef.valueOf(UnsafeString.getChars(from)));
         this.meta.getIdentification().getFRBRManifestation().setPortion(portion);
         return portion;
+    }
+    
+    public References getReferences(AgentRef source) {
+    	References references = this.getMeta().getReferences(source);
+    	
+    	if (LOGGER.isDebugEnabled()) {
+    		LOGGER.debug("References for source [{}] -> [{}]", source, references);
+    	}
+    	
+    	if (references == null) {
+    		references = new References();
+    		references.setSource(source);
+    		this.meta.add(references);
+    	}
+
+    	return references;
+    }
+    
+    public References getReferences() {
+    	return getReferences(this.getMeta().getIdentification().getSource());
     }
 
 }

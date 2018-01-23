@@ -10,11 +10,8 @@ import io.legaldocml.business.builder.BusinessBuilder;
  */
 public final class EolTypeBuilder<T extends EolType> extends AbstractBusinessPartBuilder<T> {
 
-    private final T eolType;
-
     public EolTypeBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T eolType) {
         super(businessBuilder,eolType);
-        this.eolType = eolType;
     }
 
 }

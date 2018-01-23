@@ -79,7 +79,6 @@ public final class DefaultBusinessBuilder extends BusinessBuilder<DocumentType> 
 
     @Override
     protected MetaBuilder newMetaBuilder() {
-        return new MetaBuilder(this, AgentRef.valueOf("default")) {
-        };
+        return new MetaBuilder(this, AgentRef.valueOf("default"));
     }
 }

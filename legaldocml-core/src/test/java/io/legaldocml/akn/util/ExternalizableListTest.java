@@ -138,7 +138,8 @@ class ExternalizableListTest {
         }
     }
 
-    @Test
+    @SuppressWarnings("unlikely-arg-type")
+	@Test
     void testIndexOf() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
@@ -157,7 +158,8 @@ class ExternalizableListTest {
         Assertions.assertThrows(NullPointerException.class, () -> list.indexOf(null));
     }
 
-    @Test
+    @SuppressWarnings("unlikely-arg-type")
+	@Test
     void testLastIndexOf() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
