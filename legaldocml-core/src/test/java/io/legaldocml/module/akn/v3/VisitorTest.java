@@ -1,15 +1,16 @@
 package io.legaldocml.module.akn.v3;
 
-import io.legaldocml.ReaderHelper;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.CoverPage;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Preface;
+import io.legaldocml.io.XmlProvider;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;
 import io.legaldocml.util.ToStringVisitor;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
 public class VisitorTest {
@@ -18,7 +19,7 @@ public class VisitorTest {
     @Test
     public void simpleVisitor() throws Exception {
 
-        AkomaNtoso<?> ako = ReaderHelper.read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
+        AkomaNtoso<?> ako = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
 
 
         ToStringVisitor visitor = new ToStringVisitor() {
@@ -44,7 +45,7 @@ public class VisitorTest {
     @Test
     public void testBillVisitor() throws Exception {
 
-        AkomaNtoso<?> ako = ReaderHelper.read(PathForTest.path("/xml/v3/it_senato_ddl_2013.xml"));
+        AkomaNtoso<?> ako = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/it_senato_ddl_2013.xml"));
 
 
         ToStringVisitor visitor = new ToStringVisitor() {
@@ -69,7 +70,7 @@ public class VisitorTest {
     @Test
     public void testDocumentCollectionVisitor() throws Exception {
 
-        AkomaNtoso<?> ako = ReaderHelper.read(PathForTest.path("/xml/v3/uy_bill_2010-09-27.xml"));
+        AkomaNtoso<?> ako = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/uy_bill_2010-09-27.xml"));
 
 
         ToStringVisitor visitor = new ToStringVisitor() {

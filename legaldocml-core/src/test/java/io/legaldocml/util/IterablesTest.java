@@ -22,14 +22,14 @@ class IterablesTest {
         ExternalizableList<T> e = null;
         ListIterable<T>  empty = Iterables.iterable(e);
         assertFalse(empty.iterator().hasNext());
-        assertEquals(0, empty.count());
+        assertEquals(0, empty.size());
     }
 
     @Test
     void testIterable() {
         ListIterable<AknObject>  empty = Iterables.iterable(new AknList<>(new AknObject[0]));
         assertFalse(empty.iterator().hasNext());
-        assertEquals(0, empty.count());
+        assertEquals(0, empty.size());
     }
 
 

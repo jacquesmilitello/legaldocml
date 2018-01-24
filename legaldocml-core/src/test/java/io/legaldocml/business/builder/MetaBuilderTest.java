@@ -56,11 +56,11 @@ class MetaBuilderTest {
         builder.getMetaBuilder().addLanguage(Iso639.ENGLISH);
 
         Identification identification = builder.getAkomaNtoso().getDocumentType().getMeta().getIdentification();
-        assertEquals(1, identification.getFRBRExpression().getLanguages().count());
+        assertEquals(1, identification.getFRBRExpression().getLanguages().size());
         assertEquals("en", identification.getFRBRExpression().getLanguages().iterator().next().getLanguage());
 
         builder.getMetaBuilder().addLanguage(Iso639.FRENCH, Language::getTerminology);
-        assertEquals(2, identification.getFRBRExpression().getLanguages().count());
+        assertEquals(2, identification.getFRBRExpression().getLanguages().size());
 
         Iterator<FRBRlanguage> iterator = identification.getFRBRExpression().getLanguages().iterator();
 

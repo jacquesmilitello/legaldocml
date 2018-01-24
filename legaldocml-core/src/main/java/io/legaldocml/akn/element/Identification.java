@@ -9,6 +9,7 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
+import io.legaldocml.util.ToStringBuilder;
 
 import java.io.IOException;
 
@@ -183,6 +184,16 @@ public final class Identification implements AknObject, Source {
             }
             visitor.visitLeave(this);
         }
+    }
+    
+	/**
+     * {@inheritDoc}
+     */
+    @Override
+    public final String toString() {
+        ToStringBuilder builder = new ToStringBuilder(this, false);
+        builder.append(SOURCE, this.source);
+        return builder.toString();
     }
 
 }

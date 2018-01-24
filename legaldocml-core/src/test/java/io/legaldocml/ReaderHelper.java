@@ -1,20 +1,11 @@
 package io.legaldocml;
 
-import io.legaldocml.akn.AkomaNtoso;
-import io.legaldocml.akn.DocumentType;
-import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.impl.XmlChannelReader;
-import io.legaldocml.util.Buffers;
-import org.w3c.dom.Document;
+import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
+
+import org.w3c.dom.Document;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -29,32 +20,6 @@ public final class ReaderHelper {
     static {
         DOCUMENT_BUILDER_FACTORY.setNamespaceAware(true);
     }
-
-    public static <T extends DocumentType> AkomaNtoso<T> read(Path path) throws IOException {
-
-        AkomaNtoso<T> akomaNtoso;
-
-        XmlChannelReader reader = new XmlChannelReader();
-        MappedByteBuffer out = null;
-        try (FileChannel channel = FileChannel.open(path, StandardOpenOption.READ)) {
-
-            // Mapping a file into memory
-            out = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
-            reader.setBuffer(out);
-            reader.nextStartOrEndElement();
-
-            akomaNtoso = XmlReaderHelper.createAkomaNtoso(reader);
-            akomaNtoso.read(reader);
-
-        } finally {
-            if (out != null) {
-                Buffers.releaseDirectByteBuffer(out);
-            }
-        }
-
-        return akomaNtoso;
-    }
-
 
     public static Document load(String classpathResource) {
         return load(ReaderHelper.class.getResourceAsStream(classpathResource));

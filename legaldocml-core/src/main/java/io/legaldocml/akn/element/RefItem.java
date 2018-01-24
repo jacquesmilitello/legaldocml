@@ -1,6 +1,6 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.Id;
 
 /**
  * Markup Interface.<br/>
@@ -18,6 +18,6 @@ import io.legaldocml.akn.AknObject;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface RefItem extends AknObject {
+public interface RefItem extends Id {
 
 }

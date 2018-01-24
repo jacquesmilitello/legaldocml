@@ -28,7 +28,7 @@ public final class Iterables {
          * {@inheritDoc}
          */
         @Override
-        public int count() {
+        public int size() {
             return 0;
         }
     };

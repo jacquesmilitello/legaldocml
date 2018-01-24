@@ -22,6 +22,18 @@ public abstract class AbstractRef extends AbstractUri {
         super(value);
     }
 
+    public final boolean isRef() {
+    	char[] val = getChars();
+    	return val.length > 0 && val[0] == '#';
+    }
+    
+    public final NoWhiteSpace toEID() {
+    	char[] val = getChars();
+    	char[] eid = new char[val.length-1];
+    	System.arraycopy(val, 1, eid, 0, eid.length);
+    	return NoWhiteSpace.valueOf(eid);
+    }
+    
     /**
      * {@inheritDoc}
      */

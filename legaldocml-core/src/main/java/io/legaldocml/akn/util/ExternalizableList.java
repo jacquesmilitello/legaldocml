@@ -423,10 +423,13 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
             return Spliterators.spliterator(ExternalizableList.this, Spliterator.ORDERED);
         }
 
-        @Override
-        public int count() {
-            return ExternalizableList.this.size;
-        }
+        /**
+         * {@inheritDoc}
+         */
+		@Override
+		public int size() {
+			return ExternalizableList.this.size;
+		}
     }
 
 }

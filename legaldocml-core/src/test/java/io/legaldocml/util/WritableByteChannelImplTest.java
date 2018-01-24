@@ -1,18 +1,19 @@
 package io.legaldocml.util;
 
-import io.legaldocml.ReaderHelper;
-import io.legaldocml.akn.AkomaNtoso;
-import io.legaldocml.akn.element.Portion;
-import io.legaldocml.io.XmlWriterFactoryProvider;
-import io.legaldocml.test.PathForTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ClosedChannelException;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.akn.element.Portion;
+import io.legaldocml.io.XmlProvider;
+import io.legaldocml.io.XmlWriterFactoryProvider;
+import io.legaldocml.test.PathForTest;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -21,7 +22,7 @@ public class WritableByteChannelImplTest {
 
     @Test
     public void testSimpleWrite() throws IOException {
-        AkomaNtoso<Portion> akn = ReaderHelper.read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
+        AkomaNtoso<Portion> akn = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
         WritableByteChannelImpl wbc = new  WritableByteChannelImpl(256,256);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 

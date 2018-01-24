@@ -31,6 +31,12 @@
 
          <dependency>
             <groupId>io.legaldocml</groupId>
+            <artifactId>legaldocml-validation</artifactId>
+            <version>${project.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>io.legaldocml</groupId>
             <artifactId>legaldocml-schematron</artifactId>
             <version>${project.version}</version>
          </dependency>

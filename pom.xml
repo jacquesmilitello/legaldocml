@@ -25,13 +25,13 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
       <org.slf4j.version>1.7.25</org.slf4j.version>
-      <com.google.guava.version>23.5-jre</com.google.guava.version>
+      <com.google.guava.version>23.6-jre</com.google.guava.version>
       <org.antlr.version>4.7</org.antlr.version>
 
       <org.apache.logging.log4j.version>2.10.0</org.apache.logging.log4j.version>
 
-	  <org.junit.platform.version>1.0.2</org.junit.platform.version>
-      <org.junit.jupiter.version>5.0.2</org.junit.jupiter.version>
+	  <org.junit.platform.version>1.0.3</org.junit.platform.version>
+      <org.junit.jupiter.version>5.0.3</org.junit.jupiter.version>
       <org.xmlunit.version>2.5.1</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
       <org.mockito.version>2.12.0</org.mockito.version>
@@ -52,11 +52,13 @@
    <modules>
       <module>legaldocml-test</module>
       <module>legaldocml-core</module>
+      <module>legaldocml-validation</module>
       <module>legaldocml-archive</module>
       <!--module>legaldocml-xpath</module-->
       <module>legaldocml-schematron</module>
       <module>legaldocml-xliff</module>
       <module>legaldocml-bom</module>
+
    </modules>
 
    <developers>
@@ -195,7 +197,7 @@
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-compiler-plugin</artifactId>
-               <version>3.6.2</version>
+               <version>3.7.0</version>
                <configuration>
                   <source>1.8</source>
                   <target>1.8</target>

@@ -1,27 +1,28 @@
 package io.legaldocml.akn;
 
-import io.legaldocml.ReaderHelper;
-import io.legaldocml.akn.element.Chapter;
-import io.legaldocml.akn.element.Portion;
-import io.legaldocml.akn.element.PortionBody;
-import io.legaldocml.akn.element.Section;
-import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.test.PathForTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import io.legaldocml.akn.element.Chapter;
+import io.legaldocml.akn.element.Portion;
+import io.legaldocml.akn.element.PortionBody;
+import io.legaldocml.akn.element.Section;
+import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.io.XmlProvider;
+import io.legaldocml.test.PathForTest;
 
 class PortionBodyTest {
 
 
     @Test
     void testPortionBody() throws IOException {
-        AkomaNtoso<Portion> akn = ReaderHelper.read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
+        AkomaNtoso<Portion> akn = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
         PortionBody body = akn.getDocumentType().getPortionBody();
         assertEquals(1, body.stream().count());
         assertEquals("chp_3", body.stream().findFirst().map(Chapter.class::cast).map(Chapter::getEid).get().toString());
@@ -29,7 +30,7 @@ class PortionBodyTest {
 
     @Test
     void testChapterBody() throws IOException {
-        AkomaNtoso<Portion> akn = ReaderHelper.read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
+        AkomaNtoso<Portion> akn = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
         PortionBody body = akn.getDocumentType().getPortionBody();
 
         Chapter chapter = body.stream().findFirst().map(Chapter.class::cast).get();
