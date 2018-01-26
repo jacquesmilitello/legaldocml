@@ -55,15 +55,7 @@ final class ValidationsDefaultContext<T extends DocumentType> implements Validat
     @Override
 	public void addError(Rule rule, AknObject node, String message) {
 		LOGGER.info("error from rule [{}] -> node [{}] -> [{}]", rule, node, message);
-		
-		List<ValidationError> list = this.errors.get(rule);
-		
-		if (list == null) {
-			list = new LinkedList<>();
-			this.errors.put(rule, list);
-		}
-		
-		list.add(Validations.error(rule, node, message));
+		this.errors.computeIfAbsent(rule, r -> new LinkedList<>()).add(Validations.error(rule, node, message));
 		
 	}
 
