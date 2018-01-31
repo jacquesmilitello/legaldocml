@@ -2,6 +2,8 @@ package io.legaldocml.diff;
 
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.Id;
+import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.AttributeGetterSetter;
@@ -56,7 +58,11 @@ public final class Diffs {
 
     }
 
-    public static <T extends AknObject> void compareNullable(AknList<T> left, AknList<T> right, DiffContext context) {
+    public static <T extends Source> void compareSource(AknList<T> left, AknList<T> right, DiffContext context) {
+
+    }
+
+    public static <T extends Id> void compareNullable(AknList<T> left, AknList<T> right, DiffContext context) {
 
         if (left == null && right == null) {
             return;
@@ -66,6 +72,34 @@ public final class Diffs {
             right.forEach(context::insertElement);
             return;
         }
+
+        if (right == null) {
+            left.forEach(context::deleteElement);
+            return;
+        }
+
+        AknList<T> rigltClone = right.clone();
+
+        int i = 0;
+        for (T l : left.iterable()) {
+
+            if (i < right.size()) {
+                T r = right.get(i);
+
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("compare left [{}] - right [{}]", l, r);
+                }
+
+                if (l.getEid() != null && l.getEid().equals(r.getEid())) {
+                    // ok
+                    right.remove(i);
+                }
+            }
+
+        }
+
+        right.forEach(context::insertElement);
+
 
     }
 

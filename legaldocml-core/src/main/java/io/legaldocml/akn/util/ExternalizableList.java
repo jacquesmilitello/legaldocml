@@ -22,7 +22,7 @@ import java.util.stream.StreamSupport;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class ExternalizableList<E extends Externalizable> implements List<E> {
+public class ExternalizableList<E extends Externalizable> implements List<E>, Cloneable {
 
     /**
      * The maximum size of array to allocate. Some VMs reserve some header words in an array. Attempts to allocate
@@ -342,6 +342,10 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
 
     public final ListIterable<E> iterable() {
         return new IterableImpl();
+    }
+
+    protected final void doClone(ExternalizableList<E> clone) {
+        clone.size = size;
     }
 
     // ========================================================================

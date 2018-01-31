@@ -71,6 +71,18 @@ final class DiffContextImpl implements DiffContext {
         this.diffs.add(new InsertElementDiff(getPath(), null, right));
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <T extends AknObject> void deleteElement(T left) {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("element [{}] : deleted [{}]", left.name(), left);
+        }
+
+        this.diffs.add(new DeleteElementDiff(getPath(), left));
+    }
+
     @Override
     public <T extends AknObject> void attributeNew(String name, Object valueRight, T left, T right) {
 

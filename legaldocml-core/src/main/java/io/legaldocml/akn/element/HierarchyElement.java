@@ -1,10 +1,10 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.Id;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface HierarchyElement extends AknObject {
+public interface HierarchyElement extends Id {
 
 }

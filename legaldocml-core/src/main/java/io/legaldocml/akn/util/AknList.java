@@ -26,4 +26,14 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public AknList<E> clone()  {
+        AknList<E> clone = new AknList<E>(getElems().clone());
+        doClone(clone);
+        return clone;
+    }
+
 }
