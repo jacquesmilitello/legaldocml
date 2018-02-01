@@ -92,13 +92,13 @@ public final class Diffs {
 
                 if (l.getEid() != null && l.getEid().equals(r.getEid())) {
                     // ok
-                    right.remove(i);
+                    rigltClone.remove(i);
                 }
             }
 
         }
 
-        right.forEach(context::insertElement);
+        rigltClone.forEach(context::insertElement);
 
 
     }
