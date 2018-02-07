@@ -1,0 +1,436 @@
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+    <act name="ScottishStatutoryInstrument">
+        <meta>
+            <identification source="#source">
+                <FRBRWork>
+                    <FRBRthis value="http://www.legislation.gov.uk/id/ssi/2017/126/enacted"/>
+                    <FRBRuri value="http://www.legislation.gov.uk/id/ssi/2017/126/enacted"/>
+                    <FRBRdate date="2017-04-20" name="made"/>
+                    <FRBRauthor href="http://www.legislation.gov.uk/id/government/scotland"/>
+                    <FRBRcountry value="GB-SCT"/>
+                    <FRBRsubtype value="order"/>
+                    <FRBRnumber value="126"/>
+                    <FRBRname value="S.S.I. 2017/126 (C. 10)"/>
+                    <FRBRprescriptive value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="http://www.legislation.gov.uk/ssi/2017/126/enacted"/>
+                    <FRBRuri value="http://www.legislation.gov.uk/ssi/2017/126/enacted"/>
+                    <FRBRdate date="2017-04-20" name="made"/>
+                    <FRBRauthor href="#source"/>
+                    <FRBRlanguage language="eng"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="http://www.legislation.gov.uk/ssi/2017/126/enacted/data.akn"/>
+                    <FRBRuri value="http://www.legislation.gov.uk/ssi/2017/126/enacted/data.akn"/>
+                    <FRBRdate date="2017-04-24" name="transform"/>
+                    <FRBRauthor href="http://www.legislation.gov.uk"/>
+                    <FRBRformat value="application/akn+xml"/>
+                </FRBRManifestation>
+            </identification>
+            <classification source="#source">
+                <keyword value="mental health" showAs="MENTAL HEALTH" dictionary="http://www.legislation.gov.uk"/>
+            </classification>
+            <lifecycle source="#source">
+                <eventRef date="2017-04-20" type="generation" eId="made-date" source="#source"/>
+                <eventRef date="2017-04-21" eId="laid-date" source="#source"/>
+                <eventRef date="2017-05-05" eId="coming-into-force-date-1" source="#source"/>
+            </lifecycle>
+            <references source="#source">
+                <TLCOrganization eId="source"
+                                 href="http://www.legislation.gov.uk/id/publisher/KingsOrQueensPrinterForScotland"
+                                 showAs="Queen's Printer for Scotland"/>
+                <TLCLocation eId="standrew’shouse" href="/ontology/location/uk.StAndrew’sHouse"
+                             showAs="St Andrew’s House,"/>
+                <TLCLocation eId="edinburgh" href="/ontology/location/uk.Edinburgh" showAs="Edinburgh"/>
+                <TLCRole eId="ref-d1e135" href="/ontology/role/uk.Authorised to sign by the Scottish Ministers"
+                         showAs="Authorised to sign by the Scottish Ministers"/>
+                <TLCPerson eId="ref-d1e133" href="/ontology/persons/uk.MAUREENWATT" showAs="MAUREEN WATT"/>
+                <TLCConcept href="/uk/subject/mental-health" showAs="Mental Health" eId="d1e62"/>
+            </references>
+            <notes source="#source">
+                <note class="footnote" eId="f00001">
+                    <p>
+                        <ref href="http://www.legislation.gov.uk/id/asp/2015/9">2015 asp 9</ref>
+                        (“the 2015 Act”).
+                    </p>
+                </note>
+                <note class="footnote" eId="f00002">
+                    <p><ref href="http://www.legislation.gov.uk/id/asp/2003/13">2003 asp 13</ref>. Subsection (2A) is
+                        inserted by section 23(2) of the 2015 Act.
+                    </p>
+                </note>
+                <note class="footnote" eId="f00003">
+                    <p>Section 291A is inserted by section 29 of the 2015 Act.</p>
+                </note>
+                <note class="footnote" eId="f00004">
+                    <p>Section 289(1) is amended by section 32(2) of the 2015 Act.</p>
+                </note>
+                <note class="footnote" eId="f00005">
+                    <p>Section 290(1) is amended by section 32(3)(a) of the 2015 Act.</p>
+                </note>
+                <note class="footnote" eId="f00006">
+                    <p>Section 309A was inserted by the Adult Support and Protection (Scotland) <ref
+                            href="http://www.legislation.gov.uk/id/asp/2007/10">Act 2007, (asp 10)</ref>, section 72(1).
+                    </p>
+                </note>
+                <note class="footnote" eId="f00007">
+                    <p>Section 309 is amended by section 33(3) of the 2015 Act.</p>
+                </note>
+                <note class="footnote" eId="f00008">
+                    <p>Subsection (2ZA) is inserted by section 33(3)(c) of the 2015 Act.</p>
+                </note>
+                <note class="footnote" eId="f00009">
+                    <p>Subsection (3A) is inserted by section 33(4) of the 2015 Act.</p>
+                </note>
+                <note class="footnote" eId="f00010">
+                    <p><ref href="http://www.legislation.gov.uk/id/asp/2003/7">2003 asp 7</ref>. Section 16 is amended
+                        by section 54 of the Act.
+                    </p>
+                </note>
+            </notes>
+        </meta>
+        <preface>
+            <p class="number">
+                <docNumber>2017 No. 126 (C. 10)</docNumber>
+            </p>
+            <block name="subject">
+                <concept class="title" refersTo="#d1e62">Mental Health</concept>
+            </block>
+            <p class="title">
+                <shortTitle>The Mental Health (Scotland) Act 2015 (Commencement <abbr title="Number">No.
+                </abbr> 3) Order 2017
+                </shortTitle>
+            </p>
+            <p class="MadeDate">
+                <span>Made</span>
+                <docDate date="2017-04-20">20th April 2017</docDate>
+            </p>
+            <p class="LaidDate">
+                <span>Laid before the Scottish Parliament</span>
+                <docDate date="2017-04-21">21st April 2017</docDate>
+            </p>
+            <p class="ComingIntoForce">
+                <span>Coming into force</span>
+                <docDate date="2017-05-05">5th May 2017</docDate>
+            </p>
+        </preface>
+        <preamble>
+            <formula name="EnactingText">
+                <p>The Scottish Ministers make the following Order in exercise of the powers conferred by section 61(2)
+                    of the Mental Health (Scotland) Act 2015<noteRef href="#f00001" class="footnote" marker="1"/>.
+                </p>
+            </formula>
+        </preamble>
+        <body>
+            <article eId="article-1">
+                <num>1</num>
+                <heading>Citation, commencement and interpretation</heading>
+                <paragraph eId="article-1-1">
+                    <num>1</num>
+                    <content>
+                        <p>This Order may be cited as the Mental Health (Scotland) Act 2015 (Commencement No. 3) Order
+                            2017 and comes into force on 5th May 2017.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph eId="article-1-2">
+                    <num>2</num>
+                    <content>
+                        <p>In this Order “the 2015 Act” means the Mental Health (Scotland) Act 2015.</p>
+                    </content>
+                </paragraph>
+            </article>
+            <article eId="article-2">
+                <num>2</num>
+                <heading>Appointed day</heading>
+                <paragraph eId="article-2-1">
+                    <num>1</num>
+                    <content>
+                        <p>Subject to paragraph (2), 5th May 2017 is the day appointed for the coming into force of the
+                            provisions of the 2015 Act specified in column 1 of the table in the schedule (the subject
+                            matter of which is specified in column 2 of that table).
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph eId="article-2-2">
+                    <num>2</num>
+                    <content>
+                        <p>Where a purpose is specified in column 3 of that table in relation to a provision in column
+                            1, that provision comes into force on 5th May 2017 only for that purpose.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <hcontainer name="signatures">
+                <content>
+                    <block name="signature">
+                        <signature>
+                            <person refersTo="#ref-d1e133">MAUREEN WATT</person>
+                            <role refersTo="#ref-d1e135">Authorised to sign by the Scottish Ministers</role>
+                            <location refersTo="#standrew’shouse">St Andrew’s House,</location>
+                            <location refersTo="#edinburgh">Edinburgh</location>
+                            <date date="2017-04-20">20th April 2017</date>
+                        </signature>
+                    </block>
+                </content>
+            </hcontainer>
+            <hcontainer name="schedules" eId="d1e145">
+                <hcontainer name="schedule" eId="schedule">
+                    <num>SCHEDULE
+                        <authorialNote placement="right">
+                            <p>Article 2</p>
+                        </authorialNote>
+                    </num>
+                    <content>
+                        <tblock class="tabular">
+                            <table style="table-layout:fixed">
+                                <tr>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;width:142.15pt">
+                                        <p>Column 1</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;width:142.15pt">
+                                        <p>Column 2</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black;width:142.15pt">
+                                        <p>Column 3</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Provisions of the Mental Health (Scotland) Act 2015</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Subject matter</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black">
+                                        <p>Purpose</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;width:142.15pt">
+                                        <p>Section 23(1) and (2)</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;width:142.15pt">
+                                        <p>Consent to being named person</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black;width:142.15pt">
+                                        <p>So far as is necessary to enable the Scottish Ministers to make regulations
+                                            under section 250(2A) (nomination of named person) of the Mental Health
+                                            (Care and Treatment) (Scotland) Act 2003<noteRef href="#f00002"
+                                                                                             class="footnote"
+                                                                                             marker="2"/>.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Section 29</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Conflicts of interest to be avoided</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black">
+                                        <p>So far as is necessary to enable the Scottish Ministers to make regulations
+                                            under section 291A
+                                            <noteRef href="#f00003" class="footnote" marker="3"/>
+                                            (conflicts of interest to be avoided) of the Mental Health (Care and
+                                            Treatment) (Scotland) Act 2003.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Section 32</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Cross-border transfer of patients</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black">
+                                        <p>So far as is necessary to enable the Scottish Ministers to make regulations
+                                            under sections 289(1)
+                                            <noteRef href="#f00004" class="footnote" marker="4"/>
+                                            (cross-border transfer: patients subject to requirement other than
+                                            detention), 290(1)
+                                            <noteRef href="#f00005" class="footnote" marker="5"/>
+                                            (cross-border transfer: patients subject to detention requirement or
+                                            otherwise in hospital) and 309A(1)
+                                            <noteRef href="#f00006" class="footnote" marker="6"/>
+                                            (cross-border visits: leave of absence) of the Mental Health (Care and
+                                            Treatment) (Scotland) Act 2003, all as amended by the 2015 Act.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Section 33</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Dealing with absconding patients</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black">
+                                        <p>So far as is necessary to enable the Scottish Ministers to make regulations
+                                            under sections 309(1)<noteRef href="#f00007" class="footnote" marker="7"/>,
+                                            as amended by the 2015 Act, and (2ZA)
+                                            <noteRef href="#f00008" class="footnote" marker="8"/>
+                                            (patients from other jurisdictions) and 310(1) as read with section 310(3A)
+                                            <noteRef href="#f00009" class="footnote" marker="9"/>
+                                            (regulations as to absconding by other patients) of the Mental Health (Care
+                                            and Treatment) (Scotland) Act 2003.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Section 54</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Right to information: offender imprisoned</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black">
+                                        <p>So far as is necessary to enable the Scottish Ministers to make regulations
+                                            under section 16(4)(b) and (c) of the Criminal Justice (Scotland) Act 2003
+                                            <noteRef href="#f00010" class="footnote" marker="10"/>
+                                            (victim’s right to receive information concerning release <abbr
+                                                    title="et cetera" xml:lang="la">etc.
+                                            </abbr> of offender).
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Section 58</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black">
+                                        <p>Associated definitions</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black;border-left-style:solid;border-left-width:0.5pt;border-left-color:black;border-right-style:solid;border-right-width:0.5pt;border-right-color:black">
+                                        <p>So far as is necessary to enable the Scottish Ministers to make regulations
+                                            under section 16(4)(b) and (c) of the Criminal Justice (Scotland) Act 2003.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tblock>
+                    </content>
+                </hcontainer>
+            </hcontainer>
+        </body>
+        <conclusions>
+            <blockContainer class="ExplanatoryNotes">
+                <heading>EXPLANATORY NOTE</heading>
+                <intro>
+                    <p>(This note is not part of the Order)</p>
+                </intro>
+                <p>
+                    <authorialNote>
+                        <p>This Order brings into force provisions in the Mental Health (Scotland) Act 2015 (“the 2015
+                            Act”) which make amendments to or introduce powers to make regulations under the Mental
+                            Health (Care and Treatment) (Scotland) Act 2003 (“the 2003 Act”) and the Criminal Justice
+                            (Scotland) Act 2003.
+                        </p>
+                        <p>Sections 32 and 33 of the 2015 Act make amendments to powers to make regulations under the
+                            2003 Act. Sections 23 and 29 introduce new powers to make regulations under that Act.
+                            Section 54 makes amendments to section 16 of the Criminal Justice (Scotland) Act 2003, also
+                            to enabling powers. Section 58 introduces section 18A to that Act which provides definitions
+                            for the purposes of those powers. These provisions come into force on 5th May 2017 to allow
+                            regulations to be made.
+                        </p>
+                        <p>By virtue of section 61(1) of the 2015 Act, section 17 and Part 4 (sections 61 and 62) of the
+                            2015 Act came into force on 5th August 2015. Sections 14, 15, 16 and 18 of the 2015 Act,
+                            which make amendments to chapter 3 of Part 17 of the 2003 Act in respect of detention in
+                            conditions of excessive security came into force on 16th November 2015. Section 37 of the
+                            2015 Act creates a duty on the Scottish Ministers to carry out a review of the arrangements
+                            for investigating the deaths of patients with mental disorder; section 37 came into force on
+                            24th December 2015. The 2015 Act received Royal Assent on 4th August 2015.
+                        </p>
+                    </authorialNote>
+                </p>
+            </blockContainer>
+            <blockContainer class="EarlierOrders">
+                <heading>NOTE AS TO EARLIER COMMENCEMENT ORDERS</heading>
+                <intro>
+                    <p>(This note is not part of the Order)</p>
+                </intro>
+                <p>
+                    <subFlow name="earlierOrders">
+                        <p>The following provisions of the Mental Health (Scotland) Act 2015 have been brought into
+                            force by commencement order made before the date of this Order:—
+                        </p>
+                        <tblock class="tabular">
+                            <table style="table-layout:fixed">
+                                <tr>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black;width:158.4pt">
+                                        <p>Provision</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black;width:162pt">
+                                        <p>Date of Commencement</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1"
+                                        style="border-top-style:solid;border-top-width:0.5pt;border-top-color:black;border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black;width:90pt">
+                                        <p>Instrument No.</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1" style="width:158.4pt">
+                                        <p>Sections 14, 15, 16 and 18</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" style="width:162pt">
+                                        <p>16th November 2015</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" style="width:90pt">
+                                        <p>
+                                            <ref href="http://www.legislation.gov.uk/id/ssi/2015/361">2015/361</ref>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black">
+                                        <p>Section 37</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black">
+                                        <p>24th December 2015</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1"
+                                        style="border-bottom-style:solid;border-bottom-width:0.5pt;border-bottom-color:black">
+                                        <p>
+                                            <ref href="http://www.legislation.gov.uk/id/ssi/2015/417">2015/417</ref>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tblock>
+                    </subFlow>
+                </p>
+            </blockContainer>
+        </conclusions>
+    </act>
+</akomaNtoso>

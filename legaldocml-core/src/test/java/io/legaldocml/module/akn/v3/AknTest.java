@@ -23,12 +23,12 @@ import java.util.EnumSet;
 import static io.legaldocml.XmlUnitHelper.compare;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class AknTest {
+class AknTest {
 
     private static final XmlReaderFactory XML_READER_FACTORY = XmlReaderFactoryProvider.newXmlReaderFactory(2);
 
     @Test
-    public void testOther() throws Exception {
+    void testOther() throws Exception {
         test("/xml/v3/cl_Sesion56_2.xml");
         test("/xml/v3/it_senato_ddl_2013.xml");
         test("/xml/v3/uy_bill_2010-09-27.xml");
@@ -40,6 +40,10 @@ public class AknTest {
         test("/xml/v3/eu_COM(2013)0619_EN-8.xml");
         test("/xml/v3/uk_pga_1998_29.xml");
         test("/xml/v3/112hr4310enr.akn.xml");
+        test("/xml/v3/uk/asp-2017-1-enacted-data.akn.xml");
+        test("/xml/v3/uk/ssi-2017-102-enacted-data.akn.xml");
+        test("/xml/v3/uk/ssi-2017-113-enacted-data.akn.xml");
+        test("/xml/v3/uk/ssi-2017-126-enacted-data.akn.xml");
 
     }
 
