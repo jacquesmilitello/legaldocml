@@ -25,7 +25,7 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
       <org.slf4j.version>1.7.25</org.slf4j.version>
-      <com.google.guava.version>23.6-jre</com.google.guava.version>
+      <com.google.guava.version>24.0-jre</com.google.guava.version>
       <org.antlr.version>4.7</org.antlr.version>
 
       <org.apache.logging.log4j.version>2.10.0</org.apache.logging.log4j.version>
@@ -34,7 +34,7 @@
       <org.junit.jupiter.version>5.0.3</org.junit.jupiter.version>
       <org.xmlunit.version>2.5.1</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
-      <org.mockito.version>2.12.0</org.mockito.version>
+      <org.mockito.version>2.15.0</org.mockito.version>
       <com.jayway.jsonpath.version>2.4.0</com.jayway.jsonpath.version>
       <org.openjdk.jmh.version>1.19</org.openjdk.jmh.version>
       <org.apache.commons.math3.version>3.6.1</org.apache.commons.math3.version>

@@ -264,23 +264,23 @@ public final class Meta implements AknObject {
             this.workflows.write(writer);
         }
 
-        if (this.analysis != null && this.analysis.size() > 0) {
+        if (this.analysis != null) {
             this.analysis.write(writer);
         }
 
-        if (this.temporalData != null && this.temporalData.size() > 0) {
+        if (this.temporalData != null) {
             this.temporalData.write(writer);
         }
 
-        if (this.references != null && this.references.size() > 0) {
+        if (this.references != null) {
             this.references.write(writer);
         }
 
-        if (this.notes != null && this.notes.size() > 0) {
+        if (this.notes != null) {
             this.notes.write(writer);
         }
 
-        if (this.proprietaries != null && this.proprietaries.size() > 0) {
+        if (this.proprietaries != null) {
             this.proprietaries.write(writer);
         }
 

@@ -27,7 +27,7 @@ final class AgentRefInReferencesRule implements Rule {
 	/**
 	 * Singleton Instance.
 	 */
-	static final public AgentRefInReferencesRule INSTANCE = new AgentRefInReferencesRule();
+	public static final AgentRefInReferencesRule INSTANCE = new AgentRefInReferencesRule();
 	
 	/**
 	 * {@inheritDoc}
