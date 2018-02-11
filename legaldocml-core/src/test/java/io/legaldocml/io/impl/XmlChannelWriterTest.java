@@ -16,7 +16,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class XmlChannelWriterTest {
+class XmlChannelWriterTest {
 
     private static final String TOTO = "toto";
     private static final long ADR = Buffers.address(TOTO);
@@ -25,14 +25,14 @@ public class XmlChannelWriterTest {
     private XmlChannelWriter writer;
 
     @BeforeEach
-    public void before() {
+    void before() {
         baos = new ByteArrayOutputStream();
         writer = new XmlChannelWriterV3();
         writer.setChannel(Channels.newChannel(baos));
     }
 
     @Test
-    public void writeByteArray() throws IOException {
+    void writeByteArray() throws IOException {
         writer.writeStart(ADR, 4);
         writer.writeAttribute(ADR, 4, "hello".getBytes());
         writer.writeEnd(ADR, 4);
@@ -42,7 +42,7 @@ public class XmlChannelWriterTest {
     }
 
     @Test
-    public void writeAttributeCharArray() throws IOException {
+    void writeAttributeCharArray() throws IOException {
         writer.writeStart(ADR, 4);
         writer.writeAttribute(ADR, 4, "hello".toCharArray());
         writer.writeEnd(ADR, 4);
@@ -52,7 +52,7 @@ public class XmlChannelWriterTest {
     }
 
     @Test
-    public void writeAttributeLocalDate() throws IOException {
+    void writeAttributeLocalDate() throws IOException {
         writer.writeStart(ADR, 4);
         writer.writeAttribute(ADR, 4, LocalDate.of(2011,3,9));
         writer.writeEnd(ADR, 4);
@@ -62,7 +62,7 @@ public class XmlChannelWriterTest {
     }
 
     @Test
-    public void writeAttributeOffsetDateTime() throws IOException {
+    void writeAttributeOffsetDateTime() throws IOException {
         writer.writeStart(ADR, 4);
         writer.writeAttribute(ADR, 4, OffsetDateTime.of(2011,3,9, 18,36, 5,0, ZoneOffset.UTC ));
         writer.writeEnd(ADR, 4);

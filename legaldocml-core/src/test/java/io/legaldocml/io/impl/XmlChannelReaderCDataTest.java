@@ -65,4 +65,28 @@ public class XmlChannelReaderCDataTest {
             }
         });
     }
+
+    @Test
+    public void test004Element() throws IOException {
+        doTest(path("/xml/cdata-004.xml"), reader -> {
+            reader.nextStartOrEndElement();
+            assertEquals("test", reader.getQName().getLocalName());
+            reader.next(); //-> CHARACTERS
+            reader.next(); //-> START_ELEMENT
+            assertEquals("el", reader.getQName().getLocalName());
+            reader.next(); //-> CHARACTERS
+            assertEquals("hello-001]test", reader.getText().toString());
+            reader.next(); //-> END_ELEMENT
+            assertEquals("el", reader.getQName().getLocalName());
+            reader.next(); //-> CHARACTERS
+            reader.next(); //-> START_ELEMENT
+            assertEquals("el", reader.getQName().getLocalName());
+            reader.next(); //-> CHARACTERS
+            assertEquals("hello-002]]test", reader.getText().toString());
+            reader.next(); //-> END_ELEMENT
+            assertEquals("el", reader.getQName().getLocalName());
+            reader.next(); //-> END_ELEMENT
+            assertEquals("test", reader.getQName().getLocalName());
+        });
+    }
 }

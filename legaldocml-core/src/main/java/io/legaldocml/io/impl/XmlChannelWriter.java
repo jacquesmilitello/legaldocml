@@ -456,32 +456,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         }
     }
 
-    public void write(LocalDate date) throws IOException {
-        checkSize(16);
-
-        int pos = this.buffer.position();
-        if (hasElements[elem]) {
-            hasElements[elem] = false;
-            UNSAFE.putByte(this.address + pos++, END_TAG);
-        }
-
-        int year = date.getYear();
-        int month = date.getMonthValue();
-        int day = date.getDayOfMonth();
-
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 1000)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 100 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year / 10 % 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (year % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (month % 10)));
-        UNSAFE.putByte(this.address + pos++, CHAR_DASH);
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day / 10)));
-        UNSAFE.putByte(this.address + pos++, (byte) (48 + (day % 10)));
-        this.buffer.position(pos);
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -503,14 +477,6 @@ public abstract class XmlChannelWriter implements XmlWriter {
         pos += valueLen;
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
         this.buffer.position(pos);
-    }
-
-    public static byte[] getPiStart() {
-        return PI_START.clone();
-    }
-
-    public static byte[] getPiEnd() {
-        return PI_END.clone();
     }
 
     public void pushNS(long addr, long size) {

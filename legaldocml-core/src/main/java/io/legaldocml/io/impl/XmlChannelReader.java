@@ -291,7 +291,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                         if (this.preserveSpace == -1) {
                             if (c >= 0x20 && (c != 0x20 || previous != 0x20)) {
                                 cb.put(c);
-                            } // else { skip }
+                            } 
                         } else {
                             cb.put(c);
                         }
