@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.CoreReq;
+import io.legaldocml.akn.container.ComponentRefContainer;
 import io.legaldocml.akn.container.HierElementsContainer;
 import io.legaldocml.akn.group.ANhier;
 import io.legaldocml.akn.group.HierElements;
@@ -22,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -62,7 +64,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierElementsContainer<HierarchyElement> {
+public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierElementsContainer<HierarchyElement>, ComponentRefContainer<HierarchyElement> {
 
     /**
      * SLF4J Logger.
@@ -90,6 +92,7 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     private WrapUp wrapUp;
 
     public final void addHierarchyElement(HierarchyElement element) {
+        requireNonNull(element);
         if (this.elements == null) {
             this.elements = new AknList<>(new HierarchyElement[4]);
         }
@@ -146,6 +149,22 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     @Override
     public boolean remove(Hcontainer hcontainer) {
         return removeHierarchyElement(hcontainer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ComponentRef componentRef) {
+        addHierarchyElement(componentRef);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ComponentRef componentRef) {
+        return removeHierarchyElement(componentRef);
     }
 
     /**

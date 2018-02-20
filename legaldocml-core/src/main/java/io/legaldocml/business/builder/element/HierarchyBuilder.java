@@ -12,6 +12,7 @@ import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessBuilderException;
 import io.legaldocml.business.builder.group.HierElementsBuilder;
+import io.legaldocml.business.builder.support.ComponentRefSupport;
 import io.legaldocml.business.util.EidFactory;
 
 import java.util.function.Consumer;
@@ -19,7 +20,7 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T,HierarchyElement> {
+public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T, HierarchyElement>, ComponentRefSupport<T, HierarchyElement> {
 
     private final Hierarchy parent;
     private final T hierarchy;
@@ -44,7 +45,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public InlineReqTypeBuilder<Heading> heading() {
-       return heading(null);
+        return heading(null);
     }
 
     public InlineReqTypeBuilder<Heading> heading(Consumer<Heading> consumer) {
@@ -82,14 +83,14 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     @SuppressWarnings("unchecked")
-	public <E extends Hierarchy> HierarchyBuilder<E> newChild(String element) {
+    public <E extends Hierarchy> HierarchyBuilder<E> newChild(String element) {
         HierarchyElement el = Hierarchy.ELEMS.get(element).get();
         this.hierarchy.addHierarchyElement(el);
         return new HierarchyBuilder<E>(businessBuilder(), (E) el);
     }
 
     public BlocksBuilder<Intro> intro() {
-       return intro(null);
+        return intro(null);
     }
 
     public BlocksBuilder<Intro> intro(Consumer<Intro> consumer) {
@@ -105,7 +106,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public BlocksBuilder<Content> content() {
-       return content(null);
+        return content(null);
     }
 
     public BlocksBuilder<Content> content(Consumer<Content> consumer) {
