@@ -20,6 +20,7 @@ public interface ComponentRefSupport<T extends ComponentRefContainer<E>, E exten
     default SrcTypeBuilder<ComponentRef> componentRef(ManifestationURI src, String showAs, Consumer<ComponentRef> consumer) {
         ComponentRef componentRef = new ComponentRef();
         componentRef.setShowAs(showAs);
+        componentRef.setSrc(src);
         parent().add(componentRef);
         if (consumer != null) {
             consumer.accept(componentRef);

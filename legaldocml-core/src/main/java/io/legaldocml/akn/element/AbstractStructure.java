@@ -178,7 +178,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
         }
 
         if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(ATTACHMENTS)) {
-            if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
+            if (reader.getContext().getAknModule().getVersion() == 2) {
                 this.attachments = new AttachmentsV2();
             } else {
                 this.attachments = new AttachmentsV3();

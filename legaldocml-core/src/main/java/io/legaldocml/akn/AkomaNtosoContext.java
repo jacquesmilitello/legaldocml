@@ -52,7 +52,7 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
         add(aknModule);
     }
 
-    public AknModule getAkoXmlModule() {
+    public AknModule getAknModule() {
         return this.aknModule;
     }
 

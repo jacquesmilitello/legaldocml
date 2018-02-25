@@ -433,12 +433,12 @@ public final class Attributes {
             }
             AttributeGetterSetter<AknObject> cons = akn.attributes().get(name.toString());
             if (cons == null) {
-                throw new RuntimeException("Missing [" + name + "] for [" + akn.getClass().getSimpleName() + "]");
+                throw new InvalidAttributeException(name, akn);
             }
 
             cons.accept(akn, value);
 
-            reader.<AkomaNtosoContext>getContext().update(cons.name(), akn);
+            reader.getContext().update(cons.name(), akn);
 
         });
     }
@@ -463,4 +463,12 @@ public final class Attributes {
             return this.name;
         }
     }
+
+    public static class InvalidAttributeException extends RuntimeException {
+
+        InvalidAttributeException(CharArray name, AknObject akn) {
+            super("Invalid attribute [" + name + "] for [" + akn.name() + "] : attributes allowed " + akn.attributes().keySet().asList());
+        }
+    }
+
 }

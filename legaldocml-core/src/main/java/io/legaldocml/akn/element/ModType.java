@@ -3,7 +3,6 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.For;
 import io.legaldocml.akn.type.EidRef;
@@ -101,7 +100,7 @@ public abstract class ModType extends AbstractCore implements CoreReq, For {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.getContext().getAknModule().getVersion() == 2) {
             XmlReaderHelper.readWithCharacters(reader, this.elements, ELEMS_V2);
         } else {
             XmlReaderHelper.readWithCharacters(reader, this.elements, ELEMS);

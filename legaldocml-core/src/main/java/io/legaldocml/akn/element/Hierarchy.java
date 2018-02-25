@@ -240,7 +240,7 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
 
         this.elements = new AknList<>(new HierarchyElement[4]);
 
-        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.getContext().getAknModule().getVersion() == 2) {
 
             XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP);
 

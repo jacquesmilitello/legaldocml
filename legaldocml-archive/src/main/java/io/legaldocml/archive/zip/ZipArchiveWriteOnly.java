@@ -100,7 +100,7 @@ final class ZipArchiveWriteOnly implements Archive {
         checkAndCreateDir(directory);
 
         try (FileChannel fc = fs.provider().newFileChannel(directory.resolve(name), new HashSet<>(CREATE))) {
-            XmlWriterFactory writerFactory = XmlProvider.writerFactory(akn.getContext().getAkoXmlModule().getVersion());
+            XmlWriterFactory writerFactory = XmlProvider.writerFactory(akn.getContext().getAknModule().getVersion());
             writerFactory.write(fc, akn);
         } catch (IOException cause) {
             throw new ArchiveException(WRITE_PUT_AKN, "Failed to add akn with identifier [" + identifier + "]", cause);

@@ -79,7 +79,7 @@ public abstract class CollectionBodyType extends AbstractCore implements CoreOpt
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.getContext().getAknModule().getVersion() == 2) {
             XmlReaderHelper.read(reader, elements, COLLECTION_BODY_TYPE_V2);
         } else {
             reader.nextStartOrEndElement();

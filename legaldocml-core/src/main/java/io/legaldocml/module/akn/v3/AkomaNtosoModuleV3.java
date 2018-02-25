@@ -26,6 +26,8 @@ public final class AkomaNtosoModuleV3 implements AknModule {
 
     public static final CharArray NAMESPACE_LEGALDOCML = CharArrays.immutable(NS_VALUE);
 
+    public static final AkomaNtosoModuleV3 INSTANCE = new AkomaNtosoModuleV3();
+
     /**
      * {@inheritDoc}
      */

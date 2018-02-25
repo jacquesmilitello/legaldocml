@@ -805,7 +805,7 @@ public final class Groups {
 
 
     public static ImmutableMap<String, Supplier<DocumentType>> getDocumentTypes(XmlReader reader) {
-        if (reader.<AkomaNtosoContext>getContext().getAkoXmlModule().getVersion() == 2) {
+        if (reader.getContext().getAknModule().getVersion() == 2) {
             return DOCUMENT_TYPE_V2;
         }
         return DOCUMENT_TYPE;
