@@ -12,10 +12,6 @@ import java.util.stream.Stream;
  */
 public interface Container<T extends AknObject> extends Id {
 
-    default Stream<T> stream() {
-        return Stream.empty();
-    }
-
     default ListIterable<T> iterable() {
         return Iterables.empty();
     }

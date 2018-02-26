@@ -15,7 +15,6 @@ import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
@@ -67,14 +66,6 @@ public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockEl
     @Override
     public ListIterable<BlockElements> iterable() {
         return elements.iterable();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Stream<BlockElements> stream() {
-        return elements.stream();
     }
 
     /**

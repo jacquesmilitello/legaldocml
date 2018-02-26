@@ -42,14 +42,4 @@ public final class Content extends Blocksreq implements SubFlowStructureElement,
         return CONTENT;
     }
 
-//    /**
-//     * {@inheritDoc}
-//     */
-//    @Override
-//    public void accept(ContentVisitor visitor) {
-//        if (VisitorStatus.CONTINUE == visitor.visitBegin(this)) {
-//            super.accept(visitor);
-//            visitor.visitEnd(this);
-//        }
-//    }
 }

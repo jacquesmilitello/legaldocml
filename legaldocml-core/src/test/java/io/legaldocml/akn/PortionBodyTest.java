@@ -24,8 +24,8 @@ class PortionBodyTest {
     void testPortionBody() throws IOException {
         AkomaNtoso<Portion> akn = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
         PortionBody body = akn.getDocumentType().getPortionBody();
-        assertEquals(1, body.stream().count());
-        assertEquals("chp_3", body.stream().findFirst().map(Chapter.class::cast).map(Chapter::getEid).get().toString());
+        assertEquals(1, body.iterable().size());
+        assertEquals("chp_3", body.iterable().stream().findFirst().map(Chapter.class::cast).map(Chapter::getEid).get().toString());
     }
 
     @Test
@@ -33,16 +33,16 @@ class PortionBodyTest {
         AkomaNtoso<Portion> akn = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/us_Title9-Chap3-eng.xml"));
         PortionBody body = akn.getDocumentType().getPortionBody();
 
-        Chapter chapter = body.stream().findFirst().map(Chapter.class::cast).get();
-        assertEquals(7, chapter.stream().count());
+        Chapter chapter = body.iterable().stream().findFirst().map(Chapter.class::cast).get();
+        assertEquals(7, chapter.iterable().stream().count());
 
         AtomicInteger i = new AtomicInteger(1);
-        chapter.stream().map(Section.class::cast).forEach(
+        chapter.iterable().stream().map(Section.class::cast).forEach(
                 t -> assertEquals("sec_30" + i.getAndIncrement(), t.getEid().toString())
         );
 
-        Assertions.assertTrue(chapter.removeHierarchyElement(chapter.stream().findFirst().get()));
-        assertEquals(6, chapter.stream().count());
+        Assertions.assertTrue(chapter.removeHierarchyElement(chapter.iterable().stream().findFirst().get()));
+        assertEquals(6, chapter.iterable().stream().count());
 
         Section section = new Section();
         section.setEid(NoWhiteSpace.valueOf("sec_305"));
@@ -62,7 +62,7 @@ class PortionBodyTest {
         Assertions.assertFalse(chapter.removeHierarchyElement(section));
 
         AtomicInteger j = new AtomicInteger(2);
-        chapter.stream().map(Section.class::cast).forEach(
+        chapter.iterable().stream().map(Section.class::cast).forEach(
                 t -> assertEquals("sec_30" + j.getAndIncrement(), t.getEid().toString())
         );
 

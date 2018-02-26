@@ -170,14 +170,6 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
      * {@inheritDoc}
      */
     @Override
-    public final Stream<PortionBodyTypeElement> stream() {
-        return elements.stream();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void write(XmlWriter writer) throws IOException {
         CoreOpt.super.write(writer);
         this.elements.write(writer);

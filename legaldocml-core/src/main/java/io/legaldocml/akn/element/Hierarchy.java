@@ -2,7 +2,6 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.container.ComponentRefContainer;
 import io.legaldocml.akn.container.HierElementsContainer;
@@ -165,14 +164,6 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
     @Override
     public boolean remove(ComponentRef componentRef) {
         return removeHierarchyElement(componentRef);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Stream<HierarchyElement> stream() {
-        return (this.elements == null) ? Stream.empty() : this.elements.stream();
     }
 
     /**

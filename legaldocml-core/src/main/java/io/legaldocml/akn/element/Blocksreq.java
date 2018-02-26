@@ -11,6 +11,8 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -85,6 +87,11 @@ public abstract class Blocksreq extends AbstractCore implements CoreReq, BlockEl
     @Override
     public boolean remove(ANblock block) {
         return removeBlockElements(block);
+    }
+
+    @Override
+    public ListIterable<BlockElements> iterable() {
+        return Iterables.iterable(elements);
     }
 
     /**
