@@ -34,6 +34,8 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static io.legaldocml.unsafe.UnsafeHelper.getUnsafe;
 
@@ -220,6 +222,15 @@ public final class Attributes {
             @Override
             public void accept(E object, CharArray charArray) {
                 UNSAFE.putObject(object, addr, Enum.valueOf(enumClass, charArray.toString()));
+            }
+        };
+    }
+
+    public static <T extends Enum<T>, E> AttributeGetterSetter<E> attributeGetterSetter4Enum(String name, long addr, Function<String,T> function) {
+        return new DefaultAknAttributeGetterSetter<E>(name, addr) {
+            @Override
+            public void accept(E object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, function.apply(charArray.toString()));
             }
         };
     }

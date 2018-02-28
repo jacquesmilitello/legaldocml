@@ -30,8 +30,8 @@
 
       <org.apache.logging.log4j.version>2.10.0</org.apache.logging.log4j.version>
 
-	  <org.junit.platform.version>1.0.3</org.junit.platform.version>
-      <org.junit.jupiter.version>5.0.3</org.junit.jupiter.version>
+	  <org.junit.platform.version>1.1.0</org.junit.platform.version>
+      <org.junit.jupiter.version>5.1.0</org.junit.jupiter.version>
       <org.xmlunit.version>2.5.1</org.xmlunit.version>
       <org.ow2.asm.version>5.2</org.ow2.asm.version>
       <org.mockito.version>2.15.0</org.mockito.version>
