@@ -2,17 +2,17 @@ package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Content;
-import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.Hierarchy;
 import io.legaldocml.akn.element.HierarchyElement;
 import io.legaldocml.akn.element.Intro;
-import io.legaldocml.akn.element.Num;
-import io.legaldocml.akn.element.Subheading;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessBuilderException;
 import io.legaldocml.business.builder.group.HierElementsBuilder;
 import io.legaldocml.business.builder.support.ComponentRefSupport;
+import io.legaldocml.business.builder.support.HeadingSupport;
+import io.legaldocml.business.builder.support.NumSupport;
+import io.legaldocml.business.builder.support.SubHeadingSupport;
 import io.legaldocml.business.util.EidFactory;
 
 import java.util.function.Consumer;
@@ -20,7 +20,8 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T, HierarchyElement>, ComponentRefSupport<T, HierarchyElement> {
+public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T, HierarchyElement>, ComponentRefSupport<T, HierarchyElement>,
+        HeadingSupport<T>, NumSupport<T>, SubHeadingSupport<T> {
 
     private final Hierarchy parent;
     private final T hierarchy;
@@ -35,41 +36,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         this.hierarchy = hierarchy;
     }
 
-    public final InlineTypeBuilder<Num> num() {
-        if (hierarchy.getNum() != null) {
-            throw new BusinessBuilderException("<num> is not null : [" + hierarchy.getNum() + "]");
-        }
-        Num num = new Num();
-        this.hierarchy.setNum(num);
-        return new InlineTypeBuilder<>(businessBuilder(), num);
-    }
 
-    public InlineReqTypeBuilder<Heading> heading() {
-        return heading(null);
-    }
-
-    public InlineReqTypeBuilder<Heading> heading(Consumer<Heading> consumer) {
-        if (hierarchy.getHeading() != null) {
-            throw new BusinessBuilderException("<heading> is not null : [" + hierarchy.getHeading() + "]");
-        }
-        Heading heading = new Heading();
-        this.hierarchy.setHeading(heading);
-
-        if (consumer != null) {
-            consumer.accept(heading);
-        }
-
-        return new InlineReqTypeBuilder<>(businessBuilder(), heading);
-    }
-
-    public InlineReqTypeBuilder<Subheading> subHeading() {
-        if (hierarchy.getSubheading() != null) {
-            throw new BusinessBuilderException("<subheading> is not null : [" + hierarchy.getSubheading() + "]");
-        }
-        Subheading subheading = new Subheading();
-        this.hierarchy.setSubheading(subheading);
-        return new InlineReqTypeBuilder<>(businessBuilder(), subheading);
-    }
 
     public HierarchyBuilder<T> eId(String number) {
         EidFactory.makeAndFill(this.parent, this.hierarchy, number);
