@@ -68,7 +68,7 @@ public abstract class ExprProperties extends CoreProperties {
         this.translations.add(translation);
     }
 
-    public final ListIterable<FRBRtranslation> getTranslations(FRBRtranslation translation) {
+    public final ListIterable<FRBRtranslation> getTranslations() {
         return Iterables.iterable(this.translations);
     }
 
