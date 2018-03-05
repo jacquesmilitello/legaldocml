@@ -7,7 +7,7 @@ import io.legaldocml.business.builder.support.*;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface ANhierBuilder<T extends ANhierContainer<E>, E extends AknObject> extends TitleSupport<T, E>, ChapterSupport<T, E>, SectionSupport<T, E>, ParagraphSupport<T, E>,
+public interface ANhierBuilder<T extends ANhierContainer<E>, E extends AknObject> extends PartSupport<T, E>, TitleSupport<T, E>, ChapterSupport<T, E>, SectionSupport<T, E>, ParagraphSupport<T, E>,
         ArticleSupport<T, E>, SubSectionSupport<T, E>, ListSupport<T, E>, AlineaSupport<T, E>, PointSupport<T, E> {
 
 }
