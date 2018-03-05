@@ -8,7 +8,7 @@ import io.legaldocml.business.builder.element.HierarchyBuilder;
 import java.util.function.Consumer;
 
 /**
- * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBPUB</a>
+ * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
 public interface TitleSupport<T extends ANhierContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
