@@ -5,13 +5,19 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.akn.visitor.Visitor;
 
+import java.util.Arrays;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class AknList<E extends AknObject> extends ExternalizableList<E> implements Cloneable {
+public final class AknList<E extends AknObject> extends ExternalizableList<E> {
 
     public AknList(E[] elem) {
         super(elem);
+    }
+
+    private AknList(E[] elem, int size) {
+        super(elem, size);
     }
 
     /**
@@ -26,14 +32,8 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> im
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public AknList<E> clone()  {
-        AknList<E> clone = new AknList<E>(getElems().clone());
-        doClone(clone);
-        return clone;
+    public AknList<E> copy()  {
+        return new AknList<E>(Arrays.copyOf(getElems(),size()), size());
     }
 
 }

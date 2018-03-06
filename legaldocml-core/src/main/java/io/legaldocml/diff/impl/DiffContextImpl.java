@@ -87,7 +87,7 @@ final class DiffContextImpl implements DiffContext {
     public <T extends AknObject> void attributeNew(String name, Object valueRight, T left, T right) {
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("attribute [{}] : New with value [{}] - [{}]", name, valueRight);
+            LOGGER.debug("attribute [{}] : New with value [{}] - [{}]", name, valueRight, right);
         }
 
 

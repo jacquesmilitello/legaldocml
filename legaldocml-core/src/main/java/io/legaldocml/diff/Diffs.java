@@ -78,7 +78,7 @@ public final class Diffs {
             return;
         }
 
-        AknList<T> rigltClone = right.clone();
+        AknList<T> rigltClone = right.copy();
 
         int i = 0;
         for (T l : left.iterable()) {

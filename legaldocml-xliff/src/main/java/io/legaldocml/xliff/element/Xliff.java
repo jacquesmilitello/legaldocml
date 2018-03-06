@@ -51,7 +51,7 @@ public final class Xliff implements XliffObject{
         //XliffAttributes.read(reader, this);
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("[{}] with id [{}]",qName);
+            LOGGER.debug("[{}]",qName);
         }
 
 

@@ -26,7 +26,7 @@ public final class Metas {
         if (ref == null) {
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("meta.references not found for agentRef [{]] -> create", source);
+                LOGGER.debug("meta.references not found for agentRef [{}] -> create", source);
             }
 
             ref = new References();
@@ -44,7 +44,7 @@ public final class Metas {
     	if (proprietary == null) {
     		
     		if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("meta.proprietary not found for agentRef [{]] -> create", source);
+                LOGGER.debug("meta.proprietary not found for agentRef [{}] -> create", source);
             }
     		
     		proprietary = new Proprietary();

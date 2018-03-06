@@ -53,17 +53,13 @@ public abstract class ExprProperties extends CoreProperties {
         this.languages.add(language);
     }
 
-    public final boolean remove(FRBRlanguage language) {
-        return this.languages.remove(language);
-    }
-
     public final ListIterable<FRBRlanguage> getLanguages() {
         return this.languages.iterable();
     }
 
     public final void add(FRBRtranslation translation) {
         if (this.translations == null) {
-            this.translations = new AknList<>(new FRBRtranslation[4]);
+            this.translations = new AknList<>(new FRBRtranslation[2]);
         }
         this.translations.add(translation);
     }

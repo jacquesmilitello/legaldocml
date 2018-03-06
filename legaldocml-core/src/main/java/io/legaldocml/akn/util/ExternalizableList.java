@@ -22,7 +22,7 @@ import java.util.stream.StreamSupport;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class ExternalizableList<E extends Externalizable> implements List<E>, Cloneable {
+public class ExternalizableList<E extends Externalizable> implements List<E> {
 
     /**
      * The maximum size of array to allocate. Some VMs reserve some header words in an array. Attempts to allocate
@@ -45,7 +45,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E>, Cl
      * of this array buffer. Any empty AknList with elementData == EMPTY_ELEMENTDATA will be expanded to
      * DEFAULT_CAPACITY when the first element is added.
      */
-    private transient E[] elems;
+    private E[] elems;
 
     /**
      * The size of the AknList (the number of elements it contains).
@@ -58,8 +58,12 @@ public class ExternalizableList<E extends Externalizable> implements List<E>, Cl
     }
 
     public ExternalizableList(E[] elem) {
+        this(elem,0);
+    }
+
+    protected ExternalizableList(E[] elem, int size) {
         this.elems = elem;
-        this.size = 0;
+        this.size = size;
     }
 
     /**
@@ -337,15 +341,17 @@ public class ExternalizableList<E extends Externalizable> implements List<E>, Cl
                 }
                 return iterable[i++];
             }
+
+            @Override
+            public void remove() {
+                ExternalizableList.this.remove(i);
+                i--;
+            }
         };
     }
 
     public final ListIterable<E> iterable() {
         return new IterableImpl();
-    }
-
-    protected final void doClone(ExternalizableList<E> clone) {
-        clone.size = size;
     }
 
     // ========================================================================
