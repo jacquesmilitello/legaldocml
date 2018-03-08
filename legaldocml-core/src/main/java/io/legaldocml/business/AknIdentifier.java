@@ -64,7 +64,7 @@ public abstract class AknIdentifier {
      * {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         return obj == this || obj != null && obj instanceof AknIdentifier && doEquals((AknIdentifier) obj);
 
     }
@@ -73,7 +73,7 @@ public abstract class AknIdentifier {
      * {@inheritDoc}
      */
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         if (hash == 0) {
             String manifestation = manifestation();
             hash = (int) Hashing.xx(manifestation.length(), manifestation);
