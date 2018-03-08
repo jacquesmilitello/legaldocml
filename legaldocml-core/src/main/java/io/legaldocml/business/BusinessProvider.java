@@ -56,11 +56,11 @@ public abstract class BusinessProvider {
         }
     }
 
-    public abstract AknIdentifier newAknIdentifier(String work, String expression, String manifestation);
+    public abstract <T extends AknIdentifier> T newAknIdentifier(String work, String expression, String manifestation);
 
-    public abstract AknIdentifier extractAknIdentifier(String work, String expression, String manifestation);
+    public abstract <T extends AknIdentifier> T extractAknIdentifier(String work, String expression, String manifestation);
 
-    public abstract AknIdentifier newAknIdentifierTransient();
+    public abstract <T extends AknIdentifier> T newAknIdentifierTransient();
 
     public abstract <E extends BusinessBuilder<T>, T extends DocumentType> E newBuilder(String name);
 

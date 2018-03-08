@@ -2,7 +2,6 @@ package io.legaldocml.business.impl;
 
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.DocumentType;
-import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessPartBuilder;
@@ -26,7 +25,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      * {@inheritDoc}
      */
     @Override
-    public AknIdentifier newAknIdentifier(String work, String expression, String manifestation) {
+    public DefaultAknIdentifier newAknIdentifier(String work, String expression, String manifestation) {
         return new DefaultAknIdentifier(work, expression, manifestation, "/");
     }
 
@@ -34,7 +33,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      * {@inheritDoc}
      */
     @Override
-    public AknIdentifier extractAknIdentifier(String work, String expression, String manifestation) {
+    public DefaultAknIdentifier extractAknIdentifier(String work, String expression, String manifestation) {
         return new DefaultAknIdentifier(work, expression.substring(work.length() + 1), manifestation.substring(expression.length() + 1), "/");
     }
 
@@ -42,7 +41,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      * {@inheritDoc}
      */
     @Override
-    public AknIdentifier newAknIdentifierTransient() {
+    public DefaultAknIdentifier newAknIdentifierTransient() {
         return new DefaultAknIdentifier("0", "0", "0", "/");
     }
 
