@@ -2,17 +2,13 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.container.InlineCMContainer;
-import io.legaldocml.akn.group.ANinline;
-import io.legaldocml.akn.group.ANmarker;
-import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.akn.group.ANtitleInline;
-import io.legaldocml.akn.group.HTMLinline;
-import io.legaldocml.akn.group.InlineCM;
-import io.legaldocml.akn.group.SubFlowElements;
+import io.legaldocml.akn.group.*;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
+import io.legaldocml.util.ListIterable;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
@@ -114,6 +110,11 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void add(ANsemanticInline inline) {
         this.data.add(requireNonNull(inline));
+    }
+
+    @Override
+    public ListIterable<InlineCM> iterable() {
+        return Iterables.iterable(data);
     }
 
     /**
