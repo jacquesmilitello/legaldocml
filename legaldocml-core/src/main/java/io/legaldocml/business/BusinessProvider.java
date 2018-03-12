@@ -56,7 +56,7 @@ public abstract class BusinessProvider {
         }
     }
 
-    public abstract <T extends AknIdentifier> T newAknIdentifier(String work, String expression, String manifestation);
+    public abstract <T extends AknIdentifier> T newAknIdentifier(String work, String expressionPart, String manifestationPart);
 
     public abstract <T extends AknIdentifier> T extractAknIdentifier(String work, String expression, String manifestation);
 

@@ -13,6 +13,7 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
@@ -114,6 +115,14 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void add(ANsemanticInline inline) {
         this.data.add(requireNonNull(inline));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<InlineCM> iterable() {
+        return this.data.iterable();
     }
 
     /**
