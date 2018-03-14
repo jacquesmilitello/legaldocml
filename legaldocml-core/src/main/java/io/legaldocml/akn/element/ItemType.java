@@ -68,14 +68,6 @@ public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockEl
      * {@inheritDoc}
      */
     @Override
-    public final BlockElements remove(int index) {
-        return this.blockElements.remove(index);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void add(ANblock block) {
         this.blockElements.add(requireNonNull(block));
     }

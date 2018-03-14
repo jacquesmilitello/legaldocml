@@ -16,7 +16,6 @@ import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.CITATION;
 import static io.legaldocml.akn.AknElements.CITATIONS;
@@ -84,14 +83,6 @@ public abstract class PortionBodyType extends AbstractCore implements CoreOpt, C
 
     public final boolean removePortionBodyTypeElement(PortionBodyTypeElement element) {
         return this.elements.remove(requireNonNull(element));
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public final PortionBodyTypeElement remove(int index) {
-        return this.elements.remove(index);
     }
 
     /**

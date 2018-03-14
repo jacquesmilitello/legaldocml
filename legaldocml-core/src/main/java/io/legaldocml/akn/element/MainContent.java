@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
+import io.legaldocml.akn.container.ComponentRefContainer;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -9,9 +10,11 @@ import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type maincontent is used by container elements that can contain basically any other Akoma Ntoso
@@ -31,7 +34,7 @@ import static io.legaldocml.akn.AknElements.COMPONENT_REF;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class MainContent extends AbstractCore implements CoreOpt {
+public abstract class MainContent extends AbstractCore implements CoreOpt, ComponentRefContainer<MainContentElement> {
 
     private static final ImmutableMap<String, Supplier<MainContentElement>> ELEMS;
 
@@ -47,8 +50,28 @@ public abstract class MainContent extends AbstractCore implements CoreOpt {
     // Mandatory
     private final AknList<MainContentElement> elements = new AknList<>(new MainContentElement[4]);
 
-    public final void add(MainContentElement mainContentElement) {
-        this.elements.add(mainContentElement);
+    public final void addMainContentElement(MainContentElement mainContentElement) {
+        this.elements.add(requireNonNull(mainContentElement));
+    }
+
+    public final boolean removeMainContentElement(MainContentElement mainContentElement) {
+        return this.elements.remove(requireNonNull(mainContentElement));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final void add(ComponentRef componentRef) {
+        addMainContentElement(componentRef);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ComponentRef componentRef) {
+        return removeMainContentElement(componentRef);
     }
 
     /**

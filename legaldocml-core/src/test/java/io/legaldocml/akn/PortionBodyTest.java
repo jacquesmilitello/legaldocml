@@ -3,7 +3,6 @@ package io.legaldocml.akn;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.jupiter.api.Assertions;
@@ -52,23 +51,20 @@ class PortionBodyTest {
 
         section.setEid(NoWhiteSpace.valueOf("sec_306"));
         section.setGUID(NoWhiteSpace.valueOf("idd1d32356-f639-11e2-8470-abc29ba29c4d"));
-        Assertions.assertTrue(chapter.removeHierarchyElement(section));
+        Assertions.assertTrue(chapter.remove(section));
 
         section.setEid(NoWhiteSpace.valueOf("sec_307"));
         section.setGUID(NoWhiteSpace.valueOf("idd1d34a6a-f639-11e2-8470-abc29ba29c4d"));
         Assertions.assertTrue(chapter.removeHierarchyElement(section));
 
         section.setEid(NoWhiteSpace.valueOf("sec_308"));
-        Assertions.assertFalse(chapter.removeHierarchyElement(section));
+        Assertions.assertFalse(chapter.remove(section));
 
         AtomicInteger j = new AtomicInteger(2);
         chapter.iterable().stream().map(Section.class::cast).forEach(
                 t -> assertEquals("sec_30" + j.getAndIncrement(), t.getEid().toString())
         );
 
-        section = Optional.of(chapter.remove(0)).map(Section.class::cast).get();
-
-        Assertions.assertEquals("sec_302", section.getEid().toString());
     }
 
 

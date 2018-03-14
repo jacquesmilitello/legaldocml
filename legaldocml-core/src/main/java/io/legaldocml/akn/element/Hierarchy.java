@@ -106,14 +106,6 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
      * {@inheritDoc}
      */
     @Override
-    public final HierarchyElement remove(int index) {
-        return this.elements.remove(index);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public final void add(HierElements hier) {
         addHierarchyElement(hier);
     }

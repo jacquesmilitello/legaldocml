@@ -60,14 +60,6 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
      * {@inheritDoc}
      */
     @Override
-    public final BodyTypeElement remove(int index) {
-        return this.elements.remove(index);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void add(HierElements hier) {
         addBodyTypeElement(requireNonNull(hier));
     }

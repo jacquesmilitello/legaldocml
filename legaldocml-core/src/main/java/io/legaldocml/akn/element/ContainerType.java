@@ -72,14 +72,6 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
         return this.containerElements.remove(requireNonNull(element));
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public final ContainerElement remove(int index) {
-        return this.containerElements.remove(index);
-    }
-
     private String name;
 
     /**
