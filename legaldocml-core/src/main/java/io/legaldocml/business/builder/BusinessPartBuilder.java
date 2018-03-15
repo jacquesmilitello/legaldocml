@@ -8,7 +8,7 @@ import io.legaldocml.akn.DocumentType;
  */
 public interface BusinessPartBuilder<T extends AknObject> {
 
-   <E extends DocumentType> BusinessBuilder<? extends DocumentType> businessBuilder();
+   BusinessBuilder<? extends DocumentType> businessBuilder();
 
    T parent();
    
