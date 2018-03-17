@@ -75,10 +75,14 @@ public abstract class AknIdentifier {
     @Override
     public final int hashCode() {
         if (hash == 0) {
-            String manifestation = manifestation();
-            hash = (int) Hashing.xx(manifestation.length(), manifestation);
+            hash = doHash();
         }
         return hash;
+    }
+
+    protected int doHash() {
+        String manifestation = manifestation();
+        return (int) Hashing.xx(manifestation.length(), manifestation);
     }
 
     protected abstract boolean doEquals(AknIdentifier aknIdentifier);
