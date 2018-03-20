@@ -9,6 +9,7 @@ import io.legaldocml.akn.HasMixedContent;
 import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.other.UnsupportedModule;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
@@ -57,13 +58,15 @@ public final class XmlReaderHelper {
            throw new AknReadException(Type.AKN_MODULE_NOT_FOUND,reader);
         }
 
-        AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(aknModule.newAkomaNtosoContext());
+        AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         reader.setContext(akomaNtoso.getContext());
 
         for (Module module : namespaceConsumer.getModules()) {
-            if (module != aknModule) {
-                akomaNtoso.getContext().add(module);
-            }
+            akomaNtoso.getContext().add(module);
+        }
+
+        if (akomaNtoso.getContext().getAknModule() == null) {
+            throw new RuntimeException();
         }
 
         reader.nextStartOrEndElement();

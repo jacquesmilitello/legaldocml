@@ -71,16 +71,6 @@ public final class AkomaNtosoModuleV2 implements AknModule {
      * {@inheritDoc}
      */
     @Override
-    public AkomaNtosoContext newAkomaNtosoContext() {
-        AkomaNtosoContext context = new AkomaNtosoContextV2();
-        context.add(this);
-        return context;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public Class<? extends AknObject> getAknClass(String localName) {
         return AknElements.getAknClass(localName);
     }

@@ -4,7 +4,7 @@ import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.element.Amendment;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.AknIdentifierException;
-import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class AknIdentifierTest {
+class AknIdentifierTest {
 
     @Test
-    public void applyTest() {
+    void applyTest() {
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
+        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Amendment());
 
         identifier.apply(akn);
@@ -33,9 +33,9 @@ public class AknIdentifierTest {
     }
 
     @Test
-    public void consistentTest() {
+    void consistentTest() {
 
-        AkomaNtoso<Amendment> akn =  new AkomaNtoso<>(new AkomaNtosoContextV3());
+        AkomaNtoso<Amendment> akn =  new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Amendment());
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
@@ -55,9 +55,9 @@ public class AknIdentifierTest {
     }
 
     @Test
-    public void extractTest() {
+    void extractTest() {
 
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
+        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Amendment());
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
@@ -74,9 +74,9 @@ public class AknIdentifierTest {
     }
 
     @Test
-    public void isEmptyTest() {
+    void isEmptyTest() {
 
-        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
+        AkomaNtoso<Amendment> akn = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Amendment());
 
         assertTrue(AknIdentifier.isEmpty(akn));
@@ -87,7 +87,7 @@ public class AknIdentifierTest {
     }
 
     @Test
-    public void testEqualsAndHashCode() {
+    void testEqualsAndHashCode() {
 
         AknIdentifier identifier = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");
         AknIdentifier identifier1 = new DefaultAknIdentifier("work001", "expression002", "manifestation003", "/");

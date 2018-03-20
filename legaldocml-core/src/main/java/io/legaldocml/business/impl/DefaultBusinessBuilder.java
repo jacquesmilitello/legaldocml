@@ -20,7 +20,8 @@ import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.HierarchyStrategy;
 import io.legaldocml.business.builder.MetaBuilder;
-import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
+import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 
 import static io.legaldocml.akn.AknElements.ACT;
 import static io.legaldocml.akn.AknElements.AMENDMENT;
@@ -66,7 +67,9 @@ public final class DefaultBusinessBuilder extends BusinessBuilder<DocumentType> 
 
     @Override
     protected AkomaNtosoContext newAkomaNtosoContext() {
-        return new AkomaNtosoContextV3();
+        AkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
+        context.add(AkomaNtosoModuleV3.INSTANCE);
+        return context;
     }
 
     private static DocumentType newDocumenyType(String name) {

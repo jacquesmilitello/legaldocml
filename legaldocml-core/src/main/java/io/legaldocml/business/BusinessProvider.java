@@ -5,6 +5,7 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessPartBuilder;
+import io.legaldocml.model.ModelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,8 +41,6 @@ public abstract class BusinessProvider {
         PROVIDERS = builder.build();
     }
 
-    public abstract String name();
-
     public static BusinessProvider businessProvider(String provider) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Business Provider [{}]", provider);
@@ -55,6 +54,10 @@ public abstract class BusinessProvider {
             return businessProvider;
         }
     }
+
+    public abstract String name();
+
+    public abstract ModelProvider modelProvider();
 
     public abstract <T extends AknIdentifier> T newAknIdentifier(String work, String expressionPart, String manifestationPart);
 

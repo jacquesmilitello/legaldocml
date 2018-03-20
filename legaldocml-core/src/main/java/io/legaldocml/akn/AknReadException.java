@@ -12,7 +12,8 @@ public final class AknReadException extends LegalDocMlException {
     public enum Type {
 
         MISSING_ELEMENT ("Missing Element [%s] in [%s]"),
-        AKN_MODULE_NOT_FOUND ("AkomaNtoso namespace not found : Element [%s] in [%s]");
+        AKN_MODULE_NOT_FOUND ("AkomaNtoso namespace not found : Element [%s] in [%s]"),
+        TWO_AKN_MODULES("The current XML has two akn modules [%s] - [%s]");
 
         private final String msg;
 

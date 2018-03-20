@@ -6,12 +6,12 @@ import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessPartBuilder;
 import io.legaldocml.business.builder.DefaultHierachyStrategy;
+import io.legaldocml.model.ModelProvider;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class DefaultBusinessServiceLoader extends BusinessProvider {
-
 
     /**
      * {@inheritDoc}
@@ -19,6 +19,14 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
     @Override
     public String name() {
         return "default";
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ModelProvider modelProvider() {
+        return DefaultModelProvider.INSTANCE;
     }
 
     /**

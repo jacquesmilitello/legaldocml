@@ -1,13 +1,14 @@
 package io.legaldocml.akn;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.LegalDocMlException;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.model.ModelProvider;
 import io.legaldocml.module.AknModule;
 import io.legaldocml.module.Module;
 import io.legaldocml.unsafe.UnsafeString;
@@ -42,18 +43,13 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
      */
     private final Map<CharArray, Module> modules = new HashMap<>(4);
 
-    /**
-     * Akn module for this context
-     */
-    private final AknModule aknModule;
+    private AknModule aknModule;
 
-    protected AkomaNtosoContext(AknModule aknModule) {
-        this.aknModule = aknModule;
-        add(aknModule);
+    protected AkomaNtosoContext() {
     }
 
     public AknModule getAknModule() {
-        return this.aknModule;
+        return aknModule;
     }
 
     public Module getModule(CharArray array) {
@@ -67,6 +63,13 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
     }
 
     public void add(Module module) {
+        if (module instanceof AknModule) {
+            if (this.aknModule != null) {
+                throw new AknReadException(AknReadException.Type.TWO_AKN_MODULES, null, this.aknModule, module);
+            } else {
+                this.aknModule = (AknModule) module;
+            }
+        }
         this.modules.put(module.namespace(), module);
     }
 
@@ -89,5 +92,5 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
         return this.eids.values().iterator();
     }
 
-    public abstract ModelProvider getModelProvider();
+    public abstract BusinessProvider businessProvider();
 }

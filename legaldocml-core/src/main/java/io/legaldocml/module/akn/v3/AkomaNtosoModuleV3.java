@@ -76,14 +76,4 @@ public final class AkomaNtosoModuleV3 implements AknModule {
         return 3;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public AkomaNtosoContext newAkomaNtosoContext() {
-        AkomaNtosoContext context = new AkomaNtosoContextV3();
-        context.add(this);
-        return context;
-    }
-
 }

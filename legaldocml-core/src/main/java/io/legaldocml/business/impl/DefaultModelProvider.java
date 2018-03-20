@@ -1,13 +1,16 @@
-package io.legaldocml.model;
+package io.legaldocml.business.impl;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.iso.Iso3166;
 import io.legaldocml.iso.Iso639;
+import io.legaldocml.model.Country;
+import io.legaldocml.model.Language;
+import io.legaldocml.model.ModelProvider;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DefaultModelProvider implements ModelProvider {
+final class DefaultModelProvider implements ModelProvider {
 
     /**
      * Singleton instance.

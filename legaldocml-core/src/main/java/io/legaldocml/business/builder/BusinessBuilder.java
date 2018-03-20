@@ -6,6 +6,7 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.model.Language;
+import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

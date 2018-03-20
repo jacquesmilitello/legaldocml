@@ -23,12 +23,12 @@ import java.util.EnumSet;
 import static io.legaldocml.XmlUnitHelper.compare;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class AknV2Test {
+class AknV2Test {
 
     private static final XmlReaderFactory XML_READER_FACTORY = XmlReaderFactoryProvider.newXmlReaderFactory(2);
 
     @Test
-    public void testAct() throws Exception {
+    void testAct() throws Exception {
         test("/xml/v2/Act_constitution_final-Kenya.xml");
         test("/xml/v2/Act_Instrument_Scotland_Subsidiarity_2010.xml");
         test("/xml/v2/Act_Kenya_1980-01-01@1989-12-15.xml");
@@ -43,7 +43,7 @@ public class AknV2Test {
     }
 
     @Test
-    public void testAmendment() throws Exception {
+    void testAmendment() throws Exception {
         test("/xml/v2/Amendemet_Bungeni_2011-07-20.xml");
         test("/xml/v2/Amendment_mexico_enmienda_2010-10-07.xml");
         test("/xml/v2/Amendmet_Bungeni_2010-10-28adm1.xml");
@@ -52,13 +52,13 @@ public class AknV2Test {
     }
 
     @Test
-    public void testAmendmentList() throws Exception {
+    void testAmendmentList() throws Exception {
         test("/xml/v2/AmendmentList_Bungeni_2010-10-28v1.xml");
         test("/xml/v2/AmendmentList_Bungeni_2010-10-28v2.xml");
     }
 
     @Test
-    public void testBill() throws Exception {
+    void testBill() throws Exception {
 
         test("/xml/v2/Bill_Bungeni_2009-01-27.xml");
         test("/xml/v2/Bill_Bungeni_2009-01-27-documentCollection.xml");

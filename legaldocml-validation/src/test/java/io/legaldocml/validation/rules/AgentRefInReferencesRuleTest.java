@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import io.legaldocml.akn.element.Doc;
 import io.legaldocml.akn.type.AgentRef;
-import io.legaldocml.module.akn.v3.AkomaNtosoContextV3;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -37,7 +37,7 @@ class AgentRefInReferencesRuleTest {
 
 	@Test
     void testEmptySource()  {
-	    AkomaNtoso<Doc> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
+	    AkomaNtoso<Doc> akn = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Doc());
         ValidationContext context =  Validations.context(akn);
         Rules.agentRefInReferences().apply(context);
@@ -46,7 +46,7 @@ class AgentRefInReferencesRuleTest {
 
     @Test
     void testNoRefSource()  {
-        AkomaNtoso<Doc> akn = new AkomaNtoso<>(new AkomaNtosoContextV3());
+        AkomaNtoso<Doc> akn = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Doc());
         akn.getDocumentType().getMeta().getIdentification().setSource(AgentRef.raw("toto".toCharArray()));
         ValidationContext context =  Validations.context(akn);

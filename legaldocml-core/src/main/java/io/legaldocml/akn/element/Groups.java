@@ -180,7 +180,6 @@ import java.util.function.Supplier;
 import com.google.common.collect.ImmutableMap;
 
 import io.legaldocml.akn.AknElements;
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.ANcontainers;
