@@ -17,8 +17,8 @@ public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder<
 
     private PreambleBuilder preambleBuilder;
 
-    public DocumentCollectionBusinessBuilder(BusinessProvider provider, DocumentCollection documentCollection, HierarchyStrategy strategy) {
-        super(provider, documentCollection, strategy);
+    public DocumentCollectionBusinessBuilder(BusinessProvider provider, DocumentCollection documentCollection) {
+        super(provider, documentCollection);
         this.bodyBuilder = new CollectionBodyBuilder(this, this.getAkomaNtoso().getDocumentType().getBody());
     }
 

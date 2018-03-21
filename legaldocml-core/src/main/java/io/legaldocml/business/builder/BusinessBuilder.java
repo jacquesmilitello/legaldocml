@@ -6,7 +6,6 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.model.Language;
-import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -19,18 +18,15 @@ public abstract class BusinessBuilder<T extends DocumentType> {
 
     private final MetaBuilder metaBuilder;
 
-    private final HierarchyStrategy strategy;
-
     private final AgentRef source;
 
     private Language mainLanguage;
 
-    public BusinessBuilder(BusinessProvider provider, T documentType, HierarchyStrategy strategy) {
+    public BusinessBuilder(BusinessProvider provider, T documentType) {
         this.provider = provider;
         this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
         this.akomaNtoso.setDocumentType(documentType);
         this.metaBuilder = newMetaBuilder();
-        this.strategy = strategy;
         this.source = this.metaBuilder.getMeta().getIdentification().getSource();
     }
 
@@ -40,10 +36,6 @@ public abstract class BusinessBuilder<T extends DocumentType> {
 
     public final BusinessProvider getProvider() {
         return this.provider;
-    }
-
-    public final HierarchyStrategy getStrategy() {
-        return this.strategy;
     }
 
     public final AgentRef getSource() {

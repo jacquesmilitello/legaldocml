@@ -13,8 +13,8 @@ public abstract class BillBusinessBuilder extends BusinessBuilder<Bill> {
 
     private final BodyBuilder bodyBuilder;
 
-    public BillBusinessBuilder(BusinessProvider provider, Bill bill, HierarchyStrategy strategy) {
-        super(provider, bill, strategy);
+    public BillBusinessBuilder(BusinessProvider provider, Bill bill) {
+        super(provider, bill);
         this.bodyBuilder = new BodyBuilder(this, this.getAkomaNtoso().getDocumentType().getBody());
     }
 

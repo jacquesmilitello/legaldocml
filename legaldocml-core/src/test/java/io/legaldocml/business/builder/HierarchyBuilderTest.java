@@ -20,10 +20,10 @@ import java.nio.channels.Channels;
 import static io.legaldocml.akn.AknElements.LIST;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class HierarchyBuilderTest {
+class HierarchyBuilderTest {
 
     @Test
-    public void testNum() throws IOException {
+    void testNum() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder<Bill> businessBuilder = provider.newBuilder(AknElements.BILL);
@@ -42,7 +42,7 @@ public class HierarchyBuilderTest {
                 .<InlineTypeBuilder<I>>eol()
                 .text("Camera dei deputati)");
 
-        HierarchyBuilder<Paragraph> paragraphBuilder = builder.next();
+        HierarchyBuilder<Paragraph> paragraphBuilder = builder.paragraph();
         paragraphBuilder.num().text("1.");
         paragraphBuilder.eId("1");
 

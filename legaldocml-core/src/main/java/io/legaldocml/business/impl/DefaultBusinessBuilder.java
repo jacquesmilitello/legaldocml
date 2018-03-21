@@ -18,7 +18,6 @@ import io.legaldocml.akn.element.Statement;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
-import io.legaldocml.business.builder.HierarchyStrategy;
 import io.legaldocml.business.builder.MetaBuilder;
 import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
@@ -60,8 +59,8 @@ public final class DefaultBusinessBuilder extends BusinessBuilder<DocumentType> 
                 .build();
     }
 
-    DefaultBusinessBuilder(BusinessProvider provider, String name, HierarchyStrategy strategy) {
-        super(provider,newDocumenyType(name),strategy);
+    DefaultBusinessBuilder(BusinessProvider provider, String name) {
+        super(provider,newDocumenyType(name));
 
     }
 

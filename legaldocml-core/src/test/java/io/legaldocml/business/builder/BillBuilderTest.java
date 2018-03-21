@@ -24,15 +24,15 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.channels.Channels;
 
-public class BillBuilderTest {
+class BillBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");
 
     private static final AgentRef SOURCE = AgentRef.valueOf("redattore");
 
     @Test
-    public void testBody() throws IOException {
-        BillBusinessBuilder portionBuilder = new BillBusinessBuilder(provider, new Bill(), DefaultHierachyStrategy.COMPLETE) {
+    void testBody() throws IOException {
+        BillBusinessBuilder portionBuilder = new BillBusinessBuilder(provider, new Bill()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);

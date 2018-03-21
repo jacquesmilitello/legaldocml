@@ -36,17 +36,9 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         this.hierarchy = hierarchy;
     }
 
-
-
     public HierarchyBuilder<T> eId(String number) {
         EidFactory.makeAndFill(this.parent, this.hierarchy, number);
         return this;
-    }
-
-    public <E extends Hierarchy & HierarchyElement> HierarchyBuilder<E> next() {
-        E el = this.businessBuilder().getStrategy().next(this.hierarchy);
-        this.hierarchy.addHierarchyElement(el);
-        return new HierarchyBuilder<>(businessBuilder(), this.hierarchy, el);
     }
 
     @SuppressWarnings("unchecked")

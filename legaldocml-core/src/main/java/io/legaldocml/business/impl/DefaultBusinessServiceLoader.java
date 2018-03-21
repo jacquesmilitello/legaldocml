@@ -5,7 +5,6 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessPartBuilder;
-import io.legaldocml.business.builder.DefaultHierachyStrategy;
 import io.legaldocml.model.ModelProvider;
 
 /**
@@ -59,7 +58,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
     @SuppressWarnings("unchecked")
     @Override
     public <E extends BusinessBuilder<T>, T extends DocumentType> E newBuilder(String name) {
-        return (E) new DefaultBusinessBuilder(this, name, DefaultHierachyStrategy.COMPLETE);
+        return (E) new DefaultBusinessBuilder(this, name);
     }
 
     /**

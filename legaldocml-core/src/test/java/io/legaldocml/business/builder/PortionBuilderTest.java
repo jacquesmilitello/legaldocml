@@ -70,7 +70,7 @@ class PortionBuilderTest {
 
     @Test
     void testMeta() throws IOException {
-        PortionBusinessBuilder<?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder>(provider, new Portion(), DefaultHierachyStrategy.COMPLETE) {
+        PortionBusinessBuilder<?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder>(provider, new Portion()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
@@ -121,7 +121,7 @@ class PortionBuilderTest {
 
     @Test
     void testBody() throws IOException {
-        PortionBusinessBuilder<?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder>(provider, new Portion(), DefaultHierachyStrategy.COMPLETE) {
+        PortionBusinessBuilder<?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder>(provider, new Portion()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);

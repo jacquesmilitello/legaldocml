@@ -14,8 +14,8 @@ public abstract class PortionBusinessBuilder<T extends PortionBodyBuilder> exten
 
     private final T bodyBuilder;
 
-    public PortionBusinessBuilder(BusinessProvider provider, Portion portion, HierarchyStrategy strategy) {
-        super(provider, portion, strategy);
+    public PortionBusinessBuilder(BusinessProvider provider, Portion portion) {
+        super(provider, portion);
         this.bodyBuilder = newPortionBodyBuilder();
     }
 

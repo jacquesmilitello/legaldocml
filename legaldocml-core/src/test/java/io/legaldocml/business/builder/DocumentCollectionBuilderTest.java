@@ -31,7 +31,7 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCConcept;
 import static io.legaldocml.akn.util.TLCFactory.newTLCOrganization;
 import static io.legaldocml.business.util.AknReference.refersTo;
 
-public class DocumentCollectionBuilderTest {
+class DocumentCollectionBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");
 
@@ -51,8 +51,8 @@ public class DocumentCollectionBuilderTest {
 
 
     @Test
-    public void testPreface() throws IOException {
-        DocumentCollectionBusinessBuilder builder = new DocumentCollectionBusinessBuilder(provider, new DocumentCollection(), DefaultHierachyStrategy.COMPLETE) {
+    void testPreface() throws IOException {
+        DocumentCollectionBusinessBuilder builder = new DocumentCollectionBusinessBuilder(provider, new DocumentCollection()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
@@ -75,8 +75,8 @@ public class DocumentCollectionBuilderTest {
     }
 
     @Test
-    public void testPreamble() throws IOException {
-        DocumentCollectionBusinessBuilder builder = new DocumentCollectionBusinessBuilder(provider, new DocumentCollection(), DefaultHierachyStrategy.COMPLETE) {
+    void testPreamble() throws IOException {
+        DocumentCollectionBusinessBuilder builder = new DocumentCollectionBusinessBuilder(provider, new DocumentCollection()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
@@ -101,8 +101,8 @@ public class DocumentCollectionBuilderTest {
     }
 
     @Test
-    public void testBody() throws IOException {
-        DocumentCollectionBusinessBuilder builder = new DocumentCollectionBusinessBuilder(provider, new DocumentCollection(), DefaultHierachyStrategy.COMPLETE) {
+    void testBody() throws IOException {
+        DocumentCollectionBusinessBuilder builder = new DocumentCollectionBusinessBuilder(provider, new DocumentCollection()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
