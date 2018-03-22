@@ -55,8 +55,8 @@ public final class WritableByteChannelImpl implements WritableByteChannel {
                 src.get(this.buf[this.bucket],this.position, this.bucketSize - this.position);
                 this.bucket++;
                 this.buf[this.bucket] = new byte[bucketSize];
+                len -= (this.bucketSize - this.position);
                 this.position = 0;
-                len -= this.bucketSize;
             } else {
                 src.get(this.buf[this.bucket],this.position, len);
                 this.position = len;

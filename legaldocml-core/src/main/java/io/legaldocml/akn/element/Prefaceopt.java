@@ -113,6 +113,14 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      * {@inheritDoc}
      */
     @Override
+    public void add(LongTitle longTitle) {
+        addPrefaceoptElement(longTitle);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void read(XmlReader reader) {
         super.read(reader);
         PrefaceoptElement elem;
