@@ -18,6 +18,7 @@ public interface DocTypeSupport<T extends ANtitleInlineContainer<E>, E extends A
     default InlineTypeBuilder<DocType> docType(Consumer<DocType> consumer, AknReference... refs) {
         DocType docType = new DocType();
         parent().add(docType);
+        businessBuilder().getContext().push(parent(), docType);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docType, refs);
         if (consumer != null) {
             consumer.accept(docType);

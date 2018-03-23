@@ -22,6 +22,7 @@ public interface DocTitleSupport<T extends ANtitleInlineContainer<E>, E extends 
     default InlineTypeBuilder<DocTitle> docTitle(Consumer<DocTitle> consumer, AknReference... refs) {
         DocTitle docTitle = new DocTitle();
         parent().add(docTitle);
+        businessBuilder().getContext().push(parent(), docTitle);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docTitle, refs);
         if (consumer != null) {
             consumer.accept(docTitle);

@@ -19,6 +19,7 @@ public interface PointSupport<T extends ANhierContainer<E>, E extends AknObject>
     default HierarchyBuilder<Point> point(Consumer<Point> consumer) {
         Point point = new Point();
         parent().add(point);
+        businessBuilder().getContext().push(parent(), point);
         if (consumer != null) {
             consumer.accept(point);
         }

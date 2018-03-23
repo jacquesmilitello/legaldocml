@@ -28,7 +28,7 @@ class EidFactoryTest {
     /**
      * Test : http://docs.oasis-open.org/legaldocml/akn-nc/v1.0/akn-nc-v1.0.html
      * part 5.4.2 part1
-     */
+
     @Test
     void testPart01() {
         assertEquals("list", EidFactory.getElementRef(List.class));
@@ -44,11 +44,11 @@ class EidFactoryTest {
         assertEquals("body", EidFactory.getElementRef(DebateBody.class));
         assertEquals("body", EidFactory.getElementRef(JudgmentBody.class));
     }
-
+     */
     /**
      * Test : http://docs.oasis-open.org/legaldocml/akn-nc/v1.0/akn-nc-v1.0.html
      * part 5.4.2 part 2
-     */
+
     @Test
     void testPart02() {
         assertEquals("al", EidFactory.getElementRef(Alinea.class));
@@ -96,5 +96,5 @@ class EidFactoryTest {
         EidFactory.makeAndFill(article, point);
         assertEquals("art__point", point.getId());
     }
-
+     */
 }

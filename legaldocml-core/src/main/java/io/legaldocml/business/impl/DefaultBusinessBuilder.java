@@ -1,7 +1,6 @@
 package io.legaldocml.business.impl;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.Act;
 import io.legaldocml.akn.element.Amendment;
@@ -18,6 +17,7 @@ import io.legaldocml.akn.element.Statement;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.MetaBuilder;
 import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
@@ -65,8 +65,8 @@ public final class DefaultBusinessBuilder extends BusinessBuilder<DocumentType> 
     }
 
     @Override
-    protected AkomaNtosoContext newAkomaNtosoContext() {
-        AkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
+    protected BusinessBuilderAkomaNtosoContext newAkomaNtosoContext() {
+        BusinessBuilderAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
         context.add(AkomaNtosoModuleV3.INSTANCE);
         return context;
     }

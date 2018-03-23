@@ -21,6 +21,7 @@ public interface TermSupport<T extends ANsemanticInlineContainer<E>, E extends A
         Term term = new Term();
         term.setRefersTo(refersTo);
         parent().add(term);
+        businessBuilder().getContext().push(parent(), term);
         if (consumer != null) {
             consumer.accept(term);
         }

@@ -19,6 +19,7 @@ public interface TitleSupport<T extends ANhierContainer<E>, E extends AknObject>
     default HierarchyBuilder<Title> title(Consumer<Title> consumer) {
         Title title = new Title();
         parent().add(title);
+        businessBuilder().getContext().push(parent(), title);
         if (consumer != null) {
             consumer.accept(title);
         }

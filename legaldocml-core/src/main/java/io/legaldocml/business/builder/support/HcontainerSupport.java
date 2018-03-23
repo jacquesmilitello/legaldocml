@@ -20,6 +20,7 @@ public interface HcontainerSupport<T extends HcontainerContainer<E>, E extends A
         Hcontainer hcontainer = new Hcontainer();
         hcontainer.setName(name);
         parent().add(hcontainer);
+        businessBuilder().getContext().push(parent(), hcontainer);
         if (consumer != null) {
             consumer.accept(hcontainer);
         }

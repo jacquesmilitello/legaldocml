@@ -18,6 +18,7 @@ public interface SpanSupport<T extends InlineCMContainer> extends SupportBuilder
     default InlineTypeBuilder<Span> span(Consumer<Span> consumer) {
         Span span = new Span();
         parent().add(span);
+        businessBuilder().getContext().push(parent(), span);
         if (consumer != null) {
             consumer.accept(span);
         }

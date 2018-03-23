@@ -22,6 +22,7 @@ public interface DocNumberSupport<T extends ANtitleInlineContainer<E>, E extends
     default InlineTypeBuilder<DocNumber> docNumber(Consumer<DocNumber> consumer, AknReference... refs) {
         DocNumber docNumber = new DocNumber();
         parent().add(docNumber);
+        businessBuilder().getContext().push(parent(), docNumber);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docNumber, refs);
         if (consumer != null) {
             consumer.accept(docNumber);

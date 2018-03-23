@@ -1,4 +1,4 @@
-package io.legaldocml.business.util;
+package io.legaldocml.business;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
@@ -41,10 +41,11 @@ import io.legaldocml.akn.element.Subsection;
 import io.legaldocml.akn.element.TemporalGroup;
 import io.legaldocml.akn.element.WrapUp;
 import io.legaldocml.akn.type.NoWhiteSpace;
-import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static io.legaldocml.akn.type.NoWhiteSpace.valueOf;
 
 /**
  * @see <a href="http://docs.oasis-open.org/legaldocml/akn-nc/v1.0/akn-nc-v1.0.html">Syntax for eId and wId attributes</a>
@@ -65,22 +66,16 @@ import org.slf4j.LoggerFactory;
  * <li>number is a (possibly empty) representation of the numbering of the element within its context.</li>
  * </ul>
  */
-public final class EidFactory {
-
-    /**
-     * SLF4J Logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(EidFactory.class);
+public abstract class EIdProvider {
 
     /**
      * Map of default element ref mappings.
      */
-    private static final ImmutableMap<Class<? extends AknObject>, String> ELEMENTS_REFS;
+    public static final ImmutableMap<Class<? extends AknObject>, String> ELEMENTS_REFS;
 
     static {
         ELEMENTS_REFS = ImmutableMap.<Class<? extends AknObject>, String>builder()
                 .put(Body.class, "body")
-
                 .put(Alinea.class, "al")
                 .put(AmendmentBody.class, "body")
                 .put(Article.class, "art")
@@ -118,120 +113,10 @@ public final class EidFactory {
                 .put(TemporalGroup.class, "tmpg")
                 .put(WrapUp.class, "wrapup")
                 .build();
-
     }
 
-    public static <T extends AknObject> String getElementRef(Class<T> clazz) {
-        return ELEMENTS_REFS.get(clazz);
-    }
+    public abstract <T extends Id> void fill(ParentLink parentLink, T child, String number);
 
-    public static void makeAndFill(Id object) {
-        NoWhiteSpace space = make(null,object, null);
-        object.setEid(space);
-    }
+    public abstract <T extends Id> void fill(ParentLink parentLink, T child);
 
-    public static void makeAndFill(Id object, String number) {
-        NoWhiteSpace space = make(object, number);
-        object.setEid(space);
-    }
-
-    public static void makeAndFill(Id parent, Id object) {
-        NoWhiteSpace space = make(parent, object, null);
-        object.setEid(space);
-    }
-
-    public static void makeAndFill(Id parent, Id object, String number) {
-        NoWhiteSpace space = make(parent, object, number);
-        object.setEid(space);
-    }
-
-    public static NoWhiteSpace make(Id object, String number) {
-        return make(null, object, number);
-    }
-
-    public static NoWhiteSpace make(Id parent, Id object) {
-        return make(parent, object, null);
-    }
-
-    public static NoWhiteSpace make(Id parent, Id object, String number) {
-
-        if (object.getEid() != null) {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Object [{}] has already an eId", object);
-
-            }
-            return object.getEid();
-        }
-
-        EidFactory builder = new EidFactory();
-        if (parent != null && parent.getEid() != null) {
-            builder.append(parent.getEid());
-            builder.appendPrefixSeparator();
-
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Parent eid : [{}]", parent.getEid());
-            }
-
-        }
-
-        String ref = ELEMENTS_REFS.get(object.getClass());
-
-        if (ref == null) {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Class [{}] not defined -> use name [{}]", object.getClass().getSimpleName(), object.name());
-            }
-            ref = object.name();
-        }
-
-        builder.append(ref);
-
-        if (!Strings.isEmpty(number)) {
-            builder.appendSeparator();
-            builder.append(number);
-        }
-
-
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Make eId [{}]", builder);
-        }
-
-        return builder.build();
-    }
-
-    private NoWhiteSpace build() {
-        return  NoWhiteSpace.valueOf(UnsafeString.getChars(builder.toString()));
-    }
-
-
-    private static final char[] PREFIX_SEPARATOR = new char[]{'_', '_'};
-    private static final char REF_SEPARATOR = '_';
-
-    private final StringBuilder builder = new StringBuilder();
-
-    private EidFactory() {
-    }
-
-    private void appendPrefixSeparator() {
-        builder.append(PREFIX_SEPARATOR);
-    }
-
-    private void append(NoWhiteSpace eid) {
-        builder.append(eid.getChars());
-    }
-
-    private void append(String ref) {
-        builder.append(ref);
-    }
-
-    private void appendSeparator() {
-        builder.append(REF_SEPARATOR);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return builder.toString();
-    }
 }

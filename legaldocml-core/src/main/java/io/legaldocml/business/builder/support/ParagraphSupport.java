@@ -19,6 +19,7 @@ public interface ParagraphSupport<T extends ANhierContainer<E>, E extends AknObj
     default HierarchyBuilder<Paragraph> paragraph(Consumer<Paragraph> consumer) {
         Paragraph paragraph = new Paragraph();
         parent().add(paragraph);
+        businessBuilder().getContext().push(parent(), paragraph);
         if (consumer != null) {
             consumer.accept(paragraph);
         }

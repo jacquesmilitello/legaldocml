@@ -20,6 +20,7 @@ public interface ContainerSupport<T extends ContainerContainer<E>, E extends Akn
         Container container = new Container();
         container.setName(name);
         parent().add(container);
+        businessBuilder().getContext().push(parent(), container);
         if (consumer != null) {
             consumer.accept(container);
         }

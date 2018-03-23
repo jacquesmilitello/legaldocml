@@ -22,6 +22,7 @@ public interface ComponentRefSupport<T extends ComponentRefContainer<E>, E exten
         componentRef.setShowAs(showAs);
         componentRef.setSrc(src);
         parent().add(componentRef);
+        businessBuilder().getContext().push(parent(), componentRef);
         if (consumer != null) {
             consumer.accept(componentRef);
         }

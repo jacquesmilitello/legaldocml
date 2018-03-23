@@ -3,6 +3,7 @@ package io.legaldocml.business.impl;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.EIdProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessPartBuilder;
 import io.legaldocml.model.ModelProvider;
@@ -32,6 +33,15 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      * {@inheritDoc}
      */
     @Override
+    public EIdProvider eIdProvider() {
+        return DefaultEIdProvider.INSTANCE;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    @Override
     public DefaultAknIdentifier newAknIdentifier(String work, String expression, String manifestation) {
         return new DefaultAknIdentifier(work, expression, manifestation, "/");
     }
@@ -39,6 +49,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
     public DefaultAknIdentifier extractAknIdentifier(String work, String expression, String manifestation) {
         return new DefaultAknIdentifier(work, expression.substring(work.length() + 1), manifestation.substring(expression.length() + 1), "/");
@@ -47,6 +58,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
     public DefaultAknIdentifier newAknIdentifierTransient() {
         return new DefaultAknIdentifier("0", "0", "0", "/");

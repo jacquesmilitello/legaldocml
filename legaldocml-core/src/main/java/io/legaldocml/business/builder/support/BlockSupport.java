@@ -19,6 +19,7 @@ public interface BlockSupport<T extends BlockElementsContainer<E>, E extends Akn
     default InlineTypeBuilder<Block> block(Consumer<Block> consumer) {
         Block block = new Block();
         parent().add(block);
+        businessBuilder().getContext().push(parent(), block);
         if (consumer != null) {
             consumer.accept(block);
         }

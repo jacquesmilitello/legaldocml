@@ -21,7 +21,7 @@ public interface OrganizationSupport<T extends InlineCMContainer> extends Suppor
     default InlineReqReqTypeBuilder<Organization> organization(TLCOrganization tlcOrganization, Consumer<Organization> consumer) {
         Organization organization = new Organization();
         parent().add(organization);
-
+        businessBuilder().getContext().push(parent(), organization);
         refersTo(businessBuilder().getSource(), tlcOrganization).accept(organization, businessBuilder().getAkomaNtoso());
 
         if (consumer != null) {

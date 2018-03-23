@@ -19,6 +19,7 @@ public interface ModSupport<T extends ANinlineContainer<E>, E extends AknObject>
     default ModTypeBuilder<Mod> mod(Consumer<Mod> consumer) {
         Mod mod = new Mod();
         parent().add(mod);
+        businessBuilder().getContext().push(parent(), mod);
         if (consumer != null) {
             consumer.accept(mod);
         }

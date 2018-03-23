@@ -22,8 +22,8 @@ public abstract class BillBusinessBuilder extends BusinessBuilder<Bill> {
      * {@inheritDoc}
      */
     @Override
-    protected AkomaNtosoContext newAkomaNtosoContext() {
-        AkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
+    protected BusinessBuilderAkomaNtosoContext newAkomaNtosoContext() {
+        BusinessBuilderAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
         context.add(AkomaNtosoModuleV3.INSTANCE);
         return context;
     }

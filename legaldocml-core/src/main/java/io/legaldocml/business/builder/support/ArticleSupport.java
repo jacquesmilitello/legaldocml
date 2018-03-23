@@ -19,6 +19,7 @@ public interface ArticleSupport<T extends ANhierContainer<E>, E extends AknObjec
     default HierarchyBuilder<Article> article(Consumer<Article> consumer) {
         Article article = new Article();
         parent().add(article);
+        businessBuilder().getContext().push(parent(), article);
         if (consumer != null) {
             consumer.accept(article);
         }

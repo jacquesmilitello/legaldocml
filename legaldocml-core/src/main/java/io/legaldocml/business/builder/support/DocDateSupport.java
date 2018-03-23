@@ -24,6 +24,7 @@ public interface DocDateSupport<T extends ANtitleInlineContainer<E>, E extends A
         DocDate docDate = new DocDate();
         docDate.setDate(date);
         parent().add(docDate);
+        businessBuilder().getContext().push(parent(), docDate);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docDate, refs);
         if (consumer != null) {
             consumer.accept(docDate);

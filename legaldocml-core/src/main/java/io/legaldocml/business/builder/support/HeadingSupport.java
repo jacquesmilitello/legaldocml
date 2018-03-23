@@ -22,7 +22,7 @@ public interface HeadingSupport<T extends BaseHierarchy> extends SupportBuilder<
         }
         Heading heading = new Heading();
         parent().setHeading(heading);
-
+        businessBuilder().getContext().push(parent(), heading);
         if (consumer != null) {
             consumer.accept(heading);
         }

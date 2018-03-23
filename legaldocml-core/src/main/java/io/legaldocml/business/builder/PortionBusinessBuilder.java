@@ -23,14 +23,14 @@ public abstract class PortionBusinessBuilder<T extends PortionBodyBuilder> exten
      * {@inheritDoc}
      */
     @Override
-    protected AkomaNtosoContext newAkomaNtosoContext() {
-        AkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
+    protected BusinessBuilderAkomaNtosoContext newAkomaNtosoContext() {
+        BusinessBuilderAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
         context.add(AkomaNtosoModuleV3.INSTANCE);
         return context;
     }
 
-    public final void setIncludedIn(String includedIn) {
-        this.getAkomaNtoso().getDocumentType().setIncludedIn(ReferenceRef.valueOf(includedIn));
+    public final void setIncludedIn(ReferenceRef includedIn) {
+        this.getAkomaNtoso().getDocumentType().setIncludedIn(includedIn);
     }
 
     public final T getBodyBuilder() {
