@@ -22,6 +22,7 @@ public interface DocProponentSupport<T extends ANtitleInlineContainer<E>, E exte
     default InlineTypeBuilder<DocProponent> docProponent(Consumer<DocProponent> consumer, AknReference... refs) {
         DocProponent docProponent = new DocProponent();
         parent().add(docProponent);
+        businessBuilder().getContext().push(parent(), docProponent);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docProponent, refs);
         if (consumer != null) {
             consumer.accept(docProponent);

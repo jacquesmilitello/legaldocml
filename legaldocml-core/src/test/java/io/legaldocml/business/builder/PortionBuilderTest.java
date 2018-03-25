@@ -20,6 +20,7 @@ import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.NoWhiteSpace;
+import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.AknIdentifier;
@@ -82,7 +83,7 @@ class PortionBuilderTest {
             }
         };
 
-        portionBuilder.setIncludedIn("/akn/us/act/title_9");
+        portionBuilder.setIncludedIn(ReferenceRef.valueOf("/akn/us/act/title_9"));
 
         MetaBuilder metaBuilder = portionBuilder.getMetaBuilder();
 
@@ -132,7 +133,7 @@ class PortionBuilderTest {
                 return new PortionBodyBuilder(this, this.getAkomaNtoso().getDocumentType().getPortionBody());
             }
         };
-        portionBuilder.setIncludedIn("/akn/us/act/title_9");
+        portionBuilder.setIncludedIn(ReferenceRef.valueOf("/akn/us/act/title_9"));
 
         PortionBodyBuilder bodyBuilder = portionBuilder.getBodyBuilder();
 

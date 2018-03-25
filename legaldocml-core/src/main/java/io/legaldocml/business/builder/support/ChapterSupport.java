@@ -19,6 +19,7 @@ public interface ChapterSupport<T extends ANhierContainer<E>, E extends AknObjec
     default HierarchyBuilder<Chapter> chapter(Consumer<Chapter> consumer) {
         Chapter chapter = new Chapter();
         parent().add(chapter);
+        businessBuilder().getContext().push(parent(), chapter);
         if (consumer != null) {
             consumer.accept(chapter);
         }

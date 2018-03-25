@@ -19,6 +19,7 @@ public interface AlineaSupport<T extends ANhierContainer<E>, E extends AknObject
     default HierarchyBuilder<Alinea> alinea(Consumer<Alinea> consumer) {
         Alinea alinea = new Alinea();
         parent().add(alinea);
+        businessBuilder().getContext().push(parent(), alinea);
         if (consumer != null) {
             consumer.accept(alinea);
         }

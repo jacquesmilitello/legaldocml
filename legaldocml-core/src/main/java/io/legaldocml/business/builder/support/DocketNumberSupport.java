@@ -22,6 +22,7 @@ public interface DocketNumberSupport<T extends ANtitleInlineContainer<E>, E exte
     default InlineTypeBuilder<DocketNumber> docketNumber(Consumer<DocketNumber> consumer, AknReference... refs) {
         DocketNumber docketNumber = new DocketNumber();
         parent().add(docketNumber);
+        businessBuilder().getContext().push(parent(), docketNumber);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docketNumber, refs);
         if (consumer != null) {
             consumer.accept(docketNumber);

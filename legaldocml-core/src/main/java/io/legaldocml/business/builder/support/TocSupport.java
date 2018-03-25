@@ -19,6 +19,7 @@ public interface TocSupport<T extends ANblockContainer<E>, E extends AknObject> 
     default TocBuilder toc(Consumer<Toc> consumer) {
         Toc toc = new Toc();
         parent().add(toc);
+        businessBuilder().getContext().push(parent(), toc);
         if (consumer != null) {
             consumer.accept(toc);
         }

@@ -19,6 +19,7 @@ public interface EolSupport<T extends ANmarkerContainer<E>, E extends AknObject>
     default <U extends EolSupport<T,E>> U eol(Consumer<Eol> consumer) {
         Eol eol = new Eol();
         parent().add(eol);
+        businessBuilder().getContext().push(parent(), eol);
         if (consumer != null) {
             consumer.accept(eol);
         }

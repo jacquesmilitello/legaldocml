@@ -13,6 +13,7 @@ public interface SubFlowSupport<T extends SubFlowsElementsContainer<T>> extends 
         SubFlow subFlow = new SubFlow();
         subFlow.setName(name);
         parent().add(subFlow);
+        businessBuilder().getContext().push(parent(), subFlow);
         return new SubFlowBuilder(businessBuilder(), subFlow);
     }
 

@@ -19,6 +19,7 @@ public interface ISupport<T extends HTMLinlineContainer<E>, E extends AknObject>
     default InlineTypeBuilder<I> i(Consumer<I> consumer) {
         I i = new I();
         parent().add(i);
+        businessBuilder().getContext().push(parent(), i);
         if (consumer != null) {
             consumer.accept(i);
         }

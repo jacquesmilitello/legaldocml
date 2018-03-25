@@ -25,6 +25,7 @@ public interface NumSupport<T extends BaseHierarchy> extends SupportBuilder<T> {
         Num num = new Num();
         this.parent().setNum(num);
 
+        businessBuilder().getContext().push(parent(), num);
         if (consumer != null) {
             consumer.accept(num);
         }

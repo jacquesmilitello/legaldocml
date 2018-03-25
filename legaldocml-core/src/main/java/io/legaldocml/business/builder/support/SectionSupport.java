@@ -19,6 +19,7 @@ public interface SectionSupport<T extends ANhierContainer<E>, E extends AknObjec
     default HierarchyBuilder<Section> section(Consumer<Section> consumer) {
         Section section = new Section();
         parent().add(section);
+        businessBuilder().getContext().push(parent(), section);
         if (consumer != null) {
             consumer.accept(section);
         }

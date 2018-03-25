@@ -19,6 +19,7 @@ public interface PSupport<T extends HTMLblockContainer<E>, E extends AknObject> 
     default InlineTypeBuilder<P> p(Consumer<P> consumer) {
         P p = new P();
         parent().add(p);
+        businessBuilder().getContext().push(parent(), p);
         if (consumer != null) {
             consumer.accept(p);
         }

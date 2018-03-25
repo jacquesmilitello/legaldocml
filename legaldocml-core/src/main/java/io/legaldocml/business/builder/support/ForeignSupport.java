@@ -15,6 +15,7 @@ public interface ForeignSupport<T extends BlockElementsContainer<E>, E extends A
     default <U extends BusinessPartBuilder<Z>, Z extends AnyOtherTypeElement> U foreign(String provider, String businessPartBuilder) {
         Foreign foreign = new Foreign();
         parent().add(foreign);
+        businessBuilder().getContext().push(parent(), foreign);
         return BusinessProvider.businessProvider(provider)
                 .newPartBuilder(businessBuilder(), foreign, businessPartBuilder);
     }

@@ -19,6 +19,7 @@ public interface ListSupport<T extends ANhierContainer<E>, E extends AknObject> 
     default HierarchyBuilder<List> list(Consumer<List> consumer) {
         List list = new List();
         parent().add(list);
+        businessBuilder().getContext().push(parent(), list);
         if (consumer != null) {
             consumer.accept(list);
         }

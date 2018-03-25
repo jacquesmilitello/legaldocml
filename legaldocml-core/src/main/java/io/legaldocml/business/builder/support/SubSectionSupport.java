@@ -19,6 +19,7 @@ public interface SubSectionSupport<T extends ANhierContainer<E>, E extends AknOb
     default HierarchyBuilder<Subsection> subsection(Consumer<Subsection> consumer) {
         Subsection subsection = new Subsection();
         parent().add(subsection);
+        businessBuilder().getContext().push(parent(), subsection);
         if (consumer != null) {
             consumer.accept(subsection);
         }

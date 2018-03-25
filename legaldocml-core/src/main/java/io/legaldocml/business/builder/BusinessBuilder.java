@@ -13,18 +13,16 @@ import io.legaldocml.model.Language;
 public abstract class BusinessBuilder<T extends DocumentType> {
 
     private final BusinessProvider provider;
-
     private final AkomaNtoso<T> akomaNtoso;
-
+    private final BusinessBuilderAkomaNtosoContext context;
     private final MetaBuilder metaBuilder;
-
     private final AgentRef source;
-
     private Language mainLanguage;
 
     public BusinessBuilder(BusinessProvider provider, T documentType) {
         this.provider = provider;
-        this.akomaNtoso = new AkomaNtoso<>(newAkomaNtosoContext());
+        this.context = newAkomaNtosoContext();
+        this.akomaNtoso = new AkomaNtoso<>(context);
         this.akomaNtoso.setDocumentType(documentType);
         this.metaBuilder = newMetaBuilder();
         this.source = this.metaBuilder.getMeta().getIdentification().getSource();
@@ -41,10 +39,6 @@ public abstract class BusinessBuilder<T extends DocumentType> {
     public final AgentRef getSource() {
         return source;
     }
-//
-//    public final void setSource(AgentRef source) {
-//        this.source = source;
-//    }
 
     public final Language getMainLanguage() {
         return mainLanguage;
@@ -58,12 +52,16 @@ public abstract class BusinessBuilder<T extends DocumentType> {
         getMetaBuilder().addLanguage(this.mainLanguage, Language::getTerminology);
     }
 
-    protected abstract AkomaNtosoContext newAkomaNtosoContext();
-
-    protected abstract MetaBuilder newMetaBuilder();
+    public final BusinessBuilderAkomaNtosoContext getContext() {
+        return this.context;
+    }
 
     public final AkomaNtoso<T> getAkomaNtoso() {
         return akomaNtoso;
     }
+
+    protected abstract BusinessBuilderAkomaNtosoContext newAkomaNtosoContext();
+
+    protected abstract MetaBuilder newMetaBuilder();
 
 }

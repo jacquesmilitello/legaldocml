@@ -24,6 +24,7 @@ public interface LongTitleSupport<T extends LongTitleContainer<E>, E extends Akn
     default BlocksreqBuilder<LongTitle> longTitle(Consumer<LongTitle> consumer) {
         LongTitle title = new LongTitle();
         parent().add(title);
+        businessBuilder().getContext().push(parent(), title);
         if (consumer != null) {
             consumer.accept(title);
         }

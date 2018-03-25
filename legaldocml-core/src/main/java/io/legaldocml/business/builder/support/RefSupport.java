@@ -21,6 +21,7 @@ public interface RefSupport<T extends ANinlineContainer<E>, E extends AknObject>
         Ref ref = new Ref();
         ref.setHref(href);
         parent().add(ref);
+        businessBuilder().getContext().push(parent(), ref);
         if (consumer != null) {
             consumer.accept(ref);
         }

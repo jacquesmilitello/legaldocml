@@ -13,6 +13,7 @@ public interface BlockListSupport<T extends ANblockContainer<E>, E extends AknOb
     default BlockListBuilder blockList() {
         BlockList list = new BlockList();
         parent().add(list);
+        businessBuilder().getContext().push(parent(), list);
         return new BlockListBuilder(businessBuilder(), list);
     }
 

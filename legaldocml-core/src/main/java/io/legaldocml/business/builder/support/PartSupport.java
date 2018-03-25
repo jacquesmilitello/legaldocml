@@ -19,6 +19,7 @@ public interface PartSupport<T extends ANhierContainer<E>, E extends AknObject> 
     default HierarchyBuilder part(Consumer<Part> consumer) {
         Part part = new Part();
         parent().add(part);
+        businessBuilder().getContext().push(parent(), part);
         if (consumer != null) {
             consumer.accept(part);
         }

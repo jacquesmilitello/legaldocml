@@ -22,6 +22,7 @@ public interface DocCommitteeSupport<T extends ANtitleInlineContainer<E>, E exte
     default InlineTypeBuilder<DocCommittee> docCommittee(Consumer<DocCommittee> consumer, AknReference... refs) {
         DocCommittee docCommittee = new DocCommittee();
         parent().add(docCommittee);
+        businessBuilder().getContext().push(parent(), docCommittee);
         AknReferences.apply(businessBuilder().getAkomaNtoso(), docCommittee, refs);
         if (consumer != null) {
             consumer.accept(docCommittee);

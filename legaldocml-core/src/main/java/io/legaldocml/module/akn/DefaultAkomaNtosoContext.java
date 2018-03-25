@@ -1,12 +1,12 @@
 package io.legaldocml.module.akn;
 
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DefaultAkomaNtosoContext extends AkomaNtosoContext {
+public final class DefaultAkomaNtosoContext extends BusinessBuilderAkomaNtosoContext {
 
     private final BusinessProvider provider;
 

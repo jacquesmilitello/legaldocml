@@ -23,7 +23,7 @@ public interface SubHeadingSupport<T extends BaseHierarchy> extends SupportBuild
         }
         Subheading subheading = new Subheading();
         this.parent().setSubheading(subheading);
-
+        businessBuilder().getContext().push(parent(), subheading);
         if (consumer != null) {
             consumer.accept(subheading);
         }

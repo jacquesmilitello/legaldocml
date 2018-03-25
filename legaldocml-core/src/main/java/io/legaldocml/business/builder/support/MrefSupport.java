@@ -19,6 +19,7 @@ public interface MrefSupport<T extends ANinlineContainer<E>, E extends AknObject
     default InlineTypeBuilder<Mref> mref(Consumer<Mref> consumer) {
         Mref mref = new Mref();
         parent().add(mref);
+        businessBuilder().getContext().push(parent(), mref);
         if (consumer != null) {
             consumer.accept(mref);
         }
