@@ -98,6 +98,14 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
         this.elements.add(element);
     }
 
+    public final void add(int index, HierarchyElement element) {
+        requireNonNull(element);
+        if (this.elements == null) {
+            this.elements = new AknList<>(new HierarchyElement[4]);
+        }
+        this.elements.add(index, element);
+    }
+
     public final boolean removeHierarchyElement(HierarchyElement element) {
         return this.elements != null && this.elements.remove(requireNonNull(element));
     }

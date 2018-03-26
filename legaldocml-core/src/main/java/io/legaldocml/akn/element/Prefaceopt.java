@@ -13,6 +13,7 @@ import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
@@ -115,6 +116,14 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
     @Override
     public void add(LongTitle longTitle) {
         addPrefaceoptElement(longTitle);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<PrefaceoptElement> iterable() {
+        return pes.iterable();
     }
 
     /**
