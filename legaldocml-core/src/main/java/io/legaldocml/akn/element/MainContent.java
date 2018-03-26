@@ -8,9 +8,9 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
@@ -19,7 +19,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * The complex type maincontent is used by container elements that can contain basically any other Akoma Ntoso
  * structure.
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="maincontent">
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -90,6 +90,14 @@ public abstract class MainContent extends AbstractCore implements CoreOpt, Compo
     public void read(XmlReader reader) {
         super.read(reader);
         XmlReaderHelper.read(reader, this.elements, ELEMS);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<MainContentElement> iterable() {
+        return elements.iterable();
     }
 
     /**
