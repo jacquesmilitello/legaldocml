@@ -13,6 +13,7 @@ import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
 import io.legaldocml.util.ListIterable;
 
 import javax.xml.stream.XMLStreamConstants;
@@ -27,7 +28,7 @@ import static java.util.Objects.requireNonNull;
 /**
  * the complex type prefaceopt defines the content model and attributes used by preface. Here the eId attribute is
  * optional
- *
+ * <p>
  * <pre>
  *   <xsd:complexType name="prefaceopt">
  * 	   <xsd:choice minOccurs="1" maxOccurs="unbounded">
@@ -122,14 +123,6 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      * {@inheritDoc}
      */
     @Override
-    public ListIterable<PrefaceoptElement> iterable() {
-        return pes.iterable();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public void read(XmlReader reader) {
         super.read(reader);
         PrefaceoptElement elem;
@@ -161,6 +154,11 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
     public void write(XmlWriter writer) throws IOException {
         CoreOpt.super.write(writer);
         this.pes.write(writer);
+    }
+
+    @Override
+    public ListIterable<PrefaceoptElement> iterable() {
+        return Iterables.iterable(pes);
     }
 
     /**
