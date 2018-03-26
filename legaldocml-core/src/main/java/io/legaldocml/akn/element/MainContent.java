@@ -8,6 +8,7 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -72,6 +73,14 @@ public abstract class MainContent extends AbstractCore implements CoreOpt, Compo
     @Override
     public boolean remove(ComponentRef componentRef) {
         return removeMainContentElement(componentRef);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<MainContentElement> iterable() {
+        return this.elements.iterable();
     }
 
     /**
