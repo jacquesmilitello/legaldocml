@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.TableAtts;
+import io.legaldocml.akn.container.Container;
 import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -11,6 +12,7 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 
@@ -41,7 +43,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Table extends AbstractCore implements CoreReq, TableAtts, HTMLblock {
+public final class Table extends AbstractCore implements CoreReq, TableAtts, HTMLblock, Container<Tr> {
 
     /**
      * Memory address.
@@ -77,6 +79,14 @@ public final class Table extends AbstractCore implements CoreReq, TableAtts, HTM
 
     public void add(Tr tr) {
         this.trs.add(tr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<Tr> iterable() {
+        return this.trs.iterable();
     }
 
     /**
@@ -142,6 +152,8 @@ public final class Table extends AbstractCore implements CoreReq, TableAtts, HTM
     public void setCellpadding(Integer cellpadding) {
         this.cellpadding = cellpadding;
     }
+
+
 
     /**
      * {@inheritDoc}

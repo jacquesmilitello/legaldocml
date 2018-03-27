@@ -102,6 +102,14 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
      * {@inheritDoc}
      */
     @Override
+    public void add(int index, BlockElements blockElements) {
+        this.containerElements.add(index, requireNonNull(blockElements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(ANblock block) {
         addContainerElement(block);
     }

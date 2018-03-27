@@ -56,6 +56,14 @@ public abstract class Blocksopt extends AbstractCore implements CoreOpt, BlockEl
      * {@inheritDoc}
      */
     @Override
+    public void add(int index, BlockElements blockElements) {
+        this.elements.add(index, requireNonNull(blockElements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public ListIterable<BlockElements> iterable() {
         return elements.iterable();
     }

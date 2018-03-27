@@ -2,12 +2,14 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreOpt;
+import io.legaldocml.akn.container.Container;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -15,6 +17,7 @@ import java.util.function.Supplier;
 import static io.legaldocml.akn.AknElements.TD;
 import static io.legaldocml.akn.AknElements.TH;
 import static io.legaldocml.akn.AknElements.TR;
+import static java.util.Objects.requireNonNull;
 
 /**
  * <pre>
@@ -31,7 +34,7 @@ import static io.legaldocml.akn.AknElements.TR;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Tr extends AbstractCore implements CoreOpt, SubFlowStructureElement {
+public final class Tr extends AbstractCore implements CoreOpt, SubFlowStructureElement , Container<TrElement> {
 
     /**
      * Memory address.
@@ -51,7 +54,18 @@ public final class Tr extends AbstractCore implements CoreOpt, SubFlowStructureE
     private final AknList<TrElement> trs = new AknList<>(new TrElement[6]);
 
     public void add(TrElement element) {
-        this.trs.add(element);
+        this.trs.add(requireNonNull(element));
+    }
+
+    public void add(int index, TrElement element) {
+        this.trs.add(index, requireNonNull(element));
+    }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<TrElement> iterable() {
+        return this.trs.iterable();
     }
 
     /**
