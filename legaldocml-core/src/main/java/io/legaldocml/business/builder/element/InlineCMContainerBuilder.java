@@ -4,7 +4,6 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.element.Inline;
 import io.legaldocml.akn.element.StringInlineCM;
-import io.legaldocml.akn.element.Sup;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
@@ -41,14 +40,6 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
         this.container.add(new StringInlineCM(text));
         return (U) this;
     }
-
-    @SuppressWarnings("unchecked")
-    public U sup() {
-        Sup sup = new Sup();
-        this.container.add(sup);
-        return (U) this;
-    }
-
 
     @SuppressWarnings("unchecked")
     public U inline(String name, AknReference... refs) {
