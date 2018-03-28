@@ -8,7 +8,7 @@ import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import java.util.function.Consumer;
 
 /**
- * @author <a href="mailto:mustapha.charboub@cgi.com">Mustapha CHARBOUB</a>
+ * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
 public interface SupSupport<T extends HTMLinlineContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
