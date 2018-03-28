@@ -75,6 +75,14 @@ public abstract class Prefaceopt extends AbstractCore implements CoreOpt, BlockE
      * {@inheritDoc}
      */
     @Override
+    public void add(int index, BlockElements blockElements) {
+        this.pes.add(index, requireNonNull(blockElements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(ANblock block) {
         addPrefaceoptElement(block);
     }

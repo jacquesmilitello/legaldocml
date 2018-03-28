@@ -131,6 +131,14 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
      * {@inheritDoc}
      */
     @Override
+    public void add(int index, BlockElements blockElements) {
+        this.elements.add(index, requireNonNull(blockElements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(HTMLblock block) {
         addSubFlowStructureElement(block);
     }

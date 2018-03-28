@@ -53,7 +53,15 @@ public abstract class Blocksreq extends AbstractCore implements CoreReq, BlockEl
         return this.elements.remove(requireNonNull(element));
     }
 
-     /**
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(int index, BlockElements blockElements) {
+        this.elements.add(index, requireNonNull(blockElements));
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -85,6 +93,9 @@ public abstract class Blocksreq extends AbstractCore implements CoreReq, BlockEl
         return removeBlockElements(block);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ListIterable<BlockElements> iterable() {
         return Iterables.iterable(elements);

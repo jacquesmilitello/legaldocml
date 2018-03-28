@@ -71,6 +71,14 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt, Pream
      * {@inheritDoc}
      */
     @Override
+    public void add(int index, BlockElements blockElements) {
+        this.preambleoptElements.add(index, requireNonNull(blockElements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void add(ANblock block) {
         addPreambleoptElement(block);
     }

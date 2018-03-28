@@ -10,4 +10,6 @@ public interface BlockElementsContainer<T extends AknObject> extends HTMLblockCo
 
     void add(BlockElements elements);
 
+    void add(int index, BlockElements elements);
+
 }

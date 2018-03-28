@@ -70,6 +70,14 @@ public abstract class Basicopt extends AbstractCore implements CoreOpt, BlockEle
      * {@inheritDoc}
      */
     @Override
+    public void add(int index, BlockElements blockElements) {
+        this.elements.add(index, requireNonNull(blockElements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void add(HTMLblock block) {
         addBasicoptElement(block);
     }
