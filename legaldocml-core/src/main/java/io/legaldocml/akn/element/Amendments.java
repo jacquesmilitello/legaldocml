@@ -2,10 +2,12 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.container.Container;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -52,6 +54,18 @@ public abstract class Amendments implements AknObject {
 
     // Mandatory (min 1).
     private final AknList<AmendmentsElement> elements = new AknList<>(new AmendmentsElement[4]);
+
+    public final void add(AmendmentsElement element) {
+        this.elements.add(element);
+    }
+
+    public final void add(int index, AmendmentsElement element) {
+        this.elements.add(index, element);
+    }
+
+    public final ListIterable<AmendmentsElement> iterable() {
+        return this.elements.iterable();
+    }
 
     /**
      * {@inheritDoc}

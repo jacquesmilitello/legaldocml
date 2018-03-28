@@ -1,10 +1,12 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.attribute.CoreReq;
+import io.legaldocml.akn.container.Container;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 
@@ -29,15 +31,34 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BlockListType extends AbstractCore implements CoreReq {
+public abstract class BlockListType extends AbstractCore implements CoreReq, Container<Item> {
 
     private ListIntroduction listIntroduction;
     private final AknList<Item> items = new AknList<>(new Item[4]);
     private ListWrapUp listWrapUp;
 
+    public final ListIntroduction getListIntroduction() {
+        return this.listIntroduction;
+    }
+
+    public ListWrapUp getListWrapUp() {
+        return this.listWrapUp;
+    }
 
     public final void add(Item item) {
         this.items.add(requireNonNull(item));
+    }
+
+    public final void add(int index, Item item) {
+        this.items.add(index, requireNonNull(item));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public final ListIterable<Item> iterable() {
+        return this.items.iterable();
     }
 
     /**
