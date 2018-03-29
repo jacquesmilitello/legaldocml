@@ -20,6 +20,9 @@ public interface SupSupport<T extends HTMLinlineContainer<E>, E extends AknObjec
         Sup sup = new Sup();
         parent().add(sup);
         businessBuilder().getContext().push(parent(), sup);
+        if (consumer != null) {
+            consumer.accept(sup);
+        }
         return new InlineTypeBuilder<>(businessBuilder(), sup);
     }
 }
