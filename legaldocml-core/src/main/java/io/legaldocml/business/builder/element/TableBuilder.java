@@ -15,15 +15,14 @@ public final class TableBuilder extends AbstractBusinessPartBuilder<Table> {
     private final Table table;
 
     public TableBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Table table) {
-        super(businessBuilder,table);
+        super(businessBuilder, table);
         this.table = table;
     }
 
     public InlineTypeBuilder<Caption> caption() {
         Caption caption = new Caption();
         table.setCaption(caption);
-        return null;
-        //return new InlineTypeBuilder(businessBuilder(), caption, this);
+        return new InlineTypeBuilder<>(businessBuilder(), caption);
     }
 
     public TableRowBuilder row() {
