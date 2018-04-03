@@ -41,8 +41,16 @@ public abstract class BlockListType extends AbstractCore implements CoreReq, Con
         return this.listIntroduction;
     }
 
-    public ListWrapUp getListWrapUp() {
+    public final void setListIntroduction(ListIntroduction listIntroduction) {
+        this.listIntroduction = listIntroduction;
+    }
+
+    public final ListWrapUp getListWrapUp() {
         return this.listWrapUp;
+    }
+
+    public final void setListWrapUp(ListWrapUp listWrapUp) {
+        this.listWrapUp = listWrapUp;
     }
 
     public final void add(Item item) {

@@ -22,8 +22,7 @@ public final class TableBuilder extends AbstractBusinessPartBuilder<Table> {
     public InlineTypeBuilder<Caption> caption() {
         Caption caption = new Caption();
         table.setCaption(caption);
-        return null;
-        //return new InlineTypeBuilder(businessBuilder(), caption, this);
+        return new InlineTypeBuilder<>(businessBuilder(), caption);
     }
 
     public TableRowBuilder row() {
