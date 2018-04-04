@@ -3,6 +3,7 @@ package io.legaldocml.business.builder.element;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.element.InlineType;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.support.AuthorialNoteSupport;
 import io.legaldocml.business.builder.support.SpanSupport;
 
 /**
