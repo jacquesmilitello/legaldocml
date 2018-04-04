@@ -2,6 +2,7 @@ package io.legaldocml.io.impl;
 
 import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.util.XmlReaderHelper;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,7 @@ public class XmlChannelReaderBadElementTest {
         doTest(path("/xml/cdata-001.xml"), reader -> {
             reader.nextStartOrEndElement();
             try {
-                XmlReaderHelper.createAkomaNtoso(reader);
+                XmlReaderHelper.createAkomaNtoso(reader, new DefaultAkomaNtosoContext());
                 Assertions.fail("");
             } catch (WriterMandatoryElementException cause) {
                 Assertions.assertEquals(AKOMANTOSO, cause.getExpected());

@@ -3,6 +3,7 @@ package io.legaldocml.archive.zip;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.util.XmlReaderHelper;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.util.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
 
@@ -29,7 +30,7 @@ public final class ReaderHelper {
             reader.setBuffer(out);
             reader.nextStartOrEndElement();
 
-            akomaNtoso = XmlReaderHelper.createAkomaNtoso(reader);
+            akomaNtoso = XmlReaderHelper.createAkomaNtoso(reader, new DefaultAkomaNtosoContext());
             akomaNtoso.read(reader);
 
         } finally {

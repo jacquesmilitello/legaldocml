@@ -14,6 +14,7 @@ import io.legaldocml.akn.util.AknList;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 
@@ -37,6 +38,7 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeEnactment;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeModifiers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type modificationType lists all the properties associated to modification elements.
@@ -97,11 +99,35 @@ public abstract class ModificationType extends AbstractIdCore implements Core, I
     private Duration duration;
     private Condition condition;
 
+    public final void add(Source source) {
+        this.sources.add(requireNonNull(source));
+    }
+
+    public final void add(int index, Source source) {
+        this.sources.add(index, requireNonNull(source));
+    }
+
+    public final void add(Destination destination) {
+        this.destinations.add(requireNonNull(destination));
+    }
+
+    public final void add(int index, Destination destination) {
+        this.destinations.add(index, requireNonNull(destination));
+    }
+
+    public final ListIterable<Source> iterableSources() {
+        return this.sources.iterable();
+    }
+
+    public final ListIterable<Destination> iterableDestination() {
+        return this.destinations.iterable();
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public ListReferenceRef getRefersTo() {
+    public final ListReferenceRef getRefersTo() {
         return this.refersTo;
     }
 
@@ -109,21 +135,21 @@ public abstract class ModificationType extends AbstractIdCore implements Core, I
      * {@inheritDoc}
      */
     @Override
-    public void setRefersTo(ListReferenceRef refersTo) {
+    public final void setRefersTo(ListReferenceRef refersTo) {
         this.refersTo = refersTo;
     }
 
     /**
      * {@inheritDoc}
      */
-    public StatusType getStatus() {
+    public final StatusType getStatus() {
         return this.statusType;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void setStatus(StatusType status) {
+    public final void setStatus(StatusType status) {
         this.statusType = status;
     }
 
@@ -131,7 +157,7 @@ public abstract class ModificationType extends AbstractIdCore implements Core, I
      * {@inheritDoc}
      */
     @Override
-    public TemporalGroupRef getPeriod() {
+    public final TemporalGroupRef getPeriod() {
         return this.period;
     }
 
@@ -139,44 +165,36 @@ public abstract class ModificationType extends AbstractIdCore implements Core, I
      * {@inheritDoc}
      */
     @Override
-    public void setPeriod(TemporalGroupRef period) {
+    public final void setPeriod(TemporalGroupRef period) {
         this.period = period;
     }
 
     /**
      * {@inheritDoc}
      */
-    public Boolean getExclusion() {
+    public final Boolean getExclusion() {
         return this.exclusion;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void setExclusion(Boolean exclusion) {
+    public final void setExclusion(Boolean exclusion) {
         this.exclusion = exclusion;
     }
 
     /**
      * {@inheritDoc}
      */
-    public Boolean getIncomplete() {
+    public final Boolean getIncomplete() {
         return this.incomplete;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void setIncomplete(Boolean incomplete) {
+    public final void setIncomplete(Boolean incomplete) {
         this.incomplete = incomplete;
-    }
-
-    public void addSource(Source source) {
-        this.sources.add(source);
-    }
-
-    public void addDestination(Destination destination) {
-        this.destinations.add(destination);
     }
 
     /**

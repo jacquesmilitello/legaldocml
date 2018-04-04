@@ -4,12 +4,12 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.AknReadException;
 import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.HasMixedContent;
 import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.other.UnsupportedModule;
-import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
@@ -44,7 +44,7 @@ public final class XmlReaderHelper {
     }
 
 
-    public static <T extends DocumentType> AkomaNtoso<T> createAkomaNtoso(XmlReader reader) {
+    public static <T extends DocumentType> AkomaNtoso<T> createAkomaNtoso(XmlReader reader, AkomaNtosoContext context) {
         if (!AKOMANTOSO.equals(reader.getQName().getLocalName())) {
             throw new WriterMandatoryElementException(null, AKOMANTOSO, reader);
         }
@@ -58,7 +58,7 @@ public final class XmlReaderHelper {
            throw new AknReadException(Type.AKN_MODULE_NOT_FOUND,reader);
         }
 
-        AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
+        AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(context);
         reader.setContext(akomaNtoso.getContext());
 
         for (Module module : namespaceConsumer.getModules()) {
