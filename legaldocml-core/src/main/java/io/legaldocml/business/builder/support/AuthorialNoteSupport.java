@@ -12,11 +12,11 @@ import java.util.function.Consumer;
  */
 public interface AuthorialNoteSupport<T extends ANsubFlowContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
-    default SubFlowStructureBuilder authorialNote() {
+    default SubFlowStructureBuilder<AuthorialNote> authorialNote() {
         return authorialNote(null);
     }
 
-    default SubFlowStructureBuilder authorialNote(Consumer<AuthorialNote> consumer) {
+    default SubFlowStructureBuilder<AuthorialNote> authorialNote(Consumer<AuthorialNote> consumer) {
         AuthorialNote authorialNote = new AuthorialNote();
         parent().add(authorialNote);
         if (consumer != null) {
