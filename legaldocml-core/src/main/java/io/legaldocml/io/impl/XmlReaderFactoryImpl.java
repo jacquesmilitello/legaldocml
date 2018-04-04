@@ -1,9 +1,11 @@
 package io.legaldocml.io.impl;
 
 import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.io.XmlReaderFactory;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
 import io.legaldocml.pool.Pool;
 import io.legaldocml.pool.PoolHolder;
 import io.legaldocml.pool.PoolableObject;
@@ -40,7 +42,7 @@ final class XmlReaderFactoryImpl implements XmlReaderFactory {
 	}
 
 	@Override
-	public <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer) {
+	public <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer, AkomaNtosoContext context) {
 		PoolHolder<XmlChannelReader> holder = null;
 		try {
 			holder = this.pool.checkOut();
@@ -49,7 +51,7 @@ final class XmlReaderFactoryImpl implements XmlReaderFactory {
 			reader.setBuffer(buffer);
 			reader.nextStartOrEndElement();
 
-			AkomaNtoso<T> akomaNtoso = XmlReaderHelper.<T>createAkomaNtoso(reader);
+			AkomaNtoso<T> akomaNtoso = XmlReaderHelper.createAkomaNtoso(reader, context);
 			akomaNtoso.read(reader);
 			return akomaNtoso;
 		} finally {
@@ -57,6 +59,11 @@ final class XmlReaderFactoryImpl implements XmlReaderFactory {
 				this.pool.checkIn(holder);
 			}
 		}
+	}
+
+	@Override
+	public <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer) {
+		return read(buffer, new DefaultAkomaNtosoContext());
 	}
 
 	@Override

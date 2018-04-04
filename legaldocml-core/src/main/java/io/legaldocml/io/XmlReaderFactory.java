@@ -1,6 +1,7 @@
 package io.legaldocml.io;
 
 import io.legaldocml.akn.AkomaNtoso;
+import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.DocumentType;
 
 import java.io.IOException;
@@ -14,5 +15,8 @@ public interface XmlReaderFactory {
 
     <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer);
 
+    <T extends DocumentType> AkomaNtoso<T> read(MappedByteBuffer buffer, AkomaNtosoContext context);
+
     <T extends DocumentType> AkomaNtoso<T> read(Path path) throws IOException;
+
 }
