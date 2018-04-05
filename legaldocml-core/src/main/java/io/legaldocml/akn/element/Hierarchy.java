@@ -22,9 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.stream.XMLStreamConstants;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.CONTENT;

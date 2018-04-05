@@ -23,7 +23,7 @@ public final class XmlModule implements Module {
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    private static final CharArray NAMESPACE = CharArrays.immutable(NS_VALUE);
+    public static final CharArray NAMESPACE = CharArrays.immutable(NS_VALUE);
 
     private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
 
