@@ -320,6 +320,9 @@ public final class XmlWriterHelper {
             if (idOpt.getEid() != null) {
                 writer.writeAttribute(Attributes.ADDRESS_EID, 3, idOpt.getEid().getChars());
             }
+            if (idOpt.getWid() != null) {
+                writer.writeAttribute(Attributes.ADDRESS_WID, 3, idOpt.getWid().getChars());
+            }
 
         }
 
