@@ -15,7 +15,7 @@ public final class TableBuilder extends AbstractBusinessPartBuilder<Table> {
     private final Table table;
 
     public TableBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Table table) {
-        super(businessBuilder,table);
+        super(businessBuilder, table);
         this.table = table;
     }
 
