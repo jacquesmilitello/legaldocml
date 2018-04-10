@@ -12,6 +12,7 @@ import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -96,7 +97,13 @@ public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockEl
         this.blockElements.add(requireNonNull(block));
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<BlockElements> iterable() {
+        return this.blockElements.iterable();
+    }
 
     /**
      * {@inheritDoc}

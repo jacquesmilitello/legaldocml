@@ -3,6 +3,7 @@ package io.legaldocml.akn.element;
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CellAttrs;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
@@ -107,5 +108,16 @@ public final class Td extends Blocksopt implements CellAttrs, TrElement, SubFlow
     @Override
     public String name() {
         return TD;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 }

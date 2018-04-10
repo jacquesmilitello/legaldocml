@@ -7,8 +7,10 @@ import io.legaldocml.akn.element.DocumentRef;
 import io.legaldocml.akn.element.Header;
 import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.ImplicitReference;
+import io.legaldocml.akn.element.Td;
 import io.legaldocml.akn.element.TemporalData;
 import io.legaldocml.akn.element.TemporalGroup;
+import io.legaldocml.akn.element.Th;
 import io.legaldocml.akn.element.TimeInterval;
 import io.legaldocml.akn.element.Tr;
 
@@ -68,6 +70,22 @@ public interface OtherVisitior {
     }
 
     default void visitLeave(Tr tr) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Td td) {
+        return true;
+    }
+
+    default void visitLeave(Td Td) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Th th) {
+        return true;
+    }
+
+    default void visitLeave(Th th) {
         // default -> nothing to do.
     }
 
