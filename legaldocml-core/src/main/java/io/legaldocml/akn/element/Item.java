@@ -1,7 +1,8 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.util.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 
@@ -40,4 +41,11 @@ public final class Item extends ItemType {
         return ITEM;
     }
 
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
+    }
 }

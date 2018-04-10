@@ -83,7 +83,7 @@ class ExternalizableListTest {
         list.add(id3);
 
         Iterator<SimpleId> iterator = list.iterator();
-
+        iterator.next();
         iterator.remove();
 
         assertEquals(2, list.size());
@@ -164,7 +164,7 @@ class ExternalizableListTest {
     }
 
     @SuppressWarnings({"unlikely-arg-type", "SuspiciousMethodCalls"})
-	@Test
+    @Test
     void testIndexOf() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();
@@ -184,7 +184,7 @@ class ExternalizableListTest {
     }
 
     @SuppressWarnings({"unlikely-arg-type", "SuspiciousMethodCalls"})
-	@Test
+    @Test
     void testLastIndexOf() {
         ExternalizableList<SimpleId> list = new ExternalizableList<>();
         SimpleId id1 = new SimpleId();

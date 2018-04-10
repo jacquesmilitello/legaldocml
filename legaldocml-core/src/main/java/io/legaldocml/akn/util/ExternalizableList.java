@@ -327,7 +327,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         final E[] iterable = this.elems;
         final int max = this.size;
         return new Iterator<E>() {
-            int i = 0;
+            int i = -1;
 
             @Override
             public boolean hasNext() {
@@ -339,7 +339,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
                 if (i >= max) {
                     throw new NoSuchElementException();
                 }
-                return iterable[i++];
+                return iterable[++i];
             }
 
             @Override
