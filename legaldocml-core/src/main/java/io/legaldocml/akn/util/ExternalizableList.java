@@ -325,27 +325,34 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     @Override
     public final Iterator<E> iterator() {
         final E[] iterable = this.elems;
-        final int max = this.size;
         return new Iterator<E>() {
-            int i = 0;
+            // index of next element to return
+            int idxNext = 0;
+            // index of last element returned; -1 if no such
+            int idxLast = -1;
 
             @Override
             public boolean hasNext() {
-                return i < max;
+                return idxNext != ExternalizableList.this.size;
             }
 
             @Override
             public E next() {
-                if (i >= max) {
+                if (idxNext >= ExternalizableList.this.size) {
                     throw new NoSuchElementException();
                 }
-                return iterable[i++];
+                idxLast = idxNext;
+                return iterable[idxNext++];
             }
 
             @Override
             public void remove() {
-                ExternalizableList.this.remove(i);
-                i--;
+                if (idxLast == -1) {
+                    throw new IllegalStateException();
+                }
+                ExternalizableList.this.remove(idxLast);
+                idxNext = idxLast;
+                idxLast = -1;
             }
         };
     }

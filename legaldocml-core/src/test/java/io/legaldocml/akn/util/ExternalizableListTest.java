@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
 class ExternalizableListTest {
@@ -84,6 +85,9 @@ class ExternalizableListTest {
 
         Iterator<SimpleId> iterator = list.iterator();
 
+        assertThrows(IllegalStateException.class, iterator::remove);
+
+        iterator.next();
         iterator.remove();
 
         assertEquals(2, list.size());
