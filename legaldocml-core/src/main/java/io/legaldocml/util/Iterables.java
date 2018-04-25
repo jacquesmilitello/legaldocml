@@ -31,6 +31,13 @@ public final class Iterables {
         public int size() {
             return 0;
         }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void removeAll() {
+        }
     };
 
     public static <T> ListIterable<T> empty() {

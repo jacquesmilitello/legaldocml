@@ -58,7 +58,7 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     }
 
     public ExternalizableList(E[] elem) {
-        this(elem,0);
+        this(elem, 0);
     }
 
     protected ExternalizableList(E[] elem, int size) {
@@ -443,10 +443,20 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         /**
          * {@inheritDoc}
          */
-		@Override
-		public int size() {
-			return ExternalizableList.this.size;
-		}
+        @Override
+        public void removeAll() {
+            //noinspection unchecked
+            ExternalizableList.this.elems = (E[]) EMPTY_ELEMENTDATA;
+            ExternalizableList.this.size = 0;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public int size() {
+            return ExternalizableList.this.size;
+        }
     }
 
 }
