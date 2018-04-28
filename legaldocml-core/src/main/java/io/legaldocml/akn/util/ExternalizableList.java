@@ -3,7 +3,6 @@ package io.legaldocml.akn.util;
 
 import io.legaldocml.io.Externalizable;
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -294,14 +293,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         return builder.toString();
     }
 
-    protected final void addUncheck(E item) {
-        this.elems[this.size++] = item;
-    }
-
-    protected final E[] getElems() {
-        return this.elems;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -357,8 +348,16 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
         };
     }
 
-    public final ListIterable<E> iterable() {
-        return new IterableImpl();
+    protected final E[] getElems() {
+        return this.elems;
+    }
+
+    protected final void setElems(E[] elems) {
+        this.elems = elems;
+    }
+
+    protected final void setSize(int size) {
+        this.size = size;
     }
 
     // ========================================================================
@@ -412,51 +411,6 @@ public class ExternalizableList<E extends Externalizable> implements List<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
         throw new UnsupportedOperationException("retainAll()");
-    }
-
-    private final class IterableImpl implements ListIterable<E> {
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public Iterator<E> iterator() {
-            return ExternalizableList.this.iterator();
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void forEach(Consumer<? super E> action) {
-            ExternalizableList.this.forEach(action);
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public Spliterator<E> spliterator() {
-            return Spliterators.spliterator(ExternalizableList.this, Spliterator.ORDERED);
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void removeAll() {
-            //noinspection unchecked
-            ExternalizableList.this.elems = (E[]) EMPTY_ELEMENTDATA;
-            ExternalizableList.this.size = 0;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public int size() {
-            return ExternalizableList.this.size;
-        }
     }
 
 }
