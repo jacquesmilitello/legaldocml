@@ -1,5 +1,7 @@
 package io.legaldocml.util;
 
+import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.ExternalizableList;
 import io.legaldocml.io.Externalizable;
 
@@ -31,6 +33,13 @@ public final class Iterables {
         public int size() {
             return 0;
         }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void removeAll() {
+        }
     };
 
     public static <T> ListIterable<T> empty() {
@@ -39,7 +48,7 @@ public final class Iterables {
         return t;
     }
 
-    public static <T extends Externalizable> ListIterable<T> iterable(ExternalizableList<T> list) {
+    public static <T extends AknObject> ListIterable<T> iterable(AknList<T> list) {
         if (list == null) {
             return empty();
         } else {

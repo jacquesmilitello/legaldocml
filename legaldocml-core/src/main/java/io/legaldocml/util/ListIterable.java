@@ -23,5 +23,6 @@ public interface ListIterable<T> extends Iterable<T> {
     default Spliterator<T> spliterator() {
         return Spliterators.spliterator(iterator(), size(), Spliterator.SIZED);
     }
-    
+
+    void removeAll();
 }

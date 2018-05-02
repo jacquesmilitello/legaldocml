@@ -5,6 +5,7 @@ import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreReq;
 import io.legaldocml.akn.attribute.For;
+import io.legaldocml.akn.container.Container;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
@@ -13,6 +14,7 @@ import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -44,7 +46,7 @@ import static java.util.Objects.requireNonNull;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ModType extends AbstractCore implements CoreReq, For {
+public abstract class ModType extends AbstractCore implements CoreReq, For, Container<ModTypeItem> {
 
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS_V2;
     private static final ImmutableMap<String, Supplier<ModTypeItem>> ELEMS;
@@ -76,6 +78,14 @@ public abstract class ModType extends AbstractCore implements CoreReq, For {
 
     public final void add(ModTypeItem item) {
         this.elements.add(requireNonNull(item));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<ModTypeItem> iterable() {
+        return this.elements.iterable();
     }
 
     /**

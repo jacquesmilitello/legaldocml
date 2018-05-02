@@ -1,10 +1,10 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.CoreOpt;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface TrElement extends AknObject {
+public interface TrElement extends CoreOpt {
 
 }
