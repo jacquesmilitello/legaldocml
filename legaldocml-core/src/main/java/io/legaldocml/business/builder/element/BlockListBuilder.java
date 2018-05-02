@@ -19,6 +19,7 @@ public final class BlockListBuilder extends AbstractBusinessPartBuilder<BlockLis
     public ItemBuilder item() {
         Item item = new Item();
         parent().add(item);
+        businessBuilder().getContext().push(parent(), item);
         return new ItemBuilder(businessBuilder(), item);
     }
 

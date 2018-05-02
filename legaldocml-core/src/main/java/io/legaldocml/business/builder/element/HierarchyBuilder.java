@@ -19,9 +19,10 @@ import java.util.function.Consumer;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ * @author <a href="mailto:charboubmustapha@gmail.com">Mustapha CHARBOUB</a>
  */
 public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T, HierarchyElement>, ComponentRefSupport<T, HierarchyElement>,
-        HeadingSupport<T>, NumSupport<T>, SubHeadingSupport<T> , EIdSupport<T> {
+        HeadingSupport<T>, NumSupport<T>, SubHeadingSupport<T>, EIdSupport<T> {
 
     private final Hierarchy parent;
     private final T hierarchy;
@@ -63,7 +64,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         }
         Content content = new Content();
         this.hierarchy.setContent(content);
-
+        businessBuilder().getContext().push(parent(), content);
         if (consumer != null) {
             consumer.accept(content);
         }
