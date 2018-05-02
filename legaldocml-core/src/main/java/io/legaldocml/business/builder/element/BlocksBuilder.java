@@ -17,8 +17,8 @@ import io.legaldocml.business.builder.support.TocSupport;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public class BlocksBuilder<T extends BlockElementsContainer<BlockElements>> extends AbstractBusinessPartBuilder<T> implements BlockElementsBuilder<T,BlockElements>,
-        PSupport<T,BlockElements>, ForeignSupport<T,BlockElements>, BlockListSupport<T,BlockElements>, TocSupport<T,BlockElements>, EIdSupport<T> {
+public class BlocksBuilder<T extends BlockElementsContainer<BlockElements>> extends AbstractBusinessPartBuilder<T> implements BlockElementsBuilder<T, BlockElements>,
+        PSupport<T, BlockElements>, ForeignSupport<T, BlockElements>, BlockListSupport<T, BlockElements>, TocSupport<T, BlockElements>, EIdSupport<T> {
 
     private final Id parent;
     private final T container;
@@ -32,6 +32,7 @@ public class BlocksBuilder<T extends BlockElementsContainer<BlockElements>> exte
     public TableBuilder table() {
         Table table = new Table();
         this.container.add(table);
+        businessBuilder().getContext().push(parent(), table);
         return new TableBuilder(businessBuilder(), table);
     }
 
