@@ -19,12 +19,14 @@ public final class BlockListBuilder extends AbstractBusinessPartBuilder<BlockLis
     public ItemBuilder item() {
         Item item = new Item();
         parent().add(item);
+        businessBuilder().getContext().push(parent(), item);
         return new ItemBuilder(businessBuilder(), item);
     }
 
     public InlineTypeBuilder<ListIntroduction> listIntroduction() {
         ListIntroduction listIntroduction = new ListIntroduction();
         parent().setListIntroduction(listIntroduction);
+        businessBuilder().getContext().push(parent(), listIntroduction);
         return new InlineTypeBuilder<>(businessBuilder(), listIntroduction);
     }
 

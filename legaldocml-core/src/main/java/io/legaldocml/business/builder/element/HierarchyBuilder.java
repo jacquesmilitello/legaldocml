@@ -23,17 +23,9 @@ import java.util.function.Consumer;
 public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusinessPartBuilder<T> implements HierElementsBuilder<T, HierarchyElement>, ComponentRefSupport<T, HierarchyElement>,
         HeadingSupport<T>, NumSupport<T>, SubHeadingSupport<T> , EIdSupport<T> {
 
-    private final Hierarchy parent;
-    private final T hierarchy;
 
     public HierarchyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T hierarchy) {
-        this(businessBuilder, null, hierarchy);
-    }
-
-    public HierarchyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Hierarchy parent, T hierarchy) {
         super(businessBuilder, hierarchy);
-        this.parent = parent;
-        this.hierarchy = hierarchy;
     }
 
     public BlocksBuilder<Intro> intro() {
@@ -41,16 +33,16 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public BlocksBuilder<Intro> intro(Consumer<Intro> consumer) {
-        if (hierarchy.getIntro() != null) {
-            throw new BusinessBuilderException("<intro> is not null : [" + hierarchy.getIntro() + "]");
+        if (parent().getIntro() != null) {
+            throw new BusinessBuilderException("<intro> is not null : [" + parent().getIntro() + "]");
         }
         Intro intro = new Intro();
-        this.hierarchy.setIntro(intro);
+        this.parent().setIntro(intro);
         businessBuilder().getContext().push(parent(), intro);
         if (consumer != null) {
             consumer.accept(intro);
         }
-        return new BlocksBuilder<>(businessBuilder(), this.hierarchy, intro);
+        return new BlocksBuilder<>(businessBuilder(), intro);
     }
 
     public BlocksBuilder<Content> content() {
@@ -58,16 +50,17 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
     }
 
     public BlocksBuilder<Content> content(Consumer<Content> consumer) {
-        if (hierarchy.getContent() != null) {
-            throw new BusinessBuilderException("<content> is not null : [" + hierarchy.getContent() + "]");
+        if (parent().getContent() != null) {
+            throw new BusinessBuilderException("<content> is not null : [" + parent().getContent() + "]");
         }
         Content content = new Content();
-        this.hierarchy.setContent(content);
+        this.parent().setContent(content);
+        businessBuilder().getContext().push(parent(), content);
 
         if (consumer != null) {
             consumer.accept(content);
         }
 
-        return new BlocksBuilder<>(businessBuilder(), this.hierarchy, content);
+        return new BlocksBuilder<>(businessBuilder(), content);
     }
 }

@@ -12,22 +12,20 @@ import io.legaldocml.business.builder.BusinessBuilder;
  */
 public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
 
-    private final Tr tr;
-
     public TableRowBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Tr tr) {
         super(businessBuilder, tr);
-        this.tr = tr;
     }
 
     public BlocksBuilder<Td> column() {
         Td td = new Td();
-        this.tr.add(td);
-        return new BlocksBuilder<>(businessBuilder(), this.tr, td);
+        this.parent().add(td);
+        businessBuilder().getContext().push(parent(),td);
+        return new BlocksBuilder<>(businessBuilder(), td);
     }
 
     public BlocksBuilder<Th> header() {
         Th th = new Th();
-        this.tr.add(th);
-        return new BlocksBuilder<>(businessBuilder(), this.tr, th);
+        businessBuilder().getContext().push(parent(),th);
+        return new BlocksBuilder<>(businessBuilder(), th);
     }
 }

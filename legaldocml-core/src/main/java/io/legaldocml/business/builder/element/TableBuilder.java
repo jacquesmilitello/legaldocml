@@ -22,12 +22,14 @@ public final class TableBuilder extends AbstractBusinessPartBuilder<Table> {
     public InlineTypeBuilder<Caption> caption() {
         Caption caption = new Caption();
         table.setCaption(caption);
+        businessBuilder().getContext().push(parent(), caption);
         return new InlineTypeBuilder<>(businessBuilder(), caption);
     }
 
     public TableRowBuilder row() {
         Tr tr = new Tr();
         this.table.add(tr);
+        businessBuilder().getContext().push(parent(), tr);
         return new TableRowBuilder(businessBuilder(), tr);
     }
 
