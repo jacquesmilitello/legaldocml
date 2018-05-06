@@ -44,16 +44,8 @@ public final class UnsupportedModule implements Module {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> Supplier<T> element(String localName, Class<T> clazz) {
+    public <T> Supplier<T> element(String localName) {
         return () -> (T) new SimpleExternalElement(prefix, localName);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Class<? extends AknObject> getAknClass(String localName) {
-        // TODO....
-        return null;
-    }
 }

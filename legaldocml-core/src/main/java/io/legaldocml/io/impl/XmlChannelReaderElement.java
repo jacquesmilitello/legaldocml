@@ -49,11 +49,6 @@ public final class XmlChannelReaderElement {
             if (!akn.name().equals(reader.getQName().getLocalName())) {
                 throw new XmlChannelReaderElementException("Expected ["+ akn.name() +"], found [" + reader.getQName() +"]");
             }
-        } else {
-           Module module = Modules.get(namespace);
-            if (module.getAknClass(reader.getQName().getLocalName()) != akn.getClass()) {
-                throw new XmlChannelReaderElementException("Expected ["+ module.getAknClass(reader.getQName().getLocalName()) +"], found [" + akn.getClass() +"]");
-            }
         }
 
         read(reader, akn, bytes);

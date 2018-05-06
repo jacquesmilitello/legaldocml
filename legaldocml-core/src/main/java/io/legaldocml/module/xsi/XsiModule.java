@@ -66,8 +66,8 @@ public final class XsiModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public Class<? extends AknObject> getAknClass(String localName) {
-        throw new IllegalStateException("No AknClass for XSI");
+    public <T> Supplier<T> element(String localName) {
+        throw new UnsupportedOperationException();
     }
 
     /**

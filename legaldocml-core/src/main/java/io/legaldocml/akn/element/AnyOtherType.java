@@ -143,7 +143,7 @@ public abstract class AnyOtherType extends AbstractIdCore implements LinkOpt, Co
                 }
                 element = new ExternalElementWithNS(reader.getQName(), reader.getNamespaces().get(immutable(reader.getQName().getPrefix())));
             } else {
-                element = module.element(reader.getQName().getLocalName(), AnyOtherTypeElement.class).get();
+                element = module.<AnyOtherTypeElement>element(reader.getQName().getLocalName()).get();
 
             }
             element.read(reader);

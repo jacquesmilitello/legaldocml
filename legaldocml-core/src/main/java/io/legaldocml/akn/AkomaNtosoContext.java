@@ -1,7 +1,6 @@
 package io.legaldocml.akn;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.LegalDocMlException;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.Src;
 import io.legaldocml.akn.type.ManifestationURI;

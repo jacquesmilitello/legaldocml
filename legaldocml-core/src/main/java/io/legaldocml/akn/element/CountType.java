@@ -140,7 +140,7 @@ public abstract class CountType extends AbstractIdCore implements Core, IdReq, V
         while (!qName.equals(reader.getQName())) {
             CharArray array = reader.getNamespaces().get(CharArrays.immutable(reader.getQName().getPrefix()));
             Module module = Modules.get(array);
-            CountTypeElement element = module.element(reader.getQName().getLocalName(), CountTypeElement.class).get();
+            CountTypeElement element = module.<CountTypeElement>element(reader.getQName().getLocalName()).get();
             element.read(reader);
             this.others.add(element);
             reader.nextStartOrEndElement();

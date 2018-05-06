@@ -50,9 +50,20 @@ public final class XmlModule implements Module {
         writer.writeNamespace(NS_PREFIX_ADDRESS, 9, NS_VALUE_ADDRESS, 36);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Supplier<Attribute> attributes(String name) {
         return ATTRIBUTES.get(name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <T> Supplier<T> element(String localName) {
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -63,11 +74,4 @@ public final class XmlModule implements Module {
         return getClass().getName() + " for [" + NAMESPACE + "]";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Class<? extends AknObject> getAknClass(String localName) {
-        throw new IllegalStateException("No AKN Class for XML prefix");
-    }
 }

@@ -1,6 +1,5 @@
 package io.legaldocml.module;
 
-import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
@@ -29,7 +28,7 @@ class ModulesTest {
 
     @Test
     void testElementOnModule() {
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> new FakeModule().element(null,null));
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> new FakeModule().element(null));
     }
 
 
@@ -45,9 +44,12 @@ class ModulesTest {
         public Supplier<Attribute> attributes(String name) {
             return null;
         }
+        /**
+         * {@inheritDoc}
+         */
         @Override
-        public Class<? extends AknObject> getAknClass(String localName) {
-            return null;
+        public <T> Supplier<T> element(String localName) {
+            throw new UnsupportedOperationException();
         }
     }
 }

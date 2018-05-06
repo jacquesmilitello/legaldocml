@@ -19,9 +19,6 @@ public interface Module {
 
     Supplier<Attribute> attributes(String name);
 
-    default <T> Supplier<T> element(String localName, Class<T> clazz) {
-        throw new UnsupportedOperationException();
-    }
+    <T> Supplier<T> element(String localName);
 
-    Class<? extends AknObject> getAknClass(String localName);
 }

@@ -29,11 +29,6 @@ public class XsiModuleTest {
     	assertNull(module.attributes("fake"));
     }
 
-    @Test
-    public void testElement() {
-        Assertions.assertThrows(IllegalStateException.class, () -> module.getAknClass("Fake"));
-    }
-
     /*@Test
     public void testXsiToString() {
         String value = module.toString();

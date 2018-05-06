@@ -63,16 +63,16 @@ public final class AkomaNtosoModuleV2 implements AknModule {
      * {@inheritDoc}
      */
     @Override
-    public int getVersion() {
-        return 2;
+    public <T> Supplier<T> element(String localName) {
+        throw new UnsupportedOperationException();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Class<? extends AknObject> getAknClass(String localName) {
-        return AknElements.getAknClass(localName);
+    public int getVersion() {
+        return 2;
     }
 
 }
