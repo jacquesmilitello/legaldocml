@@ -34,10 +34,16 @@ final class ValidationsDefaultContext<T extends DocumentType> implements Validat
 	 * Holder for all errors found.
 	 */
 	private final Map<Rule, List<ValidationError>> errors;
-	
-	public ValidationsDefaultContext( AkomaNtoso<T> akomaNtoso) {
+
+	/**
+	 * Holder for all params for this context.
+	 */
+	private final Map<String, Object> contextHolder;
+
+	ValidationsDefaultContext( AkomaNtoso<T> akomaNtoso) {
 		this.akomaNtoso = akomaNtoso;
-		errors = new HashMap<>();
+		this.errors = new HashMap<>();
+		this.contextHolder = new HashMap<>();
 	}
 	
 	/**
@@ -71,8 +77,14 @@ final class ValidationsDefaultContext<T extends DocumentType> implements Validat
 				.reduce(Integer::sum)
 				.orElse(0);
 		// @formatter:on
+	}
 
-		
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Map<String, Object> getContextHolder() {
+		return this.contextHolder;
 	}
 
 }
