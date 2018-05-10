@@ -15,15 +15,20 @@ import io.legaldocml.module.xml.attribute.XmlSpace;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+/**
+ * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ */
 public final class XmlModule implements Module {
 
     public static final String NS_VALUE = "http://www.w3.org/XML/1998/namespace";
+
     public static final String NS_PREFIX = "xmlns:xml";
 
     private static final long NS_VALUE_ADDRESS = Buffers.address(NS_VALUE);
+
     private static final long NS_PREFIX_ADDRESS = Buffers.address(NS_PREFIX);
 
-    public static final CharArray NAMESPACE = CharArrays.immutable(NS_VALUE);
+    public static final CharArray NAMESPACE_XML = CharArrays.immutable(NS_VALUE);
 
     private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
 
@@ -39,7 +44,7 @@ public final class XmlModule implements Module {
      */
     @Override
     public CharArray namespace() {
-        return NAMESPACE;
+        return NAMESPACE_XML;
     }
 
     /**
@@ -54,7 +59,7 @@ public final class XmlModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public Supplier<Attribute> attributes(String name) {
+    public Supplier<Attribute> attribute(String name) {
         return ATTRIBUTES.get(name);
     }
 
@@ -62,7 +67,7 @@ public final class XmlModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public <T> Supplier<T> element(String localName) {
+    public <T extends AknObject> Supplier<T> element(String localName) {
         throw new UnsupportedOperationException();
     }
 
@@ -71,7 +76,7 @@ public final class XmlModule implements Module {
      */
     @Override
     public String toString() {
-        return getClass().getName() + " for [" + NAMESPACE + "]";
+        return getClass().getName() + " for [" + NAMESPACE_XML + "]";
     }
 
 }

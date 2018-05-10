@@ -17,8 +17,8 @@ public interface Module {
 
     void writeNamespace(XmlWriter writer) throws IOException;
 
-    Supplier<Attribute> attributes(String name);
+    Supplier<Attribute> attribute(String name);
 
-    <T> Supplier<T> element(String localName);
+    <T extends AknObject> Supplier<T> element(String localName);
 
 }

@@ -58,7 +58,7 @@ public final class XsiModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public Supplier<Attribute> attributes(String name) {
+    public Supplier<Attribute> attribute(String name) {
         return ATTRIBUTES.get(name);
     }
 
@@ -66,7 +66,7 @@ public final class XsiModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public <T> Supplier<T> element(String localName) {
+    public <T extends AknObject> Supplier<T> element(String localName) {
         throw new UnsupportedOperationException();
     }
 

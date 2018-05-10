@@ -48,14 +48,14 @@ import org.slf4j.LoggerFactory;
 import static io.legaldocml.akn.type.NoWhiteSpace.valueOf;
 
 /**
- * @see <a href="http://docs.oasis-open.org/legaldocml/akn-nc/v1.0/akn-nc-v1.0.html">Syntax for eId and wId attributes</a>
- * Most elements in the Akoma Ntoso XML vocabulary allow two optional attributes, called eId and wId. They are optional for compliance level 1, and are required for compliance levels 2 and above.
- * The syntax for these attributes is identical and is built in the exact same way, but are based on different elements:
+ * @see <a href="http://docs.oasis-open.org/legaldocml/akn-nc/v1.0/akn-nc-v1.0.html">Syntax for eId and wId attribute</a>
+ * Most elements in the Akoma Ntoso XML vocabulary allow two optional attribute, called eId and wId. They are optional for compliance level 1, and are required for compliance levels 2 and above.
+ * The syntax for these attribute is identical and is built in the exact same way, but are based on different elements:
  * <ul>
  * <li>for the eId attribute, the reference element is the one in the current Expression</li>
  * <li>for the wId attribute, the reference element is the one in the master Expression, as specified in section 5.4.</li>
  * </ul>
- * The generic syntax for these attributes is the following:
+ * The generic syntax for these attribute is the following:
  * <table>
  * <tr><td>[prefix “__”] element_ref [“_”number]</td></tr>
  * </table>

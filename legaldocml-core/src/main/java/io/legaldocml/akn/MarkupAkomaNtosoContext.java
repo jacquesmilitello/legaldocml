@@ -50,20 +50,36 @@ public abstract class MarkupAkomaNtosoContext extends AkomaNtosoContext {
     protected MarkupAkomaNtosoContext() {
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public AknModule getAknModule() {
         return aknModule;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Module getModule(CharArray array) {
         return this.modules.get(array);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     void writeModules(XmlWriter writer) throws IOException {
         for (Module module : this.modules.values()) {
             module.writeNamespace(writer);
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void add(Module module) {
         if (module instanceof AknModule) {
             if (this.aknModule != null) {
@@ -75,6 +91,10 @@ public abstract class MarkupAkomaNtosoContext extends AkomaNtosoContext {
         this.modules.put(module.namespace(), module);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void update(String name, AknObject akn) {
         BiConsumer<MarkupAkomaNtosoContext, AknObject> consumer = REFS.get(name);
         if (consumer != null) {
@@ -94,5 +114,9 @@ public abstract class MarkupAkomaNtosoContext extends AkomaNtosoContext {
         return this.eids.values().iterator();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public abstract BusinessProvider businessProvider();
 }

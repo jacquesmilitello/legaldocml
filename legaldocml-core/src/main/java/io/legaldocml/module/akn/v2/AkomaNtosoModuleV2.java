@@ -47,7 +47,7 @@ public final class AkomaNtosoModuleV2 implements AknModule {
      * {@inheritDoc}
      */
     @Override
-    public Supplier<Attribute> attributes(String name) {
+    public Supplier<Attribute> attribute(String name) {
         throw new IllegalStateException();
     }
 
@@ -63,7 +63,7 @@ public final class AkomaNtosoModuleV2 implements AknModule {
      * {@inheritDoc}
      */
     @Override
-    public <T> Supplier<T> element(String localName) {
+    public <T extends AknObject> Supplier<T> element(String localName) {
         throw new UnsupportedOperationException();
     }
 

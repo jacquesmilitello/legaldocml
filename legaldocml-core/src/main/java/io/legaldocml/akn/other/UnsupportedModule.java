@@ -38,13 +38,13 @@ public final class UnsupportedModule implements Module {
     }
 
     @Override
-    public Supplier<Attribute> attributes(String name) {
+    public Supplier<Attribute> attribute(String name) {
         return null;
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> Supplier<T> element(String localName) {
+    public <T extends AknObject> Supplier<T> element(String localName) {
         return () -> (T) new SimpleExternalElement(prefix, localName);
     }
 

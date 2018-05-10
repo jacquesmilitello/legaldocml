@@ -1,5 +1,6 @@
 package io.legaldocml.module;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.Attribute;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
@@ -41,14 +42,14 @@ class ModulesTest {
         public void writeNamespace(XmlWriter writer) throws IOException {
         }
         @Override
-        public Supplier<Attribute> attributes(String name) {
+        public Supplier<Attribute> attribute(String name) {
             return null;
         }
         /**
          * {@inheritDoc}
          */
         @Override
-        public <T> Supplier<T> element(String localName) {
+        public <T extends AknObject> Supplier<T> element(String localName) {
             throw new UnsupportedOperationException();
         }
     }

@@ -551,7 +551,7 @@ public final class XmlWriterHelper {
         if (efficacyModType.getType() == null) {
             throw new RuntimeException();
         }
-        writer.writeAttribute(ADDRESS_TYPE, 4, getChars(efficacyModType.getType().name()));
+        writer.writeAttribute(ADDRESS_TYPE, 4, getChars(efficacyModType.getType().value()));
     }
 
     public static void writeLegalSystemMods(XmlWriter writer, LegalSystemModType legalSystemModType) throws IOException {
