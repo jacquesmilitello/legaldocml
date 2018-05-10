@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.util.Buffers;
 import io.legaldocml.io.XmlWriter;
 
@@ -39,6 +40,17 @@ public final class ListWrapUp extends InlineType {
     @Override
     public String name() {
         return LIST_WRAP_UP;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
     }
 
 }
