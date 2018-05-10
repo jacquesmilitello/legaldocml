@@ -46,7 +46,7 @@ public final class EfficacyMod extends ModificationType implements EfficacyModTy
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(ModificationType.ATTRIBUTES)
-                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(EfficacyMod.class, "type"), EfficacyMods.class))
+                .put(TYPE, attributeGetterSetter4Enum(TYPE, getFieldOffset(EfficacyMod.class, "type"), EfficacyMods.function()))
                 .build();
     }
 

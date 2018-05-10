@@ -432,7 +432,7 @@ public final class Attributes {
                     // use external attribures.
                     attr = new ExternalAttribute(name, value);
                 } else {
-                    attr = module.attributes(name.toString().substring(prefixNS + 1)).get();
+                    attr = module.attribute(name.toString().substring(prefixNS + 1)).get();
                 }
 
                 attr.read(reader, value);
