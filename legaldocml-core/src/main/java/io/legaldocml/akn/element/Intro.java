@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.util.Buffers;
 import io.legaldocml.io.XmlWriter;
 
@@ -41,4 +42,16 @@ public final class Intro extends Blocksreq implements PopupStructureElement, Sub
     public String name() {
         return INTRO;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
+    }
+
 }

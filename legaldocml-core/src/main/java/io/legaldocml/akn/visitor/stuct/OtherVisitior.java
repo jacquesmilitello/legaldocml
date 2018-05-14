@@ -7,6 +7,7 @@ import io.legaldocml.akn.element.DocumentRef;
 import io.legaldocml.akn.element.Header;
 import io.legaldocml.akn.element.Heading;
 import io.legaldocml.akn.element.ImplicitReference;
+import io.legaldocml.akn.element.Intro;
 import io.legaldocml.akn.element.ListIntroduction;
 import io.legaldocml.akn.element.ListWrapUp;
 import io.legaldocml.akn.element.Td;
@@ -124,6 +125,14 @@ public interface OtherVisitior {
     }
 
     default void visitLeave(ListWrapUp listWrapUp) {
+        // default -> nothing to do.
+    }
+
+    default boolean visitEnter(Intro intro) {
+        return true;
+    }
+
+    default void visitLeave(Intro intro) {
         // default -> nothing to do.
     }
 

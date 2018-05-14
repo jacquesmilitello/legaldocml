@@ -1,8 +1,9 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.group.ANsemanticInline;
-import io.legaldocml.util.Buffers;
+import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 
@@ -43,4 +44,14 @@ public final class Term extends InlineReqReqType implements ANsemanticInline {
         return TERM;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void accept(AknVisitor visitor) {
+        if (visitor.visitEnter(this)) {
+            super.accept(visitor);
+            visitor.visitLeave(this);
+        }
+    }
 }

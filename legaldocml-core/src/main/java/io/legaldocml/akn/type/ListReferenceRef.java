@@ -1,6 +1,7 @@
 package io.legaldocml.akn.type;
 
 import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.ToStringBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,27 @@ public final class ListReferenceRef {
         builder.deleteCharAt(builder.length() - 1);
         return UnsafeString.getChars(builder.toString());
 
+    }
+
+    public boolean contains(ReferenceRef referenceRef) {
+        for (ReferenceRef ref : this.list) {
+            if (ref.equals(referenceRef)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("raw", raw)
+                .append("list", list)
+                .append("isModified", isModified)
+                .toString();
     }
 
     private void add(char[] value, int pos, int length) {

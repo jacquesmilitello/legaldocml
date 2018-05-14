@@ -266,6 +266,7 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
      */
     @Override
     public void accept(AknVisitor visitor) {
+        super.accept(visitor);
         if (this.content != null) {
             this.content.accept(visitor);
         } else {
