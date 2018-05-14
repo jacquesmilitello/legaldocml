@@ -25,6 +25,7 @@ public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
 
     public BlocksBuilder<Th> header() {
         Th th = new Th();
+        this.parent().add(th);
         businessBuilder().getContext().push(parent(),th);
         return new BlocksBuilder<>(businessBuilder(), th);
     }
