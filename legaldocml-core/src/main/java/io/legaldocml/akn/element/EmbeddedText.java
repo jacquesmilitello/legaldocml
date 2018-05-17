@@ -24,7 +24,7 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeQuote;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
- * the element embeddedText is an inline element containing a string used as an extract from another document. Attribute
+ * The element embeddedText is an inline element containing a string used as an extract from another document. Attribute
  * quote is used to specify the quote character used in the original; no quote attribute implies that the quote is left
  * in the text; quote="" implies that there is no quote character.
  *

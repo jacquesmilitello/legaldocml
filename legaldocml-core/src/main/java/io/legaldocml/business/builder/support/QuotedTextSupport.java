@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface QuotedTextSupport<T extends QuotedTextContainer<ModTypeItem>, E extends AknObject> extends SupportBuilder<T> {
+public interface QuotedTextSupport<T extends QuotedTextContainer<ModTypeItem>> extends SupportBuilder<T> {
 
     default InlineTypeBuilder<QuotedText> quotedText() {
         return quotedText(null);
