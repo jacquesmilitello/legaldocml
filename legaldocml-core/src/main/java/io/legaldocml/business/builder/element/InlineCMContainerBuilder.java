@@ -43,6 +43,7 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
         return (U) this;
     }
 
+    /*
     @SuppressWarnings("unchecked")
     public U inline(String name, AknReference... refs) {
         Inline inline = new Inline();
@@ -51,6 +52,6 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
         AknReferences.apply(businessBuilder().getAkomaNtoso(), inline, refs);
         return (U) this;
     }
-
+*/
 
 }
