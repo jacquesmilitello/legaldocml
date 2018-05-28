@@ -12,11 +12,11 @@ import java.util.function.Consumer;
  */
 public interface PartSupport<T extends ANhierContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
-    default HierarchyBuilder part() {
+    default HierarchyBuilder<Part> part() {
         return part(null);
     }
 
-    default HierarchyBuilder part(Consumer<Part> consumer) {
+    default HierarchyBuilder<Part> part(Consumer<Part> consumer) {
         Part part = new Part();
         parent().add(part);
         businessBuilder().getContext().push(parent(), part);
