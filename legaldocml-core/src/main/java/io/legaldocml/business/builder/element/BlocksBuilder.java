@@ -1,7 +1,6 @@
 package io.legaldocml.business.builder.element;
 
 import io.legaldocml.akn.DocumentType;
-import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.container.BlockElementsContainer;
 import io.legaldocml.akn.element.Table;
 import io.legaldocml.akn.group.BlockElements;

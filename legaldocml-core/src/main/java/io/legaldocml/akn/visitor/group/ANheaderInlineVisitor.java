@@ -43,7 +43,7 @@ public interface ANheaderInlineVisitor {
         return true;
     }
 
-    default void visitLeave(Judge Judge) {
+    default void visitLeave(Judge judge) {
         // default -> nothing to do.
     }
 

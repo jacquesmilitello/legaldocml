@@ -15,7 +15,7 @@ import io.legaldocml.akn.element.Point;
 import io.legaldocml.business.builder.element.HierarchyBuilder;
 
 /**
- * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBPUB</a>
+ * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
 
 @SuppressWarnings("unchecked")

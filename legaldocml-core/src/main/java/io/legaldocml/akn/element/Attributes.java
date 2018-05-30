@@ -1,8 +1,6 @@
 package io.legaldocml.akn.element;
 
-import io.legaldocml.akn.AknAttributes;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.other.ExternalAttribute;
 import io.legaldocml.akn.type.AgentRef;
@@ -23,7 +21,6 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
-import io.legaldocml.util.Buffers;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.Dates;
 import io.legaldocml.util.QnameUtil;
@@ -35,9 +32,73 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknAttributes.ACTOR;
+import static io.legaldocml.akn.AknAttributes.ALT;
+import static io.legaldocml.akn.AknAttributes.ALTERNATIVE_TO;
+import static io.legaldocml.akn.AknAttributes.AS;
+import static io.legaldocml.akn.AknAttributes.AUTHORITATIVE;
+import static io.legaldocml.akn.AknAttributes.BORDER;
+import static io.legaldocml.akn.AknAttributes.BY;
+import static io.legaldocml.akn.AknAttributes.CELLPADDING;
+import static io.legaldocml.akn.AknAttributes.CELLSPACING;
+import static io.legaldocml.akn.AknAttributes.CLASS;
+import static io.legaldocml.akn.AknAttributes.COL_SPAN;
+import static io.legaldocml.akn.AknAttributes.CONTAINS;
+import static io.legaldocml.akn.AknAttributes.DATE;
+import static io.legaldocml.akn.AknAttributes.DICTIONARY;
+import static io.legaldocml.akn.AknAttributes.DURATION;
+import static io.legaldocml.akn.AknAttributes.EID;
+import static io.legaldocml.akn.AknAttributes.EMPOWERED_BY;
+import static io.legaldocml.akn.AknAttributes.END;
+import static io.legaldocml.akn.AknAttributes.END_QUOTE;
+import static io.legaldocml.akn.AknAttributes.EVOLVING_ID;
+import static io.legaldocml.akn.AknAttributes.EXCLUSION;
+import static io.legaldocml.akn.AknAttributes.FOR;
+import static io.legaldocml.akn.AknAttributes.FROM;
+import static io.legaldocml.akn.AknAttributes.FROM_LANGUAGE;
+import static io.legaldocml.akn.AknAttributes.GUID;
+import static io.legaldocml.akn.AknAttributes.HEIGHT;
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.ID;
+import static io.legaldocml.akn.AknAttributes.INCLUDED_IN;
+import static io.legaldocml.akn.AknAttributes.INCOMPLETE;
+import static io.legaldocml.akn.AknAttributes.INLINE_QUOTE;
+import static io.legaldocml.akn.AknAttributes.LANGUAGE;
+import static io.legaldocml.akn.AknAttributes.LEVEL;
+import static io.legaldocml.akn.AknAttributes.MARKER;
+import static io.legaldocml.akn.AknAttributes.NAME;
+import static io.legaldocml.akn.AknAttributes.NORMALIZED;
+import static io.legaldocml.akn.AknAttributes.NUMBER;
+import static io.legaldocml.akn.AknAttributes.ORIGINAL_TEXT;
+import static io.legaldocml.akn.AknAttributes.ORIGINATING_EXPRESSION;
+import static io.legaldocml.akn.AknAttributes.OUTCOME;
+import static io.legaldocml.akn.AknAttributes.PERIOD;
+import static io.legaldocml.akn.AknAttributes.PIVOT;
+import static io.legaldocml.akn.AknAttributes.PLACEMENT;
+import static io.legaldocml.akn.AknAttributes.PLACEMENT_BASE;
+import static io.legaldocml.akn.AknAttributes.POS;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.ROW_SPAN;
+import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
+import static io.legaldocml.akn.AknAttributes.SHOW_AS;
+import static io.legaldocml.akn.AknAttributes.SOURCE;
+import static io.legaldocml.akn.AknAttributes.SRC;
+import static io.legaldocml.akn.AknAttributes.START;
+import static io.legaldocml.akn.AknAttributes.START_QUOTE;
+import static io.legaldocml.akn.AknAttributes.STATUS;
+import static io.legaldocml.akn.AknAttributes.STYLE;
+import static io.legaldocml.akn.AknAttributes.TARGET;
+import static io.legaldocml.akn.AknAttributes.TIME;
+import static io.legaldocml.akn.AknAttributes.TITLE;
+import static io.legaldocml.akn.AknAttributes.TO;
+import static io.legaldocml.akn.AknAttributes.TYPE;
+import static io.legaldocml.akn.AknAttributes.UP_TO;
+import static io.legaldocml.akn.AknAttributes.VALUE;
+import static io.legaldocml.akn.AknAttributes.WID;
+import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.unsafe.UnsafeHelper.getUnsafe;
+import static io.legaldocml.util.Buffers.address;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -57,136 +118,137 @@ public final class Attributes {
      * Memory address.
      */
     @SuppressWarnings("deprecation")
-	public static final long ADDRESS_ID = Buffers.address(AknAttributes.ID);
+    public static final long ADDRESS_ID = address(ID);
 
-    public static final long ADDRESS_EID = Buffers.address(AknAttributes.EID);
+    public static final long ADDRESS_EID = address(EID);
 
-    public static final long ADDRESS_WID = Buffers.address(AknAttributes.WID);
+    public static final long ADDRESS_WID = address(WID);
 
-    public static final long ADDRESS_GUID = Buffers.address(AknAttributes.GUID);
+    public static final long ADDRESS_GUID = address(GUID);
 
     @SuppressWarnings("deprecation")
-	public static final long ADDRESS_EVOLVING_ID = Buffers.address(AknAttributes.EVOLVING_ID);
+    public static final long ADDRESS_EVOLVING_ID = address(EVOLVING_ID);
 
-    public static final long ADDRESS_AS = Buffers.address(AknAttributes.AS);
+    public static final long ADDRESS_AS = address(AS);
 
-    public static final long ADDRESS_HREF = Buffers.address(AknAttributes.HREF);
+    public static final long ADDRESS_HREF = address(HREF);
 
-    public static final long ADDRESS_DATE = Buffers.address(AknAttributes.DATE);
+    public static final long ADDRESS_DATE = address(DATE);
 
-    public static final long ADDRESS_NAME = Buffers.address(AknAttributes.NAME);
+    public static final long ADDRESS_NAME = address(NAME);
 
-    public static final long ADDRESS_VALUE = Buffers.address(AknAttributes.VALUE);
+    public static final long ADDRESS_VALUE = address(VALUE);
 
-    public static final long ADDRESS_FROM_LANGUAGE = Buffers.address(AknAttributes.FROM_LANGUAGE);
+    public static final long ADDRESS_FROM_LANGUAGE = address(FROM_LANGUAGE);
 
-    public static final long ADDRESS_AUTHORITATIVE = Buffers.address(AknAttributes.AUTHORITATIVE);
+    public static final long ADDRESS_AUTHORITATIVE = address(AUTHORITATIVE);
 
-    public static final long ADDRESS_PIVOT = Buffers.address(AknAttributes.PIVOT);
+    public static final long ADDRESS_PIVOT = address(PIVOT);
 
-    public static final long ADDRESS_BY = Buffers.address(AknAttributes.BY);
+    public static final long ADDRESS_BY = address(BY);
 
-    public static final long ADDRESS_TO = Buffers.address(AknAttributes.TO);
+    public static final long ADDRESS_TO = address(TO);
 
-    public static final long ADDRESS_LANGUAGE = Buffers.address(AknAttributes.LANGUAGE);
+    public static final long ADDRESS_LANGUAGE = address(LANGUAGE);
 
-    public static final long ADDRESS_REFERS = Buffers.address(AknAttributes.REFERS_TO);
+    public static final long ADDRESS_REFERS = address(REFERS_TO);
 
-    public static final long ADDRESS_OUTCOME = Buffers.address(AknAttributes.OUTCOME);
+    public static final long ADDRESS_OUTCOME = address(OUTCOME);
 
-    public static final long ADDRESS_SOURCE = Buffers.address(AknAttributes.SOURCE);
+    public static final long ADDRESS_SOURCE = address(SOURCE);
 
-    public static final long ADDRESS_CONTAINS = Buffers.address(AknAttributes.CONTAINS);
+    public static final long ADDRESS_CONTAINS = address(CONTAINS);
 
-    public static final long ADDRESS_SHOW_AS = Buffers.address(AknAttributes.SHOW_AS);
+    public static final long ADDRESS_SHOW_AS = address(SHOW_AS);
 
-    public static final long ADDRESS_SHORT_FORM = Buffers.address(AknAttributes.SHORT_FORM);
+    public static final long ADDRESS_SHORT_FORM = address(SHORT_FORM);
 
-    public static final long ADDRESS_NUMBER = Buffers.address(AknAttributes.NUMBER);
+    public static final long ADDRESS_NUMBER = address(NUMBER);
 
-    public static final long ADDRESS_TYPE = Buffers.address(AknAttributes.TYPE);
+    public static final long ADDRESS_TYPE = address(TYPE);
 
-    public static final long ADDRESS_ORIGINATING_EXPRESSION = Buffers.address(AknAttributes.ORIGINATING_EXPRESSION);
+    public static final long ADDRESS_ORIGINATING_EXPRESSION = address(ORIGINATING_EXPRESSION);
 
-    public static final long ADDRESS_CLASS = Buffers.address(AknAttributes.CLASS);
+    public static final long ADDRESS_CLASS = address(CLASS);
 
-    public static final long ADDRESS_STYLE = Buffers.address(AknAttributes.STYLE);
+    public static final long ADDRESS_STYLE = address(STYLE);
 
-    public static final long ADDRESS_TITLE = Buffers.address(AknAttributes.TITLE);
+    public static final long ADDRESS_TITLE = address(TITLE);
 
-    public static final long ADDRESS_DICTIONARY = Buffers.address(AknAttributes.DICTIONARY);
+    public static final long ADDRESS_DICTIONARY = address(DICTIONARY);
 
-    public static final long ADDRESS_LEVEL = Buffers.address(AknAttributes.LEVEL);
+    public static final long ADDRESS_LEVEL = address(LEVEL);
 
-    public static final long ADDRESS_TARGET = Buffers.address(AknAttributes.TARGET);
+    public static final long ADDRESS_TARGET = address(TARGET);
 
-    public static final long ADDRESS_CELLSPACING = Buffers.address(AknAttributes.CELLSPACING);
+    public static final long ADDRESS_CELLSPACING = address(CELLSPACING);
 
-    public static final long ADDRESS_CELLPADDING = Buffers.address(AknAttributes.CELLPADDING);
+    public static final long ADDRESS_CELLPADDING = address(CELLPADDING);
 
-    public static final long ADDRESS_BORDER = Buffers.address(AknAttributes.BORDER);
+    public static final long ADDRESS_BORDER = address(BORDER);
 
-    public static final long ADDRESS_WIDTH = Buffers.address(AknAttributes.WIDTH);
+    public static final long ADDRESS_WIDTH = address(WIDTH);
 
-    public static final long ADDRESS_HEIGHT = Buffers.address(AknAttributes.HEIGHT);
+    public static final long ADDRESS_HEIGHT = address(HEIGHT);
 
-    public static final long ADDRESS_STATUS = Buffers.address(AknAttributes.STATUS);
+    public static final long ADDRESS_STATUS = address(STATUS);
 
-    public static final long ADDRESS_PERIOD = Buffers.address(AknAttributes.PERIOD);
+    public static final long ADDRESS_PERIOD = address(PERIOD);
 
-    public static final long ADDRESS_ALTERNATIVE_TO = Buffers.address(AknAttributes.ALTERNATIVE_TO);
+    public static final long ADDRESS_ALTERNATIVE_TO = address(ALTERNATIVE_TO);
 
-    public static final long ADDRESS_MARKER = Buffers.address(AknAttributes.MARKER);
+    public static final long ADDRESS_MARKER = address(MARKER);
 
-    public static final long ADDRESS_PLACEMENT = Buffers.address(AknAttributes.PLACEMENT);
+    public static final long ADDRESS_PLACEMENT = address(PLACEMENT);
 
-    public static final long ADDRESS_PLACEMENT_BASE = Buffers.address(AknAttributes.PLACEMENT_BASE);
+    public static final long ADDRESS_PLACEMENT_BASE = address(PLACEMENT_BASE);
 
-    public static final long ADDRESS_COL_SPAN = Buffers.address(AknAttributes.COL_SPAN);
+    public static final long ADDRESS_COL_SPAN = address(COL_SPAN);
 
-    public static final long ADDRESS_ROW_SPAN = Buffers.address(AknAttributes.ROW_SPAN);
+    public static final long ADDRESS_ROW_SPAN = address(ROW_SPAN);
 
-    public static final long ADDRESS_SRC = Buffers.address(AknAttributes.SRC);
+    public static final long ADDRESS_SRC = address(SRC);
 
-    public static final long ADDRESS_ALT = Buffers.address(AknAttributes.ALT);
+    public static final long ADDRESS_ALT = address(ALT);
 
-    public static final long ADDRESS_UPTO = Buffers.address(AknAttributes.UP_TO);
+    public static final long ADDRESS_UPTO = address(UP_TO);
 
-    public static final long ADDRESS_START = Buffers.address(AknAttributes.START);
+    public static final long ADDRESS_START = address(START);
 
-    public static final long ADDRESS_END = Buffers.address(AknAttributes.END);
+    public static final long ADDRESS_END = address(END);
 
-    public static final long ADDRESS_DURATION = Buffers.address(AknAttributes.DURATION);
+    public static final long ADDRESS_DURATION = address(DURATION);
 
-    public static final long ADDRESS_ACTOR = Buffers.address(AknAttributes.ACTOR);
+    public static final long ADDRESS_ACTOR = address(ACTOR);
 
-    public static final long ADDRESS_ROLE = Buffers.address(AknAttributes.AS);
+    public static final long ADDRESS_ROLE = address(AS);
 
-    public static final long ADDRESS_EXCLUSION = Buffers.address(AknAttributes.EXCLUSION);
+    public static final long ADDRESS_EXCLUSION = address(EXCLUSION);
 
-    public static final long ADDRESS_INCOMPLETE = Buffers.address(AknAttributes.INCOMPLETE);
+    public static final long ADDRESS_INCOMPLETE = address(INCOMPLETE);
 
-    public static final long ADDRESS_FOR = Buffers.address(AknAttributes.FOR);
+    public static final long ADDRESS_FOR = address(FOR);
 
-    public static final long ADDRESS_FROM = Buffers.address(AknAttributes.FROM);
+    public static final long ADDRESS_FROM = address(FROM);
 
-    public static final long ADDRESS_BREAKAT = Buffers.address(BREAKAT);
+    public static final long ADDRESS_BREAKAT = address(BREAKAT);
 
-    public static final long ADDRESS_TIME = Buffers.address(AknAttributes.TIME);
+    public static final long ADDRESS_TIME = address(TIME);
 
-    public static final long ADDRESS_NORMALIZED = Buffers.address(AknAttributes.NORMALIZED);
+    public static final long ADDRESS_NORMALIZED = address(NORMALIZED);
 
-    public static final long ADDRESS_INCLUDED_IN = Buffers.address(AknAttributes.INCLUDED_IN);
+    public static final long ADDRESS_INCLUDED_IN = address(INCLUDED_IN);
 
-    public static final long ADDRESS_EMPOWERED_BY = Buffers.address(AknAttributes.EMPOWERED_BY);
+    public static final long ADDRESS_EMPOWERED_BY = address(EMPOWERED_BY);
 
-    public static final long ADDRESS_STARTQUOTE = Buffers.address(AknAttributes.START_QUOTE);
+    public static final long ADDRESS_STARTQUOTE = address(START_QUOTE);
 
-    public static final long ADDRESS_INLINEQUOTE = Buffers.address(AknAttributes.INLINE_QUOTE);
+    public static final long ADDRESS_INLINEQUOTE = address(INLINE_QUOTE);
 
-    public static final long ADDRESS_ENDQUOTE = Buffers.address(AknAttributes.END_QUOTE);
+    public static final long ADDRESS_ENDQUOTE = address(END_QUOTE);
 
-    public static final long ADDRESS_POS = Buffers.address(AknAttributes.POS);
+    public static final long ADDRESS_POS = address(POS);
+    public static final long ADRESS_ORIGINALTEXT = address(ORIGINAL_TEXT);
 
     private static final sun.misc.Unsafe UNSAFE = getUnsafe();
 
@@ -194,14 +256,14 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, Integer.valueOf(charArray.toString()));
+                UNSAFE.putInt(object, addr, Integer.valueOf(charArray.toString()));
             }
         };
     }
 
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4String(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
-			@Override
+            @Override
             public void accept(T object, CharArray charArray) {
                 UNSAFE.putObject(object, addr, charArray.toString());
             }
@@ -226,7 +288,7 @@ public final class Attributes {
         };
     }
 
-    public static <T extends Enum<T>, E> AttributeGetterSetter<E> attributeGetterSetter4Enum(String name, long addr, Function<String,T> function) {
+    public static <T extends Enum<T>, E> AttributeGetterSetter<E> attributeGetterSetter4Enum(String name, long addr, Function<String, T> function) {
         return new DefaultAknAttributeGetterSetter<E>(name, addr) {
             @Override
             public void accept(E object, CharArray charArray) {
@@ -257,11 +319,11 @@ public final class Attributes {
             @Override
             public void accept(T i, CharArray s) {
                 OffsetDateTime dateTime;
-                if (s.length() == 10 ) {
+                if (s.length() == 10) {
                     dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
                             Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
                 } else if (s.length() == 11 && s.charAt(10) == 'Z') {
-                    dateTime = OffsetDateTime.of(LocalDate.parse(s.subSequence(0,10).toString(), DateTimeFormatter.ISO_DATE),
+                    dateTime = OffsetDateTime.of(LocalDate.parse(s.subSequence(0, 10).toString(), DateTimeFormatter.ISO_DATE),
                             Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
                 } else {
                     try {

@@ -2,7 +2,6 @@ package io.legaldocml.akn.container;
 
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.group.ANblock;
 import io.legaldocml.akn.group.ANsubFlow;
 
 /**
