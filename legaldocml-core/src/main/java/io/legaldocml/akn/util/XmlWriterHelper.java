@@ -83,6 +83,7 @@ import static io.legaldocml.akn.element.Attributes.ADDRESS_POS;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_TYPE;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_UPTO;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
+import static io.legaldocml.util.Strings.isEmpty;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -274,7 +275,7 @@ public final class XmlWriterHelper {
     }
 
     @SuppressWarnings("deprecation")
-	public static void writeIdReq(XmlWriter writer, IdReq idReq) throws IOException {
+    public static void writeIdReq(XmlWriter writer, IdReq idReq) throws IOException {
 
         if (writer.getVersion() == 2) {
 
@@ -306,7 +307,7 @@ public final class XmlWriterHelper {
     }
 
     @SuppressWarnings("deprecation")
-	public static void writeIdOpt(XmlWriter writer, IdOpt idOpt) throws IOException {
+    public static void writeIdOpt(XmlWriter writer, IdOpt idOpt) throws IOException {
 
         if (writer.getVersion() == 2) {
             if (idOpt.getId() != null) {
@@ -350,7 +351,7 @@ public final class XmlWriterHelper {
 
     public static void writeRefersReq(XmlWriter writer, RefersReq refersReq) throws IOException {
         if (refersReq.getRefersTo() == null) {
-            throwException(writer,  new WriterMandatoryAttributeException(refersReq, AknAttributes.REFERS_TO, writer));
+            throwException(writer, new WriterMandatoryAttributeException(refersReq, AknAttributes.REFERS_TO, writer));
         } else {
             writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
         }
@@ -452,7 +453,7 @@ public final class XmlWriterHelper {
 
     public static void writeAuthoritative(XmlWriter writer, Authoritative authoritative) throws IOException {
         if (authoritative.getAuthoritative() != null) {
-            if (authoritative.getAuthoritative().booleanValue()) {
+            if (authoritative.getAuthoritative()) {
                 writer.writeAttribute(ADDRESS_AUTHORITATIVE, 13, TRUE);
             } else {
                 writer.writeAttribute(ADDRESS_AUTHORITATIVE, 13, FALSE);
@@ -594,7 +595,10 @@ public final class XmlWriterHelper {
         }
     }
 
-    public static void writeOriginalText(XmlWriter writer, OriginalText originalText) {
+    public static void writeOriginalText(XmlWriter writer, OriginalText originalText) throws IOException {
+        if ((originalText != null) && !isEmpty(originalText.getOriginalText())) {
+            writer.writeAttribute(Attributes.ADRESS_ORIGINALTEXT, 12, getChars(originalText.getOriginalText()));
+        }
 
     }
 
@@ -665,7 +669,6 @@ public final class XmlWriterHelper {
             throw exception;
         }
     }
-
 
 
 }
