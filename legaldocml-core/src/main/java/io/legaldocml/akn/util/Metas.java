@@ -3,12 +3,14 @@ package io.legaldocml.akn.util;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Proprietary;
 import io.legaldocml.akn.element.References;
+import io.legaldocml.akn.element.Workflow;
 import io.legaldocml.akn.type.AgentRef;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
 public final class Metas {
 
@@ -36,23 +38,37 @@ public final class Metas {
 
         return ref;
     }
-    
+
     public static Proprietary proprietary(Meta meta, AgentRef source) {
-    	
-    	Proprietary proprietary = meta.getProprietary(source);
-    	
-    	if (proprietary == null) {
-    		
-    		if (LOGGER.isDebugEnabled()) {
+
+        Proprietary proprietary = meta.getProprietary(source);
+
+        if (proprietary == null) {
+
+            if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("meta.proprietary not found for agentRef [{}] -> create", source);
             }
-    		
-    		proprietary = new Proprietary();
-    		proprietary.setSource(source);
-    		meta.add(proprietary);
-    	}
-    	
-    	return proprietary;
+
+            proprietary = new Proprietary();
+            proprietary.setSource(source);
+            meta.add(proprietary);
+        }
+
+        return proprietary;
     }
-    
+
+    public static Workflow workflow(Meta meta, AgentRef source) {
+        Workflow workflow = meta.getWorkflow(source);
+        if (workflow == null) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("meta.workflow not found for agent ref [{}] -> create", source);
+            }
+            workflow = new Workflow();
+            workflow.setSource(source);
+            meta.add(workflow);
+        }
+        return workflow;
+
+    }
+
 }

@@ -3,6 +3,10 @@ package io.legaldocml.business.builder;
 import io.legaldocml.akn.element.Debate;
 import io.legaldocml.akn.element.FRBRlanguage;
 import io.legaldocml.akn.element.Identification;
+import io.legaldocml.akn.element.Step;
+import io.legaldocml.akn.element.Workflow;
+import io.legaldocml.akn.type.AgentRef;
+import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.iso.Iso3166;
@@ -18,9 +22,16 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Iterator;
+import java.util.List;
 
 import static io.legaldocml.akn.AknElements.DEBATE;
+import static io.legaldocml.akn.AknElements.PORTION;
+import static io.legaldocml.akn.type.AgentRef.valueOf;
+import static io.legaldocml.unsafe.UnsafeString.getChars;
+import static java.time.OffsetDateTime.now;
+import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -45,7 +56,7 @@ class MetaBuilderTest {
     @Test
     void testSetAknIdentifierNull() {
         BusinessBuilder<Debate> builder = provider.newBuilder(DEBATE);
-        BusinessBuilderException ex = Assertions.assertThrows(BusinessBuilderException.class,() -> builder.getMetaBuilder().setAknIdentifier(null));
+        BusinessBuilderException ex = Assertions.assertThrows(BusinessBuilderException.class, () -> builder.getMetaBuilder().setAknIdentifier(null));
         Assertions.assertTrue(ex.getMessage().contains("null"));
 
     }
@@ -115,7 +126,7 @@ class MetaBuilderTest {
         assertEquals("modif-2", identification.getFRBRManifestation().getFRBRdate().getName());
 
         builder.getMetaBuilder().setDate(odt.toLocalDate(), "test", MetaBuilder.LOOKUP_FRBR_MANIFESTATION);
-        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif-3",  MetaBuilder.LOOKUP_FRBR_WORK);
+        builder.getMetaBuilder().setDate(odt2.toLocalDate(), "modif-3", MetaBuilder.LOOKUP_FRBR_WORK);
         assertEquals(odt2, identification.getFRBRWork().getFRBRdate().getDate());
         assertEquals("modif-3", identification.getFRBRWork().getFRBRdate().getName());
         assertEquals(odt2, identification.getFRBRExpression().getFRBRdate().getDate());
@@ -157,5 +168,23 @@ class MetaBuilderTest {
         assertEquals("#jacques2", identification.getFRBRExpression().getAuthors().get(1).getHref().toString());
         assertEquals("#jacques", identification.getFRBRManifestation().getAuthors().get(0).getHref().toString());
         assertEquals("#jacques3", identification.getFRBRManifestation().getAuthors().get(1).getHref().toString());
+    }
+
+    @Test
+    void testAddStep() {
+        BusinessProvider provider = BusinessProvider.businessProvider("default");
+        BusinessBuilder<Debate> builder = provider.newBuilder(PORTION);
+        ConceptRef dg = new ConceptRef(getChars("dg"));
+        ConceptRef budg = new ConceptRef(getChars("budg"));
+        ConceptRef decision = new ConceptRef(getChars("decision"));
+        AgentRef op = valueOf("#op");
+        builder.getMetaBuilder().addStep(now(), op, dg);
+        builder.getMetaBuilder().addStep(now(), op, budg);
+        builder.getMetaBuilder().addStep(now(), op, decision);
+        Workflow workflow = builder.getMetaBuilder().getMeta().getWorkflow(op);
+        assertNotNull(workflow);
+        List<Step> steps = workflow.getSteps().collect(toList());
+        assertNotNull(steps);
+        assertEquals(3, steps.size());
     }
 }
