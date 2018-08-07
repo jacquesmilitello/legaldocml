@@ -14,28 +14,36 @@ import io.legaldocml.akn.element.Identification;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Proprietary;
 import io.legaldocml.akn.element.References;
+import io.legaldocml.akn.element.Step;
+import io.legaldocml.akn.element.Workflow;
 import io.legaldocml.akn.type.AgentRef;
-import io.legaldocml.akn.type.EidRef;
+import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.FRBRHelper;
-import io.legaldocml.akn.util.Metas;
 import io.legaldocml.business.AknIdentifier;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.model.Country;
 import io.legaldocml.model.Language;
-import io.legaldocml.unsafe.UnsafeString;
 import io.legaldocml.util.Dates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.function.Function;
 
+import static io.legaldocml.akn.type.EidRef.valueOf;
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
+import static io.legaldocml.akn.util.FRBRHelper.newFRBRuri;
+import static io.legaldocml.akn.util.Metas.proprietary;
+import static io.legaldocml.akn.util.Metas.references;
+import static io.legaldocml.akn.util.Metas.workflow;
+import static io.legaldocml.unsafe.UnsafeString.getChars;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
 public final class MetaBuilder {
 
@@ -59,9 +67,9 @@ public final class MetaBuilder {
     }
 
     public Meta getMeta() {
-    	return this.meta;
+        return this.meta;
     }
-    
+
     public void setAknIdentifier(AknIdentifier identifier) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setAknIdentifier({}]", identifier);
@@ -139,7 +147,17 @@ public final class MetaBuilder {
         }
     }
 
-    public FRBRauthor addAuthor(Function<Identification, CoreProperties> type, AknReference ... references) {
+    public void addStep(OffsetDateTime date, AgentRef source, ConceptRef outcome) {
+        Workflow workflow = workflow(this.meta, source);
+        Step step = new Step();
+        step.setBy(source);
+        step.setOutcome(outcome);
+        step.setDate(date);
+        workflow.addStep(step);
+
+    }
+
+    public FRBRauthor addAuthor(Function<Identification, CoreProperties> type, AknReference... references) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("addAuthor({}) for ({})", references, type);
         }
@@ -169,9 +187,9 @@ public final class MetaBuilder {
             LOGGER.debug("addUri({})", identifier);
         }
 
-        this.meta.getIdentification().getFRBRWork().addFRBRuri(FRBRHelper.newFRBRuri(identifier.work()));
-        this.meta.getIdentification().getFRBRExpression().addFRBRuri(FRBRHelper.newFRBRuri(identifier.expression()));
-        this.meta.getIdentification().getFRBRManifestation().addFRBRuri(FRBRHelper.newFRBRuri(identifier.manifestation()));
+        this.meta.getIdentification().getFRBRWork().addFRBRuri(newFRBRuri(identifier.work()));
+        this.meta.getIdentification().getFRBRExpression().addFRBRuri(newFRBRuri(identifier.expression()));
+        this.meta.getIdentification().getFRBRManifestation().addFRBRuri(newFRBRuri(identifier.manifestation()));
     }
 
     public FRBRsubtype setSubType(String value) {
@@ -213,21 +231,25 @@ public final class MetaBuilder {
 
     public FRBRportion setPortion(String from) {
         FRBRportion portion = new FRBRportion();
-        portion.setFrom(EidRef.valueOf(UnsafeString.getChars(from)));
+        portion.setFrom(valueOf(getChars(from)));
         this.meta.getIdentification().getFRBRManifestation().setPortion(portion);
         return portion;
     }
-    
+
     public References getReferences(AgentRef source) {
-    	return Metas.references(meta, source);
+        return references(meta, source);
     }
-    
+
     public References getReferences() {
-    	return getReferences(this.getMeta().getIdentification().getSource());
+        return getReferences(this.getMeta().getIdentification().getSource());
     }
-    
+
     public Proprietary getProprietary(AgentRef source) {
-    	return Metas.proprietary(meta, source);
+        return proprietary(meta, source);
+    }
+
+    public Workflow getWorkFlow(AgentRef source) {
+        return workflow(meta, source);
     }
 
 }
