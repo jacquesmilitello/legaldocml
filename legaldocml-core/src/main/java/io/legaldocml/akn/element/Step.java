@@ -2,6 +2,7 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Outcome;
@@ -19,6 +20,7 @@ import io.legaldocml.util.Buffers;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 
+import static io.legaldocml.akn.AknAttributes.ACTOR;
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknAttributes.BY;
 import static io.legaldocml.akn.AknAttributes.DATE;
@@ -30,6 +32,7 @@ import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Concept
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeActor;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAgent;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOutcome;
@@ -61,7 +64,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
-public final class Step extends AnyOtherType implements Role, Date, RefersOpt, Outcome, Agent {
+public final class Step extends AnyOtherType implements Role, Date, RefersOpt, Outcome, Agent, Actor {
 
     /**
      * Memory address.
@@ -78,6 +81,8 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
                 .put(OUTCOME, attributeGetterSetter4ConceptRef(OUTCOME, getFieldOffset(Step.class, "outcome")))
                 .put(REFERS_TO, attributeGetterSetter4String(REFERS_TO, getFieldOffset(Step.class, "refersTo")))
                 .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Step.class, "by")))
+                 // backward compatibility with ako 2
+                .put(ACTOR, attributeGetterSetter4String(ACTOR, getFieldOffset(Step.class, "actor")))
                 .build();
     }
 
@@ -86,6 +91,8 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
     private ConceptRef outcome;
     private ListReferenceRef refersTo;
     private AgentRef by;
+    // backward compatibility with ako 2
+    private String actor;
 
     /**
      * {@inheritDoc}
@@ -164,6 +171,14 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
         this.by = by;
     }
 
+    public String getActor() {
+        return this.actor;
+    }
+
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -184,6 +199,8 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
         writeRole(writer, this);
         if (writer.getVersion() > 2) {
             writeAgent(writer, this);
+        } else {
+            writeActor(writer, this);
         }
         super.write(writer);
         writer.writeEnd(ADDRESS_STEP, 4);

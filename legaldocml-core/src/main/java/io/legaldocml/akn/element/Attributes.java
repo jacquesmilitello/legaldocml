@@ -256,7 +256,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putInt(object, addr, Integer.valueOf(charArray.toString()));
+                UNSAFE.putObject(object, addr, Integer.valueOf(charArray.toString()));
             }
         };
     }

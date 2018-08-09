@@ -87,7 +87,7 @@ public abstract class AknIdentifier {
 
     protected abstract boolean doEquals(AknIdentifier aknIdentifier);
 
-    public static <T extends DocumentType> AknIdentifier extract(BusinessProvider provider, AkomaNtoso<T> akn) {
+    public static <T extends DocumentType, E extends AknIdentifier> E extract(BusinessProvider provider, AkomaNtoso<T> akn) {
 
         Identification identification = akn.getDocumentType().getMeta().getIdentification();
 
