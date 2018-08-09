@@ -61,6 +61,10 @@ public final class Workflow implements Source {
         return this.steps.stream();
     }
 
+    public void addStep(Step step) {
+        this.steps.add(step);
+    }
+
     /**
      * {@inheritDoc}
      */

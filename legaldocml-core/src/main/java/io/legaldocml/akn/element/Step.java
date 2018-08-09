@@ -2,13 +2,14 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.attribute.Actor;
 import io.legaldocml.akn.attribute.Agent;
 import io.legaldocml.akn.attribute.Date;
 import io.legaldocml.akn.attribute.Outcome;
+import io.legaldocml.akn.attribute.RefersOpt;
 import io.legaldocml.akn.attribute.Role;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ConceptRef;
+import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.RoleRef;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
@@ -18,21 +19,21 @@ import io.legaldocml.util.Buffers;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 
-import static io.legaldocml.akn.AknAttributes.ACTOR;
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknAttributes.BY;
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknAttributes.OUTCOME;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknElements.STEP;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ConceptRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4RoleRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeActor;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAgent;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOutcome;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -44,22 +45,23 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * <pre>
  *   <xsd:element name="step">
  * 	   <xsd:complexType>
- * 	     <xsd:complexContent>
- * 		   <xsd:extension base="anyOtherType">
- * 		     <xsd:attributeGroup ref="date"/>
- * 			 <xsd:attributeGroup ref="agent"/>
- * 			 <xsd:attributeGroup ref="actor"/>
- * 		 	 <xsd:attributeGroup ref="role"/>
- * 		 	 <xsd:attributeGroup ref="outcome"/>
- * 		   <xsd:extension>
- * 	     <xsd:complexContent>
- * 	   <xsd:complexType>
+ *          <xsd:complexContent>
+ *             <xsd:extension base="anyOtherType">
+ *                <xsd:attributeGroup ref="date"/>
+ *                <xsd:attributeGroup ref="agent"/>
+ *                <xsd:attributeGroup ref="role"/>
+ *                <xsd:attributeGroup ref="refers"/>
+ *                <xsd:attributeGroup ref="outcome"/>
+ *             </xsd:extension>
+ *          </xsd:complexContent>
+ *       </xsd:complexType>
  *   <xsd:element>
  * </pre>
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
+ * @author <a href="mailto:mustapha.charboub@gmail.com">Mustapha CHARBOUB</a>
  */
-public final class Step extends AnyOtherType implements Role, Date, Outcome, Actor, Agent {
+public final class Step extends AnyOtherType implements Role, Date, RefersOpt, Outcome, Agent {
 
     /**
      * Memory address.
@@ -74,7 +76,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
                 .put(DATE, attributeGetterSetter4DateTime(DATE, getFieldOffset(Step.class, "date")))
                 .put(AS, attributeGetterSetter4RoleRef(AS, getFieldOffset(Step.class, "as")))
                 .put(OUTCOME, attributeGetterSetter4ConceptRef(OUTCOME, getFieldOffset(Step.class, "outcome")))
-                .put(ACTOR, attributeGetterSetter4String(ACTOR, getFieldOffset(Step.class, "actor")))
+                .put(REFERS_TO, attributeGetterSetter4String(REFERS_TO, getFieldOffset(Step.class, "refersTo")))
                 .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Step.class, "by")))
                 .build();
     }
@@ -82,7 +84,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
     private RoleRef as;
     private OffsetDateTime date;
     private ConceptRef outcome;
-    private String actor;
+    private ListReferenceRef refersTo;
     private AgentRef by;
 
     /**
@@ -137,18 +139,21 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
      * {@inheritDoc}
      */
     @Override
-    public String getActor() {
-        return this.actor;
+    public ListReferenceRef getRefersTo() {
+        return refersTo;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setActor(String actor) {
-        this.actor = actor;
+    public void setRefersTo(ListReferenceRef refersTo) {
+        this.refersTo = refersTo;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public AgentRef getBy() {
         return this.by;
@@ -175,7 +180,7 @@ public final class Step extends AnyOtherType implements Role, Date, Outcome, Act
         writer.writeStart(ADDRESS_STEP, 4);
         writeDate(writer, this);
         writeOutcome(writer, this);
-        writeActor(writer, this);
+        writeRefers(writer, this);
         writeRole(writer, this);
         if (writer.getVersion() > 2) {
             writeAgent(writer, this);

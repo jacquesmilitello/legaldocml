@@ -14,6 +14,8 @@ import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Iterables;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -198,7 +200,13 @@ public abstract class SubFlowStructure extends AbstractCore implements CoreReq, 
     public boolean remove(Hcontainer hcontainer) {
         return removeSubFlowStructureElement(requireNonNull(hcontainer));
     }
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<SubFlowStructureElement> iterable() {
+        return Iterables.iterable(elements);
+    }
     /**
      * {@inheritDoc}
      */
