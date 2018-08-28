@@ -5,6 +5,9 @@ import io.legaldocml.test.Tests;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -12,15 +15,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class StringsTest {
+class StringsTest {
 
     @Test
-    public void testUtilClass() throws Exception {
+    void testUtilClass() throws Exception {
         Tests.assertUtilClassIsWellDefined(Strings.class);
     }
 
     @Test
-    public void testIsBlank() {
+    void testIsBlank() {
         assertTrue(Strings.isBlank(null));
         assertTrue(Strings.isBlank(""));
         assertTrue(Strings.isBlank(" "));
@@ -29,7 +32,7 @@ public class StringsTest {
     }
 
     @Test
-    public void testIsEmpty() {
+    void testIsEmpty() {
         assertTrue(Strings.isEmpty(null));
         assertTrue(Strings.isEmpty(""));
         assertFalse(Strings.isEmpty(" "));
@@ -37,4 +40,13 @@ public class StringsTest {
         assertFalse(Strings.isEmpty("  jacques  "));
     }
 
+    @Test
+    void testSplit() {
+        List<String> list = Strings.split(' ',"a small test");
+        assertEquals(3, list.size());
+        assertEquals("a", list.get(0));
+        assertEquals("small", list.get(1));
+        assertEquals("test", list.get(2));
+        assertEquals(1, Strings.split(' ',"a_small_test").size());
+    }
 }

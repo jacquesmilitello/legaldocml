@@ -65,8 +65,7 @@ public abstract class AknIdentifier {
      */
     @Override
     public final boolean equals(Object obj) {
-        return obj == this || obj != null && obj instanceof AknIdentifier && doEquals((AknIdentifier) obj);
-
+        return obj == this || obj instanceof AknIdentifier && doEquals((AknIdentifier) obj);
     }
 
     /**

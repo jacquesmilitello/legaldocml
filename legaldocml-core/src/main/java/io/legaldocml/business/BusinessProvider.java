@@ -41,7 +41,8 @@ public abstract class BusinessProvider {
         PROVIDERS = builder.build();
     }
 
-    public static BusinessProvider businessProvider(String provider) {
+    @SuppressWarnings("unchecked")
+    public static <T extends BusinessProvider> T businessProvider(String provider) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Business Provider [{}]", provider);
         }
@@ -51,7 +52,7 @@ public abstract class BusinessProvider {
         if (businessProvider == null) {
             throw new BusinessException("Provider [" + provider + "] not found");
         } else {
-            return businessProvider;
+            return (T) businessProvider;
         }
     }
 

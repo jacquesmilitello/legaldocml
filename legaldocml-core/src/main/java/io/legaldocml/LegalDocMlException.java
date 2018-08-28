@@ -12,4 +12,8 @@ public abstract class LegalDocMlException extends RuntimeException {
         super(message);
     }
 
+    protected LegalDocMlException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
 }
