@@ -6,13 +6,14 @@ import io.legaldocml.akn.element.Th;
 import io.legaldocml.akn.element.Tr;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class TableRowBuilder extends AbstractBusinessPartBuilder<Tr> {
 
-    public TableRowBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Tr tr) {
+    public TableRowBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, Tr tr) {
         super(businessBuilder, tr);
     }
 

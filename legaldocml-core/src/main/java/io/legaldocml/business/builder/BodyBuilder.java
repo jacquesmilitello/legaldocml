@@ -10,7 +10,7 @@ import io.legaldocml.business.builder.group.HierElementsBuilder;
  */
 public final class BodyBuilder extends AbstractBusinessPartBuilder<Body> implements HierElementsBuilder<Body,BodyTypeElement>{
 
-    BodyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Body body) {
+    BodyBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, Body body) {
         super(businessBuilder, body);
     }
 

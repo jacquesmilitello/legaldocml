@@ -5,6 +5,7 @@ import io.legaldocml.akn.element.SubFlow;
 import io.legaldocml.akn.element.SubFlowStructureElement;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.support.ForeignSupport;
 import io.legaldocml.business.builder.support.ListSupport;
 
@@ -14,7 +15,7 @@ import io.legaldocml.business.builder.support.ListSupport;
 public final class SubFlowBuilder extends AbstractBusinessPartBuilder<SubFlow> implements ForeignSupport<SubFlow, SubFlowStructureElement>,  
         ListSupport<SubFlow, SubFlowStructureElement> {
 
-    public SubFlowBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, SubFlow parent) {
+    public SubFlowBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, SubFlow parent) {
         super(businessBuilder, parent);
     }
 

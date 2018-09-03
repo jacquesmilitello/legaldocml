@@ -6,6 +6,7 @@ import io.legaldocml.akn.element.Table;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.attribute.EIdSupport;
 import io.legaldocml.business.builder.group.BlockElementsBuilder;
 import io.legaldocml.business.builder.support.BlockListSupport;
@@ -20,7 +21,7 @@ public class BlocksBuilder<T extends BlockElementsContainer<BlockElements>> exte
         PSupport<T, BlockElements>, ForeignSupport<T, BlockElements>, BlockListSupport<T, BlockElements>, TocSupport<T, BlockElements>, EIdSupport<T> {
 
 
-    public BlocksBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T container) {
+    public BlocksBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, T container) {
         super(businessBuilder, container);
     }
 

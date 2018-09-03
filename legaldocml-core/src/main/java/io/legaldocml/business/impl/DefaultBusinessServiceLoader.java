@@ -5,6 +5,7 @@ import io.legaldocml.akn.DocumentType;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.EIdProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.BusinessPartBuilder;
 import io.legaldocml.model.ModelProvider;
 
@@ -69,7 +70,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public <E extends BusinessBuilder<T>, T extends DocumentType> E newBuilder(String name) {
+    public <E extends BusinessBuilder<T, ? extends BusinessBuilderAkomaNtosoContext>, T extends DocumentType> E newBuilder(String name) {
         return (E) new DefaultBusinessBuilder(this, name);
     }
 
@@ -77,7 +78,7 @@ public final class DefaultBusinessServiceLoader extends BusinessProvider {
      * {@inheritDoc}
      */
     @Override
-    public <E extends BusinessPartBuilder<Z>, Z extends AknObject> E newPartBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, AknObject parent, String name) {
+    public <E extends BusinessPartBuilder<Z>, Z extends AknObject> E newPartBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, AknObject parent, String name) {
         return null;
     }
 

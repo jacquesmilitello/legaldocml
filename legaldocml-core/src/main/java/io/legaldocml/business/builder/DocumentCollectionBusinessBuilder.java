@@ -1,6 +1,5 @@
 package io.legaldocml.business.builder;
 
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.element.DocumentCollection;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
@@ -9,7 +8,7 @@ import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder<DocumentCollection> {
+public abstract class DocumentCollectionBusinessBuilder<E extends BusinessBuilderAkomaNtosoContext> extends BusinessBuilder<DocumentCollection, E> {
 
     private final CollectionBodyBuilder bodyBuilder;
 
@@ -25,11 +24,12 @@ public abstract class DocumentCollectionBusinessBuilder extends BusinessBuilder<
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
-    protected BusinessBuilderAkomaNtosoContext newAkomaNtosoContext() {
+    protected E newAkomaNtosoContext() {
         BusinessBuilderAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
         context.add(AkomaNtosoModuleV3.INSTANCE);
-        return context;
+        return (E) context;
     }
 
     public final PrefaceBuilder preface() {

@@ -38,7 +38,7 @@ import static io.legaldocml.akn.AknElements.STATEMENT;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class DefaultBusinessBuilder extends BusinessBuilder<DocumentType> {
+public final class DefaultBusinessBuilder extends BusinessBuilder<DocumentType, BusinessBuilderAkomaNtosoContext> {
 
     private static final ImmutableMap<String, Class<? extends DocumentType>> DOCUMENT_TYPE;
 

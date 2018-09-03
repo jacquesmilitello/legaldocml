@@ -9,7 +9,7 @@ import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BillBusinessBuilder extends BusinessBuilder<Bill> {
+public abstract class BillBusinessBuilder<E extends BusinessBuilderAkomaNtosoContext> extends BusinessBuilder<Bill,E> {
 
     private final BodyBuilder bodyBuilder;
 
@@ -22,10 +22,10 @@ public abstract class BillBusinessBuilder extends BusinessBuilder<Bill> {
      * {@inheritDoc}
      */
     @Override
-    protected BusinessBuilderAkomaNtosoContext newAkomaNtosoContext() {
-        BusinessBuilderAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
+    protected E newAkomaNtosoContext() {
+        DefaultAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
         context.add(AkomaNtosoModuleV3.INSTANCE);
-        return context;
+        return (E) context;
     }
 
     public BodyBuilder getBodyBuilder() {

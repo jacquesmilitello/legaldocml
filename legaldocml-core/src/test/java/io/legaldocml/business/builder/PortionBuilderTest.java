@@ -71,7 +71,7 @@ class PortionBuilderTest {
 
     @Test
     void testMeta() throws IOException {
-        PortionBusinessBuilder<?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder>(provider, new Portion()) {
+        PortionBusinessBuilder<?, ?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder, BusinessBuilderAkomaNtosoContext>(provider, new Portion()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);
@@ -122,7 +122,7 @@ class PortionBuilderTest {
 
     @Test
     void testBody() throws IOException {
-        PortionBusinessBuilder<?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder>(provider, new Portion()) {
+        PortionBusinessBuilder<?, ?> portionBuilder = new PortionBusinessBuilder<PortionBodyBuilder, BusinessBuilderAkomaNtosoContext>(provider, new Portion()) {
             @Override
             protected MetaBuilder newMetaBuilder() {
                 return new MetaBuilder(this, SOURCE);

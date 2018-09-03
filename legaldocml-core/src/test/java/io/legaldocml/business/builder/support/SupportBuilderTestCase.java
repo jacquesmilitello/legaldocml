@@ -47,7 +47,7 @@ public abstract class SupportBuilderTestCase<T extends SupportBuilder<E>, E exte
         } catch (InstantiationException | IllegalAccessException e) {
            throw new RuntimeException(e);
         }
-        BusinessBuilder<? extends DocumentType> businessBuilder = BusinessProvider.businessProvider("default").newBuilder("doc");
+        BusinessBuilder<? extends DocumentType, ?> businessBuilder = BusinessProvider.businessProvider("default").newBuilder("doc");
         doReturn(this.parent).when(mock).parent();
         doReturn(businessBuilder).when(mock).businessBuilder();
     }

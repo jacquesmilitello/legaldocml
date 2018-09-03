@@ -18,7 +18,7 @@ class BusinessBuilderTest {
 
     @Test
     void testMainLanguage() {
-        BusinessBuilder<? extends DocumentType> businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.DOC);
+        BusinessBuilder<? extends DocumentType, ?> businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.DOC);
         businessBuilder.setMainLanguage(Iso639.ENGLISH);
 
         Iterable<FRBRlanguage> languages = businessBuilder.getAkomaNtoso().getDocumentType().getMeta().getIdentification().getFRBRExpression().getLanguages();
@@ -30,7 +30,7 @@ class BusinessBuilderTest {
 
     @Test
     void testMainLanguageAlreadyExists() {
-        BusinessBuilder<? extends DocumentType> businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.DOC);
+        BusinessBuilder<? extends DocumentType, ?> businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.DOC);
         businessBuilder.setMainLanguage(Iso639.ENGLISH);
 
         Assertions.assertThrows(BusinessBuilderException.class, () -> businessBuilder.setMainLanguage(Iso639.FRENCH));

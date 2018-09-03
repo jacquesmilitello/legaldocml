@@ -1,6 +1,5 @@
 package io.legaldocml.business.builder;
 
-import io.legaldocml.akn.AkomaNtosoContext;
 import io.legaldocml.akn.element.Portion;
 import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.business.BusinessProvider;
@@ -10,7 +9,7 @@ import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class PortionBusinessBuilder<T extends PortionBodyBuilder> extends BusinessBuilder<Portion> {
+public abstract class PortionBusinessBuilder<T extends PortionBodyBuilder, E extends BusinessBuilderAkomaNtosoContext> extends BusinessBuilder<Portion,E> {
 
     private final T bodyBuilder;
 
@@ -22,11 +21,12 @@ public abstract class PortionBusinessBuilder<T extends PortionBodyBuilder> exten
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
-    protected BusinessBuilderAkomaNtosoContext newAkomaNtosoContext() {
-        BusinessBuilderAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
+    protected E newAkomaNtosoContext() {
+        DefaultAkomaNtosoContext context = new DefaultAkomaNtosoContext(getProvider());
         context.add(AkomaNtosoModuleV3.INSTANCE);
-        return context;
+        return (E) context;
     }
 
     public final void setIncludedIn(ReferenceRef includedIn) {

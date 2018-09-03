@@ -10,7 +10,7 @@ import io.legaldocml.business.builder.group.HierElementsBuilder;
  */
 public class PortionBodyBuilder extends AbstractBusinessPartBuilder<PortionBody> implements HierElementsBuilder<PortionBody,PortionBodyTypeElement> {
 
-    protected PortionBodyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, PortionBody portionBody) {
+    protected PortionBodyBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, PortionBody portionBody) {
         super(businessBuilder, portionBody);
     }
 

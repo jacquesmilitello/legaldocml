@@ -26,7 +26,7 @@ class HierarchyBuilderTest {
     void testNum() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder<Bill> businessBuilder = provider.newBuilder(AknElements.BILL);
+        BusinessBuilder<Bill, ?> businessBuilder = provider.newBuilder(AknElements.BILL);
 
         Article article = new Article();
         businessBuilder.getAkomaNtoso().getDocumentType().getBody().add(article);

@@ -6,13 +6,14 @@ import io.legaldocml.akn.element.TocItem;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class TocBuilder extends AbstractBusinessPartBuilder<Toc> {
 
-    public TocBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, Toc parent) {
+    public TocBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, Toc parent) {
         super(businessBuilder, parent);
     }
 

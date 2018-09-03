@@ -7,6 +7,7 @@ import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.BusinessPartBuilder;
 import io.legaldocml.business.builder.group.ANinlineBuilder;
 import io.legaldocml.business.builder.group.ANsemanticInlineBuilder;
@@ -28,7 +29,7 @@ public abstract class InlineCMContainerBuilder<T extends InlineCMContainer, U ex
 
     private final T container;
 
-    public InlineCMContainerBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T container) {
+    public InlineCMContainerBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, T container) {
         super(businessBuilder, container);
         this.container = container;
     }

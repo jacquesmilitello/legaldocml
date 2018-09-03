@@ -6,13 +6,14 @@ import io.legaldocml.akn.element.Item;
 import io.legaldocml.akn.element.ListIntroduction;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 public final class BlockListBuilder extends AbstractBusinessPartBuilder<BlockList> {
 
-    public BlockListBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, BlockList container) {
+    public BlockListBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, BlockList container) {
         super(businessBuilder, container);
     }
 

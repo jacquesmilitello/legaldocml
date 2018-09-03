@@ -5,6 +5,7 @@ import io.legaldocml.akn.element.Blocksreq;
 import io.legaldocml.akn.group.BlockElements;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.group.BlockElementsBuilder;
 
 /**
@@ -12,7 +13,7 @@ import io.legaldocml.business.builder.group.BlockElementsBuilder;
  */
 public class BlocksreqBuilder<T extends Blocksreq> extends AbstractBusinessPartBuilder<T> implements BlockElementsBuilder<T,BlockElements> {
 
-    public BlocksreqBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T blocksreq) {
+    public BlocksreqBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, T blocksreq) {
         super(businessBuilder, blocksreq);
     }
 

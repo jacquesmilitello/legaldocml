@@ -12,7 +12,7 @@ import io.legaldocml.business.builder.group.PreambleContainersBuilder;
  */
 public class PreambleBuilder extends AbstractBusinessPartBuilder<Preamble> implements BlockElementsBuilder<Preamble,PreambleoptElement>, PreambleContainersBuilder<Preamble,PreambleoptElement> {
 
-    public PreambleBuilder(BusinessBuilder<? extends DocumentType> builder) {
+    public PreambleBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> builder) {
         super(builder, new Preamble());
         if (!(builder.getAkomaNtoso().getDocumentType() instanceof HasPreamble)) {
             throw new BusinessBuilderException("DocumentType [" + builder.getAkomaNtoso().getDocumentType().getClass().getSimpleName() + "] has no Preamble");

@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 class HierarchyBuilderTest {
 
     @Test
-    void testNumTwive() {
-        BusinessBuilder<Amendment> businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.AMENDMENT);
+    void testNumTwice() {
+        BusinessBuilder<Amendment,?> businessBuilder = BusinessProvider.businessProvider("default").newBuilder(AknElements.AMENDMENT);
         HierarchyBuilder<Chapter> hierarchyBuilder = new HierarchyBuilder<Chapter>(businessBuilder, new Chapter());
         hierarchyBuilder.num();
 

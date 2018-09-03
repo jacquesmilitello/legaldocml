@@ -7,6 +7,7 @@ import io.legaldocml.akn.element.HierarchyElement;
 import io.legaldocml.akn.element.Intro;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.BusinessBuilderException;
 import io.legaldocml.business.builder.attribute.EIdSupport;
 import io.legaldocml.business.builder.group.HierElementsBuilder;
@@ -24,7 +25,7 @@ public final class HierarchyBuilder<T extends Hierarchy> extends AbstractBusines
         HeadingSupport<T>, NumSupport<T>, SubHeadingSupport<T> , EIdSupport<T> {
 
 
-    public HierarchyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T hierarchy) {
+    public HierarchyBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, T hierarchy) {
         super(businessBuilder, hierarchy);
     }
 

@@ -7,7 +7,7 @@
     <groupId>io.legaldocml</groupId>
     <artifactId>legaldocml</artifactId>
     <packaging>pom</packaging>
-    <version>0.6.0-SNAPSHOT</version>
+    <version>0.7.0-SNAPSHOT</version>
 
     <name>LegalDocML</name>
     <description>Library for the OASIS LegalDocML</description>

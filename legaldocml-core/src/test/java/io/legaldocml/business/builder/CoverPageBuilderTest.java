@@ -33,13 +33,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class CoverPageBuilderTest {
+class CoverPageBuilderTest {
 
     @Test
-    public void testItSenatoDdl2013() throws IOException {
+    void testItSenatoDdl2013() throws IOException {
 
         BusinessProvider provider = BusinessProvider.businessProvider("default");
-        BusinessBuilder<Debate> debateBusinessBuilder = provider.newBuilder(DEBATE);
+        BusinessBuilder<Debate, ?> debateBusinessBuilder = provider.newBuilder(DEBATE);
 
         AgentRef source = AgentRef.valueOf("redattore");
         TLCPerson person1 = newTLCPerson(NoWhiteSpace.valueOf("person_1"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");

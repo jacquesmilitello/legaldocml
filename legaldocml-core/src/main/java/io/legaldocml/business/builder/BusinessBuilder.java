@@ -9,11 +9,11 @@ import io.legaldocml.model.Language;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BusinessBuilder<T extends DocumentType> {
+public abstract class BusinessBuilder<T extends DocumentType, E extends BusinessBuilderAkomaNtosoContext> {
 
     private final BusinessProvider provider;
     private final AkomaNtoso<T> akomaNtoso;
-    private final BusinessBuilderAkomaNtosoContext context;
+    private final E context;
     private final MetaBuilder metaBuilder;
     private final AgentRef source;
     private Language mainLanguage;
@@ -51,7 +51,7 @@ public abstract class BusinessBuilder<T extends DocumentType> {
         getMetaBuilder().addLanguage(this.mainLanguage, Language::getTerminology);
     }
 
-    public final BusinessBuilderAkomaNtosoContext getContext() {
+    public final E getContext() {
         return this.context;
     }
 
@@ -59,7 +59,7 @@ public abstract class BusinessBuilder<T extends DocumentType> {
         return akomaNtoso;
     }
 
-    protected abstract BusinessBuilderAkomaNtosoContext newAkomaNtosoContext();
+    protected abstract E newAkomaNtosoContext();
 
     protected abstract MetaBuilder newMetaBuilder();
 

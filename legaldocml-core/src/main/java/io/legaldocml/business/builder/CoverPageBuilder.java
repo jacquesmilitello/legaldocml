@@ -11,7 +11,7 @@ import io.legaldocml.business.builder.support.PSupport;
  */
 public class CoverPageBuilder extends AbstractBusinessPartBuilder<CoverPage> implements PSupport<CoverPage, BasicoptElement> {
 
-    public CoverPageBuilder(BusinessBuilder<? extends DocumentType> builder) {
+    public CoverPageBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> builder) {
         super(builder, new CoverPage());
         if (!(builder.getAkomaNtoso().getDocumentType() instanceof HasCoverPage)) {
             throw new BusinessBuilderException("DocumentType [" + builder.getAkomaNtoso().getDocumentType().getClass().getSimpleName() + "] has no CoverPage");

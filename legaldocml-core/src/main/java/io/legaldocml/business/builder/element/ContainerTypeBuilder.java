@@ -5,6 +5,7 @@ import io.legaldocml.akn.element.ContainerElement;
 import io.legaldocml.akn.element.ContainerType;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 import io.legaldocml.business.builder.group.BlockElementsBuilder;
 
 /**
@@ -12,7 +13,7 @@ import io.legaldocml.business.builder.group.BlockElementsBuilder;
  */
 public final class ContainerTypeBuilder<T extends ContainerType> extends AbstractBusinessPartBuilder<T> implements BlockElementsBuilder<T,ContainerElement> {
 
-    public ContainerTypeBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T containerType) {
+    public ContainerTypeBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, T containerType) {
         super(businessBuilder,containerType);
     }
 

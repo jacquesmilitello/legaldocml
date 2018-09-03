@@ -12,7 +12,7 @@ import java.util.function.Consumer;
  */
 public final class CollectionBodyBuilder extends AbstractBusinessPartBuilder<CollectionBody> {
 
-    CollectionBodyBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, CollectionBody body) {
+    CollectionBodyBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, CollectionBody body) {
         super(businessBuilder, body);
     }
 

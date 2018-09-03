@@ -56,11 +56,11 @@ public final class MetaBuilder {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(MetaBuilder.class);
 
-    private final BusinessBuilder<? extends DocumentType> businessBuilder;
+    private final BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder;
 
     private final Meta meta;
 
-    public MetaBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, AgentRef source) {
+    public MetaBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, AgentRef source) {
         this.businessBuilder = businessBuilder;
         this.meta = businessBuilder.getAkomaNtoso().getDocumentType().getMeta();
         this.meta.getIdentification().setSource(source);

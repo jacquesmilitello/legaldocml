@@ -5,6 +5,7 @@ import io.legaldocml.akn.element.ModType;
 import io.legaldocml.akn.element.QuotedStructureV3;
 import io.legaldocml.business.builder.AbstractBusinessPartBuilder;
 import io.legaldocml.business.builder.BusinessBuilder;
+import io.legaldocml.business.builder.BusinessBuilderAkomaNtosoContext;
 
 import java.util.function.Consumer;
 
@@ -13,7 +14,7 @@ import java.util.function.Consumer;
  */
 public final class ModTypeBuilder<T extends ModType> extends AbstractBusinessPartBuilder<T> {
 
-    public ModTypeBuilder(BusinessBuilder<? extends DocumentType> businessBuilder, T modType) {
+    public ModTypeBuilder(BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder, T modType) {
         super(businessBuilder,modType);
     }
 
