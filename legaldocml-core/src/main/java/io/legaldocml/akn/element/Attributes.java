@@ -16,8 +16,9 @@ import io.legaldocml.akn.type.TemporalGroupRef;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.type.VoteRef;
 import io.legaldocml.akn.type.WidRef;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.AttributeConsumer;
 import io.legaldocml.io.AttributeGetterSetter;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
@@ -110,7 +111,7 @@ public final class Attributes {
     }
 
     /**
-     * Attribute 'breakat'.
+     * CoreAttribute 'breakat'.
      */
     public static final String BREAKAT = "breakat";
 
@@ -458,7 +459,7 @@ public final class Attributes {
 
 
     public static void read4Extension(XmlReader reader, Object akoObject) {
-        reader.forEach(akoObject, (object, name, value, prefixNS) -> {
+        reader.forEach(akoObject, (channelReader, object, name, value, prefixNS) -> {
 
             if (prefixNS > 0) {
                 if (name.toString().startsWith(reader.getQName().getPrefix())) {
@@ -476,19 +477,20 @@ public final class Attributes {
         });
     }
 
-    public static void read(XmlReader reader, AknObject object) {
-        reader.forEach(object, (akn, name, value, prefixNS) -> {
-            if (prefixNS > 0) {
+    public static final AttributeConsumer<AknObject> ATTRIBUTE_CONSUMER = (channelReader, akn, name, value, prefixNS) -> {
 
-                CharArray ns = reader.getNamespaces().get(name.subSequence(0, prefixNS));
+        if (prefixNS > 0) {
+            CharArray prefix = name.subSequence(0, prefixNS);
 
-                Module module = Modules.get(ns);
+            // same prefix from the element prefix and attribute prefix
+            if (!prefix.toString().equals(channelReader.getQName().getPrefix())) {
+                Module module = Modules.get(prefix);
 
                 if (!(akn instanceof Core)) {
                     throw new RuntimeException("Should instance of Core");
                 }
 
-                Attribute attr;
+                CoreAttribute attr;
 
                 if (module == null) {
                     // use external attribures.
@@ -497,25 +499,22 @@ public final class Attributes {
                     attr = module.attribute(name.toString().substring(prefixNS + 1)).get();
                 }
 
-                attr.read(reader, value);
+                attr.read(channelReader, value);
                 ((Core) akn).add(attr);
-
-                return;
-
-
             }
-            AttributeGetterSetter<AknObject> cons = akn.attributes().get(name.toString());
-            if (cons == null) {
-                throw new InvalidAttributeException(name, akn);
-            }
+            return;
+        }
 
-            cons.accept(akn, value);
+        AttributeGetterSetter<AknObject> cons = akn.attributes().get(name.toString());
+        if (cons == null) {
+            throw new InvalidAttributeException(name, akn);
+        }
 
-            reader.getContext().update(cons.name(), akn);
+        cons.accept(akn, value);
 
-        });
-    }
+        channelReader.getContext().update(cons.name(), akn);
 
+    };
 
     private static abstract class DefaultAknAttributeGetterSetter<T> implements AttributeGetterSetter<T> {
         final long addr;

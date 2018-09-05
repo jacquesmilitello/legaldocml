@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.function.Supplier;
 
+import io.legaldocml.io.CoreAttribute;
 import org.junit.jupiter.api.Test;
 
-import io.legaldocml.io.Attribute;
 import io.legaldocml.module.xsi.XsiModule;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
 
@@ -18,7 +18,7 @@ public class XsiModuleTest {
 
     @Test
     public void testAttribute() {
-        Supplier<Attribute> supplier = module.attribute(SchemaLocation.ATTRIBUTE);
+        Supplier<CoreAttribute> supplier = module.attribute(SchemaLocation.ATTRIBUTE);
         assertNotNull(supplier);
         assertTrue(SchemaLocation.class.isAssignableFrom(supplier.get().getClass()));
     }

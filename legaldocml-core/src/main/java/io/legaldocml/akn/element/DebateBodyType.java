@@ -12,6 +12,8 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
+
 /**
  * The type debateBodyType specifies a content model of the main hierarchy of a debate.
  *
@@ -54,7 +56,7 @@ public abstract class DebateBodyType extends AbstractCore implements CoreOpt {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         XmlReaderHelper.read(reader, sections, ELEMS);
     }
 

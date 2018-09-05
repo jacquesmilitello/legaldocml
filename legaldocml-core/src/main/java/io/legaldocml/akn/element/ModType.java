@@ -31,7 +31,7 @@ import static java.util.Objects.requireNonNull;
 
 /**
  * the complex type modType specifies the content that is allowed within mod, mmod and rmod elements, i.e. it adds
- * quotedText and quotedStructure to the normal list of inline elements. Attribute for is used to point to the eId of
+ * quotedText and quotedStructure to the normal list of inline elements. CoreAttribute for is used to point to the eId of
  * the corresponding ref element.
  * <p>
  * <pre>

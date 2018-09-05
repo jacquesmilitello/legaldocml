@@ -77,15 +77,21 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> {
             return Spliterators.spliterator(AknList.this, Spliterator.ORDERED);
         }
 
+        @Override
+        public E get(int index) {
+            return AknList.this.get(index);
+        }
+
         /**
          * {@inheritDoc}
          */
-        @Override
-        public void removeAll() {
-            //noinspection unchecked
-            AknList.this.setElems((E[]) EMPTY_ELEMENTDATA);
-            AknList.this.setSize(0);
-        }
+        //@Override
+       // public void removeAll() {
+       //     //noinspection unchecked
+       ///     AknList.this.setElems((E[]) EMPTY_ELEMENTDATA);
+       //     AknList.this.setSize(0);
+      //  }
+
 
         /**
          * {@inheritDoc}

@@ -1,20 +1,6 @@
 package io.legaldocml.akn.element;
 
-import static io.legaldocml.akn.AknAttributes.HREF;
-import static io.legaldocml.akn.AknAttributes.REFERS_TO;
-import static io.legaldocml.akn.AknAttributes.VALUE;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeValue;
-import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
-
-import java.io.IOException;
-
 import com.google.common.collect.ImmutableMap;
-
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.IdReq;
@@ -32,6 +18,18 @@ import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharArrays;
+
+import java.io.IOException;
+
+import static io.legaldocml.akn.AknAttributes.HREF;
+import static io.legaldocml.akn.AknAttributes.REFERS_TO;
+import static io.legaldocml.akn.AknAttributes.VALUE;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
+import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
+import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The complex type countType lists all the properties associated to elements of parliamentary count.
@@ -155,9 +153,9 @@ public abstract class CountType extends AbstractIdCore implements Core, IdReq, V
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
         Core.super.write(writer);
+        ValueReq.super.write(writer);
         writeRefers(writer, this);
         writeLinkOpt(writer, this);
-        writeValue(writer, this);
     }
 
     /**

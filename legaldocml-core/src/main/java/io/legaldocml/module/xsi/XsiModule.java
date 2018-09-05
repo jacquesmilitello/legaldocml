@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 import com.google.common.collect.ImmutableMap;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.xsi.attribute.SchemaLocation;
@@ -29,10 +29,10 @@ public final class XsiModule implements Module {
 
     private static final CharArray NAMESPACE_XSI = CharArrays.immutable(NAMESPACE_SCHEMA_INSTANCE);
 
-    private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
+    private static final ImmutableMap<String, Supplier<CoreAttribute>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, Supplier<Attribute>>builder()
+        ATTRIBUTES = ImmutableMap.<String, Supplier<CoreAttribute>>builder()
                 .put(SchemaLocation.ATTRIBUTE, SchemaLocationImpl::new)
                 .build();
     }
@@ -58,7 +58,7 @@ public final class XsiModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public Supplier<Attribute> attribute(String name) {
+    public Supplier<CoreAttribute> attribute(String name) {
         return ATTRIBUTES.get(name);
     }
 

@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import static io.legaldocml.akn.AknAttributes.SOURCE;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.element.Groups.TLCs;
 import static io.legaldocml.akn.element.Groups.convertSuper;
@@ -99,7 +100,7 @@ public abstract class RefItems implements Source {
 	 */
 	@Override
 	public void read(XmlReader reader) {
-		Attributes.read(reader, this);
+		reader.forEach(this, ATTRIBUTE_CONSUMER);
 		XmlReaderHelper.read(reader, this.refItems, ELEMS);
 	}
 

@@ -51,7 +51,7 @@ public final class HasAttachment extends ReferenceType implements DocRef, Type {
     }
 
     /**
-     * Attribute "type".
+     * CoreAttribute "type".
      */
     private String type;
 

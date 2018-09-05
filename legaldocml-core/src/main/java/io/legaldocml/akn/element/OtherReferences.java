@@ -18,6 +18,7 @@ import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.ALTERNATIVE_REFERENCE;
 import static io.legaldocml.akn.AknElements.IMPLICIT_REFERENCE;
 import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -97,7 +98,7 @@ public final class OtherReferences implements Source {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         reader.nextStartOrEndElement();
         XmlReaderHelper.read(reader, this.elements, ELEMS);
     }

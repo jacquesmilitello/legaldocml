@@ -702,7 +702,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     public <T extends Externalizable> void forEach(T object, AttributeConsumer<T> consumer) {
-        attributes.forEach(object, consumer);
+        attributes.forEach(this, object, consumer);
     }
 
     /**

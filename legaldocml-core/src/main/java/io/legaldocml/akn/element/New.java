@@ -9,7 +9,7 @@ import static io.legaldocml.akn.AknElements.NEW;
 
 /**
  * The element new is a metadata element containing (in some non-managed form) the new text of the modification.
- * Attribute href points to the eId of the element old it is substituting.
+ * CoreAttribute href points to the eId of the element old it is substituting.
  *
  * <pre>
  *   <xsd:element name="new" type="anyOtherType"/>

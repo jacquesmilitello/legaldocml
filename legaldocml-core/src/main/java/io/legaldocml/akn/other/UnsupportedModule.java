@@ -1,7 +1,7 @@
 package io.legaldocml.akn.other;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
@@ -38,7 +38,7 @@ public final class UnsupportedModule implements Module {
     }
 
     @Override
-    public Supplier<Attribute> attribute(String name) {
+    public Supplier<CoreAttribute> attribute(String name) {
         return null;
     }
 

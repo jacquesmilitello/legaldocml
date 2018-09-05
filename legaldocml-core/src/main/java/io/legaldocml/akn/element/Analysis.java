@@ -10,9 +10,9 @@ import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
-import java.util.stream.Stream;
 
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.ACTIVE_MODIFICATIONS;
@@ -24,10 +24,11 @@ import static io.legaldocml.akn.AknElements.OTHER_REFERENCES;
 import static io.legaldocml.akn.AknElements.PARLIAMENTARY;
 import static io.legaldocml.akn.AknElements.PASSIVE_MODIFICATIONS;
 import static io.legaldocml.akn.AknElements.RESTRICTIONS;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
-import static io.legaldocml.util.Streams.stream;
+import static io.legaldocml.util.Iterables.iterable;
 
 /**
  * <pre>
@@ -138,12 +139,19 @@ public final class Analysis implements Source {
         this.mappings = mappings;
     }
 
-    public Stream<OtherReferences> getOtherReferences() {
-        return stream(this.otherReferences);
+    public ListIterable<OtherReferences> getOtherReferences() {
+        return iterable(this.otherReferences);
     }
 
-    public Stream<OtherAnalysis> getOtherAnalysis() {
-        return stream(this.otherAnalysis);
+    public ListIterable<OtherAnalysis> getOtherAnalysis() {
+        return iterable(this.otherAnalysis);
+    }
+
+    public void add(OtherAnalysis otherAnalysis) {
+        if (this.otherAnalysis == null) {
+            this.otherAnalysis = new AknList<>(new OtherAnalysis[2]);
+        }
+        this.otherAnalysis.add(otherAnalysis);
     }
 
     /**
@@ -202,7 +210,7 @@ public final class Analysis implements Source {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         reader.nextStartOrEndElement();
 
         if (reader.getQName().equalsLocalName(ACTIVE_MODIFICATIONS)) {

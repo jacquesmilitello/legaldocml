@@ -1,6 +1,6 @@
 package io.legaldocml.akn.util;
 
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.util.ToStringBuilder;
 
 import java.util.List;
@@ -14,12 +14,12 @@ public final class AknToStringBuilder extends ToStringBuilder {
         super(object);
     }
 
-    public void append(List<Attribute> attributes) {
+    public void append(List<CoreAttribute> attributes) {
         if (attributes == null) {
             return;
         }
         //insert("attributes");
-        for (Attribute attribute : attributes) {
+        for (CoreAttribute attribute : attributes) {
             //insert(attribute).insert("=[").insert(value == null ? NULL : value).insert("] ");
            // insert(attribute.toString());
         }

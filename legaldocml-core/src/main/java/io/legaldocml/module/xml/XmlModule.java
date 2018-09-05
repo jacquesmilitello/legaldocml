@@ -3,7 +3,8 @@ package io.legaldocml.module.xml;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
+import io.legaldocml.module.xml.attribute.XmlId;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.XmlWriter;
@@ -30,12 +31,13 @@ public final class XmlModule implements Module {
 
     public static final CharArray NAMESPACE_XML = CharArrays.immutable(NS_VALUE);
 
-    private static final ImmutableMap<String, Supplier<Attribute>> ATTRIBUTES;
+    private static final ImmutableMap<String, Supplier<CoreAttribute>> ATTRIBUTES;
 
     static {
-        ATTRIBUTES = ImmutableMap.<String, Supplier<Attribute>>builder()
+        ATTRIBUTES = ImmutableMap.<String, Supplier<CoreAttribute>>builder()
                 .put(XmlLang.ATTRIBUTE, XmlLangImpl::new)
                 .put(XmlSpace.ATTRIBUTE, XmlSpaceImpl::new)
+                .put(XmlId.ATTRIBUTE, XmlIdImpl::new)
                 .build();
     }
 
@@ -59,7 +61,7 @@ public final class XmlModule implements Module {
      * {@inheritDoc}
      */
     @Override
-    public Supplier<Attribute> attribute(String name) {
+    public Supplier<CoreAttribute> attribute(String name) {
         return ATTRIBUTES.get(name);
     }
 

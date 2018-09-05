@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.CONTAINS;
 import static io.legaldocml.akn.AknAttributes.NAME;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
@@ -119,7 +120,7 @@ public abstract class HierarchicalStructure extends AbstractStructureWithPreambl
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         reader.nextStartOrEndElement();
         //TODO attributes
         readMetaCoverPagePreface(reader);

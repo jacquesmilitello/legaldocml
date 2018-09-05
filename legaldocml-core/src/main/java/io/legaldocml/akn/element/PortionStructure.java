@@ -14,6 +14,7 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.INCLUDED_IN;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ReferenceRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePortionAtt;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -92,7 +93,7 @@ public abstract class PortionStructure implements PortionAtt {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         reader.nextStartOrEndElement();
         this.meta.read(reader);
         this.portionBody.read(reader);

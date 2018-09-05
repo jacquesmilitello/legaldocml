@@ -1,12 +1,12 @@
 package io.legaldocml.module.xsi.attribute;
 
 
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 
-public interface SchemaLocation extends Attribute {
+public interface SchemaLocation extends CoreAttribute {
 
     /**
-     * Attribute name for "xsi:schemaLocation".
+     * CoreAttribute name for "xsi:schemaLocation".
      */
     String ATTRIBUTE = "schemaLocation";
 

@@ -18,68 +18,68 @@ final class SchAttributes {
     }
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.Schema}
-     * Attribute for {@link io.legaldocml.schematron.model.Pattern}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Schema}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Pattern}
      */
     public static final String ID = "id";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.Rule}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Rule}
      */
     public static final String CONTEXT = "context";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.Assert}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Assert}
      */
     public static final String TEST = "test";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.attribute.Linkable}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.attribute.Linkable}
      */
     public static final String ROLE = "role";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.attribute.Linkable}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.attribute.Linkable}
      */
     public static final String SUBJECT = "subject";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.attribute.Rich}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.attribute.Rich}
      */
     public static final String ICON = "icon";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.attribute.Rich}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.attribute.Rich}
      */
     public static final String SEE = "see";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.attribute.Rich}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.attribute.Rich}
      */
     public static final String FPI = "fpi";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.Let}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Let}
      */
     public static final String NAME = "name";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.Let}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Let}
      */
     public static final String VALUE = "value";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.ValueOf}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.ValueOf}
      */
     public static final String SELECT = "select";
 
     /**
-     * Attribute for {@link io.legaldocml.schematron.model.Name}
+     * CoreAttribute for {@link io.legaldocml.schematron.model.Name}
      */
     public static final String PATH = "path";
 
     static void read(XmlReader reader, SchObject schObject) {
-        reader.forEach(schObject, (object, name, value, prefixNS) -> {
+        reader.forEach(schObject, (channelReader, object, name, value, prefixNS) -> {
 
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("set ({},{},{},{})", object, name, value, prefixNS);
@@ -90,7 +90,7 @@ final class SchAttributes {
            // if (bic != null) {
            //     bic.accept(object, value);
            // } else {
-           //     throw new RuntimeException(schObject.getClass().getSimpleName() + " -> Attribute [" + name + "] not supported ! [" + value + "]");
+           //     throw new RuntimeException(schObject.getClass().getSimpleName() + " -> CoreAttribute [" + name + "] not supported ! [" + value + "]");
            // }
 
 

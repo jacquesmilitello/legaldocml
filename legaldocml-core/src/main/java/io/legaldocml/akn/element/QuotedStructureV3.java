@@ -24,8 +24,8 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * the element quotedStructure is a subFlow element containing a full structure proposed as an insertion or a
- * replacement. Attribute quote is used to specify the quote character used in the original; no quote attribute implies
- * that the quote is left in the text; quote="" implies that there is no quote character. Attribute for is used in a
+ * replacement. CoreAttribute quote is used to specify the quote character used in the original; no quote attribute implies
+ * that the quote is left in the text; quote="" implies that there is no quote character. CoreAttribute for is used in a
  * mmod or rmod to point to the eId of the corresponding ref element.
  * <p>
  * <pre>

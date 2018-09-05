@@ -63,7 +63,7 @@ public final class ExternalElementWithNS implements AnyOtherTypeElement {
      */
     @Override
     public void read(XmlReader reader) {
-        reader.forEach(this, (object, name, value, prefixNS) -> {
+        reader.forEach(this, (channelReader, object, name, value, prefixNS) -> {
             LOGGER.debug("read attributes [{}]->[{}]->[{}]", name, value, prefixNS);
 
             if (prefixNS == 0) {

@@ -68,7 +68,7 @@ public final class SimpleExternalElement implements AnyOtherTypeElement {
     @Override
     public void read(XmlReader reader) {
         QName qname = reader.getQName();
-        reader.forEach(this, (object, name, value, prefixNS) -> {
+        reader.forEach(this, (channelReader, object, name, value, prefixNS) -> {
             if (prefixNS == 0) {
                 this.attributes.add(new ExternalAttribute(name, value));
             } else {

@@ -10,7 +10,7 @@ import static io.legaldocml.akn.AknElements.PREVIOUS;
 /**
  * The element previous is a metadata element referring to the element (rather than the text) of the modification in the
  * previous version of the document. This is especially useful when renumbering occurs, so as to specify the eId of the
- * instance that was modified in the previous version. Attribute href points to the eId of the element being modified in
+ * instance that was modified in the previous version. CoreAttribute href points to the eId of the element being modified in
  * the old version, using a full expression-level URI.
  *
  * <pre>

@@ -23,7 +23,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element FRBRdate is the metadata property containing a relevant date of the document in the respective level of
- * the FRBR hierarchy. Attribute name specifies which actual date is contained here.
+ * the FRBR hierarchy. CoreAttribute name specifies which actual date is contained here.
  * <p>
  * <pre>
  *   <xsd:element name="FRBRdate">

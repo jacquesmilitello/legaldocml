@@ -30,12 +30,11 @@ import static io.legaldocml.akn.util.XmlWriterHelper.writeDictionary;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkOpt;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeValue;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element keyword is a metadata element specifying a keyword  associated to the FRBR expression of the document.
- * Attribute dictionary (required) specifies the thesaurus out of which the keyword has been taken. Attribute href
+ * CoreAttribute dictionary (required) specifies the thesaurus out of which the keyword has been taken. CoreAttribute href
  * points to the fragment of text this keyword is associated to. Keywords without href attribute refer to the content as
  * a whole.
  *
@@ -189,7 +188,7 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
         writer.writeStart(ADDRESS_KEYWORD, 7);
         super.write(writer);
         writeShow(writer, this);
-        writeValue(writer, this);
+        ValueReq.super.write(writer);
         writeDictionary(writer, this);
         writeLinkOpt(writer, this);
         writeRefers(writer, this);
@@ -217,6 +216,6 @@ public final class Keyword extends MetaOpt implements LinkOpt, ValueReq, ShowReq
      */
     @Override
     public void accept(AknVisitor visitor) {
-       visitor.visit(this);
+        visitor.visit(this);
     }
 }

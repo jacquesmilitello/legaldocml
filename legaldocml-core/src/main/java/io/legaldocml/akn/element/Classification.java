@@ -16,6 +16,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.CLASSIFICATION;
 import static io.legaldocml.akn.AknElements.KEYWORD;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeSource;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
@@ -74,7 +75,7 @@ public final class Classification implements Source {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         reader.nextStartOrEndElement();
 
         if (reader.getQName().equalsLocalName(KEYWORD)) {

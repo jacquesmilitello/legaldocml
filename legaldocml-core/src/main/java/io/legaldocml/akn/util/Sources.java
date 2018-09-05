@@ -36,7 +36,7 @@ public final class Sources {
         AgentRef source = item.getSource();
 
         if (source == null || source.isEmpty()) {
-            throw new MandatoryAttributeException("Attribute 'source' from [ " + item + " shoould not be empty", AknAttributes.SOURCE, item);
+            throw new MandatoryAttributeException("CoreAttribute 'source' from [ " + item + " shoould not be empty", AknAttributes.SOURCE, item);
         }
 
         for (T t : list) {

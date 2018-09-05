@@ -61,5 +61,21 @@ final class XmlLangImpl implements XmlLang {
         ModelProvider provider = reader.<AkomaNtosoContext>getContext().businessProvider().modelProvider();
         this.language = provider.language(value.toString());
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String name() {
+        return ATTRIBUTE;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String value() {
+        return String.valueOf(this.language);
+    }
+
 }

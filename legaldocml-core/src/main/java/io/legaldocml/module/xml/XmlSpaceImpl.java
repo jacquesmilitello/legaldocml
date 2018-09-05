@@ -1,11 +1,11 @@
 package io.legaldocml.module.xml;
 
-import io.legaldocml.util.Buffers;
-import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.xml.attribute.XmlSpace;
 import io.legaldocml.module.xml.type.Space;
+import io.legaldocml.util.Buffers;
+import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
 
@@ -47,16 +47,38 @@ final class XmlSpaceImpl implements XmlSpace {
         }
 
 
-
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Space getSpace() {
         return this.value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setSpace(Space space) {
         this.value = space;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String name() {
+        return ATTRIBUTE;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String value() {
+        return String.valueOf(this.value);
+    }
+
 }

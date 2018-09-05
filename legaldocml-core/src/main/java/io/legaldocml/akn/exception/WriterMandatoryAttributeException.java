@@ -16,7 +16,7 @@ public final class WriterMandatoryAttributeException extends LegalDocMlException
 
     private static String buildMsg(AknObject aknObject, String attributeName, XmlWriter writer) {
         StringBuilder builder = new StringBuilder();
-        builder.append("Attribute Mandatory [").append(attributeName).append("] ");
+        builder.append("CoreAttribute Mandatory [").append(attributeName).append("] ");
         builder.append("AknObject [").append(aknObject).append("]");
         return builder.toString();
     }

@@ -4,7 +4,7 @@ import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.util.AknToStringBuilder;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.diff.DiffContext;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
 
@@ -35,7 +35,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
      */
     private final AkomaNtosoContext context;
 
-    private List<Attribute> attributes;
+    private List<CoreAttribute> attributes;
 
     public AkomaNtoso(AkomaNtosoContext context) {
         this.context = context;
@@ -49,7 +49,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
      * {@inheritDoc}
      */
     @Override
-    public void add(Attribute attribute) {
+    public void add(CoreAttribute attribute) {
         if (this.attributes == null) {
             this.attributes = new ArrayList<>();
         }
@@ -66,7 +66,7 @@ public final class AkomaNtoso<T extends DocumentType> extends AkomaNtosoType<T> 
         this.context.writeModules(writer);
         // write external attributes
         if (this.attributes != null) {
-            for (Attribute attribute : this.attributes) {
+            for (CoreAttribute attribute : this.attributes) {
                 attribute.write(writer);
             }
         }

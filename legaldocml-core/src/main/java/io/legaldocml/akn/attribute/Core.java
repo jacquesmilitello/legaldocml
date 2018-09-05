@@ -5,7 +5,7 @@ import java.util.List;
 
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.diff.DiffContext;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlWriter;
 
 /**
@@ -22,21 +22,34 @@ import io.legaldocml.io.XmlWriter;
  */
 public interface Core extends AknObject {
 
-    default void add(Attribute attribute) {
+    default void add(CoreAttribute attribute) {
         throw new UnsupportedOperationException("for [" + getClass() + "]");
     }
 
-    default List<Attribute> getAttributes() {
+    default List<CoreAttribute> getAttributes() {
     	return null;
     }
-   
+
+    default CoreAttribute getAttribute(String name) {
+        List<CoreAttribute> attributes = getAttributes();
+        if (attributes != null) {
+            for (CoreAttribute attribute : attributes) {
+                if (name.equals(attribute.name())) {
+                    return attribute;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
     default void write(XmlWriter writer) throws IOException {
-       if (getAttributes() != null) {
-            for (Attribute attribute : getAttributes()) {
+        List<CoreAttribute> attributes = getAttributes();
+        if (attributes != null) {
+            for (CoreAttribute attribute : attributes) {
                 attribute.write(writer);
             }
         }

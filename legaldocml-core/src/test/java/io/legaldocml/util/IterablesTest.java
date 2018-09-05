@@ -28,7 +28,6 @@ class IterablesTest {
         ListIterable<AknObject>  empty = Iterables.iterable(new AknList<>(new AknObject[0]));
         assertFalse(empty.iterator().hasNext());
         assertEquals(0, empty.size());
-        empty.removeAll();
     }
 
 

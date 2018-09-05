@@ -131,7 +131,7 @@ public abstract class ValueType extends MetaOpt implements ValueReq, RefersOpt, 
     @Override
     public void write(XmlWriter writer) throws IOException {
         super.write(writer);
-        writeValue(writer, this);
+        ValueReq.super.write(writer);
         writeShow(writer, this);
         writeRefers(writer, this);
     }

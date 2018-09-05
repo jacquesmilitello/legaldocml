@@ -38,8 +38,10 @@ public final class Iterables {
          * {@inheritDoc}
          */
         @Override
-        public void removeAll() {
+        public Object get(int index) {
+            return null;
         }
+
     };
 
     public static <T> ListIterable<T> empty() {

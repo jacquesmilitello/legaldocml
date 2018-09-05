@@ -1,10 +1,8 @@
 package io.legaldocml.module.akn.v2;
 
 
-import io.legaldocml.akn.AknElements;
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.AkomaNtosoContext;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharArrays;
 import io.legaldocml.io.XmlWriter;
@@ -47,7 +45,7 @@ public final class AkomaNtosoModuleV2 implements AknModule {
      * {@inheritDoc}
      */
     @Override
-    public Supplier<Attribute> attribute(String name) {
+    public Supplier<CoreAttribute> attribute(String name) {
         throw new IllegalStateException();
     }
 

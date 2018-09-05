@@ -24,5 +24,7 @@ public interface ListIterable<T> extends Iterable<T> {
         return Spliterators.spliterator(iterator(), size(), Spliterator.SIZED);
     }
 
-    void removeAll();
+
+    T get(int index);
+
 }

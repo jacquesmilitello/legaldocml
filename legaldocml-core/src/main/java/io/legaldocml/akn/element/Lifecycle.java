@@ -17,6 +17,7 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.SOURCE;
 import static io.legaldocml.akn.AknElements.EVENT_REF;
 import static io.legaldocml.akn.AknElements.LIFECYCLE;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -85,7 +86,7 @@ public final class Lifecycle implements Source {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
         reader.nextStartOrEndElement();
 
         if (reader.getQName().equalsLocalName(EVENT_REF)) {

@@ -5,7 +5,7 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.Source;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.AttributeGetterSetter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ public final class Diffs {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Diffs.class);
 
-    public static void compare(List<Attribute> left, List<Attribute> right, DiffContext context) {
+    public static void compare(List<CoreAttribute> left, List<CoreAttribute> right, DiffContext context) {
 
         if (left == null && right == null) {
             return;
@@ -120,7 +120,7 @@ public final class Diffs {
             }
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Attribute [{}] -> Left [{}] - Right [{}]", attribute.name(), valueLeft, valueRight);
+                LOGGER.debug("CoreAttribute [{}] -> Left [{}] - Right [{}]", attribute.name(), valueLeft, valueRight);
             }
 
             if (valueLeft == null) {

@@ -1,6 +1,6 @@
 package io.legaldocml.module.xml.attribute;
 
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.model.Language;
 
 /**
@@ -12,10 +12,10 @@ import io.legaldocml.model.Language;
  * </xsd:attributeGroup>
  * </pre>
  */
-public interface XmlLang extends Attribute {
+public interface XmlLang extends CoreAttribute {
 
     /**
-     * Attribute name for "xml:lang".
+     * CoreAttribute name for "xml:lang".
      */
     String ATTRIBUTE = "lang";
 

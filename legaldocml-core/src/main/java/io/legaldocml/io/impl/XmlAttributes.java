@@ -2,6 +2,7 @@ package io.legaldocml.io.impl;
 
 
 import io.legaldocml.io.AttributeConsumer;
+import io.legaldocml.io.QName;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharBuffer;
 import io.legaldocml.io.Externalizable;
@@ -46,9 +47,9 @@ final class XmlAttributes {
         pos = 0;
     }
 
-    public <T extends Externalizable> void forEach(T object, AttributeConsumer<T> consumer) {
+    public <T extends Externalizable> void forEach(XmlChannelReader reader, T object, AttributeConsumer<T> consumer) {
         for (int i = 0; i < pos; i++) {
-            consumer.set(object, this.names[i], this.values[i], this.prefixes[i]);
+            consumer.set(reader, object, this.names[i], this.values[i], this.prefixes[i]);
         }
     }
 

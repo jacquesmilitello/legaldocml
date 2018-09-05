@@ -20,9 +20,10 @@ public abstract class AbstractBusinessPartBuilder<T extends AknObject> implement
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("unchecked")
     @Override
-    public final BusinessBuilder<? extends DocumentType, ? extends BusinessBuilderAkomaNtosoContext> businessBuilder() {
-        return businessBuilder;
+    public <D extends DocumentType, B extends BusinessBuilderAkomaNtosoContext> BusinessBuilder<D, B> businessBuilder() {
+        return (BusinessBuilder<D, B>) this.businessBuilder;
     }
 
     /**

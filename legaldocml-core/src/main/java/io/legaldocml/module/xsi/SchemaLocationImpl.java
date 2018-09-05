@@ -54,4 +54,20 @@ final class SchemaLocationImpl implements SchemaLocation {
     public void read(XmlReader reader, CharArray value) {
         this.schemaLocation = value.toString();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String name() {
+        return ATTRIBUTE;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String value() {
+        return this.schemaLocation;
+    }
 }

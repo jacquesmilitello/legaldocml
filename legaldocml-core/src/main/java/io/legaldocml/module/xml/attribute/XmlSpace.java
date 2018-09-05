@@ -1,12 +1,12 @@
 package io.legaldocml.module.xml.attribute;
 
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.module.xml.type.Space;
 
-public interface XmlSpace extends Attribute{
+public interface XmlSpace extends CoreAttribute {
 
     /**
-     * Attribute name "xml:space".
+     * CoreAttribute name "xml:space".
      */
     String ATTRIBUTE = "space";
 

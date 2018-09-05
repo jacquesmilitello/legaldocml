@@ -1,7 +1,7 @@
 package io.legaldocml.module;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 import io.legaldocml.test.Tests;
@@ -42,7 +42,7 @@ class ModulesTest {
         public void writeNamespace(XmlWriter writer) throws IOException {
         }
         @Override
-        public Supplier<Attribute> attribute(String name) {
+        public Supplier<CoreAttribute> attribute(String name) {
             return null;
         }
         /**

@@ -15,6 +15,7 @@ import static io.legaldocml.akn.AknAttributes.EVOLVING_ID;
 import static io.legaldocml.akn.AknAttributes.GUID;
 import static io.legaldocml.akn.AknAttributes.ID;
 import static io.legaldocml.akn.AknAttributes.WID;
+import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4NoWhiteSpace;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -34,12 +35,12 @@ public abstract class AbstractId implements AknObject, Id {
     }
 
     /**
-     * Attribute "id" for v2 or "eId" for "v3".
+     * CoreAttribute "id" for v2 or "eId" for "v3".
      */
     private NoWhiteSpace eId;
 
     /**
-     * Attribute "evolvingId" for v2 or "wid" for "v3".
+     * CoreAttribute "evolvingId" for v2 or "wid" for "v3".
      */
     private NoWhiteSpace wId;
 
@@ -133,7 +134,7 @@ public abstract class AbstractId implements AknObject, Id {
      */
     @Override
     public void read(XmlReader reader) {
-        Attributes.read(reader, this);
+        reader.forEach(this, ATTRIBUTE_CONSUMER);
     }
 
     /**

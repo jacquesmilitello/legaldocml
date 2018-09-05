@@ -1,7 +1,7 @@
 package io.legaldocml.module;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.io.Attribute;
+import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.XmlWriter;
 
@@ -17,7 +17,7 @@ public interface Module {
 
     void writeNamespace(XmlWriter writer) throws IOException;
 
-    Supplier<Attribute> attribute(String name);
+    Supplier<CoreAttribute> attribute(String name);
 
     <T extends AknObject> Supplier<T> element(String localName);
 

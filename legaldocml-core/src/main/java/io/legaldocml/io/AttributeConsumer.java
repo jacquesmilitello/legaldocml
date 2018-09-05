@@ -1,5 +1,6 @@
 package io.legaldocml.io;
 
+import io.legaldocml.io.impl.XmlChannelReader;
 import io.legaldocml.util.CharArray;
 
 /**
@@ -7,6 +8,6 @@ import io.legaldocml.util.CharArray;
  */
 public interface AttributeConsumer<T extends Externalizable> {
 
-    void set(T object, CharArray name, CharArray value, int prefixNS);
+    void set(XmlChannelReader reader, T object, CharArray name, CharArray value, int prefixNS);
 
 }

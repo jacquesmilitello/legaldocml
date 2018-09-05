@@ -24,7 +24,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
  * The element FRBRauthor is the metadata property containing a relevant author of the document in the respective level
- * of the FRBR hierarchy. Attribute as specifies the role of the author.
+ * of the FRBR hierarchy. CoreAttribute as specifies the role of the author.
  * <p>
  * <pre>
  *   <xsd:element name="FRBRauthor">
