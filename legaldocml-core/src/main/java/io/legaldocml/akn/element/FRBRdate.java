@@ -18,7 +18,6 @@ import static io.legaldocml.akn.AknElements.FRBR_DATE;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTime;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -103,7 +102,7 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_FRBR_DATE, 8);
         writeDate(writer, this);
-        writeName(writer, this);
+        Name.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_FRBR_DATE, 8);
     }

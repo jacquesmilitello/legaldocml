@@ -10,11 +10,17 @@ import io.legaldocml.io.XmlWriter;
 import java.io.IOException;
 import java.util.function.Supplier;
 
+import static io.legaldocml.akn.AknElements.CITATION;
+import static io.legaldocml.akn.AknElements.CITATIONS;
 import static io.legaldocml.akn.AknElements.COMPONENT_REF;
 import static io.legaldocml.akn.AknElements.CONTENT;
+import static io.legaldocml.akn.AknElements.FORMULA;
 import static io.legaldocml.akn.AknElements.HEADING;
 import static io.legaldocml.akn.AknElements.INTRO;
+import static io.legaldocml.akn.AknElements.LONG_TITLE;
 import static io.legaldocml.akn.AknElements.NUM;
+import static io.legaldocml.akn.AknElements.RECITAL;
+import static io.legaldocml.akn.AknElements.RECITALS;
 import static io.legaldocml.akn.AknElements.SUB_HEADING;
 import static io.legaldocml.akn.AknElements.WRAP;
 import static io.legaldocml.akn.element.Groups.ANcontainers;
@@ -63,14 +69,18 @@ public abstract class PopupStructure extends AbstractCore implements CoreReq {
                 .putAll(convertSuper(hierElements()))
                 .put(CONTENT, Content::new)
                 .putAll(convertSuper(ANcontainers()))
-
+                .put(FORMULA, Formula::new)
+                .put(RECITALS, Recitals::new)
+                .put(CITATIONS, Citations::new)
+                .put(LONG_TITLE, LongTitle::new)
+                .put(RECITAL, Recital::new)
+                .put(CITATION, Citation::new)
                 .put(COMPONENT_REF, ComponentRef::new)
                 .put(INTRO, Intro::new)
                 .put(WRAP, Wrap::new)
                 .put(HEADING, Heading::new)
                 .put(SUB_HEADING, Subheading::new)
                 .put(NUM, Num::new)
-
                 .build();
     }
 

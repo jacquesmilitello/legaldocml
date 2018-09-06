@@ -17,7 +17,6 @@ import static io.legaldocml.akn.AknAttributes.TARGET;
 import static io.legaldocml.akn.AknElements.A;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTarget;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -100,7 +99,7 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_A, 1);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         writeTarget(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS_A, 1);

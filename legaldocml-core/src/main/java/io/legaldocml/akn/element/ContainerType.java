@@ -145,7 +145,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     @Override
     public void write(XmlWriter writer) throws IOException {
         CoreReq.super.write(writer);
-        writeName(writer, this);
+        Name.super.write(writer);
         this.containerElements.write(writer);
     }
 

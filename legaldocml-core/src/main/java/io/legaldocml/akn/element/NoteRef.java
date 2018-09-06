@@ -23,7 +23,6 @@ import static io.legaldocml.akn.AknElements.NOTE_REF;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNotes;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -139,7 +138,7 @@ public final class NoteRef extends MarkerOpt implements LinkReq, Notes, ANmarker
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_NOTE_REF, 7);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         writeNotes(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS_NOTE_REF, 7);

@@ -103,7 +103,7 @@ public abstract class DebateStructure extends AbstractStructure implements Conta
     public void write(XmlWriter writer) throws IOException {
         writeContains(writer, this);
         if (writer.getVersion() >= 3) {
-            writeName(writer, this);
+            Name.super.write(writer);
         }
         writeMetaCoverPagePreface(writer);
         this.debateBody.write(writer);

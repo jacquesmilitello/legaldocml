@@ -33,7 +33,8 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  * 		 <xsd:element ref="attachments" minOccurs="0" maxOccurs="1" />
  * 		 <xsd:element ref="components" minOccurs="0" maxOccurs="1"/>
  * 	   <xsd:sequence>
- * 	   <xsd:attribute name="contains" type="versionType" default="originalVersion" />
+ * 	   <xsd:attributeGroup ref="name"/>
+ * 	   <xsd:attributeGroup ref="contains"/>
  *   <xsd:complexType>
  * </pre>
  *
@@ -98,6 +99,13 @@ public abstract class AmendmentStructure extends AbstractStructure implements Co
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        if (writer.getVersion() == 2) {
+            if (this.name != null) {
+                Name.super.write(writer);
+            }
+        } else {
+            Name.super.write(writer);
+        }
         writeContains(writer, this);
         writeMetaCoverPagePreface(writer);
         amendmentBody.write(writer);

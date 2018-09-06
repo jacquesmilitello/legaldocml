@@ -18,7 +18,6 @@ import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -109,7 +108,7 @@ public abstract class LinkType extends AbstractIdCore implements Core, IdReq, Sh
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
         Core.super.write(writer);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         writeShow(writer, this);
     }
 

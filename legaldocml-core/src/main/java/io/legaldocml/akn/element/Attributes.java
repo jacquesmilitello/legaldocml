@@ -479,6 +479,8 @@ public final class Attributes {
 
     public static final AttributeConsumer<AknObject> ATTRIBUTE_CONSUMER = (channelReader, akn, name, value, prefixNS) -> {
 
+        String localName;
+
         if (prefixNS > 0) {
             CharArray prefix = name.subSequence(0, prefixNS);
 
@@ -501,11 +503,14 @@ public final class Attributes {
 
                 attr.read(channelReader, value);
                 ((Core) akn).add(attr);
+                return;
+            } else {
+                localName = name.subSequence(prefixNS + 1, name.length()).toString();
             }
-            return;
+        } else {
+            localName = name.toString();
         }
-
-        AttributeGetterSetter<AknObject> cons = akn.attributes().get(name.toString());
+        AttributeGetterSetter<AknObject> cons = akn.attributes().get(localName);
         if (cons == null) {
             throw new InvalidAttributeException(name, akn);
         }
@@ -513,7 +518,6 @@ public final class Attributes {
         cons.accept(akn, value);
 
         channelReader.getContext().update(cons.name(), akn);
-
     };
 
     private static abstract class DefaultAknAttributeGetterSetter<T> implements AttributeGetterSetter<T> {

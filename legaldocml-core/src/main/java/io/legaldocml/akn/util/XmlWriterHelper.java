@@ -100,7 +100,7 @@ public final class XmlWriterHelper {
 
     public static void writeLinkReq(XmlWriter writer, LinkReq req) throws IOException {
         if (req.getHref() == null) {
-            throw new RuntimeException();
+            throwException(writer, new WriterMandatoryAttributeException(req, AknAttributes.REFERS_TO, writer));
         }
         writer.writeAttribute(Attributes.ADDRESS_HREF, 4, req.getHref().getChars());
     }

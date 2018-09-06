@@ -37,7 +37,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public final class Formula extends Blocksreq implements Name, PreambleContainers, BasicContainers, PrefaceContainers, SubFlowStructureElement, PortionBodyTypeElement {
+public final class Formula extends Blocksreq implements Name, PreambleContainers, BasicContainers, PrefaceContainers, SubFlowStructureElement, PortionBodyTypeElement, PopupStructureElement {
 
     /**
      * Memory address.
@@ -78,7 +78,7 @@ public final class Formula extends Blocksreq implements Name, PreambleContainers
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_FORMULA, 7);
         if (writer.getVersion() >= 3) {
-            writeName(writer, this);
+            Name.super.write(writer);
         }
         super.write(writer);
         writer.writeEnd(ADDRESS_FORMULA, 7);

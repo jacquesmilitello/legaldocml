@@ -77,7 +77,7 @@ public final class Block extends InlineType implements Name, BlockElements {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_BLOCK, 5);
-        writeName(writer, this);
+        Name.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_BLOCK, 5);
     }

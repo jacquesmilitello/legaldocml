@@ -18,7 +18,6 @@ import java.util.Objects;
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.FRBR_AUTHOR;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -108,7 +107,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_FRBR_AUTHOR, 10);
         writeRole(writer, this);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_FRBR_AUTHOR, 10);
     }

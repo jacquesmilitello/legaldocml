@@ -17,7 +17,6 @@ import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -100,7 +99,7 @@ public abstract class JudgmentStructure extends AbstractStructure implements Nam
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writeName(writer, this);
+        Name.super.write(writer);
         writeContains(writer, this);
         writeMeta(writer);
         writeCoverPage(writer);

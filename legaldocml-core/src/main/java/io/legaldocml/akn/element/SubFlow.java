@@ -13,7 +13,6 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.AknElements.SUB_FLOW;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -74,7 +73,7 @@ public final class SubFlow extends SubFlowStructure implements SubFlowElements, 
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_SUB_FLOW, 7);
-        writeName(writer, this);
+        Name.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_SUB_FLOW, 7);
     }

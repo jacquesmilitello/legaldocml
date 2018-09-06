@@ -17,7 +17,6 @@ import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -112,7 +111,7 @@ public abstract class ReferenceType extends AbstractIdCore implements IdReq, Lin
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         writeShow(writer, this);
     }
 

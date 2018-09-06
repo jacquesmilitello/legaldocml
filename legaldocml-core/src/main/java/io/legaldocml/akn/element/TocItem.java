@@ -17,7 +17,6 @@ import static io.legaldocml.akn.AknElements.TOC_ITEM;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLevel;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -102,7 +101,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_TOC_ITEM, 7);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         writeLevel(writer, this);
         super.write(writer);
         writer.writeEnd(ADDRESS_TOC_ITEM, 7);

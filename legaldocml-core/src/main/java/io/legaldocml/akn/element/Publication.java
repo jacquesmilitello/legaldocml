@@ -27,7 +27,6 @@ import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4DateTim
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeDate;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeNumber;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRefers;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
@@ -181,7 +180,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_PUBLICATION, 11);
         writeDate(writer, this);
-        writeName(writer, this);
+        Name.super.write(writer);
         writeRefers(writer, this);
         writeShow(writer, this);
         writeNumber(writer, this);

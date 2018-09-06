@@ -73,7 +73,7 @@ public final class DebateSection extends AltHierarchy implements Name, SpeechSec
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_DEBATE_SECTION, 13);
-        writeName(writer, this);
+        Name.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_DEBATE_SECTION, 13);
     }

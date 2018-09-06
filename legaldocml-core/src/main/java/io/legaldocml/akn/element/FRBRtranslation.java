@@ -29,7 +29,6 @@ import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAgent;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAuthoritative;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFromLanguage;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.akn.util.XmlWriterHelper.writePivot;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -173,7 +172,7 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_FRBR_TRANSLATION, 15);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         writeFromLanguage(writer, this);
         writeAgent(writer, this);
         writeAuthoritative(writer, this);

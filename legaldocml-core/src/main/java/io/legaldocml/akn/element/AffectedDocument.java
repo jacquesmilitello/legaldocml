@@ -14,7 +14,6 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.AFFECTED_DOCUMENT;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeLinkReq;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -75,7 +74,7 @@ public final class AffectedDocument extends InlineType implements LinkReq, Amend
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_AFFECTED_DOCUMENT, 16);
-        writeLinkReq(writer, this);
+        LinkReq.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_AFFECTED_DOCUMENT, 16);
     }
