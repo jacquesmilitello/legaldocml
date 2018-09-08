@@ -52,6 +52,16 @@ class XmlChannelWriterTest {
     }
 
     @Test
+    void writeAttributeCharArraySpecialCharacter() throws IOException {
+        writer.writeStart(ADR, 4);
+        writer.writeAttribute(ADR, 4, "hello \\t \"test".toCharArray());
+        writer.writeEnd(ADR, 4);
+        writer.flush();
+
+        Assertions.assertEquals("<toto toto=\"hello \\t &quot;test\"/>", baos.toString());
+    }
+
+    @Test
     void writeAttributeLocalDate() throws IOException {
         writer.writeStart(ADR, 4);
         writer.writeAttribute(ADR, 4, LocalDate.of(2011,3,9));

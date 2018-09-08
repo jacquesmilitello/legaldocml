@@ -497,10 +497,10 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                     break;
 
                 case STATE_OPEN_TAG_EQUAL_READ:
-                    if (c == '\'') {
-                        state = STATE_OPEN_TAG_READ_ATTR_VALUE_SIMPLE_QUOTE;
-                    } else if (c == '\"') {
+                    if (c == '\"') {
                         state = STATE_OPEN_TAG_READ_ATTR_VALUE_DOUBLE_QUOTE;
+                    } else if (c == '\'') {
+                        state = STATE_OPEN_TAG_READ_ATTR_VALUE_SIMPLE_QUOTE;
                     } else if (c > ' ') {
                         throw new XmlChannelReaderException(EXPECTED_QUOTES, this);
                     }
@@ -534,6 +534,8 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
                         c = nextChar();
                         if (c == '&') {
                             c = doReplaceEntity();
+                            cb.put(c);
+                            c = nextChar();
                         }
                     }
                     break;
