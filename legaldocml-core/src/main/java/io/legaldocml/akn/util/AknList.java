@@ -85,12 +85,12 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> {
         /**
          * {@inheritDoc}
          */
-        //@Override
-       // public void removeAll() {
-       //     //noinspection unchecked
-       ///     AknList.this.setElems((E[]) EMPTY_ELEMENTDATA);
-       //     AknList.this.setSize(0);
-      //  }
+        @Override
+        public void removeAll() {
+            //noinspection unchecked
+            AknList.this.setElems((E[]) EMPTY_ELEMENTDATA);
+            AknList.this.setSize(0);
+        }
 
 
         /**

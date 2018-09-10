@@ -1057,7 +1057,7 @@ public final class AknElements {
     /**
      * Element for {@link io.legaldocml.akn.element.OtherReferences}
      */
-    public static final String OTHER_REFERENCES = "OtherReferences";
+    public static final String OTHER_REFERENCES = "otherReferences";
 
     /**
      * Element for {@link io.legaldocml.akn.element.Outcome}

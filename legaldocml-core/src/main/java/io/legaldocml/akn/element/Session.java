@@ -13,7 +13,6 @@ import java.io.IOException;
 import static io.legaldocml.akn.AknAttributes.VALUE;
 import static io.legaldocml.akn.AknElements.SESSION;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -75,7 +74,7 @@ public final class Session extends InlineType implements ValueOpt, ANtitleInline
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_SESSION, 7);
-        writeOptValue(writer, this);
+        ValueOpt.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_SESSION, 7);
     }

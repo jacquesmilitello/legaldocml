@@ -111,6 +111,7 @@ public final class Li extends AbstractCore implements CoreOpt, ValueOpt {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_LI, 2);
         CoreOpt.super.write(writer);
+        ValueOpt.super.write(writer);
         this.elements.write(writer);
         writer.writeEnd(ADDRESS_LI, 2);
     }

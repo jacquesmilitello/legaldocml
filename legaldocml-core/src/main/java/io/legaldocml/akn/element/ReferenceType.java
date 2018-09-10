@@ -41,7 +41,7 @@ public abstract class ReferenceType extends AbstractIdCore implements IdReq, Lin
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
-                .putAll(MetaOpt.ATTRIBUTES)
+                .putAll(AbstractIdCore.ATTRIBUTES)
                 .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(ReferenceType.class, "showAs")))
                 .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(ReferenceType.class, "shortForm")))
                 .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(ReferenceType.class, "href")))
@@ -112,6 +112,7 @@ public abstract class ReferenceType extends AbstractIdCore implements IdReq, Lin
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
         LinkReq.super.write(writer);
+        Core.super.write(writer);
         writeShow(writer, this);
     }
 

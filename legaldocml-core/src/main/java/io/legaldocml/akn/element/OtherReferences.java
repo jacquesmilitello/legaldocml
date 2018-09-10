@@ -87,10 +87,10 @@ public final class OtherReferences implements Source {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        writer.writeStart(ADDRESS_OTHER_REFERENCES, 5);
+        writer.writeStart(ADDRESS_OTHER_REFERENCES, 15);
         writeSource(writer, this);
         this.elements.write(writer);
-        writer.writeEnd(ADDRESS_OTHER_REFERENCES, 5);
+        writer.writeEnd(ADDRESS_OTHER_REFERENCES, 15);
     }
 
     /**
@@ -99,7 +99,6 @@ public final class OtherReferences implements Source {
     @Override
     public void read(XmlReader reader) {
         reader.forEach(this, ATTRIBUTE_CONSUMER);
-        reader.nextStartOrEndElement();
         XmlReaderHelper.read(reader, this.elements, ELEMS);
     }
 

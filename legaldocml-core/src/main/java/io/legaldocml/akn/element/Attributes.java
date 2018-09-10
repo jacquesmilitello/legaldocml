@@ -512,7 +512,7 @@ public final class Attributes {
         }
         AttributeGetterSetter<AknObject> cons = akn.attributes().get(localName);
         if (cons == null) {
-            throw new InvalidAttributeException(name, akn);
+            throw new InvalidAttributeException(name, value, akn);
         }
 
         cons.accept(akn, value);
@@ -542,8 +542,8 @@ public final class Attributes {
 
     public static class InvalidAttributeException extends RuntimeException {
 
-        InvalidAttributeException(CharArray name, AknObject akn) {
-            super("Invalid attribute [" + name + "] for [" + akn.name() + "] : attributes allowed " + akn.attributes().keySet().asList());
+        InvalidAttributeException(CharArray name, CharArray value,  AknObject akn) {
+            super("Invalid attribute [" + name + "]-["+ value + "] for [" + akn.name() + "] : attributes allowed " + akn.attributes().keySet().asList());
         }
     }
 

@@ -2,8 +2,6 @@ package io.legaldocml.util;
 
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.util.AknList;
-import io.legaldocml.akn.util.ExternalizableList;
-import io.legaldocml.io.Externalizable;
 
 import java.util.Iterator;
 
@@ -40,6 +38,14 @@ public final class Iterables {
         @Override
         public Object get(int index) {
             return null;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void removeAll() {
+            // nothing to do.
         }
 
     };

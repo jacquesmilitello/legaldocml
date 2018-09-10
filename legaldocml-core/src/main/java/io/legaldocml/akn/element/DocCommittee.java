@@ -9,7 +9,6 @@ import io.legaldocml.util.Buffers;
 import java.io.IOException;
 
 import static io.legaldocml.akn.AknElements.DOC_COMMITTEE;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeOptValue;
 
 /**
  * The element docCommittee is an inline element within preface to identify the string used by the document detailing
@@ -44,7 +43,7 @@ public final class DocCommittee extends InlineType implements ANtitleInline, Val
     @Override
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_DOC_COMMITTEE, 12);
-        writeOptValue(writer, this);
+        ValueOpt.super.write(writer);
         super.write(writer);
         writer.writeEnd(ADDRESS_DOC_COMMITTEE, 12);
     }

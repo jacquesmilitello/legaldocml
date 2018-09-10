@@ -12,6 +12,8 @@ public interface ListIterable<T> extends Iterable<T> {
 
     int size();
 
+    T get(int index);
+
     default Stream<T> stream() {
     	return StreamSupport.stream(this.spliterator(), false);
     }
@@ -24,7 +26,6 @@ public interface ListIterable<T> extends Iterable<T> {
         return Spliterators.spliterator(iterator(), size(), Spliterator.SIZED);
     }
 
-
-    T get(int index);
+    void removeAll();
 
 }
