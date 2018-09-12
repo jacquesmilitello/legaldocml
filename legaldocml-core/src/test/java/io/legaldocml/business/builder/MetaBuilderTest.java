@@ -26,7 +26,6 @@ import java.util.List;
 
 import static io.legaldocml.akn.AknElements.DEBATE;
 import static io.legaldocml.akn.AknElements.PORTION;
-import static io.legaldocml.akn.type.AgentRef.valueOf;
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 import static java.time.OffsetDateTime.now;
 import static java.util.stream.Collectors.toList;
@@ -148,11 +147,6 @@ class MetaBuilderTest {
         assertEquals(1, identification.getFRBRExpression().getAuthors().size());
         assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
 
-        builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques"));
-        assertEquals(1, identification.getFRBRWork().getAuthors().size());
-        assertEquals(1, identification.getFRBRExpression().getAuthors().size());
-        assertEquals(1, identification.getFRBRManifestation().getAuthors().size());
-
         builder.getMetaBuilder().addAuthor(Uri.valueOf("#jacques2"), MetaBuilder.LOOKUP_FRBR_EXPRESSION);
         assertEquals(1, identification.getFRBRWork().getAuthors().size());
         assertEquals(2, identification.getFRBRExpression().getAuthors().size());
@@ -174,13 +168,13 @@ class MetaBuilderTest {
     void testAddStep() {
         BusinessProvider provider = BusinessProvider.businessProvider("default");
         BusinessBuilder<Debate, ?> builder = provider.newBuilder(PORTION);
-        ConceptRef dg = new ConceptRef(getChars("dg"));
-        ConceptRef budg = new ConceptRef(getChars("budg"));
-        ConceptRef decision = new ConceptRef(getChars("decision"));
-        AgentRef op = valueOf("#op");
-        builder.getMetaBuilder().addStep(now(), op, dg);
-        builder.getMetaBuilder().addStep(now(), op, budg);
-        builder.getMetaBuilder().addStep(now(), op, decision);
+        ConceptRef concept1 = new ConceptRef(getChars("concept1"));
+        ConceptRef concept2 = new ConceptRef(getChars("concept2"));
+        ConceptRef concept3 = new ConceptRef(getChars("concept3"));
+        AgentRef op = AgentRef.valueOf("#jacques");
+        builder.getMetaBuilder().addStep(now(), op, concept1);
+        builder.getMetaBuilder().addStep(now(), op, concept2);
+        builder.getMetaBuilder().addStep(now(), op, concept3);
         Workflow workflow = builder.getMetaBuilder().getMeta().getWorkflow(op);
         assertNotNull(workflow);
         List<Step> steps = workflow.getSteps().collect(toList());

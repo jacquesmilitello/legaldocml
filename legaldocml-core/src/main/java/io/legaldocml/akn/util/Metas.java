@@ -1,5 +1,6 @@
 package io.legaldocml.akn.util;
 
+import io.legaldocml.akn.element.Analysis;
 import io.legaldocml.akn.element.Meta;
 import io.legaldocml.akn.element.Proprietary;
 import io.legaldocml.akn.element.References;
@@ -68,6 +69,20 @@ public final class Metas {
             meta.add(workflow);
         }
         return workflow;
+
+    }
+
+    public static Analysis analysis(Meta meta, AgentRef source) {
+        Analysis analysis = meta.getAnalysis(source);
+        if (analysis == null) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("meta.analysis not found for agent ref [{}] -> create", source);
+            }
+            analysis = new Analysis();
+            analysis.setSource(source);
+            meta.add(analysis);
+        }
+        return analysis;
 
     }
 

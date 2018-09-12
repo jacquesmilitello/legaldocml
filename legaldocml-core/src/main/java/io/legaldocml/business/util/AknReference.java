@@ -12,10 +12,8 @@ import io.legaldocml.akn.element.References;
 import io.legaldocml.akn.element.TLCRole;
 import io.legaldocml.akn.group.TLC;
 import io.legaldocml.akn.type.AgentRef;
-import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.akn.type.Uri;
+import io.legaldocml.akn.type.ListReferenceRefs;
 import io.legaldocml.akn.util.Metas;
-import io.legaldocml.unsafe.UnsafeString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +46,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
                     throw new AknReferenceException("Not a instance of Refers [" + object + "]");
                 }
 
-                ((Refers)object).setRefersTo(new ListReferenceRef(UnsafeString.getChars("#" + refersTo.getEid().toString())));
+                ((Refers)object).setRefersTo(ListReferenceRefs.make(refersTo.getEid().toReferenceRef()));
 
                 References ref = Metas.references(akn.getDocumentType().getMeta(),source);
 
@@ -106,7 +104,7 @@ public abstract class AknReference implements BiConsumer<AknObject, AkomaNtoso<?
                     throw new AknReferenceException("Not a instance of Role [" + object + "]");
                 }
 
-                ((Link)object).setHref(Uri.valueOf(tlc.getEid().makeRef()));
+                ((Link)object).setHref(tlc.getEid().toUri());
 
                 References ref = Metas.references(akn.getDocumentType().getMeta(),source);
 

@@ -345,7 +345,7 @@ public final class XmlWriterHelper {
 
     public static void writeRefers(XmlWriter writer, RefersOpt refers) throws IOException {
         if (refers.getRefersTo() != null) {
-            writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refers.getRefersTo().getChars());
+            refers.getRefersTo().write(writer);
         }
     }
 
@@ -353,7 +353,7 @@ public final class XmlWriterHelper {
         if (refersReq.getRefersTo() == null) {
             throwException(writer, new WriterMandatoryAttributeException(refersReq, AknAttributes.REFERS_TO, writer));
         } else {
-            writer.writeAttribute(Attributes.ADDRESS_REFERS, 8, refersReq.getRefersTo().getChars());
+            refersReq.getRefersTo().write(writer);
         }
     }
 

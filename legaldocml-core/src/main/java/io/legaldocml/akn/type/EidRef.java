@@ -1,6 +1,7 @@
 package io.legaldocml.akn.type;
 
-import java.util.function.Function;
+import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.CharArray;
 
 /**
  * These values are references to existing eIds only, i.e., given an existing eId of the form XYZ, the value is
@@ -16,13 +17,16 @@ import java.util.function.Function;
  */
 public class EidRef extends AbstractRef {
 
-    private static final Function<char[], EidRef> INSTANTIATOR_EID_REF = EidRef::new;
-
-    public EidRef(char[] value) {
+    private EidRef(char[] value) {
         super(value);
     }
 
-    public static EidRef valueOf(char[] value) {
-        return valueOf(value, INSTANTIATOR_EID_REF);
+    public EidRef(CharArray charArray) {
+        super(charArray.value());
     }
+
+    public static EidRef valueOf(String value) {
+        return new EidRef(UnsafeString.getChars(requireNonNull(value)));
+    }
+
 }

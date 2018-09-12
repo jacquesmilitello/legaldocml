@@ -16,6 +16,7 @@ import static io.legaldocml.akn.AknElements.AMENDMENT_CONTENT;
 import static io.legaldocml.akn.AknElements.AMENDMENT_HEADING;
 import static io.legaldocml.akn.AknElements.AMENDMENT_JUSTIFICATION;
 import static io.legaldocml.akn.AknElements.AMENDMENT_REFERENCE;
+import static java.util.Objects.requireNonNull;
 
 /**
  * <pre>
@@ -46,6 +47,10 @@ public abstract class AmendmentBodyType extends AbstractCore implements CoreOpt 
 
     // Mandatory (min 1)
     private final AknList<AmendmentBlock> blocks = new AknList<>(new AmendmentBlock[4]);
+
+    public final void add(AmendmentBlock block) {
+        this.blocks.add(requireNonNull(block));
+    }
 
     /**
      * {@inheritDoc}

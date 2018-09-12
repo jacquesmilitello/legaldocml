@@ -43,7 +43,6 @@ import java.io.IOException;
 import java.nio.channels.Channels;
 import java.time.LocalDate;
 
-import static io.legaldocml.akn.type.RoleRef.valueOf;
 import static io.legaldocml.akn.util.TLCFactory.newTLCOrganization;
 import static io.legaldocml.akn.util.TLCFactory.newTLCPerson;
 import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
@@ -60,7 +59,7 @@ class PortionBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");
 
-    private static final AgentRef SOURCE = AgentRef.valueOf("vergottini");
+    private static final AgentRef SOURCE = AgentRef.valueOf("#vergottini");
 
     private static final TLCOrganization ORGANIZATION = newTLCOrganization(NoWhiteSpace.valueOf("olrc"), Uri.valueOf("/akn/us/ontology/organization/olrc"), "Office of the Law Revision Counsel");
     private static final TLCOrganization ORGANIZATION_2 = newTLCOrganization(NoWhiteSpace.valueOf("interAmericanCommercialArbitationCommission"), Uri.valueOf("/akn/us/ontology/organization/interAmericanCommercialArbitationCommission"), "Inter-American Commercial Arbitration Commission");
@@ -94,8 +93,8 @@ class PortionBuilderTest {
         metaBuilder.setDate(LocalDate.of(2014, 10, 7), "Chapter 3 of Title 9 (July 26, 2013) -- XML Markup", LOOKUP_FRBR_MANIFESTATION);
 
         metaBuilder.addAuthor(LOOKUP_FRBR_WORK, href(SOURCE, ORGANIZATION), as(SOURCE, ROLE_DRAFTER));
-        metaBuilder.addAuthor(LOOKUP_FRBR_EXPRESSION, href(SOURCE, ORGANIZATION)).setAs(valueOf("editor"));
-        metaBuilder.addAuthor(LOOKUP_FRBR_MANIFESTATION, href(SOURCE, PERSON_VERGOTTINI)).setAs(RoleRef.raw("generator".toCharArray()));
+        metaBuilder.addAuthor(LOOKUP_FRBR_EXPRESSION, href(SOURCE, ORGANIZATION)).setAs(RoleRef.valueOf("#editor"));
+        metaBuilder.addAuthor(LOOKUP_FRBR_MANIFESTATION, href(SOURCE, PERSON_VERGOTTINI)).setAs(RoleRef.valueOf("generator"));
 
         metaBuilder.setCountry(Iso3166.UNITED_STATES_OF_AMERICA);
         metaBuilder.addLanguage(Iso639.ENGLISH, Language::getTerminology);
@@ -105,7 +104,7 @@ class PortionBuilderTest {
         metaBuilder.addName("title");
         metaBuilder.setPrescriptive(false);
         metaBuilder.setAuthoritative(true);
-        metaBuilder.setPortion("chp_3");
+        metaBuilder.setPortion("#chp_3");
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         XmlProvider.writerFactory(3).writePermissive(Channels.newChannel(baos), portionBuilder.getAkomaNtoso());
@@ -206,7 +205,7 @@ class PortionBuilderTest {
          *   <span>Enforcement of Convention.</span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_301"), "1");
+        item = toc.item(Uri.valueOf("#sec_301"), "1");
         item.span().text("301.");
         item.span().text("Enforcement of Convention.");
 
@@ -217,7 +216,7 @@ class PortionBuilderTest {
          *   <span>Incorporation by reference.</span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_302"), "1");
+        item = toc.item(Uri.valueOf("#sec_302"), "1");
         item.span().text("302.");
         item.span().text("Incorporation by reference.");
 
@@ -227,7 +226,7 @@ class PortionBuilderTest {
          *   <span>Order to compel arbitration; appointment of arbitrators; locale.</span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_303"), "1");
+        item = toc.item(Uri.valueOf("#sec_303"), "1");
         item.span().text("303.");
         item.span().text("Order to compel arbitration; appointment of arbitrators; locale.");
 
@@ -237,7 +236,7 @@ class PortionBuilderTest {
          *   <span>Recognition and enforcement of foreign arbitral decisions and awards; reciprocity.</span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_304"), "1");
+        item = toc.item(Uri.valueOf("#sec_304"), "1");
         item.span().text("304.");
         item.span().text("Recognition and enforcement of foreign arbitral decisions and awards; reciprocity.");
 
@@ -249,12 +248,12 @@ class PortionBuilderTest {
          *   </span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_305"), "1");
+        item = toc.item(Uri.valueOf("#sec_305"), "1");
         item.span().text("305.");
 
         InlineTypeBuilder<Span> span = item.span();
-        span.text("Relationship between the ").ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30".toCharArray())).text(" Inter-American Convention");
-        span.text(" and the  ").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10".toCharArray())).text("Convention on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
+        span.text("Relationship between the ").ref(Uri.valueOf("/akn/oas/act/1975__b_35/eng@1975-01-30")).text(" Inter-American Convention");
+        span.text(" and the  ").ref(Uri.valueOf("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
         span.text(".");
 
         /*
@@ -263,7 +262,7 @@ class PortionBuilderTest {
          *   <span>Applicable rules of <organization refersTo="#interAmericanCommercialArbitationCommission">Inter-American Commercial Arbitration Commission</organization>.</span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_306"), "1");
+        item = toc.item(Uri.valueOf("#sec_306"), "1");
         item.span().text("306.");
         span = item.span();
         span.text("Applicable rules of ").organization(ORGANIZATION_2).text("Inter-American Commercial Arbitration Commission");
@@ -275,7 +274,7 @@ class PortionBuilderTest {
          *   <span>Chapter 1; residual application.</span>
          * </tocItem>
          */
-        item = toc.item(Uri.valueOf("sec_307"), "1");
+        item = toc.item(Uri.valueOf("#sec_307"), "1");
         item.span().text("307.");
         item.span().text("Chapter 1; residual application.");
     }
@@ -288,13 +287,13 @@ class PortionBuilderTest {
         BlocksBuilder<Content> content = section.content();
 
         InlineTypeBuilder<P> p = content.p();
-        p.text("The ").ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention on International Commercial Arbitration of January 30, 1975");
-        p.text(", shall be enforced in United States courts in accordance with this").ref(Uri.valueOf("chp_3")).text("chapter");
+        p.text("The ").ref(Uri.valueOf("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention on International Commercial Arbitration of January 30, 1975");
+        p.text(", shall be enforced in United States courts in accordance with this").ref(Uri.valueOf("#chp_3")).text("chapter");
         p.text(".");
 
         InlineTypeBuilder<Block> block = content.block(t -> t.setName("sourceCredit"));
-        block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
-        block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/448")).text("104 Stat. 448");
+        block.text("(Added ").ref(Uri.valueOf("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
+        block.text(" , ").ref(Uri.valueOf("/akn/us/act/stat_104/448")).text("104 Stat. 448");
         block.text(" .)");
     }
 
@@ -307,11 +306,11 @@ class PortionBuilderTest {
         InlineTypeBuilder<P> p = content.p();
 
         InlineTypeBuilder<Mref> mref = p.mref();
-        mref.text("Sections ").ref(Uri.raw("/akn/us/act/title_9#sec_202")).text("202");
-        mref.text(", ").ref(Uri.raw("/akn/us/act/title_9#sec_203")).text("203");
-        mref.text(", ").ref(Uri.raw("/akn/us/act/title_9#sec_204")).text("204");
-        mref.text(", ").ref(Uri.raw("/akn/us/act/title_9#sec_205")).text("205");
-        mref.text(", and ").ref(Uri.raw("/akn/us/act/title_9#sec_207")).text("207");
+        mref.text("Sections ").ref(Uri.valueOf("/akn/us/act/title_9#sec_202")).text("202");
+        mref.text(", ").ref(Uri.valueOf("/akn/us/act/title_9#sec_203")).text("203");
+        mref.text(", ").ref(Uri.valueOf("/akn/us/act/title_9#sec_204")).text("204");
+        mref.text(", ").ref(Uri.valueOf("/akn/us/act/title_9#sec_205")).text("205");
+        mref.text(", and ").ref(Uri.valueOf("/akn/us/act/title_9#sec_207")).text("207");
         mref.text(" of this title");
 
         p.text(" shall apply to this chapter as if specifically set forth herein, except that for the");
@@ -319,8 +318,8 @@ class PortionBuilderTest {
         p.text("  Convention.");
 
         InlineTypeBuilder<Block> block = content.block(t -> t.setName("sourceCredit"));
-        block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
-        block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/448")).text("104 Stat. 448");
+        block.text("(Added ").ref(Uri.valueOf("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
+        block.text(" , ").ref(Uri.valueOf("/akn/us/act/stat_104/448")).text("104 Stat. 448");
         block.text(" .)");
 
     }
@@ -349,7 +348,7 @@ class PortionBuilderTest {
         p.text("In the event the agreement does not make provision for the place of arbitration or the")
                 .text(" appointment of arbitrators, the court shall direct that the arbitration shall be held")
                 .text(" and the arbitrators be appointed in accordance with");
-        p.ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30#art_3")).text("Article 3 of the Inter-American Convention");
+        p.ref(Uri.valueOf("/akn/oas/act/1975__b_35/eng@1975-01-30#art_3")).text("Article 3 of the Inter-American Convention");
         p.text(".");
 
     }
@@ -365,12 +364,12 @@ class PortionBuilderTest {
         p.text("Arbitral decisions or awards made in the territory of a foreign State shall, on the basis of");
         p.text(" reciprocity, be recognized and enforced under this chapter only if that State has ratified");
         p.text(" or acceded to the");
-        p.ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
+        p.ref(Uri.valueOf("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
         p.text(".");
 
         InlineTypeBuilder<Block> block = content.block(t -> t.setName("sourceCredit"));
-        block.text("(Added ").ref(Uri.raw("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
-        block.text(" , ").ref(Uri.raw("/akn/us/act/stat_104/449")).text("104 Stat. 449");
+        block.text("(Added ").ref(Uri.valueOf("/akn/us/act/pl_101/369/eng@1990-08-15#sec_1")).text("Pub. L. 101–369, § 1 , Aug. 15, 1990");
+        block.text(" , ").ref(Uri.valueOf("/akn/us/act/stat_104/449")).text("104 Stat. 449");
         block.text(" .)");
 
     }
@@ -379,13 +378,13 @@ class PortionBuilderTest {
 
         section.num().text("§ 305.");
         InlineReqTypeBuilder<Heading> heading = section.heading();
-        heading.text("Relationship between the ").ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
-        heading.text(" and the").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and  Enforcement of Foreign Arbitral Awards of June 10, 1958");
+        heading.text("Relationship between the ").ref(Uri.valueOf("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
+        heading.text(" and the").ref(Uri.valueOf("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and  Enforcement of Foreign Arbitral Awards of June 10, 1958");
 
         BlocksBuilder<Intro> intro = section.intro();
         InlineTypeBuilder<P> p = intro.p();
-        p.text("When the requirements for application of both the ").ref(Uri.raw("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
-        p.text(" and the  ").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
+        p.text("When the requirements for application of both the ").ref(Uri.valueOf("/akn/oas/act/1975__b_35/eng@1975-01-30")).text("Inter-American Convention");
+        p.text(" and the  ").ref(Uri.valueOf("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
         p.text(", are met, determination as to which Convention applies shall, unless otherwise expressly agreed, be made as follows:");
 
 
@@ -406,7 +405,7 @@ class PortionBuilderTest {
 
         paragraph.num().text("(2)");
         p = paragraph.content().p();
-        p.text("In all other cases the ").ref(Uri.raw("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention  on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
+        p.text("In all other cases the ").ref(Uri.valueOf("/akn/un/act/1958NYConvention/eng@1958-06-10")).text("Convention  on the Recognition and Enforcement of Foreign Arbitral Awards of June 10, 1958");
         p.text(", shall apply.");
     }
 

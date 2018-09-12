@@ -30,8 +30,8 @@ class DiffAttributeTest {
 
     @Test
     void testOneAttributeHasDifferentValue() {
-        TLCPerson left = newTLCPerson(valueOf("vergottini"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
-        TLCPerson right = newTLCPerson(valueOf("vergottini2"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
+        TLCPerson left = newTLCPerson(valueOf("#vergottini"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
+        TLCPerson right = newTLCPerson(valueOf("#vergottini2"), Uri.valueOf("/akn/us/ontology/person/somebody"), "Grant Vergottini");
 
         DiffResult result = new DiffBuilder<TLCPerson>().left(left).right(right).build();
 
@@ -45,8 +45,8 @@ class DiffAttributeTest {
         AttributeDiff ad = (AttributeDiff) diff;
         Assertions.assertEquals(left, ad.getLeft());
         Assertions.assertEquals(right, ad.getRight());
-        Assertions.assertEquals(valueOf("vergottini"), ad.getLeftValue());
-        Assertions.assertEquals(valueOf("vergottini2"), ad.getRightValue());
+        Assertions.assertEquals(valueOf("#vergottini"), ad.getLeftValue());
+        Assertions.assertEquals(valueOf("#vergottini2"), ad.getRightValue());
 
 
     }

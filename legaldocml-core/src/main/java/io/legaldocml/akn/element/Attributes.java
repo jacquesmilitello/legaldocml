@@ -8,6 +8,7 @@ import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.EventRefRef;
 import io.legaldocml.akn.type.ListReferenceRef;
+import io.legaldocml.akn.type.ListReferenceRefs;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.akn.type.ReferenceRef;
@@ -351,7 +352,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, Uri.raw(charArray.value()));
+                UNSAFE.putObject(object, addr, new Uri(charArray));
             }
         };
     }
@@ -370,7 +371,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, ReferenceRef.raw(charArray.value()));
+                UNSAFE.putObject(object, addr, new ReferenceRef(charArray));
             }
         };
     }
@@ -379,7 +380,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, new EidRef(charArray.value()));
+                UNSAFE.putObject(object, addr, new EidRef(charArray));
             }
         };
     }
@@ -397,7 +398,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, AgentRef.raw(charArray.value()));
+                UNSAFE.putObject(object, addr, new AgentRef(charArray));
             }
         };
     }
@@ -406,7 +407,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, RoleRef.raw(charArray.value()));
+                UNSAFE.putObject(object, addr, new RoleRef(charArray));
             }
         };
     }
@@ -434,7 +435,7 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
-                UNSAFE.putObject(object, addr, new ListReferenceRef(charArray.value()));
+                UNSAFE.putObject(object, addr, ListReferenceRefs.parse(charArray.value()));
             }
         };
     }

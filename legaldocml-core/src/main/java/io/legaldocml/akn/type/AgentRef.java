@@ -1,8 +1,9 @@
 package io.legaldocml.akn.type;
 
+import io.legaldocml.akn.AttributeValueException;
 import io.legaldocml.unsafe.UnsafeString;
-
-import java.util.function.Function;
+import io.legaldocml.util.CharArray;
+import io.legaldocml.util.Strings;
 
 /**
  * These values are references to existing agents (i.e., TLCPerson or TLCOrganization) only, i.e., given an existing eId
@@ -18,22 +19,21 @@ import java.util.function.Function;
  */
 public final class AgentRef extends AbstractRef {
 
-    private static final Function<char[], AgentRef> INSTANTIATOR_AGENT_REF = AgentRef::new;
+    public static final AgentRef EMPTY = new AgentRef(new char[0]);
 
-    private AgentRef(char[] value) {
+    AgentRef(char[] value) {
         super(value);
     }
 
-    public static AgentRef raw(char[] value) {
-        return new AgentRef(value);
-    }
-
-    public static AgentRef valueOf(char[] value) {
-        return valueOf(value, INSTANTIATOR_AGENT_REF);
+    public AgentRef(CharArray charArray) {
+        super(charArray.value());
     }
 
     public static AgentRef valueOf(String value) {
-        return valueOf(UnsafeString.getChars(value));
+        if (!Strings.isEmpty(value)) {
+            return new AgentRef(UnsafeString.getChars(requireNonNull(value)));
+        }
+        throw new AttributeValueException("NPE : valueOf(null)");
     }
 
 }

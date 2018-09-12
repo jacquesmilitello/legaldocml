@@ -1,8 +1,9 @@
 package io.legaldocml.akn.type;
 
 import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.CharArray;
 
-import java.util.function.Function;
+import static java.util.Objects.requireNonNull;
 
 /**
  * These values are references to existing References elements only, i.e., given an existing eId of an element of the
@@ -18,22 +19,16 @@ import java.util.function.Function;
  */
 public final class ReferenceRef extends AbstractRef {
 
-    private static final Function<char[], ReferenceRef> INSTANTIATOR_REFERENCE_REF = ReferenceRef::new;
+    public ReferenceRef(CharArray charArray) {
+        super(charArray.value());
+    }
 
-    private ReferenceRef(char[] value) {
+    ReferenceRef(char[] value) {
         super(value);
     }
 
-    public static ReferenceRef raw(char[] value) {
-        return new ReferenceRef(value);
-    }
-
-    public static ReferenceRef valueOf(char[] value) {
-        return valueOf(value, INSTANTIATOR_REFERENCE_REF);
-    }
-
     public static ReferenceRef valueOf(String value) {
-        return valueOf(UnsafeString.getChars(value));
+        return new ReferenceRef(UnsafeString.getChars(requireNonNull(value)));
     }
 
 }

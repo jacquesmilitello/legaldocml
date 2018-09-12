@@ -1,8 +1,9 @@
 package io.legaldocml.akn.type;
 
 import io.legaldocml.unsafe.UnsafeString;
+import io.legaldocml.util.CharArray;
 
-import java.util.function.Function;
+import java.util.Objects;
 
 /**
  * These values are references to existing roles (i.e., TLCRole) only, i.e., given an existing eId of a role of the form
@@ -18,18 +19,16 @@ import java.util.function.Function;
  */
 public final class RoleRef extends AbstractRef {
 
-    static final Function<char[], RoleRef> INSTANTIATOR_ROLE_REF = RoleRef::new;
-
-    private RoleRef(char[] value) {
+    RoleRef(char[] value) {
         super(value);
     }
 
-    public static RoleRef raw(char[] raw) {
-        return new RoleRef(raw);
+    public RoleRef(CharArray charArray) {
+        super(charArray.value());
     }
 
     public static RoleRef valueOf(String value) {
-        return valueOf(UnsafeString.getChars(value), INSTANTIATOR_ROLE_REF);
+        return new RoleRef(UnsafeString.getChars(Objects.requireNonNull(value)));
     }
 
 }

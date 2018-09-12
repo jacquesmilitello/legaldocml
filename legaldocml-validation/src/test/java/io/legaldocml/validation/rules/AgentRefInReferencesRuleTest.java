@@ -48,7 +48,7 @@ class AgentRefInReferencesRuleTest {
     void testNoRefSource()  {
         AkomaNtoso<Doc> akn = new AkomaNtoso<>(new DefaultAkomaNtosoContext());
         akn.setDocumentType(new Doc());
-        akn.getDocumentType().getMeta().getIdentification().setSource(AgentRef.raw("toto".toCharArray()));
+        akn.getDocumentType().getMeta().getIdentification().setSource(AgentRef.valueOf("toto"));
         ValidationContext context =  Validations.context(akn);
         Rules.agentRefInReferences().apply(context);
         Assertions.assertEquals(0,context.getErrorCount());

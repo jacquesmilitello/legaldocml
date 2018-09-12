@@ -4,6 +4,8 @@ import io.legaldocml.unsafe.UnsafeString;
 
 import java.util.Arrays;
 
+import static io.legaldocml.akn.type.AbstractRef.DEFAULT_REFERENCE;
+
 /**
  * These values are those of ids such as eId, wId and GUID as a collection of any printable character except
  * whitespaces.
@@ -40,18 +42,26 @@ public final class NoWhiteSpace {
     }
 
     public Uri toUri() {
-        return AbstractRef.valueOf(this.value, Uri.INSTANTIATOR_URI);
+         return this.toUri(DEFAULT_REFERENCE);
+    }
+    public Uri toUri(Reference reference) {
+        return new Uri(reference.make(this.value));
     }
 
     public RoleRef toRoleRef() {
-        return AbstractRef.valueOf(this.value, RoleRef.INSTANTIATOR_ROLE_REF);
+        return toRoleRef(DEFAULT_REFERENCE);
     }
 
-    public char[] makeRef() {
-        char[] ref = new char[this.value.length + 1];
-        ref[0] = '#';
-        System.arraycopy(this.value,0,ref,1,this.value.length);
-        return ref;
+    public RoleRef toRoleRef(Reference reference) {
+        return new RoleRef(reference.make(this.value));
+    }
+
+    public ReferenceRef toReferenceRef() {
+        return toReferenceRef(DEFAULT_REFERENCE);
+    }
+
+    public ReferenceRef toReferenceRef(Reference reference) {
+        return new ReferenceRef(reference.make(this.value));
     }
 
     /**

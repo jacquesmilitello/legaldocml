@@ -42,9 +42,9 @@ class CoverPageBuilderTest {
         BusinessBuilder<Debate, ?> debateBusinessBuilder = provider.newBuilder(DEBATE);
 
         AgentRef source = AgentRef.valueOf("redattore");
-        TLCPerson person1 = newTLCPerson(NoWhiteSpace.valueOf("person_1"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");
-        TLCPerson person2 = newTLCPerson(NoWhiteSpace.valueOf("person_2"), Uri.raw("http://dati.senato./akn/it/osr/Persona"), "ZANDA");
-        TLCRole role = newTLCRole(NoWhiteSpace.valueOf("role_1"), Uri.raw("http://dati.senato./akn/it/osr/Senatore"), "Senatore");
+        TLCPerson person1 = newTLCPerson(NoWhiteSpace.valueOf("person_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"), "FINOCCHIARO");
+        TLCPerson person2 = newTLCPerson(NoWhiteSpace.valueOf("person_2"), Uri.valueOf("http://dati.senato./akn/it/osr/Persona"), "ZANDA");
+        TLCRole role = newTLCRole(NoWhiteSpace.valueOf("role_1"), Uri.valueOf("http://dati.senato./akn/it/osr/Senatore"), "Senatore");
 
 
         CoverPageBuilder coverPageBuilder = new CoverPageBuilder(debateBusinessBuilder);

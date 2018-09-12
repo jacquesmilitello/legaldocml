@@ -6,38 +6,35 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
 class ListReferenceRefTest {
 
     @Test
     void testSingle() {
-        ListReferenceRef ref = new ListReferenceRef("#hello".toCharArray());
+        ListReferenceRef ref = ListReferenceRefs.parse("#hello".toCharArray());
         assertEquals(1, ref.size());
-        assertEquals(true, ref.get(0).isRef());
+        assertTrue(ref.get(0).isRef());
         assertEquals("#hello", UnsafeString.valueOf(ref.get(0).getChars()));
     }
 
     @Test
     void testMultiple() {
-        ListReferenceRef ref = new ListReferenceRef("#hello #test value".toCharArray());
+        ListReferenceRef ref = ListReferenceRefs.parse("#hello #test value".toCharArray());
         assertEquals(3, ref.size());
-        assertEquals(true, ref.get(0).isRef());
+        assertTrue(ref.get(0).isRef());
         assertEquals("#hello", UnsafeString.valueOf(ref.get(0).getChars()));
-        assertEquals(true, ref.get(1).isRef());
+        assertTrue(ref.get(1).isRef());
         assertEquals("#test", UnsafeString.valueOf(ref.get(1).getChars()));
-        assertEquals(false, ref.get(2).isRef());
+        assertFalse(ref.get(2).isRef());
         assertEquals("value", UnsafeString.valueOf(ref.get(2).getChars()));
     }
 
     @Test
     void testAdd() {
-        ListReferenceRef ref = new ListReferenceRef();
-        ref.add(ReferenceRef.valueOf("hello"));
-
-        assertEquals("#hello", new String(ref.getChars()));
-
+        ListReferenceRef ref = ListReferenceRefs.make(ReferenceRef.valueOf("hello"));
         ref.add(ReferenceRef.valueOf("toto"));
-        assertEquals("#hello #toto", new String(ref.getChars()));
     }
 }

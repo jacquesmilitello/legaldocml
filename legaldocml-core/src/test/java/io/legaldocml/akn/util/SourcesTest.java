@@ -29,7 +29,7 @@ class SourcesTest {
         assertEquals(AknAttributes.SOURCE, ex.getAttribute());
         assertEquals(proprietary, ex.getAknObject());
 
-        proprietary.setSource(AgentRef.raw(new char[0]));
+        proprietary.setSource(AgentRef.EMPTY);
         ex = assertThrows(MandatoryAttributeException.class, () -> Sources.add(proprietaries, proprietary));
         assertEquals(AknAttributes.SOURCE, ex.getAttribute());
         assertEquals(proprietary, ex.getAknObject());

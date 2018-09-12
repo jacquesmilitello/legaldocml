@@ -23,7 +23,7 @@ class TLCFactoryTest {
     @Test
     void testTLCLocation() {
         TLCLocation location = TLCFactory.newTLCLocation(NoWhiteSpace.valueOf("Sotaqui"),
-                Uri.raw("/cl/division-politico-administrativa/2010/comuna/ovalle"), "Sotaqui");
+                Uri.valueOf("/cl/division-politico-administrativa/2010/comuna/ovalle"), "Sotaqui");
 
         Assertions.assertEquals("<TLCLocation eId=\"Sotaqui\" href=\"/cl/division-politico-administrativa/2010/comuna/ovalle\" showAs=\"Sotaqui\"/>", write(location));
     }
@@ -32,7 +32,7 @@ class TLCFactoryTest {
     @Test
     void testTLCTerm() {
         TLCTerm term = TLCFactory.newTLCTerm(NoWhiteSpace.valueOf("hello"),
-                Uri.raw("/ontology/term/hello"), "bonjour");
+                Uri.valueOf("/ontology/term/hello"), "bonjour");
 
         Assertions.assertEquals("<TLCTerm eId=\"hello\" href=\"/ontology/term/hello\" showAs=\"bonjour\"/>", write(term));
     }

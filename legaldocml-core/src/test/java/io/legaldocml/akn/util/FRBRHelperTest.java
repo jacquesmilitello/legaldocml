@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static io.legaldocml.WriterHelper.write;
-import static io.legaldocml.akn.type.Uri.raw;
+import static io.legaldocml.akn.type.Uri.valueOf;
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRauthor;
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRuri;
@@ -42,7 +42,7 @@ class FRBRHelperTest {
 
     @Test
     void testNewFRBRauthor() {
-        FRBRauthor frbr = newFRBRauthor(raw("Manon"));
+        FRBRauthor frbr = newFRBRauthor(valueOf("Manon"));
         assertEquals("<FRBRauthor href=\"Manon\"/>", write(frbr));
     }
 
@@ -54,7 +54,7 @@ class FRBRHelperTest {
 
     @Test
     void testNewFRBRtranslation() {
-        FRBRtranslation frbRtranslation = newFRBRtranslation(raw("/akn/doc/2018/eng@0001.0001"), AgentRef.valueOf("org"), "eng");
+        FRBRtranslation frbRtranslation = newFRBRtranslation(valueOf("/akn/doc/2018/eng@0001.0001"), AgentRef.valueOf("#org"), "eng");
         assertEquals("<FRBRtranslation href=\"/akn/doc/2018/eng@0001.0001\" fromLanguage=\"eng\" by=\"#org\"/>", write(frbRtranslation));
     }
 }

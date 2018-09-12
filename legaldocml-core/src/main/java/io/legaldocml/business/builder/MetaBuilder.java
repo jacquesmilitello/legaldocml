@@ -1,6 +1,7 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.akn.DocumentType;
+import io.legaldocml.akn.element.Analysis;
 import io.legaldocml.akn.element.CoreProperties;
 import io.legaldocml.akn.element.FRBRauthor;
 import io.legaldocml.akn.element.FRBRauthoritative;
@@ -18,6 +19,7 @@ import io.legaldocml.akn.element.Step;
 import io.legaldocml.akn.element.Workflow;
 import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ConceptRef;
+import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.FRBRHelper;
@@ -33,9 +35,9 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.function.Function;
 
-import static io.legaldocml.akn.type.EidRef.valueOf;
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRuri;
+import static io.legaldocml.akn.util.Metas.analysis;
 import static io.legaldocml.akn.util.Metas.proprietary;
 import static io.legaldocml.akn.util.Metas.references;
 import static io.legaldocml.akn.util.Metas.workflow;
@@ -231,7 +233,7 @@ public final class MetaBuilder {
 
     public FRBRportion setPortion(String from) {
         FRBRportion portion = new FRBRportion();
-        portion.setFrom(valueOf(getChars(from)));
+        portion.setFrom(EidRef.valueOf(from));
         this.meta.getIdentification().getFRBRManifestation().setPortion(portion);
         return portion;
     }
@@ -241,7 +243,7 @@ public final class MetaBuilder {
     }
 
     public References getReferences() {
-        return getReferences(this.getMeta().getIdentification().getSource());
+        return getReferences(this.meta.getIdentification().getSource());
     }
 
     public Proprietary getProprietary(AgentRef source) {
@@ -250,6 +252,14 @@ public final class MetaBuilder {
 
     public Workflow getWorkFlow(AgentRef source) {
         return workflow(meta, source);
+    }
+
+    public Analysis getAnalysis(AgentRef source) {
+        return analysis(this.meta, source);
+    }
+
+    public Analysis getAnalysis() {
+        return analysis(this.meta, this.meta.getIdentification().getSource());
     }
 
 }
