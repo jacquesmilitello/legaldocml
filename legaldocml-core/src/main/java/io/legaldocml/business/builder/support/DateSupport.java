@@ -5,7 +5,7 @@ import io.legaldocml.akn.container.ANsemanticInlineContainer;
 import io.legaldocml.akn.element.Date;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 import java.util.function.Consumer;
 
 /**
@@ -13,13 +13,13 @@ import java.util.function.Consumer;
  */
 public interface DateSupport<T extends ANsemanticInlineContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
-    default InlineTypeBuilder<Date> date(OffsetDateTime localDate) {
-        return date(localDate,null);
+    default InlineTypeBuilder<Date> date(Temporal temporal) {
+        return date(temporal,null);
     }
 
-    default InlineTypeBuilder<Date> date(OffsetDateTime localDate, Consumer<Date> consumer) {
+    default InlineTypeBuilder<Date> date(Temporal temporal, Consumer<Date> consumer) {
         Date date = new Date();
-        date.setDate(localDate);
+        date.setDate(temporal);
         parent().add(date);
         businessBuilder().getContext().push(parent(), date);
         if (consumer != null) {

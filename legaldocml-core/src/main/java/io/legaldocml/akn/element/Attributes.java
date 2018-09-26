@@ -33,6 +33,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.Temporal;
 import java.util.function.Function;
 
 import static io.legaldocml.akn.AknAttributes.ACTOR;
@@ -320,10 +321,9 @@ public final class Attributes {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T i, CharArray s) {
-                OffsetDateTime dateTime;
+                Temporal dateTime;
                 if (s.length() == 10) {
-                    dateTime = OffsetDateTime.of(LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE),
-                            Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
+                    dateTime = LocalDate.parse(s.toString(), DateTimeFormatter.ISO_DATE);
                 } else if (s.length() == 11 && s.charAt(10) == 'Z') {
                     dateTime = OffsetDateTime.of(LocalDate.parse(s.subSequence(0, 10).toString(), DateTimeFormatter.ISO_DATE),
                             Dates.TIME_00_00_00, Dates.ZONE_OFFSET_0);
@@ -487,7 +487,9 @@ public final class Attributes {
 
             // same prefix from the element prefix and attribute prefix
             if (!prefix.toString().equals(channelReader.getQName().getPrefix())) {
-                Module module = Modules.get(prefix);
+
+                CharArray ns = channelReader.getNamespaces().get(prefix);
+                Module module = Modules.get(ns);
 
                 if (!(akn instanceof Core)) {
                     throw new RuntimeException("Should instance of Core");

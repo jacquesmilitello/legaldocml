@@ -14,7 +14,7 @@ import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknAttributes.NAME;
@@ -76,7 +76,7 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
     }
 
     // Mandatory
-    private OffsetDateTime date;
+    private Temporal date;
 
     // Mandatory
     private String showAs;
@@ -162,14 +162,14 @@ public final class Publication extends MetaOpt implements Date, ShowReq, Name, N
     /**
      * {@inheritDoc}
      */
-    public OffsetDateTime getDate() {
+    public Temporal getDate() {
         return this.date;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void setDate(OffsetDateTime date) {
+    public void setDate(Temporal date) {
         this.date = date;
     }
 

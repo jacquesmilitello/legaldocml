@@ -70,7 +70,9 @@ import io.legaldocml.akn.exception.WriterMandatoryAttributeException;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 import static io.legaldocml.akn.element.Attributes.ADDRESS_AUTHORITATIVE;
 import static io.legaldocml.akn.element.Attributes.ADDRESS_DICTIONARY;
@@ -212,11 +214,16 @@ public final class XmlWriterHelper {
         if (date.getDate() == null) {
             throwException(writer, new WriterMandatoryAttributeException(date, AknAttributes.DATE, writer));
         } else {
-            OffsetDateTime dt = date.getDate();
-            if ((dt.getHour() == 0) && (dt.getMinute() == 0) && (dt.getSecond() == 0) && (dt.getNano() == 0)) {
-                writer.writeAttribute(Attributes.ADDRESS_DATE, 4, date.getDate().toLocalDate());
+
+            Temporal temporal = date.getDate();
+
+            if (temporal instanceof LocalDate) {
+                writer.writeAttribute(Attributes.ADDRESS_DATE, 4, (LocalDate)temporal);
+            } else if (temporal instanceof OffsetDateTime) {
+                writer.writeAttribute(Attributes.ADDRESS_DATE, 4, (OffsetDateTime)date.getDate());
             } else {
-                writer.writeAttribute(Attributes.ADDRESS_DATE, 4, date.getDate());
+                throwException(writer, new LegalDocMlException("Unsupported Date Temporal : only (LocalDate,OffsetDateTime), found : " + temporal) {
+                });
             }
         }
 

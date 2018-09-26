@@ -7,6 +7,7 @@ import io.legaldocml.akn.group.ANmarker;
 import io.legaldocml.akn.group.ANsemanticInline;
 import io.legaldocml.akn.group.ANsubFlow;
 import io.legaldocml.akn.group.ANtitleInline;
+import io.legaldocml.akn.group.AmendmentInline;
 import io.legaldocml.akn.group.HTMLinline;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.akn.group.SubFlowElements;
@@ -116,6 +117,14 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void add(ANsubFlow flow) {
         this.data.add(requireNonNull(flow));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(AmendmentInline inline) {
+        this.data.add(requireNonNull(inline));
     }
 
     /**

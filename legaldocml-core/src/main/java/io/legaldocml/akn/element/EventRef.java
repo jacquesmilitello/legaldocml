@@ -15,7 +15,7 @@ import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknAttributes.ORIGINATING_EXPRESSION;
@@ -78,7 +78,7 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
                 .build();
     }
 
-    private OffsetDateTime date;
+    private Temporal date;
     private AgentRef source;
     private ListReferenceRef refersTo;
     private Boolean originatingExpression;
@@ -104,7 +104,7 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
      * {@inheritDoc}
      */
     @Override
-    public OffsetDateTime getDate() {
+    public Temporal getDate() {
         return this.date;
     }
 
@@ -112,7 +112,7 @@ public final class EventRef extends AnyOtherType implements Date, Source, Refers
      * {@inheritDoc}
      */
     @Override
-    public void setDate(OffsetDateTime date) {
+    public void setDate(Temporal date) {
         this.date = date;
     }
 

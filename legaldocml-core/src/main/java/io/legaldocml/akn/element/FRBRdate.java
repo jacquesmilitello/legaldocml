@@ -10,7 +10,7 @@ import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknAttributes.NAME;
@@ -56,7 +56,7 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
                 .build();
     }
 
-    private OffsetDateTime date;
+    private Temporal date;
     private String name;
 
     /**
@@ -76,14 +76,14 @@ public final class FRBRdate extends MetaOpt implements Date, Name {
     /**
      * {@inheritDoc}
      */
-    public OffsetDateTime getDate() {
+    public Temporal getDate() {
         return this.date;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void setDate(OffsetDateTime date) {
+    public void setDate(Temporal date) {
         this.date = date;
     }
 

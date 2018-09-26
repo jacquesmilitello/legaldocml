@@ -18,7 +18,7 @@ import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 import static io.legaldocml.akn.AknAttributes.ACTOR;
 import static io.legaldocml.akn.AknAttributes.AS;
@@ -81,13 +81,13 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
                 .put(OUTCOME, attributeGetterSetter4ConceptRef(OUTCOME, getFieldOffset(Step.class, "outcome")))
                 .put(REFERS_TO, attributeGetterSetter4String(REFERS_TO, getFieldOffset(Step.class, "refersTo")))
                 .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(Step.class, "by")))
-                 // backward compatibility with ako 2
+                // backward compatibility with ako 2
                 .put(ACTOR, attributeGetterSetter4String(ACTOR, getFieldOffset(Step.class, "actor")))
                 .build();
     }
 
     private RoleRef as;
-    private OffsetDateTime date;
+    private Temporal date;
     private ConceptRef outcome;
     private ListReferenceRef refersTo;
     private AgentRef by;
@@ -98,7 +98,7 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
      * {@inheritDoc}
      */
     @Override
-    public OffsetDateTime getDate() {
+    public Temporal getDate() {
         return this.date;
     }
 
@@ -106,7 +106,7 @@ public final class Step extends AnyOtherType implements Role, Date, RefersOpt, O
      * {@inheritDoc}
      */
     @Override
-    public void setDate(OffsetDateTime date) {
+    public void setDate(Temporal date) {
         this.date = date;
     }
 

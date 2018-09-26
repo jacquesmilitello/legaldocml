@@ -10,7 +10,7 @@ import io.legaldocml.io.XmlWriter;
 import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 import static io.legaldocml.akn.AknAttributes.DATE;
 import static io.legaldocml.akn.AknElements.DOC_DATE;
@@ -53,13 +53,13 @@ public final class DocDate extends InlineType implements Date, ANtitleInline {
     }
 
     // Mandatory
-    private OffsetDateTime date;
+    private Temporal date;
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public OffsetDateTime getDate() {
+    public Temporal getDate() {
         return this.date;
     }
 
@@ -67,7 +67,7 @@ public final class DocDate extends InlineType implements Date, ANtitleInline {
      * {@inheritDoc}
      */
     @Override
-    public void setDate(OffsetDateTime date) {
+    public void setDate(Temporal date) {
         this.date = date;
     }
 

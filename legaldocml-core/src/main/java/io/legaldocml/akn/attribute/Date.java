@@ -3,6 +3,7 @@ package io.legaldocml.akn.attribute;
 import io.legaldocml.akn.AknObject;
 
 import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 
 /**
  * The attribute date is used to give a normalized value for a date according to the XSD syntax YYYY-MM-DD or a
@@ -22,8 +23,8 @@ import java.time.OffsetDateTime;
  */
 public interface Date extends AknObject {
 
-    OffsetDateTime getDate();
+    Temporal getDate();
 
-    void setDate(OffsetDateTime date);
+    void setDate(Temporal date);
 
 }
