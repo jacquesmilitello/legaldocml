@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-
-	XLIFF Version 2.0
-	OASIS Standard
-	05 August 2014
-	Copyright (c) OASIS Open 2014. All rights reserved.
-	Source: http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/schemas/
-     -->
+     XLIFF Version 2.1
+     OASIS Standard
+     13 February 2018
+     Copyright (c) OASIS Open 2018. All Rights Reserved.
+     Source: http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/schemas/
+     Latest version of narrative specification: http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html
+     TC IPR Statement: https://www.oasis-open.org/committees/xliff/ipr.php
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified"
     xmlns:xlf="urn:oasis:names:tc:xliff:document:2.0"
@@ -117,8 +118,8 @@
         <xs:element minOccurs="1" maxOccurs="unbounded" ref="xlf:file"/>
       </xs:sequence>
       <xs:attribute name="version" use="required"/>
-      <xs:attribute name="srcLang" use="required"/>
-      <xs:attribute name="trgLang" use="optional"/>
+      <xs:attribute name="srcLang" use="required" type="xs:language"/>
+      <xs:attribute name="trgLang" use="optional" type="xs:language"/>
       <xs:attribute ref="xml:space" use="optional" default="default"/>
       <xs:anyAttribute namespace="##other" processContents="lax"/>
     </xs:complexType>

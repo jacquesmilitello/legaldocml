@@ -1,11 +1,11 @@
 package io.legaldocml.akn.element;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.util.ToStringBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -29,7 +29,7 @@ public abstract class AbstractIdCore extends AbstractId implements Core {
      * {@inheritDoc}
      */
     @Override
-    public final List<CoreAttribute> getAttributes() {
+    public final Iterable<CoreAttribute> getAttributes() {
         return this.coreAttributes;
     }
 

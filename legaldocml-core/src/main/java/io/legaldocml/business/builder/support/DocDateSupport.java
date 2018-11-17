@@ -7,7 +7,7 @@ import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.util.AknReference;
 import io.legaldocml.business.util.AknReferences;
 
-import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 import java.util.function.Consumer;
 
 
@@ -16,11 +16,11 @@ import java.util.function.Consumer;
  */
 public interface DocDateSupport<T extends ANtitleInlineContainer<E>, E extends AknObject> extends SupportBuilder<T> {
 
-    default InlineTypeBuilder<DocDate> docDate(OffsetDateTime date, AknReference... refs) {
+    default InlineTypeBuilder<DocDate> docDate(Temporal date, AknReference... refs) {
         return docDate(date,null, refs);
     }
 
-    default InlineTypeBuilder<DocDate> docDate(OffsetDateTime date, Consumer<DocDate> consumer, AknReference... refs) {
+    default InlineTypeBuilder<DocDate> docDate(Temporal date, Consumer<DocDate> consumer, AknReference... refs) {
         DocDate docDate = new DocDate();
         docDate.setDate(date);
         parent().add(docDate);

@@ -1,12 +1,11 @@
 package io.legaldocml.akn.attribute;
 
-import java.io.IOException;
-import java.util.List;
-
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.diff.DiffContext;
 import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlWriter;
+
+import java.io.IOException;
 
 /**
  * This attribute list are used to specify the fact that any attribute can be specified for this element if it belongs
@@ -26,12 +25,12 @@ public interface Core extends AknObject {
         throw new UnsupportedOperationException("for [" + getClass() + "]");
     }
 
-    default List<CoreAttribute> getAttributes() {
+    default Iterable<CoreAttribute> getAttributes() {
     	return null;
     }
 
     default CoreAttribute getAttribute(String name) {
-        List<CoreAttribute> attributes = getAttributes();
+        Iterable<CoreAttribute> attributes = getAttributes();
         if (attributes != null) {
             for (CoreAttribute attribute : attributes) {
                 if (name.equals(attribute.name())) {
@@ -47,7 +46,7 @@ public interface Core extends AknObject {
      */
     @Override
     default void write(XmlWriter writer) throws IOException {
-        List<CoreAttribute> attributes = getAttributes();
+        Iterable<CoreAttribute> attributes = getAttributes();
         if (attributes != null) {
             for (CoreAttribute attribute : attributes) {
                 attribute.write(writer);

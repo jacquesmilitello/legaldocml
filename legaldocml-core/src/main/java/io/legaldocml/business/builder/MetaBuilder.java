@@ -33,6 +33,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.temporal.Temporal;
 import java.util.function.Function;
 
 import static io.legaldocml.akn.util.FRBRHelper.newFRBRlanguage;
@@ -95,7 +96,7 @@ public final class MetaBuilder {
         this.meta.getIdentification().getFRBRExpression().add(newFRBRlanguage(language, mapper));
     }
 
-    public void setDate(LocalDate date, String name) {
+    public void setDate(Temporal date, String name) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
@@ -104,13 +105,13 @@ public final class MetaBuilder {
         setDate(date, name, LOOKUP_FRBR_MANIFESTATION);
     }
 
-    public void setDate(LocalDate date, String name, Function<Identification, CoreProperties> map) {
+    public void setDate(Temporal date, String name, Function<Identification, CoreProperties> map) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("setDate({})", date);
         }
 
         FRBRdate frbr = map.apply(this.meta.getIdentification()).getFRBRdate();
-        frbr.setDate(Dates.convert(date));
+        frbr.setDate(date);
         frbr.setName(name);
     }
 

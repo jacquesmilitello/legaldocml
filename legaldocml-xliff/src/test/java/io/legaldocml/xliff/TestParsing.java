@@ -12,10 +12,10 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class TestParsing {
+class TestParsing {
 
     @Test
-    public void testRead() throws IOException {
+    void testRead() throws IOException {
 
        Xliff xliff = read(PathForTest.path("/ex.5.7.xlf"));
 

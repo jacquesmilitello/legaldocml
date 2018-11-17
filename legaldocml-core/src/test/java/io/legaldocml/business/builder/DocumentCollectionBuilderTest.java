@@ -24,8 +24,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.channels.Channels;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
+import java.time.LocalDate;
 
 import static io.legaldocml.akn.util.TLCFactory.newTLCConcept;
 import static io.legaldocml.akn.util.TLCFactory.newTLCOrganization;
@@ -148,7 +147,7 @@ class DocumentCollectionBuilderTest {
 
         InlineTypeBuilder<P> p = container.p().text("Repartido");
         p.docNumber(refersTo(SOURCE,CONCEPT_REPARTIDO)).text("Nº 379");
-        p.docDate(OffsetDateTime.of(2010,9,27,0,0,0,0, ZoneOffset.UTC)).text("Setiembre de 2010");
+        p.docDate(LocalDate.of(2010,9,27)).text("Setiembre de 2010");
 
         container = builder.preface().container("title", t -> {
             t.setEid(NoWhiteSpace.valueOf("preface__container_3"));
