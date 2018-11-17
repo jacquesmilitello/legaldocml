@@ -4,13 +4,12 @@ import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.akn.element.Section;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.diff.impl.DiffBuilder;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DiffElementTest {
 
-    @Test
+    //@Test
     void testInserted() {
 
         Chapter left = new Chapter();
@@ -37,7 +36,7 @@ class DiffElementTest {
         assertEquals(DiffType.ELEMENT_INSERTED, diff.getType());
     }
 
-    @Test
+   // @Test
     void testInsertedOneElement() {
 
         Chapter left = new Chapter();
@@ -68,7 +67,7 @@ class DiffElementTest {
         assertEquals(DiffType.ELEMENT_INSERTED, diff.getType());
     }
 
-    @Test
+   //@Test
     void testDeleted() {
 
         Chapter left = new Chapter();

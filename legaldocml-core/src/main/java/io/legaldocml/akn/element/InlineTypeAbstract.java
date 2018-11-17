@@ -1,6 +1,8 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknCloneContext;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.container.InlineCMContainer;
 import io.legaldocml.akn.group.ANinline;
 import io.legaldocml.akn.group.ANmarker;
@@ -150,6 +152,18 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void write(XmlWriter writer) throws IOException {
         this.data.write(writer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T extends AknObject> T clone(AknCloneContext cloneContext) {
+        InlineTypeAbstract inlineTypeAbstract = ElementFactory.instantiate(name());
+        super.clone(inlineTypeAbstract, cloneContext);
+        this.data.clone(inlineTypeAbstract.data, InlineCM.class, cloneContext);
+        return (T) inlineTypeAbstract;
     }
 
     protected final AknList<InlineCM> getData() {

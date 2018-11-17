@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknCloneContext;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -169,7 +170,7 @@ public abstract class AbstractId implements AknObject, Id {
         if (obj == null || this.getClass() != obj.getClass()) {
             return false;
         }
-        AbstractId other = (AbstractId)obj;
+        AbstractId other = (AbstractId) obj;
         return Objects.equals(this.guid, other.guid) && Objects.equals(eId, other.eId);
     }
 
@@ -188,6 +189,12 @@ public abstract class AbstractId implements AknObject, Id {
     }
 
     protected void toString(ToStringBuilder builder) {
+    }
+
+    protected final void clone(AbstractId id, AknCloneContext context) {
+        id.setEid(this.eId);
+        id.setWid(this.wId);
+        id.setGUID(this.guid);
     }
 
 }

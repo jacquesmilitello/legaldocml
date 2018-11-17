@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknCloneContext;
 import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.util.ToStringBuilder;
@@ -45,4 +46,10 @@ public abstract class AbstractIdCore extends AbstractId implements Core {
             builder.append(attribute.name(), attribute.value());
         }
     }
+
+    protected final void clone(AbstractIdCore core, AknCloneContext context) {
+        super.clone(core, context);
+        // todo clone coreAttribute
+    }
+
 }

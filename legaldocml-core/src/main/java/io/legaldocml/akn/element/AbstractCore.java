@@ -1,5 +1,15 @@
 package io.legaldocml.akn.element;
 
+import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknCloneContext;
+import io.legaldocml.akn.AknObject;
+import io.legaldocml.akn.type.EidRef;
+import io.legaldocml.akn.type.ListReferenceRef;
+import io.legaldocml.akn.type.StatusType;
+import io.legaldocml.akn.type.TemporalGroupRef;
+import io.legaldocml.io.AttributeGetterSetter;
+import io.legaldocml.util.ToStringBuilder;
+
 import static io.legaldocml.akn.AknAttributes.ALTERNATIVE_TO;
 import static io.legaldocml.akn.AknAttributes.CLASS;
 import static io.legaldocml.akn.AknAttributes.PERIOD;
@@ -13,16 +23,6 @@ import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListRef
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4TemporalGroupRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
-
-import com.google.common.collect.ImmutableMap;
-
-import io.legaldocml.akn.AknObject;
-import io.legaldocml.akn.type.EidRef;
-import io.legaldocml.akn.type.ListReferenceRef;
-import io.legaldocml.akn.type.StatusType;
-import io.legaldocml.akn.type.TemporalGroupRef;
-import io.legaldocml.io.AttributeGetterSetter;
-import io.legaldocml.util.ToStringBuilder;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -130,4 +130,14 @@ public abstract class AbstractCore extends AbstractIdCore {
         builder.append(ALTERNATIVE_TO, this.alternativeTo);
     }
 
+    protected final void clone(AbstractCore core, AknCloneContext context) {
+        super.clone(core, context);
+        core.setClazz(this.clazz);
+        core.setStyle(this.style);
+        core.setTitle(this.title);
+        core.setStatus(this.status);
+        core.setPeriod(this.period);
+        core.setRefersTo(this.refersTo);
+        core.setAlternativeTo(this.alternativeTo);
+    }
 }

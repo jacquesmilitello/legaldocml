@@ -2,8 +2,6 @@ package io.legaldocml.akn;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.visitor.Visitable;
-import io.legaldocml.diff.DiffContext;
-import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.Externalizable;
 
@@ -24,16 +22,9 @@ public interface AknObject extends Externalizable, Visitable {
         return ImmutableMap.of();
     }
 
-    /**
-     * default method for diff.
-     */
-    default void compare(AknObject object, DiffContext context) {
-        context.push(this);
-        Diffs.compare(this,object, context);
-        context.pop(this);
-    }
 
-    default void nestedCompare(AknObject object, DiffContext context) {
+    default <T extends AknObject> T clone(AknCloneContext cloneContext) {
+        throw new UnsupportedOperationException("clone() not implemented for <" + name() + ">");
     }
 
 }

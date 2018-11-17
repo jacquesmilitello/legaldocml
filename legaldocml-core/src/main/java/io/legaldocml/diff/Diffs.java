@@ -54,7 +54,7 @@ public final class Diffs {
 
         compareAttributes(left, right, context);
 
-        left.nestedCompare(right, context);
+        //left.nestedCompare(right, context);
 
     }
 

@@ -1,5 +1,6 @@
 package io.legaldocml.akn.util;
 
+import io.legaldocml.akn.AknCloneContext;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.akn.visitor.Visitor;
@@ -49,6 +50,13 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> {
 
     public final ListIterable<E> iterable() {
         return new IterableImpl();
+    }
+
+    @SuppressWarnings("unchecked")
+    public final void clone(AknList<E> target, Class<E> clazz, AknCloneContext context) {
+        for (int i = 0; i < size(); i++) {
+            target.add(get(i).clone(context));
+        }
     }
 
     private final class IterableImpl implements ListIterable<E> {

@@ -23,7 +23,7 @@ public final class DiffBuilder<T extends AknObject> {
 
     public DiffResult build() {
         DiffContextImpl context = new DiffContextImpl();
-        left.compare(right,context);
+        //left.compare(right,context);
         return context.result();
     }
 }

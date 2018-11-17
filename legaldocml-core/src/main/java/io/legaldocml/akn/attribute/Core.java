@@ -1,7 +1,6 @@
 package io.legaldocml.akn.attribute;
 
 import io.legaldocml.akn.AknObject;
-import io.legaldocml.diff.DiffContext;
 import io.legaldocml.io.CoreAttribute;
 import io.legaldocml.io.XmlWriter;
 
@@ -54,11 +53,4 @@ public interface Core extends AknObject {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    default void nestedCompare(AknObject object, DiffContext context) {
-
-    }
 }

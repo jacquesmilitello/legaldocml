@@ -5,8 +5,6 @@ import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.PortionAtt;
 import io.legaldocml.akn.type.ReferenceRef;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.diff.DiffContext;
-import io.legaldocml.diff.Diffs;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
@@ -114,18 +112,6 @@ public abstract class PortionStructure implements PortionAtt {
     public void accept(AknVisitor visitor) {
         this.meta.accept(visitor);
         this.portionBody.accept(visitor);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void nestedCompare(AknObject object, DiffContext context) {
-        Diffs.compare(meta, ((PortionStructure) object).meta, context);
-        Diffs.compare(portionBody, ((PortionStructure) object).portionBody, context);
-
-        //Diffs.compareAttribute(referenceRef,)
-
     }
 
 }

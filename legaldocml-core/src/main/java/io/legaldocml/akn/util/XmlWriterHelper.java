@@ -299,13 +299,13 @@ public final class XmlWriterHelper {
             }
         } else {
             if (idReq.getEid() != null) {
-                writer.writeAttribute(Attributes.ADDRESS_EID, 3, idReq.getEid().getChars());
+                idReq.getEid().write(Attributes.ADDRESS_EID, 3, writer);
             }
             if (idReq.getWid() != null) {
-                writer.writeAttribute(Attributes.ADDRESS_WID, 3, idReq.getWid().getChars());
+                idReq.getWid().write(Attributes.ADDRESS_WID, 3, writer);
             }
             if (idReq.getGUID() != null) {
-                writer.writeAttribute(Attributes.ADDRESS_GUID, 4, idReq.getGUID().getChars());
+                idReq.getGUID().write(Attributes.ADDRESS_GUID, 4, writer);
             }
 
         }
@@ -326,10 +326,10 @@ public final class XmlWriterHelper {
             }
         } else {
             if (idOpt.getEid() != null) {
-                writer.writeAttribute(Attributes.ADDRESS_EID, 3, idOpt.getEid().getChars());
+                idOpt.getEid().write(Attributes.ADDRESS_EID, 3, writer);
             }
             if (idOpt.getWid() != null) {
-                writer.writeAttribute(Attributes.ADDRESS_WID, 3, idOpt.getWid().getChars());
+                idOpt.getWid().write(Attributes.ADDRESS_WID, 3, writer);
             }
 
         }

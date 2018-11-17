@@ -46,8 +46,8 @@ final class DefaultEIdProvider extends EIdProvider {
 
     public NoWhiteSpace make(AknObject parent, Id object, String number) {
         StringBuilder builder = new StringBuilder();
-        if (parent != null && parent instanceof Id && (((Id) parent).getEid()) != null) {
-            builder.append((((Id) parent).getEid()).getChars()).append("__");
+        if (parent instanceof Id && (((Id) parent).getEid()) != null) {
+            builder.append((((Id) parent).getEid()).toString()).append("__");
         }
         builder.append(elementRef(object));
         if (!Strings.isEmpty(number)) {

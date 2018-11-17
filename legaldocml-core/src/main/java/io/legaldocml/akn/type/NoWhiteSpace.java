@@ -1,7 +1,9 @@
 package io.legaldocml.akn.type;
 
+import io.legaldocml.io.XmlWriter;
 import io.legaldocml.unsafe.UnsafeString;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import static io.legaldocml.akn.type.AbstractRef.DEFAULT_REFERENCE;
@@ -37,13 +39,10 @@ public final class NoWhiteSpace {
         this.value = UnsafeString.getChars(id);
     }
 
-    public char[] getChars() {
-        return value;
-    }
-
     public Uri toUri() {
          return this.toUri(DEFAULT_REFERENCE);
     }
+
     public Uri toUri(Reference reference) {
         return new Uri(reference.make(this.value));
     }
@@ -102,6 +101,10 @@ public final class NoWhiteSpace {
 
     public static NoWhiteSpace valueOf(String value) {
         return new NoWhiteSpace(UnsafeString.getChars(value));
+    }
+
+    public void write(long address, int length, XmlWriter writer) throws IOException {
+        writer.writeAttribute(address, length, this.value);
     }
 
 }
