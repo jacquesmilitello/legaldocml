@@ -4,11 +4,13 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.util.ToStringBuilder;
 import io.legaldocml.xliff.attribute.CanResegment;
 import io.legaldocml.xliff.attribute.Id;
 import io.legaldocml.xliff.attribute.Name;
 import io.legaldocml.xliff.type.YesNo;
+import io.legaldocml.xliff.util.XliffList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,14 +50,20 @@ import static io.legaldocml.xliff.element.XliffElements.UNIT;
  *   </xs:element>
  * </pre>
  */
-public final class Unit implements Id, Name, CanResegment {
+public final class Unit implements FileElement, Id, Name, CanResegment {
 
     /**
      * SLF4J logger.
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
 
-    protected static final ImmutableMap<String, AttributeGetterSetter<XliffObject>> ATTRIBUTES;
+    /**
+     * Memory address.
+     */
+    private static final long ADDRESS = Buffers.address(UNIT);
+
+
+    private static final ImmutableMap<String, AttributeGetterSetter<XliffObject>> ATTRIBUTES;
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<XliffObject>>builder()
@@ -68,7 +76,7 @@ public final class Unit implements Id, Name, CanResegment {
     private String name;
     private YesNo canResegment;
 
-    //private final XliffList<SegmentElement> elements = new XliffList<>(new SegmentElement[2]);
+    private final XliffList<UnitElement> elements = new XliffList<>(new UnitElement[2]);
 
     /**
      * {@inheritDoc}
@@ -99,7 +107,7 @@ public final class Unit implements Id, Name, CanResegment {
      */
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     /**
@@ -107,7 +115,7 @@ public final class Unit implements Id, Name, CanResegment {
      */
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     /**
@@ -123,7 +131,11 @@ public final class Unit implements Id, Name, CanResegment {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        writer.writeStart(ADDRESS, 4);
         Id.super.write(writer);
+        Name.super.write(writer);
+        this.elements.write(writer);
+        writer.writeEnd(ADDRESS,4);
     }
 
     /**
@@ -139,13 +151,19 @@ public final class Unit implements Id, Name, CanResegment {
         reader.nextStartOrEndElement();
 
         if (reader.getQName().equalsLocalName(SEGMENT)) {
-            Segment segment = new Segment();
+            Segment segment;
             do {
                 segment = new Segment();
                 segment.read(reader);
-                // this.files.add(unit);
+                this.elements.add(segment);
                 reader.nextStartOrEndElement();
-            } while (reader.getQName().equalsLocalName(UNIT));
+            } while (reader.getQName().equalsLocalName(SEGMENT));
+        }
+
+        if (!reader.getQName().equalsLocalName(UNIT)) {
+            // todo throw error
+        } else {
+            reader.next();
         }
 
     }

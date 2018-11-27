@@ -15,7 +15,7 @@ public final class StringMixedContent implements MixedContent {
 
     @Override
     public void write(XmlWriter writer) throws IOException {
-
+        writer.write(content);
     }
 
     @Override

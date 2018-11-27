@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.util.ToStringBuilder;
 import io.legaldocml.xliff.attribute.CanResegment;
 import io.legaldocml.xliff.attribute.Id;
@@ -22,6 +23,7 @@ import static io.legaldocml.xliff.element.XliffAttributes.CAN_RESEGMENT;
 import static io.legaldocml.xliff.element.XliffAttributes.ID;
 import static io.legaldocml.xliff.element.XliffAttributes.STATE;
 import static io.legaldocml.xliff.element.XliffAttributes.SUB_STATE;
+import static io.legaldocml.xliff.element.XliffElements.SEGMENT;
 import static io.legaldocml.xliff.element.XliffElements.SOURCE;
 
 /**
@@ -40,7 +42,7 @@ import static io.legaldocml.xliff.element.XliffElements.SOURCE;
  *   </xs:element>
  * </pre>
  */
-public final class Segment implements Id, CanResegment {
+public final class Segment implements UnitElement, Id, CanResegment {
 
     /**
      * SLF4J logger.
@@ -57,6 +59,11 @@ public final class Segment implements Id, CanResegment {
                 .put(SUB_STATE, attributeGetterSetter4String(SUB_STATE, getFieldOffset(Segment.class, "subState")))
                 .build();
     }
+
+    /**
+     * Memory address.
+     */
+    private static final long ADDRESS = Buffers.address(SEGMENT);
 
     private String id;
     private YesNo canResegment;
@@ -111,7 +118,10 @@ public final class Segment implements Id, CanResegment {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        writer.writeStart(ADDRESS, 7);
         Id.super.write(writer);
+        this.source.write(writer);
+        writer.writeEnd(ADDRESS,7);
     }
 
     /**
@@ -128,6 +138,8 @@ public final class Segment implements Id, CanResegment {
         } else {
             throw new RuntimeException();
         }
+
+
 
     }
 

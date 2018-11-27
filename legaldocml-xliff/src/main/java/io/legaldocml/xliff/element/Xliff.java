@@ -4,6 +4,7 @@ import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.model.Language;
+import io.legaldocml.util.Buffers;
 import io.legaldocml.xliff.attribute.Core;
 import io.legaldocml.xliff.attribute.SrcLang;
 import io.legaldocml.xliff.attribute.TrgLang;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 import static io.legaldocml.xliff.element.XliffElements.FILE;
+import static io.legaldocml.xliff.element.XliffElements.XLIFF;
 
 /**
  * <pre>
@@ -40,6 +42,11 @@ public final class Xliff implements Core, SrcLang, TrgLang, Version {
      * SLF4J logger.
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Xliff.class);
+
+    /**
+     * Memory address.
+     */
+    private static final long ADDRESS = Buffers.address(XLIFF);
 
     private final XliffList<File> files = new XliffList<>(new File[4]);
 
@@ -100,9 +107,12 @@ public final class Xliff implements Core, SrcLang, TrgLang, Version {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
+        writer.writeStartDocument(ADDRESS, 5);
         Version.super.write(writer);
         SrcLang.super.write(writer);
         TrgLang.super.write(writer);
+        this.files.write(writer);
+        writer.writeEndDocument(ADDRESS, 5);
     }
 
     /**

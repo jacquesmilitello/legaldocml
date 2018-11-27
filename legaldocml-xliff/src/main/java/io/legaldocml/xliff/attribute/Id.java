@@ -1,6 +1,7 @@
 package io.legaldocml.xliff.attribute;
 
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.xliff.element.XliffAttributes;
 import io.legaldocml.xliff.element.XliffObject;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public interface Id extends XliffObject {
      */
     @Override
     default void write(XmlWriter writer) throws IOException {
-
+        XliffAttributes.write(writer, this);
     }
 
 }

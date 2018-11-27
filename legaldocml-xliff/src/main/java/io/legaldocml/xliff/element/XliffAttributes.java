@@ -2,13 +2,21 @@ package io.legaldocml.xliff.element;
 
 import io.legaldocml.io.AttributeConsumer;
 import io.legaldocml.io.AttributeGetterSetter;
+import io.legaldocml.io.XmlWriter;
+import io.legaldocml.xliff.attribute.Id;
+import io.legaldocml.xliff.attribute.Name;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+
+import static io.legaldocml.unsafe.UnsafeString.getChars;
+import static io.legaldocml.util.Buffers.address;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-final class XliffAttributes {
+public final class XliffAttributes {
 
     /**
      * SLF4J.
@@ -98,4 +106,24 @@ final class XliffAttributes {
 
         ags.accept(xliffObject, value);
     };
+
+    private static final long ADDRESS_ID = address(ID);
+    private static final long ADDRESS_NAME = address(NAME);
+
+
+    public static void write(XmlWriter writer, Id id) throws IOException {
+        if (id.getId() == null) {
+
+        } else {
+            writer.writeAttribute(XliffAttributes.ADDRESS_ID, 2, getChars(id.getId()));
+        }
+    }
+
+    public static void write(XmlWriter writer, Name name) throws IOException {
+        if (name.getName() == null) {
+
+        } else {
+            writer.writeAttribute(XliffAttributes.ADDRESS_NAME, 4, getChars(name.getName()));
+        }
+    }
 }

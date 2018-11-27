@@ -1,7 +1,7 @@
 package io.legaldocml.xliff.attribute;
 
 import io.legaldocml.io.XmlWriter;
-import io.legaldocml.xliff.element.XliffAttributes;
+import io.legaldocml.model.Language;
 import io.legaldocml.xliff.element.XliffObject;
 
 import java.io.IOException;
@@ -9,18 +9,18 @@ import java.io.IOException;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public interface Name extends XliffObject {
+public interface TrgLang extends XliffObject {
 
-    String getName();
+    Language getTrgLang();
 
-    void setName(String name);
+    void setTrgLang(Language trgLang);
 
     /**
      * {@inheritDoc}
      */
     @Override
     default void write(XmlWriter writer) throws IOException {
-        XliffAttributes.write(writer, this);
+
     }
 
 }

@@ -28,4 +28,9 @@ public final class XliffElements {
      */
     public static final String UNIT = "unit";
 
+    /**
+     * Element for {@link io.legaldocml.xliff.element.Xliff}
+     */
+    public static final String XLIFF = "xliff";
+
 }
