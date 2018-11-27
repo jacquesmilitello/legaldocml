@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.EnumSet;
 
-import static io.legaldocml.XmlUnitHelper.compare;
+import static io.legaldocml.test.XmlUnitHelper.compare;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
 class AknTest {

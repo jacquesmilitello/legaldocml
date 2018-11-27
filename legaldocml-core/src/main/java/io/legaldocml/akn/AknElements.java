@@ -1,16 +1,6 @@
 package io.legaldocml.akn;
 
 import com.google.common.collect.ImmutableMap;
-import io.legaldocml.akn.element.Subchapter;
-import io.legaldocml.akn.element.Subclause;
-import io.legaldocml.akn.element.Subdivision;
-import io.legaldocml.akn.element.Subheading;
-import io.legaldocml.akn.element.Sublist;
-import io.legaldocml.akn.element.Subparagraph;
-import io.legaldocml.akn.element.Subpart;
-import io.legaldocml.akn.element.Subrule;
-import io.legaldocml.akn.element.Subsection;
-import io.legaldocml.akn.element.Subtitle;
 
 import java.lang.reflect.Field;
 
@@ -1410,17 +1400,17 @@ public final class AknElements {
     public static final String SUB = "sub";
 
     /**
-     * Element for {@link Subchapter}
+     * Element for {@link io.legaldocml.akn.element.Subchapter}
      */
     public static final String SUB_CHAPTER = "subchapter";
 
     /**
-     * Element for {@link Subclause}
+     * Element for {@link io.legaldocml.akn.element.Subclause}
      */
     public static final String SUB_CLAUSE = "subclause";
 
     /**
-     * Element for {@link Subdivision}
+     * Element for {@link io.legaldocml.akn.element.Subdivision}
      */
     public static final String SUB_DIVISION = "subdivision";
 
@@ -1430,37 +1420,37 @@ public final class AknElements {
     public static final String SUB_FLOW = "subFlow";
 
     /**
-     * Element for {@link Subheading}
+     * Element for {@link io.legaldocml.akn.element.Subheading}
      */
     public static final String SUB_HEADING = "subheading";
 
     /**
-     * Element for {@link Sublist}
+     * Element for {@link io.legaldocml.akn.element.Sublist}
      */
     public static final String SUB_LIST = "sublist";
 
     /**
-     * Element for {@link Subparagraph}
+     * Element for {@link io.legaldocml.akn.element.Subparagraph}
      */
     public static final String SUB_PARAGRAPH = "subparagraph";
 
     /**
-     * Element for {@link Subpart}
+     * Element for {@link io.legaldocml.akn.element.Subpart}
      */
     public static final String SUB_PART = "subpart";
 
     /**
-     * Element for {@link Subsection}
+     * Element for {@link io.legaldocml.akn.element.Subsection}
      */
     public static final String SUB_SECTION = "subsection";
 
     /**
-     * Element for {@link Subtitle}
+     * Element for {@link io.legaldocml.akn.element.Subtitle}
      */
     public static final String SUB_TITLE = "subtitle";
 
     /**
-     * Element for {@link Subrule}
+     * Element for {@link io.legaldocml.akn.element.Subrule}
      */
     public static final String SUB_RULE = "subrule";
 

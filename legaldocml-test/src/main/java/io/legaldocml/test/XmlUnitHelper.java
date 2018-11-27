@@ -1,4 +1,4 @@
-package io.legaldocml;
+package io.legaldocml.test;
 
 import org.junit.jupiter.api.Assertions;
 import org.w3c.dom.Node;

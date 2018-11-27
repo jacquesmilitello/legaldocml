@@ -1,7 +1,6 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
-import io.legaldocml.XmlUnitHelper;
 import io.legaldocml.akn.element.Block;
 import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.akn.element.Content;
@@ -51,6 +50,7 @@ import static io.legaldocml.business.builder.MetaBuilder.LOOKUP_FRBR_MANIFESTATI
 import static io.legaldocml.business.builder.MetaBuilder.LOOKUP_FRBR_WORK;
 import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.href;
+import static io.legaldocml.test.XmlUnitHelper.compare;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -112,7 +112,7 @@ class PortionBuilderTest {
         Document expected = ReaderHelper.load("/xml/v3/us_Title9-Chap3-eng.xml");
         Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "identification").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "identification").item(0)
         );
@@ -171,14 +171,14 @@ class PortionBuilderTest {
         Document expected = ReaderHelper.load("/xml/v3/us_Title9-Chap3-eng.xml");
         Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "intro").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "intro").item(0)
         );
 
 
         for (int i = 0; i < 5; i++) {
-            XmlUnitHelper.compare(
+            compare(
                     expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "section").item(i),
                     actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "section").item(i)
             );

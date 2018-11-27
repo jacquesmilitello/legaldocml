@@ -2,6 +2,11 @@ package io.legaldocml.akn.element;
 
 import com.google.common.collect.ImmutableMap;
 import io.legaldocml.akn.attribute.CoreReq;
+import io.legaldocml.akn.container.BlockElementsContainer;
+import io.legaldocml.akn.container.ComponentRefContainer;
+import io.legaldocml.akn.group.ANblock;
+import io.legaldocml.akn.group.BlockElements;
+import io.legaldocml.akn.group.HTMLblock;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.util.XmlReaderHelper;
 import io.legaldocml.akn.visitor.AknVisitor;
@@ -18,6 +23,7 @@ import static io.legaldocml.akn.AknElements.INTRO;
 import static io.legaldocml.akn.AknElements.WRAP_UP;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
+import static java.util.Objects.requireNonNull;
 
 /**
  * The complex type hierarchy is used by most or all the hierarchical elements of act-like documents.
@@ -42,7 +48,7 @@ import static io.legaldocml.akn.element.Groups.convertSuper;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class BlockContainerType extends BaseHierarchy implements CoreReq {
+public abstract class BlockContainerType extends BaseHierarchy implements CoreReq, BlockElementsContainer<BlockContainerTypeElement>, ComponentRefContainer<BlockContainerTypeElement> {
 
     private static final ImmutableMap<String, Supplier<BlockContainerTypeElement>> ELEMS;
 
@@ -59,6 +65,62 @@ public abstract class BlockContainerType extends BaseHierarchy implements CoreRe
 
     public final void setIntro(Intro intro) {
         this.intro = intro;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(BlockElements elements) {
+        this.elements.add(requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(int index, BlockElements elements) {
+        this.elements.add(index, requireNonNull(elements));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ANblock block) {
+        this.elements.add(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ANblock block) {
+        return this.elements.remove(requireNonNull(block));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(ComponentRef componentRef) {
+        this.elements.add(requireNonNull(componentRef));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean remove(ComponentRef componentRef) {
+        return this.elements.remove(requireNonNull(componentRef));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void add(HTMLblock block) {
+        this.elements.add(requireNonNull(block));
     }
 
     /**

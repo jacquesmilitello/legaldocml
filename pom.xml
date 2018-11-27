@@ -25,17 +25,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <org.slf4j.version>1.7.25</org.slf4j.version>
-        <com.google.guava.version>26.0-jre</com.google.guava.version>
+        <com.google.guava.version>27.0.1-jre</com.google.guava.version>
         <org.antlr.version>4.7</org.antlr.version>
 
         <org.apache.logging.log4j.version>2.11.1</org.apache.logging.log4j.version>
 
         <org.junit.jupiter.version>5.3.1</org.junit.jupiter.version>
-        <org.xmlunit.version>2.6.0</org.xmlunit.version>
-        <org.ow2.asm.version>6.2.1</org.ow2.asm.version>
-        <org.mockito.version>2.21.0</org.mockito.version>
+        <org.xmlunit.version>2.6.2</org.xmlunit.version>
+        <org.ow2.asm.version>7.0</org.ow2.asm.version>
+        <org.mockito.version>2.23.0</org.mockito.version>
         <com.jayway.jsonpath.version>2.4.0</com.jayway.jsonpath.version>
-        <org.openjdk.jmh.version>1.19</org.openjdk.jmh.version>
+        <org.openjdk.jmh.version>1.21</org.openjdk.jmh.version>
         <org.apache.commons.math3.version>3.6.1</org.apache.commons.math3.version>
 
         <!-- for sonar -->
@@ -199,7 +199,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -209,17 +209,17 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.0</version>
+                    <version>2.22.1</version>
                 </plugin>
 
                 <plugin>

@@ -1,29 +1,21 @@
 package io.legaldocml;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.EnumSet;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.io.XmlReaderFactory;
 import io.legaldocml.io.XmlReaderFactoryProvider;
-import io.legaldocml.io.impl.XmlChannelWriter;
-import io.legaldocml.module.akn.v3.XmlChannelWriterV3;
 import io.legaldocml.test.PathForTest;
 import io.legaldocml.util.Buffers;
 import org.w3c.dom.Document;
 
-import static io.legaldocml.XmlUnitHelper.compare;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>

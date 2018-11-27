@@ -1,7 +1,6 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
-import io.legaldocml.XmlUnitHelper;
 import io.legaldocml.akn.element.Component;
 import io.legaldocml.akn.element.Container;
 import io.legaldocml.akn.element.DocumentCollection;
@@ -29,6 +28,7 @@ import java.time.LocalDate;
 import static io.legaldocml.akn.util.TLCFactory.newTLCConcept;
 import static io.legaldocml.akn.util.TLCFactory.newTLCOrganization;
 import static io.legaldocml.business.util.AknReference.refersTo;
+import static io.legaldocml.test.XmlUnitHelper.compare;
 
 class DocumentCollectionBuilderTest {
 
@@ -66,7 +66,7 @@ class DocumentCollectionBuilderTest {
         Document expected = ReaderHelper.load("/xml/v3/uy_bill_2010-09-27.xml");
         Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "preface").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "preface").item(0)
         );
@@ -92,7 +92,7 @@ class DocumentCollectionBuilderTest {
         Document expected = ReaderHelper.load("/xml/v3/uy_bill_2010-09-27.xml");
         Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "preamble").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "preamble").item(0)
         );

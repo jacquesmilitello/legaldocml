@@ -1,7 +1,6 @@
 package io.legaldocml.business.builder;
 
 import io.legaldocml.ReaderHelper;
-import io.legaldocml.XmlUnitHelper;
 import io.legaldocml.akn.element.Debate;
 import io.legaldocml.akn.element.P;
 import io.legaldocml.akn.element.TLCPerson;
@@ -27,6 +26,7 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCPerson;
 import static io.legaldocml.akn.util.TLCFactory.newTLCRole;
 import static io.legaldocml.business.util.AknReference.as;
 import static io.legaldocml.business.util.AknReference.refersTo;
+import static io.legaldocml.test.XmlUnitHelper.compare;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -66,7 +66,7 @@ class CoverPageBuilderTest {
         Document expected = ReaderHelper.load("/xml/v3/it_senato_ddl_2013.xml");
         Document actual = ReaderHelper.load(new ByteArrayInputStream(baos.toByteArray()));
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "coverPage").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "coverPage").item(0)
         );
@@ -74,17 +74,17 @@ class CoverPageBuilderTest {
         assertEquals(1, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").getLength());
         assertEquals(2, actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").getLength());
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCRole").item(0)
         );
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(0),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(0)
         );
 
-        XmlUnitHelper.compare(
+        compare(
                 expected.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(1),
                 actual.getElementsByTagNameNS("http://docs.oasis-open.org/legaldocml/ns/akn/3.0", "TLCPerson").item(1)
         );
