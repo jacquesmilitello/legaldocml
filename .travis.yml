@@ -18,9 +18,6 @@ after_success:
 
 # use latest java version available instead of travis default
 addons:
-  apt:
-    packages:
-      - oracle-java8-installer
   sonarcloud:
     organization: "legaldocml"
     token:
