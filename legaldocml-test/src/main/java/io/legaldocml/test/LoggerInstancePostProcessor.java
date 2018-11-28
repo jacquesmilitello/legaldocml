@@ -42,9 +42,9 @@ public class LoggerInstancePostProcessor implements TestInstancePostProcessor {
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         Configuration config = ctx.getConfiguration();
         LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
-        loggerConfig.getAppenders().keySet().forEach(loggerConfig::removeAppender);
+        loggerConfig.getAppenderRefs().forEach(a -> loggerConfig.removeAppender(a.getRef()));
         for (LoggerConfig lc: config.getLoggers().values()) {
-            loggerConfig.getAppenders().keySet().forEach(loggerConfig::removeAppender);
+            lc.getAppenderRefs().forEach(a -> loggerConfig.removeAppender(a.getRef()));
         }
         ctx.updateLoggers();
     }
