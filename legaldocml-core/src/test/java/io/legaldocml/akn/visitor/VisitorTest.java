@@ -1,13 +1,15 @@
 package io.legaldocml.akn.visitor;
 
-import java.io.IOException;
-
-import org.junit.jupiter.api.Test;
-
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.io.XmlProvider;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.io.IOException;
+
+@ExtendWith(LoggerInstancePostProcessor.class)
 class VisitorTest {
 
     @Test

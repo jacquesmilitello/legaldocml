@@ -1,21 +1,23 @@
 package io.legaldocml.akn;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.io.IOException;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.akn.element.Portion;
 import io.legaldocml.akn.element.PortionBody;
 import io.legaldocml.akn.element.Section;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.io.XmlProvider;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import io.legaldocml.test.PathForTest;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(LoggerInstancePostProcessor.class)
 class PortionBodyTest {
 
 

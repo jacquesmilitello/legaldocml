@@ -19,11 +19,14 @@ import io.legaldocml.business.builder.element.InlineReqTypeBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.business.builder.element.ModTypeBuilder;
 import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.IOException;
 import java.nio.channels.Channels;
 
+@ExtendWith(LoggerInstancePostProcessor.class)
 class BillBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");

@@ -6,9 +6,12 @@ import io.legaldocml.akn.element.Chapter;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.business.builder.BusinessBuilder;
 import io.legaldocml.business.builder.BusinessBuilderException;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(LoggerInstancePostProcessor.class)
 class HierarchyBuilderTest {
 
     @Test

@@ -19,6 +19,12 @@ public class LoggerInstancePostProcessor implements TestInstancePostProcessor {
         if (level != null) {
             configLoggers(Level.valueOf(level));
         }
+
+        // The job exceeded the maximum log length, and has been terminated.
+        String travis = System.getProperty("travis");
+        if (travis != null) {
+            removeAllAppenders();
+        }
     }
 
     private static void configLoggers(Level level) {
@@ -31,4 +37,16 @@ public class LoggerInstancePostProcessor implements TestInstancePostProcessor {
         }
         ctx.updateLoggers();
     }
+
+    private void removeAllAppenders() {
+        LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
+        Configuration config = ctx.getConfiguration();
+        LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
+        loggerConfig.getAppenders().keySet().forEach(loggerConfig::removeAppender);
+        for (LoggerConfig lc: config.getLoggers().values()) {
+            loggerConfig.getAppenders().keySet().forEach(loggerConfig::removeAppender);
+        }
+        ctx.updateLoggers();
+    }
+
 }

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://docs.oasis-open.org/legaldocml/ns/akn/3.0 ./../../xsd/akomantoso30.xsd" xmlns:ep="http://europarl.europa.eu/xml4ep/3.0" xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0" xmlns:xml4ep="http://europarl.europa.eu/xml4ep/3.0.0">
+  <amendment name="amendment">
+    <meta>
+      <identification source="http://www.europarl.europa.eu/">
+        <FRBRWork>
+          <FRBRthis value="eu.europa.europarl-IBI1-2018-0000006682"/>
+          <FRBRuri value=""/>
+          <FRBRdate date="2018-03-08" name="instantiation"/>
+          <FRBRauthor href=""/>
+          <FRBRcountry value="eu"/>
+        </FRBRWork>
+        <FRBRExpression>
+          <FRBRthis value="eu.europa.europarl-IBI1-2018-0000006682_01.00-en-01.00"/>
+          <FRBRuri value=""/>
+          <FRBRdate date="2018-03-08" name="instantiation"/>
+          <FRBRauthor href=""/>
+          <FRBRlanguage language="en" xml:id="_1520518794337-000000041-683145456"/>
+        </FRBRExpression>
+        <FRBRManifestation>
+          <FRBRthis value="eu.europa.europarl-IBI1-2018-0000006682_01.00-en-01.00_text-xml"/>
+          <FRBRuri value=""/>
+          <FRBRdate date="2018-03-08" name="instantiation"/>
+          <FRBRauthor href=""/>
+        </FRBRManifestation>
+      </identification>
+      <analysis source="http://www.europarl.europa.eu/">
+        <activeModifications>
+          <textualMod type="substitution" xml:id="_1520518794455-000000054-495847144" >
+            <source href=""/>
+            <destination href="udi:eu.europa.europarl-DIN1-2018-0000005714_01.00-en-01.00_text-xml~067739"/>
+          </textualMod>
+        </activeModifications>
+        <otherAnalysis source="http://www.europarl.europa.eu/">
+          <ep:instanceInfo xml:id="_1520518794335-000000031-551251331">
+            <ep:standalone xml:id="_1520518794336-000000035-352862551" value="false"/>
+            <ep:docClass ep:category="xml4ep:/doc/category/amendment" xml:id="_1520518794336-000000037-631284695"/>
+            <ep:EPstatus ep:ref="xml4ep:/EPstatus/legislative" xml:id="_1520518794336-000000039-012186365"/>
+            <ep:tablingType ep:ref="xml4ep:/concept/doc/tabling/written" xml:id="_1520518794336-000000036-387122361"/>
+            <ep:contentFormat ep:ref="xml4ep:/concept/presentation/withSource" xml:id="_1520518794336-000000038-037667367"/>
+            <ep:docCode ep:tref="xml4ep:/doc/code/schema/DOCEP" xml:id="_1520518794337-000000040-989588655" value="AM_Ple_LegReport"/>
+            <ep:stakeholder xml:id="_1520518794335-000000033-639451160" ep:role="xml4ep:/role/stakeholder/proponent">
+              <ep:authority ep:category="xml4ep:/authority/category/institution" ep:ref="eu.europa.europarl.codict:institution/id=27" ep:role="xml4ep:/role/doc/responsibleAuthority" xml:id="_1520518794336-000000034-305080897">
+                <ep:person ep:ref="eu.europa.europarl.codict:person/id=113674" ep:role="xml4ep:/role/doc/author" xml:id="_1520518794337-000000043-655187875"/>
+              </ep:authority>
+            </ep:stakeholder>
+          </ep:instanceInfo>
+          <ep:targetInfo xml:id="_1520518794335-000000032-678329955">
+            <ep:docClass ep:category="xml4ep:/act/category/decision" ep:stage="xml4ep:/doc/stage/proposal" xml:id="_1520518794397-000000045-723461329"/>
+            <ep:stakeholder xml:id="_1520518794397-000000046-369219432" ep:role="xml4ep:/role/stakeholder/proponent">
+              <ep:authority ep:category="xml4ep:/authority/category/institution" ep:ref="eu.europa.europarl.codict:institution/id=10" ep:role="xml4ep:/role/doc/responsibleAuthority" xml:id="_1520518794397-000000047-040499649"/>
+            </ep:stakeholder>
+          </ep:targetInfo>
+          <ep:otherRelations xml:id="_1520518794455-000000053-484110999">
+            <ep:relatedDoc xml:id="_1520518794455-000000052-201445803" ep:tref="xml4ep:/reference/amendedDocument" href="udi:eu.europa.europarl-DIN1-2018-0000005714_01.00-en-01.00_text-xml"/>
+          </ep:otherRelations>
+        </otherAnalysis>
+      </analysis>
+    </meta>
+    <preface>
+      <container xml:id="_1520518794337-000000042-457470805" refersTo="~_1520518794335-000000033-639451160" name="mainDoc">
+        <p>
+          <docIntroducer>
+            <person xml:id="_1520518794337-000000044-935033021" refersTo="~_1520518794337-000000043-655187875" xml:lang="en" ep:class="FNLN">Michael Andre MATHIEU</person>
+          </docIntroducer>
+        </p>
+      </container>
+    </preface>
+    <amendmentBody refersTo="~_1520518794336-000000038-037667367">
+      <amendmentHeading>
+        <block name="amendedAct">
+          <docType refersTo="~_1520518794397-000000045-723461329">
+            <term xml:id="_1520518794397-000000048-453179602" refersTo="" xml:lang="en" ep:class="Default" ep:ref="eu.europa.europarl.codict:actCategory=xml4ep_-act-category-decision/stage=xml4ep_-doc-stage-proposal/aspect=none/term=docTitle">Proposal for a decision</term>
+          </docType>
+        </block>
+        <block name="amendedAct">
+          <inline name="AMposition" xml:lang="en">
+            <term xml:id="_1520518794401-000000049-347351007" refersTo="" xml:lang="en" ep:class="Default" ep:ref="eu.europa.europarl.codict:positions=primary/position1=recital[8]">Recital 8</term>
+          </inline>
+        </block>
+      </amendmentHeading>
+      <amendmentContent>
+          <block name="text">
+
+              <mod>
+
+              </mod>
+              <mod>
+              </mod>
+          </block>
+        <block name="versionTitle" ep:tref="xml4ep:/concept/content/current">
+          <term xml:id="_1520518794431-000000050-881654129" refersTo="" xml:lang="en" ep:class="Default" ep:ref="eu.europa.europarl.codict:docCategory=xml4ep_-doc-category-amendment/versionTitle=xml4ep_-concept-content-current/stage=xml4ep_-doc-stage-proposal/authority=10">Text proposed by the Commission</term>
+        </block>
+        <block name="versionTitle" ep:tref="xml4ep:/concept/content/proposed">
+          <term xml:id="_1520518794452-000000051-129367134" refersTo="" xml:lang="en" ep:class="Default" ep:ref="eu.europa.europarl.codict:docCategory=xml4ep_-doc-category-amendment/stage=none/aspect=none/versionTitle=xml4ep_-concept-content-proposed">Amendment</term>
+        </block>
+        <block name="changeBlock">
+          <mod xml:id="_1520518794455-000000055-711240668" refersTo="~_1520518794455-000000054-495847144">
+            <quotedStructure>
+                <p>new sentece</p>
+              <container name="remarks">
+                <p eId="" GUID="000001-01224-4454-1125544-444"> ew sentence</p>
+              </container>
+            </quotedStructure>
+            <quotedStructure xml:id="_1520518794455-000000056-383122114" ep:tref="xml4ep:/concept/content/current">
+              <recital xml:id="_1520518794455-000000057-658596364">
+                <num xml:lang="en">(8)</num>
+                <p xml:lang="en" xml:space="preserve">Member States and the Union should also address the social legacy of the economic and financial crisis and aim to build an inclusive society in which people are empowered to anticipate and manage change, and can actively participate in society and the economy, as also outlined in the Commission recommendation on the active inclusion of people excluded from the labour market<authorialNote marker="6" placement="bottom" placementBase="~_1520518794455-000000057-658596364" xml:id="_1520518794464-000000060-465136193" ep:tref="xml4ep:/concept/authorialNote/footnote" ep:noteAddress="1"><p xml:lang="en" xml:space="preserve">COM/2008/0639 final</p></authorialNote> . Inequality should be tackled, access and opportunities for all should be ensured and poverty and social exclusion (including of children) reduced, in particular by ensuring an effective functioning of labour markets and social protection systems and by removing barriers to education/ training and labour-market participation. As new economic and business models take hold in EU workplaces, employment relationships are also changing. Member States should ensure that new employment relationships maintain and strengthen Europeâ€™s social model.</p>
+              </recital>
+            </quotedStructure>
+            <quotedStructure xml:id="_1520518794455-000000058-974065702" ep:tref="xml4ep:/concept/content/proposed">
+              <recital xml:id="_1520518794455-000000059-710422459">
+                <num xml:lang="en">(8)</num>
+                <p xml:lang="en" xml:space="preserve">Member States and the Union should also address the social legacy of the economic and financial crisis and aim to build an inclusive society in which people are empowered to anticipate and manage change, and can actively participate in society and the economy, as also outlined in the Commission recommendation on the active inclusion of people excluded from the labour market<authorialNote marker="6" placement="bottom" placementBase="~_1520518794455-000000059-710422459" xml:id="_1520518794472-000000061-465479768" ep:tref="xml4ep:/concept/authorialNote/footnote" ep:noteAddress="1"><p xml:lang="en" xml:space="preserve">COM/2008/0639 final</p></authorialNote> . Inequality should be tackled, access and opportunities for all should be ensured and poverty and social exclusion (including of children) reduced, in particular by ensuring an effective functioning of labour markets and social protection systems and by removing barriers to education/ training and labour-market participation. As new economic and business models take hold in EU workplaces, employment relationships are also changing. Member States should ensure that new employment relationships maintain and strengthen Europeâ€™s social model.<change xml:lang="en">Â TES FETCH LATEST 2</change></p>
+              </recital>
+            </quotedStructure>
+          </mod>
+        </block>
+        <block name="comment">
+          <remark type="translation" xml:space="preserve"><term xml:id="_1520518794495-000000062-501181753" refersTo="" xml:lang="en" ep:class="Default" ep:ref="eu.europa.europarl.codict:docCategory=xml4ep_-doc-category-amendment/term=fragment/description=original">Or.</term> <inline name="language" refersTo="~_1520518794337-000000041-683145456">en</inline></remark>
+        </block>
+      </amendmentContent>
+    </amendmentBody>
+  </amendment>
+</akomaNtoso>

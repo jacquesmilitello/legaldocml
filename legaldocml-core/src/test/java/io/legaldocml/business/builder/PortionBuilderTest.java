@@ -33,7 +33,9 @@ import io.legaldocml.io.XmlProvider;
 import io.legaldocml.iso.Iso3166;
 import io.legaldocml.iso.Iso639;
 import io.legaldocml.model.Language;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayInputStream;
@@ -55,6 +57,7 @@ import static io.legaldocml.test.XmlUnitHelper.compare;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
+@ExtendWith(LoggerInstancePostProcessor.class)
 class PortionBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");

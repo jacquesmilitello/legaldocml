@@ -16,7 +16,9 @@ import io.legaldocml.business.builder.element.DocContainerTypeBuilder;
 import io.legaldocml.business.builder.element.InlineTypeBuilder;
 import io.legaldocml.io.XmlProvider;
 import io.legaldocml.module.akn.v3.DefaultXmlWriterFactoryV3;
+import io.legaldocml.test.LoggerInstancePostProcessor;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayInputStream;
@@ -30,6 +32,7 @@ import static io.legaldocml.akn.util.TLCFactory.newTLCOrganization;
 import static io.legaldocml.business.util.AknReference.refersTo;
 import static io.legaldocml.test.XmlUnitHelper.compare;
 
+@ExtendWith(LoggerInstancePostProcessor.class)
 class DocumentCollectionBuilderTest {
 
     private BusinessProvider provider = BusinessProvider.businessProvider("default");

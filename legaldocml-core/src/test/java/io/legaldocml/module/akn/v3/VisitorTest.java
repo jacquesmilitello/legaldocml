@@ -13,11 +13,11 @@ import io.legaldocml.test.PathForTest;
 import io.legaldocml.util.ToStringVisitor;
 
 @ExtendWith(LoggerInstancePostProcessor.class)
-public class VisitorTest {
+class VisitorTest {
 
 
     @Test
-    public void simpleVisitor() throws Exception {
+    void simpleVisitor() throws Exception {
 
         AkomaNtoso<?> ako = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/cl_Sesion56_2.xml"));
 
@@ -43,7 +43,7 @@ public class VisitorTest {
 
 
     @Test
-    public void testBillVisitor() throws Exception {
+    void testBillVisitor() throws Exception {
 
         AkomaNtoso<?> ako = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/it_senato_ddl_2013.xml"));
 
@@ -68,7 +68,7 @@ public class VisitorTest {
     }
 
     @Test
-    public void testDocumentCollectionVisitor() throws Exception {
+    void testDocumentCollectionVisitor() throws Exception {
 
         AkomaNtoso<?> ako = XmlProvider.readerFactory().read(PathForTest.path("/xml/v3/uy_bill_2010-09-27.xml"));
 
