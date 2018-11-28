@@ -1,24 +1,22 @@
 package io.legaldocml.diff.text;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
-public class MyersDiffTest {
+import java.util.List;
+
+class MyersDiffTest {
 
 	@Test
-	public void test() {
+	void test() {
 
 		char[] dest = "Ceci est un de grand chage test hel".toCharArray();
 		char[] source = "ceci est un petit test".toCharArray();
 		List<Change> changes = TextDiffs.diff(source, dest);
 
-
 		StringBuilder builder = new StringBuilder();
 		int j = 0;
 		for (int i = changes.size() - 1; i >= 0; i--) {
 			Change change = changes.get(i);
-			System.out.println(change);
 			if (change.getStartRevised() > j) {
 				builder.append(new String(dest, j, change.getStartRevised() - j));
 			}
@@ -33,8 +31,5 @@ public class MyersDiffTest {
 			j = change.getEndRevised();
 
 		}
-		System.out.println("--------------------------------");
-		System.out.println(builder);
-		System.out.println("--------------------------------");
 	}
 }

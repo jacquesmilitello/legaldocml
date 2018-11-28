@@ -32,7 +32,7 @@ public class LoggerInstancePostProcessor implements TestInstancePostProcessor {
         Configuration config = ctx.getConfiguration();
         LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
         loggerConfig.setLevel(level);
-        for (LoggerConfig lc: config.getLoggers().values()) {
+        for (LoggerConfig lc : config.getLoggers().values()) {
             lc.setLevel(level);
         }
         ctx.updateLoggers();
@@ -42,10 +42,12 @@ public class LoggerInstancePostProcessor implements TestInstancePostProcessor {
         LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         Configuration config = ctx.getConfiguration();
         LoggerConfig loggerConfig = config.getLoggerConfig(LogManager.ROOT_LOGGER_NAME);
-        loggerConfig.getAppenderRefs().forEach(a -> loggerConfig.removeAppender(a.getRef()));
-        for (LoggerConfig lc: config.getLoggers().values()) {
-            lc.getAppenderRefs().forEach(a -> loggerConfig.removeAppender(a.getRef()));
-        }
+        loggerConfig.getAppenderRefs().forEach(a -> {
+            loggerConfig.removeAppender(a.getRef());
+            for (LoggerConfig lc : config.getLoggers().values()) {
+                lc.removeAppender(a.getRef());
+            }
+        });
         ctx.updateLoggers();
     }
 
