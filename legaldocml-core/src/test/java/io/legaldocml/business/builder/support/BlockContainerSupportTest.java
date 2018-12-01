@@ -6,8 +6,6 @@ import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.business.builder.element.BlockContainerBuilder;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doCallRealMethod;
@@ -19,7 +17,7 @@ import static org.mockito.Mockito.doCallRealMethod;
 class BlockContainerSupportTest extends SupportBuilderTestCase<BlockContainerSupport<Content, BlockElements>,Content> {
 
 	@Test
-    void testEmpty() throws IOException {
+    void testEmpty()  {
         doCallRealMethod().when(mock).blockContainer();
         doCallRealMethod().when(mock).blockContainer(any());
         mock.blockContainer();
@@ -27,7 +25,7 @@ class BlockContainerSupportTest extends SupportBuilderTestCase<BlockContainerSup
     }
 
     @Test
-    void testAddElement() throws IOException {
+    void testAddElement()  {
         doCallRealMethod().when(mock).blockContainer();
         doCallRealMethod().when(mock).blockContainer(any());
         BlockContainerBuilder builder = mock.blockContainer( container -> {
