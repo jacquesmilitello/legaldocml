@@ -216,6 +216,10 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
             reader.nextStartOrEndElement();
         }
 
+        if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && reader.getQName().equalsLocalName(name())) {
+            return;
+        }
+
         this.elements = new AknList<>(new HierarchyElement[4]);
 
         if (reader.getContext().getAknModule().getVersion() == 2) {

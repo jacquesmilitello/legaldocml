@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://docs.oasis-open.org/legaldocml/ns/akn/3.0 ../../xsd/akomantoso30.xsd"
+            xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+    <!-- Level 5 of compliance  -->
+    <portion includedIn="/akn/us/act/title_9">
+        <meta>
+            <identification source="#vergottini">
+                <FRBRWork>
+                    <FRBRthis value="/akn/us/usc/title_9/!main"/>
+                    <FRBRuri value="/akn/us/usc/title_9"/>
+                    <FRBRdate date="1947-07-30" name="Title 9"/>
+                    <FRBRauthor href="#olrc" as="#drafter"/>
+                    <FRBRcountry value="us"/>
+                    <FRBRsubtype value="title"/>
+                    <FRBRnumber value="title_9"/>
+                    <FRBRname value="title"/>
+                    <FRBRprescriptive value="false"/>
+                    <FRBRauthoritative value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="/akn/us/usc/title_9/eng@2013-07-26/!main"/>
+                    <FRBRuri value="/akn/us/usc/title_9/eng@2013-07-26"/>
+                    <FRBRdate date="2013-07-26" name="Chapter 3 of Title 9 (July 26, 2013)"/>
+                    <FRBRauthor href="#olrc" as="#editor"/>
+                    <FRBRlanguage language="eng"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="/akn/us/usc/title_9/eng@2013-07-26~chp_3/!main.xml"/>
+                    <FRBRuri value="/akn/us/usc/title_9/eng@2013-07-26~chp_3/!main.akn"/>
+                    <FRBRdate date="2014-10-07" name="Chapter 3 of Title 9 (July 26, 2013) -- XML Markup"/>
+                    <FRBRauthor href="#vergottini" as="generator"/>
+                    <FRBRportion from="#chp_3"/>
+                </FRBRManifestation>
+            </identification>
+        </meta>
+        <portionBody>
+            <hcontainer name="test">
+                <heading>simple test</heading>
+            </hcontainer>
+        </portionBody>
+    </portion>
+</akomaNtoso>

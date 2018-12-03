@@ -44,7 +44,7 @@ class AknTest {
         test("/xml/v3/uk/ssi-2017-102-enacted-data.akn.xml");
         test("/xml/v3/uk/ssi-2017-113-enacted-data.akn.xml");
         test("/xml/v3/uk/ssi-2017-126-enacted-data.akn.xml");
-
+        test("/xml/v3/emptyHierarchy.xml");
     }
 
     public static void test(String resource) throws IOException {
