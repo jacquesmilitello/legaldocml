@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.ORIGINAL_TEXT;
 import static io.legaldocml.akn.AknElements.PLACE_HOLDER;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeOriginalText;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -45,7 +46,7 @@ public final class Placeholder extends InlineType implements OriginalText, ANinl
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(ORIGINAL_TEXT, Attributes.attributeGetterSetter4Uri(ORIGINAL_TEXT, getFieldOffset(Placeholder.class, "originalText")))
+                .put(ORIGINAL_TEXT, attributeGetterSetter4String(ORIGINAL_TEXT, getFieldOffset(Placeholder.class, "originalText")))
                 .build();
     }
 
