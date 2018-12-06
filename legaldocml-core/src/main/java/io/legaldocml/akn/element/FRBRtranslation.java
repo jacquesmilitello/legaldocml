@@ -25,7 +25,7 @@ import static io.legaldocml.akn.AknElements.FRBR_TRANSLATION;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4AgentRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Boolean;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAgent;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeAuthoritative;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFromLanguage;
@@ -66,7 +66,7 @@ public final class FRBRtranslation extends MetaOpt implements LinkReq, Authorita
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(FRBRtranslation.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(FRBRtranslation.class, "href")))
                 .put(FROM_LANGUAGE, attributeGetterSetter4String(FROM_LANGUAGE, getFieldOffset(FRBRtranslation.class, "fromLanguage")))
                 .put(BY, attributeGetterSetter4AgentRef(BY, getFieldOffset(FRBRtranslation.class, "by")))
                 .put(PIVOT, attributeGetterSetter4String(PIVOT, getFieldOffset(FRBRtranslation.class, "pivot")))

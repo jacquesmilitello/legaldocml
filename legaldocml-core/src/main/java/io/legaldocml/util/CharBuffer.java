@@ -1,5 +1,7 @@
 package io.legaldocml.util;
 
+import static io.legaldocml.unsafe.UnsafeString.getChars;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -69,6 +71,23 @@ public final class CharBuffer implements CharArray {
         char[] value = new char[end- start];
         System.arraycopy(this.hb, start, value, 0, value.length);
         return CharArrays.immutable(value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean stringEquals(String name) {
+        if (name.length() != pos) {
+            return false;
+        }
+        char[] value = getChars(name);
+        for (int i = 0 ; i < value.length ; i++) {
+            if (value[i] != this.hb[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

@@ -18,6 +18,7 @@ import java.util.Objects;
 import static io.legaldocml.akn.AknAttributes.AS;
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.FRBR_AUTHOR;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeRole;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -52,7 +53,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(HREF, Attributes.attributeGetterSetter4Uri(HREF, getFieldOffset(FRBRauthor.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(FRBRauthor.class, "href")))
                 .put(AS, Attributes.attributeGetterSetter4RoleRef(AS, getFieldOffset(FRBRauthor.class, "as")))
                 .build();
     }
@@ -125,7 +126,7 @@ public final class FRBRauthor extends MetaOpt implements LinkReq, Role {
      */
     @Override
     public boolean equals(java.lang.Object obj) {
-        return obj == this || obj != null && obj instanceof FRBRauthor && Objects.equals(href, ((FRBRauthor) obj).href);
+        return obj == this || obj instanceof FRBRauthor && Objects.equals(href, ((FRBRauthor) obj).href);
     }
 
     /**

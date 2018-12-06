@@ -16,7 +16,7 @@ import static io.legaldocml.akn.AknAttributes.CONTAINS;
 import static io.legaldocml.akn.AknAttributes.NAME;
 import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -51,7 +51,7 @@ public abstract class OpenStructure extends AbstractStructureWithPreamble implem
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .put(CONTAINS, attributeGetterSetter4Enum(CONTAINS, getFieldOffset(OpenStructure.class, "versionType"), VersionType.class))
-                .put(NAME, attributeGetterSetter4String(NAME, getFieldOffset(OpenStructure.class, "name")))
+                .put(NAME, attributeRequireGetterSetter4String(NAME, getFieldOffset(OpenStructure.class, "name")))
                 .build();
     }
 

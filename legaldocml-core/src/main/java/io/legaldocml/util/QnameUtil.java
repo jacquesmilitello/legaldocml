@@ -8,7 +8,7 @@ public final class QnameUtil {
     private QnameUtil(){
     }
 
-    public static CharSequence localName(CharArray array) {
+    public static String localName(CharArray array) {
         int i = 0;
         for (; i < array.length(); i++) {
             if (':' == array.charAt(i)) {
@@ -19,7 +19,7 @@ public final class QnameUtil {
             return array.toString();
         }
         i++;
-        return array.subSequence(i,array.length());
+        return array.subSequence(i,array.length()).toString();
     }
 
 }

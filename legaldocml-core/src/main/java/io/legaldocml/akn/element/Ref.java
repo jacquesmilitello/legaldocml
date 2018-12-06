@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.REF;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -44,7 +45,7 @@ public final class Ref extends InlineReqType implements ANinline, LinkReq {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineReqType.ATTRIBUTES)
-                .put(HREF, Attributes.attributeGetterSetter4Uri(HREF, getFieldOffset(Ref.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(Ref.class, "href")))
                 .build();
     }
 

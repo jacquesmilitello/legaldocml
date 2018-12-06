@@ -15,9 +15,8 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.element.Attributes.ATTRIBUTE_CONSUMER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeContains;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -50,7 +49,7 @@ public abstract class CollectionStructure extends AbstractStructureWithPreamble 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .put(AknAttributes.CONTAINS, attributeGetterSetter4Enum(AknAttributes.CONTAINS, getFieldOffset(CollectionStructure.class, "versionType"), VersionType.class))
-                .put(AknAttributes.NAME, attributeGetterSetter4String(AknAttributes.NAME, getFieldOffset(CollectionStructure.class, "name")))
+                .put(AknAttributes.NAME, attributeRequireGetterSetter4String(AknAttributes.NAME, getFieldOffset(CollectionStructure.class, "name")))
                 .build();
     }
 

@@ -22,6 +22,7 @@ import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Enum;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4TemporalGroupRef;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4ListReferenceRef;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -30,6 +31,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 public abstract class AbstractCore extends AbstractIdCore {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
+    protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES_REQ_REQ;
 
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
@@ -40,6 +42,17 @@ public abstract class AbstractCore extends AbstractIdCore {
                 .put(STATUS, attributeGetterSetter4Enum(STATUS, getFieldOffset(AbstractCore.class, "status"), StatusType.class))
                 .put(PERIOD, attributeGetterSetter4TemporalGroupRef(PERIOD, getFieldOffset(AbstractCore.class, "period")))
                 .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(AbstractCore.class, "refersTo")))
+                .put(ALTERNATIVE_TO, attributeGetterSetter4EidRef(ALTERNATIVE_TO, getFieldOffset(AbstractCore.class, "alternativeTo")))
+                .build();
+
+        ATTRIBUTES_REQ_REQ = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
+                .putAll(AbstractId.ATTRIBUTES)
+                .put(CLASS, attributeGetterSetter4String(CLASS, getFieldOffset(AbstractCore.class, "clazz")))
+                .put(STYLE, attributeGetterSetter4String(STYLE, getFieldOffset(AbstractCore.class, "style")))
+                .put(TITLE, attributeGetterSetter4String(TITLE, getFieldOffset(AbstractCore.class, "title")))
+                .put(STATUS, attributeGetterSetter4Enum(STATUS, getFieldOffset(AbstractCore.class, "status"), StatusType.class))
+                .put(PERIOD, attributeGetterSetter4TemporalGroupRef(PERIOD, getFieldOffset(AbstractCore.class, "period")))
+                .put(REFERS_TO, attributeRequireGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(AbstractCore.class, "refersTo")))
                 .put(ALTERNATIVE_TO, attributeGetterSetter4EidRef(ALTERNATIVE_TO, getFieldOffset(AbstractCore.class, "alternativeTo")))
                 .build();
     }
@@ -112,14 +125,6 @@ public abstract class AbstractCore extends AbstractIdCore {
      * {@inheritDoc}
      */
     @Override
-    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
-        return ATTRIBUTES;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     protected void toString(ToStringBuilder builder) {
         builder.append(CLASS, this.clazz);
         builder.append(STYLE, this.style);
@@ -140,4 +145,13 @@ public abstract class AbstractCore extends AbstractIdCore {
         core.setRefersTo(this.refersTo);
         core.setAlternativeTo(this.alternativeTo);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
+        return ATTRIBUTES;
+    }
+
 }

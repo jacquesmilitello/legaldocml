@@ -12,4 +12,6 @@ public interface AttributeGetterSetter<T> extends BiConsumer<T, CharArray>, Func
 
     String name();
 
+    boolean isRequired();
+
 }

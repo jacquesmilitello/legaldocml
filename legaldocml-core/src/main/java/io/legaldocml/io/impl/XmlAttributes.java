@@ -2,10 +2,9 @@ package io.legaldocml.io.impl;
 
 
 import io.legaldocml.io.AttributeConsumer;
-import io.legaldocml.io.QName;
+import io.legaldocml.io.Externalizable;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.CharBuffer;
-import io.legaldocml.io.Externalizable;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -47,10 +46,27 @@ final class XmlAttributes {
         pos = 0;
     }
 
-    public <T extends Externalizable> void forEach(XmlChannelReader reader, T object, AttributeConsumer<T> consumer) {
+    public <T extends Externalizable<T>> void forEach(XmlChannelReader reader, T object, AttributeConsumer<T> consumer) {
         for (int i = 0; i < pos; i++) {
             consumer.set(reader, object, this.names[i], this.values[i], this.prefixes[i]);
         }
+
+        // validation of attribute -> only for V3
+        if (reader.getContext() != null && reader.getContext().getAknModule().getVersion() == 2) {
+            return;
+        }
+
+        // validate if all required is defined
+        object.attributes().forEach( (name, ags) -> {
+            if (ags.isRequired()) {
+                for (int i = 0; i < pos; i++) {
+                    if (this.names[i].stringEquals(name)) {
+                        return;
+                    }
+                }
+                throw new MandatoryAttributeException("Attribute '"+name+"' from [ " + object + " should not be empty", name, object);
+            }
+        });
     }
 
 }

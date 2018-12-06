@@ -15,7 +15,7 @@ import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.LEVEL;
 import static io.legaldocml.akn.AknElements.TOC_ITEM;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeLevel;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -52,7 +52,7 @@ public final class TocItem extends InlineType implements LinkReq, Level {
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(TocItem.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(TocItem.class, "href")))
                 .put(LEVEL, attributeGetterSetter4String(LEVEL, getFieldOffset(TocItem.class, "level")))
                 .build();
     }

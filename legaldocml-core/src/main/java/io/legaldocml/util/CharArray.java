@@ -12,4 +12,5 @@ public interface CharArray extends CharSequence {
 
     CharArray subSequence(int start, int end);
 
+	boolean stringEquals(String name);
 }

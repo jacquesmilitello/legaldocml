@@ -7,7 +7,6 @@ import io.legaldocml.akn.type.AgentRef;
 import io.legaldocml.akn.type.ConceptRef;
 import io.legaldocml.akn.type.EidRef;
 import io.legaldocml.akn.type.EventRefRef;
-import io.legaldocml.akn.type.ListReferenceRef;
 import io.legaldocml.akn.type.ListReferenceRefs;
 import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
@@ -25,7 +24,6 @@ import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.Dates;
-import io.legaldocml.util.QnameUtil;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -102,6 +100,7 @@ import static io.legaldocml.akn.AknAttributes.WID;
 import static io.legaldocml.akn.AknAttributes.WIDTH;
 import static io.legaldocml.unsafe.UnsafeHelper.getUnsafe;
 import static io.legaldocml.util.Buffers.address;
+import static io.legaldocml.util.QnameUtil.localName;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -264,6 +263,15 @@ public final class Attributes {
         };
     }
 
+    public static <T> AttributeGetterSetter<T> attributeRequireGetterSetter4String(String name, long addr) {
+        return new MandatoryAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, charArray.toString());
+            }
+        };
+    }
+
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4String(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
@@ -316,7 +324,6 @@ public final class Attributes {
         };
     }
 
-
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4DateTime(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
@@ -349,6 +356,15 @@ public final class Attributes {
     }
 
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4Uri(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, new Uri(charArray));
+            }
+        };
+    }
+
+    public static <T> AttributeGetterSetter<T> attributeRequireGetterSetter4Uri(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
             public void accept(T object, CharArray charArray) {
@@ -440,6 +456,15 @@ public final class Attributes {
         };
     }
 
+    public static <T> AttributeGetterSetter<T> attributeRequireGetterSetter4ListReferenceRef(String name, long addr) {
+        return new DefaultAknAttributeGetterSetter<T>(name, addr) {
+            @Override
+            public void accept(T object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, ListReferenceRefs.parse(charArray.value()));
+            }
+        };
+    }
+
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4EventRefRef(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override
@@ -464,9 +489,9 @@ public final class Attributes {
 
             if (prefixNS > 0) {
                 if (name.toString().startsWith(reader.getQName().getPrefix())) {
-                    AttributeGetterSetter<AknObject> cons = akoObject.attributes().get(QnameUtil.localName(name));
+                    AttributeGetterSetter<AknObject> cons = akoObject.attributes().get(localName(name));
                     if (cons == null) {
-                        throw new RuntimeException("Missing [" + QnameUtil.localName(name) + "] for [" + akoObject.getClass().getSimpleName() + "]");
+                        throw new RuntimeException("Missing [" + localName(name) + "] for [" + akoObject.getClass().getSimpleName() + "]");
                     }
                     cons.accept(akoObject, value);
                 } else {
@@ -541,7 +566,25 @@ public final class Attributes {
         public String name() {
             return this.name;
         }
+
+        @Override
+        public boolean isRequired() {
+            return false;
+        }
     }
+
+    private static abstract class MandatoryAknAttributeGetterSetter<T> extends DefaultAknAttributeGetterSetter<T> {
+
+        protected MandatoryAknAttributeGetterSetter(String name, long addr) {
+            super(name, addr);
+        }
+
+        @Override
+        public boolean isRequired() {
+            return true;
+        }
+    }
+
 
     public static class InvalidAttributeException extends RuntimeException {
 

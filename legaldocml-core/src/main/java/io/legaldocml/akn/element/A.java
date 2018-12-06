@@ -16,7 +16,7 @@ import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.TARGET;
 import static io.legaldocml.akn.AknElements.A;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeTarget;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -51,7 +51,7 @@ public final class A extends InlineType implements HTMLinline, LinkReq, Target {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
                 .put(TARGET, attributeGetterSetter4String(TARGET, getFieldOffset(A.class, "target")))
-                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(A.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(A.class, "href")))
                 .build();
     }
 

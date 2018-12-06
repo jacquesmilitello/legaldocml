@@ -16,7 +16,7 @@ import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -44,7 +44,7 @@ public abstract class ReferenceType extends AbstractIdCore implements IdReq, Lin
                 .putAll(AbstractIdCore.ATTRIBUTES)
                 .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(ReferenceType.class, "showAs")))
                 .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(ReferenceType.class, "shortForm")))
-                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(ReferenceType.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(ReferenceType.class, "href")))
                 .build();
     }
 

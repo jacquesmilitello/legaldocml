@@ -4,6 +4,8 @@ import io.legaldocml.unsafe.UnsafeString;
 
 import java.util.Arrays;
 
+import static io.legaldocml.unsafe.UnsafeString.getChars;
+
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
@@ -61,6 +63,23 @@ final class ImmutableCharArray implements CharArray {
             System.arraycopy(this.c, start, val, 0, val.length);
             return new ImmutableCharArray(val);
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean stringEquals(String name) {
+        if (name.length() != this.length) {
+            return false;
+        }
+        char[] value = getChars(name);
+        for (int i = 0 ; i < value.length ; i++) {
+            if (value[i] != this.c[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

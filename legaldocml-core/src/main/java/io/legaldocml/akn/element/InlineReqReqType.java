@@ -1,7 +1,10 @@
 package io.legaldocml.akn.element;
 
+import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.attribute.CoreReqReq;
 import io.legaldocml.akn.visitor.AknVisitor;
+import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlWriter;
 
 import java.io.IOException;
@@ -40,4 +43,11 @@ public abstract class InlineReqReqType extends InlineTypeAbstract implements Cor
         super.write(writer);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
+        return ATTRIBUTES_REQ_REQ;
+    }
 }

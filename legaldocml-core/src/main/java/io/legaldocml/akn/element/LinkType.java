@@ -17,7 +17,7 @@ import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
-import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4Uri;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeShow;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
@@ -43,7 +43,7 @@ public abstract class LinkType extends AbstractIdCore implements Core, IdReq, Sh
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(MetaOpt.ATTRIBUTES)
-                .put(HREF, attributeGetterSetter4Uri(HREF, getFieldOffset(LinkType.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(LinkType.class, "href")))
                 .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(LinkType.class, "showAs")))
                 .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(LinkType.class, "shortForm")))
                 .build();

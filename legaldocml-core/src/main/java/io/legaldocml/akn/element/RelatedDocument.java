@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import static io.legaldocml.akn.AknAttributes.HREF;
 import static io.legaldocml.akn.AknElements.RELATED_DOCUMENT;
+import static io.legaldocml.akn.element.Attributes.attributeRequireGetterSetter4Uri;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 
 /**
@@ -45,7 +46,7 @@ public final class RelatedDocument extends InlineType implements LinkReq, Amendm
     static {
         ATTRIBUTES = ImmutableMap.<String, AttributeGetterSetter<AknObject>>builder()
                 .putAll(InlineType.ATTRIBUTES)
-                .put(HREF, Attributes.attributeGetterSetter4Uri(HREF, getFieldOffset(RelatedDocument.class, "href")))
+                .put(HREF, attributeRequireGetterSetter4Uri(HREF, getFieldOffset(RelatedDocument.class, "href")))
                 .build();
     }
 

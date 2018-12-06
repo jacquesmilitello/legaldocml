@@ -30,7 +30,7 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
         return aknModule;
     }
 
-    public Module getModule(CharArray array) {
+    public final Module getModule(CharArray array) {
         return this.modules.get(array);
     }
 
@@ -40,7 +40,7 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
         }
     }
 
-    public void add(Module module) {
+    public final void add(Module module) {
         if (module instanceof AknModule) {
             if (this.aknModule != null) {
                 throw new AknReadException(AknReadException.Type.TWO_AKN_MODULES, null, this.aknModule, module);
