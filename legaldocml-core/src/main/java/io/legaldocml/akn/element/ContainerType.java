@@ -15,6 +15,7 @@ import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.AttributeGetterSetter;
 import io.legaldocml.io.XmlReader;
 import io.legaldocml.io.XmlWriter;
+import io.legaldocml.util.ListIterable;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -23,7 +24,6 @@ import static io.legaldocml.akn.AknElements.CONTAINER;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.element.Groups.blockElements;
 import static io.legaldocml.akn.element.Groups.convertSuper;
-import static io.legaldocml.akn.util.XmlWriterHelper.writeName;
 import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
 import static java.util.Objects.requireNonNull;
 
@@ -73,6 +73,14 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     }
 
     private String name;
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ListIterable<ContainerElement> iterable() {
+        return containerElements.iterable();
+    }
 
     /**
      * {@inheritDoc}
