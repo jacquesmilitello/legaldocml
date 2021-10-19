@@ -86,6 +86,8 @@ public final class Meta implements AknObject {
     // Optional
     private AknList<Presentation> presentations;
 
+    private AknObject parent;
+
     public Identification getIdentification() {
         return this.identification;
     }
@@ -452,6 +454,15 @@ public final class Meta implements AknObject {
             this.presentations.accept(visitor);
         }
 
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
     /**

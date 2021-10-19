@@ -107,7 +107,7 @@ public abstract class LinkType extends AbstractIdCore implements Core, IdReq, Sh
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         LinkReq.super.write(writer);
         writeShow(writer, this);
     }

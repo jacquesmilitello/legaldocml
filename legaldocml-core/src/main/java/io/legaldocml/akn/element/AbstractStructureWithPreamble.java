@@ -42,6 +42,7 @@ abstract class AbstractStructureWithPreamble extends AbstractStructure implement
     protected final void readPreamble(XmlReader reader) {
         if (reader.getQName().equalsLocalName(PREAMBLE)) {
             this.preamble = new Preamble();
+            this.preamble.setParent(this);
             this.preamble.read(reader);
             reader.nextStartOrEndElement();
         }

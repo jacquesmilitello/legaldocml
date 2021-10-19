@@ -41,6 +41,8 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
     // Optional
     private Components components;
 
+    private AknObject parent;
+
     public final Meta getMeta() {
         return meta;
     }
@@ -146,6 +148,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
     protected final void readCoverPage(XmlReader reader) {
         if (reader.getQName().equalsLocalName(COVER_PAGE)) {
             this.coverPage = new CoverPage();
+            this.coverPage.setParent(this);
             this.coverPage.read(reader);
             reader.nextStartOrEndElement();
         }
@@ -157,12 +160,14 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
 
         if (reader.getQName().equalsLocalName(COVER_PAGE)) {
             this.coverPage = new CoverPage();
+            this.coverPage.setParent(this);
             this.coverPage.read(reader);
             reader.nextStartOrEndElement();
         }
 
         if (reader.getQName().equalsLocalName(PREFACE)) {
             this.preface = new Preface();
+            this.preface.setParent(this);
             this.preface.read(reader);
             reader.nextStartOrEndElement();
         }
@@ -173,6 +178,7 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
 
         if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(CONCLUSIONS)) {
             this.conclusions = new Conclusions();
+            this.conclusions.setParent(this);
             this.conclusions.read(reader);
             reader.nextStartOrEndElement();
         }
@@ -184,11 +190,13 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
                 this.attachments = new AttachmentsV3();
             }
             this.attachments.read(reader);
+            this.attachments.setParent(this);
             reader.nextStartOrEndElement();
         }
 
         if (reader.getEventType() != XMLStreamConstants.END_DOCUMENT && reader.getQName().equalsLocalName(COMPONENTS)) {
             this.components = new Components();
+            this.components.setParent(this);
             this.components.read(reader);
             reader.nextStartOrEndElement();
         }
@@ -242,5 +250,13 @@ abstract class AbstractStructure implements AknObject, Core, HasCoverPage, HasPr
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
 
 }

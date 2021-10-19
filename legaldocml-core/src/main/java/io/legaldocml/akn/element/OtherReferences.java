@@ -66,6 +66,8 @@ public final class OtherReferences implements Source {
     // Mandatory
     private AgentRef source;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -99,7 +101,7 @@ public final class OtherReferences implements Source {
     @Override
     public void read(XmlReader reader) {
         reader.forEach(this, ATTRIBUTE_CONSUMER);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
     /**
@@ -118,4 +120,12 @@ public final class OtherReferences implements Source {
         return ATTRIBUTES;
     }
 
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
 }

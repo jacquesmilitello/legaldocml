@@ -101,7 +101,7 @@ public final class Li extends AbstractCore implements CoreOpt, ValueOpt {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.readWithCharacters(reader, this.elements, ELEMS);
+        XmlReaderHelper.readWithCharacters(reader, this, this.elements, ELEMS);
     }
 
     /**

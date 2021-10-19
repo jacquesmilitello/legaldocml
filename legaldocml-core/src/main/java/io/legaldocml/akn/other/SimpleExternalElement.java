@@ -1,5 +1,6 @@
 package io.legaldocml.akn.other;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.element.AnyOtherTypeElement;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.util.AknList;
@@ -29,8 +30,9 @@ public final class SimpleExternalElement implements AnyOtherTypeElement {
     private final String localName;
 
     private final AknList<StringInlineCM> data = new AknList<>(new StringInlineCM[2]);
+    private final List<ExternalAttribute> attributes = new ArrayList<>(2);
 
-    private List<ExternalAttribute> attributes = new ArrayList<>(2);
+    private AknObject parent;
 
     public SimpleExternalElement(String prefix, String localName) {
         this.prefix = prefix;
@@ -93,15 +95,19 @@ public final class SimpleExternalElement implements AnyOtherTypeElement {
                 break;
             }
         }
-
-
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String name() {
         return this.localName;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 }

@@ -224,7 +224,7 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
 
         if (reader.getContext().getAknModule().getVersion() == 2) {
 
-            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP);
+            XmlReaderHelper.read(reader, this, this.elements, ELEMS, qName, WRAP);
 
             if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP)) {
                 this.wrap = new Wrap();
@@ -234,7 +234,7 @@ public abstract class Hierarchy extends BaseHierarchy implements CoreReq, HierEl
 
         } else {
 
-            XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP_UP);
+            XmlReaderHelper.read(reader, this, this.elements, ELEMS, qName, WRAP_UP);
 
             if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP_UP)) {
                 this.wrapUp = new WrapUp();

@@ -38,7 +38,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class SrcType extends AbstractIdCore implements Core, IdOpt, ShowReq, Src {
+public abstract class SrcType extends AbstractIdCore implements IdOpt, ShowReq, Src {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
@@ -127,7 +127,7 @@ public abstract class SrcType extends AbstractIdCore implements Core, IdOpt, Sho
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdOpt.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         writeSrc(writer, this);
         writeShow(writer, this);
     }

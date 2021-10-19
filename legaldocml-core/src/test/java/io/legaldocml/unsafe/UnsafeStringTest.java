@@ -19,24 +19,24 @@ public class UnsafeStringTest {
         assertUtilClassIsWellDefined(UnsafeString.class);
     }
 
-    @Test
+   @Test
     public void buildStringTest() {
         char[] helloWorld = "helloWorld".toCharArray();
 
-        String val = UnsafeString.buildUnsafe(helloWorld);
+        String val = UnsafeString.valueOf(helloWorld);
         Assertions.assertEquals("helloWorld", val);
     }
 
     @Test
     public void darkSideStringTest() {
         char[] helloWorld = "helloWorld".toCharArray();
-        String val = UnsafeString.buildUnsafe(helloWorld);
+        String val = UnsafeString.valueOf(helloWorld);
         Assertions.assertEquals("helloWorld", val);
         helloWorld[0] = 'H';
         Assertions.assertEquals("HelloWorld", val);
     }
 
-    @Test
+   @Test
     public void getCharsTest() {
         String helloWorld = "HelloWorld";
         char[] value = UnsafeString.getChars(helloWorld);
@@ -47,15 +47,12 @@ public class UnsafeStringTest {
         value[0] = 'H';
     }
 
-    @Test
+     @Test
     public void testNull() {
         Assertions.assertEquals(Strings.EMPTY,UnsafeString.valueOf(null));
         Assertions.assertEquals(Strings.EMPTY,UnsafeString.valueOf(new char[0]));
-        Assertions.assertEquals(Strings.EMPTY,UnsafeString.buildUnsafe(null));
-        Assertions.assertEquals(Strings.EMPTY,UnsafeString.buildUnsafe(new char[0]));
 
         Assertions.assertNotNull(UnsafeString.getChars(null));
-        Assertions.assertEquals(0,UnsafeString.buildUnsafe(new char[0]).length());
     }
 
 

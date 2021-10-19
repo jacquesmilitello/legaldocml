@@ -46,7 +46,7 @@ public final class TemporalGroup extends AbstractIdCore implements Core, IdReq {
     public void write(XmlWriter writer) throws IOException {
         writer.writeStart(ADDRESS_TEMPORAL_GROUP, 13);
         IdReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         this.elements.write(writer);
         writer.writeEnd(ADDRESS_TEMPORAL_GROUP, 13);
     }

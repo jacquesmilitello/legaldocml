@@ -182,7 +182,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     @Override
-    public final CharArray getText() {
+    public CharArray getText() {
         if ((eventType != CHARACTERS) && (eventType != COMMENT) && (eventType != DTD)) {
             throw new XmlChannelReaderException(INVALID_EVENT_TYPE_TEXT, this);
         }
@@ -608,7 +608,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     @Override
-    public final void nextStartOrEndElement() {
+    public void nextStartOrEndElement() {
         if (this.eventType == END_DOCUMENT) {
             return;
         }
@@ -623,7 +623,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         } while (true);
     }
 
-    public final void setBuffer(MappedByteBuffer buf) {
+    public void setBuffer(MappedByteBuffer buf) {
         this.buf = buf;
 
         this.adr = Buffers.address(buf);
@@ -652,7 +652,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     @Override
-    public final int getEventType() {
+    public int getEventType() {
         return eventType;
     }
 
@@ -660,7 +660,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     @Override
-    public final int getDepth() {
+    public int getDepth() {
         return this.depth;
     }
 
@@ -668,7 +668,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     @Override
-    public final ProcessingInstruction getProlog() {
+    public ProcessingInstruction getProlog() {
         return this.prolog;
     }
 

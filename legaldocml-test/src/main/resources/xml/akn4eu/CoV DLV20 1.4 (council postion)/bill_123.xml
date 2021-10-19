@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+    <bill name="DEC">
+        <meta>
+            <identification source="~_PUBL">
+                <FRBRWork>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2999-01-01" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRcountry value="EU"/>
+                    <FRBRprescriptive value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2999-01-01" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRlanguage language="en"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2999-01-01" name=""/>
+                    <FRBRauthor href=""/>
+                    <preservation xmlns:akn4eu="http://imfc.europa.eu/akn4eu">
+                        <akn4eu:akn4euVersion value="4.0.0.0"/>
+                    </preservation>
+                </FRBRManifestation>
+            </identification>
+            <references source="~_PUBL">
+                <TLCReference name="language"
+                              href="http://publications.europa.eu/resource/authority/language/ENG" showAs="en"/>
+                <TLCReference xml:id="_legalBasis" name="contentSubject"
+                              href="http://eurovoc.europa.eu/5456" showAs="Legal basis"/>
+                <TLCOrganization xml:id="_PUBL"
+                                 href="http://publications.europa.eu/resource/authority/corporate-body/PUBL"
+                                 showAs="Publications Office"/>
+                <TLCOrganization xml:id="_CONSIL"
+                                 href="http://publications.europa.eu/resource/authority/corporate-body/CONSIL"
+                                 showAs="Council of the European Union"/>
+                <TLCOrganization xml:id="_EP"
+                                 href="http://publications.europa.eu/resource/authority/corporate-body/EP" showAs="European
+					Parliament"/>
+                <TLCRole xml:id="_PRESID"
+                         href="http://publications.europa.eu/resource/authority/role/PRESID" showAs="President"/>
+                <TLCLocation xml:id="_BEL_BRU"
+                             href="http://publications.europa.eu/resource/authority/place/BEL_BRU" showAs="Brussels"/>
+                <TLCReference xml:id="_DEC" name="docType"
+                              href="http://publications.europa.eu/resource/authority/resource-type/DEC"
+                              showAs="Decision"/>
+                <TLCConcept xml:id="_INP"
+                            href="http://publications.europa.eu/resource/authority/subdivision/INP"
+                            showAs="introductory part"/>
+                <TLCReference xml:id="_procedure_2011_458" name="procedureReference"
+                              href="http://eur-lex.europa.eu/procedure/EN/2011_458" showAs="2011/0458 (COD)"
+                              shortForm="2011/458/COD/RDG1"/>
+            </references>
+        </meta>
+        <preface>
+            <longTitle>
+                <p>
+                    <docType refersTo="~_DEC">DECISION <placeholder>No …/2013/EU</placeholder> OF THE EUROPEAN
+                        PARLIAMENT AND OF THE COUNCIL
+                    </docType>
+                    of
+                    <placeholder>…</placeholder>
+                    <docPurpose>providing macro financial assistance to the Kyrgyz Republic</docPurpose>
+                </p>
+            </longTitle>
+        </preface>
+        <preamble>
+            <formula name="actingEntity">
+                <p>THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN UNION,</p>
+            </formula>
+            <citations>
+                <citation refersTo="~_legalBasis">
+                    <p>Having regard to the Treaty on the Functioning of the European Union, and in particular Article
+                        209 thereof,
+                    </p>
+                </citation>
+                <citation>
+                    <p>Having regard to the proposal from the European Commission,</p>
+                </citation>
+                <citation>
+                    <p>After transmission of the draft legislative act to the national parliaments,</p>
+                </citation>
+                <citation>
+                    <p>Acting in accordance with the ordinary legislative procedure
+                        <authorialNote marker="1" placement="bottom">
+                            <p>Position of the European Parliament of 11 December 2012 and position of the Council at
+                                first reading of …(not yet published in the Official Journal). Position of the European
+                                Parliament of …(not yet published in the Official Journal).
+                            </p>
+                        </authorialNote>
+                        ,
+                    </p>
+                </citation>
+            </citations>
+            <recitals>
+                <intro>
+                    <p>Whereas:</p>
+                </intro>
+                <recital>
+                    <num>(1)</num>
+                    <p>Cooperation between the Union and the Kyrgyz Republic is based on the Partnership and Cooperation
+                        Agreement between the European Communities and their Member States, of the one part, and the
+                        Kyrgyz Republic, of the other part
+                        <authorialNote marker="2"
+                                       placement="bottom">
+                            <p>OJ L 196, 28.7.1999, p. 48.</p>
+                        </authorialNote>
+                        (PCA) that entered into force in 1999. The Union grants Generalised System of Preferences
+                        treatment to the Kyrgyz Republic.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(2)</num>
+                    <p>The Kyrgyz economy was affected in 2009 by the international financial crisis and in June 2010 by
+                        ethnic violence. These events disrupted economic activities, creating substantial public
+                        expenditure needs for reconstruction and social assistance, and resulted in important external
+                        and budgetary financial gaps.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(3)</num>
+                    <p>At a High Level Donors Meeting held in Bishkek on 27 July 2010, the international community
+                        pledged USD 1,1 billion in emergency support to assist in the recovery of the Kyrgyz Republic.
+                        At that meeting, the Union announced that it would provide up to EUR S117,9 million in financial
+                        assistance.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(4)</num>
+                    <p>The Council, meeting in its foreign affairs configuration, in its conclusions on the
+                        Kyrgyz Republic of 26 July 2010, welcomed the efforts of the new Kyrgyz government to
+                        establish a democratic institutional framework and invited the Commission to continue
+                        providing assistance, including in the form of new assistance programmes, to the
+                        authorities of the Kyrgyz Republic in the implementation of their reform programme and
+                        to contribute to the sustainable economic and social development of the country.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(5)</num>
+                    <p>Union political and economic support to the Kyrgyz Republic's incipient parliamentary
+                        democracy would provide a political signal of the Union's strong support to democratic
+                        reforms in Central Asia, consistent with the Union's policy towards the region, as set
+                        out in the Union Strategy for Central Asia (2007-2013) and in the Council conclusions on
+                        Central Asia of 25 June 2012.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(6)</num>
+                    <p>In line with the Joint Declaration by the European Parliament and the Council adopted
+                        together with the decision providing further macro-financial assistance to
+                        Georgia
+                        <authorialNote marker="3" placement="bottom">
+                            <p>OJ …</p>
+                        </authorialNote>
+                        <authorialNote marker="4" placement="bottom">
+                            <p>OJ: Please insert the reference for the Joint Declaration, which will be published
+                                together with the Decision in document PE-CONS 38/13.
+                            </p>
+                        </authorialNote>
+                        , Union macro-financial assistance should be an exceptional financial
+                        instrument of untied and undesignated balance-of-payments support, which aims at
+                        restoring a beneficiary's sustainable external finance situation and should underpin the
+                        implementation of a policy programme containing strong adjustment and structural reform
+                        measures designed to improve the balance of payment position, in particular over the
+                        programme period, and reinforce the implementation of relevant agreements and programmes
+                        with the Union.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(7)</num>
+                    <p>The economic adjustment and reform process of the Kyrgyz Republic is supported by
+                        financial assistance from the International Monetary Fund (IMF). In June 2011, the
+                        Kyrgyz authorities and the IMF agreed on a non-precautionary three-year IMF Extended
+                        Credit Facility ("IMF programme") of SDR 66,6 million (Special Drawing Rights) in
+                        support of the country. The IMF approved the fourth review of that programme in June
+                        2013. The objectives of the IMF programme are consistent with the purpose of the Union
+                        macro-financial assistance, namely to alleviate short-term balance of payment
+                        difficulties, and the implementation of strong adjustment measures consistent with the
+                        aim of Union macro-financial assistance.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(8)</num>
+                    <p>The Union provides sectoral budget support to the Kyrgyz Republic under the Development
+                        Cooperation Instrument of a total of EUR 33 million over the period 2011-2013 to support
+                        reforms in social protection, education and public financial management.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(9)</num>
+                    <p>In 2010, in view of the worsening economic situation and outlook, the Kyrgyz Republic
+                        requested Union macro-financial assistance.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(10)</num>
+                    <p>Given the Kyrgyz Republic's strategic importance for the Union, as well as the
+                        determining role it plays in regional stability, the Kyrgyz Republic should,
+                        exceptionally, be considered to be eligible to receive Union macro-financial
+                        assistance.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(11)</num>
+                    <p>Given that there is still a significant residual external financing gap in the balance
+                        of payments of the Kyrgyz Republic over and above the resources provided by IMF and
+                        other multilateral institutions, and despite the implementation of strong economic
+                        stabilisation and reform programmes by the Kyrgyz Republic, the Union macro-financial
+                        assistance to be provided to the Kyrgyz Republic ("the Union's macro-financial
+                        assistance") is, under the current exceptional circumstances, considered to be an
+                        appropriate response to the Kyrgyz Republic's request to support economic stabilisation
+                        in conjunction with the IMF programme.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(12)</num>
+                    <p>The Union's macro-financial assistance should aim to support the restoration of a
+                        sustainable external financing situation for the Kyrgyz Republic thereby supporting its
+                        economic and social development.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(13)</num>
+                    <p>The determination of the amount of the Union's macro-financial assistance is based on a
+                        complete quantitative assessment of the Kyrgyz Republic's residual external financing
+                        needs, and takes into account its capacity to finance itself with its own resources, in
+                        particular the international reserves at its disposal. The Union's macro-financial
+                        assistance should complement the programmes and resources provided by the IMF and the
+                        World Bank. The determination of the amount of the assistance also takes into account
+                        expected financial contributions from multilateral donors and the need to ensure fair
+                        burden sharing between the Union and other donors, as well as the pre-existing
+                        deployment of the Union's other external financing instruments in the Kyrgyz Republic
+                        and the added value of the overall Union involvement.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(14)</num>
+                    <p>Taking into consideration the Kyrgyz Republic's residual external financing needs, the
+                        level of its economic development, as measured by per capita income and poverty ratios,
+                        its capacity to finance itself with its own resources, in particular the international
+                        reserves at its disposal, and the assessment of its ability to repay drawing on debt
+                        sustainability analysis, a part of the assistance should be provided in the form of
+                        grants.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(15)</num>
+                    <p>The Commission should ensure that the Union's macro-financial assistance is legally and
+                        substantially in line with the key principles, objectives and measures taken within the
+                        different areas of external action and other relevant Union policies.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(16)</num>
+                    <p>The Union's macro-financial assistance should support the Union's external policy
+                        towards the Kyrgyz Republic. Commission services and the European External Action
+                        Service should work closely together throughout the macro-financial assistance operation
+                        in order to coordinate, and to ensure the consistency of, Union external policy.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(17)</num>
+                    <p>The Union's macro-financial assistance should support the Kyrgyz Republic's commitment
+                        to values shared with the Union, including democracy, the rule of law, good governance,
+                        respect for human rights, sustainable development and poverty reduction, as well as its
+                        commitment to the principles of open, rule-based and fair trade.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(18)</num>
+                    <p>A precondition for granting the Union's macro-financial assistance should be that the
+                        Kyrgyz Republic respects effective democratic mechanisms, including a multi-party
+                        parliamentary system and the rule of law, and guarantees respect for human rights. In
+                        addition, the specific objectives of the Union's macro-financial assistance should
+                        strengthen the efficiency, transparency and accountability of public finance management
+                        systems in the Kyrgyz Republic. Both fulfilment of the precondition, and the achievement
+                        of those objectives should be regularly monitored by the Commission.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(19)</num>
+                    <p>In order to ensure that the Union's financial interests linked to the Union's
+                        macro-financial assistance are protected efficiently, the Kyrgyz Republic should take
+                        appropriate measures relating to the prevention of, and fight against, fraud, corruption
+                        and any other irregularities linked to the assistance. In addition, provision should be
+                        made for the Commission to carry out checks and for the Court of Auditors to carry out
+                        audits.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(20)</num>
+                    <p>Release of the Union's macro-financial assistance is without prejudice to the powers of
+                        the European Parliament and the Council.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(21)</num>
+                    <p>The amounts of macro-financial assistance provided in the form of grants and the
+                        amounts of the provision required for macro-financial assistance in the form of loans
+                        should be consistent with the budgetary appropriations provided for in the multi-annual
+                        financial framework.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(22)</num>
+                    <p>The Union's macro-financial assistance should be managed by the Commission. In order to
+                        ensure that the European Parliament and the Council are able to follow the
+                        implementation of this Decision, the Commission should regularly inform them of
+                        developments relating to the assistance and provide them with relevant documents.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(23)</num>
+                    <p>In order to ensure uniform conditions for the implementation of this Decision,
+                        implementing powers should be conferred on the Commission. Those powers should be
+                        exercised in accordance with Regulation (EU) No 182/2011 of the European Parliament and
+                        of the Council
+                        <authorialNote marker="5" placement="bottom">
+                            <p>Regulation (EU) No 182/2011 of the European Parliament and of the Council of 16
+                                February 2011 laying down the rules and general principles concerning mechanisms for
+                                control by Member States of the Commission's exercise of implementing powers (OJ L
+                                55, 28.2.2011, p. 13).
+                            </p>
+                        </authorialNote>
+                        .
+                    </p>
+                </recital>
+                <recital>
+                    <num>(24)</num>
+                    <p>The Union's macro financial assistance should be subject to economic policy conditions,
+                        to be laid down in a Memorandum of Understanding. In order to ensure uniform conditions
+                        of implementation and for reasons of efficiency, the Commission should be empowered to
+                        negotiate such conditions with the Kyrgyz authorities under the supervision of the
+                        committee of representatives of the Member States in accordance with Regulation (EU) No
+                        182/2011. Under that Regulation, the advisory procedure should, as a general rule, apply
+                        in all cases other than as provided for in that Regulation. Considering the potentially
+                        important impact of assistance of more than EUR 90 million, it is appropriate that the
+                        examination procedure be used for operations above that threshold. Considering the
+                        amount of the Union's macro-financial assistance to the Kyrgyz Republic, the advisory
+                        procedure should apply to the adoption of the Memorandum of Understanding, and to any
+                        reduction, suspension or cancellation of the assistance.
+                    </p>
+                </recital>
+                <recital>
+                    <num>(25)</num>
+                    <p>According to the IMF, the Kyrgyz Republic falls under the category of emerging and
+                        developing economies; according to the World Bank, the Kyrgyz Republic is part of the
+                        group of low-income economies and International Development Association (IDA) countries;
+                        according to the UN-OHRLLS
+                        <authorialNote marker="6" placement="bottom">
+                            <p>UN Office of the High Representative for the Least Developed Countries, Landlocked
+                                Developing Countries and Small Island Developing States.
+                            </p>
+                        </authorialNote>
+                        , the Kyrgyz Republic falls under the category of landlocked-developing
+                        country; according to the OECD's Development Assistance Committee, it is in the list of
+                        other low income countries. Therefore, the Kyrgyz Republic should be considered as a
+                        developing country in the sense of Article 208 TFEU, which justifies the choice of
+                        Article 209 TFEU as a legal basis for this Decision,
+                    </p>
+                </recital>
+            </recitals>
+            <formula name="enactingFormula">
+                <p>HAVE ADOPTED THIS DECISION:</p>
+            </formula>
+        </preamble>
+        <body>
+            <article>
+                <num>Article 1</num>
+                <paragraph>
+                    <num>1.</num>
+                    <content>
+                        <p>The Union shall make macro-financial assistance available to the Kyrgyz Republic
+                            ("the Union's macro-financial assistance") of a maximum amount of EUR 30 million, with
+                            a view to supporting the Kyrgyz Republic's economic stabilisation and covering its
+                            balance of payments needs as identified in the current IMF programme. Of that maximum
+                            amount, up to EUR 15 million shall be provided in the form of loans and up to EUR
+                            15 million in the form of grants. The release of the Union's macro financial
+                            assistance is subject to the approval of the Union budget for the relevant year by the
+                            European Parliament and the Council.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>In order to finance the loan component of the Union's macro-financial assistance, the
+                            Commission shall be empowered on behalf of the Union to borrow the necessary funds on
+                            the capital markets or from financial institutions and to on-lend them to the Kyrgyz
+                            Republic. The loans shall have a maximum maturity of 15 years.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>3.</num>
+                    <content>
+                        <p>The release of the Union's macro-financial assistance shall be managed by the
+                            Commission in a manner consistent with the agreements or understandings reached
+                            between the IMF and the Kyrgyz Republic, and with the key principles and objectives of
+                            economic reforms set out in the PCA and in the Union Strategy for Central Asia
+                            (2007-2013). The Commission shall regularly inform the European Parliament and the
+                            Council of developments regarding the Union's macro-financial assistance, including
+                            disbursements thereof, and shall provide those institutions with the relevant
+                            documents in due time.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>4.</num>
+                    <content>
+                        <p>The Union's macro-financial assistance shall be made available for a period of two
+                            years from the first day after the entry into force of the Memorandum of Understanding
+                            referred to in Article 3(1).
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>5.</num>
+                    <content>
+                        <p>Where the financing needs of the Kyrgyz Republic decrease fundamentally during the
+                            period of the disbursement of the Union's macro-financial assistance compared to the
+                            initial projections, the Commission, acting in accordance with the advisory procedure
+                            referred to in Article 7(2), shall reduce the amount of the assistance or suspend or
+                            cancel it.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 2</num>
+                <paragraph>
+                    <content>
+                        <p>A pre-condition for granting the Union's macro financial assistance shall be that the
+                            Kyrgyz Republic respects effective democratic mechanisms, including a multi-party
+                            parliamentary system and the rule of law, and guarantees respect for human rights. The
+                            Commission shall monitor the fulfilment of this pre-condition throughout the
+                            life-cycle of the Union's macro-financial assistance. This Article shall be applied in
+                            accordance with Council Decision 2010/427/EU
+                            <authorialNote marker="7"
+                                           placement="bottom">
+                                <p>Council Decision 2010/427/EU of 26 July 2010 establishing the organisation and
+                                    functioning of the European External Action Service (OJ L 201, 3.8.2010, p.
+                                    30).
+                                </p>
+                            </authorialNote>
+                            .
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 3</num>
+                <paragraph>
+                    <num>1.</num>
+                    <content>
+                        <p>The Commission, in accordance with the advisory procedure referred to in Article
+                            7(2), shall agree with the Kyrgyz authorities on clearly defined economic policy and
+                            financial conditions, focusing on structural reforms and sound public finances, to
+                            which the Union's macro-financial assistance is to be subject, to be laid down in a
+                            Memorandum of Understanding ("the Memorandum of Understanding") which shall include a
+                            timeframe for the fulfilment of those conditions. The economic policy and financial
+                            conditions set out in the Memorandum of Understanding shall be consistent with the
+                            agreements or understandings referred to in Article 1(3), including the macro-economic
+                            adjustment and structural reform programmes implemented by the Kyrgyz Republic, with
+                            the support of the IMF.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>Those conditions shall aim, in particular, to enhance the efficiency, transparency
+                            and accountability of the Union's macro-financial assistance, including public finance
+                            management systems in the Kyrgyz Republic. Progress in mutual market opening, the
+                            development of rules-based and fair trade and other priorities in the context of the
+                            Union's external policy shall also be duly taken into account when designing the
+                            policy measures. Progress in attaining those objectives shall be regularly monitored
+                            by the Commission.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>3.</num>
+                    <content>
+                        <p>The detailed financial terms of the Union's macro-financial assistance shall be laid
+                            down in a Grant Agreement and a Loan Agreement to be agreed between the Commission and
+                            the Kyrgyz authorities.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>4.</num>
+                    <content>
+                        <p>During the implementation of the Union's macro-financial assistance, the Commission
+                            shall monitor the soundness of the Kyrgyz Republic's financial arrangements, the
+                            administrative procedures and the internal and external control mechanisms which are
+                            relevant to the assistance, as well as the Kyrgyz Republic's adherence to the agreed
+                            timeframe.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>5.</num>
+                    <content>
+                        <p>The Commission shall verify at regular intervals that the conditions in Article 4(3)
+                            continue to be met, including that the economic policies of the Kyrgyz Republic are in
+                            accordance with the objectives of the Union's macro-financial assistance. In so doing,
+                            the Commission shall coordinate closely with the IMF and the World Bank, and, where
+                            necessary, with the European Parliament and the Council.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 4</num>
+                <paragraph>
+                    <num>1.</num>
+                    <content>
+                        <p>Subject to the conditions in paragraph 3, the Union's macro-financial assistance
+                            shall be made available by the Commission in two instalments, each of which shall
+                            consist of a loan and a grant element. The size of each instalment shall be laid down
+                            in the Memorandum of Understanding.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>The amounts of the Union's macro-financial assistance provided in the form of loans
+                            shall be provisioned, where required, in accordance with Council Regulation (EC,
+                            Euratom) No 480/2009
+                            <authorialNote marker="8" placement="bottom">
+                                <p>Council Regulation (EC, Euratom) No 480/2009 of 25 May 2009 establishing a
+                                    Guarantee Fund for external actions (OJ L 145, 10.6.2009, p. 10).
+                                </p>
+                            </authorialNote>
+                            .
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>3.</num>
+                    <list>
+                        <subparagraph refersTo="~_INP">
+                            <content>
+                                <p>The Commission shall decide on the release of the instalments subject to the
+                                    fulfilment of all of the following conditions:
+                                </p>
+                            </content>
+                        </subparagraph>
+                        <point>
+                            <num>(a)</num>
+                            <content>
+                                <p>the precondition set out in Article 2;</p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(b)</num>
+                            <content>
+                                <p>a continuous satisfactory track record of implementing a policy programme that
+                                    contains strong adjustment and structural reform measures supported by a
+                                    non-precautionary IMF credit arrangement; and
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(c)</num>
+                            <content>
+                                <p>the implementation, within a specific time-frame, of the economic policy
+                                    conditions agreed in the Memorandum of Understanding.
+                                </p>
+                            </content>
+                        </point>
+                    </list>
+                    <subparagraph>
+                        <content>
+                            <p>The disbursement of the second instalment shall not take place earlier than three
+                                months after the release of the first instalment.
+                            </p>
+                        </content>
+                    </subparagraph>
+                </paragraph>
+                <paragraph>
+                    <num>4.</num>
+                    <content>
+                        <p>Where the conditions in paragraph 3 are not met, the Commission shall temporarily
+                            suspend or cancel the disbursement of the Union's macro-financial assistance. In such
+                            cases, it shall inform the European Parliament and the Council of the reasons for that
+                            suspension or cancellation.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>5.</num>
+                    <content>
+                        <p>The Union's macro-financial assistance shall be disbursed to the National Bank of the
+                            Kyrgyz Republic. Subject to provisions to be agreed in the Memorandum of
+                            Understanding, including a confirmation of residual budgetary financing needs, the
+                            Union funds may be transferred to the Treasury of the Kyrgyz Republic as the final
+                            beneficiary.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 5</num>
+                <paragraph>
+                    <num>1.</num>
+                    <content>
+                        <p>The borrowing and lending operations related to the loan component of the Union's
+                            macro-financial assistance shall be carried out in euro using the same value date and
+                            shall not involve the Union in the transformation of maturities, or expose it to any
+                            exchange or interest rate risks, or to any other commercial risk.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>Where the circumstances permit, and if the Kyrgyz Republic so requests, the
+                            Commission may take the steps necessary to ensure that an early repayment clause is
+                            included in the loan terms and conditions and that it is matched by a corresponding
+                            clause in the terms and conditions of the borrowing operations.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>3.</num>
+                    <content>
+                        <p>Where circumstances permit an improvement of the interest rate of the loan and if the
+                            Kyrgyz Republic so requests, the Commission may decide to refinance all or part of its
+                            initial borrowings or may restructure the corresponding financial conditions.
+                            Refinancing or restructuring operations shall be carried out in accordance with
+                            paragraphs 1 and 4 and shall not have the effect of extending the maturity of the
+                            borrowings concerned or of increasing the amount of capital outstanding at the date of
+                            the refinancing or restructuring.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>4.</num>
+                    <content>
+                        <p>All costs incurred by the Union which relate to the borrowing and lending operations
+                            under this Decision shall be borne by the Kyrgyz Republic.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>5.</num>
+                    <content>
+                        <p>The Commission shall inform the European Parliament and the Council of developments
+                            in the operations referred to in paragraphs 2 and 3.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 6</num>
+                <paragraph>
+                    <num>1.</num>
+                    <content>
+                        <p>The Union's macro-financial assistance shall be implemented in accordance with
+                            Regulation (EU, Euratom) No 966/2012 of the European Parliament and of the
+                            Council
+                            <authorialNote marker="9" placement="bottom">
+                                <p>Regulation (EU, Euratom) No 966/2012 of the European Parliament and of the
+                                    Council of 25 October 2012 on the financial rules applicable to the general budget
+                                    of the Union and repealing Council Regulation (EC, Euratom) No 1605/2002 (OJ L
+                                    298, 26.10.2012, p. 1).
+                                </p>
+                            </authorialNote>
+                            and Commission Delegated Regulation (EU) No 1268/2012
+                            <authorialNote
+                                    marker="10" placement="bottom">
+                                <p>Commission Delegated Regulation (EU) No 1268/2012 of 29 October 2012 on the rules
+                                    of application of Regulation (EU, Euratom) No 966/2012 on the financial rules
+                                    applicable to the general budget of the Union (OJ L 362, 31.12.2012, p. 1).
+                                </p>
+                            </authorialNote>
+                            .
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>The implementation of the Union's macro financial assistance shall be under direct,
+                            decentralised management.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>3.</num>
+                    <list>
+                        <subparagraph refersTo="~_INP">
+                            <content>
+                                <p>The Memorandum of Understanding, the Loan Agreement and the Grant Agreement to be
+                                    agreed with the Kyrgyz authorities shall contain provisions:
+                                </p>
+                            </content>
+                        </subparagraph>
+                        <point>
+                            <num>(a)</num>
+                            <content>
+                                <p>ensuring that the Kyrgyz Republic regularly checks that financing provided from
+                                    the budget of the Union has been properly used, takes appropriate measures to
+                                    prevent irregularities and fraud, and, if necessary, takes legal action to recover
+                                    any funds provided under this Decision that have been misappropriated;
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(b)</num>
+                            <content>
+                                <p>ensuring the protection of the Union's financial interests, in particular
+                                    providing for specific measures in relation to the prevention of, and fight
+                                    against, fraud, corruption and any other irregularities affecting the Union's
+                                    macro-financial assistance, in accordance with Council Regulation (EC, Euratom) No
+                                    2988/95
+                                    <authorialNote marker="11" placement="bottom">
+                                        <p>Council Regulation (EC, Euratom) No 2988/95 of 18 December 1995 on the
+                                            protection of the European Communities financial interests (OJ L 312,
+                                            23.12.1995, p. 1).
+                                        </p>
+                                    </authorialNote>
+                                    , Council Regulation (EC, Euratom) No 2185/96
+                                    <authorialNote
+                                            marker="12" placement="bottom">
+                                        <p>Council Regulation (EC, Euratom) No 2185/96 of 11 November 1996 concerning
+                                            on-the-spot checks and inspections carried out by the Commission to protect
+                                            the Communities' financial interests against fraud and other irregularities
+                                            (OJ L 292, 15.11.1996, p. 2).
+                                        </p>
+                                    </authorialNote>
+                                    and Regulation (EC) No 1073/1999 of the European Parliament and
+                                    of the Council
+                                    <authorialNote marker="13" placement="bottom">
+                                        <p>Regulation (EC) No 1073/1999 of the European Parliament and of the Council of
+                                            25 May 1999 concerning investigations conducted by the European Anti-Fraud
+                                            Office (OLAF) (OJ L 136, 31.5.1999, p. 1).
+                                        </p>
+                                    </authorialNote>
+                                    ;
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(c)</num>
+                            <content>
+                                <p>expressly authorising the Commission, including the European Anti-Fraud Office,
+                                    or its representatives to carry out checks, including on-the-spot checks and
+                                    inspections;
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(d)</num>
+                            <content>
+                                <p>expressly authorising the Commission and the Court of Auditors to perform audits
+                                    during and after the availability period of the Union's macro-financial
+                                    assistance, including document audits and on-the-spot audits, such as operational
+                                    assessments;
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(e)</num>
+                            <content>
+                                <p>ensuring that the Union is entitled to full repayment of the grant and/or early
+                                    repayment of the loan where it has been established that, in relation to the
+                                    management of the Union's macro-financial assistance, the Kyrgyz Republic has
+                                    engaged in any act of fraud or corruption or any other illegal activity
+                                    detrimental to the financial interests of the Union.
+                                </p>
+                            </content>
+                        </point>
+                    </list>
+                </paragraph>
+                <paragraph>
+                    <num>4.</num>
+                    <content>
+                        <p>During the implementation of the Union's macro-financial assistance, the Commission
+                            shall monitor, by means of operational assessments, the soundness of the Kyrgyz
+                            Republic's financial arrangements, the administrative procedures, and the internal and
+                            external control mechanisms which are relevant to such assistance.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 7</num>
+                <paragraph>
+                    <num>1.</num>
+                    <content>
+                        <p>The Commission shall be assisted by a committee. That committee shall be a committee
+                            within the meaning of Regulation (EU) No 182/2011.
+                        </p>
+                    </content>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>Where reference is made to this paragraph, Article 4 of Regulation (EU) No 182/2011
+                            shall apply.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 8</num>
+                <paragraph>
+                    <num>1.</num>
+                    <list>
+                        <subparagraph refersTo="~_INP">
+                            <content>
+                                <p>By 30 June of each year, the Commission shall submit to the European Parliament
+                                    and to the Council a report on the implementation of this Decision in the
+                                    preceding year, including an evaluation of that implementation. The report
+                                    shall:
+                                </p>
+                            </content>
+                        </subparagraph>
+                        <point>
+                            <num>(a)</num>
+                            <content>
+                                <p>examine the progress made in implementing the Union's macro-financial
+                                    assistance;
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(b)</num>
+                            <content>
+                                <p>assess the economic situation and prospects of the Kyrgyz Republic, as well as
+                                    progress made in implementing the policy measures referred to in Article 3(1);
+                                </p>
+                            </content>
+                        </point>
+                        <point>
+                            <num>(c)</num>
+                            <content>
+                                <p>indicate the connection between the economic policy conditions as laid down in
+                                    the Memorandum of Understanding, the Kyrgyz Republic's on-going economic and
+                                    fiscal performance and the Commission's decisions to release the instalments of
+                                    the Union's macro-financial assistance.
+                                </p>
+                            </content>
+                        </point>
+                    </list>
+                </paragraph>
+                <paragraph>
+                    <num>2.</num>
+                    <content>
+                        <p>Not later than two years after the expiry of the availability period referred to in
+                            Article 1(4), the Commission shall submit to the European Parliament and to the
+                            Council an ex post evaluation report, assessing the results and efficiency of the
+                            completed Union's macro-financial assistance and the extent to which it has
+                            contributed to the aims of the assistance.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+            <article>
+                <num>Article 9</num>
+                <paragraph>
+                    <content>
+                        <p>This Decision shall enter into force on the third day following that of its
+                            publication in the Official Journal of the European Union.
+                        </p>
+                    </content>
+                </paragraph>
+            </article>
+        </body>
+        <conclusions>
+            <p>Done at <location refersTo="~_BEL_BRU">Brussels</location>,
+            </p>
+            <block name="signatory">
+                <signature>
+                    <organization refersTo="~_EP">For the European Parliament</organization>
+                    <role refersTo="~_PRESID">The President</role>
+                    <person refersTo=""/>
+                </signature>
+                <signature>
+                    <organization refersTo="~_CONSIL">For the Council</organization>
+                    <role refersTo="~_PRESID">The President</role>
+                    <person refersTo=""/>
+                </signature>
+            </block>
+        </conclusions>
+    </bill>
+</akomaNtoso>

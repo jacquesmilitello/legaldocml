@@ -59,6 +59,8 @@ public abstract class CoreProperties implements AknObject {
     // Optional
     private Preservation preservation;
 
+    private AknObject parent;
+
     public final FRBRthis getFRBRthis() {
         return this.frbrThis;
     }
@@ -219,6 +221,15 @@ public abstract class CoreProperties implements AknObject {
         if (this.preservation != null) {
             this.preservation.accept(visitor);
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

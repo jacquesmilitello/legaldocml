@@ -112,7 +112,7 @@ public abstract class ItemType extends BaseHierarchy implements CoreReq, BlockEl
     public void read(XmlReader reader) {
         QName qName = reader.getQName();
         super.read(reader);
-        XmlReaderHelper.read(reader, this.blockElements, ELEMS, qName);
+        XmlReaderHelper.read(reader, this, this.blockElements, ELEMS, qName);
     }
 
     /**

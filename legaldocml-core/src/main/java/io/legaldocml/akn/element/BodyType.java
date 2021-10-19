@@ -102,7 +102,7 @@ public abstract class BodyType extends AbstractCore implements CoreOpt, HierElem
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
     /**

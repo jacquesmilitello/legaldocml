@@ -20,7 +20,7 @@ import io.legaldocml.io.XmlWriter;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class MetaOpt extends AbstractIdCore implements Core, IdOpt {
+public abstract class MetaOpt extends AbstractIdCore implements IdOpt {
 
     /**
      * {@inheritDoc}
@@ -36,8 +36,9 @@ public abstract class MetaOpt extends AbstractIdCore implements Core, IdOpt {
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-       IdOpt.super.write(writer);
-       Core.super.write(writer);
+        super.write(writer);
+        IdOpt.super.write(writer);
+
     }
 
 }

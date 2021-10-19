@@ -34,6 +34,8 @@ public final class ComponentInfo implements AknObject {
 
     private AknList<ComponentData> componentData;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -84,4 +86,14 @@ public final class ComponentInfo implements AknObject {
             visitor.visitLeave(this);
         }
     }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
+
 }

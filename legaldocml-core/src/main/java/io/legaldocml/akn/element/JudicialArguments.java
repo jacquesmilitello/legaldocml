@@ -73,10 +73,8 @@ public abstract class JudicialArguments implements AknObject {
 
     private Result result;
     private final AknList<JudicialArgumentsElement> list = new AknList<>(new JudicialArgumentsElement[2]);
+    private AknObject parent;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void write(XmlWriter writer) throws IOException {
         if (this.result != null) {
@@ -85,9 +83,6 @@ public abstract class JudicialArguments implements AknObject {
         this.list.write(writer);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void read(XmlReader reader) {
         final QName parent = reader.getQName();
@@ -99,7 +94,16 @@ public abstract class JudicialArguments implements AknObject {
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.list, ELEMS, parent);
+        XmlReaderHelper.read(reader, this, this.list, ELEMS, parent);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

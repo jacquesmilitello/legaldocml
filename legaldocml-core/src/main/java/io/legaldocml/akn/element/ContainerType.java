@@ -144,7 +144,7 @@ public abstract class ContainerType extends AbstractCore implements CoreReq, Nam
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.containerElements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.containerElements, ELEMS);
     }
 
     /**

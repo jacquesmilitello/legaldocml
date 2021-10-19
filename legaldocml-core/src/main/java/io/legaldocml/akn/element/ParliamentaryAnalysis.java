@@ -46,6 +46,7 @@ public abstract class ParliamentaryAnalysis implements AknObject {
     // Mandatory (min 1).
     private final AknList<ParliamentaryAnalysisElement> elements = new AknList<>(new ParliamentaryAnalysisElement[6]);
 
+    private AknObject parent;
 
     public Stream<ParliamentaryAnalysisElement> getElements() {
         return this.elements.stream();
@@ -64,8 +65,17 @@ public abstract class ParliamentaryAnalysis implements AknObject {
      */
     @Override
     public void read(XmlReader reader) {
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
 
 }

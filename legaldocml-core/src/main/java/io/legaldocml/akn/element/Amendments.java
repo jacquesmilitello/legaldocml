@@ -67,6 +67,7 @@ public abstract class Amendments implements AknObject {
         return this.elements.iterable();
     }
 
+    private AknObject parent;
     /**
      * {@inheritDoc}
      */
@@ -80,8 +81,16 @@ public abstract class Amendments implements AknObject {
      */
     @Override
     public void read(XmlReader reader) {
-        XmlReaderHelper.read(reader, elements, ELEMS);
+        XmlReaderHelper.read(reader, this, elements, ELEMS);
     }
 
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
 
 }

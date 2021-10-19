@@ -156,7 +156,7 @@ public abstract class BlockContainerType extends BaseHierarchy implements CoreRe
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP_UP);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS, qName, WRAP_UP);
 
 
         if (reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP_UP)) {

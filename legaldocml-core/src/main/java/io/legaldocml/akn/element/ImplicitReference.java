@@ -18,6 +18,7 @@ import static io.legaldocml.akn.AknAttributes.REFERS_TO;
 import static io.legaldocml.akn.AknAttributes.SHORT_FORM;
 import static io.legaldocml.akn.AknAttributes.SHOW_AS;
 import static io.legaldocml.akn.AknElements.IMPLICIT_REFERENCE;
+import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4EidRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4ListReferenceRef;
 import static io.legaldocml.akn.element.Attributes.attributeGetterSetter4String;
 import static io.legaldocml.akn.util.XmlWriterHelper.writeFor;
@@ -60,7 +61,7 @@ public final class ImplicitReference extends AnyOtherType implements RefersOpt, 
                 .put(REFERS_TO, attributeGetterSetter4ListReferenceRef(REFERS_TO, getFieldOffset(ImplicitReference.class, "refersTo")))
                 .put(SHOW_AS, attributeGetterSetter4String(SHOW_AS, getFieldOffset(ImplicitReference.class, "showAs")))
                 .put(SHORT_FORM, attributeGetterSetter4String(SHORT_FORM, getFieldOffset(ImplicitReference.class, "shortForm")))
-                .put(FOR, attributeGetterSetter4String(FOR, getFieldOffset(ImplicitReference.class, "for_")))
+                .put(FOR, attributeGetterSetter4EidRef(FOR, getFieldOffset(ImplicitReference.class, "for_")))
                 .build();
     }
 

@@ -62,7 +62,7 @@ public final class AttachmentsV2 extends AbstractCore implements CoreOpt, Attach
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader,this,  this.elements, ELEMS);
 
     }
 

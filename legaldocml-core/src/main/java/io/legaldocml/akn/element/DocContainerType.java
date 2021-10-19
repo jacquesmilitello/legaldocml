@@ -75,7 +75,7 @@ public abstract class DocContainerType extends BaseHierarchy implements CoreReq 
         QName parent = reader.getQName();
         super.read(reader);
         this.docContainerTypeElements = new AknList<>(new DocContainerTypeElement[4]);
-        XmlReaderHelper.read(reader, this.docContainerTypeElements, ELEMS, parent);
+        XmlReaderHelper.read(reader, this, this.docContainerTypeElements, ELEMS, parent);
     }
 
     /**

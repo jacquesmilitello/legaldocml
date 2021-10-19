@@ -67,7 +67,7 @@ public abstract class AmendmentBodyType extends AbstractCore implements CoreOpt 
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, blocks, ELEMS);
+        XmlReaderHelper.read(reader,this,  blocks, ELEMS);
     }
 
     /**

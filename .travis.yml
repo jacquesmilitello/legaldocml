@@ -1,5 +1,6 @@
-sudo: false
+dist: bionic
 language: java
+sudo: false
 
 jdk:
   - openjdk8
@@ -9,9 +10,6 @@ cache:
     - $HOME/.m2
 
 install: travis_wait mvn clean install -DskipTests=true -Dpmd.skip=true -Dgpg.skip=true -Dmaven.javadoc.skip=true -B -V -e -P travis
-
-# for sonarcloud.io
-dist: trusty
 
 # use latest java version available instead of travis default
 addons:

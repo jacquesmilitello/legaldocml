@@ -208,7 +208,7 @@ public class ToStringBuilder {
             System.arraycopy(this.value, 0, v, 0, i);
             v[i] = '}';
         }
-        return UnsafeString.buildUnsafe(v);
+        return UnsafeString.valueOf(v);
     }
 
     private void expandCapacity(int minimumCapacity) {

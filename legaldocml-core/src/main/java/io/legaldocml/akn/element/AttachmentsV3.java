@@ -1,6 +1,7 @@
 package io.legaldocml.akn.element;
 
 import io.legaldocml.akn.AknElements;
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.util.AknList;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.util.Buffers;
@@ -34,6 +35,8 @@ public final class AttachmentsV3 implements Attachments {
 
     // Mandatory (min 1).
     private final AknList<Attachment> elements = new AknList<>(new Attachment[4]);
+
+    private AknObject parent;
 
     /**
      * {@inheritDoc}
@@ -72,4 +75,14 @@ public final class AttachmentsV3 implements Attachments {
             visitor.visitLeave(this);
         }
     }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
+
 }

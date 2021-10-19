@@ -193,7 +193,7 @@ public abstract class SpeechType extends BaseHierarchy implements CoreOpt, Speec
             this.from.read(reader);
             reader.nextStartOrEndElement();
         }
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS, qName);
     }
 
     /**

@@ -152,7 +152,7 @@ public abstract class CountType extends AbstractIdCore implements Core, IdReq, V
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         ValueReq.super.write(writer);
         writeRefers(writer, this);
         writeLinkOpt(writer, this);

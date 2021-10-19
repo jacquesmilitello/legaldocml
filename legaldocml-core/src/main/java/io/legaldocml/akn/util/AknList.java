@@ -3,7 +3,6 @@ package io.legaldocml.akn.util;
 import io.legaldocml.akn.AknCloneContext;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.visitor.AknVisitor;
-import io.legaldocml.akn.visitor.Visitor;
 import io.legaldocml.util.ListIterable;
 
 import java.util.Arrays;
@@ -31,7 +30,7 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> {
     }
 
     /**
-     * Visit all element in this list with the given {@link Visitor}.
+     * Visit all element in this list with the given {@link AknVisitor}.
      *
      * @param visitor the visitor for each element.
      */

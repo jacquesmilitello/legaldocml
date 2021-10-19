@@ -48,6 +48,8 @@ public abstract class AbstractId implements AknObject, Id {
 
     private NoWhiteSpace guid;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -195,6 +197,15 @@ public abstract class AbstractId implements AknObject, Id {
         id.setEid(this.eId);
         id.setWid(this.wId);
         id.setGUID(this.guid);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

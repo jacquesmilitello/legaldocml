@@ -69,6 +69,8 @@ public final class Identification implements AknObject, Source {
     // Mandatory
     private AgentRef source;
 
+    private AknObject parent;
+
     public FRBRWork getFRBRWork() {
         return this.work;
     }
@@ -195,6 +197,15 @@ public final class Identification implements AknObject, Source {
         ToStringBuilder builder = new ToStringBuilder(this, false);
         builder.append(SOURCE, this.source);
         return builder.toString();
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

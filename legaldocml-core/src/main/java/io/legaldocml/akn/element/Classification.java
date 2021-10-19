@@ -54,6 +54,8 @@ public final class Classification implements Source {
 
     private AgentRef source;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -126,4 +128,14 @@ public final class Classification implements Source {
             visitor.visitLeave(this);
         }
     }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
+
 }

@@ -57,7 +57,7 @@ public abstract class DebateBodyType extends AbstractCore implements CoreOpt {
     @Override
     public void read(XmlReader reader) {
         reader.forEach(this, ATTRIBUTE_CONSUMER);
-        XmlReaderHelper.read(reader, sections, ELEMS);
+        XmlReaderHelper.read(reader, this, sections, ELEMS);
     }
 
     /**

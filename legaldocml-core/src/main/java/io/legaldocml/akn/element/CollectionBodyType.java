@@ -80,13 +80,14 @@ public abstract class CollectionBodyType extends AbstractCore implements CoreOpt
     public void read(XmlReader reader) {
         super.read(reader);
         if (reader.getContext().getAknModule().getVersion() == 2) {
-            XmlReaderHelper.read(reader, elements, COLLECTION_BODY_TYPE_V2);
+            XmlReaderHelper.read(reader, this, elements, COLLECTION_BODY_TYPE_V2);
         } else {
             reader.nextStartOrEndElement();
             if (reader.getQName().equalsLocalName(COMPONENT)) {
                 Component component;
                 do {
                     component = new Component();
+                    component.setParent(this);
                     component.read(reader);
                     this.components.add(component);
                     reader.nextStartOrEndElement();

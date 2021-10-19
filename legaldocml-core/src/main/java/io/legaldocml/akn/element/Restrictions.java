@@ -63,6 +63,7 @@ public final class Restrictions implements Source {
     // Mandatory
     private AgentRef source;
 
+    private AknObject parent;
     /**
      * {@inheritDoc}
      */
@@ -94,7 +95,7 @@ public final class Restrictions implements Source {
     @Override
     public void read(XmlReader reader) {
         reader.forEach(this, ATTRIBUTE_CONSUMER);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
     /**
@@ -111,5 +112,14 @@ public final class Restrictions implements Source {
     @Override
     public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 }

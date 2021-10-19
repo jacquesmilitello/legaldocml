@@ -37,4 +37,5 @@ public final class Destination extends ArgumentType {
     public String name() {
         return DESTINATION;
     }
+
 }

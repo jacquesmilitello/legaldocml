@@ -77,6 +77,8 @@ public final class Analysis implements Source {
     private AknList<OtherReferences> otherReferences;
     private AknList<OtherAnalysis> otherAnalysis;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -289,6 +291,15 @@ public final class Analysis implements Source {
 
             visitor.visitLeave(this);
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

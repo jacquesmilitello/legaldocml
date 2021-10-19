@@ -87,6 +87,7 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
         }
 
         this.documentType = supplier.get();
+        this.documentType.setParent(this);
         this.documentType.read(reader);
 
         reader.nextStartOrEndElement();
@@ -111,6 +112,17 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
         if (this.components != null) {
             this.components.accept(visitor);
         }
+    }
+
+    @Override
+    public <T extends AknObject> T getParent() {
+        // root element -> no parent
+        return null;
+    }
+
+    @Override
+    public <T extends AknObject> void setParent(T parent) {
+        throw new UnsupportedOperationException("Root element");
     }
 
 }

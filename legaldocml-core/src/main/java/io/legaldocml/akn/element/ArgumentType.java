@@ -65,6 +65,8 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
 
     private Boolean incomplete;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -137,4 +139,14 @@ public abstract class ArgumentType extends AnyOtherType implements Pos, Modifier
     public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
     }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
+
 }

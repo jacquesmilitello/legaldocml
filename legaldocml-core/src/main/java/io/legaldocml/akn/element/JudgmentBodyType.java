@@ -55,7 +55,7 @@ public abstract class JudgmentBodyType extends AbstractCore implements CoreOpt {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
     /**

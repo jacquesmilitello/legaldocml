@@ -101,7 +101,7 @@ public abstract class AnyOtherType extends AbstractIdCore implements LinkOpt, Co
      */
     @Override
     public void write(XmlWriter writer) throws IOException {
-        Core.super.write(writer);
+        super.write(writer);
         IdOpt.super.write(writer);
         if (this.href != null) {
             writer.writeAttribute(ADDRESS_HREF, 4, this.href.getChars());
@@ -139,7 +139,7 @@ public abstract class AnyOtherType extends AbstractIdCore implements LinkOpt, Co
             AnyOtherTypeElement element;
             if (module == null) {
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("inline declation of namespace -> [{}]", reader.getQName());
+                    LOGGER.debug("inline declaration of namespace -> [{}]", reader.getQName());
                 }
                 element = new ExternalElementWithNS(reader.getQName(), reader.getNamespaces().get(immutable(reader.getQName().getPrefix())));
             } else {

@@ -74,17 +74,20 @@ public final class XmlReaderHelper {
     }
 
 
-    public static <T extends AknObject> void read(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map) {
+    public static <T extends AknObject> void read(XmlReader reader, AknObject parent, AknList<T> list, ImmutableMap<String, Supplier<T>> map) {
         QName qName = reader.getQName();
         int eventType;
         while (true) {
             if (reader.getEventType() == XMLStreamConstants.END_DOCUMENT) {
                 return;
             }
-
             eventType = reader.next();
             if (eventType == XMLStreamConstants.START_ELEMENT) {
-                onStartElement(reader, list, map, qName);
+                QName child = reader.getQName();
+                onStartElement(reader, parent, list, map, qName);
+                if (child.equals(qName)) {
+                    continue;
+                }
             }
             if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && qName.equals(reader.getQName())) {
                 break;
@@ -93,16 +96,16 @@ public final class XmlReaderHelper {
         }
     }
 
-    public static <T extends AknObject> void read(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parent) {
+    public static <T extends AknObject> void read(XmlReader reader,  AknObject parent, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parentQname) {
         while (true) {
 
             if (reader.getEventType() == XMLStreamConstants.START_ELEMENT) {
-                onStartElement(reader, list, map, parent);
+                onStartElement(reader, parent, list, map, parentQname);
                 reader.nextStartOrEndElement();
                 continue;
             }
 
-            if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && parent.equals(reader.getQName())) {
+            if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && parentQname.equals(reader.getQName())) {
                 break;
             }
 
@@ -117,7 +120,7 @@ public final class XmlReaderHelper {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T extends HasMixedContent> void readWithCharacters(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map) {
+    public static <T extends HasMixedContent> void readWithCharacters(XmlReader reader, AknObject parent, AknList<T> list, ImmutableMap<String, Supplier<T>> map) {
         QName qName = reader.getQName();
         int eventType;
         while (true) {
@@ -127,7 +130,7 @@ public final class XmlReaderHelper {
 
             eventType = reader.next();
             if (eventType == XMLStreamConstants.START_ELEMENT) {
-                onStartElement(reader, list, map, qName);
+                onStartElement(reader, parent, list, map, qName);
             }
 
             if (reader.getEventType() == XMLStreamConstants.CHARACTERS) {
@@ -145,7 +148,7 @@ public final class XmlReaderHelper {
         }
     }
 
-    public static <T extends AknObject> void read(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parent, String otherLocalName) {
+    public static <T extends AknObject> void read(XmlReader reader, AknObject parent, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parentQname, String otherLocalName) {
 
         int depth = reader.getDepth() - 1;
 
@@ -157,14 +160,14 @@ public final class XmlReaderHelper {
                     return;
                 }
 
-                onStartElement(reader, list, map, parent);
+                onStartElement(reader, parent, list, map, parentQname);
             }
 
             if (reader.getEventType() == XMLStreamConstants.END_DOCUMENT) {
                 return;
             }
 
-            if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && depth == reader.getDepth() && parent.equals(reader.getQName())) {
+            if (reader.getEventType() == XMLStreamConstants.END_ELEMENT && depth == reader.getDepth() && parentQname.equals(reader.getQName())) {
                 return;
             }
 
@@ -178,12 +181,13 @@ public final class XmlReaderHelper {
         }
     }
 
-    private static <T extends AknObject> void onStartElement(XmlReader reader, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parent) {
+    private static <T extends AknObject> void onStartElement(XmlReader reader, AknObject parent, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parentQname) {
         Supplier<T> supplier = map.get(reader.getQName().getLocalName());
         if (supplier == null) {
-            throw new AknReadException(Type.MISSING_ELEMENT, reader, parent);
+            throw new AknReadException(Type.MISSING_ELEMENT, reader, parentQname);
         }
         T ako = supplier.get();
+        ako.setParent(parent);
         ako.read(reader);
         list.add(ako);
     }

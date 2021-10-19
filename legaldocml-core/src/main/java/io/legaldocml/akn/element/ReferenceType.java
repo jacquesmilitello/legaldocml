@@ -35,7 +35,7 @@ import static io.legaldocml.unsafe.UnsafeHelper.getFieldOffset;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class ReferenceType extends AbstractIdCore implements IdReq, LinkReq, ShowReq, Core {
+public abstract class ReferenceType extends AbstractIdCore implements IdReq, LinkReq, ShowReq {
 
     protected static final ImmutableMap<String, AttributeGetterSetter<AknObject>> ATTRIBUTES;
 
@@ -112,7 +112,7 @@ public abstract class ReferenceType extends AbstractIdCore implements IdReq, Lin
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
         LinkReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         writeShow(writer, this);
     }
 

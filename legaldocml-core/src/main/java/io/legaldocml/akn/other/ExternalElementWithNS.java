@@ -1,5 +1,6 @@
 package io.legaldocml.akn.other;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.element.AnyOtherTypeElement;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.QName;
@@ -28,7 +29,9 @@ public final class ExternalElementWithNS implements AnyOtherTypeElement {
     private final QName qName;
     private final CharArray namespace;
 
-    private List<ExternalAttribute> attributes = new ArrayList<>(2);
+    private final List<ExternalAttribute> attributes = new ArrayList<>(2);
+
+    private AknObject parent;
 
     public ExternalElementWithNS(QName qName, CharArray namespace) {
         this.qName = qName;
@@ -82,5 +85,14 @@ public final class ExternalElementWithNS implements AnyOtherTypeElement {
     @Override
     public String name() {
         return this.qName.toString();
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 }

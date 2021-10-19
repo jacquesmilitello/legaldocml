@@ -52,6 +52,8 @@ public abstract class PortionStructure implements PortionAtt {
 
     private ReferenceRef referenceRef;
 
+    private AknObject parent;
+
     public final Meta getMeta() {
         return this.meta;
     }
@@ -114,4 +116,12 @@ public abstract class PortionStructure implements PortionAtt {
         this.portionBody.accept(visitor);
     }
 
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
+    }
 }

@@ -94,7 +94,7 @@ public abstract class PopupStructure extends AbstractCore implements CoreReq {
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, elements, ELEMS);
+        XmlReaderHelper.read(reader, this, elements, ELEMS);
     }
 
     /**

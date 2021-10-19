@@ -64,6 +64,8 @@ public abstract class RefItems implements Source {
 	// Mandatory
 	private AgentRef source;
 
+	private AknObject parent;
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -101,7 +103,7 @@ public abstract class RefItems implements Source {
 	@Override
 	public void read(XmlReader reader) {
 		reader.forEach(this, ATTRIBUTE_CONSUMER);
-		XmlReaderHelper.read(reader, this.refItems, ELEMS);
+		XmlReaderHelper.read(reader,this, this.refItems, ELEMS);
 	}
 
 	/**
@@ -129,5 +131,14 @@ public abstract class RefItems implements Source {
         builder.append(SOURCE, this.source);
         return builder.toString();
     }
-    
+
+	@SuppressWarnings("unchecked")
+	public <T extends AknObject> T getParent() {
+		return (T)parent;
+	}
+
+	public <T extends AknObject> void setParent(T parent) {
+		this.parent = parent;
+	}
+
 }

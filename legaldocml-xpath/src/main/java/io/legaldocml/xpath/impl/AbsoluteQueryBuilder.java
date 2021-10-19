@@ -30,19 +30,19 @@ final class AbsoluteQueryBuilder extends QueryBuilder {
 
         Module module = getXPath().getModule(qname.getPrefix());
 
-        Class<? extends AknObject> aknClass = module.getAknClass(qname.getLocalname());
+        //Class<? extends AknObject> aknClass = module.element(qname.getLocalname());
 
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("append({}) -> [{}]", qname, aknClass);
-        }
+        //if (LOGGER.isDebugEnabled()) {
+         //   LOGGER.debug("append({}) -> [{}]", qname, aknClass);
+       // }
 
-        if (parent == null) {
-            this.parent = aknClass;
-            return;
-        }
+        //if (parent == null) {
+         //   this.parent = aknClass;
+         //   return;
+        //}
 
-        this.stetps.add(new StepEval(Cerebro.getLink(this.parent, aknClass)));
-        this.parent = aknClass;
+        //this.stetps.add(new StepEval(Cerebro.getLink(this.parent, aknClass)));
+        //this.parent = aknClass;
 
     }
 

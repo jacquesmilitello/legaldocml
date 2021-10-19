@@ -17,4 +17,8 @@ public interface AknObject extends Externalizable<AknObject>, Visitable {
         throw new UnsupportedOperationException("clone() not implemented for <" + name() + ">");
     }
 
+    <T extends AknObject> T getParent();
+
+    <T extends AknObject> void setParent(T parent);
+
 }

@@ -203,7 +203,7 @@ public abstract class ModificationType extends AbstractIdCore implements Core, I
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         writeRefers(writer, this);
         writeEnactment(writer, this);
         writeModifiers(writer, this);

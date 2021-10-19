@@ -3,7 +3,8 @@ package io.legaldocml.akn.visitor;
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public enum VisitorStatus {
+public enum VisitorResult {
 
-    CONTINUE, STOP
+    CONTINUE, SKIP_CHILD, STOP
+
 }

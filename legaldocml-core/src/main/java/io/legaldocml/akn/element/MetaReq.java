@@ -19,7 +19,7 @@ import io.legaldocml.io.XmlWriter;
  *
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
  */
-public abstract class MetaReq extends AbstractIdCore implements Core, IdReq {
+public abstract class MetaReq extends AbstractIdCore implements IdReq {
 
     /**
      * {@inheritDoc}
@@ -27,7 +27,7 @@ public abstract class MetaReq extends AbstractIdCore implements Core, IdReq {
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
     }
 
 }

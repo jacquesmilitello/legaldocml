@@ -143,7 +143,7 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        read(reader, this.data);
+        read(reader, this.data, this);
     }
 
     /**
@@ -170,7 +170,7 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
         return data;
     }
 
-    static void read(XmlReader reader, AknList<InlineCM> data) {
+    static void read(XmlReader reader, AknList<InlineCM> data, AknObject parent) {
         InlineCM inlineCM;
 
         QName qName = reader.getQName();
@@ -184,6 +184,7 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
                     throw new RuntimeException(qName + " --> [" + reader.getQName() + "]");
                 }
                 inlineCM = inlineCMSupplier.get();
+                inlineCM.setParent(parent);
                 inlineCM.read(reader);
                 data.add(inlineCM);
                 continue;
@@ -191,7 +192,9 @@ public abstract class InlineTypeAbstract extends AbstractCore implements InlineC
             if (eventType == XMLStreamConstants.CHARACTERS) {
                 char[] content = reader.getText().value();
                 if (content != null && content.length > 0) {
-                    data.add(new StringInlineCM(content));
+                    inlineCM = new StringInlineCM(content);
+                    inlineCM.setParent(parent);
+                    data.add(inlineCM);
                 }
                 continue;
             }

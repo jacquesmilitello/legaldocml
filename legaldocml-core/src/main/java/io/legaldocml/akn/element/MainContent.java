@@ -98,7 +98,7 @@ public abstract class MainContent extends AbstractCore implements CoreOpt, Compo
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
     /**

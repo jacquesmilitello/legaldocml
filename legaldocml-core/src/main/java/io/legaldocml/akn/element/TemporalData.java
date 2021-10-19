@@ -57,6 +57,8 @@ public final class TemporalData implements Source {
     // Mandatory
     private AgentRef source;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -125,6 +127,15 @@ public final class TemporalData implements Source {
             elements.accept(visitor);
             visitor.visitLeave(this);
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

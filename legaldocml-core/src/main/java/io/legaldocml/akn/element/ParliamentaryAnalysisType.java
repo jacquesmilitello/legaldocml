@@ -140,7 +140,7 @@ public abstract class ParliamentaryAnalysisType extends AbstractIdCore implement
     @Override
     public void write(XmlWriter writer) throws IOException {
         IdReq.super.write(writer);
-        Core.super.write(writer);
+        super.write(writer);
         writeLinkOpt(writer, this);
         writeRefers(writer, this);
         writeOutcome(writer, this);
@@ -153,7 +153,7 @@ public abstract class ParliamentaryAnalysisType extends AbstractIdCore implement
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.elements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS);
     }
 
     /**

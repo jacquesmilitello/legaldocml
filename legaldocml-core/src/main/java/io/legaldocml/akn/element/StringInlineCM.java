@@ -1,5 +1,6 @@
 package io.legaldocml.akn.element;
 
+import io.legaldocml.akn.AknObject;
 import io.legaldocml.akn.group.InlineCM;
 import io.legaldocml.akn.visitor.AknVisitor;
 import io.legaldocml.io.XmlReader;
@@ -19,6 +20,8 @@ public final class StringInlineCM implements InlineCM {
      * The content of this "String" text.
      */
     private final char[] chars;
+
+    private AknObject parent;
 
     public StringInlineCM(String string) {
         if (string == null) {
@@ -69,6 +72,15 @@ public final class StringInlineCM implements InlineCM {
     @Override
     public void accept(AknVisitor visitor) {
         visitor.visit(this);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

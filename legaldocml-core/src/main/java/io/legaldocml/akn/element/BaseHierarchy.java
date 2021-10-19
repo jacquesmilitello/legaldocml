@@ -103,6 +103,7 @@ public abstract class BaseHierarchy extends AbstractCore {
 
         if (reader.getQName().equalsLocalName(NUM)) {
             this.num = new Num();
+            this.num.setParent(this);
             this.num.read(reader);
 
             if (LOGGER.isDebugEnabled()) {
@@ -113,12 +114,14 @@ public abstract class BaseHierarchy extends AbstractCore {
 
         if (reader.getQName().equalsLocalName(HEADING)) {
             this.heading = new Heading();
+            this.heading.setParent(this);
             this.heading.read(reader);
             reader.nextStartOrEndElement();
         }
 
         if (reader.getQName().equalsLocalName(SUB_HEADING)) {
             this.subheading = new Subheading();
+            this.subheading.setParent(this);
             this.subheading.read(reader);
             reader.nextStartOrEndElement();
         }

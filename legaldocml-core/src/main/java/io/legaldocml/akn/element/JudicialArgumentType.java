@@ -175,7 +175,7 @@ public abstract class JudicialArgumentType extends AbstractIdCore implements IdR
         writeRefers(writer, this);
         writeEnactment(writer, this);
         writeModifiers(writer, this);
-        Core.super.write(writer);
+        super.write(writer);
         this.sources.write(writer);
         this.destinations.write(writer);
         if (this.condition != null) {

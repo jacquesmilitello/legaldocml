@@ -96,7 +96,7 @@ public abstract class CitationHierarchy extends BaseHierarchy implements CoreReq
             reader.nextStartOrEndElement();
         }
 
-        XmlReaderHelper.read(reader, this.elements, ELEMS, qName, WRAP_UP);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS, qName, WRAP_UP);
 
 
         if (reader.getContext().getAknModule().getVersion() == 3 && reader.getEventType() == XMLStreamConstants.START_ELEMENT && reader.getQName().equalsLocalName(WRAP)) {

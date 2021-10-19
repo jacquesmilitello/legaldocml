@@ -68,10 +68,10 @@ public abstract class AltHierarchy extends BaseHierarchy implements CoreReq {
      */
     @Override
     public void read(XmlReader reader) {
-        QName parent = reader.getQName();
+        QName parentQname = reader.getQName();
         super.read(reader);
         this.elements = new AknList<>(new AltHierarchyElement[4]);
-        XmlReaderHelper.read(reader, this.elements, ELEMS, parent);
+        XmlReaderHelper.read(reader, this, this.elements, ELEMS, parentQname);
     }
 
     /**

@@ -85,7 +85,7 @@ public final class Tr extends AbstractCore implements CoreOpt, SubFlowStructureE
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.trs, ELEMS);
+        XmlReaderHelper.read(reader, this, this.trs, ELEMS);
     }
 
     /**

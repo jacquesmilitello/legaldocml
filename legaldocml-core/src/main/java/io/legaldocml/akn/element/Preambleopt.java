@@ -121,7 +121,7 @@ public abstract class Preambleopt extends AbstractCore implements CoreOpt, Pream
     @Override
     public void read(XmlReader reader) {
         super.read(reader);
-        XmlReaderHelper.read(reader, this.preambleoptElements, ELEMS);
+        XmlReaderHelper.read(reader, this, this.preambleoptElements, ELEMS);
     }
 
     /**

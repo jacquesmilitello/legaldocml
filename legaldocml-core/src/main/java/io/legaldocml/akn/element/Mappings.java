@@ -55,6 +55,8 @@ public final class Mappings implements Source {
     // Mandatory
     private AgentRef source;
 
+    private AknObject parent;
+
     /**
      * {@inheritDoc}
      */
@@ -115,6 +117,15 @@ public final class Mappings implements Source {
     @Override
     public ImmutableMap<String, AttributeGetterSetter<AknObject>> attributes() {
         return ATTRIBUTES;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends AknObject> T getParent() {
+        return (T)parent;
+    }
+
+    public <T extends AknObject> void setParent(T parent) {
+        this.parent = parent;
     }
 
 }

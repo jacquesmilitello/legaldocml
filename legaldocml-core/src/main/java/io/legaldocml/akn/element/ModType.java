@@ -121,9 +121,9 @@ public abstract class ModType extends AbstractCore implements CoreReq, For, Cont
     public void read(XmlReader reader) {
         super.read(reader);
         if (reader.getContext().getAknModule().getVersion() == 2) {
-            XmlReaderHelper.readWithCharacters(reader, this.elements, ELEMS_V2);
+            XmlReaderHelper.readWithCharacters(reader, this, this.elements, ELEMS_V2);
         } else {
-            XmlReaderHelper.readWithCharacters(reader, this.elements, ELEMS);
+            XmlReaderHelper.readWithCharacters(reader, this, this.elements, ELEMS);
         }
     }
 
