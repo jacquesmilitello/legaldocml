@@ -1,7 +1,10 @@
 package io.legaldocml.akn;
 
 import io.legaldocml.LegalDocMlException;
+import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
+
+import java.util.Arrays;
 
 /**
  * @author <a href="mailto:jacques.militello@gmail.com">Jacques Militello</a>
@@ -11,9 +14,7 @@ public final class AknReadException extends LegalDocMlException {
 
     public enum Type {
 
-        MISSING_ELEMENT ("Missing Element [%s] in [%s]"),
-        AKN_MODULE_NOT_FOUND ("AkomaNtoso namespace not found : Element [%s] in [%s]"),
-        TWO_AKN_MODULES("The current XML has two akn modules [%s] - [%s]");
+        INVALID_ELEMENT ("Invalid Element [%s] in [%s]");
 
         private final String msg;
 
@@ -22,14 +23,14 @@ public final class AknReadException extends LegalDocMlException {
         }
     }
 
-    public AknReadException(Type type, XmlReader reader, Object ... params) {
-        super(buildMsg(type, reader,params));
+    public AknReadException(Type type, XmlReader reader, QName qname) {
+        super(buildMsg(type, reader, qname));
     }
 
-    private static String buildMsg(Type type, XmlReader reader, Object ... params) {
+    private static String buildMsg(Type type, XmlReader reader, QName qName) {
         StringBuilder builder = new StringBuilder();
-        builder.append(String.format(type.msg, reader.getQName(),params));
-        builder.append(" -> reader ").append(reader.toString());
+        builder.append(String.format(type.msg, reader.getQName(), qName));
+        builder.append(" -> reader ").append(reader);
         return builder.toString();
     }
 

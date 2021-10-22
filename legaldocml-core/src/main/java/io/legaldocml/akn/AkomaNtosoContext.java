@@ -1,10 +1,12 @@
 package io.legaldocml.akn;
 
+import io.legaldocml.LegalDocMlException;
 import io.legaldocml.business.BusinessProvider;
 import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.io.XmlWriter;
 import io.legaldocml.module.AknModule;
 import io.legaldocml.module.Module;
+import io.legaldocml.module.ModuleException;
 import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
@@ -43,7 +45,7 @@ public abstract class AkomaNtosoContext implements XmlReaderContext {
     public final void add(Module module) {
         if (module instanceof AknModule) {
             if (this.aknModule != null) {
-                throw new AknReadException(AknReadException.Type.TWO_AKN_MODULES, null, this.aknModule, module);
+                throw new ModuleException(this.aknModule, module);
             } else {
                 this.aknModule = (AknModule) module;
             }

@@ -53,7 +53,7 @@
         <module>legaldocml-core</module>
         <module>legaldocml-validation</module>
         <module>legaldocml-archive</module>
-        <module>legaldocml-xpath</module>
+        <!--module>legaldocml-xpath</module-->
         <module>legaldocml-schematron</module>
         <module>legaldocml-xliff</module>
         <module>legaldocml-bom</module>

@@ -10,6 +10,7 @@ import io.legaldocml.akn.HasMixedContent;
 import io.legaldocml.akn.exception.WriterMandatoryElementException;
 import io.legaldocml.akn.element.StringInlineCM;
 import io.legaldocml.akn.other.UnsupportedModule;
+import io.legaldocml.module.ModuleException;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.io.QName;
 import io.legaldocml.io.XmlReader;
@@ -55,7 +56,7 @@ public final class XmlReaderHelper {
         AknModule aknModule = namespaceConsumer.getAknModules();
 
         if (aknModule == null) {
-           throw new AknReadException(Type.AKN_MODULE_NOT_FOUND,reader);
+           throw new ModuleException(reader);
         }
 
         AkomaNtoso<T> akomaNtoso = new AkomaNtoso<>(context);
@@ -184,7 +185,7 @@ public final class XmlReaderHelper {
     private static <T extends AknObject> void onStartElement(XmlReader reader, AknObject parent, AknList<T> list, ImmutableMap<String, Supplier<T>> map, QName parentQname) {
         Supplier<T> supplier = map.get(reader.getQName().getLocalName());
         if (supplier == null) {
-            throw new AknReadException(Type.MISSING_ELEMENT, reader, parentQname);
+            throw new AknReadException(Type.INVALID_ELEMENT, reader, parentQname);
         }
         T ako = supplier.get();
         ako.setParent(parent);

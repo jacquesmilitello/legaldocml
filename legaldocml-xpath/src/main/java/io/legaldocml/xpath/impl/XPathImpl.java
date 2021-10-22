@@ -3,6 +3,7 @@ package io.legaldocml.xpath.impl;
 import io.legaldocml.module.Module;
 import io.legaldocml.module.Modules;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
+import io.legaldocml.util.CharArrays;
 import io.legaldocml.xpath.XPath;
 import io.legaldocml.xpath.XPath2Lexer;
 import io.legaldocml.xpath.XPath2Parser;
@@ -38,7 +39,7 @@ final class XPathImpl implements XPath {
 
     @Override
     public Module getModule(String prefix) {
-        return Modules.get(AkomaNtosoModuleV3.NAMESPACE);
+        return Modules.get(CharArrays.immutable(prefix));
     }
 
 }

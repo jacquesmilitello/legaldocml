@@ -3,8 +3,9 @@ package io.legaldocml.xpath;
 import io.legaldocml.akn.AkomaNtoso;
 import io.legaldocml.akn.DocumentType;
 import io.legaldocml.akn.util.XmlReaderHelper;
-import io.legaldocml.io.impl.Buffers;
 import io.legaldocml.io.impl.XmlChannelReader;
+import io.legaldocml.module.akn.DefaultAkomaNtosoContext;
+import io.legaldocml.util.Buffers;
 
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
@@ -31,7 +32,7 @@ public final class ReaderHelper {
             reader.setBuffer(out);
             reader.nextStartOrEndElement();
 
-            akomaNtoso = XmlReaderHelper.createAkomaNtoso(reader);
+            akomaNtoso = XmlReaderHelper.createAkomaNtoso(reader, new DefaultAkomaNtosoContext());
             akomaNtoso.read(reader);
 
         } finally {
