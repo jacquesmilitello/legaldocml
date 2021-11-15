@@ -67,7 +67,8 @@ public final class Buffers {
             byte[] bytes = element.getBytes(StandardCharsets.US_ASCII);
             buffer = ByteBuffer.allocateDirect(bytes.length);
             buffer.put(bytes);
-            buffer.flip();
+            // noinspection RedundantCast
+            ((java.nio.Buffer)buffer).flip();
             REF.put(element, buffer);
         }
 
@@ -97,7 +98,8 @@ public final class Buffers {
         MappedByteBuffer buffer = (MappedByteBuffer) ByteBuffer.allocateDirect(bytes.length);
         buffer.order(ByteOrder.nativeOrder());
         buffer.put(bytes);
-        buffer.flip();
+        // noinspection RedundantCast
+        ((java.nio.Buffer)buffer).flip();
         return buffer;
     }
 

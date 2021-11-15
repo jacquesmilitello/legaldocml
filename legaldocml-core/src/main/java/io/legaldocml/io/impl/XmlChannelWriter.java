@@ -171,7 +171,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
      * Flush the current outputStream.
      */
     public void flush() throws IOException {
-        this.buffer.flip();
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).flip();
         this.channel.write(this.buffer);
     }
 
@@ -395,9 +396,11 @@ public abstract class XmlChannelWriter implements XmlWriter {
      */
     private void checkSize(int limit) throws IOException {
         if (this.buffer.remaining() < limit) {
-            this.buffer.flip();
+            // noinspection RedundantCast
+            ((java.nio.Buffer)this.buffer).flip();
             this.channel.write(this.buffer);
-            this.buffer.clear();
+            // noinspection RedundantCast
+            ((java.nio.Buffer)this.buffer).clear();
         }
     }
 

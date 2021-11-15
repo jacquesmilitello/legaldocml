@@ -19,7 +19,8 @@ public abstract class StringWriterTemplate {
             byte[] bytes = value.getBytes(StandardCharsets.US_ASCII);
             buffer = (MappedByteBuffer) ByteBuffer.allocateDirect(bytes.length);
             buffer.put(bytes);
-            buffer.flip();
+            // noinspection RedundantCast
+            ((java.nio.Buffer)buffer).flip();
             @SuppressWarnings("restriction")
 			long addr = ((sun.nio.ch.DirectBuffer) buffer).address();
 

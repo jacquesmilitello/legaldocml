@@ -3,8 +3,6 @@ package io.legaldocml.io.impl;
 import io.legaldocml.akn.AknObject;
 import io.legaldocml.io.XmlReaderContext;
 import io.legaldocml.module.AknModule;
-import io.legaldocml.module.Module;
-import io.legaldocml.module.Modules;
 import io.legaldocml.module.akn.v3.AkomaNtosoModuleV3;
 import io.legaldocml.util.CharArray;
 import io.legaldocml.util.Strings;
@@ -24,7 +22,7 @@ public final class XmlChannelReaderElement {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(XmlChannelReaderElement.class);
 
-    private XmlChannelReaderElement(){
+    private XmlChannelReaderElement() {
     }
 
     public static <T extends AknObject> void read(T akn, byte[] bytes) {
@@ -35,7 +33,7 @@ public final class XmlChannelReaderElement {
         }
 
         if (!akn.name().equals(reader.getQName().getLocalName())) {
-            throw new XmlChannelReaderElementException("Expected ["+ akn.name() +"], found [" + reader.getQName() +"]");
+            throw new XmlChannelReaderElementException("Expected [" + akn.name() + "], found [" + reader.getQName() + "]");
         }
 
         read(reader, akn, bytes);
@@ -47,7 +45,7 @@ public final class XmlChannelReaderElement {
 
         if (Strings.isEmpty(reader.getQName().getPrefix())) {
             if (!akn.name().equals(reader.getQName().getLocalName())) {
-                throw new XmlChannelReaderElementException("Expected ["+ akn.name() +"], found [" + reader.getQName() +"]");
+                throw new XmlChannelReaderElementException("Expected [" + akn.name() + "], found [" + reader.getQName() + "]");
             }
         }
 
@@ -66,12 +64,13 @@ public final class XmlChannelReaderElement {
                     LOGGER.debug("update({},{})", name, akn);
                 }
             }
+
             /**
              * {@inheritDoc}
              */
             @Override
             public AknModule getAknModule() {
-                return  AkomaNtosoModuleV3.INSTANCE;
+                return AkomaNtosoModuleV3.INSTANCE;
             }
         });
 
@@ -80,7 +79,8 @@ public final class XmlChannelReaderElement {
 
     private static XmlChannelReader createXmlChannelReader(byte[] bytes) {
         XmlChannelReader reader = new XmlChannelReader();
-        reader.setBuffer((MappedByteBuffer) ByteBuffer.allocateDirect(bytes.length).put(bytes).flip());
+        // noinspection RedundantCast
+        reader.setBuffer((MappedByteBuffer) ((java.nio.Buffer) ByteBuffer.allocateDirect(bytes.length).put(bytes)).flip());
         reader.nextStartOrEndElement();
         return reader;
     }
