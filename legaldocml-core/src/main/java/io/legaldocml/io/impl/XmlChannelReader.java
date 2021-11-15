@@ -639,7 +639,8 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         // Reads prolog (if there)
         if (buf.remaining() > 4 && (buf.get() == '<') && (buf.get() == '?') && (buf.get() == 'x') && (buf.get() == 'm') && (buf.get() == 'l')
                 && (buf.get() == ' ')) {
-            buf.reset();
+            // noinspection RedundantCast
+            ((java.nio.Buffer)buf).reset(); // explicitly casting
             // Prolog detected.
             next();
             // Processing instruction.
