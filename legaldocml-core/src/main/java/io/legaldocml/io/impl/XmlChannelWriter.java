@@ -188,7 +188,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         UNSAFE.putByte(this.address + (pos++), START_TAG);
         UNSAFE.copyMemory(address, this.address + (pos), len);
         pos += len;
-        this.buffer.position(pos);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(pos);
         hasElements[++elem] = true;
     }
 
