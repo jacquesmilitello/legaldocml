@@ -33,6 +33,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.Temporal;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static io.legaldocml.akn.AknAttributes.ACTOR;
 import static io.legaldocml.akn.AknAttributes.ALT;
@@ -523,10 +524,14 @@ public final class Attributes {
                 CoreAttribute attr;
 
                 if (module == null) {
-                    // use external attribures.
+                    // use external attributes.
                     attr = new ExternalAttribute(name, value);
                 } else {
-                    attr = module.attribute(name.toString().substring(prefixNS + 1)).get();
+                    Supplier<CoreAttribute> supplier = module.attribute(name.toString().substring(prefixNS + 1));
+                    if (supplier == null) {
+                        throw new UnsupportedAttributeException(module, name);
+                    }
+                    attr = supplier.get();
                 }
 
                 attr.read(channelReader, value);
@@ -592,5 +597,12 @@ public final class Attributes {
             super("Invalid attribute [" + name + "]-["+ value + "] for [" + akn.name() + "] : attributes allowed " + akn.attributes().keySet().asList());
         }
     }
+    public static class UnsupportedAttributeException extends RuntimeException {
+
+        UnsupportedAttributeException(Module module, CharArray name) {
+            super("Unsupported attribute [" + name + "] in module [" + module.namespace() + "]");
+        }
+    }
+
 
 }
