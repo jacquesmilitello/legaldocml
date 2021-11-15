@@ -196,13 +196,15 @@ public abstract class XmlChannelWriter implements XmlWriter {
      * {@inheritDoc}
      */
     @Override
-    public void writeEndDocument(long address, int len) throws IOException {
-        int pos = this.buffer.position();
+    public void writeEndDocument(long address, int len) {
+        // noinspection RedundantCast
+        int pos = ((java.nio.Buffer)this.buffer).position();
         UNSAFE.copyMemory(ADDRESS_ARRAY_END, this.address + pos, 2);
         pos += 2;
         UNSAFE.copyMemory(address, this.address + pos, len);
         UNSAFE.putByte(this.address + pos++ + len, END_TAG);
-        this.buffer.position(pos + len);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(pos + len);
     }
 
     /**
@@ -212,7 +214,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
     public void writeAttribute(long name, int nameLen, char[] value) throws IOException {
         checkSize(nameLen + value.length + 4);
 
-        int pos = this.buffer.position();
+        // noinspection RedundantCast
+        int pos = ((java.nio.Buffer)this.buffer).position();
         UNSAFE.putByte(this.address + pos++, SPACE);
         UNSAFE.copyMemory(name, this.address + pos, nameLen);
         pos += nameLen;
@@ -220,7 +223,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
         pos = raw(value, 0, value.length, pos);
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
-        this.buffer.position(pos);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(pos);
     }
 
     /**
@@ -229,8 +233,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
     @Override
     public void writeAttribute(long name, int nameLen, byte[] value) throws IOException {
         checkSize(nameLen + value.length + 16);
-
-        long addr = this.address + this.buffer.position();
+        // noinspection RedundantCast
+        long addr = this.address + ((java.nio.Buffer)this.buffer).position();
         UNSAFE.putByte(addr++, SPACE);
         UNSAFE.copyMemory(name, addr, nameLen);
         addr += nameLen;
@@ -239,7 +243,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         UNSAFE.copyMemory(value, UnsafeHelper.BYTE_ARRAY_BASE_OFFSET, null, addr, value.length);
         addr += value.length;
         UNSAFE.putByte(addr++, DOUBLE_QUOTE);
-        this.buffer.position((int) (addr - this.address));
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position((int) (addr - this.address));
     }
 
     /**
@@ -248,8 +253,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
     @Override
     public void writeAttribute(long name, int nameLen, LocalDate date) throws IOException {
         checkSize(nameLen + 20);
-
-        int pos = this.buffer.position();
+        // noinspection RedundantCast
+        int pos = ((java.nio.Buffer)this.buffer).position();
         UNSAFE.putByte(this.address + pos++, SPACE);
         UNSAFE.copyMemory(name, this.address + pos, nameLen);
         pos += nameLen;
@@ -257,7 +262,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
         pos = raw(date, pos);
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
-        this.buffer.position(pos);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(pos);
     }
 
     /**
@@ -266,8 +272,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
     @Override
     public void writeAttribute(long name, int nameLen, OffsetDateTime offsetDateTime) throws IOException {
         checkSize(nameLen + 30);
-
-        int pos = this.buffer.position();
+        // noinspection RedundantCast
+        int pos = ((java.nio.Buffer)this.buffer).position();
         UNSAFE.putByte(this.address + pos++, SPACE);
         UNSAFE.copyMemory(name, this.address + pos, nameLen);
         pos += nameLen;
@@ -275,20 +281,21 @@ public abstract class XmlChannelWriter implements XmlWriter {
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
         pos = raw(offsetDateTime, pos);
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
-        this.buffer.position(pos);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(pos);
     }
 
     public void write(char[] text, int off, int len) throws IOException {
         checkSize(text.length << 2);
-
-        int pos = this.buffer.position();
+        // noinspection RedundantCast
+        int pos = ((java.nio.Buffer)this.buffer).position();
 
         if (hasElements[elem]) {
             hasElements[elem] = false;
             UNSAFE.putByte(this.address + pos++, END_TAG);
         }
-
-        this.buffer.position(raw(text, off, len, pos));
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(raw(text, off, len, pos));
 
     }
 
@@ -411,7 +418,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
     @Override
     public void writeStart(long address, int len) throws IOException {
         checkSize(len << 2);
-        long adr = this.address + this.buffer.position();
+        // noinspection RedundantCast
+        long adr = this.address + ((java.nio.Buffer)this.buffer).position();
         if (hasElements[elem]) {
             hasElements[elem] = false;
             UNSAFE.putByte(adr++, END_TAG);
@@ -427,7 +435,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         }
 
         UNSAFE.copyMemory(address, adr, len);
-        this.buffer.position((int) (adr - this.address) + len);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position((int) (adr - this.address) + len);
         hasElements[++elem] = true;
 
     }
@@ -439,7 +448,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
     public void writeEnd(long address, int len) throws IOException {
         checkSize(len << 2);
         if (!hasElements[elem--]) {
-            long adr = this.address + this.buffer.position();
+            // noinspection RedundantCast
+            long adr = this.address + ((java.nio.Buffer)this.buffer).position();
             UNSAFE.copyMemory(ADDRESS_ARRAY_END, adr, 2);
             adr += 2;
 
@@ -452,11 +462,14 @@ public abstract class XmlChannelWriter implements XmlWriter {
             }
             UNSAFE.copyMemory(address, adr, len);
             UNSAFE.putByte(adr + len, END_TAG);
-            this.buffer.position(((int) (adr - this.address)) + len + 1);
+            // noinspection RedundantCast
+            ((java.nio.Buffer)this.buffer).position(((int) (adr - this.address)) + len + 1);
         } else {
-            int pos = this.buffer.position();
+            // noinspection RedundantCast
+            int pos = ((java.nio.Buffer)this.buffer).position();
             UNSAFE.copyMemory(ADDRESS_END_SINGLE_TAG, this.address + pos, 2);
-            this.buffer.position(pos + 2);
+            // noinspection RedundantCast
+            ((java.nio.Buffer)this.buffer).position(pos + 2);
         }
     }
 
@@ -470,7 +483,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
 
         checkSize(keyLen + valueLen + 4);
 
-        int pos = this.buffer.position();
+        // noinspection RedundantCast
+        int pos = ((java.nio.Buffer)this.buffer).position();
         UNSAFE.putByte(this.address + pos++, SPACE);
 
         UNSAFE.copyMemory(key, this.address + pos, keyLen);
@@ -480,7 +494,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         UNSAFE.copyMemory(value, this.address + pos, valueLen);
         pos += valueLen;
         UNSAFE.putByte(this.address + pos++, DOUBLE_QUOTE);
-        this.buffer.position(pos);
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).position(pos);
     }
 
     public void pushNS(long addr, long size) {
