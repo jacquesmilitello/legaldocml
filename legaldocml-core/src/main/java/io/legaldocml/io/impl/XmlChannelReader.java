@@ -15,6 +15,7 @@ import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.util.ToStringBuilder;
 
 import javax.xml.stream.XMLStreamConstants;
+import java.nio.Buffer;
 import java.nio.MappedByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
@@ -631,7 +632,8 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
 
         cb = seqs[0];
         seqsIdx = 0;
-        buf.mark();
+        // due to java 11 : https://stackoverflow.com/questions/61267495/exception-in-thread-main-java-lang-nosuchmethoderror-java-nio-bytebuffer-flip
+        ((java.nio.Buffer)buf).mark(); // explicitly casting
 
         // Reads prolog (if there)
         if (buf.remaining() > 4 && (buf.get() == '<') && (buf.get() == '?') && (buf.get() == 'x') && (buf.get() == 'm') && (buf.get() == 'l')

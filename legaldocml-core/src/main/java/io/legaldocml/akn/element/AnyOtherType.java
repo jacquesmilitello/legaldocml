@@ -130,7 +130,7 @@ public abstract class AnyOtherType extends AbstractIdCore implements LinkOpt, Co
         while (!qName.equals(reader.getQName())) {
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("External Element prefix [{}]", reader.getQName().getPrefix());
+                LOGGER.debug("External Element prefix [{}] ", reader.getQName().getPrefix());
             }
 
             CharArray array = reader.getNamespaces().get(immutable(reader.getQName().getPrefix()));

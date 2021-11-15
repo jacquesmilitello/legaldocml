@@ -83,7 +83,7 @@ public abstract class AkomaNtosoType<T extends DocumentType> implements AknObjec
         }
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("supplier found : [{}]", supplier);
+            LOGGER.debug("supplier found for : [{}]", reader.getQName());
         }
 
         this.documentType = supplier.get();
