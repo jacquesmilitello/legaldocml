@@ -633,6 +633,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         cb = seqs[0];
         seqsIdx = 0;
         // due to java 11 : https://stackoverflow.com/questions/61267495/exception-in-thread-main-java-lang-nosuchmethoderror-java-nio-bytebuffer-flip
+        // noinspection RedundantCast
         ((java.nio.Buffer)buf).mark(); // explicitly casting
 
         // Reads prolog (if there)
@@ -646,7 +647,9 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
             // Resets to START_DOCUMENT.
             eventType = START_DOCUMENT;
         } else {
-            buf.reset();
+            // due to java 11 : https://stackoverflow.com/questions/61267495/exception-in-thread-main-java-lang-nosuchmethoderror-java-nio-bytebuffer-flip
+            // noinspection RedundantCast
+            ((java.nio.Buffer)buf).reset(); // explicitly casting
         }
     }
 
