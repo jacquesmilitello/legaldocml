@@ -181,7 +181,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
      */
     @Override
     public void writeStartDocument(long address, int len) {
-        this.buffer.clear();
+        // noinspection RedundantCast
+        ((java.nio.Buffer)this.buffer).clear();
         UNSAFE.copyMemory(BUF_HEADER_ADDRESS, this.address, 38);
         int pos = 38;
         UNSAFE.putByte(this.address + (pos++), START_TAG);
@@ -499,7 +500,8 @@ public abstract class XmlChannelWriter implements XmlWriter {
         this.namespacesPtr = -1;
         this.permissive = false;
         this.exceptions = null;
-        this.buffer.clear();
+        // noinspection RedundantCast
+        ((java.nio.Buffer)buffer).clear();
     }
 
     /**
