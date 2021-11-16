@@ -37,5 +37,5 @@ public interface XmlWriter {
 
     boolean isPermissive();
 
-    void addExpcetion(LegalDocMlException exception);
+    void addException(LegalDocMlException exception);
 }

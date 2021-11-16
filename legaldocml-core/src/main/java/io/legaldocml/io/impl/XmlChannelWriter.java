@@ -540,7 +540,7 @@ public abstract class XmlChannelWriter implements XmlWriter {
      * {@inheritDoc}
      */
     @Override
-    public void addExpcetion(LegalDocMlException exception) {
+    public void addException(LegalDocMlException exception) {
         if (this.exceptions == null) {
             this.exceptions = new ArrayList<>(8);
         }

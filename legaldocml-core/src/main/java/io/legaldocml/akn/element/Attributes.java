@@ -309,6 +309,15 @@ public final class Attributes {
         };
     }
 
+    public static <T, E> AttributeGetterSetter<E> attributeGetterSetter4Object(String name, long addr, Function<String, T> function) {
+        return new DefaultAknAttributeGetterSetter<E>(name, addr) {
+            @Override
+            public void accept(E object, CharArray charArray) {
+                UNSAFE.putObject(object, addr, function.apply(charArray.toString()));
+            }
+        };
+    }
+
     public static <T> AttributeGetterSetter<T> attributeGetterSetter4LocalDateTime(String name, long addr) {
         return new DefaultAknAttributeGetterSetter<T>(name, addr) {
             @Override

@@ -671,7 +671,7 @@ public final class XmlWriterHelper {
 
     public static void throwException(XmlWriter writer, LegalDocMlException exception) {
         if (writer.isPermissive()) {
-            writer.addExpcetion(exception);
+            writer.addException(exception);
         } else {
             throw exception;
         }
