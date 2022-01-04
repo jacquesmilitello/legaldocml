@@ -29,22 +29,26 @@ public class UnsafeStringTest {
 
     @Test
     public void darkSideStringTest() {
-        char[] helloWorld = "helloWorld".toCharArray();
-        String val = UnsafeString.valueOf(helloWorld);
-        Assertions.assertEquals("helloWorld", val);
-        helloWorld[0] = 'H';
-        Assertions.assertEquals("HelloWorld", val);
+        if (Jvm.isJava8()) {
+            char[] helloWorld = "helloWorld".toCharArray();
+            String val = UnsafeString.valueOf(helloWorld);
+            Assertions.assertEquals("helloWorld", val);
+            helloWorld[0] = 'H';
+            Assertions.assertEquals("HelloWorld", val);
+        }
     }
 
    @Test
     public void getCharsTest() {
-        String helloWorld = "HelloWorld";
-        char[] value = UnsafeString.getChars(helloWorld);
-        Assertions.assertArrayEquals("HelloWorld".toCharArray(), value);
-        value[0] = 'P';
-        Assertions.assertArrayEquals("PelloWorld".toCharArray(), value);
-        Assertions.assertEquals("PelloWorld", helloWorld);
-        value[0] = 'H';
+       if (Jvm.isJava8()) {
+           String helloWorld = "HelloWorld";
+           char[] value = UnsafeString.getChars(helloWorld);
+           Assertions.assertArrayEquals("HelloWorld".toCharArray(), value);
+           value[0] = 'P';
+           Assertions.assertArrayEquals("PelloWorld".toCharArray(), value);
+           Assertions.assertEquals("PelloWorld", helloWorld);
+           value[0] = 'H';
+       }
     }
 
      @Test
