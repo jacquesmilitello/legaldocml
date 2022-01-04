@@ -47,12 +47,11 @@ public final class AknList<E extends AknObject> extends ExternalizableList<E> {
         return new AknList<E>(Arrays.copyOf(getElems(),size()), size());
     }
 
-    public final ListIterable<E> iterable() {
+    public ListIterable<E> iterable() {
         return new IterableImpl();
     }
 
-    @SuppressWarnings("unchecked")
-    public final void clone(AknList<E> target, Class<E> clazz, AknCloneContext context) {
+    public void clone(AknList<E> target, Class<E> clazz, AknCloneContext context) {
         for (int i = 0; i < size(); i++) {
             target.add(get(i).clone(context));
         }

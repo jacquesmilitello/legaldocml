@@ -65,6 +65,10 @@ public abstract class CoreProperties implements AknObject {
         return this.frbrThis;
     }
 
+    public final Iterable<FRBRuri> getFRBRuris() {
+        return this.uris;
+    }
+
     public final void addFRBRuri(FRBRuri fRBRuri) {
         this.uris.add(fRBRuri);
     }
