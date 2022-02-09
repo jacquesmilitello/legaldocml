@@ -7,6 +7,7 @@ import io.legaldocml.util.Buffers;
 import io.legaldocml.util.CharArray;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static io.legaldocml.unsafe.UnsafeString.getChars;
 
@@ -71,4 +72,17 @@ final class XmlIdImpl implements XmlId {
         return String.valueOf(this.id);
     }
 
+    @Override
+    public int hashCode() {
+        if (id == null)  {
+            return super.hashCode();
+        } else {
+            return id.hashCode();
+        }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return Objects.equals(id, ((XmlId)obj).getXmlId());
+    }
 }

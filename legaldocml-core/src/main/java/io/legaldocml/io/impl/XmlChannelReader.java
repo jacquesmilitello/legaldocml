@@ -15,7 +15,6 @@ import io.legaldocml.unsafe.UnsafeHelper;
 import io.legaldocml.util.ToStringBuilder;
 
 import javax.xml.stream.XMLStreamConstants;
-import java.nio.Buffer;
 import java.nio.MappedByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
@@ -194,7 +193,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
      * {@inheritDoc}
      */
     @Override
-    public final ProcessingInstruction getPIData() {
+    public ProcessingInstruction getPIData() {
         if (eventType != PROCESSING_INSTRUCTION) {
             throw new XmlChannelReaderException(INVALID_EVENT_TYPE_PI, this);
         }
@@ -678,7 +677,7 @@ public final class XmlChannelReader implements XMLStreamConstants, XmlChannelRea
         return this.prolog;
     }
 
-    protected void reset() {
+    void reset() {
         this.buf = null;
         this.adr = 0;
         this.prolog = null;

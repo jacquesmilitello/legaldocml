@@ -1,6 +1,7 @@
 package io.legaldocml.akn;
 
 import com.google.common.collect.ImmutableMap;
+import io.legaldocml.akn.attribute.Core;
 import io.legaldocml.akn.attribute.Id;
 import io.legaldocml.akn.attribute.Link;
 import io.legaldocml.akn.attribute.Src;
@@ -8,6 +9,7 @@ import io.legaldocml.akn.type.ManifestationURI;
 import io.legaldocml.akn.type.NoWhiteSpace;
 import io.legaldocml.akn.type.Uri;
 import io.legaldocml.business.BusinessProvider;
+import io.legaldocml.module.xml.attribute.XmlId;
 import io.legaldocml.unsafe.UnsafeString;
 
 import java.util.HashMap;
@@ -27,12 +29,20 @@ public abstract class MarkupAkomaNtosoContext extends AkomaNtosoContext {
                 .put(AknAttributes.EID, (context, aknObject) -> context.eids.put(((Id) aknObject).getEid(), (Id) aknObject))
                 .put(AknAttributes.SRC, (context, aknObject) -> context.srcs.put(((Src) aknObject).getSrc(), (Src) aknObject))
                 .put(AknAttributes.HREF, (context, aknObject) -> context.links.put(((Link) aknObject).getHref(), (Link) aknObject))
+                .put(XmlId.ATTRIBUTE_WITH_NAMESPACE, (context, aknObject) -> {
+                    XmlId xmlid = (XmlId) ((Core) aknObject).getAttribute(XmlId.ATTRIBUTE_WITH_NAMESPACE);
+                    if (context.ids.containsKey(xmlid)) {
+                        throw new XmlValidationException(XmlValidationException.Type.DUPLICATE_XML_ID, xmlid.getXmlId());
+                    }
+                    context.ids.put(xmlid, aknObject);
+                })
                 .build();
     }
 
     private final Map<NoWhiteSpace, Id> eids = new HashMap<>();
     private final Map<ManifestationURI, Src> srcs = new HashMap<>();
     private final Map<Uri, Link> links = new HashMap<>();
+    private final Map<XmlId, AknObject> ids = new HashMap<>();
 
     protected MarkupAkomaNtosoContext() {
     }

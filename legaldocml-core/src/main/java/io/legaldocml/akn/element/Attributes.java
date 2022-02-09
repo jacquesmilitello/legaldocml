@@ -545,6 +545,7 @@ public final class Attributes {
 
                 attr.read(channelReader, value);
                 ((Core) akn).add(attr);
+                channelReader.getContext().update(attr.name(), akn);
                 return;
             } else {
                 localName = name.subSequence(prefixNS + 1, name.length()).toString();

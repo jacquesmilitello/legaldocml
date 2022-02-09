@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0">
+    <documentCollection name="POSIT">
+        <meta>
+            <identification source="~_PUBL">
+                <FRBRWork>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2999-01-01" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRcountry value="EU"/>
+                    <FRBRprescriptive value="false"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2999-01-01" name=""/>
+                    <FRBRauthor href=""/>
+                    <FRBRlanguage xml:id="_FRBRlanguage" language="en"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value=""/>
+                    <FRBRuri value=""/>
+                    <FRBRdate date="2999-01-01" name=""/>
+                    <FRBRauthor href=""/>
+                </FRBRManifestation>
+            </identification>
+            <analysis source="~_PUBL">
+                <otherReferences source="~_PUBL">
+                    <implicitReference refersTo="~_PROP_ACT" for="~_COM_2011_925"
+                                       href="http://data.europa.eu/eli/prop_act/2011/925" showAs="COM (2011) 925"/>
+                </otherReferences>
+            </analysis>
+            <references source="~_PUBL">
+                <TLCReference name="language"
+                              href="http://publications.europa.eu/resource/authority/language/ENG" showAs="en"/>
+                <TLCOrganization xml:id="_PUBL"
+                                 href="http://publications.europa.eu/resource/authority/corporate-body/PUBL"
+                                 showAs="Publications Office"/>
+                <TLCOrganization xml:id="_CONSIL"
+                                 href="http://publications.europa.eu/resource/authority/corporate-body/CONSIL"
+                                 showAs="Council of the European Union"/>
+                <TLCLocation xml:id="_BEL_BRU"
+                             href="http://publications.europa.eu/resource/authority/place/BEL_BRU" showAs="Brussels"/>
+                <TLCReference xml:id="_ACTS_LEGIS_INSTRUMENTS" name="docType"
+                              href="http://publications.europa.eu/resource/authority/resource-type/ACTS_LEGIS_INSTRUMENTS"
+                              showAs="Legislative acts and other instruments"/>
+                <TLCReference xml:id="_POSIT" name="docType"
+                              href="http://publications.europa.eu/resource/authority/resource-type/POSIT"
+                              showAs="Position"/>
+                <TLCReference xml:id="_procedure_2011_458" name="procedureReference"
+                              href="http://eur-lex.europa.eu/procedure/EN/2011_458" showAs="2011/0458 (COD)"
+                              shortForm="2011/458/COD/RDG1"/>
+                <TLCReference xml:id="_COM_2011_925" name="identifier"
+                              href="http://publications.europa.eu/resource/authority/document-identifier-format/COM-NUMBER"
+                              showAs="COM (2011) 925" shortForm="COM/2011/925"/>
+                <TLCReference xml:id="_PROP_ACT" name="docType"
+                              href="http://publications.europa.eu/resource/authority/resource-type/PROP_ACT"
+                              showAs="Proposal for an act"/>
+            </references>
+        </meta>
+        <coverPage>
+            <container name="logo">
+                <p>
+                    <img src="COUNCIL.png"/>
+                </p>
+            </container>
+            <container name="actingEntity">
+                <p>
+                    <organization refersTo="~_CONSIL">COUNCIL OF THE EUROPEAN UNION</organization>
+                </p>
+            </container>
+            <container name="mainDoc">
+                <block name="placeAndDate"><location refersTo="~_BEL_BRU">Brussels</location>,
+                    <date
+                            date="2013-09-25">25 September 2013
+                    </date>
+                </block>
+                <block name="mainDocOriginalLanguage">(OR. <inline name="language" refersTo="~_FRBRlanguage"
+                >en</inline>)
+                </block>
+            </container>
+            <container name="procedureIdentifier">
+                <p>
+                    <inline name="label">Interinstitutional File:</inline>
+                    <docketNumber refersTo="~_procedure_2011_458">2011/0458 (COD)</docketNumber>
+                </p>
+            </container>
+            <container name="mainDocReference">
+                <block name="reference">
+                    <docNumber>11703/1/13 REV 1</docNumber>
+                </block>
+            </container>
+            <container name="subjectMatter">
+                <p>
+                    <inline xml:id="BAD_XMLID" name="subjectCode">ECOFIN</inline>
+                    649
+                </p>
+                <p>
+                    <inline xml:id="BAD_XMLID" name="subjectCode">RELEX</inline>
+                    597
+                </p>
+                <p>
+                    <inline name="subjectCode">COEST</inline>
+                    172
+                </p>
+                <p>
+                    <inline name="subjectCode">NIS</inline>
+                    32
+                </p>
+                <p>
+                    <inline name="subjectCode">CODEC</inline>
+                    1631
+                </p>
+                <p>
+                    <inline name="subjectCode">PARLNAT</inline>
+                    228
+                </p>
+            </container>
+            <container name="docHeader">
+                <container name="typeOfDocument">
+                    <p>
+                        <docType refersTo="~_ACTS_LEGIS_INSTRUMENTS">LEGISLATIVE ACTS AND OTHER INSTRUMENTS</docType>
+                    </p>
+                </container>
+                <container name="titleOfDocument">
+                    <p>
+                        <inline name="label">Subject:</inline>
+                        <docTitle>Position of the Council at first reading with a view to the adoption of a Decision of
+                            the European Parliament and of the Council providing macro-financial assistance to the
+                            Kyrgyz Republic<eol/>- Adopted by the Council on 23 September 2013
+                        </docTitle>
+                    </p>
+                </container>
+            </container>
+            <container name="mainDocLanguage">
+                <p>
+                    <inline name="language" refersTo="~_FRBRlanguage">EN</inline>
+                </p>
+            </container>
+            <container name="responsible">
+                <p>
+                    <organization refersTo="">DGG 1A</organization>
+                </p>
+                <p>
+                    <person refersTo="">vm</person>
+                </p>
+            </container>
+        </coverPage>
+        <collectionBody>
+            <component>
+                <documentRef href="bill_123.xml"
+                             showAs="DECISION No …/2013/EU OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL"/>
+            </component>
+        </collectionBody>
+    </documentCollection>
+</akomaNtoso>
